@@ -1,11 +1,11 @@
-import Header from "../../components/Header/Header.jsx";
-import SearchComponent from "../../components/SearchComponent/SearchComponent.jsx";
-import Gallery from "../../components/Gallery/Gallery.jsx";
-import Resources from "../../components/Resources/Resources.jsx";
-import Marketplace from "../../components/Marketplace/Marketplace.jsx";
-import Articles from "../../components/Articles/Articles.jsx";
+import Header from "../../Components/Header/Header.jsx";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+import Gallery from "../../Components/Gallery/Gallery.jsx";
+import Resources from "../../Components/Resources/Resources.jsx";
+import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
+import Articles from "../../Components/Articles/Articles.jsx";
 
-import RedditPostList from "../../components/RedditPostList/RedditPostList.jsx";
+import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";
 
 export default function HomePage() {

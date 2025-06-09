@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./PlanWhereForm.css";
 
 const PlanWhereForm = (props) => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,8 @@ const PlanWhereForm = (props) => {
   };
 
   return (
-    <div>
+    <div className="where">
+      <h3> Where are You Staying?</h3>
       <div>
         <form>
           <label htmlFor="checkIn"> Check In </label>
