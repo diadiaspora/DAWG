@@ -1,4 +1,6 @@
 .header {
     display: flex;
-    background-color: brown;
+    background-color: white;
+    margin-left: 42px;
 }
+

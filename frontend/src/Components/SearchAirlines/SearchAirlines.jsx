@@ -13,11 +13,13 @@ const SearchAirlines = () => {
 
   return (
     <>
-      <div className="box">
-        <div className="selContainer">
+      <div style={{ marginLeft: "0px" }}>
+        <div style={{ display: "flex", paddingTop: "42px" }}>
           <div>
             <label for="from">Airline </label>
-            <select name="from">
+            <select
+              name="from"
+              className="airSelect">
               <option value="">Which Airline?</option>
               <option value="option1">Delta</option>
               <option value="option2">AeroMexico</option>
@@ -26,7 +28,7 @@ const SearchAirlines = () => {
           </div>
           <div>
             <label for="to">Where to?:</label>
-            <select name="to">
+            <select name="to" className="airSelect">
               <option value="">National or International</option>
               <option value="option1">National</option>
               <option value="option2">International</option>

@@ -5,7 +5,7 @@ import Resources from "../../components/Resources/Resources.jsx";
 import Marketplace from "../../components/Marketplace/Marketplace.jsx";
 import Articles from "../../components/Articles/Articles.jsx";
 
-import People from "../../components/RedditPostList/RedditPostList.jsx";
+import RedditPostList from "../../components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";
 
 export default function HomePage() {
@@ -15,7 +15,7 @@ export default function HomePage() {
         <SearchComponent />
         <Gallery />
         <Resources />
-        <People />
+        <RedditPostList />
         <Marketplace />
         <Articles />
       </section>

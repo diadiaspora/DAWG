@@ -12,23 +12,31 @@ const SearchFlights = () => {
 
   return (
     <>
-      <div className="box">
-        <div className="selContainer">
+      <div style={{ marginLeft: "42px", paddingLeft: "0px" }}>
+        <div style={{ display: "flex", paddingTop: "42px" }}>
           <div>
-            <label for="to">Where to?:</label>
-            <input id="to" name="to" type="text" />
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Where to?:
+            </label>
+            <input id="to" name="to" type="text" className="input" />
           </div>
           <div>
-            <label for="to">Where to?:</label>
-            <input id="to" name="to" type="text" />
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Where to?:
+            </label>
+            <input id="to" name="to" type="text" className="input" />
           </div>
           <div>
-            <label for="to">Departure:</label>
-            <input id="to" name="to" type="text" />
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Departure:
+            </label>
+            <input id="to" name="to" type="text" className="input" />
           </div>
           <div>
-            <label for="to">Return:</label>
-            <input id="to" name="to" type="text" />
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Return:
+            </label>
+            <input id="to" name="to" type="text" className="input" />
           </div>
         </div>
         <div className="button">

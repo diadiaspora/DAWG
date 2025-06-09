@@ -13,10 +13,19 @@ const SearchServices = () => {
 
   return (
     <>
-      <div className="box">
-        <div className="selContainer">
+      <div style={{ marginLeft: "42px", paddingLeft: "0px" }}>
+        <div
+          style={{
+            display: "flex",
+            paddingTop: "42px",
+            marginLeft: "0px",
+            paddingLeft: "0px",
+          }}
+        >
           <div>
-            <label for="from">Service Needed </label>
+            <label for="from" style={{ marginLeft: "0px", width: "220px" }}>
+              Service Needed{" "}
+            </label>
             <select name="from" className="select">
               <option value="">Select a Country</option>
               <option value="option1">USA</option>
@@ -25,7 +34,9 @@ const SearchServices = () => {
             </select>
           </div>
           <div>
-            <label for="to">Your Language</label>
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Your Language
+            </label>
             <select name="to" className="select">
               <option value="">Select a Country</option>
               <option value="option1">USA</option>
@@ -34,7 +45,9 @@ const SearchServices = () => {
             </select>
           </div>
           <div>
-            <label for="to">Your Nationality</label>
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Your Nationality
+            </label>
             <select name="to" className="select">
               <option value="">Select a Country</option>
               <option value="option1">USA</option>
@@ -43,7 +56,9 @@ const SearchServices = () => {
             </select>
           </div>
           <div>
-            <label for="to">Where to?:</label>
+            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+              Where to?:
+            </label>
             <select name="to" className="select">
               <option value="">Select a Country</option>
               <option value="option1">USA</option>

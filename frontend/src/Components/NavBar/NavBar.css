@@ -19,16 +19,26 @@
   }
 
   a:hover {
-    background-color: #1a1a1a;
-    color: whitesmoke;
+    background-color: #1F9EBC;
+    color: white;
   }
 
   a.active {
-    background-color: rebeccapurple;
-    color: whitesmoke;
+    background-color: white;
+    color: #1E3769;
   }
 
   span {
     color: rgb(108, 9, 87);
   }
+
+  .dogmoney {
+
+    width: 50px;
+  }
+  .doglogo {
+  
+        width: 100px;
+      }
+      
 }
