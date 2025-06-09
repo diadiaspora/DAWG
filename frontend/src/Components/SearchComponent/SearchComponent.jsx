@@ -1,10 +1,11 @@
 
 import HeadButtons from "../HeadButtons/HeadButtons.jsx";
-import FlightSearch from "../SearchFlights/SearchFlights.jsx";
-import AirlineSearch from "../SearchAirline/SearchAirllines.jsx";
-import DocumentSearch from "../SearchDocuments/SearchDocuments.jsx";
-import ServicesSearch from "../SearchServices/SearchServices.jsx";
+import SearchFlights from "../SearchFlights/SearchFlights.jsx";
+import SearchAirlines from "../SearchAirlines/SearchAirlines.jsx";
+import SearchDocuments from "../SearchDocuments/SearchDocuments.jsx";
+import SearchServices from "../SearchServices/SearchServices.jsx";
 import { useState } from "react";
+import "./SearchComponent.css";
 
 const SearchComponent = () => {
   const [activeForm, setActiveForm] = useState("flights");
@@ -14,10 +15,10 @@ const SearchComponent = () => {
       <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
 
       <div className="box">
-        {activeForm === "flights" && <FlightSearch />}
-        {activeForm === "airlineInfo" && <AirlineSearch />}
-        {activeForm === "documents" && <DocumentSearch />}
-        {activeForm === "services" && <ServicesSearch />}
+        {activeForm === "flights" && <SearchFlights />}
+        {activeForm === "airlineInfo" && <SearchAirlines />}
+        {activeForm === "documents" && <SearchDocuments />}
+        {activeForm === "services" && <SearchServices />}
       </div>
     </>
   );

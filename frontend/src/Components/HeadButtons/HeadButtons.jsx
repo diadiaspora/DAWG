@@ -1,4 +1,4 @@
-
+import "./HeadButtons.css";
 
 const HeadButtons = ({ activeForm, setActiveForm }) => {
   return (

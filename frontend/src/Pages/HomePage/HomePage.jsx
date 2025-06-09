@@ -6,13 +6,12 @@ import Marketplace from "../../components/Marketplace/Marketplace.jsx";
 import Articles from "../../components/Articles/Articles.jsx";
 
 import People from "../../components/RedditPostList/RedditPostList.jsx";
+import "./HomePage.css";
 
 export default function HomePage() {
   return (
     <>
-      <section>
-        <h1>Home Page</h1>;
-        <Header />
+      <section className="home">
         <SearchComponent />
         <Gallery />
         <Resources />

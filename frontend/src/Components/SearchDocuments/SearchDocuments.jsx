@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import { useState } from "react";
 
-const DocumentSearch = () => {
+const SearchDocuments = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -41,4 +41,4 @@ const DocumentSearch = () => {
   );
 };
 
-export default DocumentSearch;
+export default SearchDocuments;
