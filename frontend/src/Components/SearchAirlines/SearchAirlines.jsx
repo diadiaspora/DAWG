@@ -23,7 +23,7 @@ const SearchAirlines = () => {
               <option value="">Which Airline?</option>
               <option value="option1">Delta</option>
               <option value="option2">AeroMexico</option>
-              <option value="option3">Chile</option>
+              <option value="option3">American Airlines</option>
             </select>
           </div>
           <div>
@@ -32,7 +32,7 @@ const SearchAirlines = () => {
               <option value="">National or International</option>
               <option value="option1">National</option>
               <option value="option2">International</option>
-              <option value="option3">Chile</option>
+        
             </select>
           </div>
         </div>

@@ -18,18 +18,18 @@ const SearchDocuments = () => {
           <div>
             <label for="from">Where From </label>
             <select name="from" className="docSelect">
-              <option value="">Which Airline?</option>
-              <option value="option1">Delta</option>
-              <option value="option2">AeroMexico</option>
+              <option value="">Where From?</option>
+              <option value="option1">USA</option>
+              <option value="option2">Mexico</option>
               <option value="option3">Chile</option>
             </select>
           </div>
           <div>
             <label for="to">Where to?:</label>
             <select name="to" className="docSelect">
-              <option value="">National or International</option>
-              <option value="option1">National</option>
-              <option value="option2">International</option>
+              <option value="">Where are you going?l</option>
+              <option value="option1">USA</option>
+              <option value="option2">Mexico</option>
               <option value="option3">Chile</option>
             </select>
           </div>
