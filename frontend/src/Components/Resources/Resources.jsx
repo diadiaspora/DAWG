@@ -17,7 +17,7 @@ const Resources = () => {
       <div className="main">
         <div style={{ backgroundColor: "#D9D9D9", width: "310px", borderRadius: "10px", height: "300px"}}>
           <h3>You can inspire and help other people! </h3>
-          <button> </button>
+          <button> Create a Post</button>
         </div>
       </div>
     </div>
