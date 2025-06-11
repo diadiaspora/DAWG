@@ -9,3 +9,7 @@ export async function index() {
 export async function create(planData) {
   return sendRequest(BASE_URL, "POST", planData);
 }
+
+export async function update(planData) {
+  return sendRequest(BASE_URL, "UPDATE", planData);
+}

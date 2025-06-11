@@ -26,7 +26,7 @@ export default function PlanFlightForm() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await planService.create(formData);
+      await planService.update(formData);
     } catch (err) {
       setErrorMsg("Adding Post Failed");
     }
@@ -36,71 +36,78 @@ export default function PlanFlightForm() {
     <div className="planFlight">
       <h3>Flight Info</h3>
       <form onSubmit={handleSubmit}>
-        <label>Airline</label>
-        <input
-          type="text"
-          name="airline"
-          value={formData.airline}
-          onChange={handleChange}
-        />
+        <div style={{ display: "flex" }}>
+          <label>Airline</label>
+          <input
+            type="text"
+            name="airline"
+            value={formData.airline}
+            onChange={handleChange}
+            style={{ width: "180px" }}
+          />
 
-        <label>Flight Number</label>
-        <input
-          type="text"
-          name="outboundFlightNumber"
-          value={formData.outboundFlightNumber}
-          onChange={handleChange}
-        />
+          <label>Flight Number</label>
+          <input
+            type="text"
+            name="outboundFlightNumber"
+            value={formData.outboundFlightNumber}
+            onChange={handleChange}
+            style={{ width: "180px" }}
+          />
+          <button>Upload Ticket</button>
+        </div>
+        <div style={{ display: "flex" }}>
+          <label>Date</label>
+          <input
+            type="text"
+            name="outboundDate"
+            value={formData.outboundDate}
+            onChange={handleChange}
+          />
 
-        <label>Date</label>
-        <input
-          type="text"
-          name="outboundDate"
-          value={formData.outboundDate}
-          onChange={handleChange}
-        />
+          <label>Departure Time</label>
+          <input
+            type="text"
+            name="outboundDepartureTime"
+            value={formData.outboundDepartureTime}
+            onChange={handleChange}
+          />
 
-        <label>Departure Time</label>
-        <input
-          type="text"
-          name="outboundDepartureTime"
-          value={formData.outboundDepartureTime}
-          onChange={handleChange}
-        />
+          <label>Arrival Time</label>
+          <input
+            type="text"
+            name="outboundArrivalTime"
+            value={formData.outboundArrivalTime}
+            onChange={handleChange}
+          />
+        </div>
+        <div style={{ display: "flex" }}>
+          <label>Return Date</label>
+          <input
+            type="text"
+            name="returnDate"
+            value={formData.returnDate}
+            onChange={handleChange}
+          />
 
-        <label>Arrival Time</label>
-        <input
-          type="text"
-          name="outboundArrivalTime"
-          value={formData.outboundArrivalTime}
-          onChange={handleChange}
-        />
+          <label>Return Departure Time</label>
+          <input
+            type="text"
+            name="returnDepartureTime"
+            value={formData.returnDepartureTime}
+            onChange={handleChange}
+          />
 
-        <label>Return Date</label>
-        <input
-          type="text"
-          name="returnDate"
-          value={formData.returnDate}
-          onChange={handleChange}
-        />
+          <label>Return Arrival Time</label>
+          <input
+            type="text"
+            name="returnArrivalTime"
+            value={formData.returnArrivalTime}
+            onChange={handleChange}
+          />
 
-        <label>Return Departure Time</label>
-        <input
-          type="text"
-          name="returnDepartureTime"
-          value={formData.returnDepartureTime}
-          onChange={handleChange}
-        />
-
-        <label>Return Arrival Time</label>
-        <input
-          type="text"
-          name="returnArrivalTime"
-          value={formData.returnArrivalTime}
-          onChange={handleChange}
-        />
-
-        <button type="submit">Save</button>
+          <button type="submit">Save</button>
+        </div>
       </form>
       {errorMsg && <p className="error">{errorMsg}</p>}
     </div>

@@ -22,7 +22,7 @@ async function index(req, res) {
 
 async function create(req, res) {
   try {
-    req.body.author = "6848b5ecd9f9f34b7103a733";
+    req.body.author = req.user._id;
     const plan = await Plan.create(req.body);
     await plan.save()
     res.json(plan);
