@@ -1,89 +1,108 @@
 import { useState } from "react";
 
+import * as planService from "../../services/planService";
 
-const PlanFlightForm = (props) => {
+
+export default function PlanFlightForm() {
   const [formData, setFormData] = useState({
     airline: "",
-    flighNumber: "",
-    outDate: "",
-    outDepartureTime: "",
-    outArrivalTime: "",
+    outboundFlightNumber: "",
+    outboundDate: "",
+    outboundDepartureTime: "",
+    outboundArrivalTime: "",
+    returnFlightNumber: "",
     returnDate: "",
     returnDepartureTime: "",
     returnArrivalTime: "",
   });
 
-  const handleChange = (evt) => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value });
-  };
+  const [errorMsg, setErrorMsg] = useState("");
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+      await planService.create(formData);
+    } catch (err) {
+      setErrorMsg("Adding Post Failed");
+    }
+  }
 
   return (
     <div className="planFlight">
       <h3>Flight Info</h3>
-      <form>
-        <label htmlFor="airline"> Airline </label>
+      <form onSubmit={handleSubmit}>
+        <label>Airline</label>
         <input
-          id="airline"
+          type="text"
           name="airline"
           value={formData.airline}
           onChange={handleChange}
-          required
         />
-        <label htmlFor="flighNumber"> Fligh Number </label>
+
+        <label>Flight Number</label>
         <input
-          id="flighNumber"
-          name="flighNumber"
-          value={formData.flighNumber}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="outDate"> Date </label>
-        <input
-          id="outDate"
-          name="outDate"
-          value={formData.outDate}
+          type="text"
+          name="outboundFlightNumber"
+          value={formData.outboundFlightNumber}
           onChange={handleChange}
         />
-        <label htmlFor="outDepartureTime"> Departure Time </label>
+
+        <label>Date</label>
         <input
-          id="outDepartureTime"
-          name="outDepartureTime"
-          value={formData.outDepartureTime}
+          type="text"
+          name="outboundDate"
+          value={formData.outboundDate}
           onChange={handleChange}
         />
-        <label htmlFor="outArrivalTime"> Arrival Time </label>
+
+        <label>Departure Time</label>
         <input
-          id="outArrivalTime"
-          name="outArrivalTime"
-          value={formData.outArrivalTime}
+          type="text"
+          name="outboundDepartureTime"
+          value={formData.outboundDepartureTime}
           onChange={handleChange}
         />
-        <label htmlFor="returnDate"> Date </label>
+
+        <label>Arrival Time</label>
         <input
-          id="returnDate"
+          type="text"
+          name="outboundArrivalTime"
+          value={formData.outboundArrivalTime}
+          onChange={handleChange}
+        />
+
+        <label>Return Date</label>
+        <input
+          type="text"
           name="returnDate"
           value={formData.returnDate}
           onChange={handleChange}
         />
-        <label htmlFor="returnDepartureTime"> Departure Time </label>
+
+        <label>Return Departure Time</label>
         <input
-          id="returnDepartureTime"
+          type="text"
           name="returnDepartureTime"
           value={formData.returnDepartureTime}
           onChange={handleChange}
         />
-        <label htmlFor="returnArrivalTime"> Arrival Time </label>
+
+        <label>Return Arrival Time</label>
         <input
-          id="returnArrivalTime"
+          type="text"
           name="returnArrivalTime"
           value={formData.returnArrivalTime}
           onChange={handleChange}
         />
+
         <button type="submit">Save</button>
       </form>
+      {errorMsg && <p className="error">{errorMsg}</p>}
     </div>
   );
-};
-
-export default PlanFlightForm;
-
+}

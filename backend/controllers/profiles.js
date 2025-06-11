@@ -57,10 +57,10 @@ async function update(req, res) {
 
 async function deleteProfile(req, res) {
   try {
-    const profile = await Plan.findByIdAndDelete(req.params.id);
+    const profile = await Profile.findByIdAndDelete(req.params.id);
     res.json(profile);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to fetch profile" });
   }
 }

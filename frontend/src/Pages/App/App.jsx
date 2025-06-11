@@ -24,7 +24,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const location = useLocation();
 
-  const showHeaderOn = ["/", "/flights", "/plan", "/profile"];
+  const showHeaderOn = ["/", "/flights", "/plans", "/profile"];
 
   const shouldShowHeader = showHeaderOn.includes(location.pathname);
 

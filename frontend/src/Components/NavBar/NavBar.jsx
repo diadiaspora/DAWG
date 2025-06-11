@@ -28,7 +28,7 @@ export default function NavBar({ user, setUser }) {
             Flights
           </NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/plan">Plan</NavLink>
+          <NavLink to="/plans">Plan</NavLink>
           &nbsp; | &nbsp;
           <NavLink to="/blog">Write</NavLink>
           &nbsp; | &nbsp;

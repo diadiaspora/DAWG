@@ -4,6 +4,7 @@ import PlanWhereForm from "../../Components/PlanWhereForm/PlanWhereForm.jsx";
 import PlanFlightForm from "../../Components/PlanFlightForm/PlanFlightForm.jsx";
 import PlanScheduleForm from "../../Components/PlanScheduleForm/PlanScheduleForm.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 
 import "./PlanPage.css";
