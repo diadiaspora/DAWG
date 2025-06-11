@@ -5,8 +5,9 @@ import "./PlanWhereForm.css";
 
 export default function PlanWhereForm({ planId }) {
   const [showForm, setShowForm] = useState(false);
+const [isEditing, setIsEditing] = useState(true); 
   const [formData, setFormData] = useState({
-    id: planId,
+  
     checkIn: "",
     checkOut: "",
     address: "",
@@ -18,7 +19,7 @@ export default function PlanWhereForm({ planId }) {
   
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData((prev) => ({ ...prev, [name]: value, id: planId }));
+    setFormData((prev) => ({ ...prev, [name]: value}));
   }
 
   function handleToggle() {
@@ -29,12 +30,15 @@ export default function PlanWhereForm({ planId }) {
     evt.preventDefault();
     setShowForm(false);
     try {
-      await planService.update(formData);
+      await planService.update(planId, formData);
       setErrorMsg("");
     } catch (err) {
       setErrorMsg("Failed to save location details. Please try again.");
     }
   }
+
+
+
 
   return (
     <div style={{ marginTop: "-150px" }}>

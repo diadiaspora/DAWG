@@ -34,7 +34,7 @@ export default function NavBar({ user, setUser }) {
           &nbsp; | &nbsp;
           <NavLink to="/marketplace">Shop</NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/profile">Profile</NavLink>
+          <NavLink to="/profiles">Profile</NavLink>
           &nbsp; | &nbsp;
           <Link to="/" onClick={handleLogOut}>
             Log Out

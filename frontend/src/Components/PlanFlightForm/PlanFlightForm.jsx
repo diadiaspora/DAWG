@@ -5,7 +5,7 @@ import "./PlanFlightForm.css";
 export default function PlanFlightForm({ planId }) {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    id: planId,
+  
     airline: "",
     outboundFlightNumber: "",
     outboundDate: "",
@@ -23,7 +23,7 @@ export default function PlanFlightForm({ planId }) {
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData((prev) => ({ ...prev, [name]: value, id:planId }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
   
   function handleToggle() {
@@ -33,7 +33,7 @@ export default function PlanFlightForm({ planId }) {
     evt.preventDefault();
     setShowForm(false);
     try {
-      await planService.update(formData);
+      await planService.update(planId, formData);
       setErrorMsg("");
     } catch (err) {
       setErrorMsg("Failed to save flight details. Please try again.");

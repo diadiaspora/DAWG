@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const petSchema = new mongoose.Schema({
-    dogName: {
-        type: String,
-       
-      },
+  
       breed: {
         type: String,
        
@@ -55,9 +52,7 @@ const profileSchema = new mongoose.Schema({
   gallery: {
     type: String,
   },
-  bio: {
-    type: String,
-  },
+ 
     pet: [petSchema], 
   
   author: {

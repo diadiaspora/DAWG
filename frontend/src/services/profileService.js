@@ -10,7 +10,7 @@ export async function create(profileData) {
   return sendRequest(BASE_URL, "POST", profileData);
 }
 
-export async function update(planData) {
-  console.log(planData);
-  return sendRequest(`${BASE_URL}/${planData.id}`, "PUT", profileData);
+export async function update(profileData) {
+  console.log(profileData);
+  return sendRequest(`${BASE_URL}/${profileData.id}`, "PUT", profileData);
 }

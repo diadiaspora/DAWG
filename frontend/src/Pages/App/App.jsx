@@ -47,7 +47,11 @@ export default function App() {
               <Route path="/plans" element={<PlanPage />} />
               <Route path="/marketplace" element={<MarketplacePage />} />
               <Route path="/blog" element={<BlogPage />} />
-              <Route path="/profile" element={<UserProfilePage />} />
+              <Route path="/plans/:id" element={<ShowPlansPage />} />
+              <Route
+                path="/profiles"
+                element={<UserProfilePage user={user} setUser={setUser} />}
+              />
             </Routes>
           ) : (
             <Routes>

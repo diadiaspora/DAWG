@@ -1,6 +1,8 @@
 import { useState } from "react";
 import * as planService from "../../services/planService";
 import "./PlanBasicForm.css";
+import { create } from "../../../../backend/models/profile";
+import { useNavigate } from "react-router";
 
 export default function PlanBasicsForm({ planId, setPlanId }) {
   const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
   });
   const [isEditing, setIsEditing] = useState(true); // starts in form mode
   const [errorMsg, setErrorMsg] = useState("");
+
+  const navigate = useNavigate();
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -26,6 +30,8 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
         // Create new plan
         plan = await planService.create(formData);
         setPlanId(plan._id);
+        navigate(`/plans/${planId}`);
+        
       } else {
         // Update existing plan
         plan = await planService.update(planId, formData);
@@ -148,7 +154,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
             <button type="submit">{planId ? "Save" : "Create Plan"}</button>
           </form>
         ) : (
-          <div className="plan-card">
+          <div>
             <h4>
               {formData.month} {formData.day}, {formData.year}
             </h4>

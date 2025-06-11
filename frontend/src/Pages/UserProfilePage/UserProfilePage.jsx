@@ -1,10 +1,15 @@
-import UserInfoForm from "../../Components/UserInfoForm/UserInfoForm.jsx";
+import ProfileForm from "../../Components/ProfileForm/ProfileForm.jsx";
 
-export default function UserProfile() {
+export default function UserProfilePage({ user }) {
   return (
     <>
-      <h1>User Profile</h1>;
-      <UserInfoForm />
+      <div style={{ display: "flex"}}>
+        <div>
+          <img src="./Avatar.png" className="avatar" alt="human avatar"></img>
+        </div>
+        <h1>{user.name} & {user.dogName }</h1>;
+      </div>
+      <ProfileForm />
       <h1>Gallery</h1>;<h1>Users Post</h1>;
     </>
   );
