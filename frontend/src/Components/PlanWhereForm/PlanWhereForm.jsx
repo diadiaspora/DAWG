@@ -68,8 +68,8 @@ export default function PlanWhereForm({ planId }) {
                 gap: "1.2vmin",
                 padding: "4vmin",
                 border: "0.5vmin solid #1a1a1a",
-                borderRadius: "1vmin",
-                height: "350px",
+                borderRadius: "1vmin"
+         
               }}
             >
               <div style={{ display: "flex" }}>
@@ -119,13 +119,13 @@ export default function PlanWhereForm({ planId }) {
               </button>
               {errorMsg && <p className="error">{errorMsg}</p>}
             </form>
-            <div className="main">
+            <div >
               <div
                 style={{
                   backgroundColor: "#D9D9D9",
                   height: "350px",
                   borderRadius: "1vmin",
-                  width: "310px"
+                  width: "350px"
                 }}
               ></div>
             </div>

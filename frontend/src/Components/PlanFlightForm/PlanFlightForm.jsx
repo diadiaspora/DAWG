@@ -66,12 +66,13 @@ export default function PlanFlightForm({ planId }) {
             gap: "1.2vmin",
             padding: "4vmin",
             border: "0.5vmin solid #1a1a1a",
-            borderRadius: "1vmin",
-            height: "350px",
+            borderRadius: "1vmin"
+         
           }}
         >
-          <legend>Outbound Flight</legend>
-          <div className="form-group">
+          
+          <h3>Outbound Flight</h3>
+          <div style={{display:"flex"}}>
             <label htmlFor="airline">Airline</label>
             <input
               type="text"
@@ -89,6 +90,7 @@ export default function PlanFlightForm({ planId }) {
               value={formData.outboundFlightNumber}
               onChange={handleChange}
             />
+            <button> upload ticket</button>
           </div>
 
           <div className="form-group">
