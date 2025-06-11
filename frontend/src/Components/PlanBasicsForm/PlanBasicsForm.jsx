@@ -10,7 +10,7 @@ export default function PlanBasicsForm() {
     destination: "",
     notes: "",
   });
-
+  const [planId, setPlanId] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
 
   function handleChange(evt) {
@@ -18,24 +18,24 @@ export default function PlanBasicsForm() {
     setFormData({ ...formData, [name]: value });
   }
 
-    async function handleSubmit(evt) {
-      evt.preventDefault();
-      try {
-        await planService.create(formData);
-      } catch (err) {
-        setErrorMsg("Adding Post Failed");
-      }
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+      const newPlan = await planService.create(formData);
+      setPlanId(newPlan._id);
+    } catch (err) {
+      setErrorMsg("Adding Plan Failed");
     }
-  
+  }
 
   return (
     <div className="divbody">
       <aside>
-        <h3>Create a plan </h3>
-        <p>Add your Photos here</p>
+        <h3>Create a Plan</h3>
+        <p>Add your photos here</p>
       </aside>
 
-      <main>Calander</main>
+      <main>Calendar</main>
 
       <div className="aside">
         <div>
@@ -49,72 +49,82 @@ export default function PlanBasicsForm() {
                 style={{ width: "180px" }}
               >
                 <option value="">-- Select Month --</option>
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
+                {[
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ].map((month) => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
               </select>
-              <label> Day </label>
+
+              <label>Day</label>
               <select
+                name="day"
                 value={formData.day}
                 onChange={handleChange}
                 style={{ width: "80px" }}
               >
                 <option value="">-- Select Day --</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
+                {[...Array(31).keys()].map((d) => (
+                  <option key={d + 1} value={d + 1}>
+                    {d + 1}
+                  </option>
+                ))}
               </select>
-              <label> Year </label>
+
+              <label>Year</label>
               <select
-                type="text"
                 name="year"
                 value={formData.year}
                 onChange={handleChange}
                 style={{ width: "150px" }}
               >
                 <option value="">-- Select Year --</option>
-                <option value="2025">2025</option>
-                <option value="2026">2026</option>
-                <option value="2027">2027</option>
-                <option value="2028">2028</option>
+                {[2025, 2026, 2027, 2028].map((y) => (
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
+                ))}
               </select>
             </div>
-            <label> Destination </label>
+
+            <label>Destination</label>
             <input
               type="text"
               name="destination"
               value={formData.destination}
               onChange={handleChange}
             />
-            <label> Notes </label>
+
+            <label>Notes</label>
             <textarea
-              type="text"
               name="notes"
               value={formData.notes}
               onChange={handleChange}
               rows={4}
             />
-            <button type="submit">Add New Pet</button>
+
+            <button type="submit">Create Plan</button>
           </form>
         </div>
         {errorMsg && <p className="error">{errorMsg}</p>}
       </div>
 
       <div className="main">
-        <div>
-          <img src="./calander.png" className="calander" alt="calander"></img>
-        </div>
+        <img src="./calander.png" className="calander" alt="calendar" />
       </div>
     </div>
   );
-};
-
-
+}
