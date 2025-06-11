@@ -10,7 +10,10 @@ const Resources = () => {
   };
 
   return (
-    <div className="divbd" style={{ marginTop: "-300px" }}>
+    <div
+      className="divbd"
+      style={{  height: "600px" }}
+    >
       <aside>
         <h3>Resources </h3>
       </aside>

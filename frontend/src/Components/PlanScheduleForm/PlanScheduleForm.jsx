@@ -12,7 +12,7 @@ const PlanScheduleForm = (props) => {
 
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "180px" }}>
+      <div style={{ width: "180px", margin: "20px" }}>
         <h3> Monday</h3>
         <form>
           <label htmlFor="date"> Date </label>
@@ -34,7 +34,7 @@ const PlanScheduleForm = (props) => {
             style={{ width: "150px" }}
           />
 
-          <button type="submit" style={{ width: "150px" }}>
+          <button type="submit" style={{ width: "150px", marginRight: "20px" }}>
             edit
           </button>
         </form>
@@ -50,7 +50,7 @@ const PlanScheduleForm = (props) => {
             value={formData.date}
             onChange={handleChange}
             required
-            style={{ width: "150px" }}
+            style={{ width: "150px", marginRight: "20px" }}
           />
           <label htmlFor="plan"> Plan </label>
           <input
@@ -62,7 +62,7 @@ const PlanScheduleForm = (props) => {
             style={{ width: "150px" }}
           />
 
-          <button type="submit" style={{ width: "150px" }}>
+          <button type="submit" style={{ width: "150px", marginRight: "20px" }}>
             edit
           </button>
         </form>
@@ -78,7 +78,7 @@ const PlanScheduleForm = (props) => {
             value={formData.date}
             onChange={handleChange}
             required
-            style={{ width: "150px" }}
+            style={{ width: "150px", marginRight: "20px" }}
           />
           <label htmlFor="plan"> Plan </label>
           <input
@@ -90,7 +90,7 @@ const PlanScheduleForm = (props) => {
             style={{ width: "150px" }}
           />
 
-          <button type="submit" style={{ width: "150px" }}>
+          <button type="submit" style={{ width: "150px", marginRight: "20px" }}>
             edit
           </button>
         </form>

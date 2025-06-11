@@ -11,5 +11,6 @@ export async function create(planData) {
 }
 
 export async function update(planData) {
-  return sendRequest(`{BASE_URL} /${planId}`, "PUT", planData);
+  console.log(planData);
+  return sendRequest(`${BASE_URL}/${planData.id}`, "PUT", planData);
 }

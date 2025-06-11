@@ -2,9 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-.divbody {
- 
-    
+.divbody { 
   display: grid;
   /* Add the following */
   grid-template-rows: auto 1fr auto; /* three rows defined here */
@@ -18,54 +16,15 @@
   
   }
 
-  aside {
-    
-    
 
-    margin-left: 42px;
-    text-align: left;
- 
-    
-  }
   
-  main {
-   
-    margin-right: 42px;
-   
-  }
+
   
-  footer {
 
-  grid-column: span 2;
 
-  }
-
-  .nav-links {
-    display:flex;
-    grid-column: span 2;
-  }
   
-  .main {
-  
-    
-  }
 
-  .aside {
-    
-    margin-left: 42px;
-    height: 325px;
 
-  }
 
-  .gallery {
-    
-    width: 662px;
-  }
 
-  .calander {
-    width: 310px;
-  }
 
-  .plan {
-    background-color: grey;
-  }

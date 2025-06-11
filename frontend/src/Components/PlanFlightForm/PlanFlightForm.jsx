@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
 import "./PlanFlightForm.css";
 
-export default function PlanFlightForm() {
+export default function PlanFlightForm({ planId }) {
+  const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
+    id: planId,
     airline: "",
     outboundFlightNumber: "",
     outboundDate: "",
@@ -17,27 +19,57 @@ export default function PlanFlightForm() {
 
   const [errorMsg, setErrorMsg] = useState("");
 
+  useEffect(() => { }, [planId]);
+
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value, id:planId }));
   }
-
+  
+  function handleToggle() {
+    setShowForm((prev) => !prev);
+  }
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setShowForm(false);
     try {
       await planService.update(formData);
-      setErrorMsg(""); // clear error if successful
+      setErrorMsg("");
     } catch (err) {
       setErrorMsg("Failed to save flight details. Please try again.");
     }
   }
 
   return (
-    <div className="planFlight">
-      <h3>Flight Info</h3>
-      <form onSubmit={handleSubmit} className="flight-form">
-        {/* Outbound Flight Info */}
-        <fieldset>
+    <div>
+      <aside
+        style={{
+          marginLeft: "42px",
+          backgroundColor: "#D9D9D9",
+          width: "1012px", borderRadius: "10px",
+        }}
+      >
+        <h3>Flight Info</h3>
+        <button onClick={handleToggle}>
+          {showForm ? "Hide Form" : "Open Form"}
+        </button>
+      </aside>
+      {showForm && (
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            height: "350px",
+            marginLeft: "42px",
+            marginRight: "42px",
+            width: "1012px",
+            display: "grid",
+            gap: "1.2vmin",
+            padding: "4vmin",
+            border: "0.5vmin solid #1a1a1a",
+            borderRadius: "1vmin",
+            height: "350px",
+          }}
+        >
           <legend>Outbound Flight</legend>
           <div className="form-group">
             <label htmlFor="airline">Airline</label>
@@ -87,10 +119,9 @@ export default function PlanFlightForm() {
               onChange={handleChange}
             />
           </div>
-        </fieldset>
 
-        {/* Return Flight Info */}
-        <fieldset>
+          {/* Return Flight Info */}
+
           <legend>Return Flight</legend>
           <div className="form-group">
             <label htmlFor="returnFlightNumber">Flight Number</label>
@@ -131,13 +162,13 @@ export default function PlanFlightForm() {
               onChange={handleChange}
             />
           </div>
-        </fieldset>
 
-        <button type="submit" className="submit-btn">
-          Save Flight Info
-        </button>
-        {errorMsg && <p className="error">{errorMsg}</p>}
-      </form>
+          <button type="submit" className="submit-btn">
+            Save Flight Info
+          </button>
+          {errorMsg && <p className="error">{errorMsg}</p>}
+        </form>
+      )}
     </div>
   );
 }
