@@ -1,4 +1,3 @@
-
 import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import SearchFlights from "../SearchFlights/SearchFlights.jsx";
 import SearchAirlines from "../SearchAirlines/SearchAirlines.jsx";

@@ -17,9 +17,7 @@ const SearchAirlines = () => {
         <div style={{ display: "flex", paddingTop: "42px" }}>
           <div>
             <label for="from">Airline </label>
-            <select
-              name="from"
-              className="airSelect">
+            <select name="from" className="airSelect">
               <option value="">Which Airline?</option>
               <option value="option1">Delta</option>
               <option value="option2">AeroMexico</option>
@@ -32,7 +30,6 @@ const SearchAirlines = () => {
               <option value="">National or International</option>
               <option value="option1">National</option>
               <option value="option2">International</option>
-        
             </select>
           </div>
         </div>

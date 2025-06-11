@@ -1,61 +1,37 @@
 import { useState } from "react";
-import * as formBasicService from "../../services/formBasicService";
+import { useNavigate } from "react-router";
+import * as postService from "../../services/postService";
 
-export default function PLanBasicsForm() {
-  const [month, setMonth] = useState("");
+export default function NewPostPage() {
+  const [content, setContent] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [submittedBasicForm, setSubmittedBasicForm] = useState(null); // New state
+
+  const navigate = useNavigate();
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      // Assuming formBasicService.create expects an object with a 'month' property
-      const formBasic = await formBasicService.create({ month });
-      setSubmittedBasicForm(formBasic); // Save the response and show the card
-      setMonth(""); // Clear the month input on successful submission
-      setErrorMsg(""); // Clear any previous error messages
+      // sendRequest is expecting an object as the payload
+      await postService.create({ content });
+      navigate("/posts");
     } catch (err) {
-      console.error("Adding Plan Failed:", err); // Log the actual error for debugging
-      setErrorMsg("Adding Plan Failed"); // More descriptive error message
+      setErrorMsg("Adding Post Failed");
     }
-  }
-
-  function handleNewPlan() { // Renamed for consistency with "Plan"
-    setSubmittedBasicForm(null);
-    setMonth("");
-    setErrorMsg("");
   }
 
   return (
     <>
-      <h2>{submittedBasicForm ? "Plan Submitted" : "Add Plan"}</h2>
-
-      {submittedBasicForm ? (
-        <div className="completed-card">
-          <p>
-            <strong>Month:</strong> {submittedBasicForm.month}
-          </p>
-          <p>
-            <strong>Created At:</strong>{" "}
-            {new Date(submittedBasicForm.createdAt).toLocaleString()}
-          </p>
-          {/* Changed to "Create Another Plan" for consistency */}
-          <button onClick={handleNewPlan}>Create Another Plan</button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="month">Month</label> {/* Added htmlFor for accessibility */}
-          <input
-            id="month" // Added id to link with label
-            type="text"
-            value={month} // Corrected: `value` should be `month`
-            onChange={(evt) => setMonth(evt.target.value)} // Corrected: `setContent` should be `setMonth`
-            required
-          />
-          <button type="submit">ADD PLAN</button> {/* Changed to "ADD PLAN" */}
-        </form>
-      )}
-
+      <h2>Add Post</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Post Content</label>
+        <input
+          type="text"
+          value={content}
+          onChange={(evt) => setContent(evt.target.value)}
+          required
+        />
+        <button type="submit">ADD POST</button>
+      </form>
       <p className="error-message">&nbsp;{errorMsg}</p>
     </>
   );
