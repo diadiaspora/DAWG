@@ -69,13 +69,15 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
             }}
           >
             <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-              <div>
-                <label>Month</label>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label style={{ marginLeft: "0px", width: "180px" }}>
+                  Month
+                </label>
                 <select
                   name="month"
                   value={formData.month}
                   onChange={handleChange}
-                  style={{ width: "180px" }}
+                  style={{ width: "150px" }}
                 >
                   <option value="">-- Select Month --</option>
                   {[
@@ -99,13 +101,19 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                 </select>
               </div>
 
-              <div>
-                <label>Day</label>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "-20px",
+                }}
+              >
+                <label style={{ marginLeft: "0px" }}>Day</label>
                 <select
                   name="day"
                   value={formData.day}
                   onChange={handleChange}
-                  style={{ width: "80px" }}
+                  style={{ width: "60px" }}
                 >
                   <option value="">-- Select Day --</option>
                   {[...Array(31).keys()].map((d) => (
@@ -116,13 +124,19 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                 </select>
               </div>
 
-              <div>
-                <label>Year</label>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "10px",
+                }}
+              >
+                <label style={{ marginLeft: "0px" }}>Year</label>
                 <select
                   name="year"
                   value={formData.year}
                   onChange={handleChange}
-                  style={{ width: "150px" }}
+                  style={{ width: "100px" }}
                 >
                   <option value="">-- Select Year --</option>
                   {[2025, 2026, 2027, 2028].map((y) => (
@@ -132,25 +146,36 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                   ))}
                 </select>
               </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "10px",
+                }}
+              >
+                <label style={{ marginLeft: "0px" }}>Destination</label>
+                <input
+                  type="text"
+                  name="destination"
+                  value={formData.destination}
+                  onChange={handleChange}
+                  style={{ width: "208px" }}
+                />
+              </div>
             </div>
-
-            <label>Destination</label>
-            <input
-              type="text"
-              name="destination"
-              value={formData.destination}
-              onChange={handleChange}
-            />
-
-            <label>Notes</label>
-            <textarea
-              name="notes"
-              value={formData.notes}
-              onChange={handleChange}
-              rows={4}
-            />
-
-            <button type="submit">{planId ? "Save" : "Create Plan"}</button>
+            <div>
+              <label style={{ marginLeft: "0px" }}>Notes</label>
+              <textarea
+                name="notes"
+                value={formData.notes}
+                onChange={handleChange}
+                rows={4}
+                style={{ width: "598px" }}
+              />
+            </div>
+            <div style={{ textAlign: "right", marginRight: "-43px" }}>
+              <button type="submit">{planId ? "Save" : "Create Plan"}</button>
+            </div>
           </form>
         ) : (
           <div>

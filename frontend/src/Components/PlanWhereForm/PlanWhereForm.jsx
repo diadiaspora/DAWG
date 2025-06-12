@@ -91,7 +91,7 @@ export default function PlanWhereForm({ planId }) {
         <h3>Where Are You Staying?</h3>
 
         <button onClick={handleToggle} style={{ height: "44px" }}>
-          {isSubmitted ? "Update" : showForm ? "Hide Form" : "Open Form"}
+          {isSubmitted ? "Update" : showForm ? "Hide Form" : "Add Stay Detaills"}
         </button>
       </aside>
       <main></main>{" "}
