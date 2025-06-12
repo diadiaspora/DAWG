@@ -29,10 +29,8 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
       if (!planId) {
         // Create new plan
         plan = await planService.create(formData);
-        
         setPlanId(plan._id);
-        navigate(`/plans/${plan._id}`);
-        
+        navigate(`/plans/${planId}`);
       } else {
         // Update existing plan
         plan = await planService.update(planId, formData);
@@ -67,7 +65,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
               gap: "1.2vmin",
               padding: "4vmin",
               border: "0.5vmin solid #1a1a1a",
-              borderRadius: "1vmin"
+              borderRadius: "1vmin",
             }}
           >
             <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>

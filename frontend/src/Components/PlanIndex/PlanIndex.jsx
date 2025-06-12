@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import * as postService from "../../services/planService";
+import * as planService from "../../services/planService";
 
-export default function PostIndex() {
+export default function PlanIndex() {
   const [plans, setPlans] = useState([]);
 
   useEffect(() => {

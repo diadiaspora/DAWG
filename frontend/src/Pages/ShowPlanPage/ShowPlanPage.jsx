@@ -6,34 +6,33 @@ import PlanFlightForm from "../../Components/PlanFlightForm/PlanFlightForm.jsx";
 import PlanScheduleForm from "../../Components/PlanScheduleForm/PlanScheduleForm.jsx";
 
 export default function ShowPlanPage() {
-    const {id} = useParams();
+  const { id } = useParams();
 
-  
   const [plan, setPlan] = useState({});
   const [planId, setPlanId] = useState(null);
 
   useEffect(() => {}, [planId]);
 
   useEffect(() => {
-      async function fetchPlan() {
-        const plan = await planService.show(id);
-       
+    async function fetchPlan() {
+      const plan = await planService.show(id);
+
       setPlan(plan);
     }
     fetchPlan();
   }, []);
-    
-      async function handleEditClick(evt) {
-        evt.preventDefault();
-        setShowForm(false);
-        try {
-          await planService.update(planId, formData);
-          setErrorMsg("");
-        } catch (err) {
-          setErrorMsg("Failed to save location details. Please try again.");
-        }
-      }
-    
+
+  async function handleEditClick(evt) {
+    evt.preventDefault();
+    setShowForm(false);
+    try {
+      await planService.update(planId, formData);
+      setErrorMsg("");
+    } catch (err) {
+      setErrorMsg("Failed to save location details. Please try again.");
+    }
+  }
+
   return (
     <>
       <h1>The Plan</h1>

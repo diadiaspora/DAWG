@@ -6,6 +6,7 @@ export default function ProfileForm({ profileId }) {
   const [profileData, setProfileData] = useState({
 
     id: profileId,
+    bio: "",
     pets: "",
     posts: "",
     blogs: "",
@@ -43,13 +44,36 @@ export default function ProfileForm({ profileId }) {
     <>
       <h2>{profileData.name}</h2>
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
+        <label>Pet Name</label>
         <input
           name="name"
           value={profileData.name}
           onChange={handleChange}
           style={{ width: "180px" }}
         />
+        <label>Pet Breed</label>
+        <input
+          name="name"
+          value={profileData.name}
+          onChange={handleChange}
+          style={{ width: "180px" }}
+        />
+        <label>Pet Age</label>
+        <input
+          name="name"
+          value={profileData.name}
+          onChange={handleChange}
+          style={{ width: "180px" }}
+        />
+
+        <label>Bio</label>
+        <input
+          name="name"
+          value={profileData.name}
+          onChange={handleChange}
+          style={{ width: "180px" }}
+        />
+  
         <button type="submit">Save</button>
       </form>
       <p className="error-message">&nbsp;{errorMsg}</p>
