@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as planService from "../../services/planService";
 import "./PlanBasicForm.css";
-import { create } from "../../../../backend/models/profile";
+
 import { useNavigate } from "react-router";
 
 export default function PlanBasicsForm({ planId, setPlanId }) {
@@ -29,8 +29,9 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
       if (!planId) {
         // Create new plan
         plan = await planService.create(formData);
+        
         setPlanId(plan._id);
-        navigate(`/plans/${planId}`);
+        navigate(`/plans/${plan._id}`);
         
       } else {
         // Update existing plan

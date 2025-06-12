@@ -41,7 +41,7 @@ const [isEditing, setIsEditing] = useState(true);
 
 
   return (
-    <div style={{ marginTop: "-150px" }}>
+    <div style={{ marginTop: "0px" }}>
       <aside
         style={{
           marginRight: "42px",
@@ -118,7 +118,7 @@ const [isEditing, setIsEditing] = useState(true);
                 />
               </div>
 
-              <button type="submit" className="submit-btn">
+              <button type="submit" >
                 Save Stay Info
               </button>
               {errorMsg && <p className="error">{errorMsg}</p>}

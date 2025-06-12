@@ -17,6 +17,7 @@
     text-align: center;
     padding: 15px;
     transition: transform 0.2s;
+    width: 280px;
 }
 
 .product-card:hover {
