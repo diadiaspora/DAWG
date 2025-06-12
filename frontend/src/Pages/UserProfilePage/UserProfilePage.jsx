@@ -7,7 +7,7 @@ export default function UserProfilePage({ user }) {
         <div>
           <img src="./Avatar.png" className="avatar" alt="human avatar"></img>
         </div>
-        <h1>{user.name} & {user.dogName }</h1>;
+        <h1>{user.name} & {user.petName }</h1>;
       </div>
       <ProfileForm />
       <h1>Gallery</h1>;<h1>Users Post</h1>;

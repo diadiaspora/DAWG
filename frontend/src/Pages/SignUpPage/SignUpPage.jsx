@@ -5,6 +5,7 @@ import { signUp } from "../../services/authService";
 export default function SignUpPage({ setUser }) {
   const [formData, setFormData] = useState({
     name: "",
+    petName: "",
     email: "",
     password: "",
     confirm: "",
@@ -40,6 +41,14 @@ export default function SignUpPage({ setUser }) {
           type="text"
           name="name"
           value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <label>Pet Name</label>
+        <input
+          type="text"
+          name="petName"
+          value={formData.petName}
           onChange={handleChange}
           required
         />

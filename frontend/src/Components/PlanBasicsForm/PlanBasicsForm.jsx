@@ -30,7 +30,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
         // Create new plan
         plan = await planService.create(formData);
         setPlanId(plan._id);
-        navigate(`/plans/${planId}`);
+        navigate(`/plans/${plan._id}`);
       } else {
         // Update existing plan
         plan = await planService.update(planId, formData);

@@ -19,9 +19,7 @@ export default function PlanPage() {
         <section className="plan">
           <SearchComponent />
           <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
-          <PlanWhereForm planId={planId} />
-          <PlanFlightForm planId={planId} />
-          <PlanScheduleForm planId={planId} />
+          
           <h3> Your Documents</h3>
           <h3> Your Services</h3>
           <h3> Weather</h3>

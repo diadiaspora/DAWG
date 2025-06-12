@@ -65,6 +65,7 @@ const profileSchema = new mongoose.Schema({
 const userSchema = new Schema(
   {
     name: { type: String, required: true },
+    petName: { type: String },
     email: {
       type: String,
       unique: true,
@@ -78,7 +79,6 @@ const userSchema = new Schema(
     },
 
     profile: [profileSchema],
-    
   },
   {
     timestamps: true,

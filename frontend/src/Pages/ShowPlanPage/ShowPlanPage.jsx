@@ -50,9 +50,9 @@ export default function ShowPlanPage() {
           <button onClick={handleEditClick}>Update</button>
         </div>
       </div>
-      <PlanWhereForm planId={planId} />
-      <PlanFlightForm planId={planId} />
-      <PlanScheduleForm planId={planId} />
+      <PlanWhereForm planId={id} />
+      <PlanFlightForm planId={id} />
+      <PlanScheduleForm planId={id} />
     </>
   );
 }
