@@ -38,7 +38,7 @@ export default function ShowPlanPage() {
 
   return (
     <>
-      <Header />
+    
       <SearchComponent />
       <div style={{ marginLeft: "0px", width: "1012px", border: "solid", padding: "21px", borderRadius: "10px", borderWidth: "3px"}}>
         <h1 style={{ textAlign: "left" }}>The Plan</h1>
@@ -67,7 +67,7 @@ export default function ShowPlanPage() {
       </div>
       <PlanWhereForm planId={id} />
       <PlanFlightForm planId={id} />
-      <PlanScheduleForm planId={id} />
+
     </>
   );
 }

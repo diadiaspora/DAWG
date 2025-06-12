@@ -1,0 +1,16 @@
+/* PostListPage.css */
+
+/* This targets the individual item container created by react-multi-carousel */
+.react-multi-carousel-item {
+    /* This creates a 24px gap between adjacent cards (12px on left, 12px on right) */
+    padding: 0 12px !important;
+    /* Ensures padding is included in the element's total width */
+    box-sizing: border-box !important;
+    /* Set the specific width of the carousel item, including its padding */
+    width: 374px !important;
+    /* The !important ensures these styles override the library's defaults */
+  }
+
+  .react-multi-carousel-track li.react-multi-carousel-item {
+    margin: 0 !important;
+  }

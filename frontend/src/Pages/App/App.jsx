@@ -14,7 +14,7 @@ import AirlineInfoPage from "../AirlineInfoPage/AirlineInfoPage";
 import ServicesInfoPage from "../ServicesInfoPage/ServicesInfoPage";
 import PlanPage from "../PlanPage/PlanPage";
 import MarketplacePage from "../MarketplacePage/MarketplacePage.jsx";
-import BlogPage from "../BlogPage/BlogPage.jsx";
+import NewBlogPage from "../NewBlogPage/NewBlogPage.jsx";
 import UserProfilePage from "../UserProfilePage/UserProfilePage.jsx";
 import ShowPlanPage from "../ShowPlanPage/ShowPlanPage.jsx";
 import Header from "../../Components/Header/Header";
@@ -47,7 +47,7 @@ export default function App() {
               <Route path="/services" element={<ServicesInfoPage />} />
               <Route path="/plans" element={<PlanPage />} />
               <Route path="/marketplace" element={<MarketplacePage />} />
-              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog" element={<NewBlogPage />} />
               <Route path="/plans/:id" element={<ShowPlanPage />} />
               <Route
                 path="/profiles"

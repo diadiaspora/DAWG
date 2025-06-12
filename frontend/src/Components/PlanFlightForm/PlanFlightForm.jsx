@@ -100,8 +100,8 @@ export default function PlanFlightForm({ planId }) {
     try {
       await planService.update(planId, formData);
       setErrorMsg("");
-      setIsSubmitted(true); // Set to true after successful submission
-      setShowForm(false); // Hide the form and show the card
+      setIsSubmitted(true); 
+      setShowForm(false); 
     } catch (err) {
       console.error("Failed to save flight details in handleSubmit:", err);
       setErrorMsg("Failed to save flight details. Please try again.");
@@ -109,23 +109,26 @@ export default function PlanFlightForm({ planId }) {
   }
 
   return (
-    <div>
+    <div style={{marginTop: "24px"}}>
       <aside
         style={{
-          marginLeft: "42px",
-          backgroundColor: "#ffffff",
+          marginRight: "42px",
+          backgroundColor: "#D9D9D9",
           width: "1012px",
           borderRadius: "10px",
+          padding: "21px",
         }}
       >
         <h3>Flight Info</h3>
-        <button onClick={handleToggle}>
-          {/* Dynamically change button text based on submission status */}
-          {isSubmitted ? "Update" : showForm ? "Hide Form" : "Open Form"}
+        <button onClick={handleToggle} style={{ height: "44px" }}>
+          {isSubmitted
+            ? "Update"
+            : showForm
+            ? "Hide Form"
+            : "Add Flight Details"}
         </button>
       </aside>
 
-      {/* Conditional rendering: show form or card */}
       {showForm ? (
         <form
           onSubmit={handleSubmit}
@@ -248,7 +251,6 @@ export default function PlanFlightForm({ planId }) {
           {errorMsg && <p className="error">{errorMsg}</p>}
         </form>
       ) : (
-        // Render the card only if isSubmitted is true (data exists)
         isSubmitted && (
           <div
             className="planFlightCard"
@@ -315,9 +317,7 @@ export default function PlanFlightForm({ planId }) {
       )}
       {/* Show a message if there's no data and the form is not showing */}
       {!isSubmitted && !showForm && (
-        <p style={{ marginLeft: "42px", color: "#666" }}>
-          Click "Open Form" to add flight details.
-        </p>
+        <p style={{ marginLeft: "42px", color: "#666" }}></p>
       )}
     </div>
   );

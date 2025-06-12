@@ -79,13 +79,14 @@ export default function PlanWhereForm({ planId }) {
   }
 
   return (
-    <div style={{ marginTop: "0px" }}>
+    <div style={{ marginTop: "42px" }}>
       <aside
         style={{
           marginRight: "42px",
           backgroundColor: "#D9D9D9",
           width: "1012px",
           borderRadius: "10px",
+          padding: "21px"
         }}
       >
         <h3>Where Are You Staying?</h3>
@@ -95,10 +96,9 @@ export default function PlanWhereForm({ planId }) {
         </button>
       </aside>
       <main></main>{" "}
-      {/* This main tag is empty, can be removed if not used for styling */}
-      {/* Conditional rendering for the form/card display area */}
+
       {showForm ? (
-        // When showForm is true, display the form AND the grey card in a grid
+
         <div
           className="planWhereFormContainer" // New class for this grid container
           style={{
@@ -268,7 +268,7 @@ export default function PlanWhereForm({ planId }) {
       {/* Optional: Message when no data and form is hidden */}
       {!isSubmitted && !showForm && (
         <p style={{ marginLeft: "42px", marginTop: "10px", color: "#666" }}>
-          Click "Open Form" to add your stay information.
+      
         </p>
       )}
     </div>
