@@ -19,8 +19,8 @@ import UserProfilePage from "../UserProfilePage/UserProfilePage.jsx";
 import ShowPlanPage from "../ShowPlanPage/ShowPlanPage.jsx";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-
-
+import BlogList from "../../Components/BlogList/BlogList";
+import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 
 import "./App.css";
 
@@ -53,8 +53,9 @@ export default function App() {
               <Route path="/services" element={<ServicesInfoPage />} />
               <Route path="/plans" element={<PlanPage />} />
               <Route path="/marketplace" element={<MarketplacePage />} />
-              <Route path="/blog" element={<NewBlogPage />} />
+              <Route path="/write" element={<NewBlogPage />} />
               <Route path="/plans/:id" element={<ShowPlanPage />} />
+              <Route path="/blogs" element={<ViewBlogsPage />} />
               <Route
                 path="/profiles"
                 element={<UserProfilePage user={user} setUser={setUser} />}

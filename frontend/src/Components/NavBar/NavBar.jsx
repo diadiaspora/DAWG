@@ -30,7 +30,7 @@ export default function NavBar({ user, setUser }) {
           &nbsp; | &nbsp;
           <NavLink to="/plans">Plan</NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/blog">Write</NavLink>
+          <NavLink to="/write">Write</NavLink>
           &nbsp; | &nbsp;
           <NavLink to="/marketplace">Shop</NavLink>
           &nbsp; | &nbsp;
