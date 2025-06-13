@@ -5,12 +5,16 @@
 
 .headbuttons {
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
     text-align: left;
     margin-left: 42px;
 }
 
 button {
-    width: 244px;
+    
+    
+    width: 220px;
     background-color: #1E3769;
     margin-right: 42px;
     border-radius: 50px;

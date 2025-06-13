@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Carousel from "../../Components/Carousel/Carousel.jsx";
 import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
+import { Link } from "react-router";
 import "./Gallery.css";
 
 const Gallery = () => {
@@ -29,19 +30,13 @@ const Gallery = () => {
             height: "75px",
             width: "665px",
             borderRadius: "10px",
-            marginTop: "73px",
+            marginTop: "34px",
           }}
         >
-         
-          <PlanIndex isGallery={isGallery} />
-          <button
-            style={{
-              width: "70px",
-              marginLeft: "75px",
-            }}
-          >
-            Plan
-          </button>
+          
+            <PlanIndex isGallery={isGallery} />
+        
+       
         </div>
       </div>
 

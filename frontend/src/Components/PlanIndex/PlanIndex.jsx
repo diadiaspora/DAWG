@@ -20,20 +20,31 @@ export default function PlanIndex({isGallery}) {
 
   return (
     <>
-      <h1>Plans</h1>
-      {plans.length ? (
-        <ul>
-          {plans.map((plan) => (
-            <Link to={`${plan._id}`}>
+     
+   
+        {plans.length ? (
+          <ul style={{ display: "flex" }}>
+            {plans.map((plan) => (
               <li key={plan._id}>
-                {plan.destination} {plan.month} {plan.day}
+                <Link
+                  to={`${plan._id}`}
+                  style={{
+                    backgroundColor: "#1E3769",
+                    padding: "8px",
+                    borderRadius: "50px",
+                    color: "#ffffff",
+                    textDecoration: "none",
+                  }}
+                >
+                  {plan.destination} {plan.month} {plan.day}
+                </Link>
               </li>
-            </Link>
-          ))}
-        </ul>
-      ) : (
-        <p>No Plans. Create Some!</p>
-      )}
+            ))}
+          </ul>
+        ) : (
+          <p>No Plans. Create Some!</p>
+        )}
+      
     </>
   );
 }
