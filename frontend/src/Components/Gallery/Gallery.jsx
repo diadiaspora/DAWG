@@ -1,10 +1,13 @@
+import { useState } from "react";
+import Carousel from "../../Components/Carousel/Carousel.jsx";
+import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
 import "./Gallery.css";
 
 const Gallery = () => {
-  
+  const [isGallery, setIsGallery] = useState(true);
   
   return (
-    <div className="divbody" >
+    <div className="divbody">
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
         <h3 style={{ marginBottom: "-25px" }}>Gallery</h3>
         <p style={{ marginBottom: "0px", fontSize: "16px" }}>
@@ -16,24 +19,21 @@ const Gallery = () => {
       </main>
 
       <div style={{ height: "350px", marginLeft: "42px" }}>
-        <div>
-          <img
-            src="./gallery.png"
-            alt="gallery"
-            style={{ width: "662px" }}
-          ></img>
+        <div style={{ width: "662px" }}>
+          <Carousel />
         </div>
 
-        <h3
+        <div
           style={{
             backgroundColor: "#D9D9D9",
             height: "75px",
             width: "665px",
             borderRadius: "10px",
-            marginTop: "73px"
+            marginTop: "73px",
           }}
         >
-          Plan June 3, 2025 - June 24. 2025
+         
+          <PlanIndex isGallery={isGallery} />
           <button
             style={{
               width: "70px",
@@ -42,12 +42,16 @@ const Gallery = () => {
           >
             Plan
           </button>
-        </h3>
+        </div>
       </div>
 
       <div style={{ height: "350px" }}>
         <div>
-          <img src="./calander.png"  alt="calander" style={{width: "310px"}}></img>
+          <img
+            src="./calander.png"
+            alt="calander"
+            style={{ width: "310px" }}
+          ></img>
         </div>
       </div>
     </div>

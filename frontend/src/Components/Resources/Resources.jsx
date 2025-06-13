@@ -10,19 +10,69 @@ const Resources = () => {
   };
 
   return (
-    <div className="divbd" style={{ marginTop: "-300px"}}>
+    <div className="divbd" style={{ marginTop: "-300px" }}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
         <h3 style={{ marginBottom: "-25px" }}>Resources </h3>
         <p></p>
       </aside>
       <main style={{ marginRight: "42px" }}></main>
 
-      <div style={{ height: "350px", marginLeft: "42px" }}>
-        <div>
+      <div style={{ height: "350px", marginLeft: "42px", display: "flex" }}>
+        <div
+          style={{
+            marginRight: "21px",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "grey",
+            borderRadius: "10px",
+          }}
+        >
           <img
-            src="./resources.png"
+            src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
             alt="resources"
-            style={{ width: "662px" }}
+            style={{
+              width: "192px",
+              borderTopLeftRadius: "10px",
+              borderTopRightRadius: "10px",
+            }}
+          ></img>
+        </div>
+        <div
+          style={{
+            marginRight: "21px",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "grey",
+            borderRadius: "10px",
+          }}
+        >
+          <img
+            src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="resources"
+            style={{
+              width: "192px",
+              borderTopLeftRadius: "10px",
+              borderTopRightRadius: "10px",
+            }}
+          ></img>
+        </div>
+        <div
+          style={{
+            marginRight: "21px",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "grey",
+            borderRadius: "10px",
+          }}
+        >
+          <img
+            src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="resources"
+            style={{
+              width: "192px",
+              borderTopLeftRadius: "10px",
+              borderTopRightRadius: "10px",
+            }}
           ></img>
         </div>
       </div>

@@ -46,30 +46,30 @@ export default function ProfileForm({ profileId }) {
       <form onSubmit={handleSubmit}>
         <label>Pet Name</label>
         <input
-          name="name"
-          value={profileData.name}
+          name="petName"
+          value={profileData.petName}
           onChange={handleChange}
           style={{ width: "180px" }}
         />
         <label>Pet Breed</label>
         <input
-          name="name"
-          value={profileData.name}
+          name="breed"
+          value={profileData.breed}
           onChange={handleChange}
           style={{ width: "180px" }}
         />
         <label>Pet Age</label>
         <input
-          name="name"
-          value={profileData.name}
+          name="age"
+          value={profileData.age}
           onChange={handleChange}
           style={{ width: "180px" }}
         />
 
         <label>Bio</label>
         <input
-          name="name"
-          value={profileData.name}
+          name="bio"
+          value={profileData.bio}
           onChange={handleChange}
           style={{ width: "180px" }}
         />

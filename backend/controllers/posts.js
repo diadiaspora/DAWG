@@ -1,15 +1,13 @@
-// backend/controllers/posts.js
 
-// Make sure the path to your Post model is correct!
 const Post = require("../models/post");
 
 // GET all posts
 async function index(req, res) {
   try {
-    // Fetch all posts, populate the 'author' field, and sort by creation date
+    
     const posts = await Post.find({})
-      .populate("author", "name") // Populate the author's name
-      .sort({ createdAt: -1 }); // Sort by newest first
+      .populate("author", "name") 
+      .sort({ createdAt: -1 }); 
 
     res.status(200).json(posts);
   } catch (err) {

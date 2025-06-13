@@ -11,8 +11,7 @@ module.exports = {
 async function index(req, res) {
   try {
     const profiles = await Profile.find({});
-    // Below would return all posts for just the logged in user
-    // const posts = await Post.find({author: req.user._id});
+ 
     res.json(profiles);
   } catch (err) {
     console.log(err);

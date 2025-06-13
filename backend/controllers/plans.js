@@ -54,7 +54,7 @@ async function update(req, res) {
     res.json(plan);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to update" });
   }
 }
 

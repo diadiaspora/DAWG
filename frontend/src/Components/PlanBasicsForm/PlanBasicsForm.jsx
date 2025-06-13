@@ -27,12 +27,12 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
     try {
       let plan;
       if (!planId) {
-        // Create new plan
+     
         plan = await planService.create(formData);
         setPlanId(plan._id);
         navigate(`/plans/${plan._id}`);
       } else {
-        // Update existing plan
+       
         plan = await planService.update(planId, formData);
       }
       setIsEditing(false); // Switch to card view

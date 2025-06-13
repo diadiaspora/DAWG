@@ -6,6 +6,7 @@ import "./PlanWhereForm.css"; // Ensure this CSS file exists and is correctly li
 export default function PlanWhereForm({ planId }) {
   const [showForm, setShowForm] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
   const [formData, setFormData] = useState({
     checkIn: "",
     checkOut: "",
@@ -23,16 +24,16 @@ export default function PlanWhereForm({ planId }) {
       }
 
       try {
-        const planData = await planService.get(planId);
-        // Assuming planData.checkIn indicates existing data
-        if (planData && planData.checkIn) {
+        const planData = await planService.show(planId);
+       
+        if (planData && (planData.checkIn || planData.checkOut || planData.address )) {
           setFormData({
             checkIn: planData.checkIn || "",
             checkOut: planData.checkOut || "",
             address: planData.address || "",
           });
           setIsSubmitted(true);
-          setShowForm(false); // Show the card initially if data exists
+          setShowForm(false); 
         } else {
           setFormData({
             checkIn: "",
@@ -40,13 +41,13 @@ export default function PlanWhereForm({ planId }) {
             address: "",
           });
           setIsSubmitted(false);
-          setShowForm(false); // Ensure form is hidden, showing "Open Form" button
+          setShowForm(false); 
         }
       } catch (err) {
         console.error("Failed to fetch plan data for planId:", planId, err);
         setErrorMsg("Failed to load plan details.");
         setIsSubmitted(false);
-        setShowForm(false); // Keep form hidden on initial load error
+        setShowForm(false); 
       }
     }
     fetchPlanData();
@@ -59,9 +60,9 @@ export default function PlanWhereForm({ planId }) {
 
   function handleToggle() {
     if (isSubmitted) {
-      setShowForm(true); // If submitted, "Update" button always opens form
+      setShowForm(true); 
     } else {
-      setShowForm((prev) => !prev); // Otherwise, toggle show/hide form
+      setShowForm((prev) => !prev); 
     }
   }
 
@@ -71,7 +72,7 @@ export default function PlanWhereForm({ planId }) {
       await planService.update(planId, formData);
       setErrorMsg("");
       setIsSubmitted(true);
-      setShowForm(false); // Hide the form and show the card
+      setShowForm(false); 
     } catch (err) {
       console.error("Failed to save location details:", err);
       setErrorMsg("Failed to save location details. Please try again.");
@@ -86,41 +87,44 @@ export default function PlanWhereForm({ planId }) {
           backgroundColor: "#D9D9D9",
           width: "1012px",
           borderRadius: "10px",
-          padding: "21px"
+          padding: "21px",
         }}
       >
         <h3>Where Are You Staying?</h3>
 
         <button onClick={handleToggle} style={{ height: "44px" }}>
-          {isSubmitted ? "Update" : showForm ? "Hide Form" : "Add Stay Detaills"}
+          {isSubmitted
+            ? "Update"
+            : showForm
+            ? "Hide Form"
+            : "Add Stay Detaills"}
         </button>
       </aside>
       <main></main>{" "}
-
       {showForm ? (
-
         <div
-          className="planWhereFormContainer" // New class for this grid container
+          className="planWhereFormContainer" 
           style={{
             marginLeft: "42px",
             display: "grid",
-            gridTemplateColumns: "662px 350px", // Form width and Card width
-            gap: "20px", // Space between form and card
-            alignItems: "start", // Align items to the top of their grid cell
-            marginBottom: "20px", // Add some bottom margin for spacing
+            gridTemplateColumns: "662px 350px", 
+            gap: "20px",
+            alignItems: "start", 
+            marginBottom: "20px",
+            marginTop: "42px",
           }}
         >
           <form
             onSubmit={handleSubmit}
             style={{
-              // Removed fixed height here, let content dictate height
+            
               padding: "4vmin",
               border: "0.5vmin solid #1a1a1a",
               borderRadius: "1vmin",
-              backgroundColor: "white", // Added a background for the form itself
+              backgroundColor: "white", 
             }}
           >
-            <h3>Stay Details</h3> {/* Added a heading for the form */}
+            <h3>Stay Details</h3> 
             <div
               style={{ display: "flex", gap: "10px", marginBottom: "1.2vmin" }}
             >
@@ -157,16 +161,15 @@ export default function PlanWhereForm({ planId }) {
                 />
               </div>
               <div style={{ alignSelf: "flex-end" }}>
-                {" "}
-                {/* Aligned button to bottom */}
+                
                 <button
                   type="button"
                   className="upload-btn"
                   style={{
                     padding: "8px 15px",
-                    borderRadius: "5px",
+                    borderRadius: "50px",
                     border: "none",
-                    backgroundColor: "#007bff",
+                    backgroundColor: "#1E3769",
                     color: "white",
                     cursor: "pointer",
                   }}
@@ -197,9 +200,9 @@ export default function PlanWhereForm({ planId }) {
               type="submit"
               style={{
                 padding: "10px 20px",
-                borderRadius: "5px",
+                borderRadius: "50px",
                 border: "none",
-                backgroundColor: "#28a745",
+                backgroundColor: "#1E3769",
                 color: "white",
                 cursor: "pointer",
               }}
@@ -209,44 +212,46 @@ export default function PlanWhereForm({ planId }) {
             {errorMsg && <p className="error">{errorMsg}</p>}
           </form>
 
-          {/* The companion grey box/card to the right of the form */}
           <div
             className="companionGrayBox"
             style={{
               backgroundColor: "#D9D9D9",
-              minHeight: "350px", // Use min-height so it expands with content, or sets a minimum
+              minHeight: "350px", 
               borderRadius: "1vmin",
-              width: "350px", // Explicitly set width as per grid column
+              width: "350px", 
               padding: "4vmin",
               display: "flex",
               flexDirection: "column",
               gap: "1.5vmin",
             }}
           >
-            <h4>Additional Information</h4>
+            <h4>Tips for Booking Stays</h4>
             <p>
-              This is where you can add extra details or notes about the stay.
-              For example, nearby attractions, special requests, or local tips.
+              - Never agree to make an accomadation off of a secure platform.
             </p>
-            {/* You can add more text or content here */}
-            <p>Feel free to customize this area as needed!</p>
+      
+            <p>- Always Upload Recipts for easy access</p>
           </div>
         </div>
       ) : (
-        // When showForm is false, render only the submitted data card (if submitted)
+     
         isSubmitted && (
           <div
             className="planWhereCard"
             style={{
               marginLeft: "42px",
-              backgroundColor: "#D9D9D9",
-              minHeight: "350px", // Use min-height
+              backgroundColor: "#ffffff",
+              minHeight: "350px", 
               borderRadius: "1vmin",
-              width: "662px", // This card's width matches the form's column when it's solo
+              width: "662px", 
               padding: "4vmin",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-around",
+              borderStyle: "solid",
+              borderWidth: "3px",
+              borderColor: "#1E3769",
+              marginTop: "42px",
             }}
           >
             <h4>Stay Details:</h4>
@@ -265,11 +270,9 @@ export default function PlanWhereForm({ planId }) {
           </div>
         )
       )}
-      {/* Optional: Message when no data and form is hidden */}
+   
       {!isSubmitted && !showForm && (
-        <p style={{ marginLeft: "42px", marginTop: "10px", color: "#666" }}>
-      
-        </p>
+        <p style={{ marginLeft: "42px", marginTop: "10px", color: "#666" }}></p>
       )}
     </div>
   );

@@ -19,15 +19,21 @@ import UserProfilePage from "../UserProfilePage/UserProfilePage.jsx";
 import ShowPlanPage from "../ShowPlanPage/ShowPlanPage.jsx";
 import Header from "../../Components/Header/Header";
 
+
+
+
 import "./App.css";
 
 export default function App() {
+
   const [user, setUser] = useState(getUser());
   const location = useLocation();
 
   const showHeaderOn = ["/", "/flights", "/plans", "/profile"];
 
   const shouldShowHeader = showHeaderOn.includes(location.pathname);
+
+
 
   return (
     <>

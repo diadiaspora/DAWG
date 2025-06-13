@@ -30,25 +30,36 @@ export default function PlanFlightForm({ planId }) {
       }
 
       try {
-        const planData = await planService.get(planId);
-        // console.log("Fetched planData:", planData); // Good for debugging
+        const planData = await planService.show(planId);
+        
 
-        if (planData && planData.flightDetails) {
-          // If flightDetails exist, populate formData and show the card
+        if (
+          planData &&
+          (planData.airline ||
+            planData.outboundFlightNumber ||
+            planData.outboundDepartureTime ||
+            planData.outboundArrivalTime ||
+            planData.returnFlightNumber ||
+            planData.returnDepartureTime ||
+            planData.returnArrivalTime))
+        {
           setFormData({
-            airline: planData.flightDetails.airline || "",
-            outboundFlightNumber:
-              planData.flightDetails.outboundFlightNumber || "",
-            outboundDate: planData.flightDetails.outboundDate || "",
-            outboundDepartureTime:
-              planData.flightDetails.outboundDepartureTime || "",
-            outboundArrivalTime:
-              planData.flightDetails.outboundArrivalTime || "",
-            returnFlightNumber: planData.flightDetails.returnFlightNumber || "",
-            returnDate: planData.flightDetails.returnDate || "",
-            returnDepartureTime:
-              planData.flightDetails.returnDepartureTime || "",
-            returnArrivalTime: planData.flightDetails.returnArrivalTime || "",
+            airline: planData.airline || "",
+
+            outboundFlightNumber: planData.outboundFlightNumber || "",
+
+            outboundDate: planData.outboundDate || "",
+
+            outboundDepartureTime: planData.outboundDepartureTime || "",
+
+            outboundArrivalTime: planData.outboundArrivalTime || "",
+
+            returnFlightNumber: planData.returnFlightNumber || "",
+
+            returnDate: planData.returnDate || "",
+
+            returnDepartureTime: planData.returnDepartureTime || "",
+            returnArrivalTime: planData.returnArrivalTime || "",
           });
           setIsSubmitted(true); // Data exists, so consider it submitted
           setShowForm(false); // Show the card initially
@@ -142,6 +153,7 @@ export default function PlanFlightForm({ planId }) {
             padding: "4vmin",
             border: "0.5vmin solid #1a1a1a",
             borderRadius: "1vmin",
+            marginTop: "42px"
           }}
         >
           <h3>Outbound Flight</h3>
@@ -181,7 +193,7 @@ export default function PlanFlightForm({ planId }) {
 
             <label htmlFor="outboundDepartureTime">Departure Time</label>
             <input
-              type="time"
+              type="text"
               id="outboundDepartureTime"
               name="outboundDepartureTime"
               value={formData.outboundDepartureTime}
@@ -190,7 +202,7 @@ export default function PlanFlightForm({ planId }) {
 
             <label htmlFor="outboundArrivalTime">Arrival Time</label>
             <input
-              type="time"
+              type="text"
               id="outboundArrivalTime"
               name="outboundArrivalTime"
               value={formData.outboundArrivalTime}
@@ -228,7 +240,7 @@ export default function PlanFlightForm({ planId }) {
           >
             <label htmlFor="returnDepartureTime">Departure Time</label>
             <input
-              type="time"
+              type="text"
               id="returnDepartureTime"
               name="returnDepartureTime"
               value={formData.returnDepartureTime}
@@ -237,7 +249,7 @@ export default function PlanFlightForm({ planId }) {
 
             <label htmlFor="returnArrivalTime">Arrival Time</label>
             <input
-              type="time"
+              type="text"
               id="returnArrivalTime"
               name="returnArrivalTime"
               value={formData.returnArrivalTime}
@@ -257,13 +269,17 @@ export default function PlanFlightForm({ planId }) {
             style={{
               marginLeft: "42px",
               marginRight: "42px",
-              backgroundColor: "#D9D9D9",
+              backgroundColor: "#ffffff",
               width: "1012px",
-              borderRadius: "1vmin",
+              borderRadius: "10px",
               padding: "4vmin",
               display: "flex",
               flexDirection: "column",
               gap: "1.5vmin",
+              marginTop: "42px",
+              borderStyle: "solid",
+              borderWidth: "3px",
+
             }}
           >
             <h4>Flight Details:</h4>

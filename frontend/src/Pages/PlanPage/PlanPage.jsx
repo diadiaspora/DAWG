@@ -4,7 +4,7 @@ import PlanWhereForm from "../../Components/PlanWhereForm/PlanWhereForm.jsx";
 import PlanFlightForm from "../../Components/PlanFlightForm/PlanFlightForm.jsx";
 import PlanScheduleForm from "../../Components/PlanScheduleForm/PlanScheduleForm.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-
+import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
 
 
 import { useNavigate } from "react-router";
@@ -22,6 +22,7 @@ export default function PlanPage() {
          
           <SearchComponent />
           <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
+          <PlanIndex />
           
           <h3> Your Documents</h3>
           <h3> Your Services</h3>
