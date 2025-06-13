@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 import * as profileService from "../../services/profileService";
 
-export default function ProfileForm({ profileId, setProfileId }) {
+export default function ProfileForm({ profile, setProfile }) {
   const [profileData, setProfileData] = useState({
     bio: "",
     pets: "",
@@ -19,62 +18,53 @@ export default function ProfileForm({ profileId, setProfileId }) {
         vaccineNumber: "",
         document: "",
       },
-    ]
+    ],
   });
 
   const [isEditing, setIsEditing] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
 
-  // const navigate = useNavigate();
+  useEffect(() => {
+    if (profile) {
+      setProfileData(profile);
+      setIsEditing(false); // show the completed card if profile exists
+    } else {
+      setIsEditing(true);
+    }
+  }, [profile]);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setProfileData({ ...profileData, [name]: value });
+    setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
   function handlePetChange(evt, index) {
     const { name, value } = evt.target;
-    setProfileData((prevData) => {
-      const updatedPets = [...prevData.pet];
-      updatedPets[index] = {
-        ...updatedPets[index],
-        [name]: value,
-      };
-      return {
-        ...prevData,
-        pet: updatedPets,
-      };
-    });
+    const updatedPets = [...profileData.pet];
+    updatedPets[index] = { ...updatedPets[index], [name]: value };
+    setProfileData((prev) => ({ ...prev, pet: updatedPets }));
   }
-  
-  
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     setErrorMsg("");
     try {
-      let profile;
-      if (!profileId) {
-        profile = await profileService.create(profileData);
-        setProfileId(profile._id);
+      let updatedProfile;
+      if (!profile?._id) {
+        updatedProfile = await profileService.create(profileData);
       } else {
-        const updatedProfile = await profileService.update(
-          profileId,
-          profileData
-        );
-        if (!updatedProfile) throw new Error("Update failed");
+        updatedProfile = await profileService.update({
+          ...profileData,
+          _id: profile._id,
+        });
       }
+      setProfile(updatedProfile);
       setIsEditing(false);
     } catch (err) {
+      console.error(err);
       setErrorMsg("Please try again.");
     }
   }
-
-  function handleEditClick() {
-    setIsEditing(true); 
-  }
-
-
 
   return (
     <>
@@ -95,7 +85,6 @@ export default function ProfileForm({ profileId, setProfileId }) {
               onChange={(evt) => handlePetChange(evt, 0)}
               style={{ width: "180px" }}
             />
-
             <label>Bio</label>
             <input
               name="bio"
@@ -103,7 +92,6 @@ export default function ProfileForm({ profileId, setProfileId }) {
               onChange={handleChange}
               style={{ width: "180px" }}
             />
-
             <button type="submit">Save</button>
           </form>
           <p className="error-message">&nbsp;{errorMsg}</p>
@@ -117,12 +105,9 @@ export default function ProfileForm({ profileId, setProfileId }) {
           <p>
             <strong>Notes:</strong> {profileData.bio}
           </p>
-          <button onClick={handleEditClick}>Update</button>
+          <button onClick={() => setIsEditing(true)}>Update</button>
         </div>
       )}
-
-      {errorMsg && <p className="error">{errorMsg}</p>}
     </>
   );
-};
-
+}

@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { getUser } from "../../services/authService";
+import * as profileService from "../../services/profileService";
+
 import { useNavigate } from "react-router-dom";
 import HomePage from "../HomePage/HomePage";
 import PostListPage from "../PostListPage/PostListPage";
@@ -21,17 +23,37 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import BlogList from "../../Components/BlogList/BlogList";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
+import BlogDetail from "../../Components/BlogDetail/BlogDetail.jsx";
 
 import "./App.css";
 
 export default function App() {
 
   const [user, setUser] = useState(getUser());
+  const [profile, setProfile] = useState(null);
   const location = useLocation();
 
   const showHeaderOn = ["/", "/flights", "/plans", "/profile"];
 
   const shouldShowHeader = showHeaderOn.includes(location.pathname);
+
+  useEffect(() => {
+    async function fetchProfile() {
+      if (user) {
+        try {
+          const profiles = await profileService.index();
+      
+          const userProfile = profiles.find((p) => p.user === user._id); 
+          if (userProfile) {
+            setProfile(userProfile);
+          }
+        } catch (err) {
+          console.error("Failed to fetch profile", err);
+        }
+      }
+    }
+    fetchProfile();
+  }, [user]);
 
 
 
@@ -43,6 +65,16 @@ export default function App() {
         <section id="main-section">
           {user ? (
             <Routes>
+              <Route
+                path="/profiles"
+                element={
+                  <UserProfilePage
+                    user={user}
+                    profile={profile}
+                    setProfile={setProfile}
+                  />
+                }
+              />
               <Route path="/" element={<HomePage />} />
               <Route path="/posts" element={<PostListPage />} />
               <Route path="/posts/new" element={<NewPostPage />} />
@@ -60,6 +92,7 @@ export default function App() {
                 path="/profiles"
                 element={<UserProfilePage user={user} setUser={setUser} />}
               />
+              <Route path="/blogs/:id" element={<BlogDetail />} />
             </Routes>
           ) : (
             <Routes>

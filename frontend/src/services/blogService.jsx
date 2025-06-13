@@ -9,3 +9,8 @@ export async function index() {
 export async function create(blogData) {
   return sendRequest(BASE_URL, "POST", blogData);
 }
+
+
+export async function show(blogId) {
+  return sendRequest(`${BASE_URL}/${blogId}`);
+}

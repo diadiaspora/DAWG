@@ -11,6 +11,5 @@ export async function create(profileData) {
 }
 
 export async function update(profileData) {
-  console.log(profileData);
-  return sendRequest(`${BASE_URL}/${profileData.id}`, "PUT", profileData);
+  return sendRequest(`${BASE_URL}/${profileData._id}`, "PUT", profileData);
 }
