@@ -81,7 +81,7 @@ export default function App() {
               <Route path="*" element={null} />
               <Route path="/flights" element={<FlightInfoPage />} />
               <Route path="/docs" element={<DocumentPage />} />
-              <Route path="/airlines" element={<AirlineInfoPage />} />
+              <Route path="/airlines/:airline/:location" element={<AirlineInfoPage />} />
               <Route path="/services" element={<ServicesInfoPage />} />
               <Route path="/plans" element={<PlanPage />} />
               <Route path="/marketplace" element={<MarketplacePage />} />

@@ -1,0 +1,15 @@
+{
+    "delta": {
+      "national": 50,
+      "international": 150
+    },
+    "aeromexico": {
+      "national": 50,
+      "international": 150
+    },
+    "american-airlines": {
+      "national": 50,
+      "international": 150
+    }
+  }
+  
