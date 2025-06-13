@@ -1,0 +1,59 @@
+{
+    "Mexico": {
+      "export": {
+        "documents": [
+          "Veterinary health certificate issued within 15 days",
+          "Exit permit from SAGARPA/SENASICA with visual health inspection"
+        ],
+        "fee_usd": null
+      },
+      "import": {
+        "documents": [
+          "Health certificate (not required from US/Canada but inspected by SENASICA)",
+          "Rabies vaccination certificate (if not from US/Canada)",
+          "Parasite treatment record",
+          "Screwworm inspection"
+        ],
+        "fee_usd": null
+      }
+    },
+    "UnitedStates": {
+      "export": {
+        "documents": [
+          "USDA-endorsed international health certificate signed by accredited vet",
+          "Rabies vaccination listed (for high-risk countries)",
+          "Microchip ID (ISO compatible)"
+        ],
+        "fee_usd": 275
+      },
+      "import": {
+        "documents": [
+          "Health certificate with vaccinations and vet exam",
+          "State requirements (rabies, licensing)",
+          "CDC Dog Import Form (if high-risk country)",
+          "Certification of U.S.-Issued Rabies Vaccination form"
+        ],
+        "fee_usd": null
+      }
+    },
+    "Chile": {
+      "export": {
+        "documents": [
+          "Veterinary health certificate signed/stamped by official vet (Eng & Span)",
+          "APhIS-endorsed certificate (from US origin)",
+          "Animal Health Export Certificate (CZE) issued by SAG"
+        ],
+        "fee_usd": null
+      },
+      "import": {
+        "documents": [
+          "Animal Health Import Certificate (CZI) in Spanish & English",
+          "Rabies certificate (30–360 days prior)",
+          "Parasite treatment record",
+          "Health certificate with vet exam"
+        ],
+        "fee_usd": null
+      }
+    }
+  }
+  

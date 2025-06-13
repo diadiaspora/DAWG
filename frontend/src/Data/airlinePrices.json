@@ -1,15 +1,41 @@
 {
-    "delta": {
-      "national": 50,
-      "international": 150
-    },
-    "aeromexico": {
-      "national": 50,
-      "international": 150
-    },
-    "american-airlines": {
-      "national": 50,
-      "international": 150
+  "delta": {
+    "national": {
+      "cabin_fee": 95,
+      "international_fee": 200,
+      "cargo_available": false,
+      "max_in_cabin_per_passenger": 1,
+      "max_service_animals_in_cabin": 2,
+      "max_service_animals_allowed": 2,
+      "service_animal_fee": 0,
+      "esa_fee": 0,
+      "docs_service_animal": ["DOT form", "vaccination records"],
+      "docs_esa": ["DOT form", "mental health professional letter", "veterinary health certificate"]
+    }
+  },
+  "american-airlines": {
+    "national": {
+      "cabin_fee": 125,
+      "cargo_available": false,
+      "max_in_cabin_per_passenger": 1,
+      "max_service_animals_in_cabin": 1,
+      "service_animal_fee": 0,
+      "esa_fee": 0,
+      "docs_service_animal": ["service animal certification (trained)", "ADA compliance"],
+      "docs_esa": null
+    }
+  },
+  "aeromexico": {
+    "national": {
+      "cabin_fee_mxn": 1350,
+      "cabin_fee_intl_usd": 162,
+      "checked_fee_mxn": 1600,
+      "checked_fee_intl_usd": 252,
+      "max_in_cabin_per_passenger": 1,
+      "service_animal_fee": 0,
+      "esa_fee": 0,
+      "docs_service_animal": ["service dog training certification", "DOT form if U.S. travel"],
+      "docs_esa": ["physician letter", "veterinary health certificate"]
     }
   }
-  
+}

@@ -1,8 +1,9 @@
 .select {
-    width: 220px;
+    width: 442px;
+    margin-left: 42px;
+    background-color: white;
+    color:black;
     border-radius: 0px;
     height: 44px;
-    margin-left: 0px;
-    padding-left: 0px;
 
 }

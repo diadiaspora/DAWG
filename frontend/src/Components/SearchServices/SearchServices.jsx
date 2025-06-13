@@ -1,14 +1,25 @@
 import "./SearchServices.css";
 import { useNavigate } from "react-router-dom";
 
+
 import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import { useState } from "react";
 import "./SearchServices.css";
+
+
 const SearchServices = () => {
   const navigate = useNavigate();
+  const [service, setService] = useState("");
+  const [location, setLocation] = useState("");
+
+ 
 
   const handleClick = () => {
-    navigate("/services");
+    if (service && location) {
+      navigate(`/services/${service}/${location}`);
+    } else {
+      alert("Please select both service and location");
+    }
   };
 
   return (
@@ -24,14 +35,19 @@ const SearchServices = () => {
         >
           <div>
             <label for="from" style={{ marginLeft: "0px", width: "220px" }}>
-              Service Needed{" "}
+              Service Needed
             </label>
-            <select name="from" className="select">
+            <select
+              name="service"
+              className="select"
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+            >
               <option value="">What do yoou need?</option>
-              <option value="option1">Veteriinarian</option>
-              <option value="option2">Lawyer</option>
-              <option value="option3">Dentist</option>
-              <option value="option4">Mental Health</option>
+              <option value="vet">Veterinarian</option>
+              <option value="lawyer">Lawyer</option>
+              <option value="dentist">Dentist</option>
+              {/* <option value="option4">Mental Health</option>
               <option value="option5">Accountant</option>
               <option value="option6">Translator</option>
               <option value="option7">Emergency Housing</option>
@@ -39,43 +55,24 @@ const SearchServices = () => {
               <option value="option9">Police</option>
               <option value="option10">General Practitioner</option>
               <option value="option11">Beauty</option>
-              <option value="option12">Domestic Violence</option>
+              <option value="option12">Domestic Violence</option> */}
             </select>
           </div>
-          <div>
-            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
-              Your Language
-            </label>
-            <select name="to" className="select">
-              <option value="">Your Language</option>
-              <option value="option1">English</option>
-              <option value="option2">Spanish</option>
-              <option value="option3">French</option>
-              <option value="option3">German</option>
-            </select>
-          </div>
-          <div>
-            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
-              Your Nationality
-            </label>
-            <select name="to" className="select">
-              <option value="">Your Nationality</option>
-              <option value="option1">USA</option>
-              <option value="option2">Mexico</option>
-              <option value="option3">Chile</option>
-              <option value="option3">Germany</option>
-              <option value="option3">France</option>
-            </select>
-          </div>
+
           <div>
             <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
               City?:
             </label>
-            <select name="to" className="select">
+            <select
+              name="location"
+              className="select"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            >
               <option value="">Where are you?</option>
-              <option value="option1">Mexico City</option>
-              <option value="option2">Berlin</option>
-              <option value="option3">Santiago</option>
+              <option value="MexicoCity">Mexico City</option>
+              <option value="Berlin">Berlin</option>
+              <option value="Santiago">Santiago</option>
             </select>
           </div>
         </div>

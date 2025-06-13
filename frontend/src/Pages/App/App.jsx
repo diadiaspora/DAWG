@@ -11,7 +11,7 @@ import SignUpPage from "../SignUpPage/SignUpPage";
 import LogInPage from "../LogInPage/LogInPage";
 import NavBar from "../../Components/NavBar/NavBar";
 import FlightInfoPage from "../FlightInfoPage/FlightInfoPage";
-import DocumentPage from "../DocumentPage/DocumentPage";
+import DocumentInfoPage from "../DocumentInfoPage/DocumentInfoPage.jsx";
 import AirlineInfoPage from "../AirlineInfoPage/AirlineInfoPage";
 import ServicesInfoPage from "../ServicesInfoPage/ServicesInfoPage";
 import PlanPage from "../PlanPage/PlanPage";
@@ -24,6 +24,8 @@ import Footer from "../../Components/Footer/Footer";
 import BlogList from "../../Components/BlogList/BlogList";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetail from "../../Components/BlogDetail/BlogDetail.jsx";
+
+
 
 import "./App.css";
 
@@ -80,9 +82,18 @@ export default function App() {
               <Route path="/posts/new" element={<NewPostPage />} />
               <Route path="*" element={null} />
               <Route path="/flights" element={<FlightInfoPage />} />
-              <Route path="/docs" element={<DocumentPage />} />
-              <Route path="/airlines/:airline/:location" element={<AirlineInfoPage />} />
-              <Route path="/services" element={<ServicesInfoPage />} />
+              <Route
+                path="/documents/:from/:to"
+                element={<DocumentInfoPage />}
+              />
+              <Route
+                path="/airlines/:airline/:location"
+                element={<AirlineInfoPage />}
+              />
+              <Route
+                path="/services/:service/:location"
+                element={<ServicesInfoPage />}
+              />
               <Route path="/plans" element={<PlanPage />} />
               <Route path="/marketplace" element={<MarketplacePage />} />
               <Route path="/write" element={<NewBlogPage />} />

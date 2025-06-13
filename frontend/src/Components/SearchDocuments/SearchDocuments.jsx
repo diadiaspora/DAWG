@@ -1,44 +1,59 @@
 import { useNavigate } from "react-router-dom";
-
-import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import { useState } from "react";
+import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import "./SearchDocuments.css";
 
 const SearchDocuments = () => {
   const navigate = useNavigate();
+  const [fromCountry, setFromCountry] = useState("");
+  const [toCountry, setToCountry] = useState("");
 
   const handleClick = () => {
-    navigate("/docs");
+    if (fromCountry && toCountry) {
+      navigate(`/documents/${fromCountry}/${toCountry}`);
+    } else {
+      alert("Please select both countries.");
+    }
   };
 
   return (
-    <>
-      <div style={{ marginLeft: "0px" }}>
-        <div style={{ display: "flex", paddingTop: "42px" }}>
-          <div>
-            <label for="from">Where From </label>
-            <select name="from" className="docSelect">
-              <option value="">Where From?</option>
-              <option value="option1">USA</option>
-              <option value="option2">Mexico</option>
-              <option value="option3">Chile</option>
-            </select>
-          </div>
-          <div>
-            <label for="to">Where to?:</label>
-            <select name="to" className="docSelect">
-              <option value="">Where are you going?l</option>
-              <option value="option1">USA</option>
-              <option value="option2">Mexico</option>
-              <option value="option3">Chile</option>
-            </select>
-          </div>
+    <div style={{ marginLeft: "0px" }}>
+      <div style={{ display: "flex", paddingTop: "42px" }}>
+        <div>
+          <label htmlFor="from" style={{ marginLeft: "0px", width: "220px" }}>
+            Where From
+          </label>
+          <select
+            name="from"
+            className="docSelect"
+            value={fromCountry}
+            onChange={(e) => setFromCountry(e.target.value)}
+          >
+            <option value="">Where From?</option>
+            <option value="usa">USA</option>
+            <option value="mexico">Mexico</option>
+            <option value="chile">Chile</option>
+          </select>
         </div>
-        <div className="button">
-          <button onClick={handleClick}>Search</button>
+        <div>
+          <label htmlFor="to">Where to?:</label>
+          <select
+            name="to"
+            className="docSelect"
+            value={toCountry}
+            onChange={(e) => setToCountry(e.target.value)}
+          >
+            <option value="">Where are you going?</option>
+            <option value="usa">USA</option>
+            <option value="mexico">Mexico</option>
+            <option value="chile">Chile</option>
+          </select>
         </div>
       </div>
-    </>
+      <div className="button">
+        <button onClick={handleClick}>Search</button>
+      </div>
+    </div>
   );
 };
 

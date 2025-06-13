@@ -1,0 +1,162 @@
+{
+    "Berlin": {
+      "vet": [
+        {
+          "name": "Mobile Vet Dr. Pascal Klunder",
+          "services": ["Home visits", "English speaking", "travel certificates"],
+          "contact": "0162‑7462404"
+        },
+        {
+          "name": "Mobile Vet Clinic Dr. Janine Sommer",
+          "services": ["Home visits", "small animals", "English"],
+          "contact": "tierarztpraxismobil.de"
+        },
+        {
+          "name": "The Berlin Veterinary Center",
+          "services": ["24/7 emergency", "digital X‑ray", "in‑house lab", "English"],
+          "address": "specialties and services include... "
+        }
+      ],
+      "dentist": [
+        {
+          "name": "Zun̈härzte Künzel (Charlottenburg)",
+          "services": ["Preventive & cosmetic dentistry", "English speaking"],
+          "address": "Kudamm area"
+        },
+        {
+          "name": "Die Praxis Mitte",
+          "services": ["Cosmetic dentistry", "English speaking"],
+          "address": "Münzstraße 5, Mitte"
+        },
+        {
+          "name": "ZANH Dental Clinic (Wedding)",
+          "services": ["Check‑ups", "Invisalign", "multilingual staff"],
+          "address": "Berlin‑Wedding"
+        }
+      ],
+      "lawyer": [
+        {
+          "name": "Kanzlei Ersöz (SERS)",
+          "services": ["Immigration & visa support", "English/German"],
+          "address": "Charlottenburg"
+        },
+        {
+          "name": "von Engelhardt & Partner",
+          "services": ["Immigration, tax, business", "multilingual"],
+          "address": "Berlin"
+        },
+        {
+          "name": "Greenberg Traurig Germany",
+          "services": ["Corporate & international law", "English"],
+          "address": "Berlin"
+        }
+      ]
+    },
+    "MexicoCity": {
+      "vet": [
+        {
+          "name": "Pet Point (Dra. Carolina Hidalgo)",
+          "services": ["Clinic care", "English speaking"],
+          "source": "Reddit mention"
+        },
+        {
+          "name": "Mobile Pet Vet CDMX (Dr. Christine Maroney)",
+          "services": ["House calls", "Travel docs"],
+          "contact": "Facebook page"
+        },
+        {
+          "name": "Vet Voyage",
+          "services": ["Transportation & liaison", "English"],
+          "source": "vetvoyage.com.mx"
+        }
+      ],
+      "dentist": [
+        {
+          "name": "Beamann Hobbs (La Condesa)",
+          "services": ["Dental clinic", "English speaking"],
+          "source": "Official clinic site"
+        },
+        {
+          "name": "Dr. Jaime Cohen Dental Clinic",
+          "services": ["Modern care", "English"],
+          "source": "Dental Departures"
+        },
+        {
+          "name": "Smile Masters",
+          "services": ["Cosmetic & restorative", "English/Spanish"],
+          "source": "dentistinmexicocity.com"
+        }
+      ],
+      "lawyer": [
+        {
+          "name": "Haynes Boone SC",
+          "services": ["US‑Mexico bilingual lawyers", "Corporate & business"],
+          "source": "haynesboone.com Mexico"
+        },
+        {
+          "name": "Holland & Knight Mexico",
+          "services": ["Latin America corporate & litigation", "English"],
+          "source": "hklaw.com Mexico"
+        },
+        {
+          "name": "MEXLAW",
+          "services": ["Canadian/US‑trained Mexican lawyers"],
+          "source": "mexlaw.com"
+        }
+      ]
+    },
+    "Santiago": {
+      "vet": [
+        {
+          "name": "Pet Happy (Chile)",
+          "services": ["Clinic network", "Tourist‑friendly"],
+          "source": "Jooble listing"
+        },
+        {
+          "name": "Colmevet (Chile Veterinarian College)",
+          "services": ["Official certification", "Travel docs"],
+          "address": "Av. Italia 1045, Providencia"
+        },
+        {
+          "name": "SAG Veterinary Certifications",
+          "services": ["Export health certificates"],
+          "address": "Av. Presidente Bulnes 140"
+        }
+      ],
+      "dentist": [
+        {
+          "name": "Pedro Jaque Flores",
+          "services": ["English‑speaking dentist"],
+          "location": "Los Condes"
+        },
+        {
+          "name": "WhatClinic Santiago Listings",
+          "services": ["Multiple English‑speaking clinics"],
+          "source": "WhatClinic"
+        },
+        {
+          "name": "Implantes Carmona (Providencia)",
+          "services": ["Implants & aesthetics", "Spanish/English"],
+          "contact": "+56224743558"
+        }
+      ],
+      "lawyer": [
+        {
+          "name": "Isabel Aninat (Univ. Adolfo Ibáñez Law Dean)",
+          "services": ["Legal expert & public policy"],
+          "source": "El País article"
+        },
+        {
+          "name": "El Paciente Inglés Foundation",
+          "services": ["Foreign credential revalidation advice"],
+          "source": "elpacienteingles.org"
+        },
+        {
+          "name": "Migration Reform Assistance",
+          "services": ["Guidance on Chilean migration law"],
+          "source": "El País news"
+        }
+      ]
+    }
+  }
+  
