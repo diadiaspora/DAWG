@@ -1,6 +1,6 @@
 import sendRequest from "./sendRequest";
 
-const BASE_URL = "/api/profies";
+const BASE_URL = "/api/profiles";
 
 export async function index() {
   return sendRequest(BASE_URL);

@@ -14,7 +14,7 @@ export default function UserProfilePage({ user }) {
         </h1>
       </div>
 
-      <ProfileForm />
+      <ProfileForm user={user} />
       <div style={{margin: "0px", width: "1012px"}}>
         <h3> Important Documents</h3>
         <p>

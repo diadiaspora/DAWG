@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const profilesCtrl = require("../controllers/profiles");
 
-// All paths start with '/api/plans';
+// All paths start with '/api/profiles';
 
-// POST /api/plans (CREATE action)
+// POST /api/profiles (CREATE action)
 router.post("/", profilesCtrl.create);
 
 router.get("/", profilesCtrl.index);

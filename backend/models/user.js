@@ -4,63 +4,8 @@ const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6;
 
-const petSchema = new mongoose.Schema({
-  
-      breed: {
-        type: String,
-       
-        },
-        age: {
-            type: Number,
-           
-          },
-          weight: {
-            type: String,
-           
-        },
-        microchipNumber: {
-            type: String,
-           
-          },
-        vaccineNumber: {
-            type: String,
-        },
-        document: {
-            type: String,
-           
-          },
-    
-});
-  
-const profileSchema = new mongoose.Schema({
 
-  bio: {
-    type: String,
-  },
-  pets: {
-    type: String,
-  },
-  posts: {
-    type: String,
-  },
-  blogs: {
-    type: String,
-  },
-  passportNumber: {
-    type: String,
-  },
-  gallery: {
-    type: String,
-  },
- 
-    pet: [petSchema], 
   
-  author: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: "User",
-  },
-});
 
 const userSchema = new Schema(
   {
@@ -78,7 +23,7 @@ const userSchema = new Schema(
       required: true,
     },
 
-    profile: [profileSchema],
+   
   },
   {
     timestamps: true,

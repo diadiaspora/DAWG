@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as planService from "../../services/planService";
 import "./PlanBasicForm.css";
 
-import { useNavigate } from "react-router";
+
 
 export default function PlanBasicsForm({ planId, setPlanId }) {
   const [formData, setFormData] = useState({
