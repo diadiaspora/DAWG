@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ArrowLeft, ArrowRight, ThumbsUp, MessageSquare, Share2, CornerDownRight } from "lucide-react";
 import "./RedditPostList.css";
+import { Link } from "react-router";
 
 const generateUniqueId = () => Math.random().toString(36).substr(2, 9);
 
@@ -162,8 +163,18 @@ export default function PostListPage() {
   };
 
   return (
-    <div style={{ marginTop: "-340px", marginLeft: "42px", marginRight: "42px", position: "relative", paddingBottom: "120px" }}>
-      <h1 style={{ textAlign: "left" }}>Post List</h1>
+    <div
+      style={{
+        marginTop: "-340px",
+        marginLeft: "42px",
+        marginRight: "42px",
+        position: "relative",
+        paddingBottom: "120px",
+      }}
+    >
+      <Link to="/posts">
+        <h1 style={{ textAlign: "left" }}>Post List</h1>
+      </Link>
       {posts.length ? (
         <Carousel
           responsive={responsive}
@@ -176,18 +187,53 @@ export default function PostListPage() {
           customRightArrow={<CustomRightArrow />}
         >
           {posts.map((post) => (
-            <div key={post._id} style={{ border: "1px solid #ccc", borderRadius: "8px", padding: "16px", backgroundColor: "#f9f9f9", color: "#333", width: "350px", minHeight: "400px", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div
+              key={post._id}
+              style={{
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+                padding: "16px",
+                backgroundColor: "#f9f9f9",
+                color: "#333",
+                width: "350px",
+                minHeight: "400px",
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
               <div>
-                <div style={{ fontSize: "14px", color: "#666", marginBottom: "8px" }}>
-                  <strong>{post.user?.username || "Anonymous"}</strong> • {new Date(post.createdAt).toLocaleString()}
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#666",
+                    marginBottom: "8px",
+                  }}
+                >
+                  <strong>{post.user?.username || "Anonymous"}</strong> •{" "}
+                  {new Date(post.createdAt).toLocaleString()}
                 </div>
                 <h3 style={{ margin: "10px 0" }}>{post.title}</h3>
-                <div style={{ fontSize: "16px", marginBottom: "12px" }}>{post.content}</div>
+                <div style={{ fontSize: "16px", marginBottom: "12px" }}>
+                  {post.content}
+                </div>
               </div>
               <div>
-                <div style={{ display: "flex", gap: "12px", marginBottom: "10px", flexWrap: "wrap" }}>
-                  <button onClick={() => toggleComments(post._id)} style={buttonStyle}>
-                    <MessageSquare size={16} /> {post.showComments ? "Hide" : "View"} Comments
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    marginBottom: "10px",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <button
+                    onClick={() => toggleComments(post._id)}
+                    style={buttonStyle}
+                  >
+                    <MessageSquare size={16} />{" "}
+                    {post.showComments ? "Hide" : "View"} Comments
                   </button>
                   <button onClick={() => addLike(post._id)} style={buttonStyle}>
                     <ThumbsUp size={16} /> {post.likes}
@@ -195,7 +241,9 @@ export default function PostListPage() {
                   <button
                     onClick={() =>
                       navigator.share?.({ text: post.content }) ||
-                      console.log("Sharing not supported by browser navigator.share API.")
+                      console.log(
+                        "Sharing not supported by browser navigator.share API."
+                      )
                     }
                     style={buttonStyle}
                   >
@@ -206,15 +254,33 @@ export default function PostListPage() {
                   <div>
                     <div>
                       {post.comments.map((comment) => (
-                        <div key={comment._id} style={{ paddingLeft: "10px", marginBottom: "6px" }}>
+                        <div
+                          key={comment._id}
+                          style={{ paddingLeft: "10px", marginBottom: "6px" }}
+                        >
                           <p style={{ marginBottom: "4px" }}>{comment.text}</p>
                           {comment.replies.map((reply) => (
-                            <div key={reply._id} style={{ marginLeft: "10px", fontSize: "13px" }}>
-                              <CornerDownRight size={12} style={{ marginRight: "4px" }} />
+                            <div
+                              key={reply._id}
+                              style={{ marginLeft: "10px", fontSize: "13px" }}
+                            >
+                              <CornerDownRight
+                                size={12}
+                                style={{ marginRight: "4px" }}
+                              />
                               {reply.text}
                             </div>
                           ))}
-                          <button onClick={() => toggleReplyForm(post._id, comment._id)} style={{ ...buttonStyle, fontSize: "12px", marginTop: "4px" }}>
+                          <button
+                            onClick={() =>
+                              toggleReplyForm(post._id, comment._id)
+                            }
+                            style={{
+                              ...buttonStyle,
+                              fontSize: "12px",
+                              marginTop: "4px",
+                            }}
+                          >
                             Reply
                           </button>
                           {comment.showReplyForm && (
@@ -222,21 +288,32 @@ export default function PostListPage() {
                               <input
                                 type="text"
                                 placeholder="Write a reply..."
-                                value={replyInputs[`${post._id}_${comment._id}`] || ""}
+                                value={
+                                  replyInputs[`${post._id}_${comment._id}`] ||
+                                  ""
+                                }
                                 onChange={(e) =>
                                   setReplyInputs((prev) => ({
                                     ...prev,
-                                    [`${post._id}_${comment._id}`]: e.target.value,
+                                    [`${post._id}_${comment._id}`]:
+                                      e.target.value,
                                   }))
                                 }
-                                style={{ width: "100%", padding: "4px", borderRadius: "4px", border: "1px solid #ccc", fontSize: "13px" }}
+                                style={{
+                                  width: "100%",
+                                  padding: "4px",
+                                  borderRadius: "4px",
+                                  border: "1px solid #ccc",
+                                  fontSize: "13px",
+                                }}
                               />
                               <button
                                 onClick={() =>
                                   addReply(
                                     post._id,
                                     comment._id,
-                                    replyInputs[`${post._id}_${comment._id}`] || ""
+                                    replyInputs[`${post._id}_${comment._id}`] ||
+                                      ""
                                   )
                                 }
                                 style={{
@@ -263,13 +340,31 @@ export default function PostListPage() {
                         placeholder="Add a comment..."
                         value={commentInputs[post._id] || ""}
                         onChange={(e) =>
-                          setCommentInputs((prev) => ({ ...prev, [post._id]: e.target.value }))
+                          setCommentInputs((prev) => ({
+                            ...prev,
+                            [post._id]: e.target.value,
+                          }))
                         }
-                        style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "1px solid #ccc" }}
+                        style={{
+                          width: "100%",
+                          padding: "6px",
+                          borderRadius: "4px",
+                          border: "1px solid #ccc",
+                        }}
                       />
                       <button
-                        onClick={() => addComment(post._id, commentInputs[post._id] || "")}
-                        style={{ marginTop: "6px", padding: "4px 8px", border: "none", backgroundColor: "#0079d3", color: "white", borderRadius: "4px", cursor: "pointer" }}
+                        onClick={() =>
+                          addComment(post._id, commentInputs[post._id] || "")
+                        }
+                        style={{
+                          marginTop: "6px",
+                          padding: "4px 8px",
+                          border: "none",
+                          backgroundColor: "#0079d3",
+                          color: "white",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                        }}
                       >
                         Comment
                       </button>

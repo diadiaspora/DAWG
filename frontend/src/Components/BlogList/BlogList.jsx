@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
+import { Link } from "react-router";
 
 export default function BlogList() {
     const [blogs, setBlogs] = useState([]);
@@ -18,7 +19,9 @@ export default function BlogList() {
           {blogs.length ? (
             <ul>
               {blogs.map((blog) => (
-                <li key={blog._id}>{blog.content}</li>
+                <li key={blog._id}>
+                  <Link to={`${blog._id}`}> {blog.content} </Link>
+                </li>
               ))}
             </ul>
           ) : (

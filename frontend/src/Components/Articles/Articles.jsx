@@ -1,8 +1,12 @@
+import { Link } from "react-router";
+
 const Articles = () => {
   return (
     <div>
       <div>
-        <h3>Articles</h3>
+        <Link to="./blogs">
+          <h3>Articles</h3>
+        </Link>
         <img
           src="./articles.png"
           style={{ width: "900px" }}

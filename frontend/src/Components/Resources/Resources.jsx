@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router";
 
 import "./Resources.css";
 
@@ -12,7 +13,9 @@ const Resources = () => {
   return (
     <div className="divbd" style={{ marginTop: "-300px" }}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
-        <h3 style={{ marginBottom: "-25px" }}>Resources </h3>
+        <Link to="/blogs"> 
+          <h3 style={{ marginBottom: "-25px" }}>Resources </h3>
+          </Link>
         <p></p>
       </aside>
       <main style={{ marginRight: "42px" }}></main>
