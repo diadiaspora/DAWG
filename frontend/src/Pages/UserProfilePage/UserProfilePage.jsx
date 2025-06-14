@@ -2,19 +2,25 @@ import ProfileForm from "../../Components/ProfileForm/ProfileForm.jsx";
 import Carousel from "../../Components/Carousel/Carousel.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import * as profileService from "../../services/profileService";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx"; 
+import Header from "../../Components/Header/Header.jsx";
 import { useState } from "react";
 
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null); 
+
+
   return (
     <>
       <div style={{ display: "flex" }}>
         <div>
-          <img src="./Avatar.png" className="avatar" alt="human avatar"></img>
+          <img src="./Avatar.png" className="avatar" alt="human avatar" style={{width: "200px"}}></img>
         </div>
-        <h1>
-          {user.name} & {user.petName}
-        </h1>
+        <div>
+          <h1>
+            {user.name} & {user.petName}
+          </h1>
+        </div>
       </div>
 
       <ProfileForm profile={profile} setProfile={setProfile} />

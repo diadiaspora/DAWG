@@ -27,7 +27,7 @@ const Resources = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "10px",
+            borderRadius: "20px",
           }}
         >
           <img
@@ -35,8 +35,8 @@ const Resources = () => {
             alt="resources"
             style={{
               width: "192px",
-              borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
             }}
           ></img>
         </div>
@@ -46,7 +46,7 @@ const Resources = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "10px",
+            borderRadius: "20px",
           }}
         >
           <img
@@ -54,8 +54,8 @@ const Resources = () => {
             alt="resources"
             style={{
               width: "192px",
-              borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
             }}
           ></img>
         </div>
@@ -65,7 +65,7 @@ const Resources = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "10px",
+            borderRadius: "20px",
           }}
         >
           <img
@@ -73,8 +73,8 @@ const Resources = () => {
             alt="resources"
             style={{
               width: "192px",
-              borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
             }}
           ></img>
         </div>
@@ -85,7 +85,7 @@ const Resources = () => {
           style={{
             backgroundColor: "#D9D9D9",
             width: "310px",
-            borderRadius: "10px",
+            borderRadius: "20px",
             height: "350px",
             marginTop: "-30px",
           }}

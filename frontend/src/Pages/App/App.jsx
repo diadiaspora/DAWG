@@ -24,28 +24,33 @@ import Footer from "../../Components/Footer/Footer";
 import BlogList from "../../Components/BlogList/BlogList";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetail from "../../Components/BlogDetail/BlogDetail.jsx";
-
-
+import PlanBasicUpdate from "../../Components/PlanBasicUpdate/PlanBasicUpdate.jsx";
 
 import "./App.css";
 
 export default function App() {
-
   const [user, setUser] = useState(getUser());
   const [profile, setProfile] = useState(null);
   const location = useLocation();
 
-  const showHeaderOn = ["/", "/flights", "/plans", "/profile"];
+  // const showHeaderOn = [
+  //   "/",
+  //   "/flights",
+  //   "/plans",
+  //   "/profile",
+  //   "/plans",
+  //   "/plans/:id"
+  // ];
 
-  const shouldShowHeader = showHeaderOn.includes(location.pathname);
+  // const shouldShowHeader = showHeaderOn.includes(location.pathname);
 
   useEffect(() => {
     async function fetchProfile() {
       if (user) {
         try {
           const profiles = await profileService.index();
-      
-          const userProfile = profiles.find((p) => p.user === user._id); 
+
+          const userProfile = profiles.find((p) => p.user === user._id);
           if (userProfile) {
             setProfile(userProfile);
           }
@@ -57,13 +62,11 @@ export default function App() {
     fetchProfile();
   }, [user]);
 
-
-
   return (
     <>
       <main className="App">
         <NavBar user={user} setUser={setUser} />
-        {shouldShowHeader && <Header user={user} setUser={setUser} />}
+ 
         <section id="main-section">
           {user ? (
             <Routes>

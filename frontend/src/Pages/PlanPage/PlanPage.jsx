@@ -1,4 +1,4 @@
-
+import Header from "../../Components/Header/Header.jsx";
 import PlanBasicsForm from "../../Components/PlanBasicsForm/PlanBasicsForm.jsx";
 import PlanWhereForm from "../../Components/PlanWhereForm/PlanWhereForm.jsx";
 import PlanFlightForm from "../../Components/PlanFlightForm/PlanFlightForm.jsx";
@@ -15,31 +15,32 @@ import "./PlanPage.css";
 
 export default function PlanPage() {
   const [planId, setPlanId] = useState(null);
- 
-  useEffect(() => {}, [planId])
-    return (
-      <>
-        <section className="plan">
-          <SearchComponent />
-          <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
-          <div
-            style={{
-              backgroundColor: "#d9d9d9",
-              width: "1012px",
-              marginLeft: "42px",
-              borderRadius: "10px",
-              height: "75px",
-              paddingTop: "10px",
-            }}
-          >
-            <PlanIndex />
-          </div>
 
-          <h3> Marketplace</h3>
-          <Marketplace />
-          <h3> Articles</h3>
-          <Articles />
-        </section>
-      </>
-    );
+  useEffect(() => {}, [planId]);
+  return (
+    <>
+      <section className="plan">
+        <Header />
+        <SearchComponent />
+        <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
+        <div
+          style={{
+            backgroundColor: "#d9d9d9",
+            width: "1012px",
+            marginLeft: "42px",
+            borderRadius: "10px",
+            height: "75px",
+            paddingTop: "10px",
+          }}
+        >
+          <PlanIndex />
+        </div>
+
+        <h3> Marketplace</h3>
+        <Marketplace />
+        <h3> Articles</h3>
+        <Articles />
+      </section>
+    </>
+  );
 }

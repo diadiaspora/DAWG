@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function PlanBasicsForm({ planId, setPlanId }) {
+export default function PlanBasicsForm() {
   const [formData, setFormData] = useState({
     month: "",
     day: "",
@@ -26,36 +26,30 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      let plan;
-      if (!planId) {
+      
      
-        plan = await planService.create(formData);
-        setPlanId(plan._id);
+        const plan = await planService.create(formData);
+   
         navigate(`/plans/${plan._id}`);
-      } else {
-       
-        plan = await planService.update(planId, formData);
-      }
-      setIsEditing(false); // Switch to card view
+   
+
     } catch (err) {
       setErrorMsg("Saving Plan Failed");
     }
   }
 
-  function handleEditClick() {
-    setIsEditing(true); // Switch back to form view
-  }
+ 
 
   return (
-    <div className="divbody" style={{marginBottom:"-230px"}}>
+    <div className="divbody" style={{ marginBottom: "-230px" }}>
       <aside style={{ marginRight: "42px" }}>
-        <h3>{planId ? "Your Plan" : "Create a Plan"}</h3>
+        <h3>Create a Plan</h3>
       </aside>
 
       <main>Calendar</main>
 
       <div>
-        {isEditing ? (
+       
           <form
             onSubmit={handleSubmit}
             style={{
@@ -66,7 +60,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
               gap: "1.2vmin",
               padding: "4vmin",
               border: "0.5vmin solid #1a1a1a",
-              borderRadius: "1vmin",
+              borderRadius: "20px",
             }}
           >
             <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
@@ -78,9 +72,10 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                   name="month"
                   value={formData.month}
                   onChange={handleChange}
-                  style={{ width: "150px" }}
+                  style={{ width: "150px", borderRadius: "50px" }}
                 >
-                  <option value="">-- Select Month --</option>
+                <option value="">-- Select Month --</option>
+                
                   {[
                     "January",
                     "February",
@@ -114,7 +109,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                   name="day"
                   value={formData.day}
                   onChange={handleChange}
-                  style={{ width: "60px" }}
+                  style={{ width: "60px", borderRadius: "50px" }}
                 >
                   <option value="">-- Select Day --</option>
                   {[...Array(31).keys()].map((d) => (
@@ -137,7 +132,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                   name="year"
                   value={formData.year}
                   onChange={handleChange}
-                  style={{ width: "100px" }}
+                  style={{ width: "100px", borderRadius: "50px" }}
                 >
                   <option value="">-- Select Year --</option>
                   {[2025, 2026, 2027, 2028].map((y) => (
@@ -160,7 +155,7 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                   name="destination"
                   value={formData.destination}
                   onChange={handleChange}
-                  style={{ width: "208px" }}
+                  style={{ width: "208px", borderRadius: "50px" }}
                 />
               </div>
             </div>
@@ -171,27 +166,14 @@ export default function PlanBasicsForm({ planId, setPlanId }) {
                 value={formData.notes}
                 onChange={handleChange}
                 rows={4}
-                style={{ width: "598px" }}
+                style={{ width: "598px", borderRadius: "20px" }}
               />
             </div>
             <div style={{ textAlign: "right", marginRight: "-43px" }}>
-              <button type="submit">{planId ? "Save" : "Create Plan"}</button>
+              <button type="submit">create Plan</button>
             </div>
           </form>
-        ) : (
-          <div>
-            <h4>
-              {formData.month} {formData.day}, {formData.year}
-            </h4>
-            <p>
-              <strong>Destination:</strong> {formData.destination}
-            </p>
-            <p>
-              <strong>Notes:</strong> {formData.notes}
-            </p>
-            <button onClick={handleEditClick}>Update</button>
-          </div>
-        )}
+       
 
         {errorMsg && <p className="error">{errorMsg}</p>}
       </div>
