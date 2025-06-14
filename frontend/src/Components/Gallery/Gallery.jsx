@@ -29,7 +29,7 @@ const Gallery = () => {
             backgroundColor: "#D9D9D9",
             height: "75px",
             width: "665px",
-            borderRadius: "10px",
+            borderRadius: "20px",
             marginTop: "34px",
           }}
         >

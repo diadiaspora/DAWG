@@ -2,116 +2,121 @@ import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
 import "./PlanFlightForm.css";
 
-export default function PlanFlightForm({ planId }) {
-  const [showForm, setShowForm] = useState(false); // Form is hidden by default
-  const [isSubmitted, setIsSubmitted] = useState(false); // No data submitted yet
+export default function PlanFlightForm({ plan }) {
+  const [showForm, setShowForm] = useState(plan ? false : true); // Form is hidden by default
+  
   const [formData, setFormData] = useState({
-    airline: "",
-    outboundFlightNumber: "",
-    outboundDate: "",
-    outboundDepartureTime: "",
-    outboundArrivalTime: "",
-    returnFlightNumber: "",
-    returnDate: "",
-    returnDepartureTime: "",
-    returnArrivalTime: "",
+    airline: plan?.airline ? plan.airline : "",
+    outboundFlightNumber: plan?.outboundFlightNumber
+      ? plan.outboundFlightNumber
+      : "",
+    outboundDate: plan?.outboundDate ? plan.outboundDate : "",
+    outboundDepartureTime: plan?.outboundDepartureTime
+      ? plan.outboundDepartureTime
+      : "",
+    outboundArrivalTime: plan?.outboundArrivalTime
+      ? plan.outboundArrivalTime
+      : "",
+    returnFlightNumber: plan?.returnFlightNumber ? plan.returnFlightNumber : "",
+    returnDate: plan?.returnDate ? plan.returnDate : "",
+    returnDepartureTime: plan?.returnDepartureTime ? plan.returnDepartureTime : "",
+    returnArrivalTime: plan?.returnArrivalTime ? plan.returnArrivalTime :"",
   });
 
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Fetch existing flight data when component mounts or planId changes
-  useEffect(() => {
-    async function fetchFlightData() {
-      if (!planId) {
-        // If no planId, ensure form is hidden and not submitted
-        setShowForm(false);
-        setIsSubmitted(false);
-        return;
-      }
+  
+  //   async function fetchFlightData() {
+  //     if (!planId) {
+  //       // If no planId, ensure form is hidden and not submitted
+  //       setShowForm(false);
+  //       setIsSubmitted(false);
+  //       return;
+  //     }
 
-      try {
-        const planData = await planService.show(planId);
+  //     try {
+  //       const planData = await planService.show(planId);
         
 
-        if (
-          planData &&
-          (planData.airline ||
-            planData.outboundFlightNumber ||
-            planData.outboundDepartureTime ||
-            planData.outboundArrivalTime ||
-            planData.returnFlightNumber ||
-            planData.returnDepartureTime ||
-            planData.returnArrivalTime))
-        {
-          setFormData({
-            airline: planData.airline || "",
+  //       if (
+  //         planData &&
+  //         (planData.airline ||
+  //           planData.outboundFlightNumber ||
+  //           planData.outboundDepartureTime ||
+  //           planData.outboundArrivalTime ||
+  //           planData.returnFlightNumber ||
+  //           planData.returnDepartureTime ||
+  //           planData.returnArrivalTime))
+  //       {
+  //         setFormData({
+  //           airline: planData.airline || "",
 
-            outboundFlightNumber: planData.outboundFlightNumber || "",
+  //           outboundFlightNumber: planData.outboundFlightNumber || "",
 
-            outboundDate: planData.outboundDate || "",
+  //           outboundDate: planData.outboundDate || "",
 
-            outboundDepartureTime: planData.outboundDepartureTime || "",
+  //           outboundDepartureTime: planData.outboundDepartureTime || "",
 
-            outboundArrivalTime: planData.outboundArrivalTime || "",
+  //           outboundArrivalTime: planData.outboundArrivalTime || "",
 
-            returnFlightNumber: planData.returnFlightNumber || "",
+  //           returnFlightNumber: planData.returnFlightNumber || "",
 
-            returnDate: planData.returnDate || "",
+  //           returnDate: planData.returnDate || "",
 
-            returnDepartureTime: planData.returnDepartureTime || "",
-            returnArrivalTime: planData.returnArrivalTime || "",
-          });
-          setIsSubmitted(true); // Data exists, so consider it submitted
-          setShowForm(false); // Show the card initially
-        } else {
-          // No existing flight details found for this plan.
-          // Keep formData at its initial empty state.
-          setFormData({
-            airline: "",
-            outboundFlightNumber: "",
-            outboundDate: "",
-            outboundDepartureTime: "",
-            outboundArrivalTime: "",
-            returnFlightNumber: "",
-            returnDate: "",
-            returnDepartureTime: "",
-            returnArrivalTime: "",
-          });
-          setIsSubmitted(false); // No data, so not submitted
-          setShowForm(false); // Ensure form is hidden, showing "Open Form" button
-        }
-      } catch (err) {
-        console.error("Failed to fetch flight data for planId:", planId, err);
-        setErrorMsg("Failed to load flight details. Please try again.");
-        // If there's an error fetching, treat it as no data loaded yet
-        setIsSubmitted(false);
-        setShowForm(false); // Keep form hidden on initial load error
-      }
-    }
-    fetchFlightData();
-  }, [planId]); // Dependency array: re-run if planId changes
+  //           returnDepartureTime: planData.returnDepartureTime || "",
+  //           returnArrivalTime: planData.returnArrivalTime || "",
+  //         });
+  //         setIsSubmitted(true); // Data exists, so consider it submitted
+  //         setShowForm(false); // Show the card initially
+  //       } else {
+  //         // No existing flight details found for this plan.
+  //         // Keep formData at its initial empty state.
+  //         setFormData({
+  //           airline: "",
+  //           outboundFlightNumber: "",
+  //           outboundDate: "",
+  //           outboundDepartureTime: "",
+  //           outboundArrivalTime: "",
+  //           returnFlightNumber: "",
+  //           returnDate: "",
+  //           returnDepartureTime: "",
+  //           returnArrivalTime: "",
+  //         });
+  //         setIsSubmitted(false); // No data, so not submitted
+  //         setShowForm(false); // Ensure form is hidden, showing "Open Form" button
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch flight data for planId:", planId, err);
+  //       setErrorMsg("Failed to load flight details. Please try again.");
+  //       // If there's an error fetching, treat it as no data loaded yet
+  //       setIsSubmitted(false);
+  //       setShowForm(false); // Keep form hidden on initial load error
+  //     }
+  //   }
+  //   fetchFlightData();
+  // }, [planId]); // Dependency array: re-run if planId changes
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleToggle() {
-    // If data is submitted, clicking "Update" will show the form.
-    // Otherwise, it's the initial "Open Form" / "Hide Form" toggle.
-    if (isSubmitted) {
-      setShowForm(true); // If submitted, "Update" button always opens form
-    } else {
-      setShowForm((prev) => !prev); // Otherwise, toggle show/hide form
-    }
-  }
+  // function handleToggle() {
+  //   // If data is submitted, clicking "Update" will show the form.
+  //   // Otherwise, it's the initial "Open Form" / "Hide Form" toggle.
+  //   if (isSubmitted) {
+  //     setShowForm(true); // If submitted, "Update" button always opens form
+  //   } else {
+  //     setShowForm((prev) => !prev); // Otherwise, toggle show/hide form
+  //   }
+  // }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await planService.update(planId, formData);
+      await planService.update(plan._id, formData);
       setErrorMsg("");
-      setIsSubmitted(true); 
+      // setIsSubmitted(true); 
       setShowForm(false); 
     } catch (err) {
       console.error("Failed to save flight details in handleSubmit:", err);
@@ -120,7 +125,7 @@ export default function PlanFlightForm({ planId }) {
   }
 
   return (
-    <div style={{marginTop: "24px"}}>
+    <div style={{ marginTop: "24px" }}>
       <aside
         style={{
           marginRight: "42px",
@@ -131,13 +136,6 @@ export default function PlanFlightForm({ planId }) {
         }}
       >
         <h3>Flight Info</h3>
-        <button onClick={handleToggle} style={{ height: "44px" }}>
-          {isSubmitted
-            ? "Update"
-            : showForm
-            ? "Hide Form"
-            : "Add Flight Details"}
-        </button>
       </aside>
 
       {showForm ? (
@@ -152,8 +150,8 @@ export default function PlanFlightForm({ planId }) {
             gap: "1.2vmin",
             padding: "4vmin",
             border: "0.5vmin solid #1a1a1a",
-            borderRadius: "1vmin",
-            marginTop: "42px"
+            borderRadius: "20px",
+            marginTop: "42px",
           }}
         >
           <h3>Outbound Flight</h3>
@@ -257,83 +255,144 @@ export default function PlanFlightForm({ planId }) {
             />
           </div>
 
-          <button type="submit" className="submit-btn">
-            Save Flight Info
+          <button type="submit">
+            Update
           </button>
           {errorMsg && <p className="error">{errorMsg}</p>}
         </form>
       ) : (
-        isSubmitted && (
+        // isSubmitted && (
+        <div
+          className="planFlightCard"
+          style={{
+            marginLeft: "42px",
+            marginRight: "42px",
+            backgroundColor: "#ffffff",
+            width: "1012px",
+            borderRadius: "20px",
+            padding: "4vmin",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.5vmin",
+            marginTop: "42px",
+            borderStyle: "solid",
+            borderWidth: "3px",
+          }}
+        >
+          <div style={{ display: "flex" }}>
+            <h4>Flight Details</h4>
+            <button style={{ height: "44px" }}> Upload Ticket</button>
+          </div>
+          <h4>Outbound:</h4>
           <div
-            className="planFlightCard"
             style={{
-              marginLeft: "42px",
-              marginRight: "42px",
-              backgroundColor: "#ffffff",
-              width: "1012px",
-              borderRadius: "10px",
-              padding: "4vmin",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.5vmin",
-              marginTop: "42px",
               borderStyle: "solid",
-              borderWidth: "3px",
-
+              borderColor: "#d9d9d9",
+              borderRadius: "20px",
+              padding: "12px",
             }}
           >
-            <h4>Flight Details:</h4>
-            <div>
-              <strong>Airline:</strong> {formData.airline || "N/A"}
-            </div>
-            <h4>Outbound:</h4>
-            <div>
-              <strong>Flight Number:</strong>{" "}
-              {formData.outboundFlightNumber || "N/A"}
-            </div>
-            <div>
-              <strong>Date:</strong> {formData.outboundDate || "N/A"}
-            </div>
-            <div>
-              <strong>Departure Time:</strong>{" "}
-              {formData.outboundDepartureTime || "N/A"}
-            </div>
-            <div>
-              <strong>Arrival Time:</strong>{" "}
-              {formData.outboundArrivalTime || "N/A"}
-            </div>
-            {formData.returnFlightNumber && (
-              <>
-                <h4>Return:</h4>
+            <div style={{ display: "flex" }}>
+              <div className="shadowSmall">
                 <div>
-                  <strong>Flight Number:</strong>{" "}
-                  {formData.returnFlightNumber || "N/A"}
+                  <strong style={{ fontSize: "14px" }}>Airline:</strong>
                 </div>
+                <div>{plan.airline || "N/A"}</div>
+              </div>
+              <div className="shadowSmall">
                 <div>
-                  <strong>Date:</strong> {formData.returnDate || "N/A"}
+                  <strong style={{ fontSize: "14px" }}> Flight Number:</strong>
                 </div>
-                <div>
-                  <strong>Departure Time:</strong>{" "}
-                  {formData.returnDepartureTime || "N/A"}
-                </div>
-                <div>
-                  <strong>Arrival Time:</strong>{" "}
-                  {formData.returnArrivalTime || "N/A"}
-                </div>
-              </>
-            )}
-            {!formData.airline &&
-              !formData.outboundFlightNumber &&
-              !formData.outboundDate &&
-              !formData.returnFlightNumber && (
-                <p>No flight details entered yet.</p>
-              )}
+                <div>{plan.outboundFlightNumber || "N/A"}</div>
+              </div>
+            </div>
+            <div style={{ display: "flex" }}>
+              <div className="shadowSmall">
+                <strong>Date:</strong>{" "}
+                {plan.outboundDate
+                  ? new Date(plan.outboundDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }
+                    )
+                  : "N/A"}
+              </div>
+              <div className="shadowSmall">
+                <strong>Departure Time:</strong>{" "}
+                {plan.outboundDepartureTime || "N/A"}
+              </div>
+              <div className="shadowSmall">
+                <strong>Arrival Time:</strong>{" "}
+                {plan.outboundArrivalTime || "N/A"}
+              </div>
+            </div>
           </div>
-        )
-      )}
-      {/* Show a message if there's no data and the form is not showing */}
-      {!isSubmitted && !showForm && (
-        <p style={{ marginLeft: "42px", color: "#666" }}></p>
+          {plan.returnFlightNumber && (
+            <>
+              <h4>Inbound:</h4>
+              <div
+                style={{
+                  borderStyle: "solid",
+                  borderColor: "#d9d9d9",
+                  borderRadius: "20px",
+                  padding: "12px",
+                }}
+              >
+                <div style={{ display: "flex" }}>
+                  <div className="shadowSmall">
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>Airline:</strong>
+                    </div>
+                    <div>{plan.airline || "N/A"}</div>
+                  </div>
+                  <div className="shadowSmall">
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>
+                        {" "}
+                        Flight Number:
+                      </strong>
+                    </div>
+                    <div>{plan.returnFlightNumber || "N/A"}</div>
+                  </div>
+                </div>
+                <div style={{ display: "flex" }}>
+                  <div className="shadowSmall">
+                    <strong>Date:</strong>{" "}
+                    {plan.returnDate
+                      ? new Date(plan.returnDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          }
+                        )
+                      : "N/A"}
+                  </div>
+                  <div className="shadowSmall">
+                    <strong>Departure Time:</strong>{" "}
+                    {plan.returnDepartureTime || "N/A"}
+                  </div>
+                  <div className="shadowSmall">
+                    <strong>Arrival Time:</strong>{" "}
+                    {plan.returnArrivalTime || "N/A"}
+                  </div>
+                </div>
+              </div>
+       
+            </>
+          )}
+          {!plan.airline &&
+            !plan.outboundFlightNumber &&
+            !plan.outboundDate &&
+            !plan.returnFlightNumber && (
+              <p>No flight details entered yet.</p>
+            )}
+          <button onClick={() => setShowForm(true)}> Edit </button>
+        </div>
       )}
     </div>
   );

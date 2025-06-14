@@ -21,10 +21,12 @@
   a:hover {
     background-color: #1F9EBC;
     color: white;
+    
   }
 
   a.active {
     background-color: white;
+   border-radius: 50px;
     color: #1E3769;
   }
 

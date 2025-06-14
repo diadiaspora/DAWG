@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as blogService from "../../services/blogService";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+import Header from "../../Components/Header/Header.jsx";
 
 export default function NewBlogPage() {
   const [title, setTitle] = useState(""); 
@@ -22,6 +24,8 @@ export default function NewBlogPage() {
 
   return (
     <>
+      <Header />
+      <SearchComponent />
       <h2>Share Your Experiences</h2>
       <form onSubmit={handleSubmit}>
         <label>Title</label>{" "}

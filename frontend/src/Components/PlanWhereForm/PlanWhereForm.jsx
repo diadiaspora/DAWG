@@ -1,78 +1,33 @@
 import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
 
-import "./PlanWhereForm.css"; // Ensure this CSS file exists and is correctly linked
+import "./PlanWhereForm.css"; 
+export default function PlanWhereForm({ plan, setPlan }) {
+  const [showForm, setShowForm] = useState(plan? false : true);
 
-export default function PlanWhereForm({ planId }) {
-  const [showForm, setShowForm] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
   const [formData, setFormData] = useState({
-    checkIn: "",
-    checkOut: "",
-    address: "",
+    
+    checkIn: plan.checkIn ? plan.checkIn : "",
+    checkOut: plan.checkOut ? plan.checkOut : "",
+    address: plan.address ? plan.address : "",
   });
 
   const [errorMsg, setErrorMsg] = useState("");
 
-  useEffect(() => {
-    async function fetchPlanData() {
-      if (!planId) {
-        setShowForm(false);
-        setIsSubmitted(false);
-        return;
-      }
-
-      try {
-        const planData = await planService.show(planId);
-       
-        if (planData && (planData.checkIn || planData.checkOut || planData.address )) {
-          setFormData({
-            checkIn: planData.checkIn || "",
-            checkOut: planData.checkOut || "",
-            address: planData.address || "",
-          });
-          setIsSubmitted(true);
-          setShowForm(false); 
-        } else {
-          setFormData({
-            checkIn: "",
-            checkOut: "",
-            address: "",
-          });
-          setIsSubmitted(false);
-          setShowForm(false); 
-        }
-      } catch (err) {
-        console.error("Failed to fetch plan data for planId:", planId, err);
-        setErrorMsg("Failed to load plan details.");
-        setIsSubmitted(false);
-        setShowForm(false); 
-      }
-    }
-    fetchPlanData();
-  }, [planId]);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleToggle() {
-    if (isSubmitted) {
-      setShowForm(true); 
-    } else {
-      setShowForm((prev) => !prev); 
-    }
-  }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await planService.update(planId, formData);
+      const plan = await planService.update(plan._id, formData);
       setErrorMsg("");
-      setIsSubmitted(true);
-      setShowForm(false); 
+      setPlan(plan)
+      setShowForm(false);
     } catch (err) {
       console.error("Failed to save location details:", err);
       setErrorMsg("Failed to save location details. Please try again.");
@@ -92,24 +47,17 @@ export default function PlanWhereForm({ planId }) {
       >
         <h3>Where Are You Staying?</h3>
 
-        <button onClick={handleToggle} style={{ height: "44px" }}>
-          {isSubmitted
-            ? "Update"
-            : showForm
-            ? "Hide Form"
-            : "Add Stay Detaills"}
-        </button>
       </aside>
-      <main></main>{" "}
+      
       {showForm ? (
         <div
-          className="planWhereFormContainer" 
+          className="planWhereFormContainer"
           style={{
             marginLeft: "42px",
             display: "grid",
-            gridTemplateColumns: "662px 350px", 
+            gridTemplateColumns: "662px 350px",
             gap: "20px",
-            alignItems: "start", 
+            alignItems: "start",
             marginBottom: "20px",
             marginTop: "42px",
           }}
@@ -117,14 +65,13 @@ export default function PlanWhereForm({ planId }) {
           <form
             onSubmit={handleSubmit}
             style={{
-            
               padding: "4vmin",
               border: "0.5vmin solid #1a1a1a",
               borderRadius: "1vmin",
-              backgroundColor: "white", 
+              backgroundColor: "#D9D9D9",
             }}
           >
-            <h3>Stay Details</h3> 
+            <h3>Stay Details</h3>
             <div
               style={{ display: "flex", gap: "10px", marginBottom: "1.2vmin" }}
             >
@@ -139,8 +86,8 @@ export default function PlanWhereForm({ planId }) {
                   style={{
                     width: "180px",
                     padding: "8px",
-                    borderRadius: "5px",
-                    border: "1px solid #ccc",
+                    borderRadius: "50px",
+                    border: "1px solid #red",
                   }}
                 />
               </div>
@@ -155,27 +102,13 @@ export default function PlanWhereForm({ planId }) {
                   style={{
                     width: "180px",
                     padding: "8px",
-                    borderRadius: "5px",
+                    borderRadius: "50px",
                     border: "1px solid #ccc",
                   }}
                 />
               </div>
-              <div style={{ alignSelf: "flex-end" }}>
-                
-                <button
-                  type="button"
-                  className="upload-btn"
-                  style={{
-                    padding: "8px 15px",
-                    borderRadius: "50px",
-                    border: "none",
-                    backgroundColor: "#1E3769",
-                    color: "white",
-                    cursor: "pointer",
-                  }}
-                >
-                  Upload Receipt
-                </button>
+              <div style={{ alignSelf: "flex-end", color: "1E3769" }}>
+      
               </div>
             </div>
             <div style={{ marginBottom: "1.2vmin" }}>
@@ -190,90 +123,138 @@ export default function PlanWhereForm({ planId }) {
                 style={{
                   width: "calc(100% - 16px)",
                   padding: "8px",
-                  borderRadius: "5px",
+                  borderRadius: "20px",
                   border: "1px solid #ccc",
                   resize: "vertical",
                 }}
               />
             </div>
-            <button
-              type="submit"
-              style={{
-                padding: "10px 20px",
-                borderRadius: "50px",
-                border: "none",
-                backgroundColor: "#1E3769",
-                color: "white",
-                cursor: "pointer",
-              }}
-            >
-              Save Stay Info
-            </button>
+            <div style={{ textAlign: "right" }}>
+              <button
+                type="submit"
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "50px",
+                  border: "none",
+                  backgroundColor: "#1E3769",
+                  color: "white",
+                  cursor: "pointer",
+                  height: "44px",
+                }}
+              >
+               Update
+              </button>
+            </div>
             {errorMsg && <p className="error">{errorMsg}</p>}
           </form>
 
-          <div
-            className="companionGrayBox"
-            style={{
-              backgroundColor: "#D9D9D9",
-              minHeight: "350px", 
-              borderRadius: "1vmin",
-              width: "350px", 
-              padding: "4vmin",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.5vmin",
-            }}
-          >
-            <h4>Tips for Booking Stays</h4>
-            <p>
-              - Never agree to make an accomadation off of a secure platform.
-            </p>
-      
-            <p>- Always Upload Recipts for easy access</p>
+          <div>
+            <img
+              src="../calander.png"
+              alt="calander"
+              style={{ width: "310px" }}
+            ></img>
           </div>
         </div>
       ) : (
-     
-        isSubmitted && (
-          <div
-            className="planWhereCard"
-            style={{
-              marginLeft: "42px",
-              backgroundColor: "#ffffff",
-              minHeight: "350px", 
-              borderRadius: "1vmin",
-              width: "662px", 
-              padding: "4vmin",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-around",
-              borderStyle: "solid",
-              borderWidth: "3px",
-              borderColor: "#1E3769",
-              marginTop: "42px",
-            }}
-          >
-            <h4>Stay Details:</h4>
-            <p>
-              <strong>Check-In:</strong> {formData.checkIn || "N/A"}
-            </p>
-            <p>
-              <strong>Check-Out:</strong> {formData.checkOut || "N/A"}
-            </p>
-            <p>
-              <strong>Address:</strong> {formData.address || "N/A"}
-            </p>
-            {!formData.checkIn && !formData.checkOut && !formData.address && (
-              <p>No location details entered yet.</p>
-            )}
-          </div>
-        )
+      
+  
+            <div
+              className="planWhereFormContainer"
+              style={{
+                marginLeft: "42px",
+                display: "grid",
+                gridTemplateColumns: "662px 350px",
+                gap: "20px",
+                alignItems: "start",
+                marginBottom: "20px",
+                marginTop: "42px",
+              }}
+            >
+              <div
+                className="planWhereCard"
+                style={{
+                 
+                  backgroundColor: "#ffffff",
+                  minHeight: "350px",
+                  borderRadius: "20px",
+                  width: "662px",
+                  paddingLeft: "21px",
+                  paddingRight: "21px",
+                  paddingTop: "0px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-around",
+                  borderStyle: "solid",
+                  borderWidth: "3px",
+                  borderColor: "#00000",
+                 
+                }}
+              >
+                <h4 style={{ marginTop: "-14px" }}>Stay Details:</h4>
+                <div style={{ display: "flex", marginTop: "-60px" }}>
+                  <div className="shadowSmall" style={{ borderRadius: "20px" }}>
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>Check-In:</strong>
+                    </div>
+                    <div>
+                      {plan.checkIn
+                        ? new Date(plan.checkIn).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )
+                        : "N/A"}
+                    </div>
+                  </div>
+                  <div className="shadowSmall">
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>Check-Out:</strong>
+                    </div>
+                    <div>
+                      {plan.checkOut
+                        ? new Date(plan.checkOut).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )
+                        : "N/A"}
+                    </div>
+                  </div>
+            
+                </div>
+                <div style={{ display: "flex" }}>
+                  <div className="shadowLong">
+                    <strong style={{ fontSize: "14px" }}>Address:</strong>{" "}
+                    {plan.address || "N/A"}
+                  </div>
+                <button onClick={() => setShowForm(true)} style={{ height: "44px" }} >Edit </button> 
+                </div>
+
+                {!plan.checkIn &&
+                  !plan.checkOut &&
+                  !plan.address && <p>No location details entered yet.</p>}
+              </div>
+              <div>
+                <div>
+                  <img
+                    src="../calander.png"
+                    alt="calander"
+                    style={{ width: "310px" }}
+                  ></img>
+                </div>
+              </div>
+            </div>
+          
+        // )
       )}
    
-      {!isSubmitted && !showForm && (
-        <p style={{ marginLeft: "42px", marginTop: "10px", color: "#666" }}></p>
-      )}
     </div>
   );
 }

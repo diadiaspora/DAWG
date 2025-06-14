@@ -6,7 +6,7 @@
   font-weight: 400;
 
   color: #1a1a1a;
- 
+  background-color: whitesmoke;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +25,7 @@ body {
 
 h1,
 h2 {
-  text-align: center;
+  
 }
 
 button {
@@ -71,7 +71,7 @@ label {
 }
 
 h2 {
-  text-align: center;
+  
 }
 
 .error-message {
