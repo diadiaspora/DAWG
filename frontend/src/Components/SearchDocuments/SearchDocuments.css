@@ -1,9 +1,17 @@
 
 .docSelect {
     width: 442px;
-    margin-left: 42px;
+    margin-left: 0px;
     background-color: white;
     color:black;
     border-radius: 50px;
     height: 44px;
+}
+
+.buttonDoc {
+    background-color: #1E3769;
+    border-radius: 50px;
+    border-color: #1E3769;
+    width: 200px;
+    height: "44px";
 }

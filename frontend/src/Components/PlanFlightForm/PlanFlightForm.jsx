@@ -25,91 +25,14 @@ export default function PlanFlightForm({ plan }) {
 
   const [errorMsg, setErrorMsg] = useState("");
 
-  
-  //   async function fetchFlightData() {
-  //     if (!planId) {
-  //       // If no planId, ensure form is hidden and not submitted
-  //       setShowForm(false);
-  //       setIsSubmitted(false);
-  //       return;
-  //     }
 
-  //     try {
-  //       const planData = await planService.show(planId);
-        
-
-  //       if (
-  //         planData &&
-  //         (planData.airline ||
-  //           planData.outboundFlightNumber ||
-  //           planData.outboundDepartureTime ||
-  //           planData.outboundArrivalTime ||
-  //           planData.returnFlightNumber ||
-  //           planData.returnDepartureTime ||
-  //           planData.returnArrivalTime))
-  //       {
-  //         setFormData({
-  //           airline: planData.airline || "",
-
-  //           outboundFlightNumber: planData.outboundFlightNumber || "",
-
-  //           outboundDate: planData.outboundDate || "",
-
-  //           outboundDepartureTime: planData.outboundDepartureTime || "",
-
-  //           outboundArrivalTime: planData.outboundArrivalTime || "",
-
-  //           returnFlightNumber: planData.returnFlightNumber || "",
-
-  //           returnDate: planData.returnDate || "",
-
-  //           returnDepartureTime: planData.returnDepartureTime || "",
-  //           returnArrivalTime: planData.returnArrivalTime || "",
-  //         });
-  //         setIsSubmitted(true); // Data exists, so consider it submitted
-  //         setShowForm(false); // Show the card initially
-  //       } else {
-  //         // No existing flight details found for this plan.
-  //         // Keep formData at its initial empty state.
-  //         setFormData({
-  //           airline: "",
-  //           outboundFlightNumber: "",
-  //           outboundDate: "",
-  //           outboundDepartureTime: "",
-  //           outboundArrivalTime: "",
-  //           returnFlightNumber: "",
-  //           returnDate: "",
-  //           returnDepartureTime: "",
-  //           returnArrivalTime: "",
-  //         });
-  //         setIsSubmitted(false); // No data, so not submitted
-  //         setShowForm(false); // Ensure form is hidden, showing "Open Form" button
-  //       }
-  //     } catch (err) {
-  //       console.error("Failed to fetch flight data for planId:", planId, err);
-  //       setErrorMsg("Failed to load flight details. Please try again.");
-  //       // If there's an error fetching, treat it as no data loaded yet
-  //       setIsSubmitted(false);
-  //       setShowForm(false); // Keep form hidden on initial load error
-  //     }
-  //   }
-  //   fetchFlightData();
-  // }, [planId]); // Dependency array: re-run if planId changes
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  // function handleToggle() {
-  //   // If data is submitted, clicking "Update" will show the form.
-  //   // Otherwise, it's the initial "Open Form" / "Hide Form" toggle.
-  //   if (isSubmitted) {
-  //     setShowForm(true); // If submitted, "Update" button always opens form
-  //   } else {
-  //     setShowForm((prev) => !prev); // Otherwise, toggle show/hide form
-  //   }
-  // }
+
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -152,6 +75,7 @@ export default function PlanFlightForm({ plan }) {
             border: "0.5vmin solid #1a1a1a",
             borderRadius: "20px",
             marginTop: "42px",
+            backgroundColor: "#d9d9d9",
           }}
         >
           <h3>Outbound Flight</h3>
@@ -255,9 +179,7 @@ export default function PlanFlightForm({ plan }) {
             />
           </div>
 
-          <button type="submit">
-            Update
-          </button>
+          <button type="submit">Update</button>
           {errorMsg && <p className="error">{errorMsg}</p>}
         </form>
       ) : (
@@ -281,7 +203,22 @@ export default function PlanFlightForm({ plan }) {
         >
           <div style={{ display: "flex" }}>
             <h4>Flight Details</h4>
-            <button style={{ height: "44px" }}> Upload Ticket</button>
+            <button
+              style={{
+                backgroundColor: "#d9d9d9",
+                width: "190px",
+                marginTop: "10px",
+                color: "black",
+                height: "44px",
+                borderRadius: "50px",
+                borderWidth: "2px",
+                  borderColor: "#d9d9d9",
+                marginLeft: "650px"
+              }}
+            >
+              {" "}
+              Upload Ticket
+            </button>
           </div>
           <h4>Outbound:</h4>
           <div
@@ -294,38 +231,32 @@ export default function PlanFlightForm({ plan }) {
           >
             <div style={{ display: "flex" }}>
               <div className="shadowSmall">
-                <div>
-                  <strong style={{ fontSize: "14px" }}>Airline:</strong>
-                </div>
-                <div>{plan.airline || "N/A"}</div>
+                <strong>Airline:</strong>
+                {plan.airline || "N/A"}
               </div>
               <div className="shadowSmall">
-                <div>
-                  <strong style={{ fontSize: "14px" }}> Flight Number:</strong>
-                </div>
-                <div>{plan.outboundFlightNumber || "N/A"}</div>
+                <strong style={{ fontSize: "14px" }}> Flight Number:</strong>
+
+                {plan.outboundFlightNumber || "N/A"}
               </div>
             </div>
             <div style={{ display: "flex" }}>
               <div className="shadowSmall">
                 <strong>Date:</strong>{" "}
                 {plan.outboundDate
-                  ? new Date(plan.outboundDate).toLocaleDateString(
-                      "en-US",
-                      {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      }
-                    )
+                  ? new Date(plan.outboundDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })
                   : "N/A"}
               </div>
               <div className="shadowSmall">
-                <strong>Departure Time:</strong>{" "}
+                <strong>Departure Time:</strong>
                 {plan.outboundDepartureTime || "N/A"}
               </div>
               <div className="shadowSmall">
-                <strong>Arrival Time:</strong>{" "}
+                <strong>Arrival Time:</strong>
                 {plan.outboundArrivalTime || "N/A"}
               </div>
             </div>
@@ -362,14 +293,11 @@ export default function PlanFlightForm({ plan }) {
                   <div className="shadowSmall">
                     <strong>Date:</strong>{" "}
                     {plan.returnDate
-                      ? new Date(plan.returnDate).toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          }
-                        )
+                      ? new Date(plan.returnDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })
                       : "N/A"}
                   </div>
                   <div className="shadowSmall">
@@ -382,16 +310,25 @@ export default function PlanFlightForm({ plan }) {
                   </div>
                 </div>
               </div>
-       
             </>
           )}
           {!plan.airline &&
             !plan.outboundFlightNumber &&
             !plan.outboundDate &&
-            !plan.returnFlightNumber && (
-              <p>No flight details entered yet.</p>
-            )}
-          <button onClick={() => setShowForm(true)}> Edit </button>
+            !plan.returnFlightNumber && <p>No flight details entered yet.</p>}
+          <button
+            onClick={() => setShowForm(true)}
+            style={{
+              height: "44px",
+              backgroundColor: "#1E3769",
+              borderWidth: "2px",
+              borderColor: "#1E3769",
+              borderRadius: "50px",
+            }}
+          >
+            {" "}
+            Edit{" "}
+          </button>
         </div>
       )}
     </div>

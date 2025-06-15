@@ -15,7 +15,7 @@ import DocumentInfoPage from "../DocumentInfoPage/DocumentInfoPage.jsx";
 import AirlineInfoPage from "../AirlineInfoPage/AirlineInfoPage";
 import ServicesInfoPage from "../ServicesInfoPage/ServicesInfoPage";
 import PlanPage from "../PlanPage/PlanPage";
-import MarketplacePage from "../MarketplacePage/MarketplacePage.jsx";
+// import MarketplacePage from "../MarketplacePage/MarketplacePage.jsx";
 import NewBlogPage from "../NewBlogPage/NewBlogPage.jsx";
 import UserProfilePage from "../UserProfilePage/UserProfilePage.jsx";
 import ShowPlanPage from "../ShowPlanPage/ShowPlanPage.jsx";
@@ -98,7 +98,7 @@ export default function App() {
                 element={<ServicesInfoPage />}
               />
               <Route path="/plans" element={<PlanPage />} />
-              <Route path="/marketplace" element={<MarketplacePage />} />
+              {/* <Route path="/marketplace" element={<MarketplacePage />} /> */}
               <Route path="/write" element={<NewBlogPage />} />
               <Route path="/plans/:id" element={<ShowPlanPage />} />
               <Route path="/blogs" element={<ViewBlogsPage />} />

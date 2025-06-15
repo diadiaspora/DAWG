@@ -13,14 +13,25 @@ const Resources = () => {
   return (
     <div className="divbd" style={{ marginTop: "-300px" }}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
-        <Link to="/blogs"> 
+        <Link
+          to="/blogs"
+          style={{ textDecoration: "none" }}
+          className="custom-link"
+        >
           <h3 style={{ marginBottom: "-25px" }}>Resources </h3>
-          </Link>
+        </Link>
         <p></p>
       </aside>
       <main style={{ marginRight: "42px" }}></main>
 
-      <div style={{ height: "350px", marginLeft: "42px", display: "flex" }}>
+      <div
+        style={{
+          height: "350px",
+          width: "192px",
+          marginLeft: "42px",
+          display: "flex",
+        }}
+      >
         <div
           style={{
             marginRight: "21px",
@@ -39,6 +50,13 @@ const Resources = () => {
               borderTopRightRadius: "20px",
             }}
           ></img>
+          <div>
+            <p
+              style={{ fontSize: "16px", marginTop: "0px", marginLeft: "12px" }}
+            >
+              <strong> Top 10 Cities for Travelling with a Pet</strong>{" "}
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -58,6 +76,13 @@ const Resources = () => {
               borderTopRightRadius: "20px",
             }}
           ></img>
+          <div>
+            <p
+              style={{ fontSize: "16px", marginTop: "0px", marginLeft: "12px" }}
+            >
+              <strong> Top 10 Cities for Travelling with a Pet</strong>{" "}
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -77,21 +102,40 @@ const Resources = () => {
               borderTopRightRadius: "20px",
             }}
           ></img>
+          <div>
+            <p
+              style={{ fontSize: "16px", marginTop: "0px", marginLeft: "12px" }}
+            >
+              <strong> Top 10 Cities for Travelling with a Pet</strong>{" "}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div style={{ height: "350px", marginLeft: "42px" }}>
+      <div style={{ height: "350px", marginLeft: "0px" }}>
         <div
           style={{
             backgroundColor: "#D9D9D9",
             width: "310px",
             borderRadius: "20px",
             height: "350px",
-            marginTop: "-30px",
+            marginTop: "0px",
+            padding: "24px",
           }}
         >
-          <h3>You can inspire and help other people! </h3>
-          <button onClick={handleClick}>Create a post</button>
+          <h3> Share Your Experiences</h3>
+          <h4>You can inspire and help other people! </h4>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "36px",
+            }}
+          >
+            <button onClick={handleClick} className="buttonAir">
+              Create a post
+            </button>
+          </div>
         </div>
       </div>
     </div>

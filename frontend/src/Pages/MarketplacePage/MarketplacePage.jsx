@@ -1,14 +1,14 @@
-import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
+// import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 
 
-export default function MarketplacePage() {
-  return (
-    <>
-      <section >
+// export default function MarketplacePage() {
+//   return (
+//     <>
+//       <section >
        
-        <Marketplace />
+//         <Marketplace />
         
-      </section>
-    </>
-  );
-}
+//       </section>
+//     </>
+//   );
+// }

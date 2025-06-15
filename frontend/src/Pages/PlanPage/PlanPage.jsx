@@ -6,7 +6,7 @@ import PlanScheduleForm from "../../Components/PlanScheduleForm/PlanScheduleForm
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
-import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
+// import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 
 import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
@@ -22,7 +22,9 @@ export default function PlanPage() {
       <section className="plan">
         <Header />
         <SearchComponent />
-        <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
+        <div >
+          <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
+        </div>
         <div
           style={{
             backgroundColor: "#d9d9d9",
@@ -37,7 +39,7 @@ export default function PlanPage() {
         </div>
 
         <h3> Marketplace</h3>
-        <Marketplace />
+        {/* <Marketplace /> */}
         <h3> Articles</h3>
         <Articles />
       </section>

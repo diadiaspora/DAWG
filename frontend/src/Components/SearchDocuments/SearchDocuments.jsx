@@ -17,10 +17,10 @@ const SearchDocuments = () => {
   };
 
   return (
-    <div style={{ marginLeft: "0px" }}>
+    <div style={{ marginLeft: "42px" }}>
       <div style={{ display: "flex", paddingTop: "42px" }}>
         <div>
-          <label htmlFor="from" style={{ marginLeft: "0px", width: "220px" }}>
+          <label htmlFor="from" style={{ marginLeft: "42px", width: "220px" }}>
             Where From
           </label>
           <select
@@ -50,8 +50,12 @@ const SearchDocuments = () => {
           </select>
         </div>
       </div>
-      <div className="button">
-        <button onClick={handleClick}>Search</button>
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "36px" }}
+      >
+        <button onClick={handleClick} className="buttonAir">
+          Search
+        </button>
       </div>
     </div>
   );

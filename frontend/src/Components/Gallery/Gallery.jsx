@@ -32,6 +32,7 @@ const Gallery = () => {
             borderRadius: "20px",
             marginTop: "34px",
             paddingTop: "1px"
+           
           }}
         >
           

@@ -5,3 +5,11 @@
     margin-left: 0px;
     padding-left: 0px;
 }
+
+.buttonFly button {
+    background-color: #1E3769;
+    border-radius: 50px;
+    border-color: #1E3769;
+    width: 200px;
+    height: "144px";
+}

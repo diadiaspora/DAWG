@@ -24,7 +24,7 @@ const SearchServices = () => {
 
   return (
     <>
-      <div style={{ marginLeft: "42px", paddingLeft: "0px" }}>
+      <div style={{ marginLeft: "0px", paddingLeft: "0px" }}>
         <div
           style={{
             display: "flex",
@@ -76,8 +76,16 @@ const SearchServices = () => {
             </select>
           </div>
         </div>
-        <div className="button">
-          <button onClick={handleClick}>Search</button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "36px",
+          }}
+        >
+          <button onClick={handleClick} className="buttonAir">
+            Search
+          </button>
         </div>
       </div>
     </>

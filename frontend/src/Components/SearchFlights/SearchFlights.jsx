@@ -39,8 +39,17 @@ const SearchFlights = () => {
             <input id="to" name="to" type="text" className="input" />
           </div>
         </div>
-        <div className="button">
-          <button onClick={handleClick}>Search</button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "36px",
+          }}
+          className="buttonFly"
+        >
+          <button onClick={handleClick} className="buttonAir">
+            Search
+          </button>
         </div>
       </div>
     </>
