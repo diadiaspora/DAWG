@@ -170,7 +170,7 @@ export default function PlanBasicUpdate({ plan }) {
             onClick={() => setShowForm(true)}
             style={{
               height: "44px",
-              marginTop: "10px",
+            
               width: "270px",
               borderRadius: "50px",
               marginTop: "24px",

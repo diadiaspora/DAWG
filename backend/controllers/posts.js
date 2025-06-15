@@ -12,7 +12,7 @@ async function index(req, res) {
     res.status(200).json(posts);
   } catch (err) {
     console.error("Error fetching posts:", err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to index posts" });
   }
 }
 
@@ -26,7 +26,7 @@ async function show(req, res) {
     res.json(post);
   } catch (err) {
     console.error("Error fetching post:", err);
-    res.status(500).json({ message: "Failed to fetch post" });
+    res.status(500).json({ message: "Failed to show post" });
   }
 }
 

@@ -3,8 +3,6 @@ import * as planService from "../../services/planService";
 import "./PlanBasicForm.css";
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function PlanBasicsForm() {
   const [formData, setFormData] = useState({
     month: "",
@@ -13,7 +11,7 @@ export default function PlanBasicsForm() {
     destination: "",
     notes: "",
   });
-  const [isEditing, setIsEditing] = useState(true); // starts in form mode
+
   const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
@@ -26,19 +24,13 @@ export default function PlanBasicsForm() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      
-     
-        const plan = await planService.create(formData);
-   
-        navigate(`/plans/${plan._id}`);
-   
+      const plan = await planService.create(formData);
 
+      navigate(`/plans/${plan._id}`);
     } catch (err) {
       setErrorMsg("Saving Plan Failed");
     }
   }
-
- 
 
   return (
     <div className="divbody" style={{ marginBottom: "-230px" }}>
@@ -167,7 +159,8 @@ export default function PlanBasicsForm() {
             />
           </div>
           <div style={{ textAlign: "right", marginRight: "-43px" }}>
-            <button type="submit"
+            <button
+              type="submit"
               style={{
                 backgroundColor: "#1E3769",
                 height: "44px",
@@ -175,8 +168,9 @@ export default function PlanBasicsForm() {
                 borderWidth: "0px",
                 color: "#ffffff",
                 marginRight: "50px",
-                width: "598px"
-              }}>
+                width: "598px",
+              }}
+            >
               Create Plan
             </button>
           </div>
