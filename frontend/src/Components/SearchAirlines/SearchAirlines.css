@@ -8,3 +8,11 @@
     border-radius: 50px;
     height: 44px;
 }
+
+.buttonAir {
+    background-color: #1E3769;
+    border-radius: 50px;
+    border-color: #1E3769;
+    width: 200px;
+    height: 44px;
+}

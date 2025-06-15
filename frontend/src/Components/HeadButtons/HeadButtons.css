@@ -17,6 +17,7 @@
     background-color: #ededed;
     padding-right: 0px;
     border-radius: 50px;
+    width: 1012px;
 }
 
 .headbuttons button {
@@ -32,14 +33,14 @@
 }
 
 .headbuttons button:hover {
-    background-color: #1E3769; /* light blue */
+    background-color: #1E3769; 
     color: #ffffff;
     height: 44px;
 }
 
 
   .headbuttons button:active {
-    background-color: #a0a0ff;
+
     color: #fff;
     height: 44px;
 }

@@ -46,9 +46,8 @@ export default function PlanWhereForm({ plan, setPlan }) {
         }}
       >
         <h3>Where Are You Staying?</h3>
-
       </aside>
-      
+
       {showForm ? (
         <div
           className="planWhereFormContainer"
@@ -67,11 +66,13 @@ export default function PlanWhereForm({ plan, setPlan }) {
             style={{
               padding: "4vmin",
               border: "0.5vmin solid #1a1a1a",
-              borderRadius: "1vmin",
+              borderRadius: "20px",
               backgroundColor: "#D9D9D9",
             }}
           >
-            <h3>Stay Details</h3>
+            <div className="stay" >
+              <p>Stay Details</p>
+            </div>
             <div
               style={{ display: "flex", gap: "10px", marginBottom: "1.2vmin" }}
             >
@@ -107,9 +108,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   }}
                 />
               </div>
-              <div style={{ alignSelf: "flex-end", color: "1E3769" }}>
-      
-              </div>
+              <div style={{ alignSelf: "flex-end", color: "1E3769" }}></div>
             </div>
             <div style={{ marginBottom: "1.2vmin" }}>
               <label htmlFor="address">Address</label>
@@ -140,9 +139,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   color: "white",
                   cursor: "pointer",
                   height: "44px",
+                  width: "590px"
                 }}
               >
-               Update
+                Update
               </button>
             </div>
             {errorMsg && <p className="error">{errorMsg}</p>}
@@ -157,104 +157,107 @@ export default function PlanWhereForm({ plan, setPlan }) {
           </div>
         </div>
       ) : (
-      
-  
-            <div
-              className="planWhereFormContainer"
-              style={{
-                marginLeft: "42px",
-                display: "grid",
-                gridTemplateColumns: "662px 350px",
-                gap: "20px",
-                alignItems: "start",
-                marginBottom: "20px",
-                marginTop: "42px",
-              }}
-            >
-              <div
-                className="planWhereCard"
-                style={{
-                 
-                  backgroundColor: "#ffffff",
-                  minHeight: "350px",
-                  borderRadius: "20px",
-                  width: "662px",
-                  paddingLeft: "21px",
-                  paddingRight: "21px",
-                  paddingTop: "0px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-around",
-                  borderStyle: "solid",
-                  borderWidth: "3px",
-                  borderColor: "#00000",
-                 
-                }}
-              >
-                <h4 style={{ marginTop: "-14px" }}>Stay Details:</h4>
-                <div style={{ display: "flex", marginTop: "-60px" }}>
-                  <div className="shadowSmall" style={{ borderRadius: "20px" }}>
-                    <div>
-                      <strong style={{ fontSize: "14px" }}>Check-In:</strong>
-                    </div>
-                    <div>
-                      {plan.checkIn
-                        ? new Date(plan.checkIn).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            }
-                          )
-                        : "N/A"}
-                    </div>
-                  </div>
-                  <div className="shadowSmall">
-                    <div>
-                      <strong style={{ fontSize: "14px" }}>Check-Out:</strong>
-                    </div>
-                    <div>
-                      {plan.checkOut
-                        ? new Date(plan.checkOut).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            }
-                          )
-                        : "N/A"}
-                    </div>
-                  </div>
-            
-                </div>
-                <div style={{ display: "flex" }}>
-                  <div className="shadowLong">
-                    <strong style={{ fontSize: "14px" }}>Address:</strong>{" "}
-                    {plan.address || "N/A"}
-                  </div>
-                <button onClick={() => setShowForm(true)} style={{ height: "44px" }} >Edit </button> 
-                </div>
-
-                {!plan.checkIn &&
-                  !plan.checkOut &&
-                  !plan.address && <p>No location details entered yet.</p>}
-              </div>
-              <div>
+        <div
+          className="planWhereFormContainer"
+          style={{
+            marginLeft: "42px",
+            display: "grid",
+            gridTemplateColumns: "662px 350px",
+            gap: "20px",
+            alignItems: "start",
+            marginBottom: "20px",
+            marginTop: "42px",
+          }}
+        >
+          <div
+            className="planWhereCard"
+            style={{
+              backgroundColor: "#ffffff",
+              minHeight: "350px",
+              borderRadius: "20px",
+              width: "662px",
+              paddingLeft: "21px",
+              paddingRight: "21px",
+              paddingTop: "0px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              borderStyle: "solid",
+              borderWidth: "3px",
+              borderColor: "#00000",
+            }}
+          >
+            <h4 style={{ marginTop: "-14px", fontSize:"24px" }}>Stay Details:</h4>
+            <div style={{ display: "flex", marginTop: "-60px" }}>
+              <div className="shadowSmall" style={{ borderRadius: "20px" }}>
                 <div>
-                  <img
-                    src="../calander.png"
-                    alt="calander"
-                    style={{ width: "310px" }}
-                  ></img>
+                  <strong style={{ fontSize: "14px" }}>Check-In:</strong>
                 </div>
+                <div>
+                  {plan.checkIn
+                    ? new Date(plan.checkIn).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })
+                    : "N/A"}
+                </div>
+              </div>
+              <div className="shadowSmall">
+                <div>
+                  <strong style={{ fontSize: "14px" }}>Check-Out:</strong>
+                </div>
+                <div>
+                  {plan.checkOut
+                    ? new Date(plan.checkOut).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })
+                    : "N/A"}
+                </div>
+                </div>
+                <div> 
+                  <button style={{backgroundColor:"#d9d9d9", width: "190px", marginTop: "10px", color: "black" , height: "44px", borderRadius: "50px", borderWidth: "2px", borderColor: "#d9d9d9"}}> Upload Receipt</button>
+                </div>
+            </div>
+            <div style={{ display: "flex" }}>
+              <div className="shadowLong" style={{width:"690px"}}>
+                <strong style={{ fontSize: "14px" }}>Address:</strong>{" "}
+                {plan.address || "N/A"}
               </div>
             </div>
-          
+
+            {!plan.checkIn && !plan.checkOut && !plan.address && (
+              <p style={{ marginTop: "-10px", marginBottom: "-10px" }}>
+                No location details entered yet.
+              </p>
+            )}
+            <button
+              onClick={() => setShowForm(true)}
+              style={{
+                height: "44px",
+                borderRadius: "50px",
+                borderWidth: "2px",
+                backgroundColor: "#1E3769",
+              }}
+            >
+              Edit{" "}
+            </button>
+          </div>
+          <div>
+            <div>
+              <img
+                src="../calander.png"
+                alt="calander"
+                style={{ width: "310px" }}
+              ></img>
+            </div>
+          </div>
+        </div>
+
         // )
       )}
-   
     </div>
   );
 }

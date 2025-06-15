@@ -170,6 +170,7 @@ export default function PostListPage() {
         marginRight: "42px",
         position: "relative",
         paddingBottom: "120px",
+        width: "1012px"
       }}
     >
       <Link to="/posts">

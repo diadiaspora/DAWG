@@ -32,6 +32,7 @@ export default function PlanIndex({isGallery}) {
                   borderRadius: "50px",
                   color: "#ffffff",
                   textDecoration: "none",
+                  marginRight: "16px"
                 }}
               >
                 {plan.destination} {plan.month} {plan.day}
