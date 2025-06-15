@@ -16,7 +16,7 @@ async function index(req, res) {
     res.json(plans);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to index plan" });
   }
 }
 
@@ -28,7 +28,7 @@ async function create(req, res) {
     res.json(plan);
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: "Failed to creat post" });
+    res.status(400).json({ message: "Failed to create plan" });
   }
 }
 
@@ -41,7 +41,7 @@ async function show(req, res) {
     res.json(plan);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to show plan" });
   }
 }
 
@@ -64,7 +64,7 @@ async function deletePlan(req, res) {
     res.json(plan);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to delete" });
   }
 }
 

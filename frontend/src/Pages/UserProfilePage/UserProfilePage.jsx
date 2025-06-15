@@ -14,7 +14,12 @@ export default function UserProfilePage({ user }) {
     <>
       <div style={{ display: "flex" }}>
         <div>
-          <img src="./Avatar.png" className="avatar" alt="human avatar" style={{width: "200px"}}></img>
+          <img
+            src="./Avatar.png"
+            className="avatar"
+            alt="human avatar"
+            style={{ width: "200px" }}
+          ></img>
         </div>
         <div>
           <h1>
@@ -30,10 +35,56 @@ export default function UserProfilePage({ user }) {
         <p>
           These documents are only accessible to and seen by you and your dog
         </p>
-        <button style={{ width: "200px" }}> Upload Health Certificate</button>
-        <button style={{ width: "200px" }}> Upload Vaccine Record</button>
-        <button style={{ width: "200px" }}> Upload Your Passport</button>
-        <button style={{ width: "200px" }}> Upload Microchip Info</button>
+        <div style={{display: "flex"}}>
+          <button
+            style={{
+              width: "200px",
+              backgroundColor: "#1E3769",
+              height: "44px",
+              borderRadius: "50px",
+              borderColor: "#1E3769",
+            }}
+          >
+            {" "}
+            Upload Health Certificate
+          </button>
+          <button
+            style={{
+              width: "200px",
+              backgroundColor: "#1E3769",
+              height: "44px",
+              borderRadius: "50px",
+              borderColor: "#1E3769",
+            }}
+          >
+            {" "}
+            Upload Vaccine Record
+          </button>
+          <button
+            style={{
+              width: "200px",
+              backgroundColor: "#1E3769",
+              height: "44px",
+              borderRadius: "50px",
+              borderColor: "#1E3769",
+            }}
+          >
+            {" "}
+            Upload Your Passport
+          </button>
+          <button
+            style={{
+              width: "200px",
+              backgroundColor: "#1E3769",
+              height: "44px",
+              borderRadius: "50px",
+              borderColor: "#1E3769",
+            }}
+          >
+            {" "}
+            Upload Microchip Info
+          </button>
+        </div>
       </div>
       <h1>Gallery</h1>
       <div style={{ width: "1012px" }}>

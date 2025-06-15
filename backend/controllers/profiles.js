@@ -27,7 +27,7 @@ async function create(req, res) {
     res.json(profile);
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: "Failed to creat post" });
+    res.status(400).json({ message: "Failed to create post" });
   }
 }
 
@@ -39,7 +39,7 @@ async function show(req, res) {
     res.json(profile);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to show profile" });
   }
 }
 
@@ -50,7 +50,7 @@ async function update(req, res) {
     res.json(profile);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch posts" });
+    res.status(500).json({ message: "Failed to update profile" });
   }
 }
 
@@ -60,6 +60,6 @@ async function deleteProfile(req, res) {
     res.json(profile);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to fetch profile" });
+    res.status(500).json({ message: "Failed to delete profile" });
   }
 }

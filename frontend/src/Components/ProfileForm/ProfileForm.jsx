@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
 
 export default function ProfileForm({ profile, setProfile }) {
+
+  
   const [profileData, setProfileData] = useState({
     bio: "",
     pets: "",
