@@ -1,98 +1,113 @@
-import ProfileForm from "../../Components/ProfileForm/ProfileForm.jsx";
-import Carousel from "../../Components/Carousel/Carousel.jsx";
-import Articles from "../../Components/Articles/Articles.jsx";
+import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
-import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx"; 
-import Header from "../../Components/Header/Header.jsx";
-import { useState } from "react";
 
-export default function UserProfilePage({ user }) {
-  const [profile, setProfile] = useState(null); 
+export default function ProfileForm({ profile, setProfile }) {
+  const [profileData, setProfileData] = useState({
+    bio: "",
+    pets: "",
+    posts: "",
+    blogs: "",
+    passportNumber: "",
+    gallery: "",
+    pet: [
+      {
+        breed: "",
+        age: "",
+        weight: "",
+        microchipNumber: "",
+        vaccineNumber: "",
+        document: "",
+      },
+    ],
+  });
 
+  const [isEditing, setIsEditing] = useState(true);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    if (profile) {
+      setProfileData(profile);
+      setIsEditing(false); // show the completed card if profile exists
+    } else {
+      setIsEditing(true);
+    }
+  }, [profile]);
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setProfileData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handlePetChange(evt, index) {
+    const { name, value } = evt.target;
+    const updatedPets = [...profileData.pet];
+    updatedPets[index] = { ...updatedPets[index], [name]: value };
+    setProfileData((prev) => ({ ...prev, pet: updatedPets }));
+  }
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    setErrorMsg("");
+    try {
+      let updatedProfile;
+      if (!profile?._id) {
+        updatedProfile = await profileService.create(profileData);
+      } else {
+        updatedProfile = await profileService.update({
+          ...profileData,
+          _id: profile._id,
+        });
+      }
+      setProfile(updatedProfile);
+      setIsEditing(false);
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Please try again.");
+    }
+  }
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      {isEditing ? (
         <div>
-          <img
-            src="./Avatar.png"
-            className="avatar"
-            alt="human avatar"
-            style={{ width: "200px" }}
-          ></img>
+          <form onSubmit={handleSubmit}>
+            <label>Pet Breed</label>
+            <input
+              name="breed"
+              value={profileData.pet[0]?.breed || ""}
+              onChange={(evt) => handlePetChange(evt, 0)}
+              style={{ width: "180px" }}
+            />
+            <label>Pet Age</label>
+            <input
+              name="age"
+              value={profileData.pet[0]?.age || ""}
+              onChange={(evt) => handlePetChange(evt, 0)}
+              style={{ width: "180px" }}
+            />
+            <label>Bio</label>
+            <input
+              name="bio"
+              value={profileData.bio}
+              onChange={handleChange}
+              style={{ width: "180px" }}
+            />
+            <button type="submit">Save</button>
+          </form>
+          <p className="error-message">&nbsp;{errorMsg}</p>
         </div>
+      ) : (
         <div>
-          <h1>
-            {user.name} & {user.petName}
-          </h1>
+          <h4>{profileData.pet[0]?.breed}</h4>
+          <p>
+            <strong>Age:</strong> {profileData.pet[0]?.age}
+          </p>
+          <p>
+            <strong>Notes:</strong> {profileData.bio}
+          </p>
+          <button onClick={() => setIsEditing(true)}>Update</button>
         </div>
-      </div>
-
-      <ProfileForm profile={profile} setProfile={setProfile} />
-
-      <div style={{ margin: "0px", width: "1012px" }}>
-        <h3> Important Documents</h3>
-        <p>
-          These documents are only accessible to and seen by you and your dog
-        </p>
-        <div style={{display: "flex"}}>
-          <button
-            style={{
-              width: "200px",
-              backgroundColor: "#1E3769",
-              height: "44px",
-              borderRadius: "50px",
-              borderColor: "#1E3769",
-            }}
-          >
-            {" "}
-            Upload Health Certificate
-          </button>
-          <button
-            style={{
-              width: "200px",
-              backgroundColor: "#1E3769",
-              height: "44px",
-              borderRadius: "50px",
-              borderColor: "#1E3769",
-            }}
-          >
-            {" "}
-            Upload Vaccine Record
-          </button>
-          <button
-            style={{
-              width: "200px",
-              backgroundColor: "#1E3769",
-              height: "44px",
-              borderRadius: "50px",
-              borderColor: "#1E3769",
-            }}
-          >
-            {" "}
-            Upload Your Passport
-          </button>
-          <button
-            style={{
-              width: "200px",
-              backgroundColor: "#1E3769",
-              height: "44px",
-              borderRadius: "50px",
-              borderColor: "#1E3769",
-            }}
-          >
-            {" "}
-            Upload Microchip Info
-          </button>
-        </div>
-      </div>
-      <h1>Gallery</h1>
-      <div style={{ width: "1012px" }}>
-        <Carousel />
-      </div>
-
-      <h1>Users Post</h1>
-      <Articles />
+      )}
     </>
   );
 }
