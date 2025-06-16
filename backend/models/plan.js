@@ -12,6 +12,7 @@ const planSchema = mongoose.Schema({
   notes: { type: String },
   checkIn: { type: Date },
   checkOut: { type: Date },
+  receipt: { type: String, default: "https://i.imgur.com/KTEjbsw.png" },
   address: { type: String },
   airline: { type: String },
   outboundFlightNumber: { type: String },
@@ -21,7 +22,7 @@ const planSchema = mongoose.Schema({
   returnFlightNumber: { type: String },
   returnDate: { type: Date },
   returnDepartureTime: { type: String },
-  returnArrivalTime: { type: String},
+  returnArrivalTime: { type: String },
   author: {
     type: Schema.Types.ObjectId,
     required: true,

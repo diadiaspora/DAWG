@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useRef} from "react";
 import * as planService from "../../services/planService";
+import { useNavigate } from "react-router-dom";
 
 import "./PlanWhereForm.css"; 
 export default function PlanWhereForm({ plan, setPlan }) {
-  const [showForm, setShowForm] = useState(plan? false : true);
+  const [showForm, setShowForm] = useState(plan ? false : true);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     
@@ -25,6 +27,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
     evt.preventDefault();
     try {
       const updatedPlan = await planService.update(plan._id, formData);
+      const planData = new FormData();
+      planData.append(plan._id, formData);
+      if (fileInputRef.current.files.length)
+        planData.append("image", fileInputRef.current.files[0]);
       setErrorMsg("");
       setPlan({ ...updatedPlan });
       setShowForm(false);
@@ -33,6 +39,8 @@ export default function PlanWhereForm({ plan, setPlan }) {
       setErrorMsg("Failed to save location details. Please try again.");
     }
   }
+
+  const fileInputRef = useRef();
 
   return (
     <div style={{ marginTop: "42px" }}>
@@ -70,7 +78,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
               backgroundColor: "#D9D9D9",
             }}
           >
-            <div className="stay" >
+            <div>
               <p>Stay Details</p>
             </div>
             <div
@@ -108,8 +116,19 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   }}
                 />
               </div>
+
               <div style={{ alignSelf: "flex-end", color: "1E3769" }}></div>
             </div>
+            <label>Upload Receipt</label>
+            <input
+              style={{
+                borderRadius: "50px",
+              }}
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={fileInputRef}
+            />
+
             <div style={{ marginBottom: "1.2vmin" }}>
               <label htmlFor="address">Address</label>
               <textarea
@@ -139,7 +158,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   color: "white",
                   cursor: "pointer",
                   height: "44px",
-                  width: "590px"
+                  width: "590px",
                 }}
               >
                 Update
@@ -187,7 +206,9 @@ export default function PlanWhereForm({ plan, setPlan }) {
               borderColor: "#00000",
             }}
           >
-            <h4 style={{ marginTop: "-14px", fontSize:"24px" }}>Stay Details:</h4>
+            <h4 style={{ marginTop: "-14px", fontSize: "24px" }}>
+              Stay Details:
+            </h4>
             <div style={{ display: "flex", marginTop: "-60px" }}>
               <div className="shadowSmall" style={{ borderRadius: "20px" }}>
                 <div>
@@ -216,13 +237,28 @@ export default function PlanWhereForm({ plan, setPlan }) {
                       })
                     : "N/A"}
                 </div>
-                </div>
-                <div> 
-                  <button style={{backgroundColor:"#d9d9d9", width: "190px", marginTop: "10px", color: "black" , height: "44px", borderRadius: "50px", borderWidth: "2px", borderColor: "#d9d9d9"}}> Upload Receipt</button>
-                </div>
+              </div>
+              <div>
+                <button
+                  onClick={() => navigate("/receipt")}
+                  style={{
+                    backgroundColor: "#d9d9d9",
+                    width: "190px",
+                    marginTop: "10px",
+                    color: "black",
+                    height: "44px",
+                    borderRadius: "50px",
+                    borderWidth: "2px",
+                    borderColor: "#d9d9d9",
+                  }}
+                >
+                  {" "}
+                  View Receipt
+                </button>
+              </div>
             </div>
             <div style={{ display: "flex" }}>
-              <div className="shadowLong" style={{width:"690px"}}>
+              <div className="shadowLong" style={{ width: "690px" }}>
                 <strong style={{ fontSize: "14px" }}>Address:</strong>{" "}
                 {plan.address || "N/A"}
               </div>
