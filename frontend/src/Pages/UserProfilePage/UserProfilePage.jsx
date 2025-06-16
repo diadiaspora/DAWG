@@ -1,113 +1,68 @@
-import { useState, useEffect } from "react";
+import ProfileForm from "../../Components/ProfileForm/ProfileForm.jsx";
+import Carousel from "../../Components/Carousel/Carousel.jsx";
+import Articles from "../../Components/Articles/Articles.jsx";
 import * as profileService from "../../services/profileService";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+import Header from "../../Components/Header/Header.jsx";
+import { useState, useEffect } from "react";
 
-export default function ProfileForm({ profile, setProfile }) {
-  const [profileData, setProfileData] = useState({
-    bio: "",
-    pets: "",
-    posts: "",
-    blogs: "",
-    passportNumber: "",
-    gallery: "",
-    pet: [
-      {
-        breed: "",
-        age: "",
-        weight: "",
-        microchipNumber: "",
-        vaccineNumber: "",
-        document: "",
-      },
-    ],
-  });
+export default function UserProfilePage({ user }) {
+  const [profile, setProfile] = useState(null);
 
-  const [isEditing, setIsEditing] = useState(true);
-  const [errorMsg, setErrorMsg] = useState("");
-
-  useEffect(() => {
-    if (profile) {
-      setProfileData(profile);
-      setIsEditing(false); // show the completed card if profile exists
-    } else {
-      setIsEditing(true);
-    }
-  }, [profile]);
-
-  function handleChange(evt) {
-    const { name, value } = evt.target;
-    setProfileData((prev) => ({ ...prev, [name]: value }));
-  }
-
-  function handlePetChange(evt, index) {
-    const { name, value } = evt.target;
-    const updatedPets = [...profileData.pet];
-    updatedPets[index] = { ...updatedPets[index], [name]: value };
-    setProfileData((prev) => ({ ...prev, pet: updatedPets }));
-  }
-
-  async function handleSubmit(evt) {
-    evt.preventDefault();
-    setErrorMsg("");
-    try {
-      let updatedProfile;
-      if (!profile?._id) {
-        updatedProfile = await profileService.create(profileData);
-      } else {
-        updatedProfile = await profileService.update({
-          ...profileData,
-          _id: profile._id,
-        });
-      }
-      setProfile(updatedProfile);
-      setIsEditing(false);
-    } catch (err) {
-      console.error(err);
-      setErrorMsg("Please try again.");
-    }
-  }
+   useEffect(() => {
+     async function fetchProfile() {
+       try {
+         const profileData = await profileService.show(user._id);
+         console.log(profileData)
+         setProfile(profileData);
+       } catch (err) {}
+     }
+     fetchProfile();
+   }, [user]);
+  console.log(profile);
+   useEffect(
+     () => {
+       console.log("profileUpdated");
+     }, [profile]
+   );
 
   return (
     <>
-      {isEditing ? (
+      <div style={{ display: "flex" }}>
         <div>
-          <form onSubmit={handleSubmit}>
-            <label>Pet Breed</label>
-            <input
-              name="breed"
-              value={profileData.pet[0]?.breed || ""}
-              onChange={(evt) => handlePetChange(evt, 0)}
-              style={{ width: "180px" }}
-            />
-            <label>Pet Age</label>
-            <input
-              name="age"
-              value={profileData.pet[0]?.age || ""}
-              onChange={(evt) => handlePetChange(evt, 0)}
-              style={{ width: "180px" }}
-            />
-            <label>Bio</label>
-            <input
-              name="bio"
-              value={profileData.bio}
-              onChange={handleChange}
-              style={{ width: "180px" }}
-            />
-            <button type="submit">Save</button>
-          </form>
-          <p className="error-message">&nbsp;{errorMsg}</p>
+          <img
+            src="./Avatar.png"
+            className="avatar"
+            alt="human avatar"
+            style={{ width: "200px" }}
+          ></img>
         </div>
-      ) : (
         <div>
-          <h4>{profileData.pet[0]?.breed}</h4>
-          <p>
-            <strong>Age:</strong> {profileData.pet[0]?.age}
-          </p>
-          <p>
-            <strong>Notes:</strong> {profileData.bio}
-          </p>
-          <button onClick={() => setIsEditing(true)}>Update</button>
+          <h1>
+            {user.name} & {user.petName}
+          </h1>
         </div>
-      )}
+      </div>
+
+      <ProfileForm profile={profile} setProfile={setProfile} />
+
+      <div style={{ margin: "0px", width: "1012px" }}>
+        <h3> Important Documents</h3>
+        <p>
+          These documents are only accessible to and seen by you and your dog
+        </p>
+        <button style={{ width: "200px" }}> Upload Health Certificate</button>
+        <button style={{ width: "200px" }}> Upload Vaccine Record</button>
+        <button style={{ width: "200px" }}> Upload Your Passport</button>
+        <button style={{ width: "200px" }}> Upload Microchip Info</button>
+      </div>
+      <h1>Gallery</h1>
+      <div style={{ width: "1012px" }}>
+        <Carousel />
+      </div>
+
+      <h1>Users Post</h1>
+      <Articles />
     </>
   );
 }

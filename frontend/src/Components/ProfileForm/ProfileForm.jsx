@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
 
 export default function ProfileForm({ profile}) {
-  const [showForm, setShowForm] = useState(profile ? false : true);
-  
+  const [showForm, setShowForm] = useState(profile?._id ? false : true);
+  console.log({ profile });
   const [profileData, setProfileData] = useState({
     bio: profile?.bio || "",
     pets: profile?.pets || "",
@@ -23,17 +23,14 @@ export default function ProfileForm({ profile}) {
     ],
   });
 
+
+
   // const [isEditing, setIsEditing] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
 
-  // useEffect(() => {
-  //   if (profile) {
-  //     setProfileData(profile);
-  //     setIsEditing(false); // show the completed card if profile exists
-  //   } else {
-  //     setIsEditing(true);
-  //   }
-  // }, [profile]);
+  useEffect(() => {
+
+  }, [profile]);
 
   function handleChange(evt) {
     const { name, value } = evt.target;

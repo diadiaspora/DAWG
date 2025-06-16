@@ -13,3 +13,8 @@ export async function create(profileData) {
 export async function update(profileId, profileData) {
   return sendRequest(`${BASE_URL}/${profileId}`, "PUT", profileData);
 }
+
+export async function show(profileId) {
+  return sendRequest(`${BASE_URL}/${profileId}`, "GET");
+}
+

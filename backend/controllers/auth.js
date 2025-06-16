@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Profile = require("../models/profile");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -26,6 +27,7 @@ async function signUp(req, res) {
   try {
     const user = await User.create(req.body);
     await user.save()
+   await Profile.create({ author: user._id });
     const token = createJWT(user);
     res.json(token);
   } catch (err) {

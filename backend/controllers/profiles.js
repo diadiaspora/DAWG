@@ -33,7 +33,7 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const profile = await Profile.findById(req.params.id);
+    const profile = await Profile.findOne({author:req.user._id});
     // Below would return all posts for just the logged in user
     // const posts = await Post.find({author: req.user._id});
     res.json(profile);
@@ -45,7 +45,7 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    const profile = await Profile.findByIdAndUpdate(req.params.id, req.body);
+    const profile = await Profile.findByIdAndUpdate(req.params.id, req.body, {new:true});
 
     res.json(profile);
   } catch (err) {
