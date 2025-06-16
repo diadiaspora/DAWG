@@ -25,6 +25,7 @@ import BlogList from "../../Components/BlogList/BlogList";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetail from "../../Components/BlogDetail/BlogDetail.jsx";
 import PlanBasicUpdate from "../../Components/PlanBasicUpdate/PlanBasicUpdate.jsx";
+import ReceiptPage from "../ReceiptPage/ReceiptPage";
 
 import "./App.css";
 
@@ -107,6 +108,8 @@ export default function App() {
                 element={<UserProfilePage user={user} setUser={setUser} />}
               />
               <Route path="/blogs/:id" element={<BlogDetail />} />
+
+              <Route path="/receipt" element={<ReceiptPage />} />
             </Routes>
           ) : (
             <Routes>

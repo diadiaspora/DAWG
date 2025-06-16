@@ -21,3 +21,7 @@ export async function show(planId) {
   return sendRequest(`${BASE_URL}/${planId}`, "GET");
 }
 
+export async function deletePlan(planId) {
+  return sendRequest(`${BASE_URL}/${planId}`, "DELETE");
+}
+

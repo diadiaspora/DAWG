@@ -34,6 +34,21 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
       console.error("Error updating plan:", err);
     }
   }
+
+
+    const handleDeletePlan = async (planId) => {
+      try {
+        const deletedPlan = await planService.deletePlan(planId);
+        if (deletedPlan.err) throw new Error(deletedPlan.err);
+        // When deleting an object in an array with a
+        // , filter is your go to...
+        setPlan(null);
+       
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  
 // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)";
   return (
     <div
@@ -144,7 +159,10 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             rows={2}
           />
 
-          <button type="submit">Update</button>
+          <button type="submit">Update Plan</button>
+          <button onClick={() => handleDeletePlan(plan._id)}>
+            Delete Plan
+          </button>
         </form>
       ) : (
         <div
@@ -173,12 +191,12 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             onClick={() => setShowForm(true)}
             style={{
               height: "44px",
-            
+
               width: "270px",
               borderRadius: "50px",
               marginTop: "24px",
               backgroundColor: "#1E3769",
-              borderWidth: "0"
+              borderWidth: "0",
             }}
           >
             Edit

@@ -13,12 +13,12 @@ export default function ProfileForm({ profile}) {
     gallery: profile?.gallery || "",
     pet: [
       {
-        breed: profile?.breed || "",
-        age: profile?.age || "",
-        weight: profile?.weight || "",
-        microchipNumber: profile?.microchipNumber || "",
-        vaccineNumber: profile?.vaccineNumber || "",
-        document: profile?.document || "",
+        breed: profile?.pet[0].breed || "",
+        age: profile?.pet[0].age || "",
+        weight: profile?.pet[0].weight || "",
+        microchipNumber: profile?.pet[0].microchipNumber || "",
+        vaccineNumber: profile?.pet[0].vaccineNumber || "",
+        document: profile?.pet[0].document || "",
       },
     ],
   });
