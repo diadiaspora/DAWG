@@ -1,90 +1,101 @@
 import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
 
-export default function ProfileForm({ profile, setProfile }) {
-
+export default function ProfileForm({ profile}) {
+  const [showForm, setShowForm] = useState(profile ? false : true);
   
   const [profileData, setProfileData] = useState({
-    bio: "",
-    pets: "",
-    posts: "",
-    blogs: "",
-    passportNumber: "",
-    gallery: "",
+    bio: profile?.bio || "",
+    pets: profile?.pets || "",
+    posts: profile?.post || "",
+    blogs: profile?.blogs || "",
+    passportNumber: profile?.passportNumber || "",
+    gallery: profile?.gallery || "",
     pet: [
       {
-        breed: "",
-        age: "",
-        weight: "",
-        microchipNumber: "",
-        vaccineNumber: "",
-        document: "",
+        breed: profile?.breed || "",
+        age: profile?.age || "",
+        weight: profile?.weight || "",
+        microchipNumber: profile?.microchipNumber || "",
+        vaccineNumber: profile?.vaccineNumber || "",
+        document: profile?.document || "",
       },
     ],
   });
 
-  const [isEditing, setIsEditing] = useState(true);
+  // const [isEditing, setIsEditing] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
 
-  useEffect(() => {
-    if (profile) {
-      setProfileData(profile);
-      setIsEditing(false); // show the completed card if profile exists
-    } else {
-      setIsEditing(true);
-    }
-  }, [profile]);
+  // useEffect(() => {
+  //   if (profile) {
+  //     setProfileData(profile);
+  //     setIsEditing(false); // show the completed card if profile exists
+  //   } else {
+  //     setIsEditing(true);
+  //   }
+  // }, [profile]);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handlePetChange(evt, index) {
-    const { name, value } = evt.target;
-    const updatedPets = [...profileData.pet];
-    updatedPets[index] = { ...updatedPets[index], [name]: value };
-    setProfileData((prev) => ({ ...prev, pet: updatedPets }));
-  }
+  // function handlePetChange(evt, index) {
+  //   const { name, value } = evt.target;
+  //   const updatedPets = [...profileData.pet];
+  //   updatedPets[index] = { ...updatedPets[index], [name]: value };
+  //   setProfileData((prev) => ({ ...prev, pet: updatedPets }));
+  // }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrorMsg("");
-    try {
-      let updatedProfile;
-      if (!profile?._id) {
-        updatedProfile = await profileService.create(profileData);
-      } else {
-        updatedProfile = await profileService.update({
-          ...profileData,
-          _id: profile._id,
-        });
-      }
-      setProfile(updatedProfile);
-      setIsEditing(false);
-    } catch (err) {
-      console.error(err);
-      setErrorMsg("Please try again.");
-    }
+    // setErrorMsg("");
+
+        try {
+          await profileService.update(profile?._id, profileData);
+          setErrorMsg("");
+          setShowForm(false);
+        } catch (err) {
+          setErrorMsg("Failed to save profile details. Please try again.");
+          console.error("Error updating plan:", err);
+        }
+    // try {
+    //   let updatedProfile;
+    //   if (!profile?._id) {
+    //     updatedProfile = await profileService.create(profileData);
+    //   } else {
+    //     updatedProfile = await profileService.update({
+    //       ...profileData,
+    //       _id: profile._id,
+    //     });
+    //   }
+    //   setProfile(updatedProfile);
+    //   setIsEditing(false);
+    // } catch (err) {
+    //   console.error(err);
+    //   setErrorMsg("Please try again.");
+    // }
   }
 
   return (
     <>
-      {isEditing ? (
+      {showForm ? (
         <div>
           <form onSubmit={handleSubmit}>
             <label>Pet Breed</label>
             <input
               name="breed"
-              value={profileData.pet[0]?.breed || ""}
-              onChange={(evt) => handlePetChange(evt, 0)}
+              value={profileData.pet.breed}
+              // onChange={(evt) => handlePetChange(evt, 0)}
+              onChange={handleChange}
               style={{ width: "180px" }}
             />
             <label>Pet Age</label>
             <input
               name="age"
-              value={profileData.pet[0]?.age || ""}
-              onChange={(evt) => handlePetChange(evt, 0)}
+              value={profileData.pet.age}
+              // onChange={(evt) => handlePetChange(evt, 0)}
+              onChange={handleChange}
               style={{ width: "180px" }}
             />
             <label>Bio</label>
@@ -100,14 +111,15 @@ export default function ProfileForm({ profile, setProfile }) {
         </div>
       ) : (
         <div>
-          <h4>{profileData.pet[0]?.breed}</h4>
+          <h4>{profileData.breed}</h4>
           <p>
-            <strong>Age:</strong> {profileData.pet[0]?.age}
+            <strong>Age:</strong> {profileData.age}
           </p>
           <p>
             <strong>Notes:</strong> {profileData.bio}
           </p>
-          <button onClick={() => setIsEditing(true)}>Update</button>
+          {/* <button onClick={() => setIsEditing(true)}>Update</button> */}
+          <button onClick={() => setShowForm(true)}>Update</button>
         </div>
       )}
     </>
