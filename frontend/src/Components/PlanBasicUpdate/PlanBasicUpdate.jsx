@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import * as planService from "../../services/planService";
 import "./PlanBasicUpdate.css";
 
-export default function PlanBasicUpdate({ plan }) {
+export default function PlanBasicUpdate({ plan, setPlan }) {
   const [showForm, setShowForm] = useState(plan ? false : true);
 
   const [formData, setFormData] = useState({
@@ -20,12 +21,14 @@ export default function PlanBasicUpdate({ plan }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
+  useEffect(() => {}, [plan])
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await planService.update(plan?._id, formData);
+      const updatedPlan = await planService.update(plan?._id, formData);
       setErrorMsg("");
       setShowForm(false);
+      setPlan({ ...updatedPlan });
     } catch (err) {
       setErrorMsg("Failed to save plan details. Please try again.");
       console.error("Error updating plan:", err);

@@ -24,9 +24,9 @@ export default function PlanWhereForm({ plan, setPlan }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const plan = await planService.update(plan._id, formData);
+      const updatedPlan = await planService.update(plan._id, formData);
       setErrorMsg("");
-      setPlan(plan)
+      setPlan({ ...updatedPlan });
       setShowForm(false);
     } catch (err) {
       console.error("Failed to save location details:", err);

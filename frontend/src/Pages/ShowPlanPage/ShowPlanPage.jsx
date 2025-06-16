@@ -10,9 +10,10 @@ import Carousel from "../../Components/Carousel/Carousel.jsx";
 import "./ShowPlanPage.css";
 
 export default function ShowPlanPage() {
+  // const [showForm, setShowForm] = useState(plan ? false : true);
   const { id } = useParams();
   
-  const [plan, setPlan] = useState({});
+  const [plan, setPlan] = useState(null);
   const [planId, setPlanId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({});
@@ -26,7 +27,17 @@ export default function ShowPlanPage() {
       } catch (err) {}
     }
     fetchPlan();
-  }, [plan]);
+  }, [id]);
+
+  useEffect(
+    () => {
+      console.log("planUpdated");
+    }, [plan]
+  );
+
+  if (!plan) {
+    return <div> loading...</div>
+  }
 
   return (
     <>
@@ -42,13 +53,15 @@ export default function ShowPlanPage() {
             padding: "21px",
             borderRadius: "20px",
             borderWidth: "3px",
-            marginRight: "0px"
+            marginRight: "0px",
           }}
         >
           <h1 style={{ textAlign: "left", marginTop: "-4px" }}>The Plan</h1>
 
           <div style={{ display: "flex" }}>
-            <div>{plan && <PlanBasicUpdate plan={plan} />}</div>
+            <div>
+              {plan && <PlanBasicUpdate plan={plan} setPlan={setPlan} />}
+            </div>
             <div style={{ marginLeft: "42px", marginTop: "0px" }}>
               <Carousel />
               <div
@@ -70,7 +83,7 @@ export default function ShowPlanPage() {
                     borderRadius: "20px",
                     marginLeft: "14px",
                     marginRight: "14px",
-                    marginTop: "6px"
+                    marginTop: "6px",
                   }}
                 >
                   <strong style={{ marginLeft: "8px", marginTop: "16px" }}>
@@ -85,7 +98,7 @@ export default function ShowPlanPage() {
         </div>
 
         {plan && <PlanWhereForm plan={plan} setPlan={setPlan} />}
-        {plan && <PlanFlightForm plan={plan} />}
+        {plan && <PlanFlightForm plan={plan} setPlan={setPlan} />}
       </section>
     </>
   );
