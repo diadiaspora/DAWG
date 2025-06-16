@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
 import "./PlanFlightForm.css";
 
-export default function PlanFlightForm({ plan }) {
+export default function PlanFlightForm({ plan, setPlan }) {
   const [showForm, setShowForm] = useState(plan ? false : true); // Form is hidden by default
   
   const [formData, setFormData] = useState({
@@ -17,6 +17,7 @@ export default function PlanFlightForm({ plan }) {
     outboundArrivalTime: plan?.outboundArrivalTime
       ? plan.outboundArrivalTime
       : "",
+    
     returnFlightNumber: plan?.returnFlightNumber ? plan.returnFlightNumber : "",
     returnDate: plan?.returnDate ? plan.returnDate : "",
     returnDepartureTime: plan?.returnDepartureTime ? plan.returnDepartureTime : "",
@@ -37,10 +38,11 @@ export default function PlanFlightForm({ plan }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await planService.update(plan._id, formData);
+      const updatedPlan = await planService.update(plan._id, formData);
       setErrorMsg("");
       // setIsSubmitted(true); 
       setShowForm(false); 
+        setPlan({...updatedPlan})
     } catch (err) {
       console.error("Failed to save flight details in handleSubmit:", err);
       setErrorMsg("Failed to save flight details. Please try again.");
@@ -261,7 +263,7 @@ export default function PlanFlightForm({ plan }) {
               </div>
             </div>
           </div>
-          {plan.returnFlightNumber && (
+          
             <>
               <h4>Inbound:</h4>
               <div
@@ -301,17 +303,17 @@ export default function PlanFlightForm({ plan }) {
                       : "N/A"}
                   </div>
                   <div className="shadowSmall">
-                    <strong>Departure Time:</strong>{" "}
+                    <strong>DepartTime:</strong>{" "}
                     {plan.returnDepartureTime || "N/A"}
                   </div>
                   <div className="shadowSmall">
-                    <strong>Arrival Time:</strong>{" "}
+                    <strong>ArrivTime:</strong>{" "}
                     {plan.returnArrivalTime || "N/A"}
                   </div>
                 </div>
               </div>
             </>
-          )}
+          
           {!plan.airline &&
             !plan.outboundFlightNumber &&
             !plan.outboundDate &&
