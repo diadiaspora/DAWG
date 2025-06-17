@@ -2,7 +2,7 @@ import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
-// import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
+import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ export default function HomePage() {
         <div style={{ marginTop: "400px" }}>
           <RedditPostList />
         </div>
-        {/* <Marketplace /> */}
+         <Marketplace /> 
         <Articles />
       </section>
     </>
