@@ -1,3 +1,4 @@
+// App.jsx
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { getUser } from "../../services/authService";
@@ -26,7 +27,11 @@ import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetailPage from "../BlogDetailPage/BlogDetailPage.jsx";
 import PlanBasicUpdate from "../../Components/PlanBasicUpdate/PlanBasicUpdate.jsx";
 import ReceiptPage from "../ReceiptPage/ReceiptPage";
-// import ProductPage from "../ProductPage/ProductPage";
+import ProductPage from "../ProductPage/ProductPage"; 
+import CartPage from "../CartPage/CartPage";
+
+import { CartProvider } from "../../context/CartContext"; 
+
 import "./App.css";
 
 export default function App() {
@@ -34,23 +39,11 @@ export default function App() {
   const [profile, setProfile] = useState(null);
   const location = useLocation();
 
-  // const showHeaderOn = [
-  //   "/",
-  //   "/flights",
-  //   "/plans",
-  //   "/profile",
-  //   "/plans",
-  //   "/plans/:id"
-  // ];
-
-  // const shouldShowHeader = showHeaderOn.includes(location.pathname);
-
   useEffect(() => {
     async function fetchProfile() {
       if (user) {
         try {
           const profiles = await profileService.index();
-
           const userProfile = profiles.find((p) => p.user === user._id);
           if (userProfile) {
             setProfile(userProfile);
@@ -67,63 +60,75 @@ export default function App() {
     <>
       <main className="App">
         <NavBar user={user} setUser={setUser} />
+      
+        <CartProvider>
+          <section id="main-section">
+            {user ? (
+              <Routes>
+             
+                <Route
+                  path="/profiles"
+                  element={
+                    <UserProfilePage
+                      user={user}
+                      profile={profile}
+                      setProfile={setProfile}
+                    />
+                  }
+                />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/posts" element={<PostListPage />} />
+                <Route path="/posts/new" element={<NewPostPage />} />
+                <Route path="*" element={null} />
+                <Route path="/flights" element={<FlightInfoPage />} />
+                <Route
+                  path="/documents/:from/:to"
+                  element={<DocumentInfoPage />}
+                />
+                <Route
+                  path="/airlines/:airline/:location"
+                  element={<AirlineInfoPage />}
+                />
+                <Route
+                  path="/services/:service/:location"
+                  element={<ServicesInfoPage />}
+                />
+                <Route path="/plans" element={<PlanPage />} />
+                <Route path="/marketplace" element={<MarketplacePage />} />
+                <Route path="/write" element={<NewBlogPage />} />
+                <Route path="/plans/:id" element={<ShowPlanPage />} />
+                <Route path="/blogs" element={<ViewBlogsPage />} />
+                <Route
+                  path="/profiles"
+                  element={<UserProfilePage user={user} setUser={setUser} />}
+                />
+                <Route path="/blogs/:id" element={<BlogDetailPage />} />
+                <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
 
-        <section id="main-section">
-          {user ? (
-            <Routes>
-              <Route
-                path="/profiles"
-                element={
-                  <UserProfilePage
-                    user={user}
-                    profile={profile}
-                    setProfile={setProfile}
-                  />
-                }
-              />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/posts" element={<PostListPage />} />
-              <Route path="/posts/new" element={<NewPostPage />} />
-              <Route path="*" element={null} />
-              <Route path="/flights" element={<FlightInfoPage />} />
-              <Route
-                path="/documents/:from/:to"
-                element={<DocumentInfoPage />}
-              />
-              <Route
-                path="/airlines/:airline/:location"
-                element={<AirlineInfoPage />}
-              />
-              <Route
-                path="/services/:service/:location"
-                element={<ServicesInfoPage />}
-              />
-              <Route path="/plans" element={<PlanPage />} />
-              <Route path="/marketplace" element={<MarketplacePage />} />
-              <Route path="/write" element={<NewBlogPage />} />
-              <Route path="/plans/:id" element={<ShowPlanPage />} />
-              <Route path="/blogs" element={<ViewBlogsPage />} />
-              <Route
-                path="/profiles"
-                element={<UserProfilePage user={user} setUser={setUser} />}
-              />
-              <Route path="/blogs/:id" element={<BlogDetailPage />} />
-
-              <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
-            </Routes>
-          ) : (
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route
-                path="/signup"
-                element={<SignUpPage setUser={setUser} />}
-              />
-              <Route path="/login" element={<LogInPage setUser={setUser} />} />
-              <Route path="*" element={null} />
-              {/* <Route path="/product/:productId" element={<ProductPage />} /> */}
-            </Routes>
-          )}
-        </section>
+              
+                <Route path="/product/:productId" element={<ProductPage />} />
+                <Route path="/cart" element={<CartPage />} />
+              </Routes>
+            ) : (
+              <Routes>
+                {/* Existing Unauthenticated Routes */}
+                <Route path="/" element={<HomePage />} />
+                <Route
+                  path="/signup"
+                  element={<SignUpPage setUser={setUser} />}
+                />
+                <Route
+                  path="/login"
+                  element={<LogInPage setUser={setUser} />}
+                />
+                <Route path="*" element={null} />
+                <Route path="/product/:productId" element={<ProductPage />} />
+                <Route path="/cart" element={<CartPage />} />
+              </Routes>
+            )}
+          </section>
+        </CartProvider>{" "}
+      
         <Footer />
       </main>
     </>
