@@ -1,36 +1,60 @@
 import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
 
-export default function ProfileForm({ profile }) {
-  console.log({ profile });
-  const [showForm, setShowForm] = useState(profile ? false : true);
+export default function ProfileForm({ profile, setProfile }) {
+  const [showForm, setShowForm] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const [profileData, setProfileData] = useState({
-    bio: profile?.bio || "",
-    pets: profile?.pets || "",
-    posts: profile?.post || "",
-    blogs: profile?.blogs || "",
-    passportNumber: profile?.passportNumber || "",
-    gallery: profile?.gallery || "",
+    bio: "",
+    pets: "",
+    posts: "",
+    blogs: "",
+    passportNumber: "",
+    gallery: "",
     pet: [
       {
-        breed: profile?.pet[0].breed || "",
-        age: profile?.pet[0].age || "",
-        weight: profile?.pet[0].weight || "",
-        microchipNumber: profile?.pet[0].microchipNumber || "",
-        vaccineNumber: profile?.pet[0].vaccineNumber || "",
-        document: profile?.pet[0].document || "",
+        breed: "",
+        age: "",
+        weight: "",
+        microchipNumber: "",
+        vaccineNumber: "",
+        document: "",
       },
     ],
   });
 
-
-
-  // const [isEditing, setIsEditing] = useState(true);
-  const [errorMsg, setErrorMsg] = useState("");
-
+  // Update form data once profile is fetched
   useEffect(() => {
+    if (profile) {
+      const hasExistingData =
+        profile.bio || (profile.pet && profile.pet[0]?.breed);
 
+      if (hasExistingData) {
+        setShowForm(false);
+      } else {
+        setShowForm(true);
+      }
+
+      setProfileData({
+        bio: profile.bio || "",
+        pets: profile.pets || "",
+        posts: profile.posts || "",
+        blogs: profile.blogs || "",
+        passportNumber: profile.passportNumber || "",
+        gallery: profile.gallery || "",
+        pet: [
+          {
+            breed: profile.pet?.[0]?.breed || "",
+            age: profile.pet?.[0]?.age || "",
+            weight: profile.pet?.[0]?.weight || "",
+            microchipNumber: profile.pet?.[0]?.microchipNumber || "",
+            vaccineNumber: profile.pet?.[0]?.vaccineNumber || "",
+            document: profile.pet?.[0]?.document || "",
+          },
+        ],
+      });
+    }
   }, [profile]);
 
   function handleChange(evt) {
@@ -40,7 +64,6 @@ export default function ProfileForm({ profile }) {
 
   function handlePetChange(evt, index) {
     const { name, value } = evt.target;
-
     setProfileData((prev) => ({
       ...prev,
       pet: [{ ...prev.pet[0], [name]: value }],
@@ -49,36 +72,19 @@ export default function ProfileForm({ profile }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    // setErrorMsg("");
+    try {
+      const updated = await profileService.update(profile?._id, profileData);
+      setErrorMsg("");
+      setShowForm(false);
+      setProfile(updated); // Let parent update
+    } catch (err) {
+      setErrorMsg("Failed to save profile details. Please try again.");
+      console.error("Error updating profile:", err);
+    }
+  }
 
-        try {
-          await profileService.update(profile?._id, profileData);
-          setErrorMsg("");
-          setShowForm(false);
-        } catch (err) {
-          setErrorMsg("Failed to save profile details. Please try again.");
-          console.error("Error updating plan:", err);
-        }
-    // try {
-    //   let updatedProfile;
-    //   if (!profile?._id) {
-    //     updatedProfile = await profileService.create(profileData);
-    //   } else {
-    //     updatedProfile = await profileService.update({
-    //       ...profileData,
-    //       _id: profile._id,
-    //     });
-    //   }
-    //   setProfile(updatedProfile);
-    //   setIsEditing(false);
-    // } catch (err) {
-    //   console.error(err);
-    //   setErrorMsg("Please try again.");
-    // }
-  }
-  if (!profile) {
-    return <div> loading...</div>;
-  }
+  if (!profile) return <div>Loading...</div>;
+
   return (
     <>
       {showForm ? (
@@ -119,7 +125,6 @@ export default function ProfileForm({ profile }) {
           <p>
             <strong>Notes:</strong> {profileData.bio}
           </p>
-          {/* <button onClick={() => setIsEditing(true)}>Update</button> */}
           <button onClick={() => setShowForm(true)}>Update</button>
         </div>
       )}
