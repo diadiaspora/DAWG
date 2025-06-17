@@ -7,8 +7,15 @@ import "./NewBlogPage.css";
 
 export default function NewBlogPage() {
   const [title, setTitle] = useState(""); 
-  const [content, setContent] = useState(""); 
+  
   const [errorMsg, setErrorMsg] = useState("");
+  const [blogData, setBlogData] = useState({
+    title: "",
+    contentOne: "",
+    contentTwo: "",
+    contentThree: "",
+    contentFour: "",
+  });
 
   const navigate = useNavigate();
 
@@ -16,7 +23,7 @@ export default function NewBlogPage() {
     evt.preventDefault();
     try {
     
-      await blogService.create({ title, content });
+      const blog = await blogService.create(blogData);
       navigate("/blogs");
     } catch (err) {
       setErrorMsg("Adding Blog Failed");
@@ -30,11 +37,13 @@ export default function NewBlogPage() {
         <SearchComponent />
         <h2>Share Your Experiences</h2>
         <form onSubmit={handleSubmit}>
-          <label>Tell Us Your Story</label>{" "}
+          <label>Tell Us Your Story</label>
           <input
             type="text"
-            value={title}
-            onChange={(evt) => setTitle(evt.target.value)}
+            value={blogData.title}
+            onChange={(evt) =>
+              setBlogData((prev) => ({ ...prev, title: evt.target.value }))
+            }
             required
             style={{
               padding: "8px",
@@ -45,10 +54,12 @@ export default function NewBlogPage() {
               boxSizing: "border-box",
             }}
           />
-          <label>How Did It Start?</label>{" "}
+          <label>How Did It Start?</label>
           <textarea
-            value={content}
-            onChange={(evt) => setContent(evt.target.value)}
+            value={blogData.contentOne}
+            onChange={(evt) =>
+              setBlogData((prev) => ({ ...prev, contentOne: evt.target.value }))
+            }
             required
             rows="8"
             style={{
@@ -63,8 +74,10 @@ export default function NewBlogPage() {
           ></textarea>
           <label>What Happened?</label>{" "}
           <textarea
-            value={content}
-            onChange={(evt) => setContent(evt.target.value)}
+            value={blogData.contentTwo}
+            onChange={(evt) =>
+              setBlogData((prev) => ({ ...prev, contentTwo: evt.target.value }))
+            }
             required
             rows="8"
             style={{
@@ -79,8 +92,10 @@ export default function NewBlogPage() {
           ></textarea>
           <label>How Did It End?</label>{" "}
           <textarea
-            value={content}
-            onChange={(evt) => setContent(evt.target.value)}
+            value={blogData.contentThree}
+            onChange={(evt) =>
+              setBlogData((prev) => ({ ...prev, contentThree: evt.target.value }))
+            }
             required
             rows="8"
             style={{
@@ -93,10 +108,12 @@ export default function NewBlogPage() {
               resize: "vertical",
             }}
           ></textarea>
-          <label>What Does It Mean?</label>{" "}
+          <label>What Does It Mean?</label>
           <textarea
-            value={content}
-            onChange={(evt) => setContent(evt.target.value)}
+            value={blogData.contentFour}
+            onChange={(evt) =>
+              setBlogData((prev) => ({ ...prev, contentFour: evt.target.value }))
+            }
             required
             rows="8"
             style={{
@@ -124,7 +141,7 @@ export default function NewBlogPage() {
             ADD Blog
           </button>
         </form>
-        <p className="error-message">&nbsp;{errorMsg}</p>
+        <p >&nbsp;{errorMsg}</p>
       </section>
     </>
   );

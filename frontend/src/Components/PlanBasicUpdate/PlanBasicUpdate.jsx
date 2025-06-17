@@ -40,8 +40,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
       try {
         const deletedPlan = await planService.deletePlan(planId);
         if (deletedPlan.err) throw new Error(deletedPlan.err);
-        // When deleting an object in an array with a
-        // , filter is your go to...
+      
         setPlan(null);
        
       } catch (err) {

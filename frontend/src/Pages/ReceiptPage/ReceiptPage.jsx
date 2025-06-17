@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import * as planService from '../../services/planService';
 
 export default function ReceiptPage() {
-    const [plans, setPlans] = useState([]);
+  const [plan, setPlan] = useState([]);
+  const { id } = useParams();
 
     useEffect(() => {
       async function fetchPlans() {
-        const plans = await planService.index();
-        setPlans(plans);
+        const plan = await planService.show(id);
+        setPlan(plan);
       }
       fetchPlans();
     }, []);
@@ -15,7 +17,7 @@ export default function ReceiptPage() {
     return (
       <>
         <h1>Your Recipt</h1>
-        <img src={plans.receipt} alt="Post Image" />
+        <img src={plan.receipt} alt="Post Image" />
       </>
     );
     
