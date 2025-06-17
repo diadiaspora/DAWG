@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("multer")();
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 const plansCtrl = require("../controllers/plans");
 
 // All paths start with '/api/plans';
@@ -12,7 +13,8 @@ router.get("/", plansCtrl.index);
 
 router.get("/:id", plansCtrl.show);
 
-router.put("/:id", upload.single("image"), plansCtrl.update);
+router.put("/:id", upload.single("receipt"), plansCtrl.update);
+
 
 router.delete("/:id", plansCtrl.deletePlan);
 

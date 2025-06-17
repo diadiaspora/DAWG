@@ -10,7 +10,7 @@ module.exports = {
   show,
   update,
   deletePlan,
-  uploadFile
+  uploadFileToS3,
 };
 
 async function index(req, res) {
@@ -52,13 +52,17 @@ async function show(req, res) {
 async function update(req, res) {
   try {
     if (req.file) {
-      req.body.receipt = await uploadFile(req.file);
+      req.body.receipt = await uploadFileToS3(req.file);
     }
     console.log(req.body);
     console.log(req.file);
     const plan = await Plan.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
+      runValidators: true,
     });
+    if (!plan) {
+      return res.status(404).json({ message: "Plan not found for update" });
+    }
 
     res.json(plan);
   } catch (err) {
@@ -77,19 +81,27 @@ async function deletePlan(req, res) {
   }
 }
 
-async function uploadFile(file) {
+async function uploadFileToS3(file) {
   // Create an instance of the S3 client
   const s3Client = new S3Client({ region: S3_REGION });
   // s3's PutObjectCommand will expect an object with the following properties
   const s3Params = {
     Bucket: S3_BUCKET,
     // Create a unique filename to use as the S3 Key
-    Key: `${Date.now()}-${file.originalname}`,
+    Key: `receipts/${Date.now()}-${file.originalname}`,
     // The uploaded file's binary content is held in the buffer property
     Body: file.buffer,
+
+    ContentType: file.mimetype,
   };
   // Send the file to s3
-  await s3Client.send(new PutObjectCommand(s3Params));
-  // Return the endpoint to download the file
-  return `${S3_BASE_URL}${S3_BUCKET}/${s3Params.Key}`;
+  try {
+    await s3Client.send(new PutObjectCommand(s3Params));
+    // Return the endpoint to download the file
+    return `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${s3Params.Key}`;
+  } catch (uploadErr) {
+    console.error("Error uploading file to S3:", uploadErr);
+    // Re-throw the error so the calling `update` function's catch block can handle it.
+    throw new Error("Failed to upload file to S3.");
+  }
 }

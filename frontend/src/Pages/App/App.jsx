@@ -1,10 +1,8 @@
 // App.jsx
 import { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
-
-import { useNavigate } from "react-router-dom";
 import HomePage from "../HomePage/HomePage";
 import PostListPage from "../PostListPage/PostListPage";
 import NewPostPage from "../NewPostPage/NewPostPage";
@@ -20,24 +18,19 @@ import MarketplacePage from "../MarketplacePage/MarketplacePage.jsx";
 import NewBlogPage from "../NewBlogPage/NewBlogPage.jsx";
 import UserProfilePage from "../UserProfilePage/UserProfilePage.jsx";
 import ShowPlanPage from "../ShowPlanPage/ShowPlanPage.jsx";
-import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import BlogList from "../../Components/BlogList/BlogList";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetailPage from "../BlogDetailPage/BlogDetailPage.jsx";
-import PlanBasicUpdate from "../../Components/PlanBasicUpdate/PlanBasicUpdate.jsx";
 import ReceiptPage from "../ReceiptPage/ReceiptPage";
 import ProductPage from "../ProductPage/ProductPage"; 
 import CartPage from "../CartPage/CartPage";
-
 import { CartProvider } from "../../context/CartContext"; 
-
 import "./App.css";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [profile, setProfile] = useState(null);
-  const location = useLocation();
+ 
 
   useEffect(() => {
     async function fetchProfile() {

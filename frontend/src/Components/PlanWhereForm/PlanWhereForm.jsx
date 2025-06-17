@@ -13,36 +13,44 @@ export default function PlanWhereForm({ plan, setPlan }) {
     checkIn: plan.checkIn ? plan.checkIn : "",
     checkOut: plan.checkOut ? plan.checkOut : "",
     address: plan.address ? plan.address : "",
-    receipt: plan.receipt ? plan.receipt : "",
   });
 
   const [errorMsg, setErrorMsg] = useState("");
-
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-
       const planData = new FormData();
-      
-      console.log(fileInputRef.current.files)
-      planData.append(plan._id, formData);
-   
-      if (fileInputRef.current.files.length)
-      planData.append("image", fileInputRef.current.files[0]);
-      for (const value of planData.values()) {
-        console.log(value);
+
+      console.log(fileInputRef.current.files); // Keep for debugging if needed
+
+      // --- REMOVE THIS INCORRECT LINE ---
+      // planData.append(plan._id, formData);
+
+      // This loop correctly appends individual fields from formData state
+      for (const key in formData) {
+        planData.append(key, formData[key]);
       }
-      const updatedPlan = await planService.update(plan._id, formData);
+
+      // This line correctly appends the file with the expected name "receipt"
+      if (fileInputRef.current.files.length > 0) {
+        planData.append("receipt", fileInputRef.current.files[0]);
+      }
+
+      // Optional: Log FormData contents for debugging (remove in production)
+      for (const pair of planData.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+
+      const updatedPlan = await planService.update(plan._id, planData);
       setErrorMsg("");
-      setPlan({ ...updatedPlan });
-      setShowForm(false);
+      setPlan({ ...updatedPlan }); // Update local state with the returned plan data
+      setShowForm(false); // Hide the form after successful update
     } catch (err) {
       console.error("Failed to save location details:", err);
       setErrorMsg("Failed to save location details. Please try again.");
@@ -248,21 +256,29 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 </div>
               </div>
               <div>
-                <button
-                  onClick={() => navigate(`/plans/${plan._id}/receipt`)}
-                  style={{
-                    backgroundColor: "#d9d9d9",
-                    width: "190px",
-                    marginTop: "10px",
-                    color: "black",
-                    height: "44px",
-                    borderRadius: "50px",
-                    borderWidth: "2px",
-                    borderColor: "#d9d9d9",
-                  }}
-                >
-                  View Receipt
-                </button>
+                {/* Conditionally render View Receipt or "No Receipt" text */}
+                {plan.receipt &&
+                plan.receipt !== "https://i.imgur.com/KTEjbsw.png" ? (
+                  <button
+                    onClick={() => window.open(plan.receipt, "_blank")} // Open in new tab
+                    style={{
+                      backgroundColor: "#d9d9d9",
+                      width: "190px",
+                      marginTop: "10px",
+                      color: "black",
+                      height: "44px",
+                      borderRadius: "50px",
+                      borderWidth: "2px",
+                      borderColor: "#d9d9d9",
+                    }}
+                  >
+                    View Receipt
+                  </button>
+                ) : (
+                  <p style={{ marginTop: "10px", color: "#666" }}>
+                    No receipt uploaded
+                  </p>
+                )}
               </div>
             </div>
             <div style={{ display: "flex" }}>
@@ -299,8 +315,6 @@ export default function PlanWhereForm({ plan, setPlan }) {
             </div>
           </div>
         </div>
-
-        // )
       )}
     </div>
   );
