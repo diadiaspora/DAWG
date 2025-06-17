@@ -23,7 +23,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import BlogList from "../../Components/BlogList/BlogList";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
-import BlogDetail from "../../Components/BlogDetail/BlogDetail.jsx";
+import BlogDetailPage from "../BlogDetailPage/BlogDetailPage.jsx";
 import PlanBasicUpdate from "../../Components/PlanBasicUpdate/PlanBasicUpdate.jsx";
 import ReceiptPage from "../ReceiptPage/ReceiptPage";
 
@@ -107,9 +107,9 @@ export default function App() {
                 path="/profiles"
                 element={<UserProfilePage user={user} setUser={setUser} />}
               />
-              <Route path="/blogs/:id" element={<BlogDetail />} />
+              <Route path="/blogs/:id" element={<BlogDetailPage />} />
 
-              <Route path="/receipt" element={<ReceiptPage />} />
+              <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
             </Routes>
           ) : (
             <Routes>

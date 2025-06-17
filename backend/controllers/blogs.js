@@ -33,7 +33,7 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.findById(req.params.id).populate("author");
 
     res.json(blog);
   } catch (err) {

@@ -25,7 +25,7 @@ export default function PlanIndex({isGallery}) {
           {plans.map((plan) => (
             <li key={plan._id}>
               <Link
-                to={`${plan._id}`}
+                to= {`${plan._id}`} 
                 style={{
                   backgroundColor: "#1E3769",
                   padding: "8px",

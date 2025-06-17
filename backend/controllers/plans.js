@@ -52,9 +52,10 @@ async function show(req, res) {
 async function update(req, res) {
   try {
     if (req.file) {
-      req.body.imageUrl = await uploadFile(req.file);
+      req.body.receipt = await uploadFile(req.file);
     }
-    
+    console.log(req.body);
+    console.log(req.file);
     const plan = await Plan.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });

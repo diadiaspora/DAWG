@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
 
-export default function ProfileForm({ profile}) {
-  const [showForm, setShowForm] = useState(profile?._id ? false : true);
+export default function ProfileForm({ profile }) {
   console.log({ profile });
+  const [showForm, setShowForm] = useState(profile ? false : true);
+
   const [profileData, setProfileData] = useState({
     bio: profile?.bio || "",
     pets: profile?.pets || "",
@@ -37,12 +38,14 @@ export default function ProfileForm({ profile}) {
     setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
-  // function handlePetChange(evt, index) {
-  //   const { name, value } = evt.target;
-  //   const updatedPets = [...profileData.pet];
-  //   updatedPets[index] = { ...updatedPets[index], [name]: value };
-  //   setProfileData((prev) => ({ ...prev, pet: updatedPets }));
-  // }
+  function handlePetChange(evt, index) {
+    const { name, value } = evt.target;
+
+    setProfileData((prev) => ({
+      ...prev,
+      pet: [{ ...prev.pet[0], [name]: value }],
+    }));
+  }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -73,7 +76,9 @@ export default function ProfileForm({ profile}) {
     //   setErrorMsg("Please try again.");
     // }
   }
-
+  if (!profile) {
+    return <div> loading...</div>;
+  }
   return (
     <>
       {showForm ? (
@@ -82,17 +87,16 @@ export default function ProfileForm({ profile}) {
             <label>Pet Breed</label>
             <input
               name="breed"
-              value={profileData.pet.breed}
-              // onChange={(evt) => handlePetChange(evt, 0)}
-              onChange={handleChange}
+              value={profileData.pet[0].breed}
+              onChange={(evt) => handlePetChange(evt, 0)}
               style={{ width: "180px" }}
             />
             <label>Pet Age</label>
             <input
               name="age"
-              value={profileData.pet.age}
-              // onChange={(evt) => handlePetChange(evt, 0)}
-              onChange={handleChange}
+              type="number"
+              value={profileData.pet[0].age}
+              onChange={(evt) => handlePetChange(evt, 0)}
               style={{ width: "180px" }}
             />
             <label>Bio</label>
@@ -108,9 +112,9 @@ export default function ProfileForm({ profile}) {
         </div>
       ) : (
         <div>
-          <h4>{profileData.breed}</h4>
+          <h4>{profileData.pet[0].breed}</h4>
           <p>
-            <strong>Age:</strong> {profileData.age}
+            <strong>Age:</strong> {profileData.pet[0].age}
           </p>
           <p>
             <strong>Notes:</strong> {profileData.bio}

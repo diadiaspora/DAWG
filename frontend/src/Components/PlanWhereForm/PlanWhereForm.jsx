@@ -7,11 +7,13 @@ export default function PlanWhereForm({ plan, setPlan }) {
   const [showForm, setShowForm] = useState(plan ? false : true);
   const navigate = useNavigate();
 
+  const fileInputRef = useRef();
+
   const [formData, setFormData] = useState({
-    
     checkIn: plan.checkIn ? plan.checkIn : "",
     checkOut: plan.checkOut ? plan.checkOut : "",
     address: plan.address ? plan.address : "",
+    receipt: plan.receipt ? plan.receipt : "",
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -26,11 +28,18 @@ export default function PlanWhereForm({ plan, setPlan }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const updatedPlan = await planService.update(plan._id, formData);
+
       const planData = new FormData();
+      
+      console.log(fileInputRef.current.files)
       planData.append(plan._id, formData);
+   
       if (fileInputRef.current.files.length)
-        planData.append("image", fileInputRef.current.files[0]);
+      planData.append("image", fileInputRef.current.files[0]);
+      for (const value of planData.values()) {
+        console.log(value);
+      }
+      const updatedPlan = await planService.update(plan._id, formData);
       setErrorMsg("");
       setPlan({ ...updatedPlan });
       setShowForm(false);
@@ -40,7 +49,6 @@ export default function PlanWhereForm({ plan, setPlan }) {
     }
   }
 
-  const fileInputRef = useRef();
 
   return (
     <div style={{ marginTop: "42px" }}>
@@ -124,6 +132,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
               style={{
                 borderRadius: "50px",
               }}
+              name="receipt"
               type="file"
               accept=".png, .gif, .jpg, .jpeg"
               ref={fileInputRef}
@@ -240,7 +249,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
               </div>
               <div>
                 <button
-                  onClick={() => navigate("/receipt")}
+                  onClick={() => navigate(`/plans/${plan._id}/receipt`)}
                   style={{
                     backgroundColor: "#d9d9d9",
                     width: "190px",
@@ -252,7 +261,6 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     borderColor: "#d9d9d9",
                   }}
                 >
-                  {" "}
                   View Receipt
                 </button>
               </div>
