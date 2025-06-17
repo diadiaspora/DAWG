@@ -1,41 +1,67 @@
+// src/components/Marketplace.jsx
 import { getProducts } from "../../api/ShopifyClient";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Marketplace() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getProducts().then((fetchedProducts) => {
-      setProducts(fetchedProducts);
-    });
+    const fetchAllProducts = async () => {
+      try {
+        setLoading(true);
+        const fetchedProducts = await getProducts();
+        setProducts(fetchedProducts);
+      } catch (err) {
+        console.error("Error fetching all products:", err);
+        setError("Failed to load products. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllProducts();
   }, []);
 
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p className="error">{error}</p>;
+  if (products.length === 0) return <p>No products found.</p>;
+
   return (
-    <div>
+    <div className="marketplace">
       <h1>Shop</h1>
-      <ul>
+      <div className="product-grid">
         {products.map((product) => (
-          <li key={product.id}>
-            <h3>{product.title}</h3>
-            {/* Check if product has images and display the first one */}
-            {product.images.length > 0 && (
-              <img
-                src={product.images[0].src} // Access the source URL of the first image
-                alt={product.title} // Use product title as alt text for accessibility
-                style={{ maxWidth: "200px", height: "auto" }} // Optional: Add some basic styling
-              />
-            )}
-            {/* <p>{product.description}</p> */}
-            {/* You can also display product price, options, etc. here if needed */}
-            {product.variants.length > 0 && (
-              <p>
-                Price: $
-                {parseFloat(product.variants[0].price.amount).toFixed(2)}
-              </p>
-            )}
-          </li>
+          <div key={product.id} className="product-card">
+            {/* --- IMPORTANT CHANGE HERE --- */}
+            {/* Extract only the numeric ID from the GID for the URL */}
+            <Link to={`/product/${product.id.split("/").pop()}`}>
+              {product.images.length > 0 && (
+                <img
+                  src={product.images[0].src}
+                  alt={product.title}
+                  className="product-image"
+                />
+              )}
+              <h3>{product.title}</h3>
+              {product.variants.length > 0 && (
+                <p className="product-price">
+                  ${parseFloat(product.variants[0].price.amount).toFixed(2)}
+                </p>
+              )}
+            </Link>
+            {/* --- IMPORTANT CHANGE HERE AS WELL (for the second link) --- */}
+            <Link
+              to={`/product/${product.id.split("/").pop()}`}
+              className="view-details-button"
+            >
+              View Details
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

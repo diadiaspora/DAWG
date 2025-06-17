@@ -1,11 +1,11 @@
-// import Product from "../../Components/Product/Product.jsx";
+import Product from "../../Components/Product/Product";
 
-// export default function ProductPage() {
-//   const [posts, setPosts] = useState([]);
+export default function ProductPage() {
 
-//   return (
-//     <>
-//    <Product />
-//     </>
-//   );
-// }
+
+  return (
+    <>
+   <Product />
+    </>
+  );
+}
