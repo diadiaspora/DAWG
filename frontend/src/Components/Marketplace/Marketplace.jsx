@@ -1,7 +1,8 @@
-// src/components/Marketplace.jsx
+
 import { getProducts } from "../../api/ShopifyClient";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./Marketplace.css";
 
 export default function Marketplace() {
   const [products, setProducts] = useState([]);
@@ -30,7 +31,7 @@ export default function Marketplace() {
   if (products.length === 0) return <p>No products found.</p>;
 
   return (
-    <div className="marketplace">
+    <div style={{margin: "42px"}}>
       <h1>Shop</h1>
       <div className="product-grid">
         {products.map((product) => (

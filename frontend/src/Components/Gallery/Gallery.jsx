@@ -10,7 +10,7 @@ const Gallery = () => {
   return (
     <div className="divbody" style={{marginTop: "42px"}}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
-        <h3 style={{ marginBottom: "-25px" }}>Gallery</h3>
+        <h3 style={{ marginBottom: "-25px"}}>Gallery</h3>
         <p style={{ marginBottom: "0px", fontSize: "16px" }}>
           Add your Photos here
         </p>

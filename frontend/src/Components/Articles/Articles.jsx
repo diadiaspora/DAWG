@@ -9,14 +9,14 @@ const Articles = () => {
   };
 
   return (
-    <div className="divbd" style={{ marginTop: "-70px" }}>
+    <div style={{ marginTop: "-200px" }}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
         <Link
           to="/blogs"
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: "none", color: "black", fontSize: "24px" }}
           className="custom-link"
         >
-          <h3 style={{ marginBottom: "-25px" }}>Resources </h3>
+          <h3 style={{ marginBottom: "0px", fontSize: "24px" }}>Articles</h3>
         </Link>
         <p></p>
       </aside>
@@ -25,7 +25,7 @@ const Articles = () => {
       <div
         style={{
           height: "350px",
-          width: "192px",
+          width: "237px",
           marginLeft: "42px",
           display: "flex",
         }}
@@ -43,7 +43,7 @@ const Articles = () => {
             src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
             alt="resources"
             style={{
-              width: "192px",
+              width: "221px",
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
             }}
@@ -69,7 +69,7 @@ const Articles = () => {
             src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
             alt="resources"
             style={{
-              width: "192px",
+              width: "237px",
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
             }}
@@ -95,7 +95,7 @@ const Articles = () => {
             src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
             alt="resources"
             style={{
-              width: "192px",
+              width: "237px",
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
             }}
@@ -108,31 +108,30 @@ const Articles = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      <div style={{ height: "350px", marginLeft: "0px" }}>
         <div
           style={{
-            backgroundColor: "#D9D9D9",
-            width: "310px",
+            marginRight: "21px",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "grey",
             borderRadius: "20px",
-            height: "350px",
-            marginTop: "0px",
-            padding: "24px",
           }}
         >
-          <h3> Share Your Experiences</h3>
-          <h4>You can inspire and help other people! </h4>
-          <div
+          <img
+            src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="resources"
             style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "36px",
+              width: "237px",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
             }}
-          >
-            <button onClick={handleClick} className="buttonAir">
-              Create a post
-            </button>
+          ></img>
+          <div>
+            <p
+              style={{ fontSize: "16px", marginTop: "0px", marginLeft: "12px" }}
+            >
+              <strong> Top 10 Cities for Travelling with a Pet</strong>{" "}
+            </p>
           </div>
         </div>
       </div>
