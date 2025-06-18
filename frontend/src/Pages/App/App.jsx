@@ -1,6 +1,6 @@
 // App.jsx
 import { useState, useEffect } from "react";
-import { Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
 import HomePage from "../HomePage/HomePage";
@@ -24,7 +24,9 @@ import BlogDetailPage from "../BlogDetailPage/BlogDetailPage.jsx";
 import ReceiptPage from "../ReceiptPage/ReceiptPage";
 import ProductPage from "../ProductPage/ProductPage"; 
 import CartPage from "../CartPage/CartPage";
+import SearchFlights from "../../Components/SearchFlights/SearchFlights";
 import { CartProvider } from "../../context/CartContext"; 
+
 import "./App.css";
 
 export default function App() {
