@@ -33,14 +33,9 @@ export default function PlanBasicsForm() {
   }
 
   return (
-    <div className="divbody" style={{ marginBottom: "-230px" }}>
-      <aside style={{ marginRight: "42px" }}>
-        <h3>Create a Plan</h3>
-      </aside>
-
-      <main>Calendar</main>
-
+    <div style={{ marginBottom: "0px", display: "flex" }}>
       <div>
+        <h3 style={{ marginLeft: "42px", fontSize: "24px" }}>Create a Plan</h3>
         <form
           onSubmit={handleSubmit}
           style={{
@@ -179,8 +174,13 @@ export default function PlanBasicsForm() {
         {errorMsg && <p className="error">{errorMsg}</p>}
       </div>
 
-      <div>
-        <img src="./calander.png" className="calander" alt="calendar" />
+      <div style={{ height: "350px" }}>
+        <h3 style={{ marginLeft: "42px", fontSize: "24px" }}>Calender</h3>
+        <img
+          src="./calander.png"
+          style={{ width: "310px",  marginLeft: "42px" }}
+          alt="calendar"
+        />
       </div>
     </div>
   );

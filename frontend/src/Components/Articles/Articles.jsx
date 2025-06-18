@@ -9,7 +9,7 @@ const Articles = () => {
   };
 
   return (
-    <div style={{ marginTop: "-200px" }}>
+    <div style={{ marginTop: "0px" }}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
         <Link
           to="/blogs"

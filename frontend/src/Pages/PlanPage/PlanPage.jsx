@@ -1,12 +1,10 @@
 import Header from "../../Components/Header/Header.jsx";
 import PlanBasicsForm from "../../Components/PlanBasicsForm/PlanBasicsForm.jsx";
-import PlanWhereForm from "../../Components/PlanWhereForm/PlanWhereForm.jsx";
-import PlanFlightForm from "../../Components/PlanFlightForm/PlanFlightForm.jsx";
-import PlanScheduleForm from "../../Components/PlanScheduleForm/PlanScheduleForm.jsx";
+
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
-// import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
+import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 
 import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
@@ -33,14 +31,15 @@ export default function PlanPage() {
             borderRadius: "10px",
             height: "75px",
             paddingTop: "10px",
+            marginTop: "42px"
           }}
         >
           <PlanIndex />
         </div>
 
-        <h3> Marketplace</h3>
-        {/* <Marketplace /> */}
-        <h3> Articles</h3>
+    
+         <Marketplace /> 
+        
         <Articles />
       </section>
     </>

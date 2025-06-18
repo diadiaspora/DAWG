@@ -24,9 +24,9 @@ export default function BlogList({ isHome }) {
                 <div
                   key={blog._id}
                   style={{
-                    width: "220px",
+                    width: "206px",
                     borderRadius: "20px",
-                   
+                   marginRight: "21px",
                     borderStyle: "solid",
                     borderColor: "#d9d9d9",
                     height: "350px",
@@ -37,7 +37,7 @@ export default function BlogList({ isHome }) {
                       src="https://images.unsplash.com/photo-1570299437488-d430e1e677c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3ViYXxlbnwwfHwwfHx8MA%3D%3D"
                       alt="resources"
                       style={{
-                        width: "220px",
+                        width: "206px",
                         borderTopLeftRadius: "20px",
                         borderTopRightRadius: "20px",
                       }}
