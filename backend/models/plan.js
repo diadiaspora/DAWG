@@ -23,6 +23,7 @@ const planSchema = mongoose.Schema({
   returnDate: { type: Date },
   returnDepartureTime: { type: String },
   returnArrivalTime: { type: String },
+  ticket: { type: String, default: "https://i.imgur.com/KTEjbsw.png" },
   author: {
     type: Schema.Types.ObjectId,
     required: true,

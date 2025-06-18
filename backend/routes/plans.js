@@ -13,7 +13,15 @@ router.get("/", plansCtrl.index);
 
 router.get("/:id", plansCtrl.show);
 
-router.put("/:id", upload.single("receipt"), plansCtrl.update);
+router.put(
+  "/:id",
+  upload.fields([
+    { name: "receipt", maxCount: 1 },
+    { name: "ticket", maxCount: 1 },
+  ]),
+  plansCtrl.update
+);
+
 
 
 router.delete("/:id", plansCtrl.deletePlan);

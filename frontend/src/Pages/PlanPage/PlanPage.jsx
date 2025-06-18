@@ -6,7 +6,7 @@ import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 
-import { useNavigate } from "react-router";
+import { useNavigate, NavLink } from "react-router";
 import { useState, useEffect } from "react";
 
 import "./PlanPage.css";

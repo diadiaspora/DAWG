@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
 import { Link } from "react-router";
 
-export default function BlogList({ isHome }) {
+export default function BlogList({isHome}) {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -15,9 +15,16 @@ export default function BlogList({ isHome }) {
 
   return (
     <>
-      <div style={{ marginLeft: "0px", width: "1012px", display: "flex" , marginTop: "42px"}}>
+      <div
+        style={{
+          marginLeft: "0px",
+          width: "1012px",
+          display: "flex",
+          marginTop: "42px",
+        }}
+      >
         <div style={{ width: "662px", marginRight: "42px" }}>
-          <h1 style={{fontSize: "24px", marginLeft: "42px"}}>Blog List</h1>
+          <h1 style={{ fontSize: "24px", marginLeft: "42px" }}>Blog List</h1>
           {blogs.length ? (
             <ul style={{ display: "flex" }}>
               {blogs.map((blog) => (
@@ -26,7 +33,7 @@ export default function BlogList({ isHome }) {
                   style={{
                     width: "206px",
                     borderRadius: "20px",
-                   marginRight: "21px",
+                    marginRight: "21px",
                     borderStyle: "solid",
                     borderColor: "#d9d9d9",
                     height: "350px",
@@ -42,9 +49,19 @@ export default function BlogList({ isHome }) {
                         borderTopRightRadius: "20px",
                       }}
                     ></img>
-                    <Link to={isHome ? `/blogs/${blog._id}` : `${blog._id}`}>
+                    <Link
+                      to={`/blogs/${blog._id}`}
+                      style={{
+                        display: "block",
+                        padding: "10px",
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                        color: "#1E3769",
+                      }}
+                    >
                       {blog.title}
                     </Link>
+                    <p></p>
                   </li>
                 </div>
               ))}
@@ -62,8 +79,6 @@ export default function BlogList({ isHome }) {
               height: "350px",
               marginTop: "0px",
               padding: "24px",
-             
-            
             }}
           >
             <h3> Share Your Experiences</h3>
