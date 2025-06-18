@@ -10,13 +10,13 @@ import { useState } from "react";
 import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";
 
-export default function HomePage() {
-    const [isHome, setIsHome] = useState(true);
-    
+export default function HomePage({ user, setUser }) {
+  const [isHome, setIsHome] = useState(true);
+
   return (
     <>
       <section className="home">
-        <Header />
+        <Header user={user} setUser={setUser} />
         <SearchComponent />
         <Gallery />
         <div style={{ marginTop: "-200px", marginBotton: "100px" }}>
@@ -25,7 +25,7 @@ export default function HomePage() {
         <div style={{ marginTop: "400px" }}>
           <RedditPostList />
         </div>
-         <Marketplace /> 
+        <Marketplace />
         <Articles />
       </section>
     </>

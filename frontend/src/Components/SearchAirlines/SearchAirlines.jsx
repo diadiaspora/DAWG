@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import HeadButtons from "../HeadButtons/HeadButtons.jsx";
+
 import "./SearchAirlines.css";
 
 const SearchAirlines = () => {

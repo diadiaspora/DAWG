@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import HeadButtons from "../HeadButtons/HeadButtons.jsx";
+
 import "./SearchDocuments.css";
 
 const SearchDocuments = () => {
@@ -18,9 +18,12 @@ const SearchDocuments = () => {
 
   return (
     <div style={{ marginLeft: "42px" }}>
-      <div style={{ display: "flex", paddingTop: "42px" }}>
+      <div style={{ display: "flex", paddingTop: "42px"}}>
         <div>
-          <label htmlFor="from" style={{ marginLeft: "42px", width: "220px" }}>
+          <label
+            htmlFor="from"
+            style={{ marginLeft: "0px", width: "220px" }}
+          >
             Where From
           </label>
           <select
@@ -36,18 +39,20 @@ const SearchDocuments = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="to">Where to?:</label>
-          <select
-            name="to"
-            className="docSelect"
-            value={toCountry}
-            onChange={(e) => setToCountry(e.target.value)}
-          >
-            <option value="">Where are you going?</option>
-            <option value="usa">USA</option>
-            <option value="mexico">Mexico</option>
-            <option value="chile">Chile</option>
-          </select>
+          <div>
+            <label htmlFor="to" style={{ marginLeft: "0px", width: "220px"}}>Where to?:</label>
+            <select
+              name="to"
+              className="docSelect"
+              value={toCountry}
+              onChange={(e) => setToCountry(e.target.value)}
+            >
+              <option value="">Where are you going?</option>
+              <option value="usa">USA</option>
+              <option value="mexico">Mexico</option>
+              <option value="chile">Chile</option>
+            </select>
+          </div>
         </div>
       </div>
       <div
