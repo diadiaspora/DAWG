@@ -55,12 +55,10 @@ export default function App() {
     <>
       <main className="App">
         <NavBar user={user} setUser={setUser} />
-      
         <CartProvider>
           <section id="main-section">
             {user ? (
               <Routes>
-             
                 <Route
                   path="/profiles"
                   element={
@@ -71,7 +69,10 @@ export default function App() {
                     />
                   }
                 />
-                <Route path="/" element={<HomePage />} />
+                <Route
+                  path="/"
+                  element={<HomePage user={user} setUser={setUser} />}
+                />
                 <Route path="/posts" element={<PostListPage />} />
                 <Route path="/posts/new" element={<NewPostPage />} />
                 <Route path="*" element={null} />
@@ -100,7 +101,6 @@ export default function App() {
                 <Route path="/blogs/:id" element={<BlogDetailPage />} />
                 <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
 
-              
                 <Route path="/product/:productId" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
               </Routes>
@@ -123,7 +123,6 @@ export default function App() {
             )}
           </section>
         </CartProvider>{" "}
-      
         <Footer />
       </main>
     </>

@@ -38,13 +38,29 @@ export default function NavBar({ user, setUser }) {
           <Link to="/" onClick={handleLogOut}>
             Log Out
           </Link>
-          <span>Welcome, {user.name}</span>
+          {/* <span>Welcome, {user.name}</span> */}
+          <span>
+            <img src="./Avatar.png" className="avatar" alt="avatar"></img>
+          </span>
         </>
       ) : (
         <>
+          <NavLink to="/flights" end>
+            Flights
+          </NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/plans">Posts</NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/write">Blogs</NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/marketplace">Shop</NavLink>
+          &nbsp; | &nbsp;
           <NavLink to="/login">Log In</NavLink>
           &nbsp; | &nbsp;
           <NavLink to="/signup">Sign Up</NavLink>
+          <span>
+            <img src="./Avatar.png" className="avatar" alt="avatar"></img>
+          </span>
         </>
       )}
     </nav>

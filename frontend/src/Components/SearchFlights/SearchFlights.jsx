@@ -1,4 +1,4 @@
-// /Users/diadiaspora/code/ga/DAWG/frontend/src/Components/SearchFlights.jsx (or wherever it's located)
+
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -44,99 +44,136 @@ export default function SearchFlights() {
       style={{
         display: "flex",
         flexDirection: "column",
-        maxWidth: "300px",
-        gap: "10px",
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-        
       }}
     >
-      <input
-        type="text"
-        placeholder="Origin (e.g., SYD)"
-        value={origin}
-        onChange={(e) => setOrigin(e.target.value)} // Keep user input as is, format on append
-        required
+      <div
         style={{
-          padding: "8px",
-          borderRadius: "4px",
-          border: "1px solid #ddd",
-        }}
-      />
-      <input
-        type="text"
-        placeholder="Destination (e.g., BKK)"
-        value={destination}
-        onChange={(e) => setDestination(e.target.value)} // Keep user input as is, format on append
-        required
-        style={{
-          padding: "8px",
-          borderRadius: "4px",
-          border: "1px solid #ddd",
-        }}
-      />
-      <label>
-        Departure Date:
-        <input
-          type="date"
-          value={departureDate}
-          onChange={(e) => setDepartureDate(e.target.value)}
-          required
-          style={{
-            padding: "8px",
-            borderRadius: "4px",
-            border: "1px solid #ddd",
-            width: "calc(100% - 16px)",
-          }}
-        />
-      </label>
-      <label>
-        Return Date (Optional):
-        <input
-          type="date"
-          value={returnDate}
-          onChange={(e) => setReturnDate(e.target.value)}
-          style={{
-            padding: "8px",
-            borderRadius: "4px",
-            border: "1px solid #ddd",
-            width: "calc(100% - 16px)",
-          }}
-        />
-      </label>
-      <label>
-        Adults:
-        <input
-          type="number"
-          placeholder="Number of Adults"
-          value={adults}
-          onChange={(e) =>
-            setAdults(Math.max(1, parseInt(e.target.value) || 1))
-          } // Ensure at least 1 adult
-          min="1"
-          required
-          style={{
-            padding: "8px",
-            borderRadius: "4px",
-            border: "1px solid #ddd",
-            width: "calc(100% - 16px)",
-          }}
-        />
-      </label>
-      <button
-        type="submit"
-        style={{
-          padding: "10px 15px",
-          borderRadius: "4px",
-          border: "none",
-          background: "#007bff",
-          color: "white",
-          cursor: "pointer",
+          display: "flex",
+          paddingTop: "42px",
         }}
       >
-        Search Flights
-      </button>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label> Where from?*</label>
+          <input
+            type="text"
+            placeholder="Origin (e.g., SYD)"
+            value={origin}
+            onChange={(e) => setOrigin(e.target.value)} // Keep user input as is, format on append
+            required
+            style={{
+              padding: "8px",
+              borderRadius: "50px",
+              height: "44px",
+              borderColor: "black",
+              width: "220px",
+              marginLeft: "42px",
+            }}
+          />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label> Where To?*</label>
+          <input
+            type="text"
+            placeholder="Destination (e.g., BKK)"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)} // Keep user input as is, format on append
+            required
+            style={{
+              padding: "8px",
+              borderRadius: "50px",
+              height: "44px",
+              borderColor: "black",
+              width: "220px",
+              marginLeft: "22px",
+            }}
+          />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label>Departure Date:*</label>
+          <input
+            type="date"
+            value={departureDate}
+            onChange={(e) => setDepartureDate(e.target.value)}
+            required
+            style={{
+              padding: "8px",
+              borderRadius: "50px",
+              height: "44px",
+              borderColor: "black",
+              marginLeft: "22px",
+            }}
+          />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "22px",
+          }}
+        >
+          <label>Return Date:</label>
+          <input
+            type="date"
+            value={returnDate}
+            onChange={(e) => setReturnDate(e.target.value)}
+            style={{
+              padding: "8px",
+              borderRadius: "50px",
+              height: "44px",
+              borderColor: "black",
+            }}
+          />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "22px"
+          }}
+        >
+          <label>Adults:</label>
+          <input
+            type="number"
+            placeholder="Number of Adults"
+            value={adults}
+            onChange={(e) =>
+              setAdults(Math.max(1, parseInt(e.target.value) || 1))
+            }
+            min="1"
+            required
+            style={{
+              padding: "8px",
+              borderRadius: "50px",
+              height: "44px",
+              borderColor: "black",
+              width: "80px",
+            }}
+          />
+        </div>
+      </div>
+
+      <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "36px",
+          }}
+        >
+          <button
+            type="submit"
+            style={{
+              height: "44px",
+              backgroundColor: "#1E3769",
+              borderRadius: "50px",
+              width: "200px",
+              borderColor: "#1E3769",
+            }}
+          >
+            Search Flights
+          </button>
+        </div>
+      </div>
     </form>
   );
 }

@@ -24,17 +24,31 @@ const SearchServices = () => {
 
   return (
     <>
-      <div style={{ marginLeft: "0px", paddingLeft: "0px" }}>
+      <div
+        style={{
+          marginLeft: "42px",
+          paddingLeft: "0px",
+          
+        }}
+      >
         <div
           style={{
             display: "flex",
             paddingTop: "42px",
             marginLeft: "0px",
             paddingLeft: "0px",
+          
           }}
         >
-          <div>
-            <label for="from" style={{ marginLeft: "0px", width: "220px" }}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <label
+              for="from"
+              style={{
+                marginLeft: "0px",
+                width: "220px",
+             
+              }}
+            >
               Service Needed
             </label>
             <select
@@ -43,7 +57,7 @@ const SearchServices = () => {
               value={service}
               onChange={(e) => setService(e.target.value)}
             >
-              <option value="">What do yoou need?</option>
+              <option value="">What do you need?</option>
               <option value="vet">Veterinarian</option>
               <option value="lawyer">Lawyer</option>
               <option value="dentist">Dentist</option>
@@ -59,7 +73,7 @@ const SearchServices = () => {
             </select>
           </div>
 
-          <div>
+          <div style={{ display: "flex", flexDirection: "column" , marginLeft: "42px"}}>
             <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
               City?:
             </label>

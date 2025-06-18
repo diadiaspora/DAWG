@@ -1,11 +1,11 @@
 import "./Header.css";
 
-export default function Header({ user }) {
+export default function Header({ user}) {
   return (
-    <div className="header" >
+    <div className="header">
       {user ? (
         <div>
-          <h1 style={{fontSize: "42px"}} >Hey {user.name}</h1>
+          <h1 style={{ fontSize: "22px", marginTop: "40px" }}>Hey {user.name}</h1>
           <h2>Where are you and your dog going next?</h2>
         </div>
       ) : (
