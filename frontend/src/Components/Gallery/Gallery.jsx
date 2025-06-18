@@ -8,7 +8,7 @@ const Gallery = () => {
   const [isGallery, setIsGallery] = useState(true);
   
   return (
-    <div className="divbody">
+    <div className="divbody" style={{marginTop: "200px"}}>
       <aside style={{ marginLeft: "42px", textAlign: "left" }}>
         <h3 style={{ marginBottom: "-25px" }}>Gallery</h3>
         <p style={{ marginBottom: "0px", fontSize: "16px" }}>

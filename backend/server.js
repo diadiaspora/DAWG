@@ -23,6 +23,7 @@ app.use("/api/posts", require("./routes/posts"));
 app.use("/api/plans", require("./routes/plans"));
 app.use("/api/profiles", require("./routes/profiles"));
 app.use("/api/blogs", require("./routes/blogs"));
+app.use("/api/flights", require("./routes/flights")); 
 
 app.get("/*splat", function (req, res) {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
