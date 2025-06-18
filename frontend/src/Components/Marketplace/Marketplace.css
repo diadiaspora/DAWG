@@ -1,4 +1,4 @@
-/* ProductsMarketplace.css */
+
 
 .product-grid {
     display: grid;
@@ -11,13 +11,16 @@
 
 .product-card {
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
     padding: 15px;
     transition: transform 0.2s;
     width: 280px;
+    border-color: #d9d9d9;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .product-card:hover {

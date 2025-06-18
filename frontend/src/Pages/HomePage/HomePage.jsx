@@ -19,14 +19,14 @@ export default function HomePage({ user, setUser }) {
         <Header user={user} setUser={setUser} />
         <SearchComponent />
         <Gallery />
-        <div style={{ marginTop: "-200px", marginBotton: "100px" }}>
+        <Articles />
+        <div >
           <BlogList isHome={isHome} />
         </div>
         <div style={{ marginTop: "400px" }}>
           <RedditPostList />
         </div>
         <Marketplace />
-        <Articles />
       </section>
     </>
   );

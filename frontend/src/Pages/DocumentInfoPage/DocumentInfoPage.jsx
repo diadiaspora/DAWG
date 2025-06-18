@@ -1,4 +1,4 @@
-// DocumentInfoPage.jsx
+
 import { useParams } from "react-router-dom";
 import documentsData from "../../Data/documents.json";
 
@@ -29,44 +29,48 @@ export default function DocumentInfoPage() {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>
-        Traveling with Pets: {fromKey} to {toKey}
-      </h1>
+    <>
+      <section style={{ width: "100%" }}>
+        <div style={{ padding: "20px", margin: "42px" }}>
+          <h1>
+            Traveling with Pets: {fromKey} to {toKey}
+          </h1>
 
-      {/* Export Info */}
-      <div style={{ marginTop: "30px" }}>
-        <h2>Exporting from {fromKey}</h2>
-        <h4>Required Documents:</h4>
-        <ul>
-          {fromCountry.export.documents.map((doc, idx) => (
-            <li key={idx}>{doc}</li>
-          ))}
-        </ul>
-        <p>
-          <strong>Export Fee:</strong>{" "}
-          {fromCountry.export.fee_usd !== null
-            ? `$${fromCountry.export.fee_usd}`
-            : "Not listed"}
-        </p>
-      </div>
+          {/* Export Info */}
+          <div style={{ marginTop: "30px" }}>
+            <h2>Exporting from {fromKey}</h2>
+            <h4>Required Documents:</h4>
+            <ul>
+              {fromCountry.export.documents.map((doc, idx) => (
+                <li key={idx}>{doc}</li>
+              ))}
+            </ul>
+            <p>
+              <strong>Export Fee:</strong>{" "}
+              {fromCountry.export.fee_usd !== null
+                ? `$${fromCountry.export.fee_usd}`
+                : "Not listed"}
+            </p>
+          </div>
 
-      {/* Import Info */}
-      <div style={{ marginTop: "30px" }}>
-        <h2>Importing to {toKey}</h2>
-        <h4>Required Documents:</h4>
-        <ul>
-          {toCountry.import.documents.map((doc, idx) => (
-            <li key={idx}>{doc}</li>
-          ))}
-        </ul>
-        <p>
-          <strong>Import Fee:</strong>{" "}
-          {toCountry.import.fee_usd !== null
-            ? `$${toCountry.import.fee_usd}`
-            : "Not listed"}
-        </p>
-      </div>
-    </div>
+          {/* Import Info */}
+          <div style={{ marginTop: "30px" }}>
+            <h2>Importing to {toKey}</h2>
+            <h4>Required Documents:</h4>
+            <ul>
+              {toCountry.import.documents.map((doc, idx) => (
+                <li key={idx}>{doc}</li>
+              ))}
+            </ul>
+            <p>
+              <strong>Import Fee:</strong>{" "}
+              {toCountry.import.fee_usd !== null
+                ? `$${toCountry.import.fee_usd}`
+                : "Not listed"}
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
