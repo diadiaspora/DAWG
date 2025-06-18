@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router";
-import * as blogService from "../../services/blogService";
+import * as blogService from "../../services/blogService"; // Assuming this service exists
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import "./NewBlogPage.css";
 
 export default function NewBlogPage() {
-  const [title, setTitle] = useState(""); 
-  
   const [errorMsg, setErrorMsg] = useState("");
   const [blogData, setBlogData] = useState({
     title: "",
@@ -17,16 +15,69 @@ export default function NewBlogPage() {
     contentFour: "",
   });
 
+  // Create refs for each image input
+  const contentOneImageRef = useRef();
+  const contentTwoImageRef = useRef();
+  const contentThreeImageRef = useRef();
+  const contentFourImageRef = useRef();
+
   const navigate = useNavigate();
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-    
-      const blog = await blogService.create(blogData);
+      const formData = new FormData();
+
+      // Append all text fields from blogData state
+      for (const key in blogData) {
+        formData.append(key, blogData[key]);
+      }
+
+      // Append contentOneImage (required)
+      if (contentOneImageRef.current && contentOneImageRef.current.files[0]) {
+        formData.append("contentOneImage", contentOneImageRef.current.files[0]);
+      } else {
+        // This case should ideally be caught by browser's HTML5 validation
+        console.warn("Content One Image is required but not provided.");
+      }
+
+      // Append other optional image files if they are selected
+      if (
+        contentTwoImageRef.current &&
+        contentTwoImageRef.current.files.length > 0
+      ) {
+        formData.append("contentTwoImage", contentTwoImageRef.current.files[0]);
+      }
+      if (
+        contentThreeImageRef.current &&
+        contentThreeImageRef.current.files.length > 0
+      ) {
+        formData.append(
+          "contentThreeImage",
+          contentThreeImageRef.current.files[0]
+        );
+      }
+      if (
+        contentFourImageRef.current &&
+        contentFourImageRef.current.files.length > 0
+      ) {
+        formData.append(
+          "contentFourImage",
+          contentFourImageRef.current.files[0]
+        );
+      }
+
+      // Log FormData contents for debugging
+      for (const pair of formData.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+
+      const blog = await blogService.create(formData);
       navigate("/blogs");
     } catch (err) {
-      setErrorMsg("Adding Blog Failed");
+      const errorDetail = err.message || "Unknown error";
+      console.error("Adding Blog Failed:", errorDetail, err);
+      setErrorMsg(`Adding Blog Failed: ${errorDetail}. Please try again.`);
     }
   }
 
@@ -45,7 +96,7 @@ export default function NewBlogPage() {
               onChange={(evt) =>
                 setBlogData((prev) => ({ ...prev, title: evt.target.value }))
               }
-              required
+              required // Title is required
               style={{
                 padding: "8px",
                 borderRadius: "20px",
@@ -55,6 +106,7 @@ export default function NewBlogPage() {
                 boxSizing: "border-box",
               }}
             />
+
             <label style={{ marginLeft: "0px" }}>How Did It Start?</label>
             <textarea
               value={blogData.contentOne}
@@ -64,7 +116,7 @@ export default function NewBlogPage() {
                   contentOne: evt.target.value,
                 }))
               }
-              required
+              required // Content One is required
               rows="8"
               style={{
                 padding: "8px",
@@ -76,7 +128,16 @@ export default function NewBlogPage() {
                 resize: "vertical",
               }}
             ></textarea>
-            <label style={{ marginLeft: "0px" }}>What Happened?</label>{" "}
+            <label>Upload Image for Section One</label>
+            <input
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={contentOneImageRef}
+              required // Content One Image is required
+              style={{ marginBottom: "20px" }}
+            />
+
+            <label style={{ marginLeft: "0px" }}>What Happened?</label>
             <textarea
               value={blogData.contentTwo}
               onChange={(evt) =>
@@ -85,7 +146,7 @@ export default function NewBlogPage() {
                   contentTwo: evt.target.value,
                 }))
               }
-              required
+              // Removed 'required' attribute
               rows="8"
               style={{
                 padding: "8px",
@@ -97,7 +158,16 @@ export default function NewBlogPage() {
                 resize: "vertical",
               }}
             ></textarea>
-            <label style={{ marginLeft: "0px" }}>How Did It End?</label>{" "}
+            <label>Upload Image for Section Two</label>
+            <input
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={contentTwoImageRef}
+              // Removed 'required' attribute
+              style={{ marginBottom: "20px" }}
+            />
+
+            <label style={{ marginLeft: "0px" }}>How Did It End?</label>
             <textarea
               value={blogData.contentThree}
               onChange={(evt) =>
@@ -106,7 +176,7 @@ export default function NewBlogPage() {
                   contentThree: evt.target.value,
                 }))
               }
-              required
+              // Removed 'required' attribute
               rows="8"
               style={{
                 padding: "8px",
@@ -118,6 +188,15 @@ export default function NewBlogPage() {
                 resize: "vertical",
               }}
             ></textarea>
+            <label>Upload Image for Section Three</label>
+            <input
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={contentThreeImageRef}
+              // Removed 'required' attribute
+              style={{ marginBottom: "20px" }}
+            />
+
             <label style={{ marginLeft: "0px" }}>What Does It Mean?</label>
             <textarea
               value={blogData.contentFour}
@@ -127,7 +206,7 @@ export default function NewBlogPage() {
                   contentFour: evt.target.value,
                 }))
               }
-              required
+              // Removed 'required' attribute
               rows="8"
               style={{
                 padding: "8px",
@@ -139,6 +218,15 @@ export default function NewBlogPage() {
                 resize: "vertical",
               }}
             ></textarea>
+            <label>Upload Image for Section Four</label>
+            <input
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={contentFourImageRef}
+              // Removed 'required' attribute
+              style={{ marginBottom: "20px" }}
+            />
+
             <div
               style={{
                 display: "flex",

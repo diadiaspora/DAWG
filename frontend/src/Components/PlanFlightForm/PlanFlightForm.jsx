@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import * as planService from "../../services/planService";
+
 import "./PlanFlightForm.css";
 
 export default function PlanFlightForm({ plan, setPlan }) {
-  const [showForm, setShowForm] = useState(plan ? false : true); // Form is hidden by default
+  const [showForm, setShowForm] = useState(plan ? false : true); 
+
+  const fileInputRef = useRef();
   
   const [formData, setFormData] = useState({
     airline: plan?.airline ? plan.airline : "",
@@ -17,11 +21,14 @@ export default function PlanFlightForm({ plan, setPlan }) {
     outboundArrivalTime: plan?.outboundArrivalTime
       ? plan.outboundArrivalTime
       : "",
-    
+
     returnFlightNumber: plan?.returnFlightNumber ? plan.returnFlightNumber : "",
     returnDate: plan?.returnDate ? plan.returnDate : "",
-    returnDepartureTime: plan?.returnDepartureTime ? plan.returnDepartureTime : "",
-    returnArrivalTime: plan?.returnArrivalTime ? plan.returnArrivalTime :"",
+    returnDepartureTime: plan?.returnDepartureTime
+      ? plan.returnDepartureTime
+      : "",
+    returnArrivalTime: plan?.returnArrivalTime ? plan.returnArrivalTime : "",
+   
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -35,17 +42,36 @@ export default function PlanFlightForm({ plan, setPlan }) {
 
 
 
+
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const updatedPlan = await planService.update(plan._id, formData);
+      const planData = new FormData();
+
+      console.log(fileInputRef.current.files);
+
+
+      for (const key in formData) {
+        planData.append(key, formData[key]);
+      }
+
+  
+      if (fileInputRef.current.files.length > 0) {
+        planData.append("ticket", fileInputRef.current.files[0]);
+      }
+
+ 
+      for (const pair of planData.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+
+      const updatedPlan = await planService.update(plan._id, planData);
       setErrorMsg("");
-      // setIsSubmitted(true); 
+      setPlan({ ...updatedPlan }); 
       setShowForm(false); 
-        setPlan({...updatedPlan})
     } catch (err) {
-      console.error("Failed to save flight details in handleSubmit:", err);
-      setErrorMsg("Failed to save flight details. Please try again.");
+      console.error("Failed to save location details:", err);
+      setErrorMsg("Failed to save location details. Please try again.");
     }
   }
 
@@ -99,7 +125,16 @@ export default function PlanFlightForm({ plan, setPlan }) {
               value={formData.outboundFlightNumber}
               onChange={handleChange}
             />
-            <button type="button">Upload Ticket</button>
+            <label type="button">Upload Ticket</label>
+            <input
+              style={{
+                borderRadius: "50px",
+              }}
+              name="ticket"
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={fileInputRef}
+            />
           </div>
 
           <div
@@ -205,7 +240,8 @@ export default function PlanFlightForm({ plan, setPlan }) {
         >
           <div style={{ display: "flex" }}>
             <h4>Flight Details</h4>
-            <button
+            <Link
+              to={`/plans/${plan._id}/ticket`} 
               style={{
                 backgroundColor: "#d9d9d9",
                 width: "190px",
@@ -214,13 +250,15 @@ export default function PlanFlightForm({ plan, setPlan }) {
                 height: "44px",
                 borderRadius: "50px",
                 borderWidth: "2px",
-                  borderColor: "#d9d9d9",
-                marginLeft: "650px"
+                borderColor: "#d9d9d9",
+                display: "flex", 
+                justifyContent: "center",
+                alignItems: "center", 
+                textDecoration: "none", 
               }}
             >
-              {" "}
-              Upload Ticket
-            </button>
+              View Ticket
+            </Link>
           </div>
           <h4>Outbound:</h4>
           <div
@@ -263,57 +301,56 @@ export default function PlanFlightForm({ plan, setPlan }) {
               </div>
             </div>
           </div>
-          
-            <>
-              <h4>Inbound:</h4>
-              <div
-                style={{
-                  borderStyle: "solid",
-                  borderColor: "#d9d9d9",
-                  borderRadius: "20px",
-                  padding: "12px",
-                }}
-              >
-                <div style={{ display: "flex" }}>
-                  <div className="shadowSmall">
-                    <div>
-                      <strong style={{ fontSize: "14px" }}>Airline:</strong>
-                    </div>
-                    <div>{plan.airline || "N/A"}</div>
+
+          <>
+            <h4>Inbound:</h4>
+            <div
+              style={{
+                borderStyle: "solid",
+                borderColor: "#d9d9d9",
+                borderRadius: "20px",
+                padding: "12px",
+              }}
+            >
+              <div style={{ display: "flex" }}>
+                <div className="shadowSmall">
+                  <div>
+                    <strong style={{ fontSize: "14px" }}>Airline:</strong>
                   </div>
-                  <div className="shadowSmall">
-                    <div>
-                      <strong style={{ fontSize: "14px" }}>
-                        {" "}
-                        Flight Number:
-                      </strong>
-                    </div>
-                    <div>{plan.returnFlightNumber || "N/A"}</div>
-                  </div>
+                  <div>{plan.airline || "N/A"}</div>
                 </div>
-                <div style={{ display: "flex" }}>
-                  <div className="shadowSmall">
-                    <strong>Date:</strong>{" "}
-                    {plan.returnDate
-                      ? new Date(plan.returnDate).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })
-                      : "N/A"}
+                <div className="shadowSmall">
+                  <div>
+                    <strong style={{ fontSize: "14px" }}>
+                      {" "}
+                      Flight Number:
+                    </strong>
                   </div>
-                  <div className="shadowSmall">
-                    <strong>DepartTime:</strong>{" "}
-                    {plan.returnDepartureTime || "N/A"}
-                  </div>
-                  <div className="shadowSmall">
-                    <strong>ArrivTime:</strong>{" "}
-                    {plan.returnArrivalTime || "N/A"}
-                  </div>
+                  <div>{plan.returnFlightNumber || "N/A"}</div>
                 </div>
               </div>
-            </>
-          
+              <div style={{ display: "flex" }}>
+                <div className="shadowSmall">
+                  <strong>Date:</strong>{" "}
+                  {plan.returnDate
+                    ? new Date(plan.returnDate).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })
+                    : "N/A"}
+                </div>
+                <div className="shadowSmall">
+                  <strong>DepartTime:</strong>{" "}
+                  {plan.returnDepartureTime || "N/A"}
+                </div>
+                <div className="shadowSmall">
+                  <strong>ArrivTime:</strong> {plan.returnArrivalTime || "N/A"}
+                </div>
+              </div>
+            </div>
+          </>
+
           {!plan.airline &&
             !plan.outboundFlightNumber &&
             !plan.outboundDate &&

@@ -21,7 +21,7 @@ export default function HomePage({ user, setUser }) {
         <Gallery />
         <Articles />
         <div >
-          <BlogList isHome={isHome} />
+          <BlogList/>
         </div>
         <div style={{ marginTop: "400px" }}>
           <RedditPostList />

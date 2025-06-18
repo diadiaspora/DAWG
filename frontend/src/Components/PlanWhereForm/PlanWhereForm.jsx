@@ -1,6 +1,6 @@
 import { useState, useRef} from "react";
 import * as planService from "../../services/planService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import "./PlanWhereForm.css"; 
 export default function PlanWhereForm({ plan, setPlan }) {
@@ -13,6 +13,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
     checkIn: plan.checkIn ? plan.checkIn : "",
     checkOut: plan.checkOut ? plan.checkOut : "",
     address: plan.address ? plan.address : "",
+  
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -27,30 +28,27 @@ export default function PlanWhereForm({ plan, setPlan }) {
     try {
       const planData = new FormData();
 
-      console.log(fileInputRef.current.files); // Keep for debugging if needed
+      console.log(fileInputRef.current.files);
 
-      // --- REMOVE THIS INCORRECT LINE ---
-      // planData.append(plan._id, formData);
 
-      // This loop correctly appends individual fields from formData state
       for (const key in formData) {
         planData.append(key, formData[key]);
       }
 
-      // This line correctly appends the file with the expected name "receipt"
+  
       if (fileInputRef.current.files.length > 0) {
         planData.append("receipt", fileInputRef.current.files[0]);
       }
 
-      // Optional: Log FormData contents for debugging (remove in production)
+ 
       for (const pair of planData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
 
       const updatedPlan = await planService.update(plan._id, planData);
       setErrorMsg("");
-      setPlan({ ...updatedPlan }); // Update local state with the returned plan data
-      setShowForm(false); // Hide the form after successful update
+      setPlan({ ...updatedPlan }); 
+      setShowForm(false); 
     } catch (err) {
       console.error("Failed to save location details:", err);
       setErrorMsg("Failed to save location details. Please try again.");
@@ -259,8 +257,23 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 {/* Conditionally render View Receipt or "No Receipt" text */}
                 {plan.receipt &&
                 plan.receipt !== "https://i.imgur.com/KTEjbsw.png" ? (
-                  <button
-                    onClick={() => window.open(plan.receipt, "_blank")} // Open in new tab
+                  // <button
+                  //   onClick={() => window.open(plan.receipt, "_blank")} // Open in new tab
+                  //   style={{
+                  //     backgroundColor: "#d9d9d9",
+                  //     width: "190px",
+                  //     marginTop: "10px",
+                  //     color: "black",
+                  //     height: "44px",
+                  //     borderRadius: "50px",
+                  //     borderWidth: "2px",
+                  //     borderColor: "#d9d9d9",
+                  //   }}
+                  // >
+                  //   View Receipt
+                  // </button>
+                  <Link
+                    to={`/plans/${plan._id}/receipt`} // Assuming plan._id is the ID you need for the route
                     style={{
                       backgroundColor: "#d9d9d9",
                       width: "190px",
@@ -270,10 +283,14 @@ export default function PlanWhereForm({ plan, setPlan }) {
                       borderRadius: "50px",
                       borderWidth: "2px",
                       borderColor: "#d9d9d9",
+                      display: "flex", // To apply button styles to the Link
+                      justifyContent: "center", // Center text if needed
+                      alignItems: "center", // Center text if needed
+                      textDecoration: "none", // Remove underline from Link
                     }}
                   >
                     View Receipt
-                  </button>
+                  </Link>
                 ) : (
                   <p style={{ marginTop: "10px", color: "#666" }}>
                     No receipt uploaded

@@ -1,6 +1,11 @@
 // App.jsx
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
 import HomePage from "../HomePage/HomePage";
@@ -22,6 +27,7 @@ import Footer from "../../Components/Footer/Footer";
 import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetailPage from "../BlogDetailPage/BlogDetailPage.jsx";
 import ReceiptPage from "../ReceiptPage/ReceiptPage";
+import TicketPage from "../TicketPage/TicketPage";
 import ProductPage from "../ProductPage/ProductPage"; 
 import CartPage from "../CartPage/CartPage";
 import SearchFlights from "../../Components/SearchFlights/SearchFlights";
@@ -100,7 +106,7 @@ export default function App() {
                 />
                 <Route path="/blogs/:id" element={<BlogDetailPage />} />
                 <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
-
+                <Route path="/plans/:id/ticket" element={<TicketPage />} />
                 <Route path="/product/:productId" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
               </Routes>

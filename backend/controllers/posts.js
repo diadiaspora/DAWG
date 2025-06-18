@@ -67,13 +67,13 @@ async function update(req, res) {
   }
 }
 
-// PUT like a post
+
 async function likePost(req, res) {
   try {
     const post = await Post.findByIdAndUpdate(
       req.params.id,
-      { $inc: { likes: 1 } }, // Increment the 'likes' field
-      { new: true } // Return the updated document
+      { $inc: { likes: 1 } }, 
+      { new: true } 
     );
     if (!post) return res.status(404).json({ message: "Post not found" });
     res.json(post);
@@ -83,11 +83,20 @@ async function likePost(req, res) {
   }
 }
 
-// Export all the functions so your router can access them
+
+// async function getAllPosts(req, res) {
+//   try {
+//     const posts = await Post.find({ author: req.user._id });
+//     res.json(posts);
+//   } catch (err) {
+//     res.status(500).json({ error: "Failed to fetch user posts" });
+//   }
+// }
 module.exports = {
   index,
   show,
   create,
   update,
   likePost,
+  // getAllPosts,
 };

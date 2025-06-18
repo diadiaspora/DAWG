@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import * as planService from '../../services/planService';
 
-export default function ReceiptPage() {
+export default function TicketPage() {
   const [plan, setPlan] = useState([]);
   const { id } = useParams();
 
@@ -16,8 +16,8 @@ export default function ReceiptPage() {
   
     return (
       <>
-        <h1>Your Recipt</h1>
-        <img src={plan.receipt} alt="Post Image" style={{width: "400px"}} />
+        <h1>Your Ticket</h1>
+        <img src={plan.ticket} alt="Post Image" style={{width: "400px"}} />
       </>
     );
     
