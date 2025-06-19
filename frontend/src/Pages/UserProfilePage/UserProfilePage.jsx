@@ -5,6 +5,7 @@ import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import { useState, useEffect } from "react";
+import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
@@ -28,38 +29,85 @@ export default function UserProfilePage({ user }) {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          width: "1012px",
+        }}
+      >
+        <div style={{width: "300px"}}>
           <img
-            src="./Avatar.png"
-            className="avatar"
-            alt="human avatar"
+            src="https://i.ibb.co/5x5Td7ks/av-1.png"
+            alt="avatar"
             style={{ width: "200px" }}
-          ></img>
-        </div>
-        <div>
+          />
           <h1>
             {user.name} & {user.petName}
           </h1>
         </div>
+        <div style={{width: "650px", marginLeft:"42px"}}>
+          <Carousel />
+        </div>
       </div>
 
       <ProfileForm profile={profile} setProfile={setProfile} />
-
       <div style={{ margin: "0px", width: "1012px" }}>
         <h3> Important Documents</h3>
         <p>
           These documents are only accessible to and seen by you and your dog
         </p>
-        <button style={{ width: "200px" }}> Upload Health Certificate</button>
-        <button style={{ width: "200px" }}> Upload Vaccine Record</button>
-        <button style={{ width: "200px" }}> Upload Your Passport</button>
-        <button style={{ width: "200px" }}> Upload Microchip Info</button>
+        <button
+          style={{
+            width: "200px",
+            borderRadius: "50px",
+            backgroundColor: "#1E3769",
+            color: "white",
+            height: "44px",
+          }}
+        >
+          Upload Health Certificate
+        </button>
+        <button
+          style={{
+            width: "200px",
+            borderRadius: "50px",
+            backgroundColor: "#1E3769",
+            color: "white",
+            height: "44px",
+          }}
+        >
+          {" "}
+          Upload Vaccine Record
+        </button>
+        <button
+          style={{
+            width: "200px",
+            borderRadius: "50px",
+            backgroundColor: "#1E3769",
+            color: "white",
+            height: "44px",
+          }}
+        >
+          {" "}
+          Upload Your Passport
+        </button>
+        <button
+          style={{
+            width: "200px",
+            borderRadius: "50px",
+            backgroundColor: "#1E3769",
+            color: "white",
+            height: "44px",
+          }}
+        >
+          {" "}
+          Upload Microchip Info
+        </button>
       </div>
       <h1>Gallery</h1>
-      <div style={{ width: "1012px" }}>
+      {/* <div style={{ width: "1012px" }}>
         <Carousel />
-      </div>
+      </div> */}
 
       <h1>Users Post</h1>
       <Articles />

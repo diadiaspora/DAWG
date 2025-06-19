@@ -8,16 +8,19 @@ const Gallery = () => {
   const [isGallery, setIsGallery] = useState(true);
   
   return (
-    <div className="divbody" style={{marginTop: "42px", marginBottom: "-200px"}}>
-      <aside style={{ marginLeft: "42px", textAlign: "left" }}>
-        <h3 style={{ marginBottom: "-25px"}}>Gallery</h3>
+    <div
+      className="divbody"
+      style={{ marginTop: "42px", marginBottom: "-200px", width: "1012px" }}
+    >
+      <div style={{ marginLeft: "42px", textAlign: "left" }}>
+        <h3 style={{ marginBottom: "-25px" }}>Gallery</h3>
         <p style={{ marginBottom: "0px", fontSize: "16px" }}>
           Add your Photos here
         </p>
-      </aside>
-      <main style={{ marginRight: "42px" }}>
-        <h3>Calendar</h3>
-      </main>
+      </div>
+      <div style={{ marginLeft: "8px" }}>
+        <h3 style={{ marginLeft: "42px" }}>Calendar</h3>
+      </div>
 
       <div style={{ height: "350px", marginLeft: "42px" }}>
         <div style={{ width: "662px" }}>
@@ -31,23 +34,19 @@ const Gallery = () => {
             width: "665px",
             borderRadius: "20px",
             marginTop: "34px",
-            paddingTop: "1px"
-           
+            paddingTop: "1px",
           }}
         >
-          
-            <PlanIndex isGallery={isGallery} />
-        
-       
+          <PlanIndex isGallery={isGallery} />
         </div>
       </div>
 
-      <div style={{ height: "350px" }}>
+      <div style={{ height: "350px", marginRight: "0px" }}>
         <div>
           <img
             src="./calander.png"
             alt="calander"
-            style={{ width: "310px" }}
+            style={{ width: "310px", marginLeft: "42px" }}
           ></img>
         </div>
       </div>
