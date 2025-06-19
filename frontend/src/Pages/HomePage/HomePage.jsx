@@ -5,7 +5,7 @@ import BlogList from "../../Components/BlogList/BlogList.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import { useState } from "react";
-
+import { NavLink } from "react-router-dom";
 
 import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";

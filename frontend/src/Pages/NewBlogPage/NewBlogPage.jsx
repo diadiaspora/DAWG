@@ -4,6 +4,7 @@ import * as blogService from "../../services/blogService"; // Assuming this serv
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import "./NewBlogPage.css";
+import { NavLink } from "react-router-dom";
 
 export default function NewBlogPage() {
   const [errorMsg, setErrorMsg] = useState("");

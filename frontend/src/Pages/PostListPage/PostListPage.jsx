@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as postService from "../../services/postService";
+import { NavLink } from "react-router-dom";
 
 export default function PostListPage() {
   const [posts, setPosts] = useState([]);

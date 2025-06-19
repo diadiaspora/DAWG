@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import * as planService from '../../services/planService';
 
 export default function ReceiptPage() {
