@@ -68,7 +68,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             display: "flex",
             flexDirection: "column",
             gap: "12px",
-            padding: "10px",
+            padding: "20px",
             height: "300px",
           }}
         >
@@ -81,7 +81,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
                 name="month"
                 value={formData.month}
                 onChange={handleChange}
-                style={{ width: "100px" }}
+                style={{ width: "100px", borderRadius: "50px", height: "38px" }}
               >
                 <option value="" stylle={{}}>
                   Month
@@ -110,7 +110,13 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               name="day"
               value={formData.day}
               onChange={handleChange}
-              style={{ width: "60px" }}
+              style={{
+                width: "60px",
+                borderRadius: "50px",
+                height: "38px",
+                marginTop: "22px",
+                marginLeft: "12px",
+              }}
             >
               <option value="">Day</option>
               {[...Array(31).keys()].map((d) => (
@@ -124,7 +130,13 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               name="year"
               value={formData.year}
               onChange={handleChange}
-              style={{ width: "60px" }}
+              style={{
+                width: "60px",
+                borderRadius: "50px",
+                height: "38px",
+                marginTop: "22px",
+                marginLeft: "12px",
+              }}
             >
               <option value="">Year</option>
               {[2025, 2026, 2027, 2028].map((y) => (
@@ -148,20 +160,52 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             name="destination"
             value={formData.destination}
             onChange={handleChange}
+            style={{ height: "38px", borderRadius: "50px", width: "250px" }}
           />
 
-          <label style={{ fontSize: "14px" }}>Notes</label>
+          <label
+            style={{
+              fontSize: "14px",
+              marginBottom: "-12px",
+              marginLeft: "0px",
+            }}
+          >
+            Notes
+          </label>
           <textarea
             name="notes"
             value={formData.notes}
             onChange={handleChange}
             rows={2}
+            style={{ borderRadius: "50px", width: "250px" }}
           />
-
-          <button type="submit">Update Plan</button>
-          <button onClick={() => handleDeletePlan(plan._id)}>
-            Delete Plan
-          </button>
+          <div style={{ marginBottom: "-6px" }}>
+            <button
+              onClick={() => handleDeletePlan(plan._id)}
+              style={{
+                height: "44px",
+                backgroundColor: "#1E3769",
+                borderRadius: "50px",
+                width: "100px",
+                borderWidth: "0px",
+              }}
+            >
+              Delete Plan
+            </button>
+            <button
+              type="submit"
+              style={{
+                height: "44px",
+                backgroundColor: "#1E3769",
+                borderRadius: "50px",
+                width: "100px",
+                borderWidth: "0px",
+                marginLeft: "12px",
+              }}
+            >
+              Update Plan
+            </button>
+          </div>
         </form>
       ) : (
         <div

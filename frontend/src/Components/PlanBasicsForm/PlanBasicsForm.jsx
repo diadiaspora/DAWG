@@ -39,7 +39,7 @@ export default function PlanBasicsForm() {
         <form
           onSubmit={handleSubmit}
           style={{
-            height: "350px",
+            height: "320px",
             marginLeft: "42px",
             width: "662px",
             display: "grid",
@@ -56,7 +56,7 @@ export default function PlanBasicsForm() {
                 name="month"
                 value={formData.month}
                 onChange={handleChange}
-                style={{ width: "150px", borderRadius: "50px" }}
+                style={{ width: "150px", borderRadius: "50px", height: "44px" }}
               >
                 <option value="">-- Select Month --</option>
 
@@ -93,7 +93,7 @@ export default function PlanBasicsForm() {
                 name="day"
                 value={formData.day}
                 onChange={handleChange}
-                style={{ width: "70px", borderRadius: "50px" }}
+                style={{ width: "70px", borderRadius: "50px", height: "44px" }}
               >
                 <option value=""> Day </option>
                 {[...Array(31).keys()].map((d) => (
@@ -116,7 +116,7 @@ export default function PlanBasicsForm() {
                 name="year"
                 value={formData.year}
                 onChange={handleChange}
-                style={{ width: "100px", borderRadius: "50px" }}
+                style={{ width: "100px", borderRadius: "50px", height: "44px" }}
               >
                 <option value=""> Year </option>
                 {[2025, 2026, 2027, 2028].map((y) => (
@@ -139,11 +139,11 @@ export default function PlanBasicsForm() {
                 name="destination"
                 value={formData.destination}
                 onChange={handleChange}
-                style={{ width: "208px", borderRadius: "50px" }}
+                style={{ width: "195px", borderRadius: "50px", height: "44px" }}
               />
             </div>
           </div>
-          <div>
+          <div style={{marginTop: "-22px"}}>
             <label style={{ marginLeft: "0px" }}>Notes</label>
             <textarea
               name="notes"
@@ -153,7 +153,7 @@ export default function PlanBasicsForm() {
               style={{ width: "598px", borderRadius: "20px" }}
             />
           </div>
-          <div style={{ textAlign: "right", marginRight: "-43px" }}>
+          <div style={{ textAlign: "right", marginRight: "-43px"}}>
             <button
               type="submit"
               style={{
@@ -178,7 +178,7 @@ export default function PlanBasicsForm() {
         <h3 style={{ marginLeft: "42px", fontSize: "24px" }}>Calender</h3>
         <img
           src="./calander.png"
-          style={{ width: "310px",  marginLeft: "42px" }}
+          style={{ width: "310px", marginLeft: "42px" }}
           alt="calendar"
         />
       </div>

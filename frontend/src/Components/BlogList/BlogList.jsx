@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
 import { Link } from "react-router";
 
-export default function BlogList({isHome}) {
+export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function BlogList({isHome}) {
           <h1 style={{ fontSize: "24px", marginLeft: "42px" }}>Blog List</h1>
           {blogs.length ? (
             <ul style={{ display: "flex" }}>
-              {blogs.map((blog) => (
+              {blogs.slice(0, 3).map((blog) => (
                 <div
                   key={blog._id}
                   style={{

@@ -93,13 +93,17 @@ export default function PlanWhereForm({ plan, setPlan }) {
             }}
           >
             <div>
-              <p>Stay Details</p>
+              <p style={{ fontWeight: "bold", marginTop: "-6px" }}>
+                Stay Details
+              </p>
             </div>
             <div
               style={{ display: "flex", gap: "10px", marginBottom: "1.2vmin" }}
             >
-              <div>
-                <label htmlFor="checkIn">Check-In</label>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="checkIn" style={{ margin: "0px" }}>
+                  Check-In
+                </label>
                 <input
                   type="date"
                   id="checkIn"
@@ -110,12 +114,21 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     width: "180px",
                     padding: "8px",
                     borderRadius: "50px",
-                    border: "1px solid #red",
+                    border: "1px solid #000000",
+                    height: "44px",
                   }}
                 />
               </div>
-              <div>
-                <label htmlFor="checkOut">Check-Out</label>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "21px",
+                }}
+              >
+                <label htmlFor="checkOut" style={{ margin: "0px" }}>
+                  Check-Out
+                </label>
                 <input
                   type="date"
                   id="checkOut"
@@ -126,23 +139,33 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     width: "180px",
                     padding: "8px",
                     borderRadius: "50px",
-                    border: "1px solid #ccc",
+                    border: "1px solid #000000",
+                    height: "44px",
                   }}
                 />
               </div>
-
-              <div style={{ alignSelf: "flex-end", color: "1E3769" }}></div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "21px",
+                }}
+              >
+                <label style={{ margin: "0px" }}>Upload Receipt</label>
+                <input
+                  style={{
+                    borderRadius: "50px",
+                    padding: "10px",
+                    height: "44px",
+                    width: "150px",
+                  }}
+                  name="receipt"
+                  type="file"
+                  accept=".png, .gif, .jpg, .jpeg"
+                  ref={fileInputRef}
+                />
+              </div>
             </div>
-            <label>Upload Receipt</label>
-            <input
-              style={{
-                borderRadius: "50px",
-              }}
-              name="receipt"
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={fileInputRef}
-            />
 
             <div style={{ marginBottom: "1.2vmin" }}>
               <label htmlFor="address">Address</label>
@@ -173,7 +196,8 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   color: "white",
                   cursor: "pointer",
                   height: "44px",
-                  width: "590px",
+                  width: "588px",
+                  marginRight: "30px",
                 }}
               >
                 Update

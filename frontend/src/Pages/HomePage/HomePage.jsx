@@ -11,7 +11,7 @@ import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";
 
 export default function HomePage({ user, setUser }) {
-  const [isHome, setIsHome] = useState(true);
+  // const [isHome, setIsHome] = useState(true);
 
   return (
     <>

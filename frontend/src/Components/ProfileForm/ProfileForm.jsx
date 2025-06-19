@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
+import "./ProfileForm.css";
+import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
+
 
 export default function ProfileForm({ profile, setProfile }) {
   const [showForm, setShowForm] = useState(false);
@@ -57,6 +60,9 @@ export default function ProfileForm({ profile, setProfile }) {
     }
   }, [profile]);
 
+    const [isGallery, setIsGallery] = useState(true);
+    
+
   function handleChange(evt) {
     const { name, value } = evt.target;
     setProfileData((prev) => ({ ...prev, [name]: value }));
@@ -112,20 +118,87 @@ export default function ProfileForm({ profile, setProfile }) {
               onChange={handleChange}
               style={{ width: "180px" }}
             />
+            <label>Weight</label>
+            <input
+              name="weight"
+              value={profileData.pet[0].weight}
+              onChange={handleChange}
+              style={{ width: "180px" }}
+            />
             <button type="submit">Save</button>
           </form>
           <p className="error-message">&nbsp;{errorMsg}</p>
         </div>
       ) : (
-        <div>
-          <h4>{profileData.pet[0].breed}</h4>
-          <p>
-            <strong>Age:</strong> {profileData.pet[0].age}
-          </p>
-          <p>
-            <strong>Notes:</strong> {profileData.bio}
-          </p>
-          <button onClick={() => setShowForm(true)}>Update</button>
+        <div
+          style={{
+            display: "flex",
+            width: "1012px",
+            borderStyle: "solid",
+            borderWidth: "3px",
+            borderColor: "black",
+            borderRadius: "20px",
+            padding: "21px",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <strong> Bio </strong>
+            <div
+              style={{
+                width: "300px",
+                borderStyle: "solid",
+                borderWidth: "3px",
+                borderColor: "black",
+                borderRadius: "20px",
+                padding: "20px",
+                height: "300px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <div className="shadowTall">{profileData.bio}</div>
+              <button
+                onClick={() => setShowForm(true)}
+                style={{
+                  borderRadius: "50px",
+                  height: "44px",
+                  backgroundColor: "#1E3769",
+                }}
+              >
+                Update
+              </button>
+            </div>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                borderStyle: "solid",
+                borderWidth: "3px",
+                borderColor: "black",
+                borderRadius: "20px",
+                width: "640px",
+                marginTop: "24px",
+                marginLeft: "21px",
+              }}
+            >
+              <h4 className="shadow1">
+                <strong>Breed:</strong> {profileData.pet[0].breed}
+              </h4>
+              <p className="shadow2">
+                <strong>Age:</strong> {profileData.pet[0].age}
+              </p>
+              <p className="shadow3">
+                <strong>Weight:</strong> {profileData.pet[0].weight}
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div>Upcoming Trips</div>
+              <div style={{backgroundColor: "#d9d9d9", borderRadius: "20px"}}>
+                <PlanIndex isGallery={isGallery} />
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>
