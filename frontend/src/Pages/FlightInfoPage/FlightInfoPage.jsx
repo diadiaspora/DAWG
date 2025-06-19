@@ -1,7 +1,7 @@
 // /Users/diadiaspora/code/ga/DAWG/frontend/src/Pages/FlightInfoPage.jsx (or wherever it's located)
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, NavLink } from "react-router-dom";
 
 export default function FlightInfoPage() {
   const [searchParams] = useSearchParams();

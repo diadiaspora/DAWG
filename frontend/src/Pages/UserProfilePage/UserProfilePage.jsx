@@ -55,9 +55,9 @@ export default function UserProfilePage({ user }) {
         <ProfileForm profile={profile} setProfile={setProfile} />
         <div style={{ margin: "0px", width: "1012px" }}>
           <h3> Important Documents</h3>
-          <p>
+          <strong>
             These documents are only accessible to be seen by you and your dog
-          </p>
+          </strong>
           <div className="headbuttons" style={{ marginLeft: "0px" }}>
           
           <button

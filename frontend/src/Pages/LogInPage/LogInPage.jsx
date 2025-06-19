@@ -4,6 +4,7 @@ import * as authService from "../../services/authService";
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 
 export default function LogInPage({ setUser }) {

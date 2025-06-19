@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as postService from "../../services/postService";
+import { NavLink } from "react-router-dom";
 
 export default function NewPostPage() {
   const [title, setTitle] = useState("");
