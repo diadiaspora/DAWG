@@ -37,10 +37,9 @@ export default function FlightInfoPage() {
       }
 
       try {
-        // Construct the API URL with all required backend parameters
+
         let url = `/api/flights/search?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&adults=${adults}`;
 
-        // Add returnDate only if it was provided
         if (returnDate) {
           url += `&returnDate=${returnDate}`;
         }
@@ -48,17 +47,16 @@ export default function FlightInfoPage() {
         const res = await fetch(url);
 
         if (!res.ok) {
-          // Check for HTTP errors (e.g., 400, 500)
+         
           const errorData = await res.json();
-          // Display the error message from the backend if available, otherwise a generic one
+
           throw new Error(
             errorData.error || `HTTP error! Status: ${res.status}`
           );
         }
 
         const data = await res.json();
-        // Assuming your backend's controller passes `response.data` directly.
-        // If the Amadeus API returns an array of flight offers directly, `data` will be that array.
+
         setResults(data || []);
       } catch (err) {
         console.error("Error fetching flights:", err);
@@ -70,7 +68,7 @@ export default function FlightInfoPage() {
       }
     }
 
-    // Call fetchFlights only if all core required parameters are available
+
     if (
       originLocationCode &&
       destinationLocationCode &&
@@ -79,7 +77,7 @@ export default function FlightInfoPage() {
     ) {
       fetchFlights();
     } else {
-      // If essential params are missing on initial load, don't show loading indefinitely
+ 
       setLoading(false);
       setError("Please perform a search from the flight search form.");
     }
@@ -89,10 +87,10 @@ export default function FlightInfoPage() {
     departureDate,
     adults,
     returnDate,
-  ]); // Add returnDate to dependencies
+  ]);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "20px", width: "100%" }}>
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
         Flight Results
       </h1>
@@ -123,21 +121,21 @@ export default function FlightInfoPage() {
               key={idx}
               style={{
                 marginBottom: "25px",
-                border: "1px solid #e0e0e0",
+                border: "3px solid #000000",
                 padding: "15px",
-                borderRadius: "8px",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                borderRadius: "20px",
+               
               }}
             >
               <h2
                 style={{
                   fontSize: "1.2em",
                   marginBottom: "10px",
-                  color: "#333",
+                  color: "#000000",
                 }}
               >
                 Price:{" "}
-                <strong style={{ color: "#007bff" }}>
+                <strong style={{ color: "#000000" }}>
                   ${flight.price.total} {flight.price.currency}
                 </strong>
               </h2>
@@ -148,12 +146,12 @@ export default function FlightInfoPage() {
                     style={{
                       fontSize: "1em",
                       marginBottom: "8px",
-                      color: "#555",
+                      color: "#000000",
                     }}
                   >
                     Itinerary {itIdx + 1} (Duration: {itinerary.duration}):
                   </h3>
-                  {/* Iterating through segments (individual flights) within an itinerary */}
+                
                   {itinerary.segments.map((segment, segIdx) => (
                     <div
                       key={segIdx}

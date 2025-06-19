@@ -182,7 +182,7 @@ export default function ProfileForm({ profile, setProfile }) {
                 marginLeft: "21px",
               }}
             >
-              <h4 className="shadow1">
+              <h4 className="shadow1" style={{marginLeft: "21px"}}>
                 <strong>Breed:</strong> {profileData.pet[0].breed}
               </h4>
               <p className="shadow2">
@@ -193,9 +193,27 @@ export default function ProfileForm({ profile, setProfile }) {
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div>Upcoming Trips</div>
-              <div style={{backgroundColor: "#d9d9d9", borderRadius: "20px"}}>
-                <PlanIndex isGallery={isGallery} />
+              <strong
+                style={{
+                  marginLeft: "21px",
+                  marginTop: "21px",
+                  marginBottom: "6px",
+                }}
+              >
+                Upcoming Trips
+              </strong>
+              <div
+                style={{
+                  backgroundColor: "#d9d9d9",
+                  borderRadius: "20px",
+                  width: "640px",
+                  marginLeft: "21px",
+                  height: "110px",
+                }}
+              >
+                <div style={{marginTop: "42px"}}>
+                  <PlanIndex isGallery={isGallery} />
+                </div>
               </div>
             </div>
           </div>

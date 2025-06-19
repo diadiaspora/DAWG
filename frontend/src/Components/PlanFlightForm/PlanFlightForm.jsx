@@ -133,9 +133,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <label type="button">Upload Ticket</label>
               <input
-                style={{
-                  borderRadius: "50px",
-                }}
+               
                 name="ticket"
                 type="file"
                 accept=".png, .gif, .jpg, .jpeg"

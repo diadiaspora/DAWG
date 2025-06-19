@@ -23,7 +23,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       {user ? (
         <>
-          <NavLink to="/flights" end>
+          <NavLink to="/fly">
             Flights
           </NavLink>
           &nbsp; | &nbsp;
@@ -45,13 +45,13 @@ export default function NavBar({ user, setUser }) {
         </>
       ) : (
         <>
-          <NavLink to="/flights" end>
+          <NavLink to="/fly" end>
             Flights
           </NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/plans">Posts</NavLink>
+          <NavLink to="/posts">Posts</NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/write">Blogs</NavLink>
+          <NavLink to="/blogs">Blogs</NavLink>
           &nbsp; | &nbsp;
           <NavLink to="/marketplace">Shop</NavLink>
           &nbsp; | &nbsp;
