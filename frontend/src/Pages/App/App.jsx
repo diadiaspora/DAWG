@@ -31,6 +31,7 @@ import TicketPage from "../TicketPage/TicketPage";
 import ProductPage from "../ProductPage/ProductPage"; 
 import CartPage from "../CartPage/CartPage";
 import SearchFlights from "../../Components/SearchFlights/SearchFlights";
+import FlyPage from "../FlyPage/FlyPage";
 import { CartProvider } from "../../context/CartContext"; 
 
 import "./App.css";
@@ -109,10 +110,10 @@ export default function App() {
                 <Route path="/plans/:id/ticket" element={<TicketPage />} />
                 <Route path="/product/:productId" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
+                   <Route path="/fly" element={<FlyPage />} />
               </Routes>
             ) : (
               <Routes>
-                {/* Existing Unauthenticated Routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route
                   path="/signup"
@@ -125,6 +126,12 @@ export default function App() {
                 <Route path="*" element={null} />
                 <Route path="/product/:productId" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/marketplace" element={<MarketplacePage />} />
+                <Route path="/blogs" element={<ViewBlogsPage />} />
+                <Route path="/posts" element={<PostListPage />} />
+                <Route path="/posts/new" element={<NewPostPage />} />
+                <Route path="/flights" element={<FlightInfoPage />} />
+                <Route path="/fly" element={<FlyPage />} />
               </Routes>
             )}
           </section>
