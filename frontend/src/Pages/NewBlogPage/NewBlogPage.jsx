@@ -177,7 +177,7 @@ export default function NewBlogPage() {
                   contentThree: evt.target.value,
                 }))
               }
-              // Removed 'required' attribute
+              
               rows="8"
               style={{
                 padding: "8px",

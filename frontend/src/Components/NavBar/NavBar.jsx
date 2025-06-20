@@ -13,12 +13,12 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav className="NavBar">
       <img
-        src="./dawgmoney.png"
+        src="/dawgmoney.png"
         className="dogmoney"
         alt="dog logo with money eyes"
       ></img>
       <NavLink to="/">
-        <img src="./dawg.png" className="doglogo" alt="dawg logo letters"></img>
+        <img src="/dawg.png" className="doglogo" alt="dawg logo letters"></img>
       </NavLink>
       &nbsp; | &nbsp;
       {user ? (
