@@ -59,6 +59,14 @@ export default function CartPage() {
                   onClick={() =>
                     handleUpdateQuantity(item.id, item.quantity - 1)
                   }
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#1E3769",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "50px",
+                    cursor: "pointer",
+                  }}
                 >
                   -
                 </button>
@@ -67,11 +75,31 @@ export default function CartPage() {
                   onClick={() =>
                     handleUpdateQuantity(item.id, item.quantity + 1)
                   }
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#1E3769",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "50px",
+                    cursor: "pointer",
+                  }}
                 >
                   +
                 </button>
               </div>
-              <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+              <button
+                onClick={() => handleRemoveItem(item.id)}
+                style={{
+                  padding: "10px 20px",
+                  backgroundColor: "#1E3769",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "50px",
+                  cursor: "pointer",
+                }}
+              >
+                Remove
+              </button>
             </div>
           </li>
         ))}

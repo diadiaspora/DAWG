@@ -359,10 +359,10 @@ export default function BlogDetail() {
             onClick={() => setIsEditing(true)}
             style={{
               padding: "10px 20px",
-              backgroundColor: "#008CBA",
+              backgroundColor: "#1E3769",
               color: "white",
               border: "none",
-              borderRadius: "5px",
+              borderRadius: "50px",
               cursor: "pointer",
             }}
           >
@@ -373,10 +373,10 @@ export default function BlogDetail() {
           onClick={() => handleDeleteBlog(blog._id)}
           style={{
             padding: "10px 20px",
-            backgroundColor: "#f44336",
+            backgroundColor: "#1E3769",
             color: "white",
             border: "none",
-            borderRadius: "5px",
+            borderRadius: "50px",
             cursor: "pointer",
           }}
         >
