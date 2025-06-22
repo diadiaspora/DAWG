@@ -33,15 +33,41 @@ import CartPage from "../CartPage/CartPage";
 import SearchFlights from "../../Components/SearchFlights/SearchFlights";
 import FlyPage from "../FlyPage/FlyPage";
 import { CartProvider } from "../../context/CartContext"; 
-import BlogA from "../BlogA/BlogA";
-import BlogOne from "../../Components/BlogOne/BlogOne";
+
+import BlogList from "../../Components/BlogList/BlogList";
+import BlogPage from "../BlogPage/BlogPage";
+import NewBlogsDetail from "../NewBlogsDetail/NewBlogsDetail";
+
 
 import "./App.css";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [profile, setProfile] = useState(null);
- 
+
+  useEffect(() => {
+    const url = "https://mntzco.com/NDI4NDIx.js?t=428421";
+    const existingScript = document.querySelector(`script[src="${url}"]`);
+
+    if (existingScript) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = url;
+    script.async = true;
+    script.setAttribute("data-noptimize", "1");
+    script.setAttribute("data-cfasync", "false");
+    script.setAttribute("data-wpfc-render", "false");
+
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []); // Empty dependency array means this runs once on mount
 
   useEffect(() => {
     async function fetchProfile() {
@@ -113,7 +139,9 @@ export default function App() {
                 <Route path="/product/:productId" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/fly" element={<FlyPage />} />
-                <Route path="/bloga" element={<BlogA />} />
+
+                <Route path="/articles" element={<BlogPage />} />
+                <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
               </Routes>
             ) : (
               <Routes>
@@ -135,7 +163,9 @@ export default function App() {
                 <Route path="/posts/new" element={<NewPostPage />} />
                 <Route path="/flights" element={<FlightInfoPage />} />
                 <Route path="/fly" element={<FlyPage />} />
-                <Route path="/bloga" element={<BlogA />} />
+                <Route path="/blogs/:id" element={<BlogDetailPage />} />
+                <Route path="/articles" element={<BlogPage />} />
+                <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
               </Routes>
             )}
           </section>
