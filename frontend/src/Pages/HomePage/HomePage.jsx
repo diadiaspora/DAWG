@@ -6,7 +6,9 @@ import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";
 
@@ -19,7 +21,8 @@ export default function HomePage({ user, setUser }) {
         <Header user={user} setUser={setUser} />
         <SearchComponent />
         <Gallery />
-        <Articles />
+      
+        <BlogsComponent />
         <div >
           <BlogList/>
         </div>

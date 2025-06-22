@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ThumbsUp, MessageSquare, Share2, CornerDownRight
 import "./RedditPostList.css";
 import { Link } from "react-router";
 
+
 const generateUniqueId = () => Math.random().toString(36).substr(2, 9);
 
 const responsive = {

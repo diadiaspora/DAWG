@@ -1,21 +1,23 @@
 import { useState, useEffect } from "react";
 import * as postService from "../../services/postService";
 import { NavLink } from "react-router-dom";
+import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 
 export default function PostListPage() {
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    async function fetchPosts() {
-      const posts = await postService.index();
-      setPosts(posts);
-    }
-    fetchPosts();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchPosts() {
+  //     const posts = await postService.index();
+  //     setPosts(posts);
+  //   }
+  //   fetchPosts();
+  // }, []);
 
   return (
     <>
-      <h1>Post List</h1>
+      <RedditPostList />
+      {/* <h1>Post List</h1>
       {posts.length ? (
         <ul>
           {posts.map((post) => (
@@ -24,7 +26,7 @@ export default function PostListPage() {
         </ul>
       ) : (
         <p>No Posts Yet!</p>
-      )}
+      )} */}
     </>
   );
 }

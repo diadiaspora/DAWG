@@ -1,0 +1,9 @@
+.truncate-text {
+    display: -webkit-box; /* Enables Flexbox-like layout for line clamping */
+    -webkit-line-clamp: 3; /* THIS IS THE KEY: Truncate after 3 lines */
+    -webkit-box-orient: vertical; /* Essential for -webkit-line-clamp to work */
+    overflow: hidden;    /* Hides any content that overflows the container */
+    text-overflow: ellipsis; /* Displays an ellipsis (...) for truncated text */
+    margin-Top: -10px;
+  }
+
