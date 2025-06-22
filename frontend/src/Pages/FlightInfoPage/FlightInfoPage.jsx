@@ -1,191 +1,50 @@
-// /Users/diadiaspora/code/ga/DAWG/frontend/src/Pages/FlightInfoPage.jsx (or wherever it's located)
-
-import { useEffect, useState } from "react";
-import { useSearchParams, NavLink } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function FlightInfoPage() {
-  const [searchParams] = useSearchParams();
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Retrieve parameters using the names sent by SearchFlights and expected by the backend
-  const originLocationCode = searchParams.get("originLocationCode");
-  const destinationLocationCode = searchParams.get("destinationLocationCode");
-  const departureDate = searchParams.get("departureDate");
-  const adults = searchParams.get("adults");
-  const returnDate = searchParams.get("returnDate"); // Will be null if not present
+  const widgetRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
-    async function fetchFlights() {
-      // Reset state for a new search
-      setLoading(true);
-      setResults([]);
-      setError(null);
+    // Parse query params from the search form (matching SearchFlights' output)
+    const searchParams = new URLSearchParams(location.search);
+    const origin = searchParams.get("origin") || "";
+    const destination = searchParams.get("destination") || "";
+    const departureDate = searchParams.get("departureDate") || "";
+    const returnDate = searchParams.get("returnDate") || "";
+    const adults = searchParams.get("adults") || "1";
 
-      // --- Important: Client-side validation before making the API call ---
-      // This helps prevent unnecessary calls if parameters are missing
-      if (
-        !originLocationCode ||
-        !destinationLocationCode ||
-        !departureDate ||
-        !adults
-      ) {
-        setError("Missing required flight search parameters in the URL.");
-        setLoading(false);
-        return;
-      }
+    // Build Aviasales widget URL
+    // IMPORTANT: Removed 'target_host' to prevent redirection
+    // Using 'origin' and 'destination' directly as per Aviasales example
+    const widgetUrl = `https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&color_button=%23FF0000&locale=en&powered_by=true&origin=${origin}&destination=${destination}&depart_date=${departureDate}&return_date=${returnDate}&adults=${adults}&with_fallback=false&non_direct_flights=true&min_lines=5&border_radius=0&color_background=%23FFFFFF&color_text=%23000000&color_border=%23FFFFFF&promo_id=2811&campaign_id=100`;
 
-      try {
+    const script = document.createElement("script");
+    script.src = widgetUrl;
+    script.async = true;
+    script.charset = "utf-8";
 
-        let url = `/api/flights/search?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&adults=${adults}`;
-
-        if (returnDate) {
-          url += `&returnDate=${returnDate}`;
-        }
-
-        const res = await fetch(url);
-
-        if (!res.ok) {
-         
-          const errorData = await res.json();
-
-          throw new Error(
-            errorData.error || `HTTP error! Status: ${res.status}`
-          );
-        }
-
-        const data = await res.json();
-
-        setResults(data || []);
-      } catch (err) {
-        console.error("Error fetching flights:", err);
-        setError(
-          err.message || "Failed to fetch flight data. Please try again."
-        );
-      } finally {
-        setLoading(false);
-      }
+    if (widgetRef.current) {
+      widgetRef.current.innerHTML = ""; // Clear previous content
+      widgetRef.current.appendChild(script);
     }
 
-
-    if (
-      originLocationCode &&
-      destinationLocationCode &&
-      departureDate &&
-      adults
-    ) {
-      fetchFlights();
-    } else {
- 
-      setLoading(false);
-      setError("Please perform a search from the flight search form.");
-    }
-  }, [
-    originLocationCode,
-    destinationLocationCode,
-    departureDate,
-    adults,
-    returnDate,
-  ]);
+    // Cleanup function: remove the script if the component unmounts
+    return () => {
+      if (widgetRef.current) widgetRef.current.innerHTML = "";
+    };
+  }, [location.search]); // Re-run effect if URL search params change
 
   return (
-    <div style={{ padding: "20px", width: "100%" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
-        Flight Results
-      </h1>
-
-      {loading ? (
-        <p style={{ textAlign: "center" }}>Loading flights...</p>
-      ) : error ? (
-        <p
-          style={{
-            color: "red",
-            textAlign: "center",
-            border: "1px solid red",
-            padding: "10px",
-            borderRadius: "5px",
-          }}
-        >
-          Error: {error}
-        </p>
-      ) : results.length === 0 ? (
-        <p style={{ textAlign: "center" }}>
-          No flights found for your criteria. Please try different dates or
-          routes.
-        </p>
-      ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {results.map((flight, idx) => (
-            <li
-              key={idx}
-              style={{
-                marginBottom: "25px",
-                border: "3px solid #000000",
-                padding: "15px",
-                borderRadius: "20px",
-               
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "1.2em",
-                  marginBottom: "10px",
-                  color: "#000000",
-                }}
-              >
-                Price:{" "}
-                <strong style={{ color: "#000000" }}>
-                  ${flight.price.total} {flight.price.currency}
-                </strong>
-              </h2>
-              {/* Iterating through itineraries, typically one for simple searches */}
-              {flight.itineraries.map((itinerary, itIdx) => (
-                <div key={itIdx} style={{ marginBottom: "15px" }}>
-                  <h3
-                    style={{
-                      fontSize: "1em",
-                      marginBottom: "8px",
-                      color: "#000000",
-                    }}
-                  >
-                    Itinerary {itIdx + 1} (Duration: {itinerary.duration}):
-                  </h3>
-                
-                  {itinerary.segments.map((segment, segIdx) => (
-                    <div
-                      key={segIdx}
-                      style={{
-                        marginLeft: "20px",
-                        borderLeft: "3px solid #f0f0f0",
-                        paddingLeft: "15px",
-                        marginBottom: "10px",
-                      }}
-                    >
-                      <p>
-                        <strong>Segment {segIdx + 1}:</strong>{" "}
-                        {segment.carrierCode} {segment.number || ""}
-                      </p>
-                      <p>
-                        From: <strong>{segment.departure.iataCode}</strong> (
-                        {new Date(segment.departure.at).toLocaleString()})
-                      </p>
-                      <p>
-                        To: <strong>{segment.arrival.iataCode}</strong> (
-                        {new Date(segment.arrival.at).toLocaleString()})
-                      </p>
-                      <p>
-                        Aircraft: {segment.aircraft.code || "N/A"}, Stops:{" "}
-                        {segment.numberOfStops}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div style={{ padding: "40px 20px" }}>
+      <h2 style={{ textAlign: "center", color: "#1E3769" }}>Flight Results</h2>
+      <div
+        id="tp-widget" // The ID where the Aviasales widget will be injected
+        ref={widgetRef}
+        style={{ minHeight: "300px", marginTop: "30px" }}
+      >
+        <p>Loading flight deals...</p>
+      </div>
     </div>
   );
 }
