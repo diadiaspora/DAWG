@@ -266,77 +266,83 @@ export default function BlogDetail() {
               )}
           </div>
         ) : (
-          <div>
-            <h1>{blog.title}</h1>
-            {/* Conditional rendering for author and date to prevent null errors */}
-            {blog.author && blog.author.username ? (
-              <p>
-                {`${blog.author.username} posted on ${new Date(
-                  blog.createdAt
-                ).toLocaleDateString()}`}
-              </p>
-            ) : (
-              <p>Posted on {new Date(blog.createdAt).toLocaleDateString()}</p>
-            )}
-            <p>{blog.contentOne}</p>
-            {blog.contentOneImage &&
-              blog.contentOneImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentOneImage}
-                  alt="Content One"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    marginTop: "10px",
-                    borderRadius: "8px",
-                  }}
-                />
+          <div style={{width:"1012px" , display:"flex"}}>
+            <div style={{width:"632px"}}>
+              <h1>{blog.title}</h1>
+              {/* Conditional rendering for author and date to prevent null errors */}
+              {blog.author && blog.author.username ? (
+                <p>
+                  {`${blog.author.username} posted on ${new Date(
+                    blog.createdAt
+                  ).toLocaleDateString()}`}
+                </p>
+              ) : (
+                <p>Posted on {new Date(blog.createdAt).toLocaleDateString()}</p>
               )}
-            <p>{blog.contentTwo}</p>
-            {blog.contentTwoImage &&
-              blog.contentTwoImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentTwoImage}
-                  alt="Content Two"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    marginTop: "10px",
-                    borderRadius: "8px",
-                  }}
-                />
-              )}
-            <p>{blog.contentThree}</p>
-            {blog.contentThreeImage &&
-              blog.contentThreeImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentThreeImage}
-                  alt="Content Three"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    marginTop: "10px",
-                    borderRadius: "8px",
-                  }}
-                />
-              )}
-            <p>{blog.contentFour}</p>
-            {blog.contentFourImage &&
-              blog.contentFourImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentFourImage}
-                  alt="Content Four"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    marginTop: "10px",
-                    borderRadius: "8px",
-                  }}
-                />
-              )}
+              <p>{blog.contentOne}</p>
+              {blog.contentOneImage &&
+                blog.contentOneImage !== "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentOneImage}
+                    alt="Content One"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      marginTop: "10px",
+                      borderRadius: "8px",
+                    }}
+                  />
+                )}
+              <p>{blog.contentTwo}</p>
+              {blog.contentTwoImage &&
+                blog.contentTwoImage !== "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentTwoImage}
+                    alt="Content Two"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      marginTop: "10px",
+                      borderRadius: "8px",
+                    }}
+                  />
+                )}
+              <p>{blog.contentThree}</p>
+              {blog.contentThreeImage &&
+                blog.contentThreeImage !==
+                  "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentThreeImage}
+                    alt="Content Three"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      marginTop: "10px",
+                      borderRadius: "8px",
+                    }}
+                  />
+                )}
+              <p>{blog.contentFour}</p>
+              {blog.contentFourImage &&
+                blog.contentFourImage !== "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentFourImage}
+                    alt="Content Four"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      marginTop: "10px",
+                      borderRadius: "8px",
+                    }}
+                  />
+                )}
+              </div>
+              <div>
+                <h2> side bar</h2>
+              </div>
           </div>
         )}
-        <h2>Comments</h2> {/* Placeholder for comments section */}
+        <h2>Comments</h2>
       </section>
 
       <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>

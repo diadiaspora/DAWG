@@ -33,6 +33,8 @@ import CartPage from "../CartPage/CartPage";
 import SearchFlights from "../../Components/SearchFlights/SearchFlights";
 import FlyPage from "../FlyPage/FlyPage";
 import { CartProvider } from "../../context/CartContext"; 
+import BlogA from "../BlogA/BlogA";
+import BlogOne from "../../Components/BlogOne/BlogOne";
 
 import "./App.css";
 
@@ -110,7 +112,8 @@ export default function App() {
                 <Route path="/plans/:id/ticket" element={<TicketPage />} />
                 <Route path="/product/:productId" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
-                   <Route path="/fly" element={<FlyPage />} />
+                <Route path="/fly" element={<FlyPage />} />
+                <Route path="/bloga" element={<BlogA />} />
               </Routes>
             ) : (
               <Routes>
@@ -132,6 +135,7 @@ export default function App() {
                 <Route path="/posts/new" element={<NewPostPage />} />
                 <Route path="/flights" element={<FlightInfoPage />} />
                 <Route path="/fly" element={<FlyPage />} />
+                <Route path="/bloga" element={<BlogA />} />
               </Routes>
             )}
           </section>

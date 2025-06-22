@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 
+
 const Articles = () => {
   const navigate = useNavigate();
 
@@ -52,10 +53,17 @@ const Articles = () => {
             <p
               style={{ fontSize: "16px", marginTop: "0px", marginLeft: "12px" }}
             >
-              <strong> Top 10 Cities for Travelling with a Pet</strong>{" "}
+              <strong>
+                The Ultimate Guide to Traveling with Your Pet: What to Pack,
+                Plan, and Expect
+              </strong>
             </p>
+            <Link to="/bloga">
+              <p> Read More</p>
+            </Link>
           </div>
         </div>
+
         <div
           style={{
             marginRight: "21px",
