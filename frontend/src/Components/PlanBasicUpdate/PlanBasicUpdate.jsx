@@ -54,9 +54,9 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
       style={{
         width: "300px",
         borderStyle: "solid",
-        borderWidth: "3px",
+        borderWidth: "1px",
         borderRadius: "20px",
-        borderColor: "#000000",
+        borderColor: "#d9d9d9",
       }}
     >
       {showForm ? (
@@ -112,7 +112,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               onChange={handleChange}
               style={{
                 width: "60px",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 height: "38px",
                 marginTop: "22px",
                 marginLeft: "12px",
@@ -132,7 +132,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               onChange={handleChange}
               style={{
                 width: "60px",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 height: "38px",
                 marginTop: "22px",
                 marginLeft: "12px",
@@ -160,7 +160,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             name="destination"
             value={formData.destination}
             onChange={handleChange}
-            style={{ height: "38px", borderRadius: "50px", width: "250px" }}
+            style={{ height: "38px", borderRadius: "7px", width: "250px" }}
           />
 
           <label
@@ -185,7 +185,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               style={{
                 height: "44px",
                 backgroundColor: "#1E3769",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 width: "100px",
                 borderWidth: "0px",
               }}
@@ -197,7 +197,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               style={{
                 height: "44px",
                 backgroundColor: "#1E3769",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 width: "100px",
                 borderWidth: "0px",
                 marginLeft: "12px",
@@ -211,7 +211,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
         <div
           style={{
             backgroundColor: "#ffffff",
-            borderRadius: "20px",
+            borderRadius: "7px",
             padding: "10px",
             height: "300px",
           }}
@@ -236,7 +236,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               height: "44px",
 
               width: "270px",
-              borderRadius: "50px",
+              borderRadius: "7px",
               marginTop: "24px",
               backgroundColor: "#1E3769",
               borderWidth: "0",

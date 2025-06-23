@@ -100,8 +100,8 @@ export default function PlanFlightForm({ plan, setPlan }) {
             display: "grid",
             gap: "1.2vmin",
             padding: "4vmin",
-            border: "0.5vmin solid #1a1a1a",
-            borderRadius: "20px",
+            border: "1px solid #d9d9d9",
+            borderRadius: "7px",
             marginTop: "42px",
             backgroundColor: "#d9d9d9",
           }}
@@ -206,7 +206,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
                 name="returnDate"
                 value={formData.returnDate}
                 onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
+                style={{ height: "44px", borderRadius: "7px" }}
               />
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
                 name="returnDepartureTime"
                 value={formData.returnDepartureTime}
                 onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
+                style={{ height: "44px", borderRadius: "7px" }}
               />
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -234,7 +234,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
                 name="returnArrivalTime"
                 value={formData.returnArrivalTime}
                 onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
+                style={{ height: "44px", borderRadius: "7px" }}
               />
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
             type="submit"
             style={{
               padding: "10px 20px",
-              borderRadius: "50px",
+              borderRadius: "7px",
               border: "none",
               backgroundColor: "#1E3769",
               color: "white",
@@ -266,7 +266,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
             marginRight: "42px",
             backgroundColor: "#ffffff",
             width: "1012px",
-            borderRadius: "20px",
+            borderRadius: "7px",
             padding: "4vmin",
             display: "flex",
             flexDirection: "column",
@@ -286,7 +286,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
                 marginTop: "10px",
                 color: "black",
                 height: "44px",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 borderWidth: "2px",
                 borderColor: "#d9d9d9",
                 display: "flex",
@@ -346,7 +346,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
               style={{
                 borderStyle: "solid",
                 borderColor: "#d9d9d9",
-                borderRadius: "20px",
+                borderRadius: "7px",
                 padding: "12px",
               }}
             >

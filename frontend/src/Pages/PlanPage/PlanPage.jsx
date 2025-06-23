@@ -28,7 +28,7 @@ export default function PlanPage() {
             backgroundColor: "#d9d9d9",
             width: "1012px",
             marginLeft: "42px",
-            borderRadius: "10px",
+            borderRadius: "7px",
             height: "75px",
             paddingTop: "10px",
             marginTop: "42px"

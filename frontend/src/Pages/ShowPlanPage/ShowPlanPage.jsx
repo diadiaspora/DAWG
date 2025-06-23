@@ -51,9 +51,10 @@ export default function ShowPlanPage() {
             width: "1012px",
             border: "solid",
             padding: "21px",
-            borderRadius: "20px",
-            borderWidth: "3px",
+            borderRadius: "7px",
+            borderWidth: "1px",
             marginRight: "0px",
+            borderBlockColor: "#d9d9d9",
           }}
         >
           <h1 style={{ textAlign: "left", marginTop: "-4px" }}>The Plan</h1>
@@ -67,10 +68,10 @@ export default function ShowPlanPage() {
               <div
                 style={{
                   borderStyle: "solid",
-                  borderColor: "black",
-                  borderWidth: "3px",
+                  borderColor: "#d9d9d9",
+                  borderWidth: "1px",
                   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                  borderRadius: "20px",
+                  borderRadius: "7px",
                   marginTop: "14px",
                   height: "90px",
                 }}
@@ -80,7 +81,7 @@ export default function ShowPlanPage() {
                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                     display: "flex",
                     padding: "8px",
-                    borderRadius: "20px",
+                    borderRadius: "7px",
                     marginLeft: "14px",
                     marginRight: "14px",
                     marginTop: "6px",

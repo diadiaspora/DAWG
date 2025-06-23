@@ -63,7 +63,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
           marginRight: "42px",
           backgroundColor: "#D9D9D9",
           width: "1012px",
-          borderRadius: "10px",
+          borderRadius: "7px",
           padding: "21px",
         }}
       >
@@ -87,8 +87,8 @@ export default function PlanWhereForm({ plan, setPlan }) {
             onSubmit={handleSubmit}
             style={{
               padding: "4vmin",
-              border: "0.5vmin solid #1a1a1a",
-              borderRadius: "20px",
+              border: "1px solid #d9d9d9",
+              borderRadius: "7px",
               backgroundColor: "#D9D9D9",
             }}
           >
@@ -113,7 +113,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   style={{
                     width: "180px",
                     padding: "8px",
-                    borderRadius: "50px",
+                    borderRadius: "7px",
                     border: "1px solid #000000",
                     height: "44px",
                   }}
@@ -138,7 +138,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   style={{
                     width: "180px",
                     padding: "8px",
-                    borderRadius: "50px",
+                    borderRadius: "7px",
                     border: "1px solid #000000",
                     height: "44px",
                   }}
@@ -154,7 +154,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 <label style={{ margin: "0px" }}>Upload Receipt</label>
                 <input
                   style={{
-                    borderRadius: "50px",
+                    borderRadius: "7px",
                     padding: "10px",
                     height: "44px",
                     width: "150px",
@@ -179,7 +179,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 style={{
                   width: "calc(100% - 16px)",
                   padding: "8px",
-                  borderRadius: "20px",
+                  borderRadius: "7px",
                   border: "1px solid #ccc",
                   resize: "vertical",
                 }}
@@ -190,7 +190,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 type="submit"
                 style={{
                   padding: "10px 20px",
-                  borderRadius: "50px",
+                  borderRadius: "7px",
                   border: "none",
                   backgroundColor: "#1E3769",
                   color: "white",
@@ -232,7 +232,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
             style={{
               backgroundColor: "#ffffff",
               minHeight: "350px",
-              borderRadius: "20px",
+              borderRadius: "7px",
               width: "662px",
               paddingLeft: "21px",
               paddingRight: "21px",
@@ -241,15 +241,15 @@ export default function PlanWhereForm({ plan, setPlan }) {
               flexDirection: "column",
               justifyContent: "space-around",
               borderStyle: "solid",
-              borderWidth: "3px",
-              borderColor: "#00000",
+              borderWidth: "1px",
+              borderColor: "#d9d9d9",
             }}
           >
             <h4 style={{ marginTop: "-14px", fontSize: "24px" }}>
               Stay Details:
             </h4>
             <div style={{ display: "flex", marginTop: "-60px" }}>
-              <div className="shadowSmall" style={{ borderRadius: "20px" }}>
+              <div className="shadowSmall" style={{ borderRadius: "7px" }}>
                 <div>
                   <strong style={{ fontSize: "14px" }}>Check-In:</strong>
                 </div>
@@ -304,7 +304,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                       marginTop: "10px",
                       color: "black",
                       height: "44px",
-                      borderRadius: "50px",
+                      borderRadius: "7px",
                       borderWidth: "2px",
                       borderColor: "#d9d9d9",
                       display: "flex", // To apply button styles to the Link
@@ -338,7 +338,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
               onClick={() => setShowForm(true)}
               style={{
                 height: "44px",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 borderWidth: "2px",
                 backgroundColor: "#1E3769",
               }}
