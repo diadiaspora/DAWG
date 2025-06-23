@@ -45,8 +45,8 @@ export default function PlanBasicsForm() {
             display: "grid",
             gap: "1.2vmin",
             padding: "4vmin",
-            border: "0.5vmin solid #1a1a1a",
-            borderRadius: "20px",
+            border: "1px solid #d9d9d9",
+            borderRadius: "7px",
           }}
         >
           <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
@@ -56,7 +56,7 @@ export default function PlanBasicsForm() {
                 name="month"
                 value={formData.month}
                 onChange={handleChange}
-                style={{ width: "150px", borderRadius: "50px", height: "44px" }}
+                style={{ width: "150px", borderRadius: "7px", height: "44px" }}
               >
                 <option value="">-- Select Month --</option>
 
@@ -93,7 +93,7 @@ export default function PlanBasicsForm() {
                 name="day"
                 value={formData.day}
                 onChange={handleChange}
-                style={{ width: "70px", borderRadius: "50px", height: "44px" }}
+                style={{ width: "70px", borderRadius: "7px", height: "44px" }}
               >
                 <option value=""> Day </option>
                 {[...Array(31).keys()].map((d) => (
@@ -116,7 +116,7 @@ export default function PlanBasicsForm() {
                 name="year"
                 value={formData.year}
                 onChange={handleChange}
-                style={{ width: "100px", borderRadius: "50px", height: "44px" }}
+                style={{ width: "100px", borderRadius: "7px", height: "44px" }}
               >
                 <option value=""> Year </option>
                 {[2025, 2026, 2027, 2028].map((y) => (
@@ -139,7 +139,7 @@ export default function PlanBasicsForm() {
                 name="destination"
                 value={formData.destination}
                 onChange={handleChange}
-                style={{ width: "195px", borderRadius: "50px", height: "44px" }}
+                style={{ width: "195px", borderRadius: "7px", height: "44px" }}
               />
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function PlanBasicsForm() {
               value={formData.notes}
               onChange={handleChange}
               rows={4}
-              style={{ width: "598px", borderRadius: "20px" }}
+              style={{ width: "598px", borderRadius: "7px" }}
             />
           </div>
           <div style={{ textAlign: "right", marginRight: "-43px"}}>
@@ -159,7 +159,7 @@ export default function PlanBasicsForm() {
               style={{
                 backgroundColor: "#1E3769",
                 height: "44px",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 borderWidth: "0px",
                 color: "#ffffff",
                 marginRight: "50px",

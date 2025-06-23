@@ -63,7 +63,7 @@ export default function UserProfilePage({ user }) {
           <button
             style={{
               width: "200px",
-              borderRadius: "50px",
+              borderRadius: "7px",
               backgroundColor: "#1E3769",
               color: "white",
               height: "44px",
@@ -74,19 +74,19 @@ export default function UserProfilePage({ user }) {
           <button
             style={{
               width: "200px",
-              borderRadius: "50px",
+              borderRadius: "7x",
               backgroundColor: "#1E3769",
               color: "white",
               height: "44px",
             }}
           >
-            {" "}
+       
             Upload Vaccine Record
           </button>
           <button
             style={{
               width: "200px",
-              borderRadius: "50px",
+              borderRadius: "7px",
               backgroundColor: "#1E3769",
               color: "white",
               height: "44px",
@@ -97,7 +97,7 @@ export default function UserProfilePage({ user }) {
           <button
             style={{
               width: "200px",
-              borderRadius: "50px",
+              borderRadius: "7px",
               backgroundColor: "#1E3769",
               color: "white",
               height: "44px",

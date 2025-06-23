@@ -135,9 +135,9 @@ export default function ProfileForm({ profile, setProfile }) {
             display: "flex",
             width: "1012px",
             borderStyle: "solid",
-            borderWidth: "3px",
-            borderColor: "black",
-            borderRadius: "20px",
+            borderWidth: "1px",
+            borderColor: "#d9d9d9",
+            borderRadius: "7px",
             padding: "21px",
           }}
         >
@@ -147,9 +147,9 @@ export default function ProfileForm({ profile, setProfile }) {
               style={{
                 width: "300px",
                 borderStyle: "solid",
-                borderWidth: "3px",
-                borderColor: "black",
-                borderRadius: "20px",
+                borderWidth: "1px",
+                borderColor: "#d9d9d9",
+                borderRadius: "7px",
                 padding: "20px",
                 height: "300px",
                 display: "flex",
@@ -160,7 +160,7 @@ export default function ProfileForm({ profile, setProfile }) {
               <button
                 onClick={() => setShowForm(true)}
                 style={{
-                  borderRadius: "50px",
+                  borderRadius: "7px",
                   height: "44px",
                   backgroundColor: "#1E3769",
                 }}
@@ -174,15 +174,15 @@ export default function ProfileForm({ profile, setProfile }) {
               style={{
                 display: "flex",
                 borderStyle: "solid",
-                borderWidth: "3px",
-                borderColor: "black",
-                borderRadius: "20px",
+                borderWidth: "1px",
+                borderColor: "#d9d9d9",
+                borderRadius: "7px",
                 width: "640px",
                 marginTop: "24px",
                 marginLeft: "21px",
               }}
             >
-              <h4 className="shadow1" style={{marginLeft: "21px"}}>
+              <h4 className="shadow1" style={{ marginLeft: "21px" }}>
                 <strong>Breed:</strong> {profileData.pet[0].breed}
               </h4>
               <p className="shadow2">
@@ -205,13 +205,13 @@ export default function ProfileForm({ profile, setProfile }) {
               <div
                 style={{
                   backgroundColor: "#d9d9d9",
-                  borderRadius: "20px",
+                  borderRadius: "7px",
                   width: "640px",
                   marginLeft: "21px",
                   height: "110px",
                 }}
               >
-                <div style={{marginTop: "42px"}}>
+                <div style={{ marginTop: "42px" }}>
                   <PlanIndex isGallery={isGallery} />
                 </div>
               </div>
