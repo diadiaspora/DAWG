@@ -6,7 +6,7 @@ export const blogPosts = [
       "Everything you need to know about packing, planning, and flying with your furry friend.",
     content: `...full JSX article here or import it separately...`,
     date: "2025-06-21",
-    thumbnail: "../public/blogimage1.png",
+    thumbnail: "/blogimage1.png",
   },
 
   {
@@ -16,7 +16,7 @@ export const blogPosts = [
       "Everything you need to know about packing, planning, and flying with your furry friend.",
     content: `...full JSX article here or import it separately...`,
     date: "2025-06-21",
-    thumbnail: "../public/blogimage2.png",
+    thumbnail: "/blogimage2.png",
   },
   {
     id: "traveling-with",
@@ -25,7 +25,7 @@ export const blogPosts = [
       "Everything you need to know about packing, planning, and flying with your furry friend.",
     content: `...full JSX article here or import it separately...`,
     date: "2025-06-21",
-    thumbnail: "../public/blogimage3.png",
+    thumbnail: "/blogimage3.png",
   },
   {
     id: "traveling",
@@ -34,7 +34,7 @@ export const blogPosts = [
       "Everything you need to know about packing, planning, and flying with your furry friend.",
     content: `...full JSX article here or import it separately...`,
     date: "2025-06-21",
-    thumbnail: "../public/blogimage4.png",
+    thumbnail: "/blogimage4.png",
   },
   {
     id: "trav",
@@ -43,7 +43,7 @@ export const blogPosts = [
       "Everything you need to know about packing, planning, and flying with your furry friend.",
     content: `...full JSX article here or import it separately...`,
     date: "2025-06-21",
-    thumbnail: "../public/blogimage5.png",
+    thumbnail: "/blogimage5.png",
   },
   // Add more blog posts here
 ];

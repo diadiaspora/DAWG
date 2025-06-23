@@ -82,7 +82,7 @@ export default function Marketplace() {
                 backgroundColor: "#1E3769",
                 borderWidth: "2px",
                 borderColor: "#1E3769",
-                borderRadius: "50px",
+                borderRadius: "7px",
                 color: "#ffffff",
               }}
             >

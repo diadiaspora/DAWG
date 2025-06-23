@@ -8,7 +8,7 @@ export default function BlogCard({ blog }) {
       style={{
         height: "380px",
         width: "237px",
-        borderRadius: "20px",
+        borderRadius: "7px",
         border: "1px solid #ccc",
       }}
     >
@@ -17,8 +17,8 @@ export default function BlogCard({ blog }) {
         alt={blog.title}
         style={{
           width: "100%",
-          borderTopLeftRadius: "20px",
-          borderTopRightRadius: "20px",
+          borderTopLeftRadius: "7px",
+          borderTopRightRadius: "7px",
         }}
       />
       <div style={{ marginLeft: "16px", marginRight: "16px" }}>

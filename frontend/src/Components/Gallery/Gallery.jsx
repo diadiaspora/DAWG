@@ -32,12 +32,12 @@ const Gallery = () => {
             backgroundColor: "#D9D9D9",
             height: "75px",
             width: "665px",
-            borderRadius: "20px",
+            borderRadius: "7px",
             marginTop: "34px",
             paddingTop: "1px",
           }}
         >
-          <PlanIndex isGallery={isGallery} />
+          {/* <PlanIndex isGallery={isGallery} /> */}
         </div>
       </div>
 
