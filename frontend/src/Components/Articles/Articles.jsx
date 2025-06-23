@@ -37,7 +37,7 @@ const Articles = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "20px",
+            borderRadius: "7px",
           }}
         >
           <img
@@ -45,8 +45,8 @@ const Articles = () => {
             alt="resources"
             style={{
               width: "237px",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
+              borderTopLeftRadius: "7px",
+              borderTopRightRadius: "7px",
             }}
           ></img>
           <div>
@@ -70,7 +70,7 @@ const Articles = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "20px",
+            borderRadius: "7px",
           }}
         >
           <img
@@ -78,8 +78,8 @@ const Articles = () => {
             alt="resources"
             style={{
               width: "237px",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
+              borderTopLeftRadius: "7px",
+              borderTopRightRadius: "7px",
             }}
           ></img>
           <div>
@@ -96,7 +96,7 @@ const Articles = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "20px",
+            borderRadius: "7px",
           }}
         >
           <img
@@ -104,8 +104,8 @@ const Articles = () => {
             alt="resources"
             style={{
               width: "237px",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
+              borderTopLeftRadius: "7px",
+              borderTopRightRadius: "7px",
             }}
           ></img>
           <div>
@@ -122,7 +122,7 @@ const Articles = () => {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "grey",
-            borderRadius: "20px",
+            borderRadius: "7px",
           }}
         >
           <img
@@ -130,8 +130,8 @@ const Articles = () => {
             alt="resources"
             style={{
               width: "237px",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
+              borderTopLeftRadius: "7px",
+              borderTopRightRadius: "7px",
             }}
           ></img>
           <div>

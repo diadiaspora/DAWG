@@ -1,279 +1,47 @@
-
-
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef  } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function SearchFlights() {
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [departureDate, setDepartureDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
-  const [adults, setAdults] = useState(1);
+  const widgetRef = useRef(null);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=0&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
+    script.async = true;
+    script.charset = "utf-8";
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-
-    // Basic validation
-    if (!origin || !destination || !departureDate || adults < 1) {
-      alert("Please complete all required fields.");
-      return;
+    if (widgetRef.current) {
+      widgetRef.current.innerHTML = ""; // Clean old widget if any
+      widgetRef.current.appendChild(script);
     }
 
-    // Build query string for Kiwi widget
-    const params = new URLSearchParams({
-      origin: origin.toUpperCase(),
-      destination: destination.toUpperCase(),
-      departureDate,
-      returnDate,
-      adults,
-    });
-
-    // Navigate to results page
-    navigate(`/flights?${params.toString()}`);
-  };
-
-  // const [origin, setOrigin] = useState("");
-  // const [destination, setDestination] = useState("");
-  // const [departureDate, setDepartureDate] = useState("");
-  // const [returnDate, setReturnDate] = useState(""); // Optional for one-way search
-  // const [adults, setAdults] = useState(1); // New state for adults, default to 1
-
-  // const navigate = useNavigate();
-
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-
-  //   // Basic client-side validation
-  //   if (!origin || !destination || !departureDate || adults < 1) {
-  //     alert(
-  //       "Please fill in all required fields (Origin, Destination, Departure Date, Adults)."
-  //     );
-  //     return;
-  //   }
-
-  //   const params = new URLSearchParams();
-  //   params.append("originLocationCode", origin.toUpperCase()); // Ensure uppercase for IATA codes
-  //   params.append("destinationLocationCode", destination.toUpperCase()); // Ensure uppercase
-  //   params.append("departureDate", departureDate);
-  //   params.append("adults", adults);
-
-  //   // Only append returnDate if it's provided
-  //   if (returnDate) {
-  //     params.append("returnDate", returnDate);
-  //   }
-
-  //   // Navigate to the /flights route with query parameters
-  //   navigate(`/flights?${params.toString()}`);
-  // };
+    return () => {
+      if (widgetRef.current) {
+        widgetRef.current.innerHTML = ""; // Clean up on unmount
+      }
+    };
+  }, []);
 
   return (
-    <form onSubmit={handleSearch} style={{ display: "flex", flexWrap: "wrap", gap: "16px", paddingTop: "42px" }}>
-      <div>
-        <label>From*</label>
-        <input
-          type="text"
-          placeholder="Origin (e.g. JFK)"
-          value={origin}
-          onChange={(e) => setOrigin(e.target.value)}
-          required
-          style={{ padding: "8px", borderRadius: "50px", borderColor: "black", width: "200px" }}
-        />
+    <section
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        padding: "40px 0",
+        backgroundColor: "#f9f9f9",
+      }}
+    >
+      <div
+        ref={widgetRef}
+        id="kiwi-widget"
+        style={{
+          width: "100%",
+          maxWidth: "960px",
+          minHeight: "600px",
+        }}
+      >
+        {/* Widget will be injected here */}
       </div>
-      <div>
-        <label>To*</label>
-        <input
-          type="text"
-          placeholder="Destination (e.g. LAX)"
-          value={destination}
-          onChange={(e) => setDestination(e.target.value)}
-          required
-          style={{ padding: "8px", borderRadius: "50px", borderColor: "black", width: "200px" }}
-        />
-      </div>
-      <div>
-        <label>Departure*</label>
-        <input
-          type="date"
-          value={departureDate}
-          onChange={(e) => setDepartureDate(e.target.value)}
-          required
-          style={{ padding: "8px", borderRadius: "50px", borderColor: "black" }}
-        />
-      </div>
-      <div>
-        <label>Return</label>
-        <input
-          type="date"
-          value={returnDate}
-          onChange={(e) => setReturnDate(e.target.value)}
-          style={{ padding: "8px", borderRadius: "50px", borderColor: "black" }}
-        />
-      </div>
-      <div>
-        <label>Adults*</label>
-        <input
-          type="number"
-          min="1"
-          value={adults}
-          onChange={(e) => setAdults(Math.max(1, Number(e.target.value)))}
-          style={{ padding: "8px", borderRadius: "50px", borderColor: "black", width: "80px" }}
-        />
-      </div>
-      <div>
-        <button
-          type="submit"
-          style={{
-            backgroundColor: "#1E3769",
-            color: "white",
-            padding: "10px 24px",
-            border: "none",
-            borderRadius: "50px",
-            marginTop: "24px",
-            cursor: "pointer",
-          }}
-        >
-          Search Flights
-        </button>
-      </div>
-    </form>
-
-    // <form
-    //   onSubmit={handleSearch}
-    //   style={{
-    //     display: "flex",
-    //     flexDirection: "column",
-    //   }}
-    // >
-    //   <div
-    //     style={{
-    //       display: "flex",
-    //       paddingTop: "42px",
-    //     }}
-    //   >
-    //     <div style={{ display: "flex", flexDirection: "column" }}>
-    //       <label> Where from?*</label>
-    //       <input
-    //         type="text"
-    //         placeholder="Origin (e.g., SYD)"
-    //         value={origin}
-    //         onChange={(e) => setOrigin(e.target.value)} // Keep user input as is, format on append
-    //         required
-    //         style={{
-    //           padding: "8px",
-    //           borderRadius: "50px",
-    //           height: "44px",
-    //           borderColor: "black",
-    //           width: "220px",
-    //           marginLeft: "42px",
-    //         }}
-    //       />
-    //     </div>
-    //     <div style={{ display: "flex", flexDirection: "column" }}>
-    //       <label> Where To?*</label>
-    //       <input
-    //         type="text"
-    //         placeholder="Destination (e.g., BKK)"
-    //         value={destination}
-    //         onChange={(e) => setDestination(e.target.value)} // Keep user input as is, format on append
-    //         required
-    //         style={{
-    //           padding: "8px",
-    //           borderRadius: "50px",
-    //           height: "44px",
-    //           borderColor: "black",
-    //           width: "220px",
-    //           marginLeft: "22px",
-    //         }}
-    //       />
-    //     </div>
-    //     <div style={{ display: "flex", flexDirection: "column" }}>
-    //       <label>Departure Date:*</label>
-    //       <input
-    //         type="date"
-    //         value={departureDate}
-    //         onChange={(e) => setDepartureDate(e.target.value)}
-    //         required
-    //         style={{
-    //           padding: "8px",
-    //           borderRadius: "50px",
-    //           height: "44px",
-    //           borderColor: "black",
-    //           marginLeft: "22px",
-    //         }}
-    //       />
-    //     </div>
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         marginLeft: "22px",
-    //       }}
-    //     >
-    //       <label>Return Date:</label>
-    //       <input
-    //         type="date"
-    //         value={returnDate}
-    //         onChange={(e) => setReturnDate(e.target.value)}
-    //         style={{
-    //           padding: "8px",
-    //           borderRadius: "50px",
-    //           height: "44px",
-    //           borderColor: "black",
-    //         }}
-    //       />
-    //     </div>
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         marginLeft: "22px"
-    //       }}
-    //     >
-    //       <label>Adults:</label>
-    //       <input
-    //         type="number"
-    //         placeholder="Number of Adults"
-    //         value={adults}
-    //         onChange={(e) =>
-    //           setAdults(Math.max(1, parseInt(e.target.value) || 1))
-    //         }
-    //         min="1"
-    //         required
-    //         style={{
-    //           padding: "8px",
-    //           borderRadius: "50px",
-    //           height: "44px",
-    //           borderColor: "black",
-    //           width: "80px",
-    //         }}
-    //       />
-    //     </div>
-    //   </div>
-
-    //   <div>
-    //     <div
-    //       style={{
-    //         display: "flex",
-    //         justifyContent: "center",
-    //         marginTop: "36px",
-    //       }}
-    //     >
-    //       <button
-    //         type="submit"
-    //         style={{
-    //           height: "44px",
-    //           backgroundColor: "#1E3769",
-    //           borderRadius: "50px",
-    //           width: "200px",
-    //           borderColor: "#1E3769",
-    //         }}
-    //       >
-    //         Search Flights
-    //       </button>
-    //     </div>
-    //   </div>
-    // </form>
+    </section>
   );
 }

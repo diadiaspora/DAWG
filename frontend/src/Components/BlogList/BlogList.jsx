@@ -32,7 +32,7 @@ export default function BlogList() {
                   key={blog._id}
                   style={{
                     width: "206px",
-                    borderRadius: "20px",
+                    borderRadius: "7px",
                     marginRight: "21px",
                     borderStyle: "solid",
                     borderColor: "#d9d9d9",
@@ -45,8 +45,8 @@ export default function BlogList() {
                       alt="resources"
                       style={{
                         width: "206px",
-                        borderTopLeftRadius: "20px",
-                        borderTopRightRadius: "20px",
+                        borderTopLeftRadius: "7px",
+                        borderTopRightRadius: "7px",
                       }}
                     ></img>
                     <Link
@@ -75,7 +75,7 @@ export default function BlogList() {
             style={{
               backgroundColor: "#D9D9D7",
               width: "310px",
-              borderRadius: "20px",
+              borderRadius: "7px",
               height: "350px",
               marginTop: "0px",
               padding: "24px",
@@ -93,7 +93,7 @@ export default function BlogList() {
               <button
                 style={{
                   backgroundColor: "#1E3769",
-                  borderRadius: "50px",
+                  borderRadius: "7px",
                   borderColor: "#1E3769",
                   width: "200px",
                   height: "44px",

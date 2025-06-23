@@ -40,7 +40,7 @@ export default function FlyPage({ user, setUser }) {
             borderRadius: "50px",
           }}
         >
-          <p>Loading Travelpayouts widget...</p>
+   
         </div>
       </section>
     </>

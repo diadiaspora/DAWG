@@ -84,174 +84,186 @@ export default function NewBlogPage() {
 
   return (
     <>
-      <section>
+      <section style={{ backgroundColor: "black" }}>
         <Header />
         <SearchComponent />
-        <div style={{ margin: "42px" }}>
-          <h2 style={{ fontSize: "24px" }}> Tell Us Your Story</h2>
-          <form onSubmit={handleSubmit}>
-            <label style={{ marginLeft: "0px" }}>Title</label>
-            <input
-              type="text"
-              value={blogData.title}
-              onChange={(evt) =>
-                setBlogData((prev) => ({ ...prev, title: evt.target.value }))
-              }
-              required // Title is required
-              style={{
-                padding: "8px",
-                borderRadius: "20px",
-                border: "1px solid #000000",
-                marginBottom: "15px",
-                width: "calc(100% - 16px)",
-                boxSizing: "border-box",
-              }}
-            />
+        <div>
+          <div
+            style={{ width: "1032px", display: "flex", backgroundColor: "red",  paddingRight:"0px" }}
+          >
+            <div style={{ width: "632px", backgroundColor: "purple" }}>
+              <h2 style={{ fontSize: "24px" }}> Tell Us Your Story</h2>
+              <form onSubmit={handleSubmit}>
+                <label style={{ marginLeft: "0px" }}>Title</label>
+                <input
+                  type="text"
+                  value={blogData.title}
+                  onChange={(evt) =>
+                    setBlogData((prev) => ({
+                      ...prev,
+                      title: evt.target.value,
+                    }))
+                  }
+                  required // Title is required
+                  style={{
+                    padding: "8px",
+                    borderRadius: "20px",
+                    border: "1px solid #000000",
+                    marginBottom: "15px",
+                    width: "calc(100% - 16px)",
+                    boxSizing: "border-box",
+                  }}
+                />
 
-            <label style={{ marginLeft: "0px" }}>How Did It Start?</label>
-            <textarea
-              value={blogData.contentOne}
-              onChange={(evt) =>
-                setBlogData((prev) => ({
-                  ...prev,
-                  contentOne: evt.target.value,
-                }))
-              }
-              required // Content One is required
-              rows="8"
-              style={{
-                padding: "8px",
-                borderRadius: "20px",
-                border: "1px solid #000000",
-                marginBottom: "20px",
-                width: "calc(100% - 16px)",
-                boxSizing: "border-box",
-                resize: "vertical",
-              }}
-            ></textarea>
-            <label>Upload Image for Section One</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentOneImageRef}
-              required // Content One Image is required
-              style={{ marginBottom: "20px" }}
-            />
+                <label style={{ marginLeft: "0px" }}>How Did It Start?</label>
+                <textarea
+                  value={blogData.contentOne}
+                  onChange={(evt) =>
+                    setBlogData((prev) => ({
+                      ...prev,
+                      contentOne: evt.target.value,
+                    }))
+                  }
+                  required // Content One is required
+                  rows="8"
+                  style={{
+                    padding: "8px",
+                    borderRadius: "20px",
+                    border: "1px solid #000000",
+                    marginBottom: "20px",
+                    width: "calc(100% - 16px)",
+                    boxSizing: "border-box",
+                    resize: "vertical",
+                  }}
+                ></textarea>
+                <label>Upload Image for Section One</label>
+                <input
+                  type="file"
+                  accept=".png, .gif, .jpg, .jpeg"
+                  ref={contentOneImageRef}
+                  required // Content One Image is required
+                  style={{ marginBottom: "20px" }}
+                />
 
-            <label style={{ marginLeft: "0px" }}>What Happened?</label>
-            <textarea
-              value={blogData.contentTwo}
-              onChange={(evt) =>
-                setBlogData((prev) => ({
-                  ...prev,
-                  contentTwo: evt.target.value,
-                }))
-              }
-              // Removed 'required' attribute
-              rows="8"
-              style={{
-                padding: "8px",
-                borderRadius: "20px",
-                border: "1px solid #000000",
-                marginBottom: "20px",
-                width: "calc(100% - 16px)",
-                boxSizing: "border-box",
-                resize: "vertical",
-              }}
-            ></textarea>
-            <label>Upload Image for Section Two</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentTwoImageRef}
-              // Removed 'required' attribute
-              style={{ marginBottom: "20px" }}
-            />
+                <label style={{ marginLeft: "0px" }}>What Happened?</label>
+                <textarea
+                  value={blogData.contentTwo}
+                  onChange={(evt) =>
+                    setBlogData((prev) => ({
+                      ...prev,
+                      contentTwo: evt.target.value,
+                    }))
+                  }
+                  // Removed 'required' attribute
+                  rows="8"
+                  style={{
+                    padding: "8px",
+                    borderRadius: "20px",
+                    border: "1px solid #000000",
+                    marginBottom: "20px",
+                    width: "calc(100% - 16px)",
+                    boxSizing: "border-box",
+                    resize: "vertical",
+                  }}
+                ></textarea>
+                <label>Upload Image for Section Two</label>
+                <input
+                  type="file"
+                  accept=".png, .gif, .jpg, .jpeg"
+                  ref={contentTwoImageRef}
+                  // Removed 'required' attribute
+                  style={{ marginBottom: "20px" }}
+                />
 
-            <label style={{ marginLeft: "0px" }}>How Did It End?</label>
-            <textarea
-              value={blogData.contentThree}
-              onChange={(evt) =>
-                setBlogData((prev) => ({
-                  ...prev,
-                  contentThree: evt.target.value,
-                }))
-              }
-              
-              rows="8"
-              style={{
-                padding: "8px",
-                borderRadius: "20px",
-                border: "1px solid #000000",
-                marginBottom: "20px",
-                width: "calc(100% - 16px)",
-                boxSizing: "border-box",
-                resize: "vertical",
-              }}
-            ></textarea>
-            <label>Upload Image for Section Three</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentThreeImageRef}
-              // Removed 'required' attribute
-              style={{ marginBottom: "20px" }}
-            />
+                <label style={{ marginLeft: "0px" }}>How Did It End?</label>
+                <textarea
+                  value={blogData.contentThree}
+                  onChange={(evt) =>
+                    setBlogData((prev) => ({
+                      ...prev,
+                      contentThree: evt.target.value,
+                    }))
+                  }
+                  rows="8"
+                  style={{
+                    padding: "8px",
+                    borderRadius: "20px",
+                    border: "1px solid #000000",
+                    marginBottom: "20px",
+                    width: "calc(100% - 16px)",
+                    boxSizing: "border-box",
+                    resize: "vertical",
+                  }}
+                ></textarea>
+                <label>Upload Image for Section Three</label>
+                <input
+                  type="file"
+                  accept=".png, .gif, .jpg, .jpeg"
+                  ref={contentThreeImageRef}
+                  // Removed 'required' attribute
+                  style={{ marginBottom: "20px" }}
+                />
 
-            <label style={{ marginLeft: "0px" }}>What Does It Mean?</label>
-            <textarea
-              value={blogData.contentFour}
-              onChange={(evt) =>
-                setBlogData((prev) => ({
-                  ...prev,
-                  contentFour: evt.target.value,
-                }))
-              }
-              // Removed 'required' attribute
-              rows="8"
-              style={{
-                padding: "8px",
-                borderRadius: "20px",
-                border: "1px solid #000000",
-                marginBottom: "20px",
-                width: "calc(100% - 16px)",
-                boxSizing: "border-box",
-                resize: "vertical",
-              }}
-            ></textarea>
-            <label>Upload Image for Section Four</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentFourImageRef}
-              // Removed 'required' attribute
-              style={{ marginBottom: "20px" }}
-            />
+                <label style={{ marginLeft: "0px" }}>What Does It Mean?</label>
+                <textarea
+                  value={blogData.contentFour}
+                  onChange={(evt) =>
+                    setBlogData((prev) => ({
+                      ...prev,
+                      contentFour: evt.target.value,
+                    }))
+                  }
+                  // Removed 'required' attribute
+                  rows="8"
+                  style={{
+                    padding: "8px",
+                    borderRadius: "20px",
+                    border: "1px solid #000000",
+                    marginBottom: "20px",
+                    width: "calc(100% - 16px)",
+                    boxSizing: "border-box",
+                    resize: "vertical",
+                  }}
+                ></textarea>
+                <label>Upload Image for Section Four</label>
+                <input
+                  type="file"
+                  accept=".png, .gif, .jpg, .jpeg"
+                  ref={contentFourImageRef}
+                  // Removed 'required' attribute
+                  style={{ marginBottom: "20px" }}
+                />
 
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "End",
-                marginRight: "21px",
-              }}
-            >
-              <button
-                type="submit"
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: "#1E3769",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "50px",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                }}
-              >
-                Publish Your Blog
-              </button>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "End",
+                    marginRight: "21px",
+                  }}
+                >
+                  <button
+                    type="submit"
+                    style={{
+                      padding: "10px 20px",
+                      backgroundColor: "#1E3769",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "50px",
+                      cursor: "pointer",
+                      fontSize: "16px",
+                    }}
+                  >
+                    Publish Your Blog
+                  </button>
+                </div>
+              </form>
+              <p>&nbsp;{errorMsg}</p>
             </div>
-          </form>
-          <p>&nbsp;{errorMsg}</p>
+
+            <div style={{ width: "310px", backgroundColor: "yellow" }}>
+              sidebar
+            </div>
+          </div>
         </div>
       </section>
     </>

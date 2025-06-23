@@ -52,7 +52,7 @@ export default function BlogDetail() {
     } catch (err) {
       console.error("Failed to delete blog:", err);
       // Display a user-friendly error message
-      alert("Failed to delete blog. Please try again."); // Using alert for simplicity, but a custom modal is better
+      alert("Failed to delete blog. Please try again."); 
     }
   };
 
@@ -122,152 +122,170 @@ export default function BlogDetail() {
       >
         {isEditing ? (
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            style={{
+              display: "flex",
+
+              gap: "15px",
+              width: "1012px",
+            }}
           >
-            <label>Title:</label>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
+            <div
               style={{
-                padding: "8px",
-                borderRadius: "4px",
-                border: "1px solid #ddd",
+                width: "632px",
+                display: "flex",
+                flexDirection: "column",
               }}
-            />
+            >
+              <div> </div>
+              <label>Title:</label>
+              <input
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                style={{
+                  padding: "8px",
+                  borderRadius: "4px",
+                  border: "1px solid #ddd",
+                }}
+              />
 
-            <label>Content One:</label>
-            <textarea
-              name="contentOne"
-              value={formData.contentOne}
-              onChange={handleChange}
-              rows="5"
-              style={{
-                padding: "8px",
-                borderRadius: "4px",
-                border: "1px solid #ddd",
-                resize: "vertical",
-              }}
-            />
-            <label>Upload Image for Section One (Optional):</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentOneImageRef}
-            />
-            {blog.contentOneImage &&
-              blog.contentOneImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentOneImage}
-                  alt="Content One"
-                  style={{
-                    maxWidth: "200px",
-                    marginTop: "10px",
-                    borderRadius: "4px",
-                  }}
-                />
-              )}
+              <label>Content One:</label>
+              <textarea
+                name="contentOne"
+                value={formData.contentOne}
+                onChange={handleChange}
+                rows="5"
+                style={{
+                  padding: "8px",
+                  borderRadius: "4px",
+                  border: "1px solid #ddd",
+                  resize: "vertical",
+                }}
+              />
+              <label>Upload Image for Section One (Optional):</label>
+              <input
+                type="file"
+                accept=".png, .gif, .jpg, .jpeg"
+                ref={contentOneImageRef}
+              />
+              {blog.contentOneImage &&
+                blog.contentOneImage !== "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentOneImage}
+                    alt="Content One"
+                    style={{
+                      maxWidth: "200px",
+                      marginTop: "10px",
+                      borderRadius: "4px",
+                    }}
+                  />
+                )}
 
-            <label>Content Two:</label>
-            <textarea
-              name="contentTwo"
-              value={formData.contentTwo}
-              onChange={handleChange}
-              rows="5"
-              style={{
-                padding: "8px",
-                borderRadius: "4px",
-                border: "1px solid #ddd",
-                resize: "vertical",
-              }}
-            />
-            <label>Upload Image for Section Two (Optional):</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentTwoImageRef}
-            />
-            {blog.contentTwoImage &&
-              blog.contentTwoImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentTwoImage}
-                  alt="Content Two"
-                  style={{
-                    maxWidth: "200px",
-                    marginTop: "10px",
-                    borderRadius: "4px",
-                  }}
-                />
-              )}
+              <label>Content Two:</label>
+              <textarea
+                name="contentTwo"
+                value={formData.contentTwo}
+                onChange={handleChange}
+                rows="5"
+                style={{
+                  padding: "8px",
+                  borderRadius: "4px",
+                  border: "1px solid #ddd",
+                  resize: "vertical",
+                }}
+              />
+              <label>Upload Image for Section Two (Optional):</label>
+              <input
+                type="file"
+                accept=".png, .gif, .jpg, .jpeg"
+                ref={contentTwoImageRef}
+              />
+              {blog.contentTwoImage &&
+                blog.contentTwoImage !== "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentTwoImage}
+                    alt="Content Two"
+                    style={{
+                      maxWidth: "200px",
+                      marginTop: "10px",
+                      borderRadius: "4px",
+                    }}
+                  />
+                )}
 
-            <label>Content Three:</label>
-            <textarea
-              name="contentThree"
-              value={formData.contentThree}
-              onChange={handleChange}
-              rows="5"
-              style={{
-                padding: "8px",
-                borderRadius: "4px",
-                border: "1px solid #ddd",
-                resize: "vertical",
-              }}
-            />
-            <label>Upload Image for Section Three (Optional):</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentThreeImageRef}
-            />
-            {blog.contentThreeImage &&
-              blog.contentThreeImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentThreeImage}
-                  alt="Content Three"
-                  style={{
-                    maxWidth: "200px",
-                    marginTop: "10px",
-                    borderRadius: "4px",
-                  }}
-                />
-              )}
+              <label>Content Three:</label>
+              <textarea
+                name="contentThree"
+                value={formData.contentThree}
+                onChange={handleChange}
+                rows="5"
+                style={{
+                  padding: "8px",
+                  borderRadius: "4px",
+                  border: "1px solid #ddd",
+                  resize: "vertical",
+                }}
+              />
+              <label>Upload Image for Section Three (Optional):</label>
+              <input
+                type="file"
+                accept=".png, .gif, .jpg, .jpeg"
+                ref={contentThreeImageRef}
+              />
+              {blog.contentThreeImage &&
+                blog.contentThreeImage !==
+                  "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentThreeImage}
+                    alt="Content Three"
+                    style={{
+                      maxWidth: "200px",
+                      marginTop: "10px",
+                      borderRadius: "4px",
+                    }}
+                  />
+                )}
 
-            <label>Content Four:</label>
-            <textarea
-              name="contentFour"
-              value={formData.contentFour}
-              onChange={handleChange}
-              rows="5"
-              style={{
-                padding: "8px",
-                borderRadius: "4px",
-                border: "1px solid #ddd",
-                resize: "vertical",
-              }}
-            />
-            <label>Upload Image for Section Four (Optional):</label>
-            <input
-              type="file"
-              accept=".png, .gif, .jpg, .jpeg"
-              ref={contentFourImageRef}
-            />
-            {blog.contentFourImage &&
-              blog.contentFourImage !== "https://i.imgur.com/KTEjbsw.png" && (
-                <img
-                  src={blog.contentFourImage}
-                  alt="Content Four"
-                  style={{
-                    maxWidth: "200px",
-                    marginTop: "10px",
-                    borderRadius: "4px",
-                  }}
-                />
-              )}
+              <label>Content Four:</label>
+              <textarea
+                name="contentFour"
+                value={formData.contentFour}
+                onChange={handleChange}
+                rows="5"
+                style={{
+                  padding: "8px",
+                  borderRadius: "4px",
+                  border: "1px solid #ddd",
+                  resize: "vertical",
+                }}
+              />
+              <label>Upload Image for Section Four (Optional):</label>
+              <input
+                type="file"
+                accept=".png, .gif, .jpg, .jpeg"
+                ref={contentFourImageRef}
+              />
+              {blog.contentFourImage &&
+                blog.contentFourImage !== "https://i.imgur.com/KTEjbsw.png" && (
+                  <img
+                    src={blog.contentFourImage}
+                    alt="Content Four"
+                    style={{
+                      maxWidth: "200px",
+                      marginTop: "10px",
+                      borderRadius: "4px",
+                    }}
+                  />
+                )}
+            </div>
+            <div>
+              <h2> side bar</h2>
+            </div>
           </div>
         ) : (
-          <div style={{width:"1012px" , display:"flex"}}>
-            <div style={{width:"632px"}}>
+          <div style={{ width: "1012px", display: "flex" }}>
+            <div style={{ width: "632px" }}>
               <h1>{blog.title}</h1>
               {/* Conditional rendering for author and date to prevent null errors */}
               {blog.author && blog.author.username ? (
@@ -336,10 +354,10 @@ export default function BlogDetail() {
                     }}
                   />
                 )}
-              </div>
-              <div>
-                <h2> side bar</h2>
-              </div>
+            </div>
+            <div>
+              <h2> side bar</h2>
+            </div>
           </div>
         )}
         <h2>Comments</h2>

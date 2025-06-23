@@ -16,7 +16,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #ededed;
     padding-right: 0px;
-    border-radius: 50px;
+    border-radius: 7px;
     width: 1012px;
     padding: 8px;
 }
@@ -27,7 +27,7 @@
     width: 220px;
     background-color: #ffffff;
    color: #1E3769;
-    border-radius: 50px;
+    border-radius: 7px;
     border-color: #1E3769;
     border-width: 2px;
     height: 44px;
