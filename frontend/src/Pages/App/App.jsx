@@ -49,15 +49,21 @@ export default function App() {
 
   const [hoots, setHoots] = useState([]);
 
+  const handleAddHoot = async (hootData) => {
+    const newHoot = await hootService.create(hootData);
+    console.log("New hoot created:", newHoot);
+    setHoots((prevHoots) => [newHoot, ...prevHoots]); // update list in state
+  };
+
   useEffect(() => {
     const fetchAllHoots = async () => {
       const hootsData = await hootService.index();
 
-        console.log("hootsData:", hootsData);
-        setHoots(hootsData);
+      console.log("hootsData:", hootsData);
+      setHoots(hootsData);
     };
-    if (user) fetchAllHoots();
-  }, [user]);
+    fetchAllHoots(); 
+  }, []);
 
   useEffect(() => {
     const url = "https://mntzco.com/NDI4NDIx.js?t=428421";
@@ -121,7 +127,12 @@ export default function App() {
                 <Route
                   path="/"
                   element={
-                    <HomePage user={user} setUser={setUser} hoots={hoots} />
+                    <HomePage
+                      user={user}
+                      setUser={setUser}
+                      hoots={hoots}
+                      handleAddHoot={handleAddHoot}
+                    />
                   }
                 />
                 <Route path="/posts" element={<PostListPage />} />
@@ -163,7 +174,14 @@ export default function App() {
                 <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
                 <Route
                   path="/hoots/:hootId"
-                  element={<HootDetailPage hoots={hoots} />}
+                  element={
+                    <HootDetailPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
                 />
               </Routes>
             ) : (
@@ -187,13 +205,29 @@ export default function App() {
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/marketplace" element={<MarketplacePage />} />
                 <Route path="/blogs" element={<ViewBlogsPage />} />
-                <Route path="/posts" element={<PostListPage />} />
+                <Route
+                  path="/posts"
+                  element={
+                    <PostListPage user={user} setUser={setUser} hoots={hoots} />
+                  }
+                />
                 <Route path="/posts/new" element={<NewPostPage />} />
                 <Route path="/flights" element={<FlightInfoPage />} />
                 <Route path="/fly" element={<FlyPage />} />
                 <Route path="/blogs/:id" element={<BlogDetailPage />} />
                 <Route path="/articles" element={<BlogPage />} />
                 <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
+                <Route
+                  path="/hoots/:hootId"
+                  element={
+                    <HootDetailPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
               </Routes>
             )}
           </section>

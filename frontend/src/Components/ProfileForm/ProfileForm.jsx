@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import * as profileService from "../../services/profileService";
 import "./ProfileForm.css";
-import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
+
 
 
 export default function ProfileForm({ profile, setProfile }) {

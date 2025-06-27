@@ -13,10 +13,23 @@ const HootForm = (props) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     console.log("formData", formData);
-    // We'll update this function shortly...
+
+    // Call the function passed via props
+    try {
+      await props.handleAddHoot(formData);
+
+      // Optional: clear form after submission
+      setFormData({
+        title: "",
+        text: "",
+        category: "News",
+      });
+    } catch (err) {
+      console.error("Error submitting hoot:", err);
+    }
   };
 
   return (

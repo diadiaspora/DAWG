@@ -1,8 +1,8 @@
 import * as hootService from "../../services/hootService";
 import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // ✅ use react-router-dom, not just 'react'
+import { Link } from "react-router-dom"; 
 
-// src/components/HootList/HootList.jsx
+
 
 export default function HootList(props) {
   return (
@@ -33,7 +33,6 @@ export default function HootList(props) {
             </header>
             <p>{hoot.text}</p>
 
-            {/* ✅ Only the button is a link */}
             <Link to={`/hoots/${hoot._id}`}>
               <button
                 style={{
