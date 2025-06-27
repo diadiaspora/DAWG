@@ -1,4 +1,34 @@
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const { S3_REGION, S3_BUCKET, S3_BASE_URL } = process.env;
 const Profile = require("../models/profile");
+
+async function uploadFileToS3(file, folderName) {
+  const s3Client = new S3Client({ region: S3_REGION });
+
+  const s3Params = {
+    Bucket: S3_BUCKET,
+    Key: `${folderName}/${Date.now()}-${file.originalname}`, // Use folderName for organization
+    Body: file.buffer,
+    ContentType: file.mimetype,
+  };
+
+  try {
+    await s3Client.send(new PutObjectCommand(s3Params));
+    return `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${s3Params.Key}`;
+  } catch (uploadErr) {
+    console.error(
+      `Error uploading file to S3 in folder ${folderName}:`,
+      uploadErr
+    );
+    // Rethrow a more specific error to be caught by the calling function
+    throw new Error(
+      `S3 Upload Failed for ${file.originalname}: ${uploadErr.message}`
+    );
+  }
+}
+
+
+
 
 module.exports = {
   index,
@@ -21,7 +51,7 @@ async function index(req, res) {
 
 async function create(req, res) {
   try {
-    req.body.author = "6848b5ecd9f9f34b7103a733";
+    req.body.author = req.user._id; 
     const profile = await Profile.create(req.body);
     await profile.save();
     res.json(profile);
@@ -29,6 +59,7 @@ async function create(req, res) {
     console.log(err);
     res.status(400).json({ message: "Failed to create post" });
   }
+
 }
 
 async function show(req, res) {
@@ -44,6 +75,28 @@ async function show(req, res) {
 }
 
 async function update(req, res) {
+
+  if (req.files) {
+    if (req.files.avatar && req.files.avatar.length > 0) {
+      req.body.avatar = await uploadFileToS3(
+        req.files.avatar[0],
+        "avatar"
+      );
+    }
+    if (req.files.passport && req.files.passport.length > 0) {
+      req.body.passport = await uploadFileToS3(
+        req.files.passport[0],
+        "passport"
+      );
+    }
+  
+
+  }
+
+
+
+
+  console.log(req.body);
   try {
     const profile = await Profile.findByIdAndUpdate(req.params.id, req.body, {new:true});
 

@@ -88,7 +88,7 @@ export default function ShowPlanPage() {
                   }}
                 >
                   <strong style={{ marginLeft: "8px", marginTop: "16px" }}>
-                    {" "}
+                    
                     Notes:
                   </strong>{" "}
                   <p style={{ marginLeft: "6px" }}> {plan.notes} </p>

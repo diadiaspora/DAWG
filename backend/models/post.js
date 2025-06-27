@@ -1,29 +1,57 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const commentSchema = new Schema(
+
+
+
+
+const commentSchema = new mongoose.Schema(
   {
-    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    content: { type: String, required: true },
+  
+    content: {
+      type: String,
+      required: true
+    },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,
   }
 );
 
-const postSchema = new Schema(
+const postSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
-    content: { type: String, required: true },
-    author: {
-      type: Schema.Types.ObjectId,
+    title: {
+      type: String,
       required: true,
-      ref: "User",
     },
+    content: {
+      type: String,
+      required: true,
+    },
+
+    category: {
+      type: String,
+      required: false,
+      enum: [
+        "Mexico",
+        "Chile",
+        "Berlin",
+        "Costa Rica",
+        "Delta",
+        "American Airlines",
+        "Avianca",
+        "AeroMexico",
+        "LATAM",
+      ],
+    },
+
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+
     likes: {
       type: Number,
       default: 0,
     },
+
     comments: [commentSchema],
   },
   {
@@ -31,4 +59,8 @@ const postSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Post", postSchema);
+
+const Post = mongoose.model("Post", postSchema);
+
+module.exports = Post;
+

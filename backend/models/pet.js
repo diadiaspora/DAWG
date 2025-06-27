@@ -2,57 +2,46 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-
-
-const profileSchema = new mongoose.Schema({
-  avatar: {
-    type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
-  },
-  username: {
+const petSchema = new mongoose.Schema({
+  petName: {
     type: String,
   },
+  
   bio: {
     type: String,
   },
-
-  posts: {
+  breed: {
     type: String,
   },
-  blogs: {
+  age: {
+    type: Number,
+  },
+  weight: {
     type: String,
   },
-  passport: {
-    type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
-  },
-
-  importantDocs: {
+  microchip: {
     type: String,
     default: "https://i.imgur.com/KTEjbsw.png",
   },
-
-  gallery: {
+  vaccine: {
     type: String,
+    default: "https://i.imgur.com/KTEjbsw.png",
   },
-
-  pets: [
-    {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: "Pet",
-    },
-  ],
-
-  author: {
+  healthCertificate: {
+    type: String,
+    default: "https://i.imgur.com/KTEjbsw.png",
+  },
+  petOwner: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: "User",
   },
 });
 
-const Profile = mongoose.model("Profile", profileSchema);
+
+
+const Pet = mongoose.model("Pet", petSchema);
   
-module.exports = Profile;
+module.exports = Pet;
 
 

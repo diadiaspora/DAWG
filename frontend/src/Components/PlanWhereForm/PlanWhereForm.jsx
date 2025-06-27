@@ -281,21 +281,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 {/* Conditionally render View Receipt or "No Receipt" text */}
                 {plan.receipt &&
                 plan.receipt !== "https://i.imgur.com/KTEjbsw.png" ? (
-                  // <button
-                  //   onClick={() => window.open(plan.receipt, "_blank")} // Open in new tab
-                  //   style={{
-                  //     backgroundColor: "#d9d9d9",
-                  //     width: "190px",
-                  //     marginTop: "10px",
-                  //     color: "black",
-                  //     height: "44px",
-                  //     borderRadius: "50px",
-                  //     borderWidth: "2px",
-                  //     borderColor: "#d9d9d9",
-                  //   }}
-                  // >
-                  //   View Receipt
-                  // </button>
+       
                   <Link
                     to={`/plans/${plan._id}/receipt`} // Assuming plan._id is the ID you need for the route
                     style={{
@@ -343,7 +329,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 backgroundColor: "#1E3769",
               }}
             >
-              Edit{" "}
+              Edit
             </button>
           </div>
           <div>

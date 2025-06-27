@@ -1,17 +1,18 @@
 
 .airSelect {
-    width: 442px;
-    margin-left: 42px;
-    
-    background-color: white;
+    width: 342px;
+ 
+    border-style: solid;
+    border-color: #E9E9E9;
+  
     color:black;
-    border-radius: 50px;
+    border-radius: 7px;
     height: 44px;
 }
 
 .buttonAir {
     background-color: #1E3769;
-    border-radius: 50px;
+    border-radius: 7px;
     border-color: #1E3769;
     width: 200px;
     height: 44px;

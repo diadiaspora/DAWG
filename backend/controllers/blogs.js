@@ -2,7 +2,7 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const { S3_REGION, S3_BUCKET, S3_BASE_URL } = process.env; // Ensure these are in your .env
 const Blog = require("../models/blog"); // Path to your blog model
 
-// Helper function to upload files to S3
+
 async function uploadFileToS3(file, folderName) {
   const s3Client = new S3Client({ region: S3_REGION });
 
@@ -38,7 +38,7 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({}).populate("author", "name");
     res.json(blogs);
   } catch (err) {
     console.error("Error in blog index:", err);
@@ -49,11 +49,12 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
+  
   try {
     // IMPORTANT: Temporarily hardcoding author ID to resolve 400 error.
     // In a real application, ensure proper authentication middleware sets req.user._id.
-    req.body.author = "6848b5ecd9f9f34b7103a733";
-
+    req.body.author = req.user._id; 
+    console.log("REQ.USER IN BLOG CREATE:", req.user);
     // Process image uploads
     if (req.files) {
       if (req.files.contentOneImage && req.files.contentOneImage.length > 0) {
@@ -178,7 +179,7 @@ async function update(req, res) {
     }
 
     res.json(blog);
-  } catch (err) {
+   } catch (err) {
     console.error("Error updating blog:", err);
     if (err.name === "ValidationError") {
       res

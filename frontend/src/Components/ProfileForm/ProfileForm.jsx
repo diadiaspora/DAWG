@@ -8,6 +8,8 @@ export default function ProfileForm({ profile, setProfile }) {
   const [showForm, setShowForm] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+console.log(profile);
+
   const [profileData, setProfileData] = useState({
     bio: "",
     pets: "",
@@ -68,13 +70,13 @@ export default function ProfileForm({ profile, setProfile }) {
     setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handlePetChange(evt, index) {
-    const { name, value } = evt.target;
-    setProfileData((prev) => ({
-      ...prev,
-      pet: [{ ...prev.pet[0], [name]: value }],
-    }));
-  }
+  // function handlePetChange(evt, index) {
+  //   const { name, value } = evt.target;
+  //   setProfileData((prev) => ({
+  //     ...prev,
+  //     pet: [{ ...prev.pet[0], [name]: value }],
+  //   }));
+  // }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -96,21 +98,14 @@ export default function ProfileForm({ profile, setProfile }) {
       {showForm ? (
         <div>
           <form onSubmit={handleSubmit}>
-            <label>Pet Breed</label>
+            <label>Username</label>
             <input
-              name="breed"
-              value={profileData.pet[0].breed}
-              onChange={(evt) => handlePetChange(evt, 0)}
+              name="username"
+              value={profileData.username}
+              onChange={handleChange}
               style={{ width: "180px" }}
             />
-            <label>Pet Age</label>
-            <input
-              name="age"
-              type="number"
-              value={profileData.pet[0].age}
-              onChange={(evt) => handlePetChange(evt, 0)}
-              style={{ width: "180px" }}
-            />
+
             <label>Bio</label>
             <input
               name="bio"
@@ -118,13 +113,7 @@ export default function ProfileForm({ profile, setProfile }) {
               onChange={handleChange}
               style={{ width: "180px" }}
             />
-            <label>Weight</label>
-            <input
-              name="weight"
-              value={profileData.pet[0].weight}
-              onChange={handleChange}
-              style={{ width: "180px" }}
-            />
+
             <button type="submit">Save</button>
           </form>
           <p className="error-message">&nbsp;{errorMsg}</p>
@@ -142,7 +131,6 @@ export default function ProfileForm({ profile, setProfile }) {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <strong> Bio </strong>
             <div
               style={{
                 width: "300px",
@@ -156,7 +144,17 @@ export default function ProfileForm({ profile, setProfile }) {
                 flexDirection: "column",
               }}
             >
-              <div className="shadowTall">{profileData.bio}</div>
+              <strong> Bio </strong>
+              <div>
+                <div style={{ width: "300px" }}>
+                  <img
+                    src="https://i.ibb.co/5x5Td7ks/av-1.png"
+                    alt="avatar"
+                    style={{ width: "200px" }}
+                  />
+                  <h1></h1>
+                </div>
+              </div>
               <button
                 onClick={() => setShowForm(true)}
                 style={{
@@ -182,15 +180,9 @@ export default function ProfileForm({ profile, setProfile }) {
                 marginLeft: "21px",
               }}
             >
-              <h4 className="shadow1" style={{ marginLeft: "21px" }}>
-                <strong>Breed:</strong> {profileData.pet[0].breed}
-              </h4>
-              <p className="shadow2">
-                <strong>Age:</strong> {profileData.pet[0].age}
-              </p>
-              <p className="shadow3">
-                <strong>Weight:</strong> {profileData.pet[0].weight}
-              </p>
+              <div>{profileData.bio}</div>
+
+       
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <strong
@@ -212,7 +204,7 @@ export default function ProfileForm({ profile, setProfile }) {
                 }}
               >
                 <div style={{ marginTop: "42px" }}>
-                  <PlanIndex isGallery={isGallery} />
+                  {/* <PlanIndex />  */}
                 </div>
               </div>
             </div>
