@@ -3,14 +3,16 @@ const router = express.Router();
 const multer = require("multer"); // Import multer
 const upload = multer({ storage: multer.memoryStorage() }); // Configure multer to store files in memory
 const blogsCtrl = require("../controllers/blogs"); // Corrected controller import name
+const ensureLoggedIn = require("../middleware/ensureLoggedIn");
 
-// All paths start with '/api/blogs';
 
-// GET /api/blogs
+
 router.get("/", blogsCtrl.index);
 
-// POST /api/blogs (CREATE action with file uploads)
-// Use upload.fields() to handle multiple named file inputs for content images
+router.get("/:id", blogsCtrl.show);
+
+router.use(ensureLoggedIn);
+
 router.post(
   "/",
   upload.fields([
@@ -22,11 +24,8 @@ router.post(
   blogsCtrl.create
 );
 
-// GET /api/blogs/:id
-router.get("/:id", blogsCtrl.show);
 
-// PUT /api/blogs/:id (UPDATE action with file uploads)
-// Use upload.fields() to handle multiple named file inputs for content images
+
 router.put(
   "/:id",
   upload.fields([
@@ -38,7 +37,6 @@ router.put(
   blogsCtrl.update
 );
 
-// DELETE /api/blogs/:id
 router.delete("/:id", blogsCtrl.deleteBlog);
 
 module.exports = router;

@@ -25,6 +25,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    console.log(plan);
     try {
       const planData = new FormData();
 

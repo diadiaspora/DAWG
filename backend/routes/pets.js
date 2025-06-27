@@ -3,9 +3,20 @@ const router = express.Router();
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 const petsCtrl = require("../controllers/pets");
+const ensureLoggedIn = require("../middleware/ensureLoggedIn");
 
+router.use(ensureLoggedIn);
 
-router.post("/", petsCtrl.create);
+router.post(
+  "/",
+  upload.fields([
+    { name: "petPhoto", maxCount: 1 },
+    { name: "vaccine", maxCount: 1 },
+    { name: "healthCertificate", maxCount: 1 },
+    { name: "microchip", maxCount: 1 },
+  ]),
+  petsCtrl.create
+);
 
 router.get("/", petsCtrl.index);
 
@@ -18,6 +29,7 @@ router.put(
     { name: "vaccine", maxCount: 1 },
     { name: "healthCertificate", maxCount: 1 },
     { name: "microchip", maxCount: 1 },
+    
   ]),
   petsCtrl.update
 );

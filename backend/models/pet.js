@@ -6,7 +6,7 @@ const petSchema = new mongoose.Schema({
   petName: {
     type: String,
   },
-  
+
   bio: {
     type: String,
   },
@@ -28,6 +28,11 @@ const petSchema = new mongoose.Schema({
     default: "https://i.imgur.com/KTEjbsw.png",
   },
   healthCertificate: {
+    type: String,
+    default: "https://i.imgur.com/KTEjbsw.png",
+  },
+
+  petPhoto: {
     type: String,
     default: "https://i.imgur.com/KTEjbsw.png",
   },
