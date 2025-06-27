@@ -38,6 +38,7 @@ export default function SearchFlights() {
           width: "100%",
           maxWidth: "960px",
           minHeight: "600px",
+          
         }}
       >
         {/* Widget will be injected here */}

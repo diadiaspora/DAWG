@@ -5,11 +5,80 @@ import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
+import UploadComponent from "../../Components/UploadComponent/UploadComponent.jsx";
 import { useState, useEffect } from "react";
 import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
+
+    // const avatar = useRef();
+    // const passport = useRef();
+    // const microchip = useRef();
+    // const vaccine = useRef();
+    // const healthCertificate = useRef();
+  
+    // async function handleSubmit(evt) {
+    //   evt.preventDefault();
+    //   try {
+    //     const formData = new FormData();
+  
+    
+    //     for (const key in blogData) {
+    //       formData.append(key, blogData[key]);
+    //     }
+  
+    //     // Append contentOneImage (required)
+    //     if (contentOneImageRef.current && contentOneImageRef.current.files[0]) {
+    //       formData.append("contentOneImage", contentOneImageRef.current.files[0]);
+    //     } else {
+    //       // This case should ideally be caught by browser's HTML5 validation
+    //       console.warn("Content One Image is required but not provided.");
+    //     }
+  
+    //     // Append other optional image files if they are selected
+    //     if (
+    //       contentTwoImageRef.current &&
+    //       contentTwoImageRef.current.files.length > 0
+    //     ) {
+    //       formData.append("contentTwoImage", contentTwoImageRef.current.files[0]);
+    //     }
+    //     if (
+    //       contentThreeImageRef.current &&
+    //       contentThreeImageRef.current.files.length > 0
+    //     ) {
+    //       formData.append(
+    //         "contentThreeImage",
+    //         contentThreeImageRef.current.files[0]
+    //       );
+    //     }
+    //     if (
+    //       contentFourImageRef.current &&
+    //       contentFourImageRef.current.files.length > 0
+    //     ) {
+    //       formData.append(
+    //         "contentFourImage",
+    //         contentFourImageRef.current.files[0]
+    //       );
+    //     }
+  
+    //     // Log FormData contents for debugging
+    //     for (const pair of formData.entries()) {
+    //       console.log(`${pair[0]}: ${pair[1]}`);
+    //     }
+  
+    //     const blog = await blogService.create(formData);
+    //     navigate("/blogs");
+    //   } catch (err) {
+    //     const errorDetail = err.message || "Unknown error";
+    //     console.error("Adding Blog Failed:", errorDetail, err);
+    //     setErrorMsg(`Adding Blog Failed: ${errorDetail}. Please try again.`);
+    //   }
+    // }
+  
+  
+
+  
 
    useEffect(() => {
      async function fetchProfile() {
@@ -30,87 +99,21 @@ export default function UserProfilePage({ user }) {
 
   return (
     <>
-      <section style={{paddingTop: "100px"}}>
+      <section style={{ paddingTop: "100px" }}>
         <div
           style={{
             display: "flex",
             width: "1012px",
           }}
         >
-          <div style={{ width: "300px" }}>
-            <img
-              src="https://i.ibb.co/5x5Td7ks/av-1.png"
-              alt="avatar"
-              style={{ width: "200px" }}
-            />
-            <h1>
-              {user.name} & {user.petName}
-            </h1>
-          </div>
-          <div style={{ width: "650px", marginLeft: "42px" }}>
-            <Carousel />
-          </div>
+         
+          <div style={{ width: "650px", marginLeft: "42px" }}></div>
         </div>
 
         <ProfileForm profile={profile} setProfile={setProfile} />
-        <div style={{ margin: "0px", width: "1012px" }}>
-          <h3> Important Documents</h3>
-          <strong>
-            These documents are only accessible to be seen by you and your dog
-          </strong>
-          <div className="headbuttons" style={{ marginLeft: "0px" }}>
-          
-          <button
-            style={{
-              width: "200px",
-              borderRadius: "7px",
-              backgroundColor: "#1E3769",
-              color: "white",
-              height: "44px",
-            }}
-          >
-            Upload Health Certificate
-          </button>
-          <button
-            style={{
-              width: "200px",
-              borderRadius: "7x",
-              backgroundColor: "#1E3769",
-              color: "white",
-              height: "44px",
-            }}
-          >
-       
-            Upload Vaccine Record
-          </button>
-          <button
-            style={{
-              width: "200px",
-              borderRadius: "7px",
-              backgroundColor: "#1E3769",
-              color: "white",
-              height: "44px",
-            }}
-          >
-            Upload Your Passport
-          </button>
-          <button
-            style={{
-              width: "200px",
-              borderRadius: "7px",
-              backgroundColor: "#1E3769",
-              color: "white",
-              height: "44px",
-            }}
-          >
-            Upload Microchip Info
-              </button>
-          
-            </div>
-        </div>
-
-        <div style={{marginLeft: "-42px"}}>
-          
+        <UploadComponent profile={profile} setProfile={setProfile} />
+        <Carousel />
+        <div style={{ marginLeft: "-42px" }}>
           <BlogList />
           <Articles />
         </div>

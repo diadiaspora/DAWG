@@ -37,6 +37,8 @@ import { CartProvider } from "../../context/CartContext";
 import BlogList from "../../Components/BlogList/BlogList";
 import BlogPage from "../BlogPage/BlogPage";
 import NewBlogsDetail from "../NewBlogsDetail/NewBlogsDetail";
+import HootDetailPage from "../HootDetailPage/HootDetailPage";
+import * as hootService from "../../services/hootService";
 
 
 import "./App.css";
@@ -44,6 +46,18 @@ import "./App.css";
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [profile, setProfile] = useState(null);
+
+  const [hoots, setHoots] = useState([]);
+
+  useEffect(() => {
+    const fetchAllHoots = async () => {
+      const hootsData = await hootService.index();
+
+        console.log("hootsData:", hootsData);
+        setHoots(hootsData);
+    };
+    if (user) fetchAllHoots();
+  }, [user]);
 
   useEffect(() => {
     const url = "https://mntzco.com/NDI4NDIx.js?t=428421";
@@ -106,7 +120,9 @@ export default function App() {
                 />
                 <Route
                   path="/"
-                  element={<HomePage user={user} setUser={setUser} />}
+                  element={
+                    <HomePage user={user} setUser={setUser} hoots={hoots} />
+                  }
                 />
                 <Route path="/posts" element={<PostListPage />} />
                 <Route path="/posts/new" element={<NewPostPage />} />
@@ -133,7 +149,10 @@ export default function App() {
                   path="/profiles"
                   element={<UserProfilePage user={user} setUser={setUser} />}
                 />
-                <Route path="/blogs/:id" element={<BlogDetailPage />} />
+                <Route
+                  path="/blogs/:id"
+                  element={<BlogDetailPage user={user} setUser={setUser} />}
+                />
                 <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
                 <Route path="/plans/:id/ticket" element={<TicketPage />} />
                 <Route path="/product/:productId" element={<ProductPage />} />
@@ -142,10 +161,19 @@ export default function App() {
 
                 <Route path="/articles" element={<BlogPage />} />
                 <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
+                <Route
+                  path="/hoots/:hootId"
+                  element={<HootDetailPage hoots={hoots} />}
+                />
               </Routes>
             ) : (
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route
+                  path="/"
+                  element={
+                    <HomePage user={user} setUser={setUser} hoots={hoots} />
+                  }
+                />
                 <Route
                   path="/signup"
                   element={<SignUpPage setUser={setUser} />}
@@ -169,7 +197,7 @@ export default function App() {
               </Routes>
             )}
           </section>
-        </CartProvider>{" "}
+        </CartProvider>
         <Footer />
       </main>
     </>

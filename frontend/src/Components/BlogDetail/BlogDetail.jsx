@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from "react"; // Import useRef
 import * as blogService from "../../services/blogService";
 import { useParams, useNavigate } from "react-router-dom"; // Use react-router-dom for consistent imports
 
-export default function BlogDetail() {
+export default function BlogDetail({ user, setUser }) {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
+  const isAuthor = user && blog?.author?._id === user._id;
+
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
@@ -52,7 +54,7 @@ export default function BlogDetail() {
     } catch (err) {
       console.error("Failed to delete blog:", err);
       // Display a user-friendly error message
-      alert("Failed to delete blog. Please try again."); 
+      alert("Failed to delete blog. Please try again.");
     }
   };
 
@@ -362,25 +364,39 @@ export default function BlogDetail() {
         )}
         <h2>Comments</h2>
       </section>
-
-      <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
-        {isEditing ? (
+      {isAuthor && (
+        <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
+          {isEditing ? (
+            <button
+              onClick={handleUpdateBlog}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#4CAF50",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Save
+            </button>
+          ) : (
+            <button
+              onClick={() => setIsEditing(true)}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#1E3769",
+                color: "white",
+                border: "none",
+                borderRadius: "50px",
+                cursor: "pointer",
+              }}
+            >
+              Update
+            </button>
+          )}
           <button
-            onClick={handleUpdateBlog}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#4CAF50",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Save
-          </button>
-        ) : (
-          <button
-            onClick={() => setIsEditing(true)}
+            onClick={() => handleDeleteBlog(blog._id)}
             style={{
               padding: "10px 20px",
               backgroundColor: "#1E3769",
@@ -390,23 +406,10 @@ export default function BlogDetail() {
               cursor: "pointer",
             }}
           >
-            Update
+            Delete Blog
           </button>
-        )}
-        <button
-          onClick={() => handleDeleteBlog(blog._id)}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#1E3769",
-            color: "white",
-            border: "none",
-            borderRadius: "50px",
-            cursor: "pointer",
-          }}
-        >
-          Delete Blog
-        </button>
-      </div>
+        </div>
+      )}
     </>
   );
 }

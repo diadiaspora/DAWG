@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
 import { Link } from "react-router";
 
-export default function BlogList() {
+export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     async function fetchBlogs() {
       const blogs = await blogService.index();
-      setBlogs(blogs);
+      console.log("Fetched blogs with authors:", blogs);
+      const shuffled = blogs.sort(() => 0.5 - Math.random());
+      setBlogs(shuffled);
     }
     fetchBlogs();
   }, []);
@@ -61,7 +63,14 @@ export default function BlogList() {
                     >
                       {blog.title}
                     </Link>
-                    <p></p>
+                    
+                      <p>
+                        {blog.author?.name
+                          ? `By ${blog.author.name}`
+                          : "Author Unknown"}
+                      </p>
+                    
+                    <p>{new Date(blog.createdAt).toLocaleDateString()}</p>
                   </li>
                 </div>
               ))}
@@ -90,6 +99,7 @@ export default function BlogList() {
                 marginTop: "36px",
               }}
             >
+                <Link to="/posts/new">
               <button
                 style={{
                   backgroundColor: "#1E3769",
@@ -101,6 +111,7 @@ export default function BlogList() {
               >
                 Create a post
               </button>
+              </Link>
             </div>
           </div>
         </div>

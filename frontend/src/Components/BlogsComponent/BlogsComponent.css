@@ -10,10 +10,14 @@ width: 1022px;
 }
 
 
+
+
 .blogs-component-container .blog-cards-wrapper {
   display: flex;
   justify-content: space-between;
- 
+  gap: 16px;
+  height: 100%;
+  align-items: flex-start;
 
 
 }

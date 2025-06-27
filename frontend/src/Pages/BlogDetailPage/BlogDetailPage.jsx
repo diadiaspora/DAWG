@@ -1,11 +1,11 @@
 import BlogDetail from "../../Components/BlogDetail/BlogDetail";
 import {NavLink} from "react-router-dom";
 
-export default function BlogDetailPage() {
+export default function BlogDetailPage({ user, setUser }) {
   return (
     <>
       <section>
-        <BlogDetail />
+        <BlogDetail user={user} setUser={setUser} />
       </section>
     </>
   );

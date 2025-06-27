@@ -11,9 +11,11 @@ export default function BlogDetail() {
   return (
     <div style={{ padding: "40px" }}>
       <h1>{post.title}</h1>
+      
       <p>
         <i>{post.date}</i>
       </p>
+      
       <img
         src={post.thumbnail}
         alt={post.title}

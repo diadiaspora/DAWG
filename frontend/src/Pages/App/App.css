@@ -1,6 +1,7 @@
 .App {
   display: grid;
   grid-template-rows: auto auto;
+   background-color: #f9f9f9;
 }
 
 #main-section {

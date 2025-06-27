@@ -89,7 +89,12 @@ export default function NewBlogPage() {
         <SearchComponent />
         <div>
           <div
-            style={{ width: "1032px", display: "flex", backgroundColor: "red",  paddingRight:"0px" }}
+            style={{
+              width: "1032px",
+              display: "flex",
+              backgroundColor: "red",
+              paddingRight: "0px",
+            }}
           >
             <div style={{ width: "632px", backgroundColor: "purple" }}>
               <h2 style={{ fontSize: "24px" }}> Tell Us Your Story</h2>
@@ -114,6 +119,7 @@ export default function NewBlogPage() {
                     boxSizing: "border-box",
                   }}
                 />
+           
 
                 <label style={{ marginLeft: "0px" }}>How Did It Start?</label>
                 <textarea

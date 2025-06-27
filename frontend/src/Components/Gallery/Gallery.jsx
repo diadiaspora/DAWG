@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Carousel from "../../Components/Carousel/Carousel.jsx";
 import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
+import Calendar from "../../Components/Calendar/Calendar.jsx";
 import { Link } from "react-router";
 import "./Gallery.css";
 
@@ -10,7 +11,7 @@ const Gallery = () => {
   return (
     <div
       className="divbody"
-      style={{ marginTop: "42px", marginBottom: "-200px", width: "1012px" }}
+      style={{ marginTop: "42px", width: "1012px" }}
     >
       <div style={{ marginLeft: "42px", textAlign: "left" }}>
         <h3 style={{ marginBottom: "-25px" }}>Gallery</h3>
@@ -42,13 +43,7 @@ const Gallery = () => {
       </div>
 
       <div style={{ height: "350px", marginRight: "0px" }}>
-        <div>
-          <img
-            src="./calander.png"
-            alt="calander"
-            style={{ width: "310px", marginLeft: "42px" }}
-          ></img>
-        </div>
+       <Calendar />
       </div>
     </div>
   );

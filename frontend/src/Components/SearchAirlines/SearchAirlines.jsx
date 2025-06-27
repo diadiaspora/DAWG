@@ -25,15 +25,49 @@ const SearchAirlines = () => {
   };
 
   return (
-    <div style={{ marginLeft: "0px" }}>
-      <div style={{ display: "flex", paddingTop: "42px" }}>
-        <div>
+    <div
+      style={{
+       
+        borderStyle: "solid",
+        borderRadius: "2px",
+        borderColor: "#d9d9d9",
+        backgroundColor: "#ffffff",
+        marginTop: "82px",
+        height: "177px",
+        width: "963px",
+        marginLeft: "25px"
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          paddingTop: "42px",
+          // borderStyle: "solid",
+          // borderRadius: "7px",
+          // borderColor: "#d9d9d9",
+        }}
+      >
+        <div
+          style={
+            {
+              // borderStyle: "solid",
+              // borderRadius: "7px",
+              // borderColor: "#d9d9d9",
+            }
+          }
+        >
           <label htmlFor="from">Airline</label>
           <select
             name="from"
             className="airSelect"
             value={airline}
             onChange={handleAirlineChange}
+            style={{
+              borderRadius: "7px",
+              backgroundColor: "#F2F4F7",
+              borderTopWidth: "0.5px",
+              borderColor: "#E9E9E9",
+            }}
           >
             <option value="">Which Airline?</option>
             <option value="delta">Delta</option>
@@ -41,7 +75,7 @@ const SearchAirlines = () => {
             <option value="american-airlines">American Airlines</option>
           </select>
         </div>
-        <div>
+        <div style={{ marginLeft: "-60px" }}>
           <label htmlFor="to">Where to?</label>
           <select
             name="to"
@@ -54,12 +88,15 @@ const SearchAirlines = () => {
             <option value="international">International</option>
           </select>
         </div>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "36px"}}>
         <button onClick={handleClick} className="buttonAir">
           Search
         </button>
       </div>
+      {/* <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "36px" }}
+      >
+        
+      </div> */}
     </div>
   );
 };

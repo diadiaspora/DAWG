@@ -1,7 +1,35 @@
-
 const Post = require("../models/post");
 
-// GET all posts
+module.exports = {
+  create,
+  index,
+  show,
+  update,
+  // comment,
+  likePost,
+  // getAllPosts,
+};
+
+
+async function create(req, res) {
+  try {
+    
+    req.body.author = req.user._id;
+  
+    if (req.file) {
+      req.body.imageUrl = await uploadFile(req.file);
+    }
+    const post = await Post.create(req.body);
+
+
+    res.json(post); 
+  } catch (err) {
+    console.error("Error creating post:", err);
+    res.status(400).json({ message: "Failed to create post" });
+  }
+}
+
+// 
 async function index(req, res) {
   try {
     
@@ -30,23 +58,6 @@ async function show(req, res) {
   }
 }
 
-// POST create new post
-async function create(req, res) {
-  try {
-    // Assuming req.user._id is set by your authentication middleware
-    req.body.author = req.user._id;
-    const post = await Post.create(req.body);
-    // Populate the author for the response to the client
-    const populatedPost = await Post.findById(post._id).populate(
-      "author",
-      "name"
-    );
-    res.status(201).json(populatedPost); // Use 201 for resource creation
-  } catch (err) {
-    console.error("Error creating post:", err);
-    res.status(400).json({ message: "Failed to create post" });
-  }
-}
 
 // PUT update post
 async function update(req, res) {
@@ -92,11 +103,3 @@ async function likePost(req, res) {
 //     res.status(500).json({ error: "Failed to fetch user posts" });
 //   }
 // }
-module.exports = {
-  index,
-  show,
-  create,
-  update,
-  likePost,
-  // getAllPosts,
-};

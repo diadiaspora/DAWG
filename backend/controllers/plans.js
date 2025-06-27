@@ -15,7 +15,8 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    const plans = await Plan.find({});
+    const userId = req.user._id;
+    const plans = await Plan.find({ author: userId });
     // Below would return all posts for just the logged in user
     // const posts = await Post.find({author: req.user._id});
     res.json(plans);
