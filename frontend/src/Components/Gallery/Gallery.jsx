@@ -10,18 +10,11 @@ const Gallery = () => {
   
   return (
     <div
-      className="divbody"
-      style={{ marginTop: "42px", width: "1012px" }}
+     
+      style={{ marginTop: "42px", width: "1012px", display: "flex", marginBottom: "60px" }}
     >
-      <div style={{ marginLeft: "42px", textAlign: "left" }}>
-        <h3 style={{ marginBottom: "-25px" }}>Gallery</h3>
-        <p style={{ marginBottom: "0px", fontSize: "16px" }}>
-          Add your Photos here
-        </p>
-      </div>
-      <div style={{ marginLeft: "8px" }}>
-        <h3 style={{ marginLeft: "42px" }}>Calendar</h3>
-      </div>
+   
+    
 
       <div style={{ height: "350px", marginLeft: "42px" }}>
         <div style={{ width: "662px" }}>
