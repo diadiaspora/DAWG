@@ -9,7 +9,7 @@ export default function BlogCard({ blog }) {
         height: "380px",
         width: "237px",
         borderRadius: "7px",
-        border: "1px solid #ccc",
+        border: "1px solid #BCC7D4",
       }}
     >
       <img
@@ -31,8 +31,20 @@ export default function BlogCard({ blog }) {
         >
           {blog.excerpt}
         </p>
-        <div style={{ fontSize: "16px", textAlign: "right", marginTop: "32px"}}>
-          <Link to={`/articles/${blog.id}`}>Read More</Link>
+        <div
+          style={{ fontSize: "16px", textAlign: "right", marginTop: "32px" }}
+        >
+          <Link
+            to={`/articles/${blog.id}`}
+            style={{
+              color: "#1E3769", // default text color
+              // textDecoration: "none",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#4AA692")} // hover color
+            onMouseLeave={(e) => (e.target.style.color = "#1E3769")}
+          >
+            Read More
+          </Link>
         </div>
       </div>
     </div>

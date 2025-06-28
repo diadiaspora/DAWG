@@ -28,10 +28,10 @@ async function index(req, res) {
 
 async function create(req, res) {
   try {
-    // Set the pet owner to the ID of the authenticated user
+
     req.body.petOwner = req.user._id;
 
-    // Handle file uploads if they exist in req.files
+  
     if (req.files) {
       if (req.files.petPhoto && req.files.petPhoto.length > 0) {
         req.body.petPhoto = await uploadFileToS3(
@@ -62,9 +62,8 @@ async function create(req, res) {
       }
     }
 
-    // Create a new pet document with the request body
     const pet = await Pet.create(req.body);
-    // The pet is automatically saved by Mongoose's create method
+    
     res.status(201).json(pet); // Respond with 201 Created and the new pet
   } catch (err) {
     console.error("Failed to create pet:", err);
@@ -119,19 +118,18 @@ async function update(req, res) {
       }
     }
 
-    // Find and update the pet by ID with the request body
-    // { new: true } returns the modified document rather than the original
-    // { runValidators: true } runs schema validators on update
+
     const pet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
+    console.log({pet});
 
     if (!pet) {
       return res.status(404).json({ message: "Pet not found for update" });
     }
 
-    res.json(pet); // Respond with the updated pet
+    res.json(pet); 
   } catch (err) {
     console.error("Failed to update pet:", err);
     res

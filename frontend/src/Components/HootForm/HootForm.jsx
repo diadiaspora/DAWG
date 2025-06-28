@@ -1,4 +1,6 @@
 // src/components/HootForm/HootForm.jsx
+import "./HootForm.css";
+import GiphyPicker from "../GiphyPicker/GiphyPicker"; // ✅ adjust path if needed
 
 import { useState } from "react";
 
@@ -7,6 +9,7 @@ const HootForm = (props) => {
     title: "",
     text: "",
     category: "News",
+    gifUrl: "", // ✅ added gifUrl field
   });
 
   const handleChange = (evt) => {
@@ -17,7 +20,6 @@ const HootForm = (props) => {
     evt.preventDefault();
     console.log("formData", formData);
 
-    // Call the function passed via props
     try {
       await props.handleAddHoot(formData);
 
@@ -26,6 +28,7 @@ const HootForm = (props) => {
         title: "",
         text: "",
         category: "News",
+        gifUrl: "", // clear gif
       });
     } catch (err) {
       console.error("Error submitting hoot:", err);
@@ -40,12 +43,12 @@ const HootForm = (props) => {
           display: "flex",
           flexDirection: "column",
           width: "320px",
-          backgroundColor: "#d9d9d9",
+          backgroundColor: "#1e37691f",
           borderRadius: "7px",
           padding: "20px",
         }}
       >
-        <p style={{marginBottom: "0px", marginTop: "0px"}}> Create a Post</p>
+        <p style={{ marginBottom: "0px", marginTop: "0px" }}>Create a Post</p>
 
         <label htmlFor="title-input">Title</label>
         <input
@@ -55,16 +58,19 @@ const HootForm = (props) => {
           id="title-input"
           value={formData.title}
           onChange={handleChange}
+          className="custom-input"
         />
+
         <label htmlFor="text-input">Text</label>
         <textarea
           required
-          type="text"
           name="text"
           id="text-input"
           value={formData.text}
           onChange={handleChange}
+          className="custom-input"
         />
+
         <label htmlFor="category-input">Category</label>
         <select
           required
@@ -72,6 +78,7 @@ const HootForm = (props) => {
           id="category-input"
           value={formData.category}
           onChange={handleChange}
+          className="custom-input"
         >
           <option value="News">News</option>
           <option value="Games">Games</option>
@@ -80,7 +87,40 @@ const HootForm = (props) => {
           <option value="Sports">Sports</option>
           <option value="Television">Television</option>
         </select>
-        <button type="submit">SUBMIT</button>
+
+        {/* ✅ Giphy Picker integration */}
+        <GiphyPicker
+          onSelect={(url) => setFormData({ ...formData, gifUrl: url })}
+        />
+
+        {/* ✅ GIF preview */}
+        {formData.gifUrl && (
+          <div style={{ marginTop: "12px" }}>
+            <img
+              src={formData.gifUrl}
+              alt="Selected GIF"
+              style={{
+                maxWidth: "100%",
+                borderRadius: "6px",
+                boxShadow: "0 0 6px rgba(0,0,0,0.15)",
+              }}
+            />
+          </div>
+        )}
+
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "#1E3769",
+            height: "44px",
+            borderWidth: "0px",
+            color: "#fff",
+            borderRadius: "6px",
+            marginTop: "16px",
+          }}
+        >
+          SUBMIT
+        </button>
       </form>
     </main>
   );

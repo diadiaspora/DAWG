@@ -2,13 +2,15 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import { logOut } from "../../services/authService";
 import "./NavBar.css";
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ user, setUser, profile }) {
   const navigate = useNavigate();
 
   function handleLogOut() {
     logOut();
     setUser(null);
   }
+  console.log({ profile });
+  const avatarSrc = profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png";
 
   return (
     <nav className="NavBar">
@@ -23,9 +25,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       {user ? (
         <>
-          <NavLink to="/fly">
-            Flights
-          </NavLink>
+          <NavLink to="/fly">Flights</NavLink>
           &nbsp; | &nbsp;
           <NavLink to="/plans">Plan</NavLink>
           &nbsp; | &nbsp;
@@ -40,7 +40,12 @@ export default function NavBar({ user, setUser }) {
           </Link>
           {/* <span>Welcome, {user.name}</span> */}
           <span>
-            <img src="./Avatar.png" className="avatar" alt="avatar"></img>
+            <img
+              // Use the safely determined avatarSrc
+              src={avatarSrc}
+              className="dogmoney" // This class name might be misleading if it's the user's avatar
+              alt="User Avatar" // More descriptive alt text
+            />
           </span>
         </>
       ) : (
@@ -59,7 +64,12 @@ export default function NavBar({ user, setUser }) {
           &nbsp; | &nbsp;
           <NavLink to="/signup">Sign Up</NavLink>
           <span>
-            <img src="./Avatar.png" className="avatar" alt="avatar"></img>
+            <img
+              // Use the safely determined avatarSrc
+              src={avatarSrc}
+              className="dogmoney" // This class name might be misleading if it's the user's avatar
+              alt="User Avatar" // More descriptive alt text
+            />
           </span>
         </>
       )}

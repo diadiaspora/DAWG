@@ -28,18 +28,17 @@ import ViewBlogsPage from "../ViewBlogsPage/ViewBlogsPage.jsx";
 import BlogDetailPage from "../BlogDetailPage/BlogDetailPage.jsx";
 import ReceiptPage from "../ReceiptPage/ReceiptPage";
 import TicketPage from "../TicketPage/TicketPage";
-import ProductPage from "../ProductPage/ProductPage"; 
+import ProductPage from "../ProductPage/ProductPage";
 import CartPage from "../CartPage/CartPage";
 import SearchFlights from "../../Components/SearchFlights/SearchFlights";
 import FlyPage from "../FlyPage/FlyPage";
-import { CartProvider } from "../../context/CartContext"; 
+import { CartProvider } from "../../context/CartContext";
 
 import BlogList from "../../Components/BlogList/BlogList";
 import BlogPage from "../BlogPage/BlogPage";
 import NewBlogsDetail from "../NewBlogsDetail/NewBlogsDetail";
 import HootDetailPage from "../HootDetailPage/HootDetailPage";
 import * as hootService from "../../services/hootService";
-
 
 import "./App.css";
 
@@ -62,7 +61,7 @@ export default function App() {
       console.log("hootsData:", hootsData);
       setHoots(hootsData);
     };
-    fetchAllHoots(); 
+    fetchAllHoots();
   }, []);
 
   useEffect(() => {
@@ -105,11 +104,11 @@ export default function App() {
     }
     fetchProfile();
   }, [user]);
-
+  console.log({ profile });
   return (
     <>
       <main className="App">
-        <NavBar user={user} setUser={setUser} />
+        <NavBar user={user} setUser={setUser} profile={profile} />
         <CartProvider>
           <section id="main-section">
             {user ? (
@@ -132,6 +131,7 @@ export default function App() {
                       setUser={setUser}
                       hoots={hoots}
                       handleAddHoot={handleAddHoot}
+                      profile={profile}
                     />
                   }
                 />
