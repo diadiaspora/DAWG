@@ -26,6 +26,10 @@ const hootSchema = new mongoose.Schema(
       required: false,
       enum: ["News", "Sports", "Games", "Movies", "Music", "Television"],
     },
+    gifUrl: {
+      type: String, // ✅ Add this field to support storing a Giphy link
+      required: false,
+    },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     comments: [commentSchema],
   },

@@ -41,7 +41,7 @@ export default function Calendar() {
   const days = getDaysInMonth(currentDate);
 
   return (
-    <div style={{ width: "310px", padding: "12px", fontFamily: "sans-serif" }}>
+    <div style={{ width: "310px", padding: "12px", fontFamily: "sans-serif", marginTop: "-11px" }}>
       {/* Horizontally scrollable month buttons */}
       <div
         style={{
@@ -79,7 +79,8 @@ export default function Calendar() {
           display: "flex",
           justifyContent: "space-between",
                   fontWeight: "bold",
-          fontSize: "14px"
+          fontSize: "14px",
+          marginTop: "-4px"
         }}
       >
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (

@@ -50,8 +50,33 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  try {
-    req.body.author = req.user._id; 
+
+    try {
+      
+      req.body.author = req.user._id;
+  
+      // Handle file uploads if they exist in req.files
+      if (req.files) {
+        if (req.files.avatar && req.files.avatar.length > 0) {
+          req.body.avatar = await uploadFileToS3(
+            req.files.avatar[0],
+            "avatar" // Folder for pet photos
+          );
+        }
+        if (req.files.importantDocs && req.files.importantDocs.length > 0) {
+          req.body.importantDocs = await uploadFileToS3(
+            req.files.importantDocs[0],
+            "importantDocs" 
+          );
+        }
+        if (req.files.passport && req.files.passport.length > 0) {
+          req.body.passport = await uploadFileToS3(
+            req.files.passport[0],
+            "passport" // Folder for microchip info
+          );
+        }
+      }
+
     const profile = await Profile.create(req.body);
     await profile.save();
     res.json(profile);
@@ -65,8 +90,7 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const profile = await Profile.findOne({author:req.user._id});
-    // Below would return all posts for just the logged in user
-    // const posts = await Post.find({author: req.user._id});
+ 
     res.json(profile);
   } catch (err) {
     console.log(err);
@@ -75,6 +99,9 @@ async function show(req, res) {
 }
 
 async function update(req, res) {
+
+  const profileId = req.params.id; // Get the profile ID from the URL params
+  const updateData = { ...req.body };
 
   if (req.files) {
     if (req.files.avatar && req.files.avatar.length > 0) {
@@ -89,14 +116,18 @@ async function update(req, res) {
         "passport"
       );
     }
-  
+
+    if (req.files.importantDocs && req.files.importantDocs.length > 0) {
+      req.body.importantDocs = await uploadFileToS3(
+        req.files.importantDocs[0],
+        "importantDocs"
+      );
+    }
+
 
   }
 
-
-
-
-  console.log(req.body);
+  console.log('this is req.body', req.body);
   try {
     const profile = await Profile.findByIdAndUpdate(req.params.id, req.body, {new:true});
 

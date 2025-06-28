@@ -2,17 +2,11 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import * as hootService from "../../services/hootService";
 
-
-import CommentForm from '../CommentForm/CommentForm';
-
+import CommentForm from "../CommentForm/CommentForm";
 
 const HootDetails = () => {
   const { hootId } = useParams();
   const [hoot, setHoot] = useState(null);
-
-
-
- 
 
   useEffect(() => {
     async function fetchHoot() {
@@ -46,6 +40,30 @@ const HootDetails = () => {
           </p>
         </header>
         <p>{hoot.text}</p>
+
+        {/* Add this block to display the GIF */}
+        {hoot.gifUrl && (
+          <div
+            style={{
+              marginTop: "20px", // Add some space above the GIF
+              width: "100%", // Take full width of the section
+              display: "flex",
+              justifyContent: "center", // Center the GIF horizontally
+            }}
+          >
+            <img
+              src={hoot.gifUrl}
+              alt="GIF"
+              style={{
+                maxWidth: "100%", // Ensure it fits within the container
+                height: "auto", // Maintain aspect ratio
+                maxHeight: "300px", // Optional: Limit the maximum height
+                borderRadius: "8px", // Slightly larger border-radius for details page
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // A subtle shadow
+              }}
+            />
+          </div>
+        )}
       </section>
 
       <section>
@@ -56,7 +74,7 @@ const HootDetails = () => {
           <article key={comment._id}>
             <header>
               <p>
-                {`${comment.author} posted on
+                {`${comment.author.name} posted on
                   ${new Date(comment.createdAt).toLocaleDateString()}`}
               </p>
             </header>

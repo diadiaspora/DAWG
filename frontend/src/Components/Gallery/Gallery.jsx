@@ -10,12 +10,13 @@ const Gallery = () => {
   
   return (
     <div
-     
-      style={{ marginTop: "42px", width: "1012px", display: "flex", marginBottom: "60px" }}
+      style={{
+        marginTop: "42px",
+        width: "1012px",
+        display: "flex",
+        marginBottom: "60px",
+      }}
     >
-   
-    
-
       <div style={{ height: "350px", marginLeft: "42px" }}>
         <div style={{ width: "662px" }}>
           <Carousel />
@@ -23,8 +24,8 @@ const Gallery = () => {
 
         <div
           style={{
-            backgroundColor: "#D9D9D9",
-            height: "75px",
+            backgroundColor: "#1e37691f",
+            height: "100px",
             width: "665px",
             borderRadius: "7px",
             marginTop: "34px",
@@ -36,7 +37,7 @@ const Gallery = () => {
       </div>
 
       <div style={{ height: "350px", marginRight: "0px" }}>
-       <Calendar />
+        <Calendar />
       </div>
     </div>
   );

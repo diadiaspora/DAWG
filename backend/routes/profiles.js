@@ -5,7 +5,15 @@ const upload = multer({ storage: multer.memoryStorage() });
 const profilesCtrl = require("../controllers/profiles");
 
 
-router.post("/", profilesCtrl.create);
+router.post(
+  "/",
+  upload.fields([
+    { name: "avatar", maxCount: 1 },
+    { name: "passport", maxCount: 1 },
+    { name: "importantDocs", maxCount: 1 },
+  ]),
+  profilesCtrl.create
+);
 
 router.get("/", profilesCtrl.index);
 
@@ -16,7 +24,7 @@ router.put(
   upload.fields([
     { name: "avatar", maxCount: 1 },
     { name: "passport", maxCount: 1 },
-    
+    { name: "importantDocs", maxCount: 1 },
   ]),
   profilesCtrl.update
 );

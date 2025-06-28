@@ -39,13 +39,14 @@ export default function PlanBasicsForm() {
         <form
           onSubmit={handleSubmit}
           style={{
+            backgroundColor: "white",
             height: "320px",
             marginLeft: "42px",
             width: "662px",
             display: "grid",
             gap: "1.2vmin",
             padding: "4vmin",
-            border: "1px solid #d9d9d9",
+            border: "1px solid #e9e9e9",
             borderRadius: "7px",
           }}
         >
@@ -56,7 +57,15 @@ export default function PlanBasicsForm() {
                 name="month"
                 value={formData.month}
                 onChange={handleChange}
-                style={{ width: "150px", borderRadius: "7px", height: "44px" }}
+                style={{
+                  width: "150px",
+                  borderRadius: "7px",
+                  height: "44px",
+                  backgroundColor: "#F2F4F7",
+                  borderStyle: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#E9e9e9",
+                }}
               >
                 <option value="">-- Select Month --</option>
 
@@ -93,7 +102,15 @@ export default function PlanBasicsForm() {
                 name="day"
                 value={formData.day}
                 onChange={handleChange}
-                style={{ width: "70px", borderRadius: "7px", height: "44px" }}
+                style={{
+                  width: "70px",
+                  borderRadius: "7px",
+                  height: "44px",
+                  backgroundColor: "#F2F4F7",
+                  borderStyle: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#BCC7D4",
+                }}
               >
                 <option value=""> Day </option>
                 {[...Array(31).keys()].map((d) => (
@@ -116,7 +133,15 @@ export default function PlanBasicsForm() {
                 name="year"
                 value={formData.year}
                 onChange={handleChange}
-                style={{ width: "100px", borderRadius: "7px", height: "44px" }}
+                style={{
+                  width: "100px",
+                  borderRadius: "7px",
+                  height: "44px",
+                  backgroundColor: "#F2F4F7",
+                  borderStyle: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#BCC7D4",
+                }}
               >
                 <option value=""> Year </option>
                 {[2025, 2026, 2027, 2028].map((y) => (
@@ -139,21 +164,36 @@ export default function PlanBasicsForm() {
                 name="destination"
                 value={formData.destination}
                 onChange={handleChange}
-                style={{ width: "195px", borderRadius: "7px", height: "44px" }}
+                style={{
+                  width: "195px",
+                  borderRadius: "7px",
+                  height: "44px",
+                  backgroundColor: "#F2F4F7",
+                  borderStyle: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#BCC7D4",
+                }}
               />
             </div>
           </div>
-          <div style={{marginTop: "-22px"}}>
+          <div style={{ marginTop: "-22px" }}>
             <label style={{ marginLeft: "0px" }}>Notes</label>
             <textarea
               name="notes"
               value={formData.notes}
               onChange={handleChange}
               rows={4}
-              style={{ width: "598px", borderRadius: "7px" }}
+              style={{
+                width: "598px",
+                borderRadius: "7px",
+                backgroundColor: "#F2F4F7",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderColor: "#BCC7D4",
+              }}
             />
           </div>
-          <div style={{ textAlign: "right", marginRight: "-43px"}}>
+          <div style={{ textAlign: "right", marginRight: "-43px" }}>
             <button
               type="submit"
               style={{

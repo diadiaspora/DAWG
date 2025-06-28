@@ -6,39 +6,39 @@ export default function UploadComponent() {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-  // State to hold the pet data fetched from the backend or created
+  
   const [petData, setPetData] = useState(null);
-  // State for form input values (text fields)
+
   const [formData, setFormData] = useState({
     petName: "",
     bio: "",
     breed: "",
     age: "",
-    weight: "", // Added weight as per schema
+    weight: "", 
   });
-  // State to control visibility of the form vs. pet card
+  
   const [showForm, setShowForm] = useState(false);
-  // State for displaying error messages
+
   const [errorMsg, setErrorMsg] = useState("");
-  // State for loading indicator
+
   const [loading, setLoading] = useState(true);
 
-  // Refs for file inputs
-  const petPhotoImageRef = useRef(); // Renamed from passportImageRef for clarity
+ 
+  const petPhotoImageRef = useRef(); 
   const microchipImageRef = useRef();
   const vaccineImageRef = useRef();
   const healthCertificateImageRef = useRef();
 
-  // useEffect to fetch pet data when the component mounts
+
   useEffect(() => {
     async function getPet() {
       try {
         setLoading(true);
-        // Assuming the index route returns an array of pets for the user
+
         const pets = await petService.index();
         if (pets && pets.length > 0) {
-          // If a pet exists, set petData and populate formData for editing
-          const existingPet = pets[0]; // Assuming only one pet per user for simplicity
+          
+          const existingPet = pets[0]; 
           setPetData(existingPet);
           setFormData({
             petName: existingPet.petName || "",
@@ -47,9 +47,9 @@ export default function UploadComponent() {
             age: existingPet.age || "",
             weight: existingPet.weight || "",
           });
-          setShowForm(false); // Show the card view
+          setShowForm(false); 
         } else {
-          // No pet found, show the form for creation
+      
           setShowForm(true);
         }
       } catch (err) {
@@ -80,40 +80,40 @@ export default function UploadComponent() {
     setErrorMsg(""); // Clear previous errors
 
     try {
-      const formToSend = new FormData();
+      const newPetData = new FormData();
 
-      // Append all text fields from formData state
+    
       for (const key in formData) {
-        formToSend.append(key, formData[key]);
+        newPetData.append(key, formData[key]);
       }
 
-      // Append file inputs if files are selected
+      
       if (petPhotoImageRef.current && petPhotoImageRef.current.files[0]) {
-        formToSend.append("petPhoto", petPhotoImageRef.current.files[0]);
+        newPetData.append("petPhoto", petPhotoImageRef.current.files[0]);
       }
       if (vaccineImageRef.current && vaccineImageRef.current.files[0]) {
-        formToSend.append("vaccine", vaccineImageRef.current.files[0]);
+        newPetData.append("vaccine", vaccineImageRef.current.files[0]);
       }
       if (microchipImageRef.current && microchipImageRef.current.files[0]) {
-        formToSend.append("microchip", microchipImageRef.current.files[0]);
+        newPetData.append("microchip", microchipImageRef.current.files[0]);
       }
       if (
         healthCertificateImageRef.current &&
         healthCertificateImageRef.current.files[0]
       ) {
-        formToSend.append(
+        newPetData.append(
           "healthCertificate",
           healthCertificateImageRef.current.files[0]
         );
       }
 
       let updatedPet;
-      if (petData) {
-        // If petData exists, it's an update operation
-        updatedPet = await petService.update(petData._id, formToSend);
+      if (newPetData) {
+        // If newPetData exists, it's an update operation
+        updatedPet = await petService.update(petData._id, newPetData);
       } else {
         // Otherwise, it's a create operation
-        updatedPet = await petService.create(formToSend);
+        updatedPet = await petService.create(newPetData);
       }
 
       setPetData(updatedPet); // Update the petData state with the new/updated pet

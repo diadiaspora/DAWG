@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as profileService from "../../services/profileService";
 import "./ProfileForm.css";
 
@@ -7,60 +7,19 @@ import "./ProfileForm.css";
 export default function ProfileForm({ profile, setProfile }) {
   const [showForm, setShowForm] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  console.log({ profile });
 
-console.log(profile);
+
+  const fileInputRef = useRef();
 
   const [profileData, setProfileData] = useState({
+    username: "",
     bio: "",
-    pets: "",
-    posts: "",
-    blogs: "",
-    passportNumber: "",
-    gallery: "",
-    pet: [
-      {
-        breed: "",
-        age: "",
-        weight: "",
-        microchipNumber: "",
-        vaccineNumber: "",
-        document: "",
-      },
-    ],
   });
+  const avatarImageRef = useRef();
+  const passportImageRef = useRef();
+  const importantDocsImageRef = useRef();
 
-  // Update form data once profile is fetched
-  useEffect(() => {
-    if (profile) {
-      const hasExistingData =
-        profile.bio || (profile.pet && profile.pet[0]?.breed);
-
-      if (hasExistingData) {
-        setShowForm(false);
-      } else {
-        setShowForm(true);
-      }
-
-      setProfileData({
-        bio: profile.bio || "",
-        pets: profile.pets || "",
-        posts: profile.posts || "",
-        blogs: profile.blogs || "",
-        passportNumber: profile.passportNumber || "",
-        gallery: profile.gallery || "",
-        pet: [
-          {
-            breed: profile.pet?.[0]?.breed || "",
-            age: profile.pet?.[0]?.age || "",
-            weight: profile.pet?.[0]?.weight || "",
-            microchipNumber: profile.pet?.[0]?.microchipNumber || "",
-            vaccineNumber: profile.pet?.[0]?.vaccineNumber || "",
-            document: profile.pet?.[0]?.document || "",
-          },
-        ],
-      });
-    }
-  }, [profile]);
 
     const [isGallery, setIsGallery] = useState(true);
     
@@ -70,18 +29,45 @@ console.log(profile);
     setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
-  // function handlePetChange(evt, index) {
-  //   const { name, value } = evt.target;
-  //   setProfileData((prev) => ({
-  //     ...prev,
-  //     pet: [{ ...prev.pet[0], [name]: value }],
-  //   }));
-  // }
+
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setErrorMsg(""); 
+    console.log({ profile });
+
     try {
-      const updated = await profileService.update(profile?._id, profileData);
+
+      const imageData = new FormData();
+
+      for (const key in profileData) {
+        imageData.append(key, profileData[key]);
+      }
+   
+      if (avatarImageRef.current && avatarImageRef.current.files[0]) {
+        imageData.append("avatar", avatarImageRef.current.files[0]);
+      }
+      if (passportImageRef.current && passportImageRef.current.files[0]) {
+        imageData.append("passport", passportImageRef.current.files[0]);
+      }
+      if (
+        importantDocsImageRef.current &&
+        importantDocsImageRef.current.files[0]
+      ) {
+        imageData.append(
+          "importantDocs",
+          importantDocsImageRef.current.files[0]
+        );
+      }
+     
+      console.log({ profileData });
+      console.log({ imageData });
+
+
+
+
+
+      const updated = await profileService.update(profile?._id, imageData);
       setErrorMsg("");
       setShowForm(false);
       setProfile(updated); // Let parent update
@@ -112,6 +98,46 @@ console.log(profile);
               value={profileData.bio}
               onChange={handleChange}
               style={{ width: "180px" }}
+            />
+
+            <label style={{ margin: "0px" }}>Upload Photo</label>
+            <input
+              style={{
+                borderRadius: "7px",
+                padding: "10px",
+                height: "44px",
+                width: "150px",
+              }}
+              name="avatar"
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={avatarImageRef}
+            />
+            <label style={{ margin: "0px" }}>Upload Passport</label>
+            <input
+              style={{
+                borderRadius: "7px",
+                padding: "10px",
+                height: "44px",
+                width: "150px",
+              }}
+              name="passport"
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={passportImageRef}
+            />
+            <label style={{ margin: "0px" }}>Upload Important Docs</label>
+            <input
+              style={{
+                borderRadius: "7px",
+                padding: "10px",
+                height: "44px",
+                width: "150px",
+              }}
+              name="importantDocs"
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={importantDocsImageRef}
             />
 
             <button type="submit">Save</button>
@@ -148,11 +174,11 @@ console.log(profile);
               <div>
                 <div style={{ width: "300px" }}>
                   <img
-                    src="https://i.ibb.co/5x5Td7ks/av-1.png"
+                    src={profile.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
                     alt="avatar"
                     style={{ width: "200px" }}
                   />
-                  <h1></h1>
+             
                 </div>
               </div>
               <button
@@ -181,8 +207,6 @@ console.log(profile);
               }}
             >
               <div>{profileData.bio}</div>
-
-       
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <strong
@@ -203,9 +227,7 @@ console.log(profile);
                   height: "110px",
                 }}
               >
-                <div style={{ marginTop: "42px" }}>
-                  {/* <PlanIndex />  */}
-                </div>
+                <div style={{ marginTop: "42px" }}>{/* <PlanIndex />  */}</div>
               </div>
             </div>
           </div>

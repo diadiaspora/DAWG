@@ -37,7 +37,7 @@ export default function BlogList({ user }) {
                   borderRadius: "7px",
                   marginRight: "21px",
                   borderStyle: "solid",
-                  borderColor: "#d9d9d9",
+                  borderColor: "#BCC7D4",
                   height: "350px",
                 }}
               >
