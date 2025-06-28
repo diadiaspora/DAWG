@@ -47,7 +47,7 @@ export default function HomePage({ user, setUser, hoots }) {
           hoots={hoots}
           handleAddHoot={handleAddHoot}
         />
-        <HootForm handleAddHoot={handleAddHoot} />
+        {/* <HootForm handleAddHoot={handleAddHoot} /> */}
         <Marketplace />
         <div>
           <BlogList />

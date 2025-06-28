@@ -34,7 +34,19 @@ const HootForm = (props) => {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "320px",
+          backgroundColor: "#d9d9d9",
+          borderRadius: "7px",
+          padding: "20px",
+        }}
+      >
+        <p style={{marginBottom: "0px", marginTop: "0px"}}> Create a Post</p>
+
         <label htmlFor="title-input">Title</label>
         <input
           required
