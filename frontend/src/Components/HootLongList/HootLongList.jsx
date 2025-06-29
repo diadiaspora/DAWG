@@ -4,10 +4,7 @@ import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa6";
 
-
-
-
-export default function ScrollableHoots(props) {
+export default function HootLongList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
 
   useEffect(() => {
@@ -38,16 +35,18 @@ export default function ScrollableHoots(props) {
           </h2>
         </div>
         <div>
-          <button
-            style={{
-              width: "140px",
-              height: "44px",
-              backgroundColor: "#1E3769",
-              borderWidth: "0px",
-            }}
-          >
-            Post
-          </button>
+          <Link to="/newhoot">
+            <button
+              style={{
+                width: "140px",
+                height: "44px",
+                backgroundColor: "#1E3769",
+                borderWidth: "0px",
+              }}
+            >
+              Post
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -55,8 +54,7 @@ export default function ScrollableHoots(props) {
         style={{
           marginLeft: "42px",
           marginRight: "42px", // Add right margin to match left
-          // This is the key: set a max-width based on how many cards you want to show
-          // (331px card width + 16px gap) * 3 cards = (347px * 3) = 1041px
+
           maxWidth: "1041px", // Adjust based on your card width and desired visible cards
           overflowX: "hidden", // Hide overflow from this container
         }}
@@ -66,87 +64,132 @@ export default function ScrollableHoots(props) {
           style={{
             display: "flex",
             gap: "16px",
-            // This container will be wider than its parent, forcing a scrollbar
-            // We don't set a specific width here; it will naturally expand with its children
-            // The `overflowX: "scroll"` is moved here
+
             overflowX: "scroll",
-            scrollSnapType: "x mandatory", // Optional: Snaps to card boundaries
+            scrollSnapType: "x mandatory",
             paddingBottom: "20px", // Add padding for scrollbar if needed
             scrollbarWidth: "thin", // For Firefox
             scrollbarColor: "#1E3769 #f0f0f0", // For Firefox (thumb track)
-            // Webkit scrollbar styles for Chrome/Safari
+
             WebkitOverflowScrolling: "touch", // Improve scroll performance on iOS
           }}
         >
           {displayedHoots.map((hoot) => (
-            <div
+             <div
               key={hoot._id}
               style={{
-                flexShrink: 0, // Prevent cards from shrinking
                 borderStyle: "solid",
                 borderColor: "#BCC7D4",
                 borderWidth: "1px",
                 borderRadius: "7px",
                 height: "auto",
-                width: "331px", // Fixed width for each card
+                width: "331px",
                 padding: "16px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                scrollSnapAlign: "start",
+                marginRight: "8px",
               }}
             >
-              <header>
-                <h2>{hoot.title}</h2>
-                {/* <p>
-                  {`${hoot.author} posted on ${new Date(
-                    hoot.createdAt
-                  ).toLocaleDateString()}`}
-                </p> */}
+              <header style={{ marginBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    src={
+                      hoot.author?.avatar ||
+                      "https://i.ibb.co/5x5Td7ks/av-1.png"
+                    }
+                    alt="Author avatar"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      marginLeft: "6px",
+                    }}
+                  >
+                    <strong>{hoot.author?.username || "Anonymous"}</strong>
+                  </p>
+                  <div style={{ marginLeft: "190px" }}>
+                    <p style={{ fontSize: "12px"}}>
+                      {new Date(hoot.createdAt).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </p>
+                  </div>
+                </div>
               </header>
-              <p>{hoot.text}</p>
+              <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
+                <div
+                  style={{
+                    borderStyle: "solid",
+                    borderWidth: "1px",
+                    borderColor: "#E9E9E9",
+                    borderRadius: "7px",
+                    padding: "12px",
+                    height: "126px",
+                    marginTop: "-10px",
+                  }}
+                >
+                  <div>
+                    <h2 style={{ fontSize: "18px", margin: "0" }}>
+                      {hoot.title}
+                    </h2>
+                  </div>
 
+                  <div
+                    style={{
+                      flexGrow: 1, // ✅ takes remaining space
+                      marginBottom: "8px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <p
+                      style={{
+                        margin: "0",
+                        lineHeight: "1.5em",
+                        maxHeight: "4.5em",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 3,
+                      }}
+                    >
+                      {hoot.text}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+              <div style={{ marginTop: "12px" }}></div>
               {hoot.gifUrl && (
                 <img
                   src={hoot.gifUrl}
                   alt="GIF"
                   style={{
-                    marginTop: "12px",
-                    width: "300px",
-                    height: "200px",
+                    width: "100%",
+                    height: "150px",
                     objectFit: "cover",
                     borderRadius: "6px",
-                    boxShadow: "0 0 6px rgba(0,0,0,0.15)",
+                    marginBottom: "8px",
                   }}
                 />
               )}
-              <div>
-                <Link to={`/hoots/${hoot._id}`}>
-                  <button
-                    style={{ width: "100px", backgroundColor: "#1E3769", borderWidth: "0px", height: "44px" }}
-                  >
-                    <FaRegComment /> 124
-                  </button>
-                </Link>
-                <button>
-                  <FaRegHeart />
-                </button>
-              </div>
-              {/* 
-              <button
-                style={{
-                  marginTop: "auto",
-                  backgroundColor: "#1E3769",
-                  color: "white",
-                  borderRadius: "6px",
-                  border: "none",
-                  padding: "8px",
-                  width: "100%",
-                  cursor: "pointer",
-                }}
-              >
-                View Details
-              </button> */}
+              <div style={{ display: "flex", justifyContent: "flex-end" }}> 
+                <div> 
+              <FaRegHeart />
+                </div> 
+                <div style={{marginLeft: "12px"}}> 
+              <Link to={`/hoots/${hoot._id}`}>
+                <FaRegComment />
+              </Link>
+                  </div>
+                </div>
             </div>
           ))}
         </div>

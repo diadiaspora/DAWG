@@ -402,7 +402,7 @@ export default function PetComponent() {
                         "https://i.ibb.co/5x5Td7ks/av-1.png"
                       }
                       style={{
-                        width: "231px",
+                        width: "150px",
                         borderRadius: "7px",
                       }}
                       alt={`${petData.petName}'s photo`}
@@ -434,7 +434,8 @@ export default function PetComponent() {
                       backgroundColor: "#1E3769",
                       borderWidth: "0px",
                       height: "44px",
-                      width: "130px"
+                      width: "130px",
+                      marginRight: "12px",
                     }}
                   >
                     Vaccine
@@ -444,7 +445,8 @@ export default function PetComponent() {
                       backgroundColor: "#1E3769",
                       borderWidth: "0px",
                       height: "44px",
-                      width: "130px"
+                      width: "130px",
+                      marginRight: "12px",
                     }}
                   >
                     Health Certificate

@@ -14,7 +14,8 @@ import "./HomePage.css";
 
 import * as hootService from "../../services/hootService";
 
-import HootLongList from '../../Components/HootLongList/HootLongList';
+import HootList from '../../Components/HootList/HootList';
+import HootLongList from "../../Components/HootLongList/HootLongList";
 // src/App.jsx
 
 import HootForm from '../../Components/HootForm/HootForm';
@@ -40,6 +41,13 @@ export default function HomePage({ user, setUser, hoots }) {
         <div>
           <BlogsComponent />
         </div>
+
+        <HootList
+          user={user}
+          setUser={setUser}
+          hoots={hoots}
+          handleAddHoot={handleAddHoot}
+        />
 
         <HootLongList
           user={user}

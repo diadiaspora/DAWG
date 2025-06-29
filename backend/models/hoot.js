@@ -30,7 +30,11 @@ const hootSchema = new mongoose.Schema(
       type: String, // ✅ Add this field to support storing a Giphy link
       required: false,
     },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Profile",
+      required: true,
+    },
     comments: [commentSchema],
   },
 

@@ -39,6 +39,7 @@ import BlogPage from "../BlogPage/BlogPage";
 import NewBlogsDetail from "../NewBlogsDetail/NewBlogsDetail";
 import HootDetailPage from "../HootDetailPage/HootDetailPage";
 import * as hootService from "../../services/hootService";
+import HootFormPage from "../HootFormPage/HootFormPage";
 
 import "./App.css";
 
@@ -93,7 +94,7 @@ export default function App() {
       if (user) {
         try {
           const profiles = await profileService.index();
-          const userProfile = profiles.find((p) => p.user === user._id);
+          const userProfile = profiles.find((p) => p.author === user._id);
           if (userProfile) {
             setProfile(userProfile);
           }
@@ -105,6 +106,8 @@ export default function App() {
     fetchProfile();
   }, [user]);
   console.log({ profile });
+
+
   return (
     <>
       <main className="App">
@@ -176,6 +179,17 @@ export default function App() {
                   path="/hoots/:hootId"
                   element={
                     <HootDetailPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
+                <Route
+                  path="/newhoot"
+                  element={
+                    <HootFormPage
                       hoots={hoots}
                       user={user}
                       setUser={setUser}
