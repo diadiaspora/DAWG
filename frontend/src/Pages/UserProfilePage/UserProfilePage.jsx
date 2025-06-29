@@ -5,7 +5,7 @@ import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
-import UploadComponent from "../../Components/UploadComponent/UploadComponent.jsx";
+import PetComponent from "../../Components/PetComponent/PetComponent.jsx";
 import { useState, useEffect } from "react";
 import "./UserProfilePage.css";
 
@@ -106,12 +106,14 @@ export default function UserProfilePage({ user }) {
             width: "1012px",
           }}
         >
-         
           <div style={{ width: "650px", marginLeft: "42px" }}></div>
         </div>
 
         <ProfileForm profile={profile} setProfile={setProfile} />
-        <UploadComponent profile={profile} setProfile={setProfile} />
+        <div style={{ display: "flex" }}>
+          <PetComponent profile={profile} setProfile={setProfile} />
+          <PetComponent profile={profile} setProfile={setProfile} />
+        </div>
         <Carousel />
         <div style={{ marginLeft: "-42px" }}>
           <BlogList />
