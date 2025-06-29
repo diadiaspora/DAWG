@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import * as petService from "../../services/petService"; // Corrected import path
 import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use it
 
-export default function UploadComponent() {
+export default function PetComponent() {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate hook
 
@@ -154,17 +154,11 @@ export default function UploadComponent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
-        {/* Error message display */}
-        {errorMsg && (
-          <p className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
-            {errorMsg}
-          </p>
-        )}
+    <div>
+      <div>
+        {errorMsg && <p>{errorMsg}</p>}
 
         {showForm ? (
-          // Form for adding/updating pet info
           <form onSubmit={handleSubmit} className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
               {petData ? "Update Pet Information" : "Add Pet Information"}
@@ -287,7 +281,6 @@ export default function UploadComponent() {
               </div>
             </div>
 
-            {/* Important Documents Section */}
             <div className="mt-8">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
                 Important Documents
@@ -295,15 +288,9 @@ export default function UploadComponent() {
               <p className="text-sm text-gray-600 mb-4">
                 These documents are only accessible by you.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Vaccine Upload */}
+              <div>
                 <div>
-                  <label
-                    htmlFor="vaccine"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Upload Vaccine Record
-                  </label>
+                  <label htmlFor="vaccine">Upload Vaccine Record</label>
                   <input
                     id="vaccine"
                     name="vaccine"
@@ -325,7 +312,6 @@ export default function UploadComponent() {
                     )}
                 </div>
 
-                {/* Microchip Upload */}
                 <div>
                   <label
                     htmlFor="microchip"
@@ -354,7 +340,6 @@ export default function UploadComponent() {
                     )}
                 </div>
 
-                {/* Health Certificate Upload */}
                 <div>
                   <label
                     htmlFor="healthCertificate"
@@ -386,8 +371,7 @@ export default function UploadComponent() {
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="flex justify-center mt-8">
+            <div>
               <button
                 type="submit"
                 className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
@@ -397,46 +381,85 @@ export default function UploadComponent() {
             </div>
           </form>
         ) : (
-          // Pet Card View
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-6">
-              My Pet Profile
-            </h2>
+          <div style={{ marginTop: "100px", marginLeft: "42px" }}>
+            <h2>My Pets</h2>
             {petData && (
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-xl shadow-lg flex flex-col items-center">
-                <img
-                  src={
-                    previewPetPhoto ||
-                    petData.petPhoto ||
-                    "https://i.ibb.co/5x5Td7ks/av-1.png"
-                  }
-                  alt={`${petData.petName}'s photo`}
-                  className="w-48 h-48 rounded-full object-cover border-4 border-purple-500 shadow-md mb-6"
-                />
-                <h3 className="text-4xl font-bold text-gray-800 mb-2">
-                  {petData.petName}
-                </h3>
-                <p className="text-gray-600 text-lg mb-4">{petData.bio}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left w-full max-w-sm">
-                  <div className="flex items-center text-gray-700">
-                    <span className="font-semibold w-24">Breed:</span>
-                    <span>{petData.breed}</span>
+              <div
+                style={{
+                  width: "463px",
+                  borderStyle: "solid",
+                  borderColor: "#BCC7D4",
+                  borderRadius: "7px",
+                  padding: "12px",
+                }}
+              >
+                <div style={{ display: "flex" }}>
+                  <div>
+                    <img
+                      src={
+                        previewPetPhoto ||
+                        petData.petPhoto ||
+                        "https://i.ibb.co/5x5Td7ks/av-1.png"
+                      }
+                      style={{
+                        width: "231px",
+                        borderRadius: "7px",
+                      }}
+                      alt={`${petData.petName}'s photo`}
+                    />
                   </div>
-                  <div className="flex items-center text-gray-700">
-                    <span className="font-semibold w-24">Age:</span>
-                    <span>{petData.age} years</span>
-                  </div>
-                  <div className="flex items-center text-gray-700">
-                    <span className="font-semibold w-24">Weight:</span>
-                    <span>{petData.weight}</span>
+                  <div>
+                    <h3>{petData.petName}</h3>
+                    <div>
+                      <span>Breed:</span>
+                      <span>{petData.breed}</span>
+                    </div>
+                    <div>
+                      <span>Age:</span>
+                      <span>{petData.age} years</span>
+                    </div>
+                    <div>
+                      <span>Weight:</span>
+                      <span>{petData.weight}</span>
+                    </div>
                   </div>
                 </div>
+                <p style={{ fontSize: "14px" }}>{petData.bio}</p>
+                <div></div>
 
-                <div className="mt-8 text-center w-full">
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                    Documents
-                  </h4>
-                  <div className="flex flex-wrap justify-center gap-4">
+                <div>
+                  <h4>{petData.petName}'s Documents</h4>
+                  <button
+                    style={{
+                      backgroundColor: "#1E3769",
+                      borderWidth: "0px",
+                      height: "44px",
+                      width: "130px"
+                    }}
+                  >
+                    Vaccine
+                  </button>
+                  <button
+                    style={{
+                      backgroundColor: "#1E3769",
+                      borderWidth: "0px",
+                      height: "44px",
+                      width: "130px"
+                    }}
+                  >
+                    Health Certificate
+                  </button>
+                  <button
+                    style={{
+                      backgroundColor: "#1E3769",
+                      borderWidth: "0px",
+                      height: "44px",
+                      width: "130px",
+                    }}
+                  >
+                    Microchip
+                  </button>
+                  <div>
                     {petData.vaccine &&
                       petData.vaccine !== "https://i.imgur.com/KTEjbsw.png" && (
                         <a
@@ -511,19 +534,23 @@ export default function UploadComponent() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <div>
                   <button
+                    style={{
+                      backgroundColor: "#ffffff00",
+                      borderWidth: "0px",
+                      color: "#1E3769",
+                    }}
                     onClick={() => setShowForm(true)}
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
                   >
                     Update Pet Information
                   </button>
-                  <button
+                  {/* <button
                     onClick={handleDelete}
                     className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
                   >
                     Delete Pet Profile
-                  </button>
+                  </button> */}
                 </div>
               </div>
             )}
