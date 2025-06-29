@@ -41,10 +41,9 @@ export default function NavBar({ user, setUser, profile }) {
           {/* <span>Welcome, {user.name}</span> */}
           <span>
             <img
-              // Use the safely determined avatarSrc
-              src={avatarSrc}
-              className="dogmoney" // This class name might be misleading if it's the user's avatar
-              alt="User Avatar" // More descriptive alt text
+              src={profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
+              className="avatar"
+              alt="User Avatar"
             />
           </span>
         </>
@@ -65,10 +64,9 @@ export default function NavBar({ user, setUser, profile }) {
           <NavLink to="/signup">Sign Up</NavLink>
           <span>
             <img
-              // Use the safely determined avatarSrc
-              src={avatarSrc}
-              className="dogmoney" // This class name might be misleading if it's the user's avatar
-              alt="User Avatar" // More descriptive alt text
+              src={profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
+              className="avatar"
+              alt="User Avatar"
             />
           </span>
         </>

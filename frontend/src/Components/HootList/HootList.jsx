@@ -2,6 +2,10 @@ import * as hootService from "../../services/hootService";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HootForm from "../../Components/HootForm/HootForm";
+import "./HootList.css";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { FaRegHeart } from "react-icons/fa6";
+import { FaRegComment } from "react-icons/fa";
 
 export default function HootList(props) {
   const [randomHoots, setRandomHoots] = useState([]);
@@ -58,50 +62,105 @@ export default function HootList(props) {
                 marginRight: "8px",
               }}
             >
-              <header>
-                <h2>{hoot.title}</h2>
-                <p>
-                  {`${hoot.author} posted on ${new Date(
-                    hoot.createdAt
-                  ).toLocaleDateString()}`}
-                </p>
+              <header style={{ marginBottom: "8px" }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img
+                    src={
+                      hoot.author?.avatar ||
+                      "https://i.ibb.co/5x5Td7ks/av-1.png"
+                    }
+                    alt="Author avatar"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      marginLeft: "6px",
+                    }}
+                  >
+                    <strong>{hoot.author?.username || "Anonymous"}</strong>
+                  </p>
+                  <div style={{ marginLeft: "190px" }}>
+                    <p style={{ fontSize: "12px" }}>
+                      {new Date(hoot.createdAt).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </p>
+                  </div>
+                </div>
               </header>
-              <p>{hoot.text}</p>
+              <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
+                <div
+                  style={{
+                    borderStyle: "solid",
+                    borderWidth: "1px",
+                    borderColor: "#E9E9E9",
+                    borderRadius: "7px",
+                    padding: "12px",
+                    height: "126px",
+                    marginTop: "-10px",
+                  }}
+                >
+                  <div>
+                    <h2 style={{ fontSize: "18px", margin: "0" }}>
+                      {hoot.title}
+                    </h2>
+                  </div>
 
-              {/* ✅ Display GIF if it exists */}
+                  <div
+                    style={{
+                      flexGrow: 1, // ✅ takes remaining space
+                      marginBottom: "8px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <p
+                      style={{
+                        margin: "0",
+                        lineHeight: "1.5em",
+                        maxHeight: "4.5em",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 3,
+                      }}
+                    >
+                      {hoot.text}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+              <div style={{ marginTop: "12px" }}></div>
               {hoot.gifUrl && (
                 <img
                   src={hoot.gifUrl}
                   alt="GIF"
                   style={{
-                    marginTop: "12px",
-                    // Set a fixed width and height
-                    width: "300px", // Or any desired fixed width
-                    height: "200px", // Or any desired fixed height
-                    // Add object-fit to control how the image fits within the bounds
-                    objectFit: "cover", // 'cover' will crop to fill, 'contain' will fit without cropping
+                    width: "100%",
+                    height: "150px",
+                    objectFit: "cover",
                     borderRadius: "6px",
-                    boxShadow: "0 0 6px rgba(0,0,0,0.15)",
+                    marginBottom: "8px",
                   }}
                 />
               )}
-
+              <div style={{ display: "flex", justifyContent: "flex-end" }}> 
+                <div> 
+              <FaRegHeart />
+                </div> 
+                <div style={{marginLeft: "12px"}}> 
               <Link to={`/hoots/${hoot._id}`}>
-                <button
-                  style={{
-                    marginTop: "auto",
-                    backgroundColor: "#1E3769",
-                    color: "white",
-                    borderRadius: "6px",
-                    border: "none",
-                    padding: "8px",
-                    width: "100%",
-                    cursor: "pointer",
-                  }}
-                >
-                  View Details
-                </button>
+                <FaRegComment />
               </Link>
+                  </div>
+                </div>
             </div>
           ))}
         </div>

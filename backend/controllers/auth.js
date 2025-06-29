@@ -27,7 +27,12 @@ async function signUp(req, res) {
   try {
     const user = await User.create(req.body);
     await user.save()
-   await Profile.create({ author: user._id });
+    await Profile.create({
+      author: user._id,
+      // user: user._id,
+      name: user.name, // optional, if available
+      avatar: user.avatar,
+    });
     const token = createJWT(user);
     res.json(token);
   } catch (err) {

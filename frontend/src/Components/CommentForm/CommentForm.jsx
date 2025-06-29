@@ -18,18 +18,40 @@ const CommentForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="text-input">Your comment:</label>
-      <textarea
-        required
-        type="text"
-        name="text"
-        id="text-input"
-        value={formData.text}
-        onChange={handleChange}
-      />
-      <button type="submit">SUBMIT COMMENT</button>
-    </form>
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="text-input"></label>
+          <div style={{display: "flex", width: "662px", marginLeft: "42px", marginBottom: "22px"}}>
+            <textarea
+              required
+              type="text"
+              name="text"
+              id="text-input"
+              value={formData.text}
+              onChange={handleChange}
+              style={{
+                width: "662px",
+                borderwidth: "1px",
+                borderColor: "#BCC7D4",
+              }}
+            />
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "#1E3769",
+                borderWidth: "0px",
+                height: "44px",
+                padding: "12px",
+                width: "200px"
+              }}
+            >
+              Comment
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

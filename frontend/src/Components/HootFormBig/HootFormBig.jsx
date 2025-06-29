@@ -34,13 +34,13 @@ const HootForm = (props) => {
   };
 
   return (
-    <main>
+    <main style={{ marginLeft: "42px"}}>
       <form
         onSubmit={handleSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "320px",
+          width: "662px",
           backgroundColor: "#1e37691f",
           borderRadius: "7px",
           padding: "20px",

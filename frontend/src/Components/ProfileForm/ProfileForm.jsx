@@ -70,7 +70,15 @@ export default function ProfileForm({ profile, setProfile }) {
       const updated = await profileService.update(profile?._id, imageData);
       setErrorMsg("");
       setShowForm(false);
-      setProfile(updated); // Let parent update
+      setProfile(updated);
+      const refreshedProfiles = await profileService.index();
+      const refreshedProfile = refreshedProfiles.find(
+        (p) => p._id === updated._id
+      );
+      if (refreshedProfile) {
+        setProfile(refreshedProfile);
+      }
+
     } catch (err) {
       setErrorMsg("Failed to save profile details. Please try again.");
       console.error("Error updating profile:", err);

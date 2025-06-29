@@ -11,12 +11,17 @@ module.exports = {
 
 async function create(req, res) {
   try {
-    req.body.user = req.user._id;
+    const Profile = require("../models/profile");
+    const profile = await Profile.findOne({ author: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+
+    req.body.author = profile._id;
 
     if (req.file) {
       req.body.imageUrl = await uploadFile(req.file);
     }
     const hoot = await Hoot.create(req.body);
+    await hoot.populate("author");
 
     res.json(hoot);
   } catch (err) {
@@ -27,10 +32,15 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const hoots = await Hoot.find({});
-    // Below would return all posts for just the logged in user
-    // const posts = await Post.find({author: req.user._id});
-    res.json(hoots);
+    const Profile = require("../models/profile");
+    const hoots = await Hoot.find({})
+      .populate("author")
+      .sort({ createdAt: -1 });
+    
+    
+     
+
+      res.json(hoots);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to fetch hoots" });
