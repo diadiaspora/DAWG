@@ -19,49 +19,44 @@ export default function BlogsComponent() {
     setShuffledBlogs(shuffled);
   }, []);
 
-  // Removed cardsPerSlide, effectiveBlogs, slidesContent, and carouselSettings as they are no longer needed for a scrollable list
+ 
 
   return (
     <div className="blogs-component-container" style={{ marginTop: "75px" }}>
-      <h2 style={{ marginLeft: "42px" }}>Latest Blogs</h2> {/* Add a title */}
-      {/* This is the outer container that defines the *visible* width for scrolling */}
+      <h2 style={{ marginLeft: "42px" }}>Latest Blogs</h2> 
+
       <div
         style={{
           marginLeft: "42px",
-          marginRight: "42px",
-          // Define a fixed width or max-width for the *visible* scroll area.
-          // This allows content inside to extend beyond this width and create a scrollbar.
-          // Adjust '1041px' based on your desired visible width and card sizes.
-          // For example, if you want to show 3 cards (331px each + 16px gap * 2) = 331*3 + 32 = 993 + 32 = 1025px
-          maxWidth: "1025px", // Or a specific 'width'
-          overflowX: "scroll", // <--- Enable horizontal scrolling here
-          scrollSnapType: "x mandatory", // Optional: Snaps to card boundaries
-          paddingBottom: "20px", // Add padding for scrollbar visibility
-          scrollbarWidth: "thin", // For Firefox
-          scrollbarColor: "#1E3769 #f0f0f0", // For Firefox (thumb track)
-          WebkitOverflowScrolling: "touch", // Improve scroll performance on iOS
+
+
+
+          overflowX: "scroll", 
+          scrollSnapType: "x mandatory",
+          paddingBottom: "20px",
+          scrollbarWidth: "thin", 
+          scrollbarColor: "#1E3769 #f0f0f0", 
+          WebkitOverflowScrolling: "touch",
         }}
       >
-        {/* This is the inner container that holds the BlogCards in a flex row */}
+
         <div
           style={{
             display: "flex",
-            gap: "16px", // Space between blog cards
-            // This inner container does not need 'overflowX: "scroll"'
-            // It will naturally expand to fit all its children
+            gap: "16px", 
+          
           }}
         >
           {shuffledBlogs.map((post) => (
-            // Wrap each BlogCard with a Link
-            // Ensure BlogCard accepts a 'blog' prop and perhaps an 'onClick' if needed
+  
             <Link
               key={post.id}
-              to={`/articles/${post.id}`} // Adjust the path to your blog detail page
+              to={`/articles/${post.id}`} 
               style={{
                 textDecoration: "none",
                 color: "inherit",
                 flexShrink: 0,
-              }} // Remove underline, inherit color, prevent shrinking
+              }} 
             >
               <BlogCard blog={post} />
             </Link>

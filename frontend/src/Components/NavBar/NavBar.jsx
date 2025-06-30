@@ -66,7 +66,8 @@ export default function NavBar({ user, setUser, profile }) {
             <img
               src={profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
               className="avatar"
-              alt="User Avatar"
+                alt="User Avatar"
+                style={{width: "33px"}}
             />
           </span>
         </>

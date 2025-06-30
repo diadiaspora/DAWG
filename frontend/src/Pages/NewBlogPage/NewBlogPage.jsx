@@ -3,10 +3,12 @@ import { useNavigate } from "react-router";
 import * as blogService from "../../services/blogService"; // Assuming this service exists
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
+import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
+
 import "./NewBlogPage.css";
 import { NavLink } from "react-router-dom";
 
-export default function NewBlogPage() {
+export default function NewBlogPage({ user, setUser, hoots }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [blogData, setBlogData] = useState({
     title: "",
@@ -16,6 +18,7 @@ export default function NewBlogPage() {
     contentFour: "",
   });
 
+
   // Create refs for each image input
   const contentOneImageRef = useRef();
   const contentTwoImageRef = useRef();
@@ -23,6 +26,12 @@ export default function NewBlogPage() {
   const contentFourImageRef = useRef();
 
   const navigate = useNavigate();
+
+    const handleAddHoot = async (newHootData) => {
+      const createdHoot = await hootService.create(newHootData);
+      console.log("New hoot created:", createdHoot);
+      navigate("/"); // or refresh the list, or update props.hoots
+    };
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -84,7 +93,7 @@ export default function NewBlogPage() {
 
   return (
     <>
-      <section style={{ backgroundColor: "black" }}>
+      <section>
         <Header />
         <SearchComponent />
         <div>
@@ -92,11 +101,11 @@ export default function NewBlogPage() {
             style={{
               width: "1032px",
               display: "flex",
-              backgroundColor: "red",
+
               paddingRight: "0px",
             }}
           >
-            <div style={{ width: "632px", backgroundColor: "purple" }}>
+            <div style={{ width: "632px", marginLeft: "42px" }}>
               <h2 style={{ fontSize: "24px" }}> Tell Us Your Story</h2>
               <form onSubmit={handleSubmit}>
                 <label style={{ marginLeft: "0px" }}>Title</label>
@@ -112,14 +121,13 @@ export default function NewBlogPage() {
                   required // Title is required
                   style={{
                     padding: "8px",
-                    borderRadius: "20px",
-                    border: "1px solid #000000",
+                    borderRadius: "7px",
+                    border: "1px solid #BCC7D4",
                     marginBottom: "15px",
                     width: "calc(100% - 16px)",
                     boxSizing: "border-box",
                   }}
                 />
-           
 
                 <label style={{ marginLeft: "0px" }}>How Did It Start?</label>
                 <textarea
@@ -134,8 +142,8 @@ export default function NewBlogPage() {
                   rows="8"
                   style={{
                     padding: "8px",
-                    borderRadius: "20px",
-                    border: "1px solid #000000",
+                    borderRadius: "7px",
+                    border: "1px solid #BCC7D4",
                     marginBottom: "20px",
                     width: "calc(100% - 16px)",
                     boxSizing: "border-box",
@@ -164,8 +172,8 @@ export default function NewBlogPage() {
                   rows="8"
                   style={{
                     padding: "8px",
-                    borderRadius: "20px",
-                    border: "1px solid #000000",
+                    borderRadius: "7px",
+                    border: "1px solid #BCC7D4",
                     marginBottom: "20px",
                     width: "calc(100% - 16px)",
                     boxSizing: "border-box",
@@ -193,8 +201,8 @@ export default function NewBlogPage() {
                   rows="8"
                   style={{
                     padding: "8px",
-                    borderRadius: "20px",
-                    border: "1px solid #000000",
+                    borderRadius: "7px",
+                    border: "1px solid #BCC7D4",
                     marginBottom: "20px",
                     width: "calc(100% - 16px)",
                     boxSizing: "border-box",
@@ -223,8 +231,8 @@ export default function NewBlogPage() {
                   rows="8"
                   style={{
                     padding: "8px",
-                    borderRadius: "20px",
-                    border: "1px solid #000000",
+                    borderRadius: "7px",
+                    border: "1px solid #BCC7D4",
                     marginBottom: "20px",
                     width: "calc(100% - 16px)",
                     boxSizing: "border-box",
@@ -236,7 +244,6 @@ export default function NewBlogPage() {
                   type="file"
                   accept=".png, .gif, .jpg, .jpeg"
                   ref={contentFourImageRef}
-                  // Removed 'required' attribute
                   style={{ marginBottom: "20px" }}
                 />
 
@@ -251,10 +258,10 @@ export default function NewBlogPage() {
                     type="submit"
                     style={{
                       padding: "10px 20px",
-                      backgroundColor: "#1E3769",
+
                       color: "white",
                       border: "none",
-                      borderRadius: "50px",
+                      borderRadius: "7px",
                       cursor: "pointer",
                       fontSize: "16px",
                     }}
@@ -266,8 +273,13 @@ export default function NewBlogPage() {
               <p>&nbsp;{errorMsg}</p>
             </div>
 
-            <div style={{ width: "310px", backgroundColor: "yellow" }}>
-              sidebar
+            <div style={{ width: "310px" }}>
+              <VerticleHootList
+                user={user}
+                setUser={setUser}
+                hoots={hoots}
+                handleAddHoot={handleAddHoot}
+              />
             </div>
           </div>
         </div>

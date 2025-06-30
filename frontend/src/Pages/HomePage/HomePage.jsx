@@ -41,13 +41,13 @@ export default function HomePage({ user, setUser, hoots }) {
         <div>
           <BlogsComponent />
         </div>
-
+{/* 
         <HootList
           user={user}
           setUser={setUser}
           hoots={hoots}
           handleAddHoot={handleAddHoot}
-        />
+        /> */}
 
         <HootLongList
           user={user}

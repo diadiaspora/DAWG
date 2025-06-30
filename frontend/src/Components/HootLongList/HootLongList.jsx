@@ -15,7 +15,7 @@ export default function HootLongList(props) {
   }, [props.hoots]);
 
   return (
-    <div style={{ marginTop: "75px" }}>
+    <div style={{ marginTop: "75px", marginRight: "42px" }}>
       <div
         style={{
           backgroundColor: "#1e37691f",
