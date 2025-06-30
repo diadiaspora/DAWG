@@ -36,7 +36,7 @@ const Gallery = () => {
         </div>
       </div>
 
-      <div style={{ height: "350px", marginRight: "0px" }}>
+      <div style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}>
         <Calendar />
       </div>
     </div>

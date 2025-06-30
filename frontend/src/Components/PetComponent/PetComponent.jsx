@@ -74,7 +74,7 @@ export default function PetComponent() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  // Handles form submission (create or update)
+ 
   async function handleSubmit(evt) {
     evt.preventDefault();
     setErrorMsg(""); // Clear previous errors
@@ -108,11 +108,9 @@ export default function PetComponent() {
       }
 
       let updatedPet;
-      if (newPetData) {
-        // If newPetData exists, it's an update operation
+      if (petData && petData._id) {
         updatedPet = await petService.update(petData._id, newPetData);
       } else {
-        // Otherwise, it's a create operation
         updatedPet = await petService.create(newPetData);
       }
 
@@ -547,12 +545,7 @@ export default function PetComponent() {
                   >
                     Update Pet Information
                   </button>
-                  {/* <button
-                    onClick={handleDelete}
-                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-                  >
-                    Delete Pet Profile
-                  </button> */}
+             
                 </div>
               </div>
             )}

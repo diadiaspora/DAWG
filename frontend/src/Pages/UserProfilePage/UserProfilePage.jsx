@@ -112,7 +112,7 @@ export default function UserProfilePage({ user }) {
         <ProfileForm profile={profile} setProfile={setProfile} />
         <div style={{ display: "flex" }}>
           <PetComponent profile={profile} setProfile={setProfile} />
-          <PetComponent profile={profile} setProfile={setProfile} />
+          {/* <PetComponent profile={profile} setProfile={setProfile} /> */}
         </div>
         <Carousel />
         <div style={{ marginLeft: "-42px" }}>

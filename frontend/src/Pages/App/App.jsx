@@ -40,6 +40,7 @@ import NewBlogsDetail from "../NewBlogsDetail/NewBlogsDetail";
 import HootDetailPage from "../HootDetailPage/HootDetailPage";
 import * as hootService from "../../services/hootService";
 import HootFormPage from "../HootFormPage/HootFormPage";
+import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
 
 import "./App.css";
 
@@ -156,7 +157,17 @@ export default function App() {
                 />
                 <Route path="/plans" element={<PlanPage />} />
                 <Route path="/marketplace" element={<MarketplacePage />} />
-                <Route path="/write" element={<NewBlogPage />} />
+                <Route
+                  path="/write"
+                  element={
+                    <NewBlogPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
                 <Route path="/plans/:id" element={<ShowPlanPage />} />
                 <Route path="/blogs" element={<ViewBlogsPage />} />
                 <Route
