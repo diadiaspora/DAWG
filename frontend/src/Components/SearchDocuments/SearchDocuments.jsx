@@ -17,13 +17,28 @@ const SearchDocuments = () => {
   };
 
   return (
-    <div style={{ marginLeft: "42px" }}>
-      <div style={{ display: "flex", paddingTop: "42px"}}>
-        <div>
-          <label
-            htmlFor="from"
-            style={{ marginLeft: "0px", width: "220px" }}
-          >
+    <div
+      style={{
+        borderStyle: "solid",
+        borderRadius: "7px",
+        borderColor: "#d9d9d9",
+        backgroundColor: "#ffffff",
+        marginTop: "82px",
+        height: "177px",
+        width: "1012px",
+        marginLeft: "0px",
+      }}
+    >
+      <div style={{ paddingTop: "18px" }}>
+        <strong style={{ marginLeft: "18px" }}>
+          Find out what documents you pet needs to travel to and from a specific
+          country.
+        </strong>
+      </div>
+
+      <div style={{ display: "flex", marginTop: "18px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="from" style={{ marginLeft: "21px", width: "350px" }}>
             Where From
           </label>
           <select
@@ -38,26 +53,23 @@ const SearchDocuments = () => {
             <option value="chile">Chile</option>
           </select>
         </div>
-        <div>
-          <div>
-            <label htmlFor="to" style={{ marginLeft: "0px", width: "220px"}}>Where to?:</label>
-            <select
-              name="to"
-              className="docSelect"
-              value={toCountry}
-              onChange={(e) => setToCountry(e.target.value)}
-            >
-              <option value="">Where are you going?</option>
-              <option value="usa">USA</option>
-              <option value="mexico">Mexico</option>
-              <option value="chile">Chile</option>
-            </select>
-          </div>
+
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="to" style={{ marginLeft: "19px" }}>
+            Where to?:
+          </label>
+          <select
+            name="to"
+            className="docSelect"
+            value={toCountry}
+            onChange={(e) => setToCountry(e.target.value)}
+          >
+            <option value="">Where are you going?</option>
+            <option value="usa">USA</option>
+            <option value="mexico">Mexico</option>
+            <option value="chile">Chile</option>
+          </select>
         </div>
-      </div>
-      <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "36px" }}
-      >
         <button onClick={handleClick} className="buttonAir">
           Search
         </button>
