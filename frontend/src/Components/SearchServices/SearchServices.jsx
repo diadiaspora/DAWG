@@ -26,34 +26,29 @@ const SearchServices = () => {
     <>
       <div
         style={{
-          marginLeft: "42px",
-          paddingLeft: "0px",
-          
+          borderStyle: "solid",
+          borderRadius: "7px",
+          borderColor: "#d9d9d9",
+          backgroundColor: "#ffffff",
+          marginTop: "82px",
+          height: "177px",
+          width: "1012px",
+          marginLeft: "0px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            paddingTop: "42px",
-            marginLeft: "0px",
-            paddingLeft: "0px",
-          
-          }}
-        >
+        <div style={{marginTop: "18px"}}>
+          <strong style={{ marginLeft: "18px" }}>
+            Find the services you need while traveling
+          </strong>
+        </div>
+        <div style={{ display: "flex", marginTop: "18px" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <label
-              for="from"
-              style={{
-                marginLeft: "0px",
-                width: "220px",
-             
-              }}
-            >
+            <label for="from" style={{ marginLeft: "21px", width: "350px" }}>
               Service Needed
             </label>
             <select
               name="service"
-              className="select"
+              className="servSelect"
               value={service}
               onChange={(e) => setService(e.target.value)}
             >
@@ -73,13 +68,13 @@ const SearchServices = () => {
             </select>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column" , marginLeft: "42px"}}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
               City?:
             </label>
             <select
               name="location"
-              className="select"
+              className="servSelect"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             >
@@ -89,14 +84,7 @@ const SearchServices = () => {
               <option value="Santiago">Santiago</option>
             </select>
           </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "36px",
-          }}
-        >
+
           <button onClick={handleClick} className="buttonAir">
             Search
           </button>

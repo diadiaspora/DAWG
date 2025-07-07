@@ -10,7 +10,7 @@ export default function Header({ user}) {
         </div>
       ) : (
         <div>
-          <h1>Hey User</h1>
+          <h1>Hey </h1>
           <h2>Where are you and your dog going next?</h2>
         </div>
       )}

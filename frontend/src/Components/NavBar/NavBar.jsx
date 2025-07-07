@@ -1,7 +1,7 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { logOut } from "../../services/authService";
 import "./NavBar.css";
-
+import { FaRegCircleUser } from "react-icons/fa6";
 export default function NavBar({ user, setUser, profile }) {
   const navigate = useNavigate();
 
@@ -41,9 +41,10 @@ export default function NavBar({ user, setUser, profile }) {
           {/* <span>Welcome, {user.name}</span> */}
           <span>
             <img
-              src={profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
+              src={profile?.avatar || <FaRegCircleUser />}
               className="avatar"
               alt="User Avatar"
+              style={{ width: "33px" }}
             />
           </span>
         </>
@@ -63,12 +64,13 @@ export default function NavBar({ user, setUser, profile }) {
           &nbsp; | &nbsp;
           <NavLink to="/signup">Sign Up</NavLink>
           <span>
-            <img
-              src={profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
+            {/* <img
+              src={profile?.avatar || <FaRegCircleUser />}
               className="avatar"
-                alt="User Avatar"
-                style={{width: "33px"}}
-            />
+              alt="User Avatar"
+              style={{ width: "33px" }}
+            /> */}
+              <img src="https://i.ibb.co/bgQM3cM2/Vector.png" alt="Vector" border="0"/>
           </span>
         </>
       )}

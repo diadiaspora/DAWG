@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 import "./SearchAirlines.css";
 
@@ -27,47 +28,35 @@ const SearchAirlines = () => {
   return (
     <div
       style={{
-       
         borderStyle: "solid",
-        borderRadius: "2px",
+        borderRadius: "7px",
         borderColor: "#d9d9d9",
         backgroundColor: "#ffffff",
         marginTop: "82px",
         height: "177px",
-        width: "963px",
-        marginLeft: "25px"
+        width: "1012px",
+        marginLeft: "0px",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          paddingTop: "42px",
-          // borderStyle: "solid",
-          // borderRadius: "7px",
-          // borderColor: "#d9d9d9",
-        }}
-      >
-        <div
-          style={
-            {
-              // borderStyle: "solid",
-              // borderRadius: "7px",
-              // borderColor: "#d9d9d9",
-            }
-          }
-        >
-          <label htmlFor="from">Airline</label>
+      <div style={{ paddingTop: "18px" }}>
+ 
+        <strong style={{ marginLeft: "18px" }}>
+    
+          Compare pet travel fees for each airline Find out which airline meets
+          your pet travel budget.
+        </strong>
+      </div>
+
+      <div style={{ display: "flex", marginTop: "18px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="from" style={{ marginLeft: "18px" }}>
+            Airline
+          </label>
           <select
             name="from"
             className="airSelect"
             value={airline}
             onChange={handleAirlineChange}
-            style={{
-              borderRadius: "7px",
-              backgroundColor: "#F2F4F7",
-              borderTopWidth: "0.5px",
-              borderColor: "#E9E9E9",
-            }}
           >
             <option value="">Which Airline?</option>
             <option value="delta">Delta</option>
@@ -75,8 +64,10 @@ const SearchAirlines = () => {
             <option value="american-airlines">American Airlines</option>
           </select>
         </div>
-        <div style={{ marginLeft: "-60px" }}>
-          <label htmlFor="to">Where to?</label>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="to" style={{ marginLeft: "19px" }}>
+            Where to?
+          </label>
           <select
             name="to"
             className="airSelect"
@@ -92,11 +83,8 @@ const SearchAirlines = () => {
           Search
         </button>
       </div>
-      {/* <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "36px" }}
-      >
-        
-      </div> */}
+
+    
     </div>
   );
 };
