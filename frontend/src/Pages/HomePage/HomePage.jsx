@@ -27,7 +27,7 @@ export default function HomePage({ user, setUser, hoots }) {
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-    navigate("/"); // or refresh the list, or update props.hoots
+    navigate("/"); 
   };
 
   return (
@@ -41,7 +41,7 @@ export default function HomePage({ user, setUser, hoots }) {
         <div>
           <BlogsComponent />
         </div>
-{/* 
+        {/* 
         <HootList
           user={user}
           setUser={setUser}
@@ -58,7 +58,7 @@ export default function HomePage({ user, setUser, hoots }) {
         {/* <HootForm handleAddHoot={handleAddHoot} /> */}
         <Marketplace />
         <div>
-          <BlogList />
+          <BlogList user={user} setUser={setUser} />
         </div>
       </section>
     </>

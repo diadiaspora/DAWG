@@ -25,3 +25,7 @@ export async function update(blogId, blogData) {
 export async function deleteBlog(blogId) {
   return sendRequest(`${BASE_URL}/${blogId}`, "DELETE");
 }
+
+export function getUserBlogs() {
+  return sendRequest(`${BASE_URL}/profile/blogs`);
+}

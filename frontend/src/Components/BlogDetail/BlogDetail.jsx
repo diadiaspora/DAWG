@@ -2,16 +2,16 @@ import { useState, useEffect, useRef } from "react"; // Import useRef
 import * as blogService from "../../services/blogService";
 import { useParams, useNavigate } from "react-router-dom"; // Use react-router-dom for consistent imports
 
-export default function BlogDetail({ user, setUser }) {
+export default function BlogDetail({ user, setUser,}) {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const isAuthor = user && blog?.author?._id === user._id;
+  const isAuthor = user && blog?.author?.username === user.username;;
 
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
 
-  // Refs for image file inputs in editing mode
+
   const contentOneImageRef = useRef();
   const contentTwoImageRef = useRef();
   const contentThreeImageRef = useRef();
@@ -30,13 +30,11 @@ export default function BlogDetail({ user, setUser }) {
           contentTwo: fetchedBlog.contentTwo || "",
           contentThree: fetchedBlog.contentThree || "",
           contentFour: fetchedBlog.contentFour || "",
-          // Initialize image URLs in formData for display (though they won't be edited directly here)
-          // These are just for the initial state if you wanted to display existing images in edit mode,
-          // but for file inputs, we just rely on refs.
+       
         });
       } catch (err) {
         console.error("Failed to fetch blog:", err);
-        // Handle error, e.g., navigate to an error page or show a message
+  
         navigate("/error"); // Example: navigate to an error page
       }
     }
@@ -118,8 +116,6 @@ export default function BlogDetail({ user, setUser }) {
         style={{
           margin: "20px",
           padding: "20px",
-          border: "1px solid #ccc",
-          borderRadius: "8px",
         }}
       >
         {isEditing ? (
@@ -289,7 +285,23 @@ export default function BlogDetail({ user, setUser }) {
           <div style={{ width: "1012px", display: "flex" }}>
             <div style={{ width: "632px" }}>
               <h1>{blog.title}</h1>
-              {/* Conditional rendering for author and date to prevent null errors */}
+              <img
+                src={
+                  blog.author?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"
+                }
+                alt="Author avatar"
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
+              />
+              <p>
+                <strong>{blog.author?.username || "Anonymous"}</strong>
+                {/* <strong>{hoot.author?.username || "Anonymous"}</strong> */}
+              </p>
+
               {blog.author && blog.author.username ? (
                 <p>
                   {`${blog.author.username} posted on ${new Date(

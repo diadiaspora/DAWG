@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 
 export default function NewBlogPage({ user, setUser, hoots }) {
   const [errorMsg, setErrorMsg] = useState("");
+  
   const [blogData, setBlogData] = useState({
     title: "",
     contentOne: "",
@@ -19,7 +20,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
   });
 
 
-  // Create refs for each image input
+
   const contentOneImageRef = useRef();
   const contentTwoImageRef = useRef();
   const contentThreeImageRef = useRef();
