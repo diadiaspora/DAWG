@@ -66,6 +66,18 @@ export default function App() {
     fetchAllHoots();
   }, []);
 
+    useEffect(() => {
+      async function fetchBlogs() {
+        const blogs = await blogService.index();
+        console.log("Fetched blogs with authors:", blogs);
+       
+        const shuffled = blogs.sort(() => 0.5 - Math.random()).slice(0, 2);
+        setBlogs(shuffled);
+      }
+      fetchBlogs();
+    }, []);
+  
+
   useEffect(() => {
     const url = "https://mntzco.com/NDI4NDIx.js?t=428421";
     const existingScript = document.querySelector(`script[src="${url}"]`);

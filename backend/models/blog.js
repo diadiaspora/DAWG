@@ -29,9 +29,9 @@ const blogSchema = new Schema(
     contentFour: { type: String },
 
     author: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Profile",
       required: true,
-      ref: "User",
     },
   },
   {

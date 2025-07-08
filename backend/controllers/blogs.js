@@ -34,12 +34,21 @@ module.exports = {
   show,
   update,
   deleteBlog,
+  getUserBlogs,
 };
 
 async function index(req, res) {
   try {
-    const blogs = await Blog.find({}).populate("author", "name");
-    res.json(blogs);
+
+    const Profile = require("../models/profile");
+    const blogs = await Blog.find({}).populate('author')
+.sort({ createdAt: -1 });
+        
+    console.log(blogs);
+    // const blogs = await Blog.find({}).populate("author", "name");
+     res.json(blogs);
+
+
   } catch (err) {
     console.error("Error in blog index:", err);
     res
@@ -51,9 +60,12 @@ async function index(req, res) {
 async function create(req, res) {
   
   try {
-    // IMPORTANT: Temporarily hardcoding author ID to resolve 400 error.
-    // In a real application, ensure proper authentication middleware sets req.user._id.
-    req.body.author = req.user._id; 
+    const Profile = require("../models/profile");
+    const profile = await Profile.findOne({ author: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+
+    req.body.author = profile._id; 
+
     console.log("REQ.USER IN BLOG CREATE:", req.user);
     // Process image uploads
     if (req.files) {
@@ -122,10 +134,16 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const blog = await Blog.findById(req.params.id).populate("author");
+    const blog = await Blog.findById(req.params.id).populate(
+      "author",
+      "username avatar"
+    );
     if (!blog) {
       return res.status(404).json({ message: "Blog not found" });
     }
+
+    
+    console.log(blog);
     res.json(blog);
   } catch (err) {
     console.error("Error in blog show:", err);
@@ -213,5 +231,26 @@ async function deleteBlog(req, res) {
     res
       .status(500)
       .json({ message: "Failed to delete blog", error: err.message });
+  }
+}
+
+async function getUserBlogs(req, res) {
+  try {
+    const Profile = require("../models/profile");
+
+    // Get the user's profile
+    const profile = await Profile.findOne({ author: req.user._id });
+    if (!profile) {
+      return res.status(404).json({ message: "Profile not found" });
+    }
+
+    // Get blogs that belong to this profile
+    const blogs = await Blog.find({ author: profile._id }).populate("author");
+    res.json(blogs);
+  } catch (err) {
+    console.error("Error in getUserBlogs:", err);
+    res
+      .status(500)
+      .json({ message: "Failed to fetch user blogs", error: err.message });
   }
 }

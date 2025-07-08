@@ -18,3 +18,6 @@ export async function show(profileId) {
   return sendRequest(`${BASE_URL}/${profileId}`, "GET");
 }
 
+export function getUserBlogs() {
+  return sendRequest(`${BASE_URL}/profile/blogs`);
+}

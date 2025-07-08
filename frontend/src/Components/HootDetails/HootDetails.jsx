@@ -5,7 +5,7 @@ import HootForm from "../../Components/HootForm/HootForm";
 
 import CommentForm from "../CommentForm/CommentForm";
 
-const HootDetails = () => {
+const HootDetails = ({ user, setUser }) => {
   const { hootId } = useParams();
   const [hoot, setHoot] = useState(null);
 
@@ -69,8 +69,8 @@ const HootDetails = () => {
                 borderColor: "#E9E9E9",
                 borderRadius: "7px",
                 padding: "12px",
-                height: "200px", // ✅ Fixed height
-                overflowY: "auto", // ✅ Enable vertical scroll
+                height: "200px", // 
+                overflowY: "auto", 
               }}
             >
               <h1>{hoot.title}</h1>
@@ -80,7 +80,7 @@ const HootDetails = () => {
               {hoot.gifUrl && (
                 <div
                   style={{
-                    // marginTop: "20px", // Add some space above the GIF
+                  
                     width: "100%", // Take full width of the section
                     display: "flex",
                     justifyContent: "center", // Center the GIF horizontally
