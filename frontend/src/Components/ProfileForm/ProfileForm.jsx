@@ -16,6 +16,17 @@ export default function ProfileForm({ profile, setProfile }) {
     username: "",
     bio: "",
   });
+
+  useEffect(() => {
+    if (profile) {
+      setProfileData({
+        username: profile.username || "",
+        bio: profile.bio || "",
+      });
+    }
+  }, [profile]);
+
+
   const avatarImageRef = useRef();
   const passportImageRef = useRef();
   const importantDocsImageRef = useRef();
@@ -178,30 +189,28 @@ export default function ProfileForm({ profile, setProfile }) {
                 flexDirection: "column",
               }}
             >
-              <strong> Bio </strong>
               <div>
+                <div>{profileData.username}</div>
                 <div style={{ width: "300px" }}>
                   <img
                     src={profile.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"}
                     alt="avatar"
                     style={{ width: "200px" }}
                   />
-             
                 </div>
               </div>
-              <button
-                onClick={() => setShowForm(true)}
-                style={{
-                  borderRadius: "7px",
-                  height: "44px",
-                  backgroundColor: "#1E3769",
-                }}
-              >
-                Update
-              </button>
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
+            <strong
+              style={{
+                marginLeft: "21px",
+                marginTop: "21px",
+                marginBottom: "6px",
+              }}
+            >
+              Bio
+            </strong>
             <div
               style={{
                 display: "flex",
@@ -212,20 +221,12 @@ export default function ProfileForm({ profile, setProfile }) {
                 width: "640px",
                 marginTop: "24px",
                 marginLeft: "21px",
+                height: "100px",
               }}
             >
               <div>{profileData.bio}</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <strong
-                style={{
-                  marginLeft: "21px",
-                  marginTop: "21px",
-                  marginBottom: "6px",
-                }}
-              >
-                Upcoming Trips
-              </strong>
               <div
                 style={{
                   backgroundColor: "#d9d9d9",
@@ -235,8 +236,23 @@ export default function ProfileForm({ profile, setProfile }) {
                   height: "110px",
                 }}
               >
-                <div style={{ marginTop: "42px" }}>{/* <PlanIndex />  */}</div>
+                <button> Important Docs </button> 
+                <button> Passport </button>
               </div>
+              <button
+                onClick={() => setShowForm(true)}
+                style={{
+                  
+                
+                  color: "#1E3769",
+                  backgroundColor: "#ffffff",
+                  borderColor: "#ffffff",
+                  textDecoration: "underline"
+                
+                }}
+              >
+                Update
+              </button>
             </div>
           </div>
         </div>

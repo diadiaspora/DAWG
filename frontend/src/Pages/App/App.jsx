@@ -41,7 +41,7 @@ import HootDetailPage from "../HootDetailPage/HootDetailPage";
 import * as hootService from "../../services/hootService";
 import HootFormPage from "../HootFormPage/HootFormPage";
 import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
-
+import AddPetPage from "../AddPetPage/AddPetPage";
 import "./App.css";
 
 export default function App() {
@@ -220,6 +220,7 @@ export default function App() {
                     />
                   }
                 />
+                <Route path="/addpet" element={<AddPetPage user={user} />} />
               </Routes>
             ) : (
               <Routes>
