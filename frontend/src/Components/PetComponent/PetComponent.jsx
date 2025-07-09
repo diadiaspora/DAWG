@@ -2,11 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import * as petService from "../../services/petService"; // Corrected import path
 import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use it
 
-export default function PetComponent() {
+export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate hook
+  const handleSuccess = () => navigate("/profile");
 
-  
   const [petData, setPetData] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -14,31 +14,34 @@ export default function PetComponent() {
     bio: "",
     breed: "",
     age: "",
-    weight: "", 
+    weight: "",
   });
-  
+
   const [showForm, setShowForm] = useState(false);
 
   const [errorMsg, setErrorMsg] = useState("");
 
   const [loading, setLoading] = useState(true);
 
- 
-  const petPhotoImageRef = useRef(); 
+  const petPhotoImageRef = useRef();
   const microchipImageRef = useRef();
   const vaccineImageRef = useRef();
   const healthCertificateImageRef = useRef();
 
-
   useEffect(() => {
+    if (mode === "create") {
+      setLoading(false);
+      setShowForm(true); // show the form right away for creation
+      return;
+    }
+
     async function getPet() {
       try {
         setLoading(true);
 
         const pets = await petService.index();
         if (pets && pets.length > 0) {
-          
-          const existingPet = pets[0]; 
+          const existingPet = pets[0];
           setPetData(existingPet);
           setFormData({
             petName: existingPet.petName || "",
@@ -47,21 +50,21 @@ export default function PetComponent() {
             age: existingPet.age || "",
             weight: existingPet.weight || "",
           });
-          setShowForm(false); 
+          setShowForm(false);
         } else {
-      
           setShowForm(true);
         }
       } catch (err) {
         console.error("Error fetching pet data:", err);
         setErrorMsg("Failed to load pet data.");
-        setShowForm(true); // Default to showing the form if fetching fails
+        setShowForm(true);
       } finally {
         setLoading(false);
       }
     }
+
     getPet();
-  }, []); // Empty dependency array means this runs once on mount
+  }, [mode]); // Empty dependency array means this runs once on mount
 
   useEffect(() => {
     if (petData?.petPhoto) {
@@ -74,7 +77,6 @@ export default function PetComponent() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
- 
   async function handleSubmit(evt) {
     evt.preventDefault();
     setErrorMsg(""); // Clear previous errors
@@ -82,12 +84,10 @@ export default function PetComponent() {
     try {
       const newPetData = new FormData();
 
-    
       for (const key in formData) {
         newPetData.append(key, formData[key]);
       }
 
-      
       if (petPhotoImageRef.current && petPhotoImageRef.current.files[0]) {
         newPetData.append("petPhoto", petPhotoImageRef.current.files[0]);
       }
@@ -116,10 +116,13 @@ export default function PetComponent() {
 
       setPetData(updatedPet); // Update the petData state with the new/updated pet
       setShowForm(false); // Hide the form and show the card
-     
     } catch (err) {
       console.error("Error submitting pet form:", err);
       setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
+    }
+
+    if (onSuccess) {
+      onSuccess(); // Triggers redirect or re-fetch logic
     }
   }
 
@@ -545,7 +548,6 @@ export default function PetComponent() {
                   >
                     Update Pet Information
                   </button>
-             
                 </div>
               </div>
             )}

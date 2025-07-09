@@ -7,6 +7,7 @@ import Header from "../../Components/Header/Header.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import PetComponent from "../../Components/PetComponent/PetComponent.jsx";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
 import UsersPlans from "../../Components/UsersPlans/UsersPlans";
 import UsersPets from "../../Components/UsersPets/UsersPets";
@@ -17,6 +18,7 @@ import "./UserProfilePage.css";
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
 
+  const navigate = useNavigate();
 
    useEffect(() => {
      async function fetchProfile() {
@@ -48,15 +50,18 @@ export default function UserProfilePage({ user }) {
         </div>
 
         <ProfileForm profile={profile} setProfile={setProfile} />
-
-        <div style={{ display: "flex" }}>
-          <PetComponent profile={profile} setProfile={setProfile} />
+        <div style={{ marginLeft: "42px", marginTop: "24px" }}>
+       
         </div>
+        <div style={{ display: "flex" }}></div>
         {/* <Carousel /> */}
-        <div style={{ marginLeft: "-42px" }}>
+        <div style={{display:"flex"}}>
           <UsersPets user={user} />
-          <UsersBlogs user={user} />
           <UsersPlans user={user} />
+        </div>
+        <div style={{ marginLeft: "-42px" }}>
+          <UsersBlogs user={user} />
+
           <Articles />
         </div>
       </section>
