@@ -45,8 +45,16 @@ export default function Marketplace() {
               {product.images.length > 0 && (
                 <img src={product.images[0].src} alt={product.title} />
               )}
-              <div style={{ display: "flex", marginTop: "-12px", paddingLeft:"12px" }}>
-                <p style={{ textDecoration: "none", fontWeight: "bold" }}>{product.title}</p>
+              <div
+                style={{
+                  display: "flex",
+                  marginTop: "-12px",
+                  paddingLeft: "12px",
+                }}
+              >
+                <p style={{ textDecoration: "none", fontWeight: "bold" }}>
+                  {product.title}
+                </p>
                 {product.variants.length > 0 && (
                   <p style={{ marginLeft: "50px", marginTop: "20px" }}>
                     ${parseFloat(product.variants[0].price.amount).toFixed(2)}
@@ -62,11 +70,9 @@ export default function Marketplace() {
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                width: "200px", 
+                width: "200px",
                 paddingLeft: "12px",
-                marginBottom: "60px"
-         
-
+                marginBottom: "60px",
               }}
             >
               {product.description}
@@ -75,7 +81,6 @@ export default function Marketplace() {
               to={`/product/${product.id.split("/").pop()}`}
               style={{
                 marginLeft: "110px",
-              
                 textDecoration: "none",
                 padding: "12px",
                 height: "44px",
@@ -84,6 +89,9 @@ export default function Marketplace() {
                 borderColor: "#1E3769",
                 borderRadius: "7px",
                 color: "#ffffff",
+                fontSize: "16px",
+                fontFamily: "Roboto",
+                fontWeight: "500"
               }}
             >
               View Details

@@ -39,9 +39,7 @@ const SearchAirlines = () => {
       }}
     >
       <div style={{ paddingTop: "18px" }}>
- 
         <strong style={{ marginLeft: "18px" }}>
-    
           Compare pet travel fees for each airline Find out which airline meets
           your pet travel budget.
         </strong>
@@ -49,7 +47,10 @@ const SearchAirlines = () => {
 
       <div style={{ display: "flex", marginTop: "18px" }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="from" style={{ marginLeft: "18px" }}>
+          <label
+            htmlFor="from"
+            style={{ marginLeft: "21px", fontSize: "16px", width: "350px" }}
+          >
             Airline
           </label>
           <select
@@ -57,6 +58,7 @@ const SearchAirlines = () => {
             className="airSelect"
             value={airline}
             onChange={handleAirlineChange}
+            style={{ fontSize: "14px" }}
           >
             <option value="">Which Airline?</option>
             <option value="delta">Delta</option>
@@ -65,7 +67,7 @@ const SearchAirlines = () => {
           </select>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="to" style={{ marginLeft: "19px" }}>
+          <label htmlFor="to" style={{ marginLeft: "21px", fontSize: "16px" }}>
             Where to?
           </label>
           <select
@@ -73,18 +75,21 @@ const SearchAirlines = () => {
             className="airSelect"
             value={location}
             onChange={handleLocationChange}
+            style={{ fontSize: "14px" }}
           >
             <option value="">National or International</option>
             <option value="national">National</option>
             <option value="international">International</option>
           </select>
         </div>
-        <button onClick={handleClick} className="buttonAir">
+        <button
+          onClick={handleClick}
+          className="buttonAir"
+          style={{ fontSize: "16px" }}
+        >
           Search
         </button>
       </div>
-
-    
     </div>
   );
 };

@@ -10,7 +10,7 @@ export default function Header({ user}) {
         </div>
       ) : (
         <div>
-          <h1>Hey </h1>
+          <h1 style={{ fontSize: "22px", marginTop: "40px" }}>Hey </h1>
           <h2>Where are you and your dog going next?</h2>
         </div>
       )}

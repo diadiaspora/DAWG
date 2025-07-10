@@ -1,11 +1,22 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa6";
+import "./HootLongList.css";
 
 export default function HootLongList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
+  const navigate = useNavigate();
+
+
+  const handlePostClick = () => {
+    if (props.user) {
+      navigate("/newhoot");
+    } else {
+      navigate("/signup");
+    }
+  };
 
   useEffect(() => {
     if (props.hoots && props.hoots.length > 0) {
@@ -35,18 +46,21 @@ export default function HootLongList(props) {
           </h2>
         </div>
         <div>
-          <Link to="/newhoot">
-            <button
-              style={{
-                width: "140px",
-                height: "44px",
-                backgroundColor: "#1E3769",
-                borderWidth: "0px",
-              }}
-            >
-              Post
-            </button>
-          </Link>
+          <button
+            onClick={handlePostClick}
+            style={{
+              width: "140px",
+              height: "44px",
+              backgroundColor: "#1E3769",
+              borderWidth: "0px",
+              color: "white",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontFamily: "Roboto"
+            }}
+          >
+            Post
+          </button>
         </div>
       </div>
 
@@ -59,23 +73,23 @@ export default function HootLongList(props) {
           overflowX: "hidden", // Hide overflow from this container
         }}
       >
-        {/* This is the inner container that *actually scrolls* */}
         <div
+          className="hoot-scroll-container"
           style={{
             display: "flex",
             gap: "16px",
 
             overflowX: "scroll",
-            scrollSnapType: "x mandatory",
-            paddingBottom: "20px", // Add padding for scrollbar if needed
-            scrollbarWidth: "thin", // For Firefox
-            scrollbarColor: "#1E3769 #f0f0f0", // For Firefox (thumb track)
+            // scrollSnapType: "x mandatory",
+            // paddingBottom: "20px", // Add padding for scrollbar if needed
+            // scrollbarWidth: "thin", // For Firefox
+            // scrollbarColor: "#1E3769 #f0f0f0", // For Firefox (thumb track)
 
-            WebkitOverflowScrolling: "touch", // Improve scroll performance on iOS
+            // WebkitOverflowScrolling: "touch", // Improve scroll performance on iOS
           }}
         >
           {displayedHoots.map((hoot) => (
-             <div
+            <div
               key={hoot._id}
               style={{
                 borderStyle: "solid",
@@ -115,7 +129,7 @@ export default function HootLongList(props) {
                     <strong>{hoot.author?.username || "Anonymous"}</strong>
                   </p>
                   <div style={{ marginLeft: "190px" }}>
-                    <p style={{ fontSize: "12px"}}>
+                    <p style={{ fontSize: "12px" }}>
                       {new Date(hoot.createdAt).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
@@ -180,16 +194,16 @@ export default function HootLongList(props) {
                   }}
                 />
               )}
-              <div style={{ display: "flex", justifyContent: "flex-end" }}> 
-                <div> 
-              <FaRegHeart />
-                </div> 
-                <div style={{marginLeft: "12px"}}> 
-              <Link to={`/hoots/${hoot._id}`}>
-                <FaRegComment />
-              </Link>
-                  </div>
+              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <div>
+                  <FaRegHeart />
                 </div>
+                <div style={{ marginLeft: "12px" }}>
+                  <Link to={`/hoots/${hoot._id}`}>
+                    <FaRegComment />
+                  </Link>
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function BlogList() {
+export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate(); // ✅
 
   useEffect(() => {
     async function fetchBlogs() {
       const blogs = await blogService.index();
-      console.log("Fetched blogs with authors:", blogs);
-     
       const shuffled = blogs.sort(() => 0.5 - Math.random()).slice(0, 2);
       setBlogs(shuffled);
     }
     fetchBlogs();
   }, []);
+
+  const handleCreatePostClick = () => {
+    if (user) {
+      navigate("/posts/new");
+    } else {
+      navigate("/signup");
+    }
+  };
 
   return (
     <div
@@ -111,21 +118,23 @@ export default function BlogList() {
               marginTop: "36px",
             }}
           >
-            <Link to="/posts/new">
-              <button
-                style={{
-                  backgroundColor: "#1E3769",
-                  borderRadius: "7px",
-                  borderColor: "#1E3769",
-                  width: "200px",
-                  height: "44px",
-                  color: "#fff",
-                  fontWeight: "bold",
-                }}
-              >
-                Create a post
-              </button>
-            </Link>
+            <button
+              onClick={handleCreatePostClick}
+              style={{
+                backgroundColor: "#1E3769",
+                borderRadius: "7px",
+                borderColor: "#1E3769",
+                width: "200px",
+                height: "44px",
+                color: "#fff",
+                fontWeight: "bold",
+                cursor: "pointer",
+                fontSize: "16px",
+                fontFamily: "Roboto",
+              }}
+            >
+              Create a post
+            </button>
           </div>
         </div>
       </div>
