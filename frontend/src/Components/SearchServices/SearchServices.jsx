@@ -36,14 +36,17 @@ const SearchServices = () => {
           marginLeft: "0px",
         }}
       >
-        <div style={{marginTop: "18px"}}>
+        <div style={{ marginTop: "18px" }}>
           <strong style={{ marginLeft: "18px" }}>
             Find the services you need while traveling
           </strong>
         </div>
         <div style={{ display: "flex", marginTop: "18px" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <label for="from" style={{ marginLeft: "21px", width: "350px" }}>
+            <label
+              for="from"
+              style={{ marginLeft: "21px", width: "350px", fontSize: "16px" }}
+            >
               Service Needed
             </label>
             <select
@@ -51,6 +54,7 @@ const SearchServices = () => {
               className="servSelect"
               value={service}
               onChange={(e) => setService(e.target.value)}
+              style={{ fontSize: "14px" }}
             >
               <option value="">What do you need?</option>
               <option value="vet">Veterinarian</option>
@@ -69,7 +73,10 @@ const SearchServices = () => {
           </div>
 
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <label for="to" style={{ marginLeft: "0px", width: "220px" }}>
+            <label
+              for="to"
+              style={{ marginLeft: "18px", width: "220px", fontSize: "16px" }}
+            >
               City?:
             </label>
             <select
@@ -77,6 +84,7 @@ const SearchServices = () => {
               className="servSelect"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
+              style={{ fontSize: "14px" }}
             >
               <option value="">Where are you?</option>
               <option value="MexicoCity">Mexico City</option>

@@ -14,12 +14,12 @@ export default function NavBar({ user, setUser, profile }) {
 
   return (
     <nav className="NavBar">
-      <img
-        src="/dawgmoney.png"
-        className="dogmoney"
-        alt="dog logo with money eyes"
-      ></img>
       <NavLink to="/">
+        <img
+          src="/dawgmoney.png"
+          className="dogmoney"
+          alt="dog logo with money eyes"
+        ></img>
         <img src="/dawg.png" className="doglogo" alt="dawg logo letters"></img>
       </NavLink>
       &nbsp; | &nbsp;
@@ -44,7 +44,7 @@ export default function NavBar({ user, setUser, profile }) {
               src={profile?.avatar || <FaRegCircleUser />}
               className="avatar"
               alt="User Avatar"
-              style={{ width: "33px" , borderRadius: "300px"}}
+              style={{ width: "33px", borderRadius: "300px" }}
             />
           </span>
         </>
@@ -70,7 +70,12 @@ export default function NavBar({ user, setUser, profile }) {
               alt="User Avatar"
               style={{ width: "33px" }}
             /> */}
-              <img src="https://i.ibb.co/bgQM3cM2/Vector.png" alt="Vector" border="0"/>
+            <img
+              src="https://i.ibb.co/bgQM3cM2/Vector.png"
+              alt="Vector"
+              border="0"
+              style={{ marginRight: "42px" }}
+            />
           </span>
         </>
       )}

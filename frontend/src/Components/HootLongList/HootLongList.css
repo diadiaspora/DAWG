@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.hoot-scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .hoot-scroll-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .hoot-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #1E3769;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hoot-scroll-container:hover::-webkit-scrollbar-thumb {
+    background-color: #4AA692;
+  }
+  
+  .hoot-scroll-container {
+    overflow-x: auto;
+    padding-bottom: 21px; /* Adds space between content (e.g. cards) and scrollbar */
+  }

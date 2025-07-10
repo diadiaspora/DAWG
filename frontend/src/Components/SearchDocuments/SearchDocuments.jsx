@@ -37,8 +37,11 @@ const SearchDocuments = () => {
       </div>
 
       <div style={{ display: "flex", marginTop: "18px" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="from" style={{ marginLeft: "21px", width: "350px" }}>
+        <div style={{ display: "flex", flexDirection: "column",  }}>
+          <label
+            htmlFor="from"
+            style={{ marginLeft: "21px", width: "350px", fontSize: "16px" }}
+          >
             Where From
           </label>
           <select
@@ -46,6 +49,7 @@ const SearchDocuments = () => {
             className="docSelect"
             value={fromCountry}
             onChange={(e) => setFromCountry(e.target.value)}
+            style={{ fontSize: "14px" }}
           >
             <option value="">Where From?</option>
             <option value="usa">USA</option>
@@ -55,7 +59,7 @@ const SearchDocuments = () => {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="to" style={{ marginLeft: "19px" }}>
+          <label htmlFor="to" style={{ marginLeft: "18px", fontSize: "16px" }}>
             Where to?:
           </label>
           <select
@@ -63,6 +67,7 @@ const SearchDocuments = () => {
             className="docSelect"
             value={toCountry}
             onChange={(e) => setToCountry(e.target.value)}
+            style={{ fontSize: "14px" }}
           >
             <option value="">Where are you going?</option>
             <option value="usa">USA</option>
@@ -70,7 +75,11 @@ const SearchDocuments = () => {
             <option value="chile">Chile</option>
           </select>
         </div>
-        <button onClick={handleClick} className="buttonAir">
+        <button
+          onClick={handleClick}
+          className="buttonAir"
+          style={{ fontSize: "16px" }}
+        >
           Search
         </button>
       </div>

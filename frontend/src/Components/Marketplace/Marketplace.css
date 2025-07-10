@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 .product-grid {
@@ -27,7 +28,7 @@
 
 .product-card img {
     max-width: 100%;
-    /* height: 200px; */
+
     object-fit: contain;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
