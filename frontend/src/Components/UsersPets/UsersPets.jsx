@@ -28,14 +28,16 @@ export default function UserPets() {
 
   return (
     <div className="mt-10 px-4">
-      <h2 className="text-2xl font-bold mb-4">My Pets</h2>
+      {/* <h2 className="text-2xl font-bold mb-4">My Pets</h2> */}
 
       {/* Outer container to hide overflow */}
       <div
         style={{
           overflowX: "auto",
           paddingBottom: "16px",
-          width: "500px",
+          width: "310px",
+          height: "350px",
+          marginLeft: "42px",
           WebkitOverflowScrolling: "touch",
         }}
       >
@@ -55,7 +57,8 @@ export default function UserPets() {
               key={pet._id}
               style={{
                 flex: "0 0 auto",
-                width: "300px",
+                width: "310px",
+                height: "350px",
                 border: "1px solid #BCC7D4",
                 borderRadius: "8px",
                 padding: "16px",
@@ -117,14 +120,7 @@ export default function UserPets() {
         </div>
       </div>
 
-      <div className="mt-6">
-        <button
-          onClick={() => navigate("/addpet")}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-md"
-        >
-          Add Pet
-        </button>
-      </div>
+  
     </div>
   );
 }
