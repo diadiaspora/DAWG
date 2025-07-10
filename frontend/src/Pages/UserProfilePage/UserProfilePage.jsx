@@ -13,6 +13,7 @@ import UsersPlans from "../../Components/UsersPlans/UsersPlans";
 import UsersPets from "../../Components/UsersPets/UsersPets";
 
 
+
 import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
@@ -40,23 +41,25 @@ export default function UserProfilePage({ user }) {
   return (
     <>
       <section style={{ paddingTop: "100px" }}>
+        <Header />
+        <SearchComponent />
         <div
           style={{
             display: "flex",
             width: "1012px",
           }}
         >
-          <div style={{ width: "650px", marginLeft: "42px" }}></div>
+          {/* <div style={{ width: "650px", marginLeft: "42px" }}></div> */}
         </div>
-
-        <ProfileForm profile={profile} setProfile={setProfile} />
-        <div style={{ marginLeft: "42px", marginTop: "24px" }}>
-       
+        <div style={{width:"1012px", display: "flex"}}>
+          <ProfileForm profile={profile} setProfile={setProfile} />
+          <UsersPets user={user} />
         </div>
+        <div style={{ marginLeft: "42px", marginTop: "24px" }}></div>
         <div style={{ display: "flex" }}></div>
         {/* <Carousel /> */}
-        <div style={{display:"flex"}}>
-          <UsersPets user={user} />
+        <div style={{ display: "flex" }}>
+         
           <UsersPlans user={user} />
         </div>
         <div style={{ marginLeft: "-42px" }}>

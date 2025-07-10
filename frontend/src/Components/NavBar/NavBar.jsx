@@ -44,7 +44,7 @@ export default function NavBar({ user, setUser, profile }) {
               src={profile?.avatar || <FaRegCircleUser />}
               className="avatar"
               alt="User Avatar"
-              style={{ width: "33px" }}
+              style={{ width: "33px" , borderRadius: "300px"}}
             />
           </span>
         </>

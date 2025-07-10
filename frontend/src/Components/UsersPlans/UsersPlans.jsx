@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
+import { Link } from "react-router-dom";
 
 export default function UserPlans() {
   const [plans, setPlans] = useState([]);
@@ -29,7 +30,7 @@ export default function UserPlans() {
           style={{
             overflowX: "auto",
             paddingBottom: "16px",
-            width: "500px",
+            width: "1012px",
             WebkitOverflowScrolling: "touch",
           }}
         >
@@ -76,6 +77,23 @@ export default function UserPlans() {
                 )}
               </div>
             ))}
+            <div
+              style={{
+                flex: "0 0 auto",
+                width: "300px",
+                border: "1px solid #BCC7D4",
+                borderRadius: "8px",
+                padding: "16px",
+                scrollSnapAlign: "start",
+                backgroundColor: "#fff",
+              }}
+            >
+              {" "}
+              Add a New Trip:
+              <Link to="/plans">
+                <button>Start Planning </button>
+              </Link>
+            </div>
           </div>
         </div>
       ) : (
