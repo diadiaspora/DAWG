@@ -8,7 +8,7 @@ import "./HootLongList.css";
 export default function HootLongList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
   const navigate = useNavigate();
-
+  const [hover, setHover] = useState(false);
 
   const handlePostClick = () => {
     if (props.user) {
@@ -26,22 +26,29 @@ export default function HootLongList(props) {
   }, [props.hoots]);
 
   return (
-    <div style={{ marginTop: "75px", marginRight: "42px" }}>
+    <div style={{ marginTop: "125px", marginRight: "42px" }}>
       <div
         style={{
-          backgroundColor: "#1e37691f",
+          backgroundColor: "#1E3769",
           width: "1012px",
           marginLeft: "42px",
           display: "flex",
           borderRadius: "7px",
-
+          height: "70px",
           alignItems: "baseline",
           marginBottom: "24px",
           padding: "12px",
         }}
       >
         <div>
-          <h2 style={{ marginLeft: "21px", marginRight: "620px" }}>
+          <h2
+            style={{
+              marginLeft: "21px",
+              marginRight: "570px",
+              color: "#ffffff",
+              fontSize: "18px",
+            }}
+          >
             Heres What Everyone Saying
           </h2>
         </div>
@@ -51,13 +58,18 @@ export default function HootLongList(props) {
             style={{
               width: "140px",
               height: "44px",
-              backgroundColor: "#1E3769",
-              borderWidth: "0px",
-              color: "white",
+              backgroundColor: "#ffffff",
+              borderWidth: "1px",
+              color: "#1E3769",
               cursor: "pointer",
               fontSize: "16px",
-              fontFamily: "Roboto"
+              fontFamily: "Roboto",
+              borderColor: hover ? "#4AA692" : "#1E3769",
+              color: hover ? "#347567" : "#1E3769",
+              borderRadius:"7px"
             }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
           >
             Post
           </button>
@@ -146,7 +158,7 @@ export default function HootLongList(props) {
                     borderColor: "#E9E9E9",
                     borderRadius: "7px",
                     padding: "12px",
-                    height: "126px",
+                    height: hoot.gifUrl ? "126px" : "276px", // ✅ Add 150px if no GIF
                     marginTop: "-10px",
                   }}
                 >
@@ -167,12 +179,12 @@ export default function HootLongList(props) {
                       style={{
                         margin: "0",
                         lineHeight: "1.5em",
-                        maxHeight: "4.5em",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         display: "-webkit-box",
                         WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: 3,
+                        WebkitLineClamp: hoot.gifUrl ? 3 : 10, // ✅ clamp to 3 or 10 lines
+                        maxHeight: hoot.gifUrl ? "4.5em" : "15em", // ✅ lineHeight * number of lines
                       }}
                     >
                       {hoot.text}

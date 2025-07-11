@@ -7,45 +7,64 @@ export default function Footer() {
     <>
       <div
         style={{
-          backgroundColor: "#1E3769",
+          backgroundColor: "#DFE2E7",
           marginTop: "42px",
-          color: "#ffffff",
+          color: "#1E3769",
           display: "flex",
         }}
       >
-        <div style={{ width: "632px", marginLeft: "42px" }}>
-          <h3>If you have traveled with your pet please share info</h3>
+        <div
+          style={{
+            width: "632px",
+            marginLeft: "42px",
+            marginTop: "42px",
+            marginBottom: "42px",
+          }}
+        >
+          <h3 style={{ fontSize: "15px" }}>
+            If you have traveled with your pet please share info
+          </h3>
           <ul>
-            <li>
+            <li style={{ fontSize: "13px" }}>
               Have you had an experience with an Airline? Did you find the
               perfect veterinarian while abroad?
             </li>
-            <li>
-              
+            <li style={{ fontSize: "13px" }}>
               Do you find out important info about documentation needed to
               travel to a specific country?
             </li>
-            <li>
-           Did you have a unique experience with an Airline?
+            <li style={{ fontSize: "13px" }}>
+              Did you have a unique experience with an Airline?
             </li>
           </ul>
-          <strong>
-             We are a community and we want everyone to
-            know everything about traveling safely and easily with their pet. </strong>
-          
-          <p> Contact Us: dia.diaspora@gmail.com</p>
-          <div>Subscribe for Updates about our mobile App!</div>
+          <strong style={{ fontSize: "15px" }}>
+            <p> We are a community.</p>
+            <p>
+              We want everyone to know everything about traveling safely and
+              easily with their pet.
+            </p>
+          </strong>
+
+          <p style={{ fontSize: "15px" }}>
+            <strong> Contact Us:</strong> dia.diaspora@gmail.com
+          </p>
+          <div style={{ fontSize: "15px" }}>
+            Subscribe for Updates about our mobile App!
+          </div>
         </div>
 
-        <div style={{ width: "310px" }}>
+        <div style={{ width: "310px", marginBottom: "42px" }}>
           <NewsLetter />
         </div>
       </div>
-      <div style={{ backgroundColor: "#4AA692" }}>
-        {" "}
-        Also, Everyone has there own unique experience. Heres a link to share
-        yours
-        <Link> BIPOC </Link>
+      <div
+        style={{ backgroundColor: "#1E3769", height: "54px", padding: "12px" }}
+      >
+        <strong>
+          Also, Everyone has there own unique experience. Heres a link to share
+          yours
+          <Link> BIPOC|LGBTQ </Link>
+        </strong>
       </div>
     </>
   );
