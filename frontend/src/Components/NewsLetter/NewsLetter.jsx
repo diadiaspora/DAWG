@@ -98,7 +98,7 @@ export default function NewsLetter() {
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <button type="submit">Subscribe</button>
+      <button style={{height: "44px", width: "200px"}}type="submit">Subscribe</button>
     </form>
   );
 }

@@ -10,6 +10,7 @@ export default function Marketplace() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -33,8 +34,55 @@ export default function Marketplace() {
   if (products.length === 0) return <p>No products found.</p>;
 
   return (
-    <div style={{ margin: "42px" }}>
-      <h1 style={{ fontSize: "24px" }}>MarketPlace</h1>
+    <div style={{ margin: "42px", marginTop: "125px" }}>
+      <div
+        style={{
+          backgroundColor: "#1E3769",
+          width: "1012px",
+
+          display: "flex",
+          borderRadius: "7px",
+          height: "70px",
+          alignItems: "baseline",
+          marginBottom: "24px",
+          padding: "12px",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "18px",
+            color: "#ffffff",
+            marginTop: "10px",
+            marginleft: "21px",
+            marginRight: "660px",
+          }}
+        >
+          Everything You Need
+        </h1>
+        <div>
+          <button
+            // onClick={handlePostClick}
+            style={{
+              width: "140px",
+              height: "44px",
+              backgroundColor: "#ffffff",
+              borderWidth: "0px",
+              color: "#1E3769",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontFamily: "Roboto",
+              borderColor: hover ? "#4AA692" : "#1E3769",
+              color: hover ? "#347567" : "#1E3769",
+              borderRadius: "7px",
+              borderWidth: "1px"
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            Marketplace
+          </button>
+        </div>
+      </div>
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
@@ -91,7 +139,7 @@ export default function Marketplace() {
                 color: "#ffffff",
                 fontSize: "16px",
                 fontFamily: "Roboto",
-                fontWeight: "500"
+                fontWeight: "500",
               }}
             >
               View Details

@@ -24,7 +24,7 @@ const Gallery = () => {
 
         <div
           style={{
-            backgroundColor: "#1e37691f",
+            backgroundColor: "#1E3769",
             height: "100px",
             width: "665px",
             borderRadius: "7px",

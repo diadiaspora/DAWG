@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate(); // ✅
+    const [hover, setHover] = useState(false);
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -29,11 +30,58 @@ export default function BlogList({ user }) {
         marginLeft: "0px",
         width: "1012px",
         display: "flex",
-        marginTop: "42px",
+        marginTop: "125px",
       }}
     >
       <div style={{ width: "662px", marginRight: "42px" }}>
-        <h1 style={{ fontSize: "24px", marginLeft: "42px" }}>Blog List</h1>
+        <div
+          style={{
+            backgroundColor: "#1E3769",
+            width: "1012px",
+            marginLeft: "42px",
+            display: "flex",
+            borderRadius: "7px",
+            height: "70px",
+            alignItems: "baseline",
+            marginBottom: "24px",
+            padding: "12px",
+          }}
+        >
+          <h2
+            style={{
+              marginLeft: "21px",
+              marginTop: "8px",
+              marginRight: "720px",
+              color: "#ffffff",
+              fontSize: "18px",
+            }}
+          >
+            Real Stories
+          </h2>
+          <div>
+            <button
+              // onClick={handlePostClick}
+              style={{
+                width: "140px",
+                height: "44px",
+                backgroundColor: "#ffffff",
+                borderWidth: "0px",
+                color: "#1E3769",
+                cursor: "pointer",
+                fontSize: "16px",
+                fontFamily: "Roboto",
+                borderWidth: "1px",
+                borderColor: hover ? "#4AA692" : "#1E3769",
+                color: hover ? "#347567" : "#1E3769",
+                borderRadius: "7px",
+              }}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
+              Latest Stories
+            </button>
+          </div>
+        </div>
         {blogs.length ? (
           <ul style={{ display: "flex" }}>
             {blogs.map((blog) => (
@@ -101,7 +149,7 @@ export default function BlogList({ user }) {
       <div style={{ height: "350px", marginLeft: "42px", marginTop: "85px" }}>
         <div
           style={{
-            backgroundColor: "#D9D9D7",
+            backgroundColor: "#1E3769",
             width: "310px",
             borderRadius: "7px",
             height: "350px",
@@ -109,8 +157,10 @@ export default function BlogList({ user }) {
             padding: "24px",
           }}
         >
-          <h3>Share Your Experiences</h3>
-          <h4>You can inspire and help other people!</h4>
+          <h3 style={{ color: "#ffffff" }}>Share Your Experiences</h3>
+          <h4 style={{ color: "#ffffff" }}>
+            You can inspire and help other people!
+          </h4>
           <div
             style={{
               display: "flex",
@@ -121,12 +171,12 @@ export default function BlogList({ user }) {
             <button
               onClick={handleCreatePostClick}
               style={{
-                backgroundColor: "#1E3769",
+                backgroundColor: "#ffffff",
                 borderRadius: "7px",
                 borderColor: "#1E3769",
                 width: "200px",
                 height: "44px",
-                color: "#fff",
+                color: "#1E3769",
                 fontWeight: "bold",
                 cursor: "pointer",
                 fontSize: "16px",
