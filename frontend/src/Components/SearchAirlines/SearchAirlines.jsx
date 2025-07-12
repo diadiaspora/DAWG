@@ -1,21 +1,69 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import Select from "react-select";
 
 import "./SearchAirlines.css";
+
+const airlineOptions = [
+  { value: "", label: "Which Airline?" },
+  { value: "delta", label: "Delta" },
+  { value: "aeromexico", label: "AeroMexico" },
+  { value: "american-airlines", label: "American Airlines" },
+];
+
+const destinationOptions = [
+  { value: "", label: "National or International" },
+  { value: "national", label: "National" },
+  { value: "international", label: "International" },
+];
+
+const customStyles = {
+  control: (base, state) => ({
+    ...base,
+    width: 350,
+    height: 44,
+    marginLeft: 18,
+    backgroundColor: "#F2F4F7",
+    borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
+    borderRadius: 7,
+    boxShadow: state.isFocused ? "0 0 0 2px rgba(74, 166, 146, 0.697)" : "none",
+    fontFamily: "Roboto, Helvetica, sans-serif",
+    fontSize: "14px",
+    cursor: "pointer",
+    "&:hover": {
+      borderColor: "#4AA692",
+      borderWidth: "2px",
+    },
+  }),
+  option: (base, state) => ({
+    ...base,
+    backgroundColor: state.isFocused ? "#4AA692" : "#ffffff",
+    color: state.isFocused ? "#ffffff" : "#000000",
+    fontFamily: "Roboto, Helvetica, sans-serif",
+    fontSize: "14px",
+    cursor: "pointer",
+  }),
+  dropdownIndicator: (base, state) => ({
+    ...base,
+    color: "#4AA692", // arrow color
+    "&:hover": {
+      color: "#4AA692", // arrow hover color
+    },
+  }),
+  indicatorSeparator: (base) => ({
+    ...base,
+    display: "none", // removes the vertical separator
+  }),
+  menu: (base) => ({
+    ...base,
+    zIndex: 9999,
+  }),
+};
 
 const SearchAirlines = () => {
   const navigate = useNavigate();
   const [airline, setAirline] = useState("");
   const [location, setLocation] = useState("");
-
-  const handleAirlineChange = (evt) => {
-    setAirline(evt.target.value);
-  };
-
-  const handleLocationChange = (evt) => {
-    setLocation(evt.target.value);
-  };
 
   const handleClick = () => {
     if (airline && location) {
@@ -40,7 +88,7 @@ const SearchAirlines = () => {
     >
       <div style={{ paddingTop: "18px" }}>
         <strong style={{ marginLeft: "18px" }}>
-          Compare pet travel fees for each airline Find out which airline meets
+          Compare pet travel fees for each airline. Find out which airline meets
           your pet travel budget.
         </strong>
       </div>
@@ -48,40 +96,36 @@ const SearchAirlines = () => {
       <div style={{ display: "flex", marginTop: "18px" }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label
-            htmlFor="from"
+            htmlFor="airline"
             style={{ marginLeft: "21px", fontSize: "16px", width: "350px" }}
           >
             Airline
           </label>
-          <select
-            name="from"
-            className="airSelect"
-            value={airline}
-            onChange={handleAirlineChange}
-            style={{ fontSize: "14px" }}
-          >
-            <option value="">Which Airline?</option>
-            <option value="delta">Delta</option>
-            <option value="aeromexico">AeroMexico</option>
-            <option value="american-airlines">American Airlines</option>
-          </select>
+          <Select
+            inputId="airline"
+            options={airlineOptions}
+            onChange={(option) => setAirline(option.value)}
+            styles={customStyles}
+            defaultValue={airlineOptions[0]}
+          />
         </div>
+
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="to" style={{ marginLeft: "21px", fontSize: "16px" }}>
+          <label
+            htmlFor="destination"
+            style={{ marginLeft: "21px", fontSize: "16px" }}
+          >
             Where to?
           </label>
-          <select
-            name="to"
-            className="airSelect"
-            value={location}
-            onChange={handleLocationChange}
-            style={{ fontSize: "14px" }}
-          >
-            <option value="">National or International</option>
-            <option value="national">National</option>
-            <option value="international">International</option>
-          </select>
+          <Select
+            inputId="destination"
+            options={destinationOptions}
+            onChange={(option) => setLocation(option.value)}
+            styles={customStyles}
+            defaultValue={destinationOptions[0]}
+          />
         </div>
+
         <button
           onClick={handleClick}
           className="buttonAir"

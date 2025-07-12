@@ -11,14 +11,16 @@ export default function Footer() {
           marginTop: "42px",
           color: "#1E3769",
           display: "flex",
+        
         }}
       >
         <div
           style={{
-            width: "632px",
+            width: "662px",
             marginLeft: "42px",
             marginTop: "42px",
             marginBottom: "42px",
+            marginRight: "42px"
           }}
         >
           <h3 style={{ fontSize: "15px" }}>
@@ -58,12 +60,19 @@ export default function Footer() {
         </div>
       </div>
       <div
-        style={{ backgroundColor: "#1E3769", height: "54px", padding: "12px" }}
+        style={{
+          backgroundColor: "#1E3769",
+          height: "54px",
+          padding: "12px",
+          color: "#ffffff",
+        }}
       >
         <strong>
           Also, Everyone has there own unique experience. Heres a link to share
           yours
-          <Link> BIPOC|LGBTQ </Link>
+          <Link style={{ color: "#4AA692" }}>
+            BIPOC|LGBTQ 
+          </Link>
         </strong>
       </div>
     </>

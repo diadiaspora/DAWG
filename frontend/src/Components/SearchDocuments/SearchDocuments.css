@@ -25,6 +25,16 @@
   padding-right: 36px;
   cursor: pointer;
 }
+
+.docSelect option {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  padding: 10px; /* Some browsers ignore this */
+}
+
+
 .docSelect:focus {
   font-family: Roboto, Helvetica, sans-serif;
     border-color: #4AA692; 

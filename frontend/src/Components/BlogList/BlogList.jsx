@@ -18,7 +18,7 @@ export default function BlogList({ user }) {
 
   const handleCreatePostClick = () => {
     if (user) {
-      navigate("/posts/new");
+      navigate("/write");
     } else {
       navigate("/signup");
     }
@@ -58,29 +58,31 @@ export default function BlogList({ user }) {
           >
             Real Stories
           </h2>
-          <div>
-            <button
-              // onClick={handlePostClick}
-              style={{
-                width: "140px",
-                height: "44px",
-                backgroundColor: "#ffffff",
-                borderWidth: "0px",
-                color: "#1E3769",
-                cursor: "pointer",
-                fontSize: "16px",
-                fontFamily: "Roboto",
-                borderWidth: "1px",
-                borderColor: hover ? "#4AA692" : "#1E3769",
-                color: hover ? "#347567" : "#1E3769",
-                borderRadius: "7px",
-              }}
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-            >
-              Latest Stories
-            </button>
-          </div>
+          <Link to="/blogs">
+            <div>
+              <button
+                // onClick={handlePostClick}
+                style={{
+                  width: "140px",
+                  height: "44px",
+                  backgroundColor: "#ffffff",
+                  borderWidth: "0px",
+                  color: "#1E3769",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                  fontFamily: "Roboto",
+                  borderWidth: "1px",
+                  borderColor: hover ? "#4AA692" : "#1E3769",
+                  color: hover ? "#347567" : "#1E3769",
+                  borderRadius: "7px",
+                }}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+              >
+                Latest Stories
+              </button>
+            </div>
+          </Link>
         </div>
         {blogs.length ? (
           <ul style={{ display: "flex" }}>
@@ -171,6 +173,7 @@ export default function BlogList({ user }) {
             <button
               onClick={handleCreatePostClick}
               style={{
+                borderWidth: "1px",
                 backgroundColor: "#ffffff",
                 borderRadius: "7px",
                 borderColor: "#1E3769",
@@ -181,7 +184,12 @@ export default function BlogList({ user }) {
                 cursor: "pointer",
                 fontSize: "16px",
                 fontFamily: "Roboto",
+                borderColor: hover ? "#4AA692" : "#1E3769",
+                color: hover ? "#347567" : "#1E3769",
+                borderRadius: "7px",
               }}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
             >
               Create a post
             </button>

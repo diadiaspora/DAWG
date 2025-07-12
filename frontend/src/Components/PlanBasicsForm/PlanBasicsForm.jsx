@@ -2,7 +2,8 @@ import { useState } from "react";
 import * as planService from "../../services/planService";
 import "./PlanBasicForm.css";
 import { useNavigate } from "react-router-dom";
-import Calendar from "../../Components/Calendar/Calendar.jsx";
+import Calendar from "../Calendar/Calendar.jsx";
+
 
 export default function PlanBasicsForm() {
   const [formData, setFormData] = useState({
@@ -215,9 +216,9 @@ export default function PlanBasicsForm() {
         {errorMsg && <p className="error">{errorMsg}</p>}
       </div>
 
-    <div style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}>
-           <Calendar />
-         </div>
+      <div style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}>
+        <Calendar />
+      </div>
     </div>
   );
 }
