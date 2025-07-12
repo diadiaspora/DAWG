@@ -1,4 +1,4 @@
-import HootFormBig from "../../Components/HootFormBig/HootFormBig";
+import HootForm from "../../Components/HootForm/HootForm";
 import * as hootService from "../../services/hootService";
 import { useNavigate } from "react-router-dom";
 import HootLongList from "../../Components/HootLongList/HootLongList";
@@ -19,7 +19,7 @@ export default function HootFormPage({ user, setUser, hoots }) {
   return (
     <>
       <section style={{ width: "100%", paddingTop: "100px" }}>
-        <HootFormBig handleAddHoot={handleAddHoot} />
+        <HootForm handleAddHoot={handleAddHoot} />
         <HootLongList
           user={user}
           setUser={setUser}
