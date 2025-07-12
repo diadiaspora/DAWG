@@ -59,29 +59,31 @@ export default function Marketplace() {
         >
           Everything You Need
         </h1>
-        <div>
-          <button
-            // onClick={handlePostClick}
-            style={{
-              width: "140px",
-              height: "44px",
-              backgroundColor: "#ffffff",
-              borderWidth: "0px",
-              color: "#1E3769",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769",
-              color: hover ? "#347567" : "#1E3769",
-              borderRadius: "7px",
-              borderWidth: "1px"
-            }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            Marketplace
-          </button>
-        </div>
+        <Link to="/marketplace">
+          <div>
+            <button
+              // onClick={handlePostClick}
+              style={{
+                width: "140px",
+                height: "44px",
+                backgroundColor: "#ffffff",
+                borderWidth: "0px",
+                color: "#1E3769",
+                cursor: "pointer",
+                fontSize: "16px",
+                fontFamily: "Roboto",
+                borderColor: hover ? "#4AA692" : "#1E3769",
+                color: hover ? "#347567" : "#1E3769",
+                borderRadius: "7px",
+                borderWidth: "1px",
+              }}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
+              Marketplace
+            </button>
+          </div>
+        </Link>
       </div>
       <div className="product-grid">
         {products.map((product) => (

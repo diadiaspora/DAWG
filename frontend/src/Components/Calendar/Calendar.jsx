@@ -1,48 +1,55 @@
 import { useState } from "react";
 
 export default function Calendar() {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const startDate = new Date(2025, 6, 1); // July = month 6 (0-based index)
+  const [currentDate, setCurrentDate] = useState(startDate);
 
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+  const getMonthYearOptions = () => {
+    const months = [];
+    for (let i = 0; i < 24; i++) {
+      const date = new Date(startDate.getFullYear(), startDate.getMonth() + i);
+      months.push({
+        label: date.toLocaleString("default", {
+          month: "short",
+          year: "numeric",
+        }),
+        date,
+      });
+    }
+    return months;
+  };
 
-  const handleMonthClick = (monthIndex) => {
-    const newDate = new Date(currentDate.getFullYear(), monthIndex);
-    setCurrentDate(newDate);
+  const monthOptions = getMonthYearOptions();
+
+  const handleMonthClick = (dateObj) => {
+    setCurrentDate(dateObj);
   };
 
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
-    const firstDay = new Date(year, month, 1).getDay();
+    const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     const days = [];
-    let blankDays = (firstDay + 6) % 7; // shift Sunday to end
+    let blankDays = (firstDay + 6) % 7; // Shift so Monday is first
     for (let i = 0; i < blankDays; i++) days.push(null);
-    for (let d = 1; d <= daysInMonth; d++) {
-      days.push(d);
-    }
+    for (let d = 1; d <= daysInMonth; d++) days.push(d);
     return days;
   };
 
   const days = getDaysInMonth(currentDate);
 
   return (
-    <div style={{ width: "310px", padding: "12px", fontFamily: "sans-serif", marginTop: "-11px" }}>
-      {/* Horizontally scrollable month buttons */}
+    <div
+      style={{
+        width: "310px",
+        padding: "12px",
+        fontFamily: "sans-serif",
+        marginTop: "-11px",
+      }}
+    >
+      {/* Scrollable month/year buttons */}
       <div
         style={{
           display: "flex",
@@ -52,25 +59,29 @@ export default function Calendar() {
           gap: "8px",
         }}
       >
-        {months.map((month, idx) => (
-          <button
-            key={month}
-            onClick={() => handleMonthClick(idx)}
-            style={{
-              backgroundColor:
-                idx === currentDate.getMonth() ? "#1E3769" : "#ccc",
-              color: idx === currentDate.getMonth() ? "white" : "black",
-              border: "none",
-              padding: "8px",
-              minWidth: "60px",
-              cursor: "pointer",
-              borderRadius: "6px",
-              flexShrink: 0, // prevents shrinking
-            }}
-          >
-            {month}
-          </button>
-        ))}
+        {monthOptions.map(({ label, date }) => {
+          const isActive =
+            date.getFullYear() === currentDate.getFullYear() &&
+            date.getMonth() === currentDate.getMonth();
+          return (
+            <button
+              key={label}
+              onClick={() => handleMonthClick(date)}
+              style={{
+                backgroundColor: isActive ? "#1E3769" : "#ccc",
+                color: isActive ? "white" : "black",
+                border: "none",
+                padding: "8px",
+                minWidth: "90px",
+                cursor: "pointer",
+                borderRadius: "6px",
+                flexShrink: 0,
+              }}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Weekday headers */}
@@ -78,9 +89,9 @@ export default function Calendar() {
         style={{
           display: "flex",
           justifyContent: "space-between",
-                  fontWeight: "bold",
+          fontWeight: "bold",
           fontSize: "14px",
-          marginTop: "-4px"
+          marginTop: "-4px",
         }}
       >
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
@@ -90,7 +101,7 @@ export default function Calendar() {
         ))}
       </div>
 
-      {/* Calendar days */}
+      {/* Calendar grid */}
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {days.map((day, idx) => (
           <div

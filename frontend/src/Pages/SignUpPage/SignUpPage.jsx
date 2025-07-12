@@ -4,6 +4,7 @@ import { signUp } from "../../services/authService";
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import "./SignUpPage.css";
 
 export default function SignUpPage({ setUser }) {
   const [formData, setFormData] = useState({
@@ -37,23 +38,27 @@ export default function SignUpPage({ setUser }) {
 
   return (
     <>
-      <div style={{display: "flex"}}>
+      <div style={{ display: "flex" }}>
         <img
           src="./dawgmoney.png"
           className="dogmoney"
           alt="dog logo with money eyes"
           style={{ height: "50px" }}
         ></img>
-        <img src="./dawg.png" className="doglogo" alt="dawg logo letters" style={{height: "50px"}}></img>
+        <img
+          src="./dawg.png"
+          className="doglogo"
+          alt="dawg logo letters"
+          style={{ height: "50px" }}
+        ></img>
       </div>
       <div
         style={{
           borderStyle: "solid",
-          borderwidth: "2px",
-          borderColor: "black",
-          borderRadius: "50px",
+          borderwidth: "1px",
+          borderColor: "#d9d9d9",
+          borderRadius: "7px",
           padding: "42px",
-          
         }}
       >
         <h2>Sign Up!</h2>
@@ -63,55 +68,53 @@ export default function SignUpPage({ setUser }) {
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column" }}
         >
-          <label>Name</label>
+          <label style={{ marginLeft: "0px" }}>Name</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
+            className="input-field"
           />
-          <label>Pet Name</label>
-          <input
-            type="text"
-            name="petName"
-            value={formData.petName}
-            onChange={handleChange}
-            required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
-          />
-          <label>Email</label>
+
+          <label style={{ marginLeft: "0px" }}>Email</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
+            className="input-field"
           />
-          <label>Password</label>
+          <label style={{ marginLeft: "0px" }}>Password</label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
+            className="input-field"
           />
-          <label>Confirm</label>
+          <label style={{ marginLeft: "0px" }}>Confirm</label>
           <input
             type="password"
             name="confirm"
             value={formData.confirm}
             onChange={handleChange}
             required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
+            className="input-field"
           />
           <button
             type="submit"
             disabled={disable}
-            style={{ height: "44px", borderRadius: "50px", marginTop: "42px" }}
+            style={{
+              height: "44px",
+              borderRadius: "7px",
+              marginTop: "42px",
+              backgroundColor: "#1E3769",
+              borderWidth: "0px",
+            }}
           >
             SIGN UP
           </button>
@@ -119,9 +122,12 @@ export default function SignUpPage({ setUser }) {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <button
             style={{
-              borderRadius: "50px",
-              backgroundColor: "#1E3769",
-              color: "white",
+              marginTop: "16px",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              borderWidth: "2px",
+              backgroundColor: "#ffffff",
+              color: "#1E3769",
               height: "44px",
             }}
           >
@@ -130,9 +136,12 @@ export default function SignUpPage({ setUser }) {
           </button>
           <button
             style={{
-              borderRadius: "50px",
-              backgroundColor: "#1E3769",
-              color: "white",
+              marginTop: "16px",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              borderWidth: "2px",
+              backgroundColor: "#ffffff",
+              color: "#1E3769",
               height: "44px",
             }}
           >
@@ -141,9 +150,12 @@ export default function SignUpPage({ setUser }) {
           </button>
           <button
             style={{
-              borderRadius: "50px",
-              backgroundColor: "#1E3769",
-              color: "white",
+              marginTop: "16px",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              borderWidth: "2px",
+              backgroundColor: "#ffffff",
+              color: "#1E3769",
               height: "44px",
             }}
           >

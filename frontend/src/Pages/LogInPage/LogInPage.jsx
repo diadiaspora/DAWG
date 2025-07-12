@@ -5,6 +5,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import "./LoginPage.css";
 
 
 export default function LogInPage({ setUser }) {
@@ -44,9 +45,9 @@ export default function LogInPage({ setUser }) {
       <div
         style={{
           borderStyle: "solid",
-          borderwidth: "2px",
-          borderColor: "black",
-          borderRadius: "50px",
+          borderwidth: "1px",
+          borderColor: "#d9d9d9",
+          borderRadius: "7px",
           padding: "42px",
         }}
       >
@@ -56,40 +57,49 @@ export default function LogInPage({ setUser }) {
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column" }}
         >
-          <label>Email</label>
+          <label style={{ marginLeft: "0px" }}>Email</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
+            className="input-field"
           />
-          <label>Password</label>
+          <label style={{ marginLeft: "0px", marginTop: "16px" }}>Password</label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
-            style={{ width: "400px", height: "44px", borderRadius: "50px" }}
+            className="input-field"
           />
           <button
             type="submit"
-            style={{ height: "44px", borderRadius: "50px", marginTop: "42px" }}
+            style={{
+              height: "44px",
+              borderRadius: "7px",
+              marginTop: "42px",
+              backgroundColor: "#1E3769",
+              borderWidth: "0px",
+            }}
           >
             LOG IN
           </button>
-          <span>
+          <span style={{ marginTop: "16px" }}>
             <hr />
           </span>
         </form>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <button
             style={{
-              borderRadius: "50px",
-              backgroundColor: "#1E3769",
-              color: "white",
+              marginTop: "16px",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              borderWidth: "2px",
+              backgroundColor: "#ffffff",
+              color: "#1E3769",
               height: "44px",
             }}
           >
@@ -98,9 +108,12 @@ export default function LogInPage({ setUser }) {
           </button>
           <button
             style={{
-              borderRadius: "50px",
-              backgroundColor: "#1E3769",
-              color: "white",
+              marginTop: "16px",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              borderWidth: "2px",
+              backgroundColor: "#ffffff",
+              color: "#1E3769",
               height: "44px",
             }}
           >
@@ -109,14 +122,17 @@ export default function LogInPage({ setUser }) {
           </button>
           <button
             style={{
-              borderRadius: "50px",
-              backgroundColor: "#1E3769",
-              color: "white",
+              marginTop: "16px",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              borderWidth: "2px",
+              backgroundColor: "#ffffff",
+              color: "#1E3769",
               height: "44px",
             }}
           >
             <FaFacebook />
-             Log in with Facebook
+            Log in with Facebook
           </button>
         </div>
         <p className="error-message">&nbsp;{errorMsg}</p>

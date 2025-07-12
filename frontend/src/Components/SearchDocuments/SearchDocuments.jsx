@@ -1,7 +1,112 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Select from "react-select";
 
 import "./SearchDocuments.css";
+
+const countryOptions = [
+  { value: "", label: "Where From?" },
+  { value: "Argentina ", label: "Argentina " },
+  { value: "Australia  ", label: "Australia" },
+  { value: "Bali", label: "Bali" },
+  { value: "Berlin", label: "Berlin" },
+  { value: "Brazil", label: "Brazil" },
+  { value: "Chile", label: "Chile" },
+  { value: "Colombia", label: "Colombia" },
+  { value: "Costa Rica", label: "Costa Rica" },
+  { value: "Cuba", label: "Cuba" },
+  { value: "Dominican Republic", label: "Dominican Republic" },
+  { value: "Egypt", label: "Egypt" },
+  { value: "France", label: "France" },
+  { value: "Greece", label: "Greece" },
+  { value: "Guatemala", label: "Guatemala" },
+  { value: "India", label: "India" },
+  { value: "Italy", label: "Italy" },
+  { value: "Mexico", label: "Mexico" },
+  { value: "Panama", label: "Panama" },
+  { value: "Peru", label: "Peru" },
+  { value: "Philippines", label: "Philippines" },
+  { value: "South Africa", label: "South Africa" },
+  { value: "Spain", label: "Spain" },
+  { value: "Thailand", label: "Thailand" },
+  { value: "United Kingdom", label: "United Kingdom" },
+  { value: "USA ", label: "USA " },
+];
+
+const destinationOptions = [
+  { value: "", label: "Where From?" },
+  { value: "Argentina ", label: "Argentina " },
+  { value: "Australia  ", label: "Australia" },
+  { value: "Bali", label: "Bali" },
+  { value: "Berlin", label: "Berlin" },
+  { value: "Brazil", label: "Brazil" },
+  { value: "Chile", label: "Chile" },
+  { value: "Colombia", label: "Colombia" },
+  { value: "Costa Rica", label: "Costa Rica" },
+  { value: "Cuba", label: "Cuba" },
+  { value: "Dominican Republic", label: "Dominican Republic" },
+  { value: "Egypt", label: "Egypt" },
+  { value: "France", label: "France" },
+
+  { value: "Greece", label: "Greece" },
+  { value: "Germany", label: "Germany" },
+  { value: "Guatemala", label: "Guatemala" },
+  { value: "India", label: "India" },
+  { value: "Italy", label: "Italy" },
+  { value: "Mexico", label: "Mexico" },
+  { value: "Panama", label: "Panama" },
+  { value: "Peru", label: "Peru" },
+  { value: "Philippines", label: "Philippines" },
+  { value: "South Africa", label: "South Africa" },
+  { value: "Spain", label: "Spain" },
+  { value: "Thailand", label: "Thailand" },
+  { value: "United Kingdom", label: "United Kingdom" },
+  { value: "USA ", label: "USA " },
+];
+
+// Custom style override for react-select
+const customStyles = {
+  control: (base, state) => ({
+    ...base,
+    width: 350,
+    height: 44,
+    marginLeft: 18,
+    backgroundColor: "#F2F4F7",
+    borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
+    borderRadius: 7,
+    boxShadow: state.isFocused ? "0 0 0 2px rgba(74, 166, 146, 0.697)" : "none",
+    fontFamily: "Roboto, Helvetica, sans-serif",
+    fontSize: "14px",
+    cursor: "pointer",
+    "&:hover": {
+      borderColor: "#4AA692",
+      borderWidth: "2px",
+    },
+  }),
+  option: (base, state) => ({
+    ...base,
+    backgroundColor: state.isFocused ? "#4AA692" : "#ffffff",
+    color: state.isFocused ? "#ffffff" : "#000000",
+    fontFamily: "Roboto, Helvetica, sans-serif",
+    fontSize: "14px",
+    cursor: "pointer",
+  }),
+  dropdownIndicator: (base, state) => ({
+    ...base,
+    color: "#4AA692", // arrow color
+    "&:hover": {
+      color: "#4AA692", // arrow hover color
+    },
+  }),
+  indicatorSeparator: (base) => ({
+    ...base,
+    display: "none", // removes the vertical separator
+  }),
+  menu: (base) => ({
+    ...base,
+    zIndex: 9999,
+  }),
+};
 
 const SearchDocuments = () => {
   const navigate = useNavigate();
@@ -31,50 +136,41 @@ const SearchDocuments = () => {
     >
       <div style={{ paddingTop: "18px" }}>
         <strong style={{ marginLeft: "18px" }}>
-          Find out what documents you pet needs to travel to and from a specific
-          country.
+          Find out what documents your pet needs to travel to and from a
+          specific country.
         </strong>
       </div>
 
       <div style={{ display: "flex", marginTop: "18px" }}>
-        <div style={{ display: "flex", flexDirection: "column",  }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label
             htmlFor="from"
             style={{ marginLeft: "21px", width: "350px", fontSize: "16px" }}
           >
             Where From
           </label>
-          <select
-            name="from"
-            className="docSelect"
-            value={fromCountry}
-            onChange={(e) => setFromCountry(e.target.value)}
-            style={{ fontSize: "14px" }}
-          >
-            <option value="">Where From?</option>
-            <option value="usa">USA</option>
-            <option value="mexico">Mexico</option>
-            <option value="chile">Chile</option>
-          </select>
+          <Select
+            inputId="from"
+            options={countryOptions}
+            onChange={(option) => setFromCountry(option.value)}
+            styles={customStyles}
+            defaultValue={countryOptions[0]}
+          />
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label htmlFor="to" style={{ marginLeft: "18px", fontSize: "16px" }}>
             Where to?:
           </label>
-          <select
-            name="to"
-            className="docSelect"
-            value={toCountry}
-            onChange={(e) => setToCountry(e.target.value)}
-            style={{ fontSize: "14px" }}
-          >
-            <option value="">Where are you going?</option>
-            <option value="usa">USA</option>
-            <option value="mexico">Mexico</option>
-            <option value="chile">Chile</option>
-          </select>
+          <Select
+            inputId="to"
+            options={destinationOptions}
+            onChange={(option) => setToCountry(option.value)}
+            styles={customStyles}
+            defaultValue={destinationOptions[0]}
+          />
         </div>
+
         <button
           onClick={handleClick}
           className="buttonAir"

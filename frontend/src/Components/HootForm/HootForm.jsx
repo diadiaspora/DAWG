@@ -6,7 +6,7 @@ const HootForm = (props) => {
   const [formData, setFormData] = useState({
     title: "",
     text: "",
-    category: "News",
+    category: "General",
     gifUrl: "", 
   });
 

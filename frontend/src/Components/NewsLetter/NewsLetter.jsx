@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./NewsLetter.css";
 
 export default function NewsLetter() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ export default function NewsLetter() {
     comment: "",
     consent: false,
   });
+   const [hover, setHover] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -44,61 +46,83 @@ export default function NewsLetter() {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ width: "350px", marginTop:"42px", marginLeft: "42px" }}>
-      <h2>Join Our Newsletter</h2>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          style={{ width: "200px" }}
-        />
+    <>
+      <div
+        style={{
+          backgroundColor: "#1E3769",
+          width: "310px",
+          borderRadius: "7px",
+          height: "350px",
+          marginTop: "42px",
+          padding: "24px",
+        }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          style={{ width: "310px", marginTop: "16px", marginLeft: "16px" }}
+        >
+          <h2 style={{ color: "#ffffff" }}>Join Our Newsletter</h2>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <label style={{ color: "#ffffff", marginLeft: "0px" }}>Name:</label>
+            <input
+              className="input-field"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <br />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <label style={{ color: "#ffffff", marginLeft: "0px" }}>
+              Email*:
+            </label>
+            <input
+              className="input-field"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div style={{display: "flex"}}>
+            <input
+              type="checkbox"
+              name="consent"
+              checked={formData.consent}
+              onChange={handleChange}
+            />
+            <p style={{ fontSize: "14px", color: "#ffffff" }}>
+              I agree to receive the newsletter
+            </p>
+          </div>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button
+            type="submit"
+            style={{
+              borderWidth: "1px",
+              backgroundColor: "#ffffff",
+              borderRadius: "7px",
+              borderColor: "#1E3769",
+              width: "240px",
+              height: "44px",
+              color: "#1E3769",
+              fontWeight: "bold",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontFamily: "Roboto",
+              borderColor: hover ? "#4AA692" : "#1E3769",
+              color: hover ? "#347567" : "#1E3769",
+              borderRadius: "7px",
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            Subscribe
+          </button>
+        </form>
       </div>
-      <br />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <label>Email*:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          style={{ width: "200px" }}
-          required
-        />
-      </div>
-      <br />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <label>Comment:</label>
-        <textarea
-          name="comment"
-          value={formData.comment}
-          onChange={handleChange}
-          style={{ width: "200px" }}
-        />
-      </div>
-      <br />
-
-     
-        <input
-          type="checkbox"
-          name="consent"
-          checked={formData.consent}
-        onChange={handleChange}
-        style={{fontSize: "10px"}}
-        />
-        I agree to receive the newsletter 
-        
-       
-        
-   
-
-      <br />
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      <button style={{height: "44px", width: "200px"}}type="submit">Subscribe</button>
-    </form>
+    </>
   );
 }

@@ -44,27 +44,29 @@ export default function BlogsComponent() {
         >
           All The Pet Travel Tea
         </h2>
-        <div>
-          <button
-            // onClick={handlePostClick}
-            style={{
-              width: "140px",
-              height: "44px",
-              backgroundColor: "#ffffff",
-              borderWidth: "1px",
-              borderColor: hover ? "#4AA692" : "#1E3769",
-              color: hover ? "#347567" : "#1E3769",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontFamily: "Roboto",
-              borderRadius: "7px"
-            }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            Recent Articles
-          </button>
-        </div>
+        <Link to="/blogs">
+          <div>
+            <button
+              // onClick={handlePostClick}
+              style={{
+                width: "140px",
+                height: "44px",
+                backgroundColor: "#ffffff",
+                borderWidth: "1px",
+                borderColor: hover ? "#4AA692" : "#1E3769",
+                color: hover ? "#347567" : "#1E3769",
+                cursor: "pointer",
+                fontSize: "16px",
+                fontFamily: "Roboto",
+                borderRadius: "7px",
+              }}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
+              Recent Articles
+            </button>
+          </div>
+        </Link>
       </div>
 
       <div
