@@ -8,6 +8,7 @@ import CommentForm from "../CommentForm/CommentForm";
 const HootDetails = ({ user, setUser }) => {
   const { hootId } = useParams();
   const [hoot, setHoot] = useState(null);
+  const [replyingTo, setReplyingTo] = useState(null);
 
   useEffect(() => {
     async function fetchHoot() {
@@ -25,18 +26,88 @@ const HootDetails = ({ user, setUser }) => {
   const handleAddComment = async (commentFormData) => {
     const newComment = await hootService.comment(hootId, commentFormData);
     setHoot({ ...hoot, comments: [...hoot.comments, newComment] });
+    setReplyingTo(null);
   };
 
   if (!hoot) return <main>Loading...</main>;
     const handleAddHoot = async (newHootData) => {
       const createdHoot = await hootService.create(newHootData);
+      return createdHoot;
       console.log("New hoot created:", createdHoot);
   
       const updatedHoots = [createdHoot, ...allHoots];
       setAllHoots(updatedHoots);
       randomizeHoots(updatedHoots); // Re-randomize after adding
     };
+    const nestComments = (comments) => {
+      const map = {};
+      const roots = [];
 
+      comments.forEach((comment) => {
+        map[comment._id] = { ...comment, replies: [] };
+      });
+
+      comments.forEach((comment) => {
+        if (comment.parentId) {
+          map[comment.parentId]?.replies.push(map[comment._id]);
+        } else {
+          roots.push(map[comment._id]);
+        }
+      });
+
+      return roots;
+    };
+
+    const renderComment = (comment, level = 0) => (
+      <div
+        key={comment._id}
+        style={{ marginLeft: level * 40 + 42, marginBottom: "16px" }}
+      >
+        <div
+          style={{
+            border: "1px solid #E9E9E9",
+            borderRadius: "7px",
+            padding: "10px",
+          }}
+        >
+          <p style={{ fontWeight: "bold", marginBottom: "6px" }}>
+            {comment.author?.name || "Anonymous"} on{" "}
+            {new Date(comment.createdAt).toLocaleDateString()}
+          </p>
+          <p>{comment.text}</p>
+
+          <button
+            onClick={() => setReplyingTo(comment._id)}
+            style={{
+              fontSize: "12px",
+              background: "none",
+              border: "none",
+              color: "#1E3769",
+              cursor: "pointer",
+              padding: 0,
+              marginTop: "6px",
+            }}
+          >
+            Reply
+          </button>
+        </div>
+
+        {replyingTo === comment._id && (
+          <CommentForm
+            handleAddComment={handleAddComment}
+            parentId={comment._id}
+            onCancel={() => setReplyingTo(null)}
+          />
+        )}
+
+        {/* Render replies recursively */}
+        {comment.replies &&
+          comment.replies.map((reply) => renderComment(reply, level + 1))}
+      </div>
+    );
+
+    const threadedComments = nestComments(hoot.comments);
+    
   return (
     <main style={{ display: "flex", width: "1012px", marginTop: "100px" }}>
       <div style={{ display: "flex", flexDirection: "column" }}>

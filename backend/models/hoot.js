@@ -6,7 +6,12 @@ const commentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // or "Profile", depending on your use
+      required: true,
+    },
+    replies: [this], // Recursive embedding of replies
   },
   { timestamps: true }
 );

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import * as blogService from "../../services/blogService"; // Assuming this service exists
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
@@ -10,7 +10,9 @@ import { NavLink } from "react-router-dom";
 
 export default function NewBlogPage({ user, setUser, hoots }) {
   const [errorMsg, setErrorMsg] = useState("");
-  
+  const klookWidgetRef = useRef(null);
+
+
   const [blogData, setBlogData] = useState({
     title: "",
     contentOne: "",
@@ -19,8 +21,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
     contentFour: "",
   });
 
-
-
   const contentOneImageRef = useRef();
   const contentTwoImageRef = useRef();
   const contentThreeImageRef = useRef();
@@ -28,11 +28,11 @@ export default function NewBlogPage({ user, setUser, hoots }) {
 
   const navigate = useNavigate();
 
-    const handleAddHoot = async (newHootData) => {
-      const createdHoot = await hootService.create(newHootData);
-      console.log("New hoot created:", createdHoot);
-      navigate("/"); // or refresh the list, or update props.hoots
-    };
+  const handleAddHoot = async (newHootData) => {
+    const createdHoot = await hootService.create(newHootData);
+    console.log("New hoot created:", createdHoot);
+    navigate("/"); // or refresh the list, or update props.hoots
+  };
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -91,6 +91,34 @@ export default function NewBlogPage({ user, setUser, hoots }) {
       setErrorMsg(`Adding Blog Failed: ${errorDetail}. Please try again.`);
     }
   }
+
+  useEffect(() => {
+    if (klookWidgetRef.current) {
+      // Insert the <ins> tag for the widget
+      klookWidgetRef.current.innerHTML = `
+        <ins class="klk-aff-widget" 
+             data-wid="93395" 
+             data-bgtype="Play" 
+             data-adid="1085833" 
+             data-lang="en" 
+             data-prod="banner" 
+             data-width="300"
+              style="border-radius: 7px; overflow: hidden; display: block;"
+             data-height="250">
+          <a href="//www.klook.com/?aid=">Klook.com</a>
+        </ins>
+      `;
+
+      // Add the Klook affiliate script
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
+
+      // Append the script after the ins tag
+      klookWidgetRef.current.appendChild(script);
+    }
+  }, []);
 
   return (
     <>
@@ -281,6 +309,13 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                 hoots={hoots}
                 handleAddHoot={handleAddHoot}
               />
+              <div style={{ width: "310px", backgroundColor: "#000000", marginLeft: "42px" , borderRadius: "7px", paddingTop: "2px"}}>
+                <div
+                  ref={klookWidgetRef}
+                  style={{padding: "6px"}}
+              
+                ></div>
+              </div>
             </div>
           </div>
         </div>
