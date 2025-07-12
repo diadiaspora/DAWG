@@ -84,9 +84,9 @@ async function update(req, res) {
 async function comment(req, res) {
   try {
     req.body.author = req.user._id;
-    console.log(req.body);
+   
     const hoot = await Hoot.findById(req.params.id);
-    console.log(hoot);
+  
     hoot.comments.push(req.body);
     await hoot.save();
 
