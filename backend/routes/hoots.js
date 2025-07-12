@@ -15,4 +15,18 @@ router.post("/:id/comments", hootsCtrl.comment);
 router.put("/:id", hootsCtrl.update);
 router.delete("/:id", hootsCtrl.deleteHoot);
 
+router.put("/:id/like", ensureLoggedIn, hootsCtrl.likeHoot);
+router.put("/:id/unlike", ensureLoggedIn, hootsCtrl.unlikeHoot);
+
+router.put(
+  "/:hootId/comments/:commentId/like",
+  ensureLoggedIn,
+  hootsCtrl.likeComment
+);
+router.put(
+  "/:hootId/comments/:commentId/unlike",
+  ensureLoggedIn,
+  hootsCtrl.unlikeComment
+);
+
 module.exports = router;

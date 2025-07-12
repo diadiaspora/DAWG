@@ -7,6 +7,10 @@ module.exports = {
   update,
   comment,
   deleteHoot,
+  likeHoot,
+  unlikeHoot,
+  likeComment,
+  unlikeComment,
 };
 
 async function create(req, res) {
@@ -112,5 +116,93 @@ async function deleteHoot(req, res) {
     res
       .status(500)
       .json({ message: "Failed to delete hoot", error: err.message });
+  }
+}
+
+async function likeHoot(req, res) {
+  try {
+    const profileId = req.user._id;
+
+    const hoot = await Hoot.findById(req.params.id);
+    if (!hoot) return res.status(404).json({ message: "Hoot not found" });
+
+    if (!hoot.likes.includes(profileId)) {
+      hoot.likes.push(profileId);
+      await hoot.save();
+    }
+
+    await hoot.populate("author"); // 🔥 Add this
+
+    res.status(200).json(hoot); // 🔥 Return full hoot
+  } catch (err) {
+    console.error("Error liking hoot:", err);
+    res.status(500).json({ message: "Failed to like hoot" });
+  }
+}
+
+
+async function unlikeHoot(req, res) {
+  try {
+    const profileId = req.user._id;
+
+    const hoot = await Hoot.findById(req.params.id);
+    if (!hoot) return res.status(404).json({ message: "Hoot not found" });
+
+    hoot.likes = hoot.likes.filter(
+      (id) => id.toString() !== profileId.toString()
+    );
+    await hoot.save();
+
+    await hoot.populate("author"); // 🔥 Add this
+
+    res.status(200).json(hoot); // 🔥 Return full hoot
+  } catch (err) {
+    console.error("Error unliking hoot:", err);
+    res.status(500).json({ message: "Failed to unlike hoot" });
+  }
+}
+
+async function likeComment(req, res) {
+  try {
+    const hoot = await Hoot.findById(req.params.hootId);
+    if (!hoot) return res.status(404).json({ message: "Hoot not found" });
+
+    const comment = hoot.comments.id(req.params.commentId);
+    if (!comment) return res.status(404).json({ message: "Comment not found" });
+
+    const userId = req.user._id;
+
+    if (!comment.likes.includes(userId)) {
+      comment.likes.push(userId);
+      await hoot.save();
+    }
+
+    res.status(200).json({ likes: comment.likes });
+  } catch (err) {
+    console.error("Error liking comment:", err);
+    res.status(500).json({ message: "Failed to like comment" });
+  }
+}
+
+async function unlikeComment(req, res) {
+  try {
+    const hoot = await Hoot.findById(req.params.hootId);
+    if (!hoot) return res.status(404).json({ message: "Hoot not found" });
+
+    const comment = hoot.comments.id(req.params.commentId);
+    if (!comment) return res.status(404).json({ message: "Comment not found" });
+
+    const userId = req.user._id;
+
+    comment.likes = comment.likes.filter(
+      (id) => id.toString() !== userId.toString()
+    );
+
+    await hoot.save();
+
+    res.status(200).json({ likes: comment.likes });
+  } catch (err) {
+    console.error("Error unliking comment:", err);
+    res.status(500).json({ message: "Failed to unlike comment" });
   }
 }

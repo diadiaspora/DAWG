@@ -146,6 +146,7 @@ export default function App() {
                       user={user}
                       setUser={setUser}
                       hoots={hoots}
+                      setHoots={setHoots} 
                       handleAddHoot={handleAddHoot}
                       profile={profile}
                     />

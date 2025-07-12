@@ -2,6 +2,9 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import * as hootService from "../../services/hootService";
 import HootForm from "../../Components/HootForm/HootForm";
+import { FaHeart } from "react-icons/fa";
+import { IoMdHeartEmpty } from "react-icons/io";
+
 
 import CommentForm from "../CommentForm/CommentForm";
 
@@ -75,23 +78,46 @@ const HootDetails = ({ user, setUser }) => {
             {new Date(comment.createdAt).toLocaleDateString()}
           </p>
           <p>{comment.text}</p>
-
-          <button
-            onClick={() => setReplyingTo(comment._id)}
-            style={{
-              fontSize: "12px",
-              background: "none",
-              border: "none",
-              color: "#1E3769",
-              cursor: "pointer",
-              padding: 0,
-              marginTop: "6px",
-            }}
-          >
-            Reply
-          </button>
+    
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "8px" }}>
+            {/* Like / Unlike Logic */}
+            {comment.likes.includes(user._id) ? (
+              <FaHeart
+                style={{ color: "red", cursor: "pointer" }}
+                onClick={async () => {
+                  await hootService.unlikeComment(hoot._id, comment._id);
+                  const updated = await hootService.show(hootId);
+                  setHoot(updated);
+                }}
+              />
+            ) : (
+              <IoMdHeartEmpty
+                style={{ cursor: "pointer" }}
+                onClick={async () => {
+                  await hootService.likeComment(hoot._id, comment._id);
+                  const updated = await hootService.show(hootId);
+                  setHoot(updated);
+                }}
+              />
+            )}
+            <span>{comment.likes.length}</span>
+            <button
+              onClick={() => setReplyingTo(comment._id)}
+              style={{
+                fontSize: "12px",
+                background: "none",
+                border: "none",
+                color: "#1E3769",
+                cursor: "pointer",
+                padding: 0,
+                marginLeft: "12px",
+              }}
+            >
+              Reply
+            </button>
+          </div>
         </div>
-
+    
         {replyingTo === comment._id && (
           <CommentForm
             handleAddComment={handleAddComment}
@@ -99,8 +125,8 @@ const HootDetails = ({ user, setUser }) => {
             onCancel={() => setReplyingTo(null)}
           />
         )}
-
-        {/* Render replies recursively */}
+    
+        {/* Recursive rendering for replies */}
         {comment.replies &&
           comment.replies.map((reply) => renderComment(reply, level + 1))}
       </div>
