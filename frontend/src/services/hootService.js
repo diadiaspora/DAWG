@@ -19,3 +19,22 @@ export async function show(hootId) {
 export async function comment(hootId, commentData) {
   return sendRequest(`${BASE_URL}/${hootId}/comments`, "POST", commentData);
 }
+
+export async function likeHoot(hootId) {
+  return sendRequest(`/api/hoots/${hootId}/like`, "PUT");
+}
+
+export async function unlikeHoot(hootId) {
+  return sendRequest(`/api/hoots/${hootId}/unlike`, "PUT");
+}
+
+export async function likeComment(hootId, commentId) {
+  return sendRequest(`/api/hoots/${hootId}/comments/${commentId}/like`, "PUT");
+}
+
+export async function unlikeComment(hootId, commentId) {
+  return sendRequest(
+    `/api/hoots/${hootId}/comments/${commentId}/unlike`,
+    "PUT"
+  );
+}

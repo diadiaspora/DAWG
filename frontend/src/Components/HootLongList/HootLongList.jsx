@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaHeart, FaRegHeart } from "react-icons/fa6"; // Correct import for filled heart
 import "./HootLongList.css";
+import * as hootService from "../../services/hootService";
 
 export default function HootLongList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
@@ -20,7 +21,6 @@ export default function HootLongList(props) {
 
   useEffect(() => {
     if (props.hoots && props.hoots.length > 0) {
-      // Limit to 10 hoots for the scrollable list
       setDisplayedHoots(props.hoots.slice(0, 10));
     }
   }, [props.hoots]);
@@ -66,7 +66,7 @@ export default function HootLongList(props) {
               fontFamily: "Roboto",
               borderColor: hover ? "#4AA692" : "#1E3769",
               color: hover ? "#347567" : "#1E3769",
-              borderRadius:"7px"
+              borderRadius: "7px",
             }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -79,10 +79,9 @@ export default function HootLongList(props) {
       <div
         style={{
           marginLeft: "42px",
-          marginRight: "42px", // Add right margin to match left
-
-          maxWidth: "1041px", // Adjust based on your card width and desired visible cards
-          overflowX: "hidden", // Hide overflow from this container
+          marginRight: "42px",
+          maxWidth: "1041px",
+          overflowX: "hidden",
         }}
       >
         <div
@@ -90,14 +89,7 @@ export default function HootLongList(props) {
           style={{
             display: "flex",
             gap: "16px",
-
             overflowX: "scroll",
-            // scrollSnapType: "x mandatory",
-            // paddingBottom: "20px", // Add padding for scrollbar if needed
-            // scrollbarWidth: "thin", // For Firefox
-            // scrollbarColor: "#1E3769 #f0f0f0", // For Firefox (thumb track)
-
-            // WebkitOverflowScrolling: "touch", // Improve scroll performance on iOS
           }}
         >
           {displayedHoots.map((hoot) => (
@@ -158,7 +150,7 @@ export default function HootLongList(props) {
                     borderColor: "#E9E9E9",
                     borderRadius: "7px",
                     padding: "12px",
-                    height: hoot.gifUrl ? "126px" : "276px", // ✅ Add 150px if no GIF
+                    height: hoot.gifUrl ? "126px" : "276px",
                     marginTop: "-10px",
                   }}
                 >
@@ -170,7 +162,7 @@ export default function HootLongList(props) {
 
                   <div
                     style={{
-                      flexGrow: 1, // ✅ takes remaining space
+                      flexGrow: 1,
                       marginBottom: "8px",
                       overflow: "hidden",
                     }}
@@ -183,8 +175,8 @@ export default function HootLongList(props) {
                         textOverflow: "ellipsis",
                         display: "-webkit-box",
                         WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: hoot.gifUrl ? 3 : 10, // ✅ clamp to 3 or 10 lines
-                        maxHeight: hoot.gifUrl ? "4.5em" : "15em", // ✅ lineHeight * number of lines
+                        WebkitLineClamp: hoot.gifUrl ? 3 : 10,
+                        maxHeight: hoot.gifUrl ? "4.5em" : "15em",
                       }}
                     >
                       {hoot.text}
@@ -207,8 +199,32 @@ export default function HootLongList(props) {
                 />
               )}
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <div>
-                  <FaRegHeart />
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
+                >
+                  {/* Corrected conditional logic for heart icon */}
+                  {hoot.likes.includes(props.user._id) ? (
+                    <FaHeart
+                      style={{ color: "red", cursor: "pointer" }}
+                      onClick={async () => {
+                        const updated = await hootService.unlikeHoot(hoot._id);
+                        props.setHoots((prev) =>
+                          prev.map((h) => (h._id === updated._id ? updated : h))
+                        );
+                      }}
+                    />
+                  ) : (
+                    <IoMdHeartEmpty
+                      style={{ cursor: "pointer" }}
+                      onClick={async () => {
+                        const updated = await hootService.likeHoot(hoot._id);
+                        props.setHoots((prev) =>
+                          prev.map((h) => (h._id === updated._id ? updated : h))
+                        );
+                      }}
+                    />
+                  )}
+                  <span>{hoot.likes.length}</span>
                 </div>
                 <div style={{ marginLeft: "12px" }}>
                   <Link to={`/hoots/${hoot._id}`}>
