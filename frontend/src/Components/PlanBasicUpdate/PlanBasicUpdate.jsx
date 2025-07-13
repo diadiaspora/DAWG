@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { BiWorld } from "react-icons/bi";
+import { IoMdCalendar } from "react-icons/io";
 
 import * as planService from "../../services/planService";
 import "./PlanBasicUpdate.css";
@@ -52,6 +54,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
   return (
     <div
       style={{
+        backgroundColor: "white",
         width: "300px",
         borderStyle: "solid",
         borderWidth: "1px",
@@ -64,12 +67,14 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
           onSubmit={handleSubmit}
           style={{
             width: "300px",
-
+            backgroundColor: "white",
             display: "flex",
             flexDirection: "column",
             gap: "12px",
             padding: "20px",
             height: "300px",
+            border: "1px solid #e9e9e9",
+            borderRadius: "7px",
           }}
         >
           <div style={{ display: "flex" }}>
@@ -81,7 +86,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
                 name="month"
                 value={formData.month}
                 onChange={handleChange}
-                style={{ width: "100px", borderRadius: "50px", height: "38px" }}
+                style={{ width: "100px", borderRadius: "7px", height: "38px" }}
               >
                 <option value="" stylle={{}}>
                   Month
@@ -177,17 +182,19 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             value={formData.notes}
             onChange={handleChange}
             rows={2}
-            style={{ borderRadius: "50px", width: "250px" }}
+            style={{ borderRadius: "7px", width: "250px" }}
           />
           <div style={{ marginBottom: "-6px" }}>
             <button
               onClick={() => handleDeletePlan(plan._id)}
               style={{
-                height: "44px",
-                backgroundColor: "#1E3769",
+                backgroundColor: "#ffffff",
                 borderRadius: "7px",
                 width: "100px",
                 borderWidth: "0px",
+                marginLeft: "12px",
+                color: "#1E3769",
+                textDecoration: "underline",
               }}
             >
               Delete Plan
@@ -195,12 +202,13 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             <button
               type="submit"
               style={{
-                height: "44px",
-                backgroundColor: "#1E3769",
+                backgroundColor: "#ffffff",
                 borderRadius: "7px",
                 width: "100px",
                 borderWidth: "0px",
                 marginLeft: "12px",
+                color: "#1E3769",
+                textDecoration: "underline",
               }}
             >
               Update Plan
@@ -216,33 +224,53 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             height: "300px",
           }}
         >
-          <div className="shadowMedium" style={{ marginTop: "12px" }}>
-            <strong>Date:</strong>
-            <h4 style={{ marginTop: "4px", fontSize: "24px" }}>
-              {plan.month} {plan.day} {plan.year}
-            </h4>
-          </div>
-
-          <div className="shadowMedium">
-            <strong>Destination:</strong>
-            <h3 style={{ fontSize: "24px", marginTop: "-4px" }}>
+          <div style={{ marginTop: "12px", display: "flex" }}>
+            <BiWorld color="#4AA692" />
+            <h3
+              style={{
+                fontSize: "24px",
+                marginLeft: "8px",
+                marginTop: "-10px",
+              }}
+            >
               {plan.destination}
             </h3>
+          </div>
+
+          <div style={{ display: "flex", marginTop: "-12px" }}>
+            <IoMdCalendar color="#4AA692" />
+            <p
+              style={{ marginTop: "-4px", marginLeft: "8px", fontSize: "16px" }}
+            >
+              {plan.month} {plan.day} {plan.year}
+            </p>
+          </div>
+          <div
+            style={{
+              width: "260px",
+              borderRadius: "7px",
+              height: "44px",
+              backgroundColor: "#F2F4F7",
+              border: "1px solid #BCC7D4",
+              height: "100px",
+            }}
+          >
+            <p style={{ marginLeft: "6px" }}> {plan.notes} </p>
           </div>
 
           <button
             onClick={() => setShowForm(true)}
             style={{
-              height: "44px",
-
-              width: "270px",
+              backgroundColor: "#ffffff",
               borderRadius: "7px",
-              marginTop: "24px",
-              backgroundColor: "#1E3769",
-              borderWidth: "0",
+              width: "100px",
+              borderWidth: "0px",
+              marginLeft: "12px",
+              color: "#1E3769",
+              textDecoration: "underline",
             }}
           >
-            Edit
+            Edit Plan
           </button>
         </div>
       )}

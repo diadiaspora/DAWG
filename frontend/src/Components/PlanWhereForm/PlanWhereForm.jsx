@@ -1,10 +1,14 @@
 import { useState, useRef} from "react";
 import * as planService from "../../services/planService";
 import { useNavigate, Link } from "react-router-dom";
+import { IoMdCalendar } from "react-icons/io";
+import Motel from "../../Components/Motel/Motel";
 
 import "./PlanWhereForm.css"; 
 export default function PlanWhereForm({ plan, setPlan }) {
-  const [showForm, setShowForm] = useState(plan ? false : true);
+  const [showForm, setShowForm] = useState(
+    !(plan?.checkIn || plan?.checkOut || plan?.address)
+  );
   const navigate = useNavigate();
 
   const fileInputRef = useRef();
@@ -62,10 +66,14 @@ export default function PlanWhereForm({ plan, setPlan }) {
       <aside
         style={{
           marginRight: "42px",
-          backgroundColor: "#D9D9D9",
+          backgroundColor: "#1E3769",
           width: "1012px",
           borderRadius: "7px",
-          padding: "21px",
+          paddingTop: "1px",
+          paddingLeft: "42px",
+          color: "#ffffff",
+          marginLeft: "42px",
+          height: "60px",
         }}
       >
         <h3>Where Are You Staying?</h3>
@@ -73,24 +81,24 @@ export default function PlanWhereForm({ plan, setPlan }) {
 
       {showForm ? (
         <div
-          className="planWhereFormContainer"
-          style={{
-            marginLeft: "42px",
-            display: "grid",
-            gridTemplateColumns: "662px 350px",
-            gap: "20px",
-            alignItems: "start",
-            marginBottom: "20px",
-            marginTop: "42px",
-          }}
+        className="planWhereFormContainer"
+        style={{
+          marginLeft: "42px",
+          display: "grid",
+          gridTemplateColumns: "662px 350px",
+          gap: "20px",
+          alignItems: "start",
+          marginBottom: "20px",
+          marginTop: "42px",
+        }}
         >
           <form
             onSubmit={handleSubmit}
             style={{
               padding: "4vmin",
-              border: "1px solid #d9d9d9",
+              border: "1px solid #e9e9e9",
               borderRadius: "7px",
-              backgroundColor: "#D9D9D9",
+              backgroundColor: "#ffffff",
             }}
           >
             <div>
@@ -101,7 +109,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
             <div
               style={{ display: "flex", gap: "10px", marginBottom: "1.2vmin" }}
             >
-              <div style={{ display: "flex", flexDirection: "column" }}>
+              <div
+                className="date-wrapper"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 <label htmlFor="checkIn" style={{ margin: "0px" }}>
                   Check-In
                 </label>
@@ -113,12 +124,13 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   onChange={handleChange}
                   style={{
                     width: "180px",
-                    padding: "8px",
                     borderRadius: "7px",
-                    border: "1px solid #000000",
                     height: "44px",
+                    backgroundColor: "#F2F4F7",
+                    border: "1px solid #BCC7D4",
                   }}
                 />
+                {/* <IoMdCalendar color="#4AA692" className="calendar-icon" /> */}
               </div>
               <div
                 style={{
@@ -138,10 +150,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
                   onChange={handleChange}
                   style={{
                     width: "180px",
-                    padding: "8px",
                     borderRadius: "7px",
-                    border: "1px solid #000000",
                     height: "44px",
+                    backgroundColor: "#F2F4F7",
+                    border: "1px solid #BCC7D4",
                   }}
                 />
               </div>
@@ -208,11 +220,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
           </form>
 
           <div>
-            <img
-              src="../calander.png"
-              alt="calander"
-              style={{ width: "310px" }}
-            ></img>
+       <Motel />
           </div>
         </div>
       ) : (
@@ -250,11 +258,19 @@ export default function PlanWhereForm({ plan, setPlan }) {
               Stay Details:
             </h4>
             <div style={{ display: "flex", marginTop: "-60px" }}>
-              <div className="shadowSmall" style={{ borderRadius: "7px" }}>
+              <div>
                 <div>
                   <strong style={{ fontSize: "14px" }}>Check-In:</strong>
                 </div>
-                <div>
+                <div
+                  style={{
+                    width: "180px",
+                    borderRadius: "7px",
+                    height: "44px",
+                    backgroundColor: "#F2F4F7",
+                    border: "1px solid #BCC7D4",
+                  }}
+                >
                   {plan.checkIn
                     ? new Date(plan.checkIn).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -264,11 +280,19 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     : "N/A"}
                 </div>
               </div>
-              <div className="shadowSmall">
+              <div>
                 <div>
                   <strong style={{ fontSize: "14px" }}>Check-Out:</strong>
                 </div>
-                <div>
+                <div
+                  style={{
+                    width: "180px",
+                    borderRadius: "7px",
+                    height: "44px",
+                    backgroundColor: "#F2F4F7",
+                    border: "1px solid #BCC7D4",
+                  }}
+                >
                   {plan.checkOut
                     ? new Date(plan.checkOut).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -282,7 +306,6 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 {/* Conditionally render View Receipt or "No Receipt" text */}
                 {plan.receipt &&
                 plan.receipt !== "https://i.imgur.com/KTEjbsw.png" ? (
-       
                   <Link
                     to={`/plans/${plan._id}/receipt`} // Assuming plan._id is the ID you need for the route
                     style={{
@@ -310,9 +333,19 @@ export default function PlanWhereForm({ plan, setPlan }) {
               </div>
             </div>
             <div style={{ display: "flex" }}>
-              <div className="shadowLong" style={{ width: "690px" }}>
+              <div>
                 <strong style={{ fontSize: "14px" }}>Address:</strong>{" "}
-                {plan.address || "N/A"}
+                <div
+                  style={{
+                    width: "590px",
+                    borderRadius: "7px",
+                    height: "44px",
+                    backgroundColor: "#F2F4F7",
+                    border: "1px solid #BCC7D4",
+                  }}
+                >
+                  {plan.address || "N/A"}
+                </div>
               </div>
             </div>
 
@@ -335,11 +368,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
           </div>
           <div>
             <div>
-              <img
-                src="../calander.png"
-                alt="calander"
-                style={{ width: "310px" }}
-              ></img>
+           <Motel />
             </div>
           </div>
         </div>

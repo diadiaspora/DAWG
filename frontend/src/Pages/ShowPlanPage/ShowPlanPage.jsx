@@ -49,15 +49,15 @@ export default function ShowPlanPage() {
           style={{
             marginLeft: "42px",
             width: "1012px",
-            border: "solid",
+      
             padding: "21px",
             borderRadius: "7px",
-            borderWidth: "1px",
+    
             marginRight: "0px",
-            borderBlockColor: "#d9d9d9",
+            border: "1px solid #e9e9e9",
           }}
         >
-          <h1 style={{ textAlign: "left", marginTop: "-4px" }}>The Plan</h1>
+
 
           <div style={{ display: "flex" }}>
             <div>
@@ -65,35 +65,7 @@ export default function ShowPlanPage() {
             </div>
             <div style={{ marginLeft: "42px", marginTop: "0px" }}>
               <Carousel />
-              <div
-                style={{
-                  borderStyle: "solid",
-                  borderColor: "#d9d9d9",
-                  borderWidth: "1px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                  borderRadius: "7px",
-                  marginTop: "14px",
-                  height: "90px",
-                }}
-              >
-                <div
-                  style={{
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                    display: "flex",
-                    padding: "8px",
-                    borderRadius: "7px",
-                    marginLeft: "14px",
-                    marginRight: "14px",
-                    marginTop: "6px",
-                  }}
-                >
-                  <strong style={{ marginLeft: "8px", marginTop: "16px" }}>
-                    
-                    Notes:
-                  </strong>{" "}
-                  <p style={{ marginLeft: "6px" }}> {plan.notes} </p>
-                </div>
-              </div>
+           
             </div>
           </div>
         </div>

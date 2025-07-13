@@ -59,3 +59,34 @@
 
 
   }
+
+  input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4AA692 !important;
+  box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
+  border-width: 2px;
+}
+
+input,
+select,
+textarea {
+  border-radius: 7px;
+  background-color: #F2F4F7;
+  border: 1px solid #BCC7D4;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
+  -moz-appearance: none;    /* Firefox */
+  background-color: #F2F4F7;
+  border: 1px solid #BCC7D4;
+  border-radius: 7px;
+  padding-right: 30px; /* space for custom arrow */
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='4' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234AA692' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
