@@ -17,7 +17,7 @@ const HootDetailsPage = ({ user, setUser, hoots}) => {
     <>
       <div>
         <HootDetails />
-        <HootLongList user={user} setUser={setUser} hoots={hoots} />
+
         <HootList
           user={user}
           setUser={setUser}

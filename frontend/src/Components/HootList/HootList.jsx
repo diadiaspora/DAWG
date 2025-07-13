@@ -30,7 +30,7 @@ export default function HootList(props) {
 
     const updatedHoots = [createdHoot, ...allHoots];
     setAllHoots(updatedHoots);
-    randomizeHoots(updatedHoots); // Re-randomize after adding
+    randomizeHoots(updatedHoots);
   };
 
   return (
@@ -77,12 +77,7 @@ export default function HootList(props) {
                       objectFit: "cover",
                     }}
                   />
-                  <p
-                    style={{
-                      fontSize: "16px",
-                      marginLeft: "6px",
-                    }}
-                  >
+                  <p style={{ fontSize: "16px", marginLeft: "6px" }}>
                     <strong>{hoot.author?.username || "Anonymous"}</strong>
                   </p>
                   <div style={{ marginLeft: "190px" }}>
@@ -112,10 +107,9 @@ export default function HootList(props) {
                       {hoot.title}
                     </h2>
                   </div>
-
                   <div
                     style={{
-                      flexGrow: 1, // ✅ takes remaining space
+                      flexGrow: 1,
                       marginBottom: "8px",
                       overflow: "hidden",
                     }}
@@ -151,22 +145,20 @@ export default function HootList(props) {
                   }}
                 />
               )}
-              <div style={{ display: "flex", justifyContent: "flex-end" }}> 
-                <div> 
-              <FaRegHeart />
-                </div> 
-                <div style={{marginLeft: "12px"}}> 
-              <Link to={`/hoots/${hoot._id}`}>
-                <FaRegComment />
-              </Link>
-                  </div>
+              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <div>
+                  <FaRegHeart />
                 </div>
+                <div style={{ marginLeft: "12px" }}>
+                  <Link to={`/hoots/${hoot._id}`}>
+                    <FaRegComment />
+                  </Link>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-        <div>
-          <HootForm handleAddHoot={handleAddHoot} />
-        </div>
+        {/* ✅ Removed the widget/ad panel here */}
       </div>
     </div>
   );

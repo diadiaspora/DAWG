@@ -4,7 +4,7 @@ import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
-import { useState } from "react"; // useState is here, but not used for 'hoots' in HomePage currently
+import { useState, useEffect } from "react"; // useState is here, but not used for 'hoots' in HomePage currently
 import { NavLink, useNavigate } from "react-router-dom";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import "slick-carousel/slick/slick.css";
@@ -16,6 +16,7 @@ import * as hootService from "../../services/hootService";
 
 import HootList from "../../Components/HootList/HootList";
 import HootLongList from "../../Components/HootLongList/HootLongList";
+import HotelComponent from "../../Components/HotelComponent/HotelComponent";
 // src/App.jsx
 
 import HootForm from "../../Components/HootForm/HootForm";
@@ -34,17 +35,32 @@ export default function HomePage({ user, setUser, hoots, setHoots }) {
     navigate("/");
   };
 
+  useEffect(() => {
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.async = true;
+  script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
+  document.body.appendChild(script);
+
+  return () => {
+    document.body.removeChild(script); // Cleanup on unmount
+  };
+}, []);
+
+
   return (
     <>
       <section className="home">
         <div>
           <Header user={user} setUser={setUser} />
           <SearchComponent />
+
           <Gallery />
         </div>
         <div>
           <BlogsComponent />
         </div>
+        <HotelComponent />
         {/* <HootList
           user={user}
           setUser={setUser}
@@ -56,10 +72,10 @@ export default function HomePage({ user, setUser, hoots, setHoots }) {
           user={user}
           setUser={setUser}
           hoots={hoots}
-          setHoots={setHoots} // <-- PASS setHoots DOWN to HootLongList
+          setHoots={setHoots}
           handleAddHoot={handleAddHoot}
         />
-        {/* <HootForm handleAddHoot={handleAddHoot} /> */}
+
         <Marketplace />
         <div>
           <BlogList user={user} setUser={setUser} />

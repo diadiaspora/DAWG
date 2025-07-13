@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import * as postService from "../../services/postService";
 import { NavLink } from "react-router-dom";
-
+import Header from "../../Components/Header/Header.jsx";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootForm from "../../Components/HootForm/HootForm";
 import HootList from "../../Components/HootList/HootList";
 import * as hootService from "../../services/hootService";
@@ -17,13 +19,17 @@ export default function PostListPage(props) {
   
   return (
     <>
-      <HootList
-        user={user}
-        setUser={setUser}
-        hoots={hoots}
-        handleAddHoot={handleAddHoot}
-      />
-      
+      <div>
+        <Header user={user} setUser={setUser} />
+        <SearchComponent />
+        <HootFeature hoots={hoots} user={user} setHoots={props.setHoots} />
+        <HootList
+          user={user}
+          setUser={setUser}
+          hoots={hoots}
+          handleAddHoot={handleAddHoot}
+        />
+      </div>
     </>
   );
 }
