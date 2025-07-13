@@ -6,6 +6,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+import * as blogService from "../../services/blogService"; 
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
 import HomePage from "../HomePage/HomePage";
@@ -47,6 +48,7 @@ import "./App.css";
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [profile, setProfile] = useState(null);
+  const [blogs, setBlogs] = useState([]);
 
   const [hoots, setHoots] = useState([]);
 

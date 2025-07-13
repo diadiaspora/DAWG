@@ -203,7 +203,7 @@ export default function HootLongList(props) {
                   style={{ display: "flex", alignItems: "center", gap: "8px" }}
                 >
                   {/* Corrected conditional logic for heart icon */}
-                  {hoot.likes.includes(props.user._id) ? (
+                  {props.user && hoot.likes.includes(props.user._id) ? (
                     <FaHeart
                       style={{ color: "red", cursor: "pointer" }}
                       onClick={async () => {
@@ -217,6 +217,10 @@ export default function HootLongList(props) {
                     <IoMdHeartEmpty
                       style={{ cursor: "pointer" }}
                       onClick={async () => {
+                        if (!props.user) {
+                          navigate("/login");
+                          return;
+                        }
                         const updated = await hootService.likeHoot(hoot._id);
                         props.setHoots((prev) =>
                           prev.map((h) => (h._id === updated._id ? updated : h))

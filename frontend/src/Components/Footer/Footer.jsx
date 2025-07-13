@@ -1,8 +1,34 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import NewsLetter from "../../Components/NewsLetter/NewsLetter.jsx";
+import { useEffect, useRef } from "react";
 
 export default function Footer() {
+  const klookRef = useRef();
+
+  useEffect(() => {
+    if (klookRef.current) {
+      klookRef.current.innerHTML = `
+      <ins class="klk-aff-widget"
+        data-wid="93395"
+        data-bgtype="Play"
+        data-adid="1085867"
+        data-lang="en"
+        data-prod="banner"
+        data-width="468"
+        data-height="60">
+        <a href="//www.klook.com/?aid=">Klook.com</a>
+      </ins>
+    `;
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
+      klookRef.current.appendChild(script);
+    }
+  }, []);
+
   return (
     <>
       <div
@@ -11,7 +37,6 @@ export default function Footer() {
           marginTop: "42px",
           color: "#1E3769",
           display: "flex",
-        
         }}
       >
         <div
@@ -20,7 +45,7 @@ export default function Footer() {
             marginLeft: "42px",
             marginTop: "42px",
             marginBottom: "42px",
-            marginRight: "42px"
+            marginRight: "42px",
           }}
         >
           <h3 style={{ fontSize: "15px" }}>
@@ -53,6 +78,17 @@ export default function Footer() {
           <div style={{ fontSize: "15px" }}>
             Subscribe for Updates about our mobile App!
           </div>
+          <div style={{ marginTop: "16px" }}>
+            <div
+              ref={klookRef}
+              style={{
+                borderRadius: "7px",
+                overflow: "hidden",
+                width: "468px",
+                height: "60px",
+              }}
+            />
+          </div>
         </div>
 
         <div style={{ width: "310px", marginBottom: "42px" }}>
@@ -70,9 +106,7 @@ export default function Footer() {
         <strong>
           Also, Everyone has there own unique experience. Heres a link to share
           yours
-          <Link style={{ color: "#4AA692" }}>
-            BIPOC|LGBTQ 
-          </Link>
+          <Link style={{ color: "#4AA692" }}>BIPOC|LGBTQ</Link>
         </strong>
       </div>
     </>
