@@ -64,18 +64,17 @@ export default function Marketplace() {
             <button
               // onClick={handlePostClick}
               style={{
-                width: "140px",
-                height: "44px",
+                borderWidth: "1px",
                 backgroundColor: "#ffffff",
-                borderWidth: "0px",
-                color: "#1E3769",
+                width: "240px",
+                height: "44px",
+                fontWeight: "bold",
                 cursor: "pointer",
                 fontSize: "16px",
                 fontFamily: "Roboto",
-                borderColor: hover ? "#4AA692" : "#1E3769",
-                color: hover ? "#347567" : "#1E3769",
-                borderRadius: "7px",
-                borderWidth: "1px",
+                borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
+                color: hover ? "#347567" : "#1E3769", // ✅ only once
+                borderRadius: "7px", // ✅ once
               }}
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}

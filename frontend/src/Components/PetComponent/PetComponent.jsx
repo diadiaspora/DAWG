@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use i
 
 export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate(); 
   const handleSuccess = () => navigate("/profile");
 
   const [petData, setPetData] = useState(null);
@@ -167,7 +167,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
 
             {/* Pet Photo Section */}
             <div className="flex flex-col items-center mb-6">
-              <img
+              {/* <img
                 src={
                   previewPetPhoto ||
                   petData?.petPhoto ||
@@ -175,7 +175,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 }
                 alt="Pet Avatar"
                 className="w-32 h-32 rounded-full object-cover border-4 border-indigo-500 shadow-md mb-4"
-              />
+              /> */}
               <label
                 htmlFor="petPhoto"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -377,7 +377,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 type="submit"
                 className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
               >
-                {petData ? "Update Pet Information" : "Add Pet Information"}
+               Add Pet Information
               </button>
             </div>
           </form>

@@ -239,7 +239,8 @@ export default function ProfileForm({ profile, setProfile }) {
             borderColor: "#d9d9d9",
             borderRadius: "7px",
             padding: "21px",
-            marginLeft: "42px",
+              marginLeft: "42px",
+            backgroundColor: "#ffffff"
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -301,13 +302,7 @@ export default function ProfileForm({ profile, setProfile }) {
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <strong
-              style={{
-                marginLeft: "21px",
-              }}
-            >
-              Bio
-            </strong>
+      
             <div
               style={{
                 display: "flex",
