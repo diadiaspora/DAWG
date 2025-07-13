@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+
 import "./ProfileForm.css";
 
 

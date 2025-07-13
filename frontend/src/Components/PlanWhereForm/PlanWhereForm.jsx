@@ -81,16 +81,16 @@ export default function PlanWhereForm({ plan, setPlan }) {
 
       {showForm ? (
         <div
-        className="planWhereFormContainer"
-        style={{
-          marginLeft: "42px",
-          display: "grid",
-          gridTemplateColumns: "662px 350px",
-          gap: "20px",
-          alignItems: "start",
-          marginBottom: "20px",
-          marginTop: "42px",
-        }}
+          className="planWhereFormContainer"
+          style={{
+            marginLeft: "42px",
+            display: "grid",
+            gridTemplateColumns: "662px 350px",
+            gap: "20px",
+            alignItems: "start",
+            marginBottom: "20px",
+            marginTop: "42px",
+          }}
         >
           <form
             onSubmit={handleSubmit}
@@ -220,7 +220,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
           </form>
 
           <div>
-       <Motel />
+            <Motel />
           </div>
         </div>
       ) : (
@@ -254,10 +254,16 @@ export default function PlanWhereForm({ plan, setPlan }) {
               borderColor: "#d9d9d9",
             }}
           >
-            <h4 style={{ marginTop: "-14px", fontSize: "24px" }}>
+            <h4
+              style={{
+                marginTop: "0px",
+                fontSize: "20px",
+                marginBottom: "0px",
+              }}
+            >
               Stay Details:
             </h4>
-            <div style={{ display: "flex", marginTop: "-60px" }}>
+            <div style={{ display: "flex", marginTop: "-10px" }}>
               <div>
                 <div>
                   <strong style={{ fontSize: "14px" }}>Check-In:</strong>
@@ -277,12 +283,14 @@ export default function PlanWhereForm({ plan, setPlan }) {
                         month: "long",
                         day: "numeric",
                       })
-                    : "N/A"}
+                    : "No dates added(Yet)"}
                 </div>
               </div>
               <div>
                 <div>
-                  <strong style={{ fontSize: "14px" }}>Check-Out:</strong>
+                  <strong style={{ fontSize: "14px", marginLeft: "16px" }}>
+                    Check-Out:
+                  </strong>
                 </div>
                 <div
                   style={{
@@ -291,6 +299,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     height: "44px",
                     backgroundColor: "#F2F4F7",
                     border: "1px solid #BCC7D4",
+                    marginLeft: "16px",
                   }}
                 >
                   {plan.checkOut
@@ -299,7 +308,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                         month: "long",
                         day: "numeric",
                       })
-                    : "N/A"}
+                    : "No dates added(Yet)"}
                 </div>
               </div>
               <div>
@@ -326,33 +335,37 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     View Receipt
                   </Link>
                 ) : (
-                  <p style={{ marginTop: "10px", color: "#666" }}>
+                  <p
+                    style={{
+                      paddingTop: "20px",
+                      color: "#666",
+                      marginLeft: "16px",
+                    }}
+                  >
                     No receipt uploaded
                   </p>
                 )}
               </div>
             </div>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", marginTop: "-10px" }}>
               <div>
                 <strong style={{ fontSize: "14px" }}>Address:</strong>{" "}
                 <div
                   style={{
                     width: "590px",
                     borderRadius: "7px",
-                    height: "44px",
+                    height: "90px",
                     backgroundColor: "#F2F4F7",
                     border: "1px solid #BCC7D4",
                   }}
                 >
-                  {plan.address || "N/A"}
+                  {plan.address || "An address hasnt been added"}
                 </div>
               </div>
             </div>
 
             {!plan.checkIn && !plan.checkOut && !plan.address && (
-              <p style={{ marginTop: "-10px", marginBottom: "-10px" }}>
-                No location details entered yet.
-              </p>
+              <p style={{ marginTop: "-10px", marginBottom: "-10px" }}></p>
             )}
             <button
               onClick={() => setShowForm(true)}
@@ -368,7 +381,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
           </div>
           <div>
             <div>
-           <Motel />
+              <Motel />
             </div>
           </div>
         </div>

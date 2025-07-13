@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
 import UsersPlans from "../../Components/UsersPlans/UsersPlans";
 import UsersPets from "../../Components/UsersPets/UsersPets";
+import Destinations from "../../Components/Destinations/Destinations.jsx";
 
 
 
@@ -61,6 +62,9 @@ export default function UserProfilePage({ user }) {
         <div style={{ display: "flex" }}>
          
           <UsersPlans user={user} />
+        </div>
+        <div>
+          <Destinations />
         </div>
         <div style={{ marginLeft: "-42px" }}>
           <UsersBlogs user={user} />
