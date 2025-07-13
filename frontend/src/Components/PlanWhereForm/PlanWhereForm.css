@@ -53,3 +53,45 @@
     font-size: 34px;
     color: red;
   }
+
+  .date-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .date-wrapper input[type="date"] {
+    padding-right: 36px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #F2F4F7;
+    border: 1px solid #BCC7D4;
+    border-radius: 7px;
+    height: 44px;
+    width: 180px;
+  }
+  
+  .date-wrapper .calendar-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #4AA692;
+  }
+
+  /* PlanWhereForm.css */
+
+/* Hide native calendar icon for WebKit browsers */
+input[type="date"].custom-date-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Hide default background image in Firefox */
+input[type="date"].custom-date-input {
+  background-image: none;
+}

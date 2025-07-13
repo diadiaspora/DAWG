@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 import { BiWorld } from "react-icons/bi";
 import { IoMdCalendar } from "react-icons/io";
 
-
-
 export default function UserPlans() {
   const [plans, setPlans] = useState([]);
-  const [hover, setHover] = useState(false);
+  const [hoveredPlanId, setHoveredPlanId] = useState(null);
 
   useEffect(() => {
     async function fetchPlans() {
@@ -19,7 +17,6 @@ export default function UserPlans() {
         console.error("Error fetching plans:", err);
       }
     }
-
     fetchPlans();
   }, []);
 
@@ -29,7 +26,6 @@ export default function UserPlans() {
         style={{
           backgroundColor: "#1E3769",
           width: "1012px",
-
           display: "flex",
           borderRadius: "7px",
           height: "70px",
@@ -43,7 +39,7 @@ export default function UserPlans() {
             fontSize: "18px",
             color: "#ffffff",
             marginTop: "10px",
-            marginleft: "21px",
+            marginLeft: "21px",
             marginRight: "660px",
           }}
         >
@@ -51,6 +47,7 @@ export default function UserPlans() {
         </h1>
         <button>Plan a New Trip</button>
       </div>
+
       {plans.length ? (
         <div
           style={{
@@ -60,7 +57,7 @@ export default function UserPlans() {
             WebkitOverflowScrolling: "touch",
           }}
         >
-          <div
+          <ul
             style={{
               display: "flex",
               gap: "16px",
@@ -68,68 +65,80 @@ export default function UserPlans() {
               scrollbarWidth: "thin",
               scrollbarColor: "#1E3769 #f0f0f0",
               paddingBottom: "8px",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
             }}
           >
             {plans.map((plan) => (
-              <div
+              <li
                 key={plan._id}
-                style={{
-                  flex: "0 0 auto",
-                  width: "300px",
-                  border: "1px solid #BCC7D4",
-                  borderRadius: "8px",
-                  padding: "16px",
-                  scrollSnapAlign: "start",
-                  backgroundColor: "#fff",
-                }}
+                style={{ flex: "0 0 auto", width: "300px" }}
+                onMouseEnter={() => setHoveredPlanId(plan._id)}
+                onMouseLeave={() => setHoveredPlanId(null)}
               >
-                <div style={{ display: "flex" }}>
-                  <div>
+                <Link
+                  to={`${plan._id}`}
+                  style={{
+                    display: "block",
+                    border:
+                      hoveredPlanId === plan._id
+                        ? "2px solid #4AA692"
+                        : "1px solid #BCC7D4",
+
+                    borderRadius: "8px",
+                    padding: "16px",
+                    scrollSnapAlign: "start",
+                    backgroundColor:
+                      hoveredPlanId === plan._id ? "#F2F4F7" : "#fff",
+                    textDecoration: "none",
+                    color: "inherit",
+                    height: "180px",
+                    
+                    transition: "background-color 0.3s ease",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center" }}>
                     <BiWorld color="#4AA692" />
-                  </div>
-                  <div>
                     <h3 style={{ marginLeft: "6px", marginTop: "-5px" }}>
                       {plan.destination}
                     </h3>
                   </div>
-                </div>
-                <div style={{display: "flex", marginTop: "-12px"}}>
-                <IoMdCalendar color="#4AA692" />
 
-                <p style={{fontSize: "14px", marginLeft: "8px", marginTop: "0px"}}>
-                  {plan.month} {plan.day}, {plan.year}
-                  </p>
-                  </div>
-                {plan.notes && (
-                  <p
+                  <div
                     style={{
-                      marginTop: "8px",
-                      fontSize: "14px",
-                      color: "#555",
+                      display: "flex",
+                      marginTop: "-12px",
+                      alignItems: "center",
                     }}
                   >
-                    {plan.notes}
-                  </p>
-                )}
-              </div>
+                    <IoMdCalendar color="#4AA692" />
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        marginLeft: "8px",
+                        marginTop: "0",
+                      }}
+                    >
+                      {plan.month} {plan.day}, {plan.year}
+                    </p>
+                  </div>
+
+                  {plan.notes && (
+                    <p
+                      style={{
+                        marginTop: "8px",
+                        fontSize: "14px",
+                        color: "#555",
+                      }}
+                    >
+                      {plan.notes}
+                    </p>
+                  )}
+                </Link>
+              </li>
             ))}
-            <div
-              style={{
-                flex: "0 0 auto",
-                width: "300px",
-                border: "1px solid #BCC7D4",
-                borderRadius: "8px",
-                padding: "16px",
-                scrollSnapAlign: "start",
-                backgroundColor: "#fff",
-              }}
-            >
-              Add a New Trip:
-              <Link to="/plans">
-                <button>Start Planning </button>
-              </Link>
-            </div>
-          </div>
+          </ul>
         </div>
       ) : (
         <p>You haven’t created any plans yet.</p>

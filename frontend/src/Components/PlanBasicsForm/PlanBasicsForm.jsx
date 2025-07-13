@@ -37,7 +37,13 @@ export default function PlanBasicsForm() {
   return (
     <div style={{ marginBottom: "0px", display: "flex" }}>
       <div>
-        <h3 style={{ marginLeft: "42px", fontSize: "24px" }}>Create a Plan</h3>
+        <div style={{ marginTop: "-24px",backgroundColor: "#1E3769", width:"662px", height: "54px", borderRadius: "7px", marginLeft: "42px"}}>
+          <h3
+            style={{ marginLeft: "42px", fontSize: "24px", color: "#ffffff" }}
+          >
+            Create a Plan
+          </h3>
+        </div>
         <form
           onSubmit={handleSubmit}
           style={{
@@ -50,6 +56,7 @@ export default function PlanBasicsForm() {
             padding: "4vmin",
             border: "1px solid #e9e9e9",
             borderRadius: "7px",
+            marginTop: "21px" 
           }}
         >
           <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
@@ -64,9 +71,7 @@ export default function PlanBasicsForm() {
                   borderRadius: "7px",
                   height: "44px",
                   backgroundColor: "#F2F4F7",
-                  borderStyle: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#BCC7D4",
+                  border: "1px solid #BCC7D4",
                 }}
               >
                 <option value="">-- Select Month --</option>
