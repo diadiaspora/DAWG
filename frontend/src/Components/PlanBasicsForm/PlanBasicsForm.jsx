@@ -66,7 +66,7 @@ export default function PlanBasicsForm() {
                   backgroundColor: "#F2F4F7",
                   borderStyle: "solid",
                   borderWidth: "1px",
-                  borderColor: "#E9e9e9",
+                  borderColor: "#BCC7D4",
                 }}
               >
                 <option value="">-- Select Month --</option>
