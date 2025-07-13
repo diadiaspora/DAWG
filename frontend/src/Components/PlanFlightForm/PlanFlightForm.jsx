@@ -80,10 +80,14 @@ export default function PlanFlightForm({ plan, setPlan }) {
       <aside
         style={{
           marginRight: "42px",
-          backgroundColor: "#D9D9D9",
+          backgroundColor: "#1E3769",
           width: "1012px",
-          borderRadius: "10px",
-          padding: "21px",
+          borderRadius: "7px",
+          paddingTop: "1px",
+          paddingLeft: "42px",
+          color: "#ffffff",
+          marginLeft: "42px",
+          height: "60px",
         }}
       >
         <h3>Flight Info</h3>
@@ -133,7 +137,6 @@ export default function PlanFlightForm({ plan, setPlan }) {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <label type="button">Upload Ticket</label>
               <input
-               
                 name="ticket"
                 type="file"
                 accept=".png, .gif, .jpg, .jpeg"
@@ -249,7 +252,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
               color: "white",
               cursor: "pointer",
               height: "44px",
-         
+
               marginRight: "30px",
             }}
           >
@@ -273,7 +276,8 @@ export default function PlanFlightForm({ plan, setPlan }) {
             gap: "1.5vmin",
             marginTop: "42px",
             borderStyle: "solid",
-            borderWidth: "3px",
+            borderWidth: "1px",
+            borderColor: "#d9d9d9",
           }}
         >
           <div style={{ display: "flex" }}>
