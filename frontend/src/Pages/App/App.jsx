@@ -148,7 +148,7 @@ export default function App() {
                       user={user}
                       setUser={setUser}
                       hoots={hoots}
-                      setHoots={setHoots} 
+                      setHoots={setHoots}
                       handleAddHoot={handleAddHoot}
                       profile={profile}
                     />
@@ -170,7 +170,10 @@ export default function App() {
                   path="/services/:service/:location"
                   element={<ServicesInfoPage />}
                 />
-                <Route path="/plans" element={<PlanPage />} />
+                <Route
+                  path="/plans"
+                  element={<PlanPage user={user} setUser={setUser} />}
+                />
                 <Route path="/marketplace" element={<MarketplacePage />} />
                 <Route
                   path="/write"
