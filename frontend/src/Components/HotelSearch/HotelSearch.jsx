@@ -18,14 +18,16 @@ export default function HotelSearch() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        width: "310px",
-        padding: "12px",
-        fontFamily: "sans-serif",
-        marginTop: "-11px",
-      }}
-    />
+    <div style={{marginTop: "42px"}}>
+      <div
+        ref={containerRef}
+        style={{
+          width: "310px",
+          padding: "12px",
+          fontFamily: "sans-serif",
+          marginTop: "50px",
+        }}
+      />
+    </div>
   );
 }

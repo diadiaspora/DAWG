@@ -21,7 +21,7 @@ export default function UserPlans() {
   return (
     <div style={{ marginLeft: "42px", marginTop: "42px" }}>
       <h2 style={{ fontSize: "24px", marginBottom: "16px" }}>
-        Your Travel Plans
+        Upcoming Trips
       </h2>
 
       {plans.length ? (
