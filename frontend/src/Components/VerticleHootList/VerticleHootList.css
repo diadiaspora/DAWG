@@ -1,0 +1,22 @@
+.hoot-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .hoot {
+    border: 1px solid #bcc7d4;
+    border-radius: 7px;
+    padding: 12px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .hoot-link:hover .hoot {
+    background-color: #932e2e; /* ✅ light blue background */
+  }
+  
+  .hoot-link:hover {
+    color: #000000; /* ✅ or any color you prefer */
+    text-decoration: none;
+    background-color: #F2F4F7; 
+  }
+  

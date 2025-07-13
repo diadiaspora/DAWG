@@ -11,15 +11,20 @@ export default function VerticalHootList(props) {
 
   useEffect(() => {
     if (props.hoots && props.hoots.length > 0) {
-      setDisplayedHoots(props.hoots.slice(0, 10));
+      // Shuffle the array
+      const shuffled = [...props.hoots].sort(() => 0.5 - Math.random());
+      // Take the first 3
+      const selected = shuffled.slice(0, 3);
+      setDisplayedHoots(selected);
     }
   }, [props.hoots]);
+  
 
   return (
-    <div >
+    <div>
       <div
         style={{
-          backgroundColor: "#1e37691f",
+          backgroundColor: "#1E3769",
           width: "100%",
           maxWidth: "1012px",
           marginLeft: "42px",
@@ -31,7 +36,11 @@ export default function VerticalHootList(props) {
           marginBottom: "24px",
         }}
       >
-        <h2 style={{ marginLeft: "21px" }}>Here's What Everyone's Saying</h2>
+        <h2
+          style={{ marginLeft: "21px", color: "#ffffff", paddingTop: "22px" }}
+        >
+          Here's What Everyone's Saying
+        </h2>
       </div>
 
       <div
@@ -42,6 +51,8 @@ export default function VerticalHootList(props) {
           display: "flex",
           flexDirection: "column",
           gap: "24px",
+          marginBottom: "0px",
+          paddingBottom: "0px",
         }}
       >
         {displayedHoots.map((hoot) => (
@@ -52,15 +63,17 @@ export default function VerticalHootList(props) {
               borderColor: "#BCC7D4",
               borderWidth: "1px",
               borderRadius: "7px",
-              padding: "16px",
+              marginBottom: "0px",
+              paddingBottom: "0px",
               display: "flex",
               width: "310px",
+              height: "186px",
               flexDirection: "column",
               backgroundColor: "#fff",
             }}
           >
             <div>
-              <header style={{ marginBottom: "8px" }}>
+              <header style={{ marginBottom: "-10px", backgroundColor: "#F2F4F7", borderTopLeftRadius: "7px", borderTopRightRadius: "7px" }}>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <img
                     src={
@@ -73,6 +86,7 @@ export default function VerticalHootList(props) {
                       height: "32px",
                       borderRadius: "50%",
                       objectFit: "cover",
+                      marginLeft: "12px",
                     }}
                   />
                   <p
@@ -88,6 +102,7 @@ export default function VerticalHootList(props) {
                       fontSize: "12px",
                       marginLeft: "auto",
                       color: "#666",
+                      marginRight: "12px",
                     }}
                   >
                     {new Date(hoot.createdAt).toLocaleDateString("en-US", {
@@ -98,16 +113,41 @@ export default function VerticalHootList(props) {
                 </div>
               </header>
 
-              <div style={{ display: "flex" }}>
-                <div>
-                  <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
+              <div>
+                <div style={{ display: "flex", width: "100%", marginTop:"0px" }}>
+                  <div style={{}}>
+                    {hoot.gifUrl && (
+                      <img
+                        src={hoot.gifUrl}
+                        alt="GIF"
+                        style={{
+                          width: "60px",
+                          height: "100%",
+                          objectFit: "cover",
+                          borderTopLeftRadius: "0px",
+                          borderBottomLeftRadius: "7px",
+                          marginTop: "8px",
+                          marginBottom: "0px",
+                          paddingBottom: "0px",
+                        }}
+                      />
+                    )}
+                  </div>
+                  <Link
+                    to={`/hoots/${hoot._id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
                     <div
                       style={{
                         border: "1px solid #E9E9E9",
-                        borderRadius: "7px",
+                        borderTopRightRadius: "0px",
+                        borderBottomRightRadius: "7px",
                         padding: "12px",
                         marginTop: "8px",
-                        width: "210px",
+                        width: "100%",
+                        height: "100%",
+                        marginBottom: "0px",
+                        paddingBottom: "0px",
                       }}
                     >
                       <h2 style={{ fontSize: "16px", margin: "0" }}>
@@ -117,13 +157,13 @@ export default function VerticalHootList(props) {
                         style={{
                           marginTop: "8px",
                           lineHeight: "1.5em",
-                          maxHeight: "2.5em",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
                           display: "-webkit-box",
                           WebkitBoxOrient: "vertical",
-                          WebkitLineClamp: 2,
+                          WebkitLineClamp: 3, // show up to 3 lines
                           fontSize: "14px",
+                          maxHeight: "4.5em", // 1.5em x 3 lines
                         }}
                       >
                         {hoot.text}
@@ -131,34 +171,20 @@ export default function VerticalHootList(props) {
                     </div>
                   </Link>
                 </div>
-                <div style={{marginLeft: "6px"}}>
-                  {hoot.gifUrl && (
-                    <img
-                      src={hoot.gifUrl}
-                      alt="GIF"
-                      style={{
-                        width: "60px",
 
-                        objectFit: "cover",
-                        borderRadius: "6px",
-                        marginTop: "12px",
-                      }}
-                    />
-                  )}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      marginTop: "12px",
-                      gap: "12px",
-                    }}
-                  >
-                    <FaRegHeart />
-                    <Link to={`/hoots/${hoot._id}`}>
-                      <FaRegComment />
-                    </Link>
-                  </div>
-                </div>
+                {/* <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginTop: "12px",
+                    gap: "12px",
+                  }}
+                >
+                  <FaRegHeart />
+                  <Link to={`/hoots/${hoot._id}`}>
+                    <FaRegComment />
+                  </Link>
+                </div> */}
               </div>
             </div>
           </div>
