@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
 import { Link } from "react-router-dom";
+import { BiWorld } from "react-icons/bi";
+import { IoMdCalendar } from "react-icons/io";
+
+
 
 export default function UserPlans() {
   const [plans, setPlans] = useState([]);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     async function fetchPlans() {
@@ -20,12 +25,33 @@ export default function UserPlans() {
 
   return (
     <div style={{ marginLeft: "42px", marginTop: "42px" }}>
-      <h2 style={{ fontSize: "24px", marginBottom: "16px" }}>
-        Upcoming Trips
-      </h2>
+      <div
+        style={{
+          backgroundColor: "#1E3769",
+          width: "1012px",
 
+          display: "flex",
+          borderRadius: "7px",
+          height: "70px",
+          alignItems: "baseline",
+          marginBottom: "24px",
+          padding: "12px",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "18px",
+            color: "#ffffff",
+            marginTop: "10px",
+            marginleft: "21px",
+            marginRight: "660px",
+          }}
+        >
+          Upcoming Trips
+        </h1>
+        <button>Plan a New Trip</button>
+      </div>
       {plans.length ? (
-        // Outer scroll container
         <div
           style={{
             overflowX: "auto",
@@ -34,7 +60,6 @@ export default function UserPlans() {
             WebkitOverflowScrolling: "touch",
           }}
         >
-          {/* Horizontal scrollable row */}
           <div
             style={{
               display: "flex",
@@ -58,12 +83,23 @@ export default function UserPlans() {
                   backgroundColor: "#fff",
                 }}
               >
-                <h3 style={{ color: "#1E3769", marginBottom: "8px" }}>
-                  {plan.destination}
-                </h3>
-                <p>
-                  <strong>Date:</strong> {plan.month} {plan.day}, {plan.year}
-                </p>
+                <div style={{ display: "flex" }}>
+                  <div>
+                    <BiWorld color="#4AA692" />
+                  </div>
+                  <div>
+                    <h3 style={{ marginLeft: "6px", marginTop: "-5px" }}>
+                      {plan.destination}
+                    </h3>
+                  </div>
+                </div>
+                <div style={{display: "flex", marginTop: "-12px"}}>
+                <IoMdCalendar color="#4AA692" />
+
+                <p style={{fontSize: "14px", marginLeft: "8px", marginTop: "0px"}}>
+                  {plan.month} {plan.day}, {plan.year}
+                  </p>
+                  </div>
                 {plan.notes && (
                   <p
                     style={{
@@ -88,7 +124,6 @@ export default function UserPlans() {
                 backgroundColor: "#fff",
               }}
             >
-              {" "}
               Add a New Trip:
               <Link to="/plans">
                 <button>Start Planning </button>

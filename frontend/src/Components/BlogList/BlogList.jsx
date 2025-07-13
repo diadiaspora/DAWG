@@ -5,7 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate(); // ✅
-    const [hover, setHover] = useState(false);
+  const [hoverLatest, setHoverLatest] = useState(false);
+  const [hoverCreate, setHoverCreate] = useState(false);
+  
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -61,23 +63,20 @@ export default function BlogList({ user }) {
           <Link to="/blogs">
             <div>
               <button
-                // onClick={handlePostClick}
                 style={{
                   width: "140px",
                   height: "44px",
                   backgroundColor: "#ffffff",
-                  borderWidth: "0px",
-                  color: "#1E3769",
                   cursor: "pointer",
                   fontSize: "16px",
                   fontFamily: "Roboto",
-                  borderWidth: "1px",
-                  borderColor: hover ? "#4AA692" : "#1E3769",
-                  color: hover ? "#347567" : "#1E3769",
+                  border: "1px solid",
+                  borderColor: hoverLatest ? "#4AA692" : "#1E3769",
+                  color: hoverLatest ? "#347567" : "#1E3769",
                   borderRadius: "7px",
                 }}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
+                onMouseEnter={() => setHoverLatest(true)}
+                onMouseLeave={() => setHoverLatest(false)}
               >
                 Latest Stories
               </button>
@@ -173,23 +172,20 @@ export default function BlogList({ user }) {
             <button
               onClick={handleCreatePostClick}
               style={{
-                borderWidth: "1px",
                 backgroundColor: "#ffffff",
-                borderRadius: "7px",
-                borderColor: "#1E3769",
-                width: "200px",
+                width: "240px",
                 height: "44px",
-                color: "#1E3769",
                 fontWeight: "bold",
                 cursor: "pointer",
                 fontSize: "16px",
                 fontFamily: "Roboto",
-                borderColor: hover ? "#4AA692" : "#1E3769",
-                color: hover ? "#347567" : "#1E3769",
+                border: "1px solid",
+                borderColor: hoverCreate ? "#4AA692" : "#1E3769",
+                color: hoverCreate ? "#347567" : "#1E3769",
                 borderRadius: "7px",
               }}
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
+              onMouseEnter={() => setHoverCreate(true)}
+              onMouseLeave={() => setHoverCreate(false)}
             >
               Create a post
             </button>

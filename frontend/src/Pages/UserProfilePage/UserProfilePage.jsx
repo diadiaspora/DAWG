@@ -49,7 +49,7 @@ export default function UserProfilePage({ user }) {
             width: "1012px",
           }}
         >
-          {/* <div style={{ width: "650px", marginLeft: "42px" }}></div> */}
+        
         </div>
         <div style={{width:"1012px", display: "flex"}}>
           <ProfileForm profile={profile} setProfile={setProfile} />

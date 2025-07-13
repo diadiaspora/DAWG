@@ -24,24 +24,41 @@ export default function UserPets() {
   }
 
   if (loading) return <p>Loading pets...</p>;
-  if (!pets.length) return <p>No pets found.</p>;
+  if (!pets.length) return (
+    <p>
+      {" "}
+      <div>
+        <button
+          onClick={() => navigate("/addpet")}
+          style={{
+            height: "44px",
+            marginLeft: "21px",
+            marginTop: "21px",
+            width: "262px",
+            backgroundColor: "#1E3769",
+            borderWidth: "0px",
+            borderRadius: "7px",
+          }}
+        >
+          Add Pet
+        </button>
+      </div>
+    </p>
+  );
 
   return (
     <div className="mt-10 px-4">
-      {/* <h2 className="text-2xl font-bold mb-4">My Pets</h2> */}
-
-      {/* Outer container to hide overflow */}
       <div
         style={{
           overflowX: "auto",
+          overflowY: "hidden",
           paddingBottom: "16px",
-          width: "310px",
+          width: "350px",
           height: "350px",
           marginLeft: "42px",
           WebkitOverflowScrolling: "touch",
         }}
       >
-        {/* Scrollable row of cards */}
         <div
           style={{
             display: "flex",
@@ -57,8 +74,8 @@ export default function UserPets() {
               key={pet._id}
               style={{
                 flex: "0 0 auto",
-                width: "310px",
-                height: "350px",
+                width: "350px",
+                height: "320px",
                 border: "1px solid #BCC7D4",
                 borderRadius: "8px",
                 padding: "16px",
@@ -66,61 +83,109 @@ export default function UserPets() {
                 backgroundColor: "#fff",
               }}
             >
-              <img
-                src={pet.petPhoto || "https://i.ibb.co/5x5Td7ks/av-1.png"}
-                alt={pet.petName}
-                className="w-full h-40 object-cover rounded-md"
-              />
-              <h3 className="text-xl font-semibold mt-2">{pet.petName}</h3>
-              <p>
-                <strong>Breed:</strong> {pet.breed}
-              </p>
-              <p>
-                <strong>Age:</strong> {pet.age}
-              </p>
-              <p>
-                <strong>Weight:</strong> {pet.weight}
-              </p>
-              <p className="text-sm mt-2">{pet.bio}</p>
+              <div style={{ display: "flex" }}>
+                <div>
+                  <img
+                    src={pet.petPhoto || "https://i.ibb.co/5x5Td7ks/av-1.png"}
+                    alt={pet.petName}
+                    style={{ width: "80px", borderRadius: "100px" }}
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "12px",
+                    marginTop: "32px",
+                  }}
+                >
+                  <div>
+                    <h2 style={{ fontSize: "16px" }}>{pet.petName}</h2>
+                  </div>
+                  <div style={{ display: "flex", marginTop: "-20px" }}>
+                    <p style={{ fontSize: "14px", fontWeight: "600" }}>
+                      {pet.breed}
+                    </p>
+                    &nbsp; &nbsp;
+                    <p style={{ fontSize: "14px", fontWeight: "600" }}>
+                      {pet.age} yrs old
+                    </p>
+                    &nbsp; &nbsp;
+                    <p style={{ fontSize: "14px", fontWeight: "600" }}>
+                      {pet.weight}
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-              <div className="mt-4 space-y-2">
+              <p>{pet.bio}</p>
+
+              <div>
                 {pet.vaccine && (
-                  <a
-                    href={pet.vaccine}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-indigo-600 text-white text-center py-2 rounded-md hover:bg-indigo-700"
+                  <button
+                    style={{
+                      backgroundColor: "#1E3769",
+                      borderWidth: "0px",
+                      height: "44px",
+                      marginRight: "12px",
+                      borderRadiius: "7px",
+                    }}
+                    onClick={() =>
+                      window.open(pet.vaccine, "_blank", "noopener,noreferrer")
+                    }
                   >
-                    View Vaccine
-                  </a>
+                    Vaccine
+                  </button>
                 )}
                 {pet.healthCertificate && (
-                  <a
-                    href={pet.healthCertificate}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-indigo-600 text-white text-center py-2 rounded-md hover:bg-indigo-700"
+                  <button
+                    style={{
+                      backgroundColor: "#1E3769",
+                      borderWidth: "0px",
+                      height: "44px",
+                      marginRight: "12px",
+                      borderRadiius: "7px",
+                    }}
+                    onClick={() =>
+                      window.open(
+                        pet.healthCertificate,
+                        "_blank",
+                        "noopener,noreferrer"
+                      )
+                    }
+                    className="block w-full bg-indigo-600 text-white text-center py-2 rounded-md hover:bg-indigo-700 mb-2"
                   >
-                    View Health Certificate
-                  </a>
+                    Health Certificate
+                  </button>
                 )}
                 {pet.microchip && (
-                  <a
-                    href={pet.microchip}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-indigo-600 text-white text-center py-2 rounded-md hover:bg-indigo-700"
+                  <button
+                    style={{
+                      backgroundColor: "#1E3769",
+                      borderWidth: "0px",
+                      height: "44px",
+                      borderRadiius: "7px",
+                    }}
+                    onClick={() =>
+                      window.open(
+                        pet.microchip,
+                        "_blank",
+                        "noopener,noreferrer"
+                      )
+                    }
+                    className="block w-full bg-indigo-600 text-white text-center py-2 rounded-md hover:bg-indigo-700"
                   >
-                    View Microchip
-                  </a>
+                    Microchip
+                  </button>
                 )}
+              </div>
+              <div>
+                <p>Update</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-  
     </div>
   );
 }

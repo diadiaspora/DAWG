@@ -86,7 +86,7 @@ export default function NewsLetter() {
               required
             />
           </div>
-          <div style={{display: "flex"}}>
+          <div style={{ display: "flex" }}>
             <input
               type="checkbox"
               name="consent"
@@ -103,18 +103,15 @@ export default function NewsLetter() {
             style={{
               borderWidth: "1px",
               backgroundColor: "#ffffff",
-              borderRadius: "7px",
-              borderColor: "#1E3769",
               width: "240px",
               height: "44px",
-              color: "#1E3769",
               fontWeight: "bold",
               cursor: "pointer",
               fontSize: "16px",
               fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769",
-              color: hover ? "#347567" : "#1E3769",
-              borderRadius: "7px",
+              borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
+              color: hover ? "#347567" : "#1E3769", // ✅ only once
+              borderRadius: "7px", // ✅ once
             }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
