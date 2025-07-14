@@ -20,8 +20,13 @@ const CommentForm = ({ handleAddComment, parentId = null, onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginLeft: parentId ? "60px" : "42px", marginBottom: "22px" }}>
-      <label htmlFor="text-input" hidden>Comment</label>
+    <form
+      onSubmit={handleSubmit}
+      style={{ marginLeft: parentId ? "60px" : "42px", marginBottom: "22px" }}
+    >
+      <label htmlFor="text-input" hidden>
+        Comment
+      </label>
       <div style={{ display: "flex", width: "100%" }}>
         <textarea
           required
@@ -54,7 +59,19 @@ const CommentForm = ({ handleAddComment, parentId = null, onCancel }) => {
         </button>
       </div>
       {onCancel && (
-        <button type="button" onClick={onCancel} style={{ marginTop: "4px", marginLeft: "8px", fontSize: "12px", background: "none", border: "none", color: "#666", cursor: "pointer" }}>
+        <button
+          type="button"
+          onClick={onCancel}
+          style={{
+            marginTop: "4px",
+            marginLeft: "8px",
+            fontSize: "12px",
+            background: "none",
+            border: "none",
+            color: "#666",
+            cursor: "pointer",
+          }}
+        >
           Cancel
         </button>
       )}

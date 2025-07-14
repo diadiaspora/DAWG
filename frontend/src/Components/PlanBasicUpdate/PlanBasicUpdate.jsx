@@ -58,7 +58,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
         width: "300px",
         borderStyle: "solid",
         borderWidth: "1px",
-        borderRadius: "20px",
+        borderRadius: "7px",
         borderColor: "#d9d9d9",
       }}
     >
@@ -249,10 +249,10 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             style={{
               width: "260px",
               borderRadius: "7px",
-              height: "44px",
-              backgroundColor: "#F2F4F7",
-              border: "1px solid #BCC7D4",
-              height: "100px",
+             
+              backgroundColor: "#ffffff",
+              border: "2px solid #1E3769",
+              height: "150px",
             }}
           >
             <p style={{ marginLeft: "6px" }}> {plan.notes} </p>
@@ -265,7 +265,8 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
               borderRadius: "7px",
               width: "100px",
               borderWidth: "0px",
-              marginLeft: "12px",
+              marginLeft: "182px",
+              marginTop: "8px",
               color: "#1E3769",
               textDecoration: "underline",
             }}

@@ -21,32 +21,29 @@ import HotelComponent from "../../Components/HotelComponent/HotelComponent";
 
 import HootForm from "../../Components/HootForm/HootForm";
 
-// ADD setHoots to the props destructured from the parent
-export default function HomePage({ user, setUser, hoots, setHoots }) {
-  // <-- ADDED setHoots here
+
+export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
+
 
   const navigate = useNavigate();
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-    // You might want to update the hoots state here as well if a new hoot is added
-    // If you add a new hoot, you should use setHoots to update the list:
-    // setHoots(prevHoots => [createdHoot, ...prevHoots]);
+
     navigate("/");
   };
 
   useEffect(() => {
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.async = true;
-  script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
-  document.body.appendChild(script);
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
+    document.body.appendChild(script);
 
-  return () => {
-    document.body.removeChild(script); // Cleanup on unmount
-  };
-}, []);
-
+    return () => {
+      document.body.removeChild(script); // Cleanup on unmount
+    };
+  }, []);
 
   return (
     <>

@@ -113,16 +113,31 @@ export default function ProfileForm({ profile, setProfile }) {
               marginLeft: "42px",
               width: "662px",
               display: "grid",
-              gap: "1.2vmin",
-              padding: "4vmin",
+              paddingTop: "22px",
+              paddingLeft: "0px",
               border: "1px solid #e9e9e9",
               borderRadius: "7px",
+              marginRight: "0px"
             }}
           >
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", marginLeft: "42px" }}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ marginLeft: "0px" }}>Username</label>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "-20px",
+                  }}
+                >
+                  <label
+                    style={{
+                      marginLeft: "0px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Username
+                  </label>
                   <input
                     name="username"
                     value={profileData.username}
@@ -136,13 +151,20 @@ export default function ProfileForm({ profile, setProfile }) {
                     }}
                   />
 
-                  <label style={{ alignContent: "center" }}>Upload Photo</label>
+                  <label
+                    style={{
+                      marginLeft: "0px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      marginTop: "12px",
+                    }}
+                  >
+                    Upload Photo
+                  </label>
                   <input
                     style={{
-                      borderRadius: "150px",
-                      paddingTop: "50px",
-                      height: "150px",
-                      width: "150px",
+                      width: "180px",
+                      height: "44px",
                       backgroundColor: "#F2F4F7",
                       borderWidth: "1px",
                       borderColor: "#BCC7D4",
@@ -152,39 +174,22 @@ export default function ProfileForm({ profile, setProfile }) {
                     accept=".png, .gif, .jpg, .jpeg"
                     ref={avatarImageRef}
                   />
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginLeft: "42px",
-                  }}
-                >
-                  <label>Bio</label>
-                  <input
-                    name="bio"
-                    value={profileData.bio}
-                    onChange={handleChange}
+                  <label
                     style={{
-                      width: "280px",
-                      height: "200px",
-                      backgroundColor: "#F2F4F7",
-                      borderWidth: "1px",
-                      borderColor: "#BCC7D4",
+                      margin: "0px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      marginTop: "12px",
                     }}
-                  />
-                </div>
-              </div>
-
-              <div style={{ marginLeft: "0px", display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ margin: "0px" }}>Upload Passport</label>
+                  >
+                    Upload Passport
+                  </label>
                   <input
                     style={{
                       borderRadius: "7px",
                       padding: "10px",
                       height: "44px",
-                      width: "150px",
+                      width: "180px",
                       backgroundColor: "#F2F4F7",
                       borderWidth: "1px",
                       borderColor: "#BCC7D4",
@@ -194,15 +199,22 @@ export default function ProfileForm({ profile, setProfile }) {
                     accept=".png, .gif, .jpg, .jpeg"
                     ref={passportImageRef}
                   />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ margin: "0px" }}>Upload Important Docs</label>
+                  <label
+                    style={{
+                      margin: "0px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      marginTop: "12px",
+                    }}
+                  >
+                    Upload Important Docs
+                  </label>
                   <input
                     style={{
                       borderRadius: "7px",
                       padding: "10px",
                       height: "44px",
-                      width: "150px",
+                      width: "180px",
                       backgroundColor: "#F2F4F7",
                       borderWidth: "1px",
                       borderColor: "#BCC7D4",
@@ -213,17 +225,44 @@ export default function ProfileForm({ profile, setProfile }) {
                     ref={importantDocsImageRef}
                   />
                 </div>
-                <button
-                  type="submit"
+                <div
                   style={{
-                    width: "150px",
-                    height: "44px",
-                    borderWidth: "0px",
-                    backgroundColor: "#1E3769",
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "42px",
                   }}
                 >
-                  Save
-                </button>
+                  <label style={{
+                    margin: "0px",
+                    fontSize: "14px",
+                    fontWeight: "600"
+                  }}>Bio</label>
+                  <input
+                    name="bio"
+                    value={profileData.bio}
+                    onChange={handleChange}
+                    style={{
+                      width: "390px",
+                      height: "210px",
+                      backgroundColor: "#F2F4F7",
+                      borderWidth: "1px",
+                      borderColor: "#BCC7D4",
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      width: "390px",
+                      height: "44px",
+                      borderWidth: "0px",
+                      backgroundColor: "#1E3769",
+                      marginTop: "18px",
+                      borderRadius:"7px"
+                    }}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </form>
@@ -233,21 +272,21 @@ export default function ProfileForm({ profile, setProfile }) {
         <div
           style={{
             display: "flex",
-            width: "632px",
+            width: "662px",
             height: "350px",
             borderStyle: "solid",
-            borderWidth: "1px",
+            borderWidth: "10px",
             borderColor: "#d9d9d9",
             borderRadius: "7px",
             padding: "21px",
-              marginLeft: "42px",
-            backgroundColor: "#ffffff"
+            marginLeft: "42px",
+            backgroundColor: "#ffffff",
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
-                width: "300px",
+                width: "250px",
                 borderStyle: "solid",
                 borderWidth: "1px",
                 borderColor: "#d9d9d9",
@@ -303,7 +342,6 @@ export default function ProfileForm({ profile, setProfile }) {
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-      
             <div
               style={{
                 display: "flex",

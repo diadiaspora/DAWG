@@ -273,8 +273,11 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     width: "180px",
                     borderRadius: "7px",
                     height: "44px",
-                    backgroundColor: "#F2F4F7",
-                    border: "1px solid #BCC7D4",
+                    backgroundColor: "#ffffff",
+                    border: "2px solid #1E3769",
+                    marginLeft: "0px",
+                    paddingLeft: "8px",
+                    paddingTop: "8px",
                   }}
                 >
                   {plan.checkIn
@@ -297,9 +300,11 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     width: "180px",
                     borderRadius: "7px",
                     height: "44px",
-                    backgroundColor: "#F2F4F7",
-                    border: "1px solid #BCC7D4",
+                    backgroundColor: "#fffffff",
+                    border: "2px solid #1E3769",
                     marginLeft: "16px",
+                    paddingLeft: "8px",
+                    paddingTop: "8px",
                   }}
                 >
                   {plan.checkOut
@@ -355,8 +360,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     width: "590px",
                     borderRadius: "7px",
                     height: "90px",
-                    backgroundColor: "#F2F4F7",
-                    border: "1px solid #BCC7D4",
+                       border: "2px solid #1E3769",
+                    marginLeft: "0px",
+                    paddingLeft: "8px",
+                    paddingTop: "8px",
                   }}
                 >
                   {plan.address || "An address hasnt been added"}
