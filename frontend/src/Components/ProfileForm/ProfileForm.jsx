@@ -117,7 +117,7 @@ export default function ProfileForm({ profile, setProfile }) {
               paddingLeft: "0px",
               border: "1px solid #e9e9e9",
               borderRadius: "7px",
-              marginRight: "0px"
+              marginRight: "0px",
             }}
           >
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -232,11 +232,15 @@ export default function ProfileForm({ profile, setProfile }) {
                     marginLeft: "42px",
                   }}
                 >
-                  <label style={{
-                    margin: "0px",
-                    fontSize: "14px",
-                    fontWeight: "600"
-                  }}>Bio</label>
+                  <label
+                    style={{
+                      margin: "0px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Bio
+                  </label>
                   <input
                     name="bio"
                     value={profileData.bio}
@@ -257,7 +261,7 @@ export default function ProfileForm({ profile, setProfile }) {
                       borderWidth: "0px",
                       backgroundColor: "#1E3769",
                       marginTop: "18px",
-                      borderRadius:"7px"
+                      borderRadius: "7px",
                     }}
                   >
                     Save
@@ -275,22 +279,20 @@ export default function ProfileForm({ profile, setProfile }) {
             width: "662px",
             height: "350px",
             borderStyle: "solid",
-            borderWidth: "10px",
+            borderWidth: "1px",
             borderColor: "#d9d9d9",
             borderRadius: "7px",
             padding: "21px",
             marginLeft: "42px",
             backgroundColor: "#ffffff",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
                 width: "250px",
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "#d9d9d9",
-                borderRadius: "7px",
+
                 padding: "20px",
                 height: "300px",
                 display: "flex",
@@ -346,8 +348,8 @@ export default function ProfileForm({ profile, setProfile }) {
               style={{
                 display: "flex",
                 borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "#d9d9d9",
+                borderWidth: "2px",
+                borderColor: "#1E3769",
                 borderRadius: "7px",
                 width: "262px",
                 marginTop: "4px",

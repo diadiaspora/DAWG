@@ -94,8 +94,9 @@ export default function UserPlans() {
                     textDecoration: "none",
                     color: "inherit",
                     height: "180px",
-                    
+
                     transition: "background-color 0.3s ease",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center" }}>

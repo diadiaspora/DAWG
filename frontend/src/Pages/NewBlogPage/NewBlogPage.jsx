@@ -5,6 +5,7 @@ import SearchComponent from "../../Components/SearchComponent/SearchComponent.js
 import Header from "../../Components/Header/Header.jsx";
 import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
 
+
 import "./NewBlogPage.css";
 import { NavLink } from "react-router-dom";
 

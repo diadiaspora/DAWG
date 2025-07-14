@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import * as hootService from "../../services/hootService";
 import HootForm from "../../Components/HootForm/HootForm";
 import CommentForm from "../CommentForm/CommentForm";
+import CommentTree from "../CommentTree/CommentTree";
+import CommentThread from "../CommentThread/CommentThread";
 
 const HootDetails = ({ hootId, user, setUser }) => {
   const [hoot, setHoot] = useState(null);
@@ -34,6 +36,8 @@ const HootDetails = ({ hootId, user, setUser }) => {
     console.log("New hoot created:", createdHoot);
     // This may not be needed here unless this is a new-hoots+details combo
   };
+
+  const nestedComments = hoot?.comments ? CommentTree(hoot.comments) : [];
 
   return (
     <main style={{ display: "flex", width: "1012px", marginTop: "100px" }}>
@@ -113,28 +117,14 @@ const HootDetails = ({ hootId, user, setUser }) => {
                 There are no comments.
               </p>
             )}
-
-            {hoot.comments.map((comment) => (
-              <article
+            {nestedComments.map((comment) => (
+              <CommentThread
                 key={comment._id}
-                style={{
-                  borderStyle: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#E9E9E9",
-                  borderRadius: "7px",
-                  marginLeft: "42px",
-                }}
-              >
-                <header>
-                  <p>
-                    {`${comment.author.name} posted on ${new Date(
-                      comment.createdAt
-                    ).toLocaleDateString()}`}
-                  </p>
-                </header>
-                <p>{comment.text}</p>
-              </article>
+                comment={comment}
+                handleAddComment={handleAddComment}
+              />
             ))}
+          
           </div>
         </section>
       </div>

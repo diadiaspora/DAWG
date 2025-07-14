@@ -1,27 +1,28 @@
 import { useState } from "react";
-import CommentForm from "../../Components/CommentForm/CommentForm";
-import NestedComments from "../NestedComments/NestedComments";
+import CommentForm from "../../Components/CommentForm/CommentForm"; // Ensure this path is correct relative to NestedComment
 
-export default function CommentThread({
+
+export default function NestedComment({
   comment,
   handleAddComment,
-
+  depth = 0,
 }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
 
+  // Toggles the visibility of the reply form
   const toggleReplyForm = () => setShowReplyForm((prev) => !prev);
 
+  // Calculate indentation based on the depth
+  const indentStyle = {
+    marginLeft: `${depth * 24}px`, // Indent by 24px for each level of depth
+    paddingLeft: "12px", // Add some padding for visual separation from the left border
+    borderLeft: depth > 0 ? "1px solid #E9E9E9" : "none", // Add a subtle vertical line for replies
+    marginTop: "12px", // Space between nested comments
+  };
+
   return (
-    <article
-      style={{
-        border: "1px solid #E9E9E9",
-        borderRadius: "7px",
-        padding: "12px",
-        backgroundColor: "#fff",
-        marginLeft: "42px", // Fixed left margin for all top-level comment cards
-        marginTop: "12px",
-      }}
-    >
+    // This div acts as the container for the nested comment, applying the indentation
+    <div style={indentStyle}>
       <header>
         <p style={{ fontSize: "14px", marginBottom: "6px" }}>
           <strong>{comment.author?.name || "Anonymous"}</strong> —{" "}
@@ -49,23 +50,23 @@ export default function CommentThread({
         <div style={{ marginTop: "8px" }}>
           <CommentForm
             handleAddComment={handleAddComment}
-            parentId={comment._id}
-            onCancel={toggleReplyForm}
+            parentId={comment._id} // Pass the current comment's ID as the parent for the new reply
+            onCancel={toggleReplyForm} // Allows cancelling the reply form
           />
         </div>
       )}
 
-      {/* Replies inside the same card */}
+      {/* Recursively render replies using NestedComment itself */}
       <div style={{ marginTop: "12px" }}>
         {comment.replies?.map((reply) => (
           <NestedComment
             key={reply._id}
             comment={reply}
             handleAddComment={handleAddComment}
-            depth={1} // The first level of replies starts at depth 1
+            depth={depth + 1} // Increment depth for deeper nesting
           />
         ))}
       </div>
-    </article>
+    </div>
   );
 }
