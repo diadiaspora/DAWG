@@ -25,10 +25,16 @@ const HootDetails = ({ hootId, user, setUser }) => {
   }, [hootId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await hootService.comment(hootId, commentFormData);
-    setHoot({ ...hoot, comments: [...hoot.comments, newComment] });
+    try {
+      await hootService.comment(hootId, commentFormData);
+      // Re-fetch the hoot to get updated comment structure
+      const updatedHoot = await hootService.show(hootId);
+      setHoot(updatedHoot);
+    } catch (err) {
+      console.error("Failed to add comment", err);
+    }
   };
-
+  
   if (!hoot) return <main>Loading...</main>;
 
   const handleAddHoot = async (newHootData) => {
@@ -102,7 +108,10 @@ const HootDetails = ({ hootId, user, setUser }) => {
         </section>
 
         <section>
-          <CommentForm handleAddComment={handleAddComment} />
+          <CommentForm
+            handleAddComment={handleAddComment}
+            parentId={null}
+          />
           <div>
             {!hoot.comments?.length && (
               <p
@@ -124,7 +133,6 @@ const HootDetails = ({ hootId, user, setUser }) => {
                 handleAddComment={handleAddComment}
               />
             ))}
-          
           </div>
         </section>
       </div>

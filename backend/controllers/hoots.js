@@ -90,13 +90,18 @@ async function comment(req, res) {
     req.body.author = req.user._id;
    
     const hoot = await Hoot.findById(req.params.id);
+
+    const newComment = {
+      text: req.body.text,
+      author: req.body.author,
+      parentId: req.body.parentId || null, // 👈 Add this line
+    };
   
-    hoot.comments.push(req.body);
+    hoot.comments.push(newComment);
     await hoot.save();
 
-    const newComment = hoot.comments[hoot.comments.length - 1];
-
-    newComment._doc.author = req.user;
+    const savedComment = hoot.comments[hoot.comments.length - 1];
+    savedComment._doc.author = req.user;
 
     res.status(201).json(newComment);
   } catch (err) {
