@@ -12,7 +12,7 @@ const CommentForm = ({ handleAddComment, parentId = null, onCancel }) => {
     evt.preventDefault();
     const dataToSend = { ...formData };
     if (parentId) dataToSend.parentId = parentId; // ✅ Add parentId if replying
-
+  
     handleAddComment(dataToSend);
     setFormData({ text: "" });
 

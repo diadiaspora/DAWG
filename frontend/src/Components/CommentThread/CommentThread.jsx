@@ -58,7 +58,7 @@ export default function CommentThread({
       {/* Replies inside the same card */}
       <div style={{ marginTop: "12px" }}>
         {comment.replies?.map((reply) => (
-          <NestedComment
+          <NestedComments
             key={reply._id}
             comment={reply}
             handleAddComment={handleAddComment}
