@@ -107,141 +107,234 @@ export default function PlanFlightForm({ plan, setPlan }) {
             border: "1px solid #d9d9d9",
             borderRadius: "7px",
             marginTop: "42px",
-            backgroundColor: "#d9d9d9",
+            backgroundColor: "#ffffff",
           }}
         >
-          <h3>Outbound Flight</h3>
-          <div style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="airline">Airline</label>
-              <input
-                type="text"
-                id="airline"
-                name="airline"
-                value={formData.airline}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <label type="button" style={{ marginLeft: "0px" }}>
+              Upload Ticket
+            </label>
+            <input
+              name="ticket"
+              type="file"
+              accept=".png, .gif, .jpg, .jpeg"
+              ref={fileInputRef}
+              style={{ height: "44px", borderRadius: "7px", width: "950px" }}
+            />
+          </div>
+          <div style={{ display: "flex" }}>
+            <div style={{ width: "500px" }}>
+              <h4>Outbound Flight</h4>
+
+              <div
+                style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="airline" style={{ marginLeft: "0px" }}>
+                    Airline
+                  </label>
+                  <input
+                    type="text"
+                    id="airline"
+                    name="airline"
+                    value={formData.airline}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    htmlFor="outboundFlightNumber"
+                    style={{ marginLeft: "0px" }}
+                  >
+                    Flight Number
+                  </label>
+                  <input
+                    type="text"
+                    id="outboundFlightNumber"
+                    name="outboundFlightNumber"
+                    value={formData.outboundFlightNumber}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="outboundDate" style={{ marginLeft: "0px" }}>
+                    Date
+                  </label>
+                  <input
+                    type="date"
+                    id="outboundDate"
+                    name="outboundDate"
+                    value={formData.outboundDate}
+                    onChange={handleChange}
+                    style={{ height: "44px", borderRadius: "7px" }}
+                  />
+                </div>
+              </div>
+              <div
+                className="form-group"
+                style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    htmlFor="outboundDepartureTime"
+                    style={{ marginLeft: "0px" }}
+                  >
+                    Departure Time
+                  </label>
+                  <input
+                    type="text"
+                    id="outboundDepartureTime"
+                    name="outboundDepartureTime"
+                    value={formData.outboundDepartureTime}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    htmlFor="outboundArrivalTime"
+                    style={{ marginLeft: "0px" }}
+                  >
+                    Arrival Time
+                  </label>
+                  <input
+                    type="text"
+                    id="outboundArrivalTime"
+                    name="outboundArrivalTime"
+                    value={formData.outboundArrivalTime}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="outboundFlightNumber">Flight Number</label>
-              <input
-                type="text"
-                id="outboundFlightNumber"
-                name="outboundFlightNumber"
-                value={formData.outboundFlightNumber}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label type="button">Upload Ticket</label>
-              <input
-                name="ticket"
-                type="file"
-                accept=".png, .gif, .jpg, .jpeg"
-                ref={fileInputRef}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
+            <div style={{ marginLeft: "0px", width: "500px" }}>
+              <h4>Return Flight</h4>
+              <div
+                className="form-group"
+                style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="airline" style={{ marginLeft: "0px" }}>
+                    Airline
+                  </label>
+                  <input
+                    type="text"
+                    id="airline"
+                    name="airline"
+                    value={formData.airline}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    htmlFor="returnFlightNumber"
+                    style={{ marginLeft: "0px" }}
+                  >
+                    Flight Number
+                  </label>
+                  <input
+                    type="text"
+                    id="returnFlightNumber"
+                    name="returnFlightNumber"
+                    value={formData.returnFlightNumber}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="returnDate" style={{ marginLeft: "0px" }}>
+                    Date
+                  </label>
+                  <input
+                    type="date"
+                    id="returnDate"
+                    name="returnDate"
+                    value={formData.returnDate}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+              </div>
+              <div
+                className="form-group"
+                style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    htmlFor="returnDepartureTime"
+                    style={{ marginLeft: "0px" }}
+                  >
+                    Departure Time
+                  </label>
+                  <input
+                    type="text"
+                    id="returnDepartureTime"
+                    name="returnDepartureTime"
+                    value={formData.returnDepartureTime}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    htmlFor="returnArrivalTime"
+                    style={{ marginLeft: "0px" }}
+                  >
+                    Arrival Time
+                  </label>
+                  <input
+                    type="text"
+                    id="returnArrivalTime"
+                    name="returnArrivalTime"
+                    value={formData.returnArrivalTime}
+                    onChange={handleChange}
+                    style={{
+                      height: "44px",
+                      borderRadius: "7px",
+                      width: "150px",
+                    }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
-
-          <div
-            className="form-group"
-            style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
-          >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="outboundDate">Date</label>
-              <input
-                type="date"
-                id="outboundDate"
-                name="outboundDate"
-                value={formData.outboundDate}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="outboundDepartureTime">Departure Time</label>
-              <input
-                type="text"
-                id="outboundDepartureTime"
-                name="outboundDepartureTime"
-                value={formData.outboundDepartureTime}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="outboundArrivalTime">Arrival Time</label>
-              <input
-                type="text"
-                id="outboundArrivalTime"
-                name="outboundArrivalTime"
-                value={formData.outboundArrivalTime}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
-            </div>
-          </div>
-
-          <h3>Return Flight</h3>
-          <div
-            className="form-group"
-            style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
-          >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="returnFlightNumber">Flight Number</label>
-              <input
-                type="text"
-                id="returnFlightNumber"
-                name="returnFlightNumber"
-                value={formData.returnFlightNumber}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "50px" }}
-              />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="returnDate">Date</label>
-              <input
-                type="date"
-                id="returnDate"
-                name="returnDate"
-                value={formData.returnDate}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "7px" }}
-              />
-            </div>
-          </div>
-
-          <div
-            className="form-group"
-            style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}
-          >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="returnDepartureTime">Departure Time</label>
-              <input
-                type="text"
-                id="returnDepartureTime"
-                name="returnDepartureTime"
-                value={formData.returnDepartureTime}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "7px" }}
-              />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="returnArrivalTime">Arrival Time</label>
-              <input
-                type="text"
-                id="returnArrivalTime"
-                name="returnArrivalTime"
-                value={formData.returnArrivalTime}
-                onChange={handleChange}
-                style={{ height: "44px", borderRadius: "7px" }}
-              />
-            </div>
-          </div>
-
           <button
             type="submit"
             style={{
@@ -281,12 +374,11 @@ export default function PlanFlightForm({ plan, setPlan }) {
           }}
         >
           <div style={{ display: "flex" }}>
-            <h4>Flight Details</h4>
             <Link
               to={`/plans/${plan._id}/ticket`}
               style={{
                 backgroundColor: "#d9d9d9",
-                width: "190px",
+                width: "950px",
                 marginTop: "10px",
                 color: "black",
                 height: "44px",
@@ -302,97 +394,164 @@ export default function PlanFlightForm({ plan, setPlan }) {
               View Ticket
             </Link>
           </div>
-          <h4>Outbound:</h4>
-          <div
-            style={{
-              borderStyle: "solid",
-              borderColor: "#d9d9d9",
-              borderRadius: "20px",
-              padding: "12px",
-            }}
-          >
-            <div style={{ display: "flex" }}>
-              <div className="shadowSmall">
-                <strong>Airline:</strong>
-                {plan.airline || "N/A"}
-              </div>
-              <div className="shadowSmall">
-                <strong style={{ fontSize: "14px" }}> Flight Number:</strong>
-
-                {plan.outboundFlightNumber || "N/A"}
+          <div style={{ display: "flex" }}>
+            <div style={{ width: "500px" }}>
+              <h4>Outbound:</h4>
+              <div>
+                <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div>
+                      <strong style={{ fontSize: "14px" }}> Airline:</strong>
+                    </div>
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.airline || "N/A"}
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <strong style={{ fontSize: "14px" }}>
+                        Flight Number:
+                      </strong>
+                    </div>
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.outboundFlightNumber || "N/A"}
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>Date:</strong>
+                    </div>
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.outboundDate
+                        ? new Date(plan.outboundDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )
+                        : "N/A"}
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>
+                        Departure Time:
+                      </strong>
+                    </div>
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.outboundDepartureTime || "N/A"}
+                    </div>
+                  </div>
+                  <div>
+                    <strong style={{ fontSize: "14px" }}>Arrival Time:</strong>
+                    {plan.outboundArrivalTime || "N/A"}
+                  </div>
+                </div>
               </div>
             </div>
-            <div style={{ display: "flex" }}>
-              <div className="shadowSmall">
-                <strong>Date:</strong>{" "}
-                {plan.outboundDate
-                  ? new Date(plan.outboundDate).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
-                  : "N/A"}
+            <>
+              <div style={{ width: "500px" }}>
+                <h4>Inbound:</h4>
+                <div
+                  style={{
+                    borderStyle: "solid",
+                    borderColor: "#d9d9d9",
+                    borderRadius: "7px",
+                    padding: "12px",
+                  }}
+                >
+                  <div style={{ display: "flex" }}>
+                    <div className="shadowSmall">
+                      <div>
+                        <strong style={{ fontSize: "14px" }}>Airline:</strong>
+                      </div>
+                      <div>{plan.airline || "N/A"}</div>
+                    </div>
+                    <div className="shadowSmall">
+                      <div>
+                        <strong style={{ fontSize: "14px" }}>
+                          {" "}
+                          Flight Number:
+                        </strong>
+                      </div>
+                      <div>{plan.returnFlightNumber || "N/A"}</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex" }}>
+                    <div className="shadowSmall">
+                      <strong>Date:</strong>{" "}
+                      {plan.returnDate
+                        ? new Date(plan.returnDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )
+                        : "N/A"}
+                    </div>
+                    <div className="shadowSmall">
+                      <strong>DepartTime:</strong>{" "}
+                      {plan.returnDepartureTime || "N/A"}
+                    </div>
+                    <div className="shadowSmall">
+                      <strong>ArrivTime:</strong>{" "}
+                      {plan.returnArrivalTime || "N/A"}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="shadowSmall">
-                <strong>Departure Time:</strong>
-                {plan.outboundDepartureTime || "N/A"}
-              </div>
-              <div className="shadowSmall">
-                <strong>Arrival Time:</strong>
-                {plan.outboundArrivalTime || "N/A"}
-              </div>
-            </div>
+            </>
           </div>
-
-          <>
-            <h4>Inbound:</h4>
-            <div
-              style={{
-                borderStyle: "solid",
-                borderColor: "#d9d9d9",
-                borderRadius: "7px",
-                padding: "12px",
-              }}
-            >
-              <div style={{ display: "flex" }}>
-                <div className="shadowSmall">
-                  <div>
-                    <strong style={{ fontSize: "14px" }}>Airline:</strong>
-                  </div>
-                  <div>{plan.airline || "N/A"}</div>
-                </div>
-                <div className="shadowSmall">
-                  <div>
-                    <strong style={{ fontSize: "14px" }}>
-                      {" "}
-                      Flight Number:
-                    </strong>
-                  </div>
-                  <div>{plan.returnFlightNumber || "N/A"}</div>
-                </div>
-              </div>
-              <div style={{ display: "flex" }}>
-                <div className="shadowSmall">
-                  <strong>Date:</strong>{" "}
-                  {plan.returnDate
-                    ? new Date(plan.returnDate).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })
-                    : "N/A"}
-                </div>
-                <div className="shadowSmall">
-                  <strong>DepartTime:</strong>{" "}
-                  {plan.returnDepartureTime || "N/A"}
-                </div>
-                <div className="shadowSmall">
-                  <strong>ArrivTime:</strong> {plan.returnArrivalTime || "N/A"}
-                </div>
-              </div>
-            </div>
-          </>
-
           {!plan.airline &&
             !plan.outboundFlightNumber &&
             !plan.outboundDate &&
@@ -404,11 +563,11 @@ export default function PlanFlightForm({ plan, setPlan }) {
               backgroundColor: "#1E3769",
               borderWidth: "2px",
               borderColor: "#1E3769",
-              borderRadius: "50px",
+              borderRadius: "7px",
             }}
           >
-            {" "}
-            Edit{" "}
+           
+            Edit
           </button>
         </div>
       )}

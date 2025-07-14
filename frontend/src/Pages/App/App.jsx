@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -6,7 +5,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import * as blogService from "../../services/blogService"; 
+import * as blogService from "../../services/blogService";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
 import HomePage from "../HomePage/HomePage";
@@ -49,7 +48,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [profile, setProfile] = useState(null);
   const [blogs, setBlogs] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const [hoots, setHoots] = useState([]);
 
   const handleAddHoot = async (hootData) => {
@@ -68,17 +67,16 @@ export default function App() {
     fetchAllHoots();
   }, []);
 
-    useEffect(() => {
-      async function fetchBlogs() {
-        const blogs = await blogService.index();
-        console.log("Fetched blogs with authors:", blogs);
-       
-        const shuffled = blogs.sort(() => 0.5 - Math.random()).slice(0, 2);
-        setBlogs(shuffled);
-      }
-      fetchBlogs();
-    }, []);
-  
+  useEffect(() => {
+    async function fetchBlogs() {
+      const blogs = await blogService.index();
+      console.log("Fetched blogs with authors:", blogs);
+
+      const shuffled = blogs.sort(() => 0.5 - Math.random()).slice(0, 2);
+      setBlogs(shuffled);
+    }
+    fetchBlogs();
+  }, []);
 
   useEffect(() => {
     const url = "https://mntzco.com/NDI4NDIx.js?t=428421";
@@ -110,18 +108,15 @@ export default function App() {
         try {
           const profiles = await profileService.index();
           const userProfile = profiles.find((p) => p.author === user._id);
-          if (userProfile) {
-            setProfile(userProfile);
-          }
+          if (userProfile) setProfile(userProfile);
         } catch (err) {
           console.error("Failed to fetch profile", err);
         }
       }
+      setLoading(false); // ✅ Whether user exists or not, we are done loading
     }
     fetchProfile();
   }, [user]);
-  console.log({ profile });
-
 
   return (
     <>
@@ -171,10 +166,7 @@ export default function App() {
                     path="/services/:service/:location"
                     element={<ServicesInfoPage />}
                   />
-                  <Route
-                    path="/plans"
-                    element={<PlanPage user={user} setUser={setUser} />}
-                  />
+                  <Route path="/plans" element={<PlanPage />} />
                   <Route path="/marketplace" element={<MarketplacePage />} />
                   <Route
                     path="/write"

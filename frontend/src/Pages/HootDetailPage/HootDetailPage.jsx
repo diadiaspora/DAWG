@@ -1,22 +1,23 @@
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import * as hootService from "../../services/hootService";
 import HootDetails from "../../Components/HootDetails/HootDetails";
-import HootList from "../../Components/HootList/HootList"; // if you want to use this
-import HootLongList from "../../Components/HootLongList/HootLongList"; // if you want to use th
+import HootList from "../../Components/HootList/HootList";
 import { useNavigate } from "react-router-dom";
 
-const HootDetailsPage = ({ user, setUser, hoots}) => {
+const HootDetailsPage = ({ user, setUser, hoots }) => {
+  const { hootId } = useParams(); // ✅ FIXED LINE
   const navigate = useNavigate();
+
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-    navigate("/"); // or refresh the list, or update props.hoots
+    navigate("/");
   };
 
   return (
     <>
       <div>
-        <HootDetails />
+        <HootDetails hootId={hootId} user={user} setUser={setUser} />
 
         <HootList
           user={user}

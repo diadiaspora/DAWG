@@ -1,25 +1,25 @@
-import { useParams } from "react-router";
+// ✅ REMOVE this:
+// import { useParams } from "react-router";
+
 import { useEffect, useState } from "react";
 import * as hootService from "../../services/hootService";
 import HootForm from "../../Components/HootForm/HootForm";
-
 import CommentForm from "../CommentForm/CommentForm";
 
-const HootDetails = ({ user, setUser }) => {
-  const { hootId } = useParams();
+const HootDetails = ({ hootId, user, setUser }) => {
   const [hoot, setHoot] = useState(null);
 
   useEffect(() => {
     async function fetchHoot() {
       try {
-        const data = await hootService.show(hootId); // assuming you have a `show` method
+        const data = await hootService.show(hootId);
         setHoot(data);
       } catch (err) {
         console.error("Failed to fetch hoot", err);
       }
     }
 
-    fetchHoot();
+    if (hootId) fetchHoot();
   }, [hootId]);
 
   const handleAddComment = async (commentFormData) => {
@@ -28,13 +28,11 @@ const HootDetails = ({ user, setUser }) => {
   };
 
   if (!hoot) return <main>Loading...</main>;
+
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-
-    const updatedHoots = [createdHoot, ...allHoots];
-    setAllHoots(updatedHoots);
-    randomizeHoots(updatedHoots); // Re-randomize after adding
+    // This may not be needed here unless this is a new-hoots+details combo
   };
 
   return (
@@ -42,7 +40,6 @@ const HootDetails = ({ user, setUser }) => {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <section style={{ width: "662px", marginLeft: "42px" }}>
           <header>
-            {/* <p>{hoot.category.toUpperCase()}</p> */}
             <div style={{ display: "flex" }}>
               <img
                 src={
@@ -69,43 +66,41 @@ const HootDetails = ({ user, setUser }) => {
                 borderColor: "#E9E9E9",
                 borderRadius: "7px",
                 padding: "12px",
-                height: "200px", //
+                height: "200px",
                 overflowY: "auto",
               }}
             >
               <h1>{hoot.title}</h1>
               <p>{hoot.text}</p>
             </div>
-            <div>
-              {hoot.gifUrl && (
-                <div
+            {hoot.gifUrl && (
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src={hoot.gifUrl}
+                  alt="GIF"
                   style={{
-                    width: "100%", // Take full width of the section
-                    display: "flex",
-                    justifyContent: "center", // Center the GIF horizontally
+                    maxWidth: "100%",
+                    height: "auto",
+                    maxHeight: "300px",
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                   }}
-                >
-                  <img
-                    src={hoot.gifUrl}
-                    alt="GIF"
-                    style={{
-                      maxWidth: "100%", // Ensure it fits within the container
-                      height: "auto", // Maintain aspect ratio
-                      maxHeight: "300px", // Optional: Limit the maximum height
-                      borderRadius: "8px", // Slightly larger border-radius for details page
-                      boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // A subtle shadow
-                    }}
-                  />
-                </div>
-              )}
-            </div>
+                />
+              </div>
+            )}
           </div>
         </section>
 
         <section>
           <CommentForm handleAddComment={handleAddComment} />
           <div>
-            {!hoot.comments.length && (
+            {!hoot.comments?.length && (
               <p
                 style={{
                   borderStyle: "solid",
@@ -132,8 +127,9 @@ const HootDetails = ({ user, setUser }) => {
               >
                 <header>
                   <p>
-                    {`${comment.author.name} posted on
-                  ${new Date(comment.createdAt).toLocaleDateString()}`}
+                    {`${comment.author.name} posted on ${new Date(
+                      comment.createdAt
+                    ).toLocaleDateString()}`}
                   </p>
                 </header>
                 <p>{comment.text}</p>
