@@ -99,6 +99,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
               border: "1px solid #e9e9e9",
               borderRadius: "7px",
               backgroundColor: "#ffffff",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             }}
           >
             <div>
@@ -252,6 +253,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
               borderStyle: "solid",
               borderWidth: "1px",
               borderColor: "#d9d9d9",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             }}
           >
             <h4
@@ -360,7 +362,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     width: "590px",
                     borderRadius: "7px",
                     height: "90px",
-                       border: "2px solid #1E3769",
+                    border: "2px solid #1E3769",
                     marginLeft: "0px",
                     paddingLeft: "8px",
                     paddingTop: "8px",

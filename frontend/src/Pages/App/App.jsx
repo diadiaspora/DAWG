@@ -51,6 +51,23 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [hoots, setHoots] = useState([]);
 
+
+  useEffect(() => {
+    async function fetchProfile() {
+      if (user) {
+        try {
+          const profiles = await profileService.index();
+          const userProfile = profiles.find((p) => p.author === user._id);
+          if (userProfile) setProfile(userProfile);
+        } catch (err) {
+          console.error("Failed to fetch profile", err);
+        }
+      }
+      setLoading(false); // ✅ Whether user exists or not, we are done loading
+    }
+    fetchProfile();
+  }, [user]);
+
   const handleAddHoot = async (hootData) => {
     const newHoot = await hootService.create(hootData);
     console.log("New hoot created:", newHoot);
@@ -102,21 +119,6 @@ export default function App() {
     };
   }, []); // Empty dependency array means this runs once on mount
 
-  useEffect(() => {
-    async function fetchProfile() {
-      if (user) {
-        try {
-          const profiles = await profileService.index();
-          const userProfile = profiles.find((p) => p.author === user._id);
-          if (userProfile) setProfile(userProfile);
-        } catch (err) {
-          console.error("Failed to fetch profile", err);
-        }
-      }
-      setLoading(false); // ✅ Whether user exists or not, we are done loading
-    }
-    fetchProfile();
-  }, [user]);
 
   return (
     <>

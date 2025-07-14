@@ -108,6 +108,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
             borderRadius: "7px",
             marginTop: "42px",
             backgroundColor: "#ffffff",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -371,6 +372,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
             borderStyle: "solid",
             borderWidth: "1px",
             borderColor: "#d9d9d9",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
           <div style={{ display: "flex" }}>
@@ -566,7 +568,6 @@ export default function PlanFlightForm({ plan, setPlan }) {
               borderRadius: "7px",
             }}
           >
-           
             Edit
           </button>
         </div>

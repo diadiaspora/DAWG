@@ -37,7 +37,16 @@ export default function PlanBasicsForm() {
   return (
     <div style={{ marginBottom: "0px", display: "flex" }}>
       <div>
-        <div style={{ marginTop: "-24px",backgroundColor: "#1E3769", width:"662px", height: "54px", borderRadius: "7px", marginLeft: "42px"}}>
+        <div
+          style={{
+            marginTop: "-24px",
+            backgroundColor: "#1E3769",
+            width: "662px",
+            height: "54px",
+            borderRadius: "7px",
+            marginLeft: "42px",
+          }}
+        >
           <h3
             style={{ marginLeft: "42px", fontSize: "24px", color: "#ffffff" }}
           >
@@ -56,7 +65,8 @@ export default function PlanBasicsForm() {
             padding: "4vmin",
             border: "1px solid #e9e9e9",
             borderRadius: "7px",
-            marginTop: "21px" 
+            marginTop: "21px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
           <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
