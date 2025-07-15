@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { blogPosts } from "../../Data/blogs"; // Assuming this is your static blog data
 import BlogCard from "../../Components/BlogCard/BlogCard.jsx";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router"; 
 import "./BlogsComponent.css"; 
 
 export default function BlogsComponent() {

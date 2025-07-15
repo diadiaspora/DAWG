@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import * as planService from "../../services/planService";
 
 import "./PlanFlightForm.css";
@@ -376,27 +376,6 @@ export default function PlanFlightForm({ plan, setPlan }) {
           }}
         >
           <div style={{ display: "flex" }}>
-            <Link
-              to={`/plans/${plan._id}/ticket`}
-              style={{
-                backgroundColor: "#d9d9d9",
-                width: "950px",
-                marginTop: "10px",
-                color: "black",
-                height: "44px",
-                borderRadius: "7px",
-                borderWidth: "2px",
-                borderColor: "#d9d9d9",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                textDecoration: "none",
-              }}
-            >
-              View Ticket
-            </Link>
-          </div>
-          <div style={{ display: "flex" }}>
             <div style={{ width: "500px" }}>
               <h4>Outbound:</h4>
               <div>
@@ -494,61 +473,181 @@ export default function PlanFlightForm({ plan, setPlan }) {
                   </div>
                   <div>
                     <strong style={{ fontSize: "14px" }}>Arrival Time:</strong>
-                    {plan.outboundArrivalTime || "N/A"}
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.outboundArrivalTime || "N/A"}
+                    </div>
+                  </div>
+                  <div style={{ display: "flex" }}>
+                    <Link
+                      to={`/plans/${plan._id}/ticket`}
+                      style={{
+                        backgroundColor: "#d9d9d9",
+                        width: "150px",
+                        marginTop: "10px",
+                        color: "black",
+                        height: "44px",
+                        borderRadius: "7px",
+                        borderWidth: "2px",
+                        borderColor: "#d9d9d9",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textDecoration: "none",
+                      }}
+                    >
+                      View Ticket
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <>
-              <div style={{ width: "500px" }}>
-                <h4>Inbound:</h4>
-                <div
-                  style={{
-                    borderStyle: "solid",
-                    borderColor: "#d9d9d9",
-                    borderRadius: "7px",
-                    padding: "12px",
-                  }}
-                >
-                  <div style={{ display: "flex" }}>
-                    <div className="shadowSmall">
-                      <div>
-                        <strong style={{ fontSize: "14px" }}>Airline:</strong>
+              <div style={{ marginLeft: "42px", display: "flex", flexDirection: "column" }}>
+                <div>
+                  <h4>Inbound:</h4>
+                </div>
+                <div style={{ width: "500px", display: "flex" }}>
+                  <div>
+                    <div style={{ display: "flex" }}>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <div>
+                          <strong style={{ fontSize: "14px" }}>Airline:</strong>
+                        </div>
+                        <div
+                          style={{
+                            width: "150px",
+                            borderRadius: "7px",
+                            height: "44px",
+                            backgroundColor: "#ffffff",
+                            border: "2px solid #1E3769",
+                            marginLeft: "0px",
+                            paddingLeft: "8px",
+                            paddingTop: "8px",
+                          }}
+                        >
+                          <div>{plan.airline || "N/A"}</div>
+                        </div>
                       </div>
-                      <div>{plan.airline || "N/A"}</div>
-                    </div>
-                    <div className="shadowSmall">
-                      <div>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
                         <strong style={{ fontSize: "14px" }}>
-                          {" "}
                           Flight Number:
                         </strong>
+
+                        <div
+                          style={{
+                            width: "150px",
+                            borderRadius: "7px",
+                            height: "44px",
+                            backgroundColor: "#ffffff",
+                            border: "2px solid #1E3769",
+                            marginLeft: "0px",
+                            paddingLeft: "8px",
+                            paddingTop: "8px",
+                          }}
+                        >
+                          {plan.returnFlightNumber || "N/A"}
+                        </div>
                       </div>
-                      <div>{plan.returnFlightNumber || "N/A"}</div>
+                      <div>
+                        <div>
+                          <strong style={{ fontSize: "14px" }}>Date:</strong>
+                        </div>
+                        <div
+                          style={{
+                            width: "150px",
+                            borderRadius: "7px",
+                            height: "44px",
+                            backgroundColor: "#ffffff",
+                            border: "2px solid #1E3769",
+                            marginLeft: "0px",
+                            paddingLeft: "8px",
+                            paddingTop: "8px",
+                          }}
+                        >
+                          {plan.returnDate
+                            ? new Date(plan.returnDate).toLocaleDateString(
+                                "en-US",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                }
+                              )
+                            : "N/A"}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>DepartTime:</strong>
+                    </div>
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.returnDepartureTime || "N/A"}
+                    </div>
+                  </div>
+                  <div>
+                    <strong style={{ fontSize: "14px" }}>ArrivTime:</strong>
+                    <div
+                      style={{
+                        width: "150px",
+                        borderRadius: "7px",
+                        height: "44px",
+                        backgroundColor: "#ffffff",
+                        border: "2px solid #1E3769",
+                        marginLeft: "0px",
+                        paddingLeft: "8px",
+                        paddingTop: "8px",
+                      }}
+                    >
+                      {plan.returnArrivalTime || "N/A"}
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
-                    <div className="shadowSmall">
-                      <strong>Date:</strong>{" "}
-                      {plan.returnDate
-                        ? new Date(plan.returnDate).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            }
-                          )
-                        : "N/A"}
-                    </div>
-                    <div className="shadowSmall">
-                      <strong>DepartTime:</strong>{" "}
-                      {plan.returnDepartureTime || "N/A"}
-                    </div>
-                    <div className="shadowSmall">
-                      <strong>ArrivTime:</strong>{" "}
-                      {plan.returnArrivalTime || "N/A"}
-                    </div>
+                    <Link
+                      to={`/plans/${plan._id}/ticket`}
+                      style={{
+                        backgroundColor: "#d9d9d9",
+                        width: "150px",
+                        marginTop: "10px",
+                        color: "black",
+                        height: "44px",
+                        borderRadius: "7px",
+                        borderWidth: "2px",
+                        borderColor: "#d9d9d9",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textDecoration: "none",
+                      }}
+                    >
+                      View Ticket
+                    </Link>
                   </div>
                 </div>
               </div>

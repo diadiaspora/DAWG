@@ -1,5 +1,4 @@
-// ✅ REMOVE this:
-// import { useParams } from "react-router";
+
 
 import { useEffect, useState } from "react";
 import * as hootService from "../../services/hootService";

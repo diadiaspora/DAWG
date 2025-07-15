@@ -3,23 +3,19 @@ import SearchComponent from "../../Components/SearchComponent/SearchComponent.js
 import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
-import Articles from "../../Components/Articles/Articles.jsx";
-import { useState, useEffect } from "react"; // useState is here, but not used for 'hoots' in HomePage currently
-import { NavLink, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import RedditPostList from "../../Components/RedditPostList/RedditPostList.jsx";
 import "./HomePage.css";
-
 import * as hootService from "../../services/hootService";
 
-import HootList from "../../Components/HootList/HootList";
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
-// src/App.jsx
 
-import HootForm from "../../Components/HootForm/HootForm";
+
+
 
 
 export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
@@ -41,7 +37,7 @@ export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script); // Cleanup on unmount
+      document.body.removeChild(script); 
     };
   }, []);
 
@@ -60,12 +56,7 @@ export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
         <div style={{ marginTop: "125px" }}>
           <HotelComponent />
         </div>
-        {/* <HootList
-          user={user}
-          setUser={setUser}
-          hoots={hoots}
-          handleAddHoot={handleAddHoot}
-        /> */}
+   
 
         <HootLongList
           user={user}

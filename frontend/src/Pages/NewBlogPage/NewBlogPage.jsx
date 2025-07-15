@@ -7,7 +7,7 @@ import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList
 
 
 import "./NewBlogPage.css";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 
 export default function NewBlogPage({ user, setUser, hoots }) {
   const [errorMsg, setErrorMsg] = useState("");
