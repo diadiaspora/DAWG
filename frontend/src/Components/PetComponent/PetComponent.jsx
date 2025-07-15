@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import * as petService from "../../services/petService"; // Corrected import path
-import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use it
+import { useNavigate } from "react-router"; // Keep useNavigate if you use it
 
 export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
@@ -71,7 +71,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
       setPreviewPetPhoto(petData.petPhoto);
     }
   }, [petData?.petPhoto]);
-  // Handles changes to text input fields
+ 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -160,25 +160,17 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
         {errorMsg && <p>{errorMsg}</p>}
 
         {showForm ? (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+          <form onSubmit={handleSubmit} >
+            <h2 >
               {petData ? "Update Pet Information" : "Add Pet Information"}
             </h2>
 
             {/* Pet Photo Section */}
-            <div className="flex flex-col items-center mb-6">
-              {/* <img
-                src={
-                  previewPetPhoto ||
-                  petData?.petPhoto ||
-                  "https://i.ibb.co/5x5Td7ks/av-1.png"
-                }
-                alt="Pet Avatar"
-                className="w-32 h-32 rounded-full object-cover border-4 border-indigo-500 shadow-md mb-4"
-              /> */}
+            <div >
+          
               <label
                 htmlFor="petPhoto"
-                className="block text-sm font-medium text-gray-700 mb-1"
+
               >
                 Upload Pet Photo
               </label>
@@ -194,16 +186,15 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     setPreviewPetPhoto(URL.createObjectURL(file));
                   }
                 }}
-                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+               
               />
             </div>
 
-            {/* Basic Pet Info */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div >
               <div>
                 <label
                   htmlFor="petName"
-                  className="block text-sm font-medium text-gray-700"
+
                 >
                   Pet Name
                 </label>
@@ -213,13 +204,13 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   id="petName"
                   value={formData.petName}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                 
                 />
               </div>
               <div>
                 <label
                   htmlFor="bio"
-                  className="block text-sm font-medium text-gray-700"
+      
                 >
                   Bio
                 </label>
@@ -229,13 +220,13 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   id="bio"
                   value={formData.bio}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  
                 />
               </div>
               <div>
                 <label
                   htmlFor="breed"
-                  className="block text-sm font-medium text-gray-700"
+              
                 >
                   Breed
                 </label>
@@ -245,13 +236,13 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   id="breed"
                   value={formData.breed}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  
                 />
               </div>
               <div>
                 <label
                   htmlFor="age"
-                  className="block text-sm font-medium text-gray-700"
+     
                 >
                   Age
                 </label>
@@ -261,13 +252,13 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   id="age"
                   value={formData.age}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  
                 />
               </div>
               <div>
                 <label
                   htmlFor="weight"
-                  className="block text-sm font-medium text-gray-700"
+
                 >
                   Weight
                 </label>
@@ -277,16 +268,16 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   id="weight"
                   value={formData.weight}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                 
                 />
               </div>
             </div>
 
-            <div className="mt-8">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
+            <div >
+              <h3 >
                 Important Documents
               </h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p >
                 These documents are only accessible by you.
               </p>
               <div>
@@ -298,7 +289,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     type="file"
                     accept=".png, .gif, .jpg, .jpeg, .pdf"
                     ref={vaccineImageRef}
-                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    
                   />
                   {petData?.vaccine &&
                     petData.vaccine !== "https://i.imgur.com/KTEjbsw.png" && (
@@ -306,7 +297,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                         href={petData.vaccine}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline text-sm mt-2 block"
+                      
                       >
                         View Current Vaccine Record
                       </a>

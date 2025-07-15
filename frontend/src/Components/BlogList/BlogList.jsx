@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 
 export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);

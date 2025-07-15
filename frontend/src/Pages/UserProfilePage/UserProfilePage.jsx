@@ -7,7 +7,7 @@ import Header from "../../Components/Header/Header.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import PetComponent from "../../Components/PetComponent/PetComponent.jsx";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
 import UsersPlans from "../../Components/UsersPlans/UsersPlans";
 import UsersPets from "../../Components/UsersPets/UsersPets";

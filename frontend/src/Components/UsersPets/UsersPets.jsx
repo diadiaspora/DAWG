@@ -1,12 +1,33 @@
 // UserPets.jsx
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef} from "react";
 import * as petService from "../../services/petService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export default function UserPets() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [petData, setPetData] = useState(null);
+  
+
+  const petPhotoImageRef = useRef();
+  const microchipImageRef = useRef();
+  const vaccineImageRef = useRef();
+  const healthCertificateImageRef = useRef();
+
+  const [formData, setFormData] = useState({
+    petName: "",
+    bio: "",
+    breed: "",
+    age: "",
+    weight: "",
+  });
+
+ 
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
 
   useEffect(() => {
     fetchPets();
@@ -23,28 +44,77 @@ export default function UserPets() {
     }
   }
 
-  if (loading) return <p>Loading pets...</p>;
-  if (!pets.length) return (
-    <p>
-      {" "}
-      <div>
-        <button
-          onClick={() => navigate("/addpet")}
-          style={{
-            height: "44px",
-            marginLeft: "21px",
-            marginTop: "21px",
-            width: "262px",
-            backgroundColor: "#1E3769",
-            borderWidth: "0px",
-            borderRadius: "7px",
-          }}
-        >
-          Add Pet
-        </button>
-      </div>
-    </p>
-  );
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    setErrorMsg(""); // Clear previous errors
+
+    try {
+      const newPetData = new FormData();
+
+      for (const key in formData) {
+        newPetData.append(key, formData[key]);
+      }
+
+      if (petPhotoImageRef.current && petPhotoImageRef.current.files[0]) {
+        newPetData.append("petPhoto", petPhotoImageRef.current.files[0]);
+      }
+      if (vaccineImageRef.current && vaccineImageRef.current.files[0]) {
+        newPetData.append("vaccine", vaccineImageRef.current.files[0]);
+      }
+      if (microchipImageRef.current && microchipImageRef.current.files[0]) {
+        newPetData.append("microchip", microchipImageRef.current.files[0]);
+      }
+      if (
+        healthCertificateImageRef.current &&
+        healthCertificateImageRef.current.files[0]
+      ) {
+        newPetData.append(
+          "healthCertificate",
+          healthCertificateImageRef.current.files[0]
+        );
+      }
+
+      let updatedPet;
+      if (petData && petData._id) {
+        updatedPet = await petService.update(petData._id, newPetData);
+      } else {
+        updatedPet = await petService.create(newPetData);
+      }
+
+      setPetData(updatedPet); // Update the petData state with the new/updated pet
+      setShowForm(false); // Hide the form and show the card
+    } catch (err) {
+      console.error("Error submitting pet form:", err);
+      setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
+    }
+
+    if (onSuccess) {
+      onSuccess(); // Triggers redirect or re-fetch logic
+    }
+  }
+
+  // if (loading) return <p>Loading pets...</p>;
+  // if (!pets.length) return (
+  //   <p>
+  //     {" "}
+  //     <div>
+  //       <button
+  //         onClick={() => navigate("/addpet")}
+  //         style={{
+  //           height: "44px",
+  //           marginLeft: "21px",
+  //           marginTop: "21px",
+  //           width: "262px",
+  //           backgroundColor: "#1E3769",
+  //           borderWidth: "0px",
+  //           borderRadius: "7px",
+  //         }}
+  //       >
+  //         Add Pet
+  //       </button>
+  //     </div>
+  //   </p>
+  // );
 
   return (
     <div className="mt-10 px-4">
@@ -75,7 +145,7 @@ export default function UserPets() {
               style={{
                 flex: "0 0 auto",
                 width: "350px",
-                height: "320px",
+                height: "345px",
                 border: "1px solid #BCC7D4",
                 borderRadius: "8px",
                 padding: "16px",
@@ -184,6 +254,238 @@ export default function UserPets() {
               </div>
             </div>
           ))}
+          <div
+            style={{
+              flex: "0 0 auto",
+              width: "550px",
+              height: "345px",
+              border: "1px solid #BCC7D4",
+              borderRadius: "8px",
+              padding: "16px",
+              scrollSnapAlign: "start",
+              backgroundColor: "#fff",
+            }}
+          >
+            <form onSubmit={handleSubmit}>
+              <h2>Add Pet</h2>
+
+              <div style={{ display: "flex" }}>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
+                    Pet Photo
+                  </label>
+                  <input
+                    id="petPhoto"
+                    name="petPhoto"
+                    type="file"
+                    style={{ width: "100px" }}
+                    accept=".png, .gif, .jpg, .jpeg"
+                    ref={petPhotoImageRef}
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        setPreviewPetPhoto(URL.createObjectURL(file));
+                      }
+                    }}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "12px",
+                  }}
+                >
+                  <label htmlFor="petName" style={{ marginLeft: "0px" }}>
+                    Pet Name
+                  </label>
+                  <input
+                    type="text"
+                    name="petName" // Corrected name to 'petName'
+                    id="petName"
+                    value={formData.petName}
+                    onChange={handleChange}
+                    style={{ width: "200px" }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="bio" style={{ marginLeft: "0px" }}>
+                  Bio
+                </label>
+                <textarea
+                  type="text"
+                  name="bio"
+                  id="bio"
+                  value={formData.bio}
+                  onChange={handleChange}
+                  style={{ width: "300px" }}
+                />
+              </div>
+              <div style={{ display: "flex" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "12px",
+                  }}
+                >
+                  <label htmlFor="breed" style={{ marginLeft: "0px" }}>
+                    Breed
+                  </label>
+                  <input
+                    type="text"
+                    name="breed"
+                    id="breed"
+                    value={formData.breed}
+                    onChange={handleChange}
+                    style={{ width: "100px" }}
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "12px",
+                  }}
+                >
+                  <label htmlFor="age" style={{ marginLeft: "0px" }}>
+                    Age
+                  </label>
+                  <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    value={formData.age}
+                    onChange={handleChange}
+                    style={{ width: "100px" }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <label htmlFor="weight" style={{ marginLeft: "0px" }}>
+                    Weight
+                  </label>
+                  <input
+                    type="text"
+                    name="weight"
+                    id="weight"
+                    value={formData.weight}
+                    onChange={handleChange}
+                    style={{ width: "100px" }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ marginTop: "12px" }}>
+                <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div>
+                      <label htmlFor="vaccine" style={{ marginLeft: "0px" }}>
+                        Upload Vaccine Record
+                      </label>
+                    </div>
+                    <input
+                      id="vaccine"
+                      name="vaccine"
+                      type="file"
+                      accept=".png, .gif, .jpg, .jpeg, .pdf"
+                      ref={vaccineImageRef}
+                      style={{ width: "150px" }}
+                    />
+                    {petData?.vaccine &&
+                      petData.vaccine !== "https://i.imgur.com/KTEjbsw.png" && (
+                        <a
+                          href={petData.vaccine}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Current Vaccine Record
+                        </a>
+                      )}
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginLeft: "12px",
+                    }}
+                  >
+                    <div>
+                      <label htmlFor="microchip" style={{ marginLeft: "0px" }}>
+                        Upload Microchip Info
+                      </label>
+                    </div>
+                    <input
+                      id="microchip"
+                      name="microchip"
+                      type="file"
+                      accept=".png, .gif, .jpg, .jpeg, .pdf"
+                      ref={microchipImageRef}
+                      style={{ width: "150px" }}
+                    />
+                    {petData?.microchip &&
+                      petData.microchip !==
+                        "https://i.imgur.com/KTEjbsw.png" && (
+                        <a
+                          href={petData.microchip}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline text-sm mt-2 block"
+                        >
+                          View Current Microchip Info
+                        </a>
+                      )}
+                  </div>
+
+                  <div style={{ marginLeft: "12px" }}>
+                    <label
+                      htmlFor="healthCertificate"
+                      style={{ marginLeft: "0px" }}
+                    >
+                      Upload Health Certificate
+                    </label>
+                    <input
+                      id="healthCertificate"
+                      name="healthCertificate"
+                      type="file"
+                      accept=".png, .gif, .jpg, .jpeg, .pdf"
+                      ref={healthCertificateImageRef}
+                      style={{ width: "150px" }}
+                    />
+                    {petData?.healthCertificate &&
+                      petData.healthCertificate !==
+                        "https://i.imgur.com/KTEjbsw.png" && (
+                        <a
+                          href={petData.healthCertificate}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline text-sm mt-2 block"
+                        >
+                          View Current Health Certificate
+                        </a>
+                      )}
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "white",
+                    color: "#1E3769",
+                    borderWidth: "0px",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Add Pet Information
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
+
 import * as hootService from "../../services/hootService";
 import HootDetails from "../../Components/HootDetails/HootDetails";
 import HootList from "../../Components/HootList/HootList";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 
 const HootDetailsPage = ({ user, setUser, hoots }) => {
-  const { hootId } = useParams(); // ✅ FIXED LINE
+  const { hootId } = useParams(); 
   const navigate = useNavigate();
 
   const handleAddHoot = async (newHootData) => {

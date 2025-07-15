@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { blogPosts } from "../../Data/blogs"; // or wherever your blog data is
 
-export default function FeaturedBlog() {
+export default function BlogFeature() {
   const [featuredBlog, setFeaturedBlog] = useState(null);
 
   useEffect(() => {

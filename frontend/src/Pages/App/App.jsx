@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  NavLink,
-} from "react-router-dom";
+
+} from "react-router";
 import * as blogService from "../../services/blogService";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
@@ -63,7 +63,7 @@ export default function App() {
           console.error("Failed to fetch profile", err);
         }
       }
-      setLoading(false); // ✅ Whether user exists or not, we are done loading
+      setLoading(false); 
     }
     fetchProfile();
   }, [user]);
@@ -122,7 +122,7 @@ export default function App() {
 
   return (
     <>
-      <Router>
+   
         <main className="App">
           <NavBar user={user} setUser={setUser} profile={profile} />
           <CartProvider>
@@ -283,7 +283,7 @@ export default function App() {
           </CartProvider>
           <Footer />
         </main>
-      </Router>
+  
     </>
   );
 }

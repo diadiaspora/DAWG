@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 
@@ -354,7 +354,7 @@ export default function ProfileForm({ profile, setProfile }) {
                 width: "262px",
                 marginTop: "4px",
                 marginLeft: "21px",
-                height: "140px",
+                height: "190px",
               }}
             >
               <div>{profileData.bio}</div>
@@ -385,7 +385,7 @@ export default function ProfileForm({ profile, setProfile }) {
                 Important Docs
               </button>
             </div>
-            <div>
+            {/* <div>
               <button
                 onClick={() => navigate("/addpet")}
                 style={{
@@ -400,7 +400,7 @@ export default function ProfileForm({ profile, setProfile }) {
               >
                 Add Pet
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

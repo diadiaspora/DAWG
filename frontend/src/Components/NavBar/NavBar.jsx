@@ -1,9 +1,9 @@
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link } from "react-router";
 import { logOut } from "../../services/authService";
 import "./NavBar.css";
 import { FaRegCircleUser } from "react-icons/fa6";
 export default function NavBar({ user, setUser, profile }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleLogOut() {
     logOut();

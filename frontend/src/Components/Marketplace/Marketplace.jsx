@@ -3,7 +3,7 @@ import { getProducts } from "../../api/ShopifyClient";
 import { useState, useEffect } from "react";
 
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import "./Marketplace.css";
 
 export default function Marketplace() {
