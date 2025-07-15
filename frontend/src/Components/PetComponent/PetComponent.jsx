@@ -4,8 +4,9 @@ import { useNavigate } from "react-router"; // Keep useNavigate if you use it
 
 export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
-  const navigate = useNavigate(); 
-  const handleSuccess = () => navigate("/profile");
+  const navigate = useNavigate();
+
+  const handleSuccess = () => window.location.reload();
 
   const [petData, setPetData] = useState(null);
 
@@ -71,7 +72,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
       setPreviewPetPhoto(petData.petPhoto);
     }
   }, [petData?.petPhoto]);
- 
+  // Handles changes to text input fields
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -126,7 +127,6 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
     }
   }
 
-  // Function to handle deleting the pet
   async function handleDelete() {
     if (window.confirm("Are you sure you want to delete this pet profile?")) {
       try {
@@ -150,226 +150,263 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
     }
   }
 
-  if (loading) {
-    return <div className="p-4 text-center">Loading pet data...</div>;
-  }
-
   return (
-    <div>
-      <div>
+    <div style={{ marginTop: "-150px" }}>
+      <div style={{ marginTop: "0px" }}>
         {errorMsg && <p>{errorMsg}</p>}
 
         {showForm ? (
-          <form onSubmit={handleSubmit} >
-            <h2 >
-              {petData ? "Update Pet Information" : "Add Pet Information"}
-            </h2>
+          <form onSubmit={handleSubmit} style={{ marginTop: "0px" }}>
+            <h2 style={{ marginTop: "0px" }}>Add Pet</h2>
+            <div style={{ display: "flex" }}>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
+                  Upload Pet Photo
+                </label>
+                <input
+                  id="petPhoto"
+                  name="petPhoto"
+                  type="file"
+                  style={{ width: "100px" }}
+                  accept=".png, .gif, .jpg, .jpeg"
+                  ref={petPhotoImageRef}
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      setPreviewPetPhoto(URL.createObjectURL(file));
+                    }
+                  }}
+                  className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                />
+              </div>
 
-            {/* Pet Photo Section */}
-            <div >
-          
-              <label
-                htmlFor="petPhoto"
-
-              >
-                Upload Pet Photo
-              </label>
-              <input
-                id="petPhoto"
-                name="petPhoto"
-                type="file"
-                accept=".png, .gif, .jpg, .jpeg"
-                ref={petPhotoImageRef}
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  if (file) {
-                    setPreviewPetPhoto(URL.createObjectURL(file));
-                  }
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "12px",
                 }}
-               
-              />
-            </div>
-
-            <div >
-              <div>
-                <label
-                  htmlFor="petName"
-
-                >
+              >
+                <label htmlFor="petName" style={{ marginLeft: "0px" }}>
                   Pet Name
                 </label>
                 <input
                   type="text"
                   name="petName" // Corrected name to 'petName'
                   id="petName"
+                  style={{ width: "200px" }}
                   value={formData.petName}
                   onChange={handleChange}
-                 
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="bio"
-      
-                >
-                  Bio
-                </label>
-                <input
-                  type="text"
-                  name="bio"
-                  id="bio"
-                  value={formData.bio}
-                  onChange={handleChange}
-                  
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="breed"
-              
-                >
-                  Breed
-                </label>
-                <input
-                  type="text"
-                  name="breed"
-                  id="breed"
-                  value={formData.breed}
-                  onChange={handleChange}
-                  
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="age"
-     
-                >
-                  Age
-                </label>
-                <input
-                  type="number"
-                  name="age"
-                  id="age"
-                  value={formData.age}
-                  onChange={handleChange}
-                  
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="weight"
-
-                >
-                  Weight
-                </label>
-                <input
-                  type="text"
-                  name="weight"
-                  id="weight"
-                  value={formData.weight}
-                  onChange={handleChange}
-                 
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
-
-            <div >
-              <h3 >
-                Important Documents
-              </h3>
-              <p >
-                These documents are only accessible by you.
-              </p>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label htmlFor="bio" style={{ marginLeft: "0px" }}>
+                Bio
+              </label>
+              <textarea
+                type="text"
+                name="bio"
+                id="bio"
+                style={{ width: "300px" }}
+                value={formData.bio}
+                onChange={handleChange}
+              />
+            </div>
+            <div style={{ display: "flex" }}>
               <div>
-                <div>
-                  <label htmlFor="vaccine">Upload Vaccine Record</label>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "12px",
+                  }}
+                >
+                  <div>
+                    <label htmlFor="breed" style={{ marginLeft: "0px" }}>
+                      Breed
+                    </label>
+                  </div>
                   <input
-                    id="vaccine"
-                    name="vaccine"
-                    type="file"
-                    accept=".png, .gif, .jpg, .jpeg, .pdf"
-                    ref={vaccineImageRef}
-                    
+                    type="text"
+                    name="breed"
+                    id="breed"
+                    value={formData.breed}
+                    onChange={handleChange}
+                    style={{ width: "100px" }}
                   />
-                  {petData?.vaccine &&
-                    petData.vaccine !== "https://i.imgur.com/KTEjbsw.png" && (
-                      <a
-                        href={petData.vaccine}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      
-                      >
-                        View Current Vaccine Record
-                      </a>
-                    )}
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="microchip"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Upload Microchip Info
-                  </label>
+              </div>
+              <div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "12px",
+                  }}
+                >
+                  <div>
+                    <label htmlFor="age" style={{ marginLeft: "0px" }}>
+                      Age
+                    </label>
+                  </div>
                   <input
-                    id="microchip"
-                    name="microchip"
-                    type="file"
-                    accept=".png, .gif, .jpg, .jpeg, .pdf"
-                    ref={microchipImageRef}
-                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    type="number"
+                    name="age"
+                    id="age"
+                    value={formData.age}
+                    onChange={handleChange}
+                    style={{ width: "100px" }}
                   />
-                  {petData?.microchip &&
-                    petData.microchip !== "https://i.imgur.com/KTEjbsw.png" && (
-                      <a
-                        href={petData.microchip}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline text-sm mt-2 block"
-                      >
-                        View Current Microchip Info
-                      </a>
-                    )}
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="healthCertificate"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Upload Health Certificate
-                  </label>
+              </div>
+              <div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginRight: "12px",
+                  }}
+                >
+                  <div>
+                    <label htmlFor="weight" style={{ marginLeft: "0px" }}>
+                      Weight
+                    </label>
+                  </div>
                   <input
-                    id="healthCertificate"
-                    name="healthCertificate"
-                    type="file"
-                    accept=".png, .gif, .jpg, .jpeg, .pdf"
-                    ref={healthCertificateImageRef}
-                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    type="text"
+                    name="weight"
+                    id="weight"
+                    value={formData.weight}
+                    onChange={handleChange}
+                    style={{ width: "100px" }}
                   />
-                  {petData?.healthCertificate &&
-                    petData.healthCertificate !==
-                      "https://i.imgur.com/KTEjbsw.png" && (
-                      <a
-                        href={petData.healthCertificate}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline text-sm mt-2 block"
-                      >
-                        View Current Health Certificate
-                      </a>
-                    )}
                 </div>
               </div>
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-              >
-               Add Pet Information
-              </button>
+              <div style={{ display: "flex" }}>
+                    <div
+                       style={{
+                       display: "flex",
+                       flexDirection: "column",
+                       marginRight: "12px",
+                       }}
+                       >
+                         <div>
+                              <label htmlFor="vaccine" style={{ marginLeft: "0px" }}>
+                              Upload Vaccine
+                              </label>
+                         </div>
+                         <div>
+                               <input
+                               style={{ width: "140px" }}
+                               id="vaccine"
+                               name="vaccine"
+                               type="file"
+                               accept=".png, .gif, .jpg, .jpeg, .pdf"
+                               ref={vaccineImageRef}
+                               />
+                             
+                               {petData?.vaccine &&
+                               petData.vaccine !== "https://i.imgur.com/KTEjbsw.png" && (
+                               <a
+                               href={petData.vaccine}
+                               target="_blank"
+                               rel="noopener noreferrer"
+                         
+                                >
+                                View Current Vaccine
+                                </a>
+                                )}
+                           </div>
+                      </div>
+
+                       <div
+                         style={{
+                         display: "flex",
+                         flexDirection: "column",
+                         marginRight: "12px",
+                         }}
+                         >
+                           <div>
+                              <label htmlFor="microchip" style={{ marginLeft: "0px" }}>
+                               Upload Microchip
+                               </label>
+                            </div>
+                                 <div>
+                                    <input
+                                      style={{ width: "140px" }}
+                                      id="microchip"
+                                      name="microchip"
+                                      type="file"
+                                      accept=".png, .gif, .jpg, .jpeg, .pdf"
+                                      ref={microchipImageRef}
+                                      className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                    />
+                                      {petData?.microchip &&
+                                        petData.microchip !==
+                                          "https://i.imgur.com/KTEjbsw.png" && (
+                                          <a
+                                            href={petData.microchip}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-blue-600 hover:underline text-sm mt-2 block"
+                                          >
+                                            View Current Microchip Info
+                                          </a>
+                                        )}
+                                      </div>
+                  </div>
+                 
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginRight: "12px",
+                    }}
+                  >
+                    <div>
+                      <label
+                        htmlFor="healthCertificate"
+                        style={{ marginLeft: "0px" }}
+                      >
+                        Upload
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        style={{ width: "100px" }}
+                        id="healthCertificate"
+                        name="healthCertificate"
+                        type="file"
+                        accept=".png, .gif, .jpg, .jpeg, .pdf"
+                        ref={healthCertificateImageRef}
+                        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                      />
+                      {petData?.healthCertificate &&
+                        petData.healthCertificate !==
+                          "https://i.imgur.com/KTEjbsw.png" && (
+                          <a
+                            href={petData.healthCertificate}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline text-sm mt-2 block"
+                          >
+                            View Current Health Certificate
+                          </a>
+                        )}
+                     </div>
+                  </div>
+                  </div>
+                </div>
+            
+            
+
+            <div>
+              <button type="submit">Add Pet Information</button>
             </div>
           </form>
         ) : (
