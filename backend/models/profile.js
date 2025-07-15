@@ -33,7 +33,8 @@ const profileSchema = new mongoose.Schema({
   },
 
   gallery: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Gallery",
   },
 
   pets: [

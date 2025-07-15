@@ -1,19 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-
 const gallerySchema = new Schema(
   {
     photoGallery: {
-      type: [String], // array of S3 image URLs
+      type: [String], // Array of S3 URLs
       default: [],
     },
 
-    author: {
+    profile: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: "User",
+      ref: "Profile",
     },
   },
   {
