@@ -10,6 +10,7 @@ export default function HootLongList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
   const navigate = useNavigate();
   const [hover, setHover] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
   const handlePostClick = () => {
     if (props.user) {
@@ -65,7 +66,7 @@ export default function HootLongList(props) {
               fontSize: "16px",
               fontFamily: "Roboto",
               borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
-              color: hover ? "#347567" : "#1E3769", // ✅ only once
+              color: hover ? "#347567" : "#1E3769",
               borderRadius: "7px", // ✅ once
             }}
             onMouseEnter={() => setHover(true)}
@@ -144,14 +145,20 @@ export default function HootLongList(props) {
               </header>
               <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
                 <div
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
                   style={{
                     borderStyle: "solid",
-                    borderWidth: "1px",
-                    borderColor: "#E9E9E9",
+                    borderWidth: isHovered ? "2px" : "1px",
+                    borderColor: isHovered ? "#4AA692" : "#E9E9E9",
                     borderRadius: "7px",
                     padding: "12px",
                     height: hoot.gifUrl ? "126px" : "276px",
                     marginTop: "-10px",
+                    boxShadow: isHovered
+                      ? "0 1px 5px rgba(0, 0, 0, 0.1)"
+                      : "none",
+                    transition: "all 0.2s ease",
                   }}
                 >
                   <div>

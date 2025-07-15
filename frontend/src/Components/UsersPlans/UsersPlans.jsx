@@ -86,7 +86,7 @@ export default function UserPlans() {
                         ? "2px solid #4AA692"
                         : "1px solid #BCC7D4",
 
-                    borderRadius: "8px",
+                    borderRadius: "7px",
                     padding: "16px",
                     scrollSnapAlign: "start",
                     backgroundColor:
