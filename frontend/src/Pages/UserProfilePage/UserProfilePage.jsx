@@ -1,5 +1,5 @@
 import ProfileForm from "../../Components/ProfileForm/ProfileForm.jsx";
-import Carousel from "../../Components/Carousel/Carousel.jsx";
+import UserCarousel from "../../Components/UserCarousel/UserCarousel.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
@@ -49,18 +49,16 @@ export default function UserProfilePage({ user }) {
             display: "flex",
             width: "1012px",
           }}
-        >
-        
-        </div>
-        <div style={{width:"1012px", display: "flex"}}>
+        ></div>
+        <div style={{ width: "1012px", display: "flex" }}>
           <ProfileForm profile={profile} setProfile={setProfile} />
           <UsersPets user={user} />
         </div>
         <div style={{ marginLeft: "42px", marginTop: "24px" }}></div>
-        <div style={{ display: "flex" }}></div>
-        {/* <Carousel /> */}
+        <div style={{ width: "1012px", marginLeft: "42px" }}>
+          <UserCarousel user={user} profile={profile} />
+        </div>
         <div style={{ display: "flex" }}>
-         
           <UsersPlans user={user} />
         </div>
         <div>

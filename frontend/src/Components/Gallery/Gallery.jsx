@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Carousel from "../../Components/Carousel/Carousel.jsx";
+import AllUsersCarousel from "../../Components/AllUsersCarousel/AllUsersCarousel.jsx";
 import Calendar from "../../Components/Calendar/Calendar.jsx";
 import { Link } from "react-router";
 import "./Gallery.css";
@@ -42,7 +42,7 @@ const Gallery = () => {
     >
       <div style={{ height: "350px", marginLeft: "42px" }}>
         <div style={{ width: "662px" }}>
-          <Carousel />
+          <AllUsersCarousel />
         </div>
 
         <div
