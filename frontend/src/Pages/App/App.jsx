@@ -42,6 +42,8 @@ import * as hootService from "../../services/hootService";
 import HootFormPage from "../HootFormPage/HootFormPage";
 import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
 import AddPetPage from "../AddPetPage/AddPetPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 export default function App() {
@@ -122,168 +124,168 @@ export default function App() {
 
   return (
     <>
-   
-        <main className="App">
-          <NavBar user={user} setUser={setUser} profile={profile} />
-          <CartProvider>
-            <section id="main-section">
-              {user ? (
-                <Routes>
-                  <Route
-                    path="/profiles"
-                    element={
-                      <UserProfilePage
-                        user={user}
-                        profile={profile}
-                        setProfile={setProfile}
-                      />
-                    }
-                  />
-                  <Route
-                    path="/"
-                    element={
-                      <HomePage
-                        user={user}
-                        setUser={setUser}
-                        hoots={hoots}
-                        setHoots={setHoots}
-                        handleAddHoot={handleAddHoot}
-                        profile={profile}
-                      />
-                    }
-                  />
-                  <Route path="/posts" element={<PostListPage />} />
-                  <Route path="/posts/new" element={<NewPostPage />} />
-                  <Route path="*" element={null} />
-                  <Route path="/flights" element={<FlightInfoPage />} />
-                  <Route
-                    path="/documents/:from/:to"
-                    element={<DocumentInfoPage />}
-                  />
-                  <Route
-                    path="/airlines/:airline/:location"
-                    element={<AirlineInfoPage />}
-                  />
-                  <Route
-                    path="/services/:service/:location"
-                    element={<ServicesInfoPage />}
-                  />
-                  <Route path="/plans" element={<PlanPage />} />
-                  <Route path="/marketplace" element={<MarketplacePage />} />
-                  <Route
-                    path="/write"
-                    element={
-                      <NewBlogPage
-                        hoots={hoots}
-                        user={user}
-                        setUser={setUser}
-                        handleAddHoot={handleAddHoot}
-                      />
-                    }
-                  />
-                  <Route path="/plans/:id" element={<ShowPlanPage />} />
-                  <Route path="/blogs" element={<ViewBlogsPage />} />
-                  <Route
-                    path="/profiles"
-                    element={<UserProfilePage user={user} setUser={setUser} />}
-                  />
-                  <Route
-                    path="/blogs/:id"
-                    element={<BlogDetailPage user={user} setUser={setUser} />}
-                  />
-                  <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
-                  <Route path="/plans/:id/ticket" element={<TicketPage />} />
-                  <Route path="/product/:productId" element={<ProductPage />} />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route path="/fly" element={<FlyPage />} />
+      <main className="App">
+        <NavBar user={user} setUser={setUser} profile={profile} />
+        <CartProvider>
+          <section id="main-section">
+            {user ? (
+              <Routes>
+                <Route
+                  path="/profiles"
+                  element={
+                    <UserProfilePage
+                      user={user}
+                      profile={profile}
+                      setProfile={setProfile}
+                    />
+                  }
+                />
+                <Route
+                  path="/"
+                  element={
+                    <HomePage
+                      user={user}
+                      setUser={setUser}
+                      hoots={hoots}
+                      setHoots={setHoots}
+                      handleAddHoot={handleAddHoot}
+                      profile={profile}
+                    />
+                  }
+                />
+                <Route path="/posts" element={<PostListPage />} />
+                <Route path="/posts/new" element={<NewPostPage />} />
+                <Route path="*" element={null} />
+                <Route path="/flights" element={<FlightInfoPage />} />
+                <Route
+                  path="/documents/:from/:to"
+                  element={<DocumentInfoPage />}
+                />
+                <Route
+                  path="/airlines/:airline/:location"
+                  element={<AirlineInfoPage />}
+                />
+                <Route
+                  path="/services/:service/:location"
+                  element={<ServicesInfoPage />}
+                />
+                <Route path="/plans" element={<PlanPage />} />
+                <Route path="/marketplace" element={<MarketplacePage />} />
+                <Route
+                  path="/write"
+                  element={
+                    <NewBlogPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
+                <Route path="/plans/:id" element={<ShowPlanPage />} />
+                <Route path="/blogs" element={<ViewBlogsPage />} />
+                <Route
+                  path="/profiles"
+                  element={<UserProfilePage user={user} setUser={setUser} />}
+                />
+                <Route
+                  path="/blogs/:id"
+                  element={<BlogDetailPage user={user} setUser={setUser} />}
+                />
+                <Route path="/plans/:id/receipt" element={<ReceiptPage />} />
+                <Route path="/plans/:id/ticket" element={<TicketPage />} />
+                <Route path="/product/:productId" element={<ProductPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/fly" element={<FlyPage />} />
 
-                  <Route path="/articles" element={<BlogPage />} />
-                  <Route
-                    path="/articles/:blogId"
-                    element={<NewBlogsDetail />}
-                  />
-                  <Route
-                    path="/hoots/:hootId"
-                    element={
-                      <HootDetailPage
-                        hoots={hoots}
-                        user={user}
-                        setUser={setUser}
-                        handleAddHoot={handleAddHoot}
-                      />
-                    }
-                  />
-                  <Route
-                    path="/newhoot"
-                    element={
-                      <HootFormPage
-                        hoots={hoots}
-                        user={user}
-                        setUser={setUser}
-                        handleAddHoot={handleAddHoot}
-                      />
-                    }
-                  />
-                  <Route path="/addpet" element={<AddPetPage user={user} />} />
-                </Routes>
-              ) : (
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <HomePage user={user} setUser={setUser} hoots={hoots} />
-                    }
-                  />
-                  <Route
-                    path="/signup"
-                    element={<SignUpPage setUser={setUser} />}
-                  />
-                  <Route
-                    path="/login"
-                    element={<LogInPage setUser={setUser} />}
-                  />
-                  <Route path="*" element={null} />
-                  <Route path="/product/:productId" element={<ProductPage />} />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route path="/marketplace" element={<MarketplacePage />} />
-                  <Route path="/blogs" element={<ViewBlogsPage />} />
-                  <Route
-                    path="/posts"
-                    element={
-                      <PostListPage
-                        user={user}
-                        setUser={setUser}
-                        hoots={hoots}
-                      />
-                    }
-                  />
-                  <Route path="/posts/new" element={<NewPostPage />} />
-                  <Route path="/flights" element={<FlightInfoPage />} />
-                  <Route path="/fly" element={<FlyPage />} />
-                  <Route path="/blogs/:id" element={<BlogDetailPage />} />
-                  <Route path="/articles" element={<BlogPage />} />
-                  <Route
-                    path="/articles/:blogId"
-                    element={<NewBlogsDetail />}
-                  />
-                  <Route
-                    path="/hoots/:hootId"
-                    element={
-                      <HootDetailPage
-                        hoots={hoots}
-                        user={user}
-                        setUser={setUser}
-                        handleAddHoot={handleAddHoot}
-                      />
-                    }
-                  />
-                </Routes>
-              )}
-            </section>
-          </CartProvider>
-          <Footer />
-        </main>
-  
+                <Route path="/articles" element={<BlogPage />} />
+                <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
+                <Route
+                  path="/hoots/:hootId"
+                  element={
+                    <HootDetailPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
+                <Route
+                  path="/newhoot"
+                  element={
+                    <HootFormPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
+                <Route path="/addpet" element={<AddPetPage user={user} />} />
+              </Routes>
+            ) : (
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <HomePage user={user} setUser={setUser} hoots={hoots} />
+                  }
+                />
+                <Route
+                  path="/signup"
+                  element={<SignUpPage setUser={setUser} />}
+                />
+                <Route
+                  path="/login"
+                  element={<LogInPage setUser={setUser} />}
+                />
+                <Route path="*" element={null} />
+                <Route path="/product/:productId" element={<ProductPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/marketplace" element={<MarketplacePage />} />
+                <Route path="/blogs" element={<ViewBlogsPage />} />
+                <Route
+                  path="/posts"
+                  element={
+                    <PostListPage user={user} setUser={setUser} hoots={hoots} />
+                  }
+                />
+                <Route path="/posts/new" element={<NewPostPage />} />
+                <Route path="/flights" element={<FlightInfoPage />} />
+                <Route path="/fly" element={<FlyPage />} />
+                <Route path="/blogs/:id" element={<BlogDetailPage />} />
+                <Route path="/articles" element={<BlogPage />} />
+                <Route path="/articles/:blogId" element={<NewBlogsDetail />} />
+                <Route
+                  path="/hoots/:hootId"
+                  element={
+                    <HootDetailPage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
+                />
+              </Routes>
+            )}
+          </section>
+        </CartProvider>
+        <Footer />
+      </main>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }

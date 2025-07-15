@@ -35,7 +35,7 @@ export default function ProfileForm({ profile, setProfile }) {
   const importantDocsImageRef = useRef();
 
 
-    const [isGallery, setIsGallery] = useState(true);
+  
     
 
   function handleChange(evt) {
@@ -385,7 +385,7 @@ export default function ProfileForm({ profile, setProfile }) {
                 Important Docs
               </button>
             </div>
-            {/* <div>
+            <div>
               <button
                 onClick={() => navigate("/addpet")}
                 style={{
@@ -400,7 +400,7 @@ export default function ProfileForm({ profile, setProfile }) {
               >
                 Add Pet
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       )}
