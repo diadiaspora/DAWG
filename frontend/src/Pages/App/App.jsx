@@ -182,10 +182,13 @@ export default function App() {
                     />
                   }
                 />
-                <Route path="/plans/:id" element={<ShowPlanPage />} />
+                <Route
+                  path="/plans/:id"
+                  element={<ShowPlanPage user={user} profile={profile} />}
+                />
                 <Route path="/blogs" element={<ViewBlogsPage />} />
                 <Route
-                  path="/profiles"
+                  path="/profiles/:id"
                   element={<UserProfilePage user={user} setUser={setUser} />}
                 />
                 <Route

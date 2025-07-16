@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function Motel() {
+export default function Bogota() {
   const widgetRef = useRef(null);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ export default function Motel() {
 
     const script = document.createElement("script");
     script.src =
-      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&destination=SJU&target_host=www.aviasales.com%2Fsearch&locale=en&limit=5&powered_by=false&primary=%231E3769&promo_id=4044&campaign_id=100";
+      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&destination=BOG&target_host=www.aviasales.com%2Fsearch&locale=en&limit=10&powered_by=true&primary=%231E3769&promo_id=4044&campaign_id=100";
     script.async = true;
     script.charset = "utf-8";
 

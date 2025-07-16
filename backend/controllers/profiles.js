@@ -89,8 +89,13 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const profile = await Profile.findOne({author:req.user._id});
- 
+    const profile = await Profile.findOne({ author: req.user._id }).populate(
+      "pets"
+    );
+    if (!profile) {
+      return res.status(404).json({ message: "Profile not found" });
+    }
+    
     res.json(profile);
   } catch (err) {
     console.log(err);

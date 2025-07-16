@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 export default function AllUsersCarousel() {
   const scrollRef = useRef(null);
   const [allImages, setAllImages] = useState([]);
-
+  console.log(allImages);
   // Shuffle helper
   const shuffleArray = (array) =>
     array

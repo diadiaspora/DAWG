@@ -20,6 +20,33 @@ export default function UserPlans() {
     fetchPlans();
   }, []);
 
+  const promoCards = [
+    {
+      id: "promo-1",
+      title: "Pet Insurance",
+      text: "Protect your travel buddy with international pet insurance.",
+      link: "https://your-affiliate-link.com/insurance1",
+    },
+    {
+      id: "promo-2",
+      title: "Flight Deals",
+      text: "Book cheap flights for you and your pet.",
+      link: "https://your-affiliate-link.com/flights",
+    },
+    {
+      id: "promo-3",
+      title: "Pet Travel Gear",
+      text: "Top-rated carriers and accessories for travel.",
+      link: "https://your-affiliate-link.com/gear",
+    },
+    {
+      id: "promo-4",
+      title: "Vet Access Anywhere",
+      text: "Get 24/7 international virtual vet access.",
+      link: "https://your-affiliate-link.com/vet",
+    },
+  ];
+
   return (
     <div style={{ marginLeft: "42px", marginTop: "42px" }}>
       <div
@@ -85,7 +112,6 @@ export default function UserPlans() {
                       hoveredPlanId === plan._id
                         ? "2px solid #4AA692"
                         : "1px solid #BCC7D4",
-
                     borderRadius: "7px",
                     padding: "16px",
                     scrollSnapAlign: "start",
@@ -94,7 +120,6 @@ export default function UserPlans() {
                     textDecoration: "none",
                     color: "inherit",
                     height: "180px",
-
                     transition: "background-color 0.3s ease",
                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                   }}
@@ -137,6 +162,51 @@ export default function UserPlans() {
                     </p>
                   )}
                 </Link>
+              </li>
+            ))}
+
+            {promoCards.map((promo) => (
+              <li
+                key={promo.id}
+                style={{
+                  flex: "0 0 auto",
+                  width: "300px",
+                }}
+              >
+                <a
+                  href={promo.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    border: "1px solid #BCC7D4",
+                    borderRadius: "7px",
+                    padding: "16px",
+                    scrollSnapAlign: "start",
+                    backgroundColor: "#fff",
+                    textDecoration: "none",
+                    color: "#1E3769",
+                    height: "180px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                    transition: "background-color 0.3s ease",
+                  }}
+                >
+                  <h3 style={{ marginTop: "0", fontSize: "16px" }}>
+                    {promo.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "14px",
+                      marginTop: "8px",
+                      color: "#555",
+                    }}
+                  >
+                    {promo.text}
+                  </p>
+                  <p style={{ marginTop: "auto", fontSize: "12px" }}>
+                    Learn more →
+                  </p>
+                </a>
               </li>
             ))}
           </ul>

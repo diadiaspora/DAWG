@@ -91,7 +91,8 @@ export default function Calendar() {
           justifyContent: "space-between",
           fontWeight: "bold",
           fontSize: "14px",
-          marginTop: "-4px",
+          marginTop: "4px",
+          marginBottom: "8px"
         }}
       >
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
@@ -102,12 +103,12 @@ export default function Calendar() {
       </div>
 
       {/* Calendar grid */}
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", width: "308px" }}>
         {days.map((day, idx) => (
           <div
             key={idx}
             style={{
-              width: "40px",
+              width: "37px",
               height: "40px",
               textAlign: "center",
               lineHeight: "40px",
@@ -122,6 +123,7 @@ export default function Calendar() {
           </div>
         ))}
       </div>
+      <button style={{ borderRadius: "7px", height: "44px", marginTop: "24px", width: "290px"}}> Start Planning</button>
     </div>
   );
 }

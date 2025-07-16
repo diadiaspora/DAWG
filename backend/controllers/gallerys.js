@@ -129,6 +129,7 @@ async function getAllGalleryImages(req, res) {
         select: "petName",
       },
     });
+   
 
     // Map each gallery's photoGallery images along with profile info and pet names
     const allImages = [];
@@ -137,10 +138,12 @@ async function getAllGalleryImages(req, res) {
       const profile = gallery.profile;
       if (!profile) return;
 
+      console.log({ profile });
       // Get first petName if exists (or empty string)
       const petName =
         profile.pets && profile.pets.length > 0 ? profile.pets[0].petName : "";
-
+      
+        // console.log({ galleriesProfile: galleries.profile });
       // Push all photos with user info
       gallery.photoGallery.forEach((imageUrl) => {
         allImages.push({

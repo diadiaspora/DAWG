@@ -6,10 +6,10 @@ import PlanFlightForm from "../../Components/PlanFlightForm/PlanFlightForm.jsx";
 import PlanBasicUpdate from "../../Components/PlanBasicUpdate/PlanBasicUpdate.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-import Carousel from "../../Components/Carousel/Carousel.jsx";
+import UserCarousel from "../../Components/UserCarousel/UserCarousel.jsx";
 import "./ShowPlanPage.css";
 
-export default function ShowPlanPage() {
+export default function ShowPlanPage({user, profile}) {
   // const [showForm, setShowForm] = useState(plan ? false : true);
   const { id } = useParams();
   
@@ -49,23 +49,20 @@ export default function ShowPlanPage() {
           style={{
             marginLeft: "42px",
             width: "1012px",
-      
+
             padding: "21px",
             borderRadius: "7px",
-    
+
             marginRight: "0px",
             border: "1px solid #e9e9e9",
           }}
         >
-
-
           <div style={{ display: "flex" }}>
             <div>
               {plan && <PlanBasicUpdate plan={plan} setPlan={setPlan} />}
             </div>
-            <div style={{ marginLeft: "42px", marginTop: "0px" }}>
-              <Carousel />
-           
+            <div style={{ marginLeft: "42px", marginTop: "0px", width: "632px" }}>
+              <UserCarousel user={user} profile={profile} style={{ width: "632px" }} />
             </div>
           </div>
         </div>

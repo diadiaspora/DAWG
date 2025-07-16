@@ -3,6 +3,12 @@ const router = express.Router();
 const multer = require("multer"); // Import multer
 const upload = multer({ storage: multer.memoryStorage() }); 
 const profilesCtrl = require("../controllers/profiles");
+const petsCtrl = require("../controllers/pets");
+const ensureLoggedIn = require("../middleware/ensureLoggedIn");
+
+
+
+router.use(ensureLoggedIn);
 
 
 router.post(
@@ -14,6 +20,9 @@ router.post(
   ]),
   profilesCtrl.create
 );
+
+
+
 
 router.get("/", profilesCtrl.index);
 
