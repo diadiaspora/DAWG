@@ -5,7 +5,7 @@ import SearchComponent from "../../Components/SearchComponent/SearchComponent.js
 import Header from "../../Components/Header/Header.jsx";
 import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
 
-
+import Bogota from "../../Components/Bogota/Bogota";
 import "./NewBlogPage.css";
 import { NavLink } from "react-router";
 
@@ -149,11 +149,13 @@ export default function NewBlogPage({ user, setUser, hoots }) {
             style={{
               width: "1032px",
               display: "flex",
-              marginRight: "0px" ,
+              marginRight: "0px",
               paddingRight: "0px",
             }}
           >
-            <div style={{ width: "632px", marginLeft: "42px", marginRight: "0px" }}>
+            <div
+              style={{ width: "632px", marginLeft: "42px", marginRight: "0px" }}
+            >
               <h2 style={{ fontSize: "24px" }}> Tell Us Your Story</h2>
               <div
                 style={{
@@ -397,6 +399,9 @@ export default function NewBlogPage({ user, setUser, hoots }) {
             </div>
 
             <div style={{ width: "310px", marginLeft: "26px" }}>
+              <div style={{marginLeft: "42px"}}>
+                <Bogota />
+              </div>
               <VerticleHootList
                 user={user}
                 setUser={setUser}
@@ -413,7 +418,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                   marginTop: "22px",
                 }}
               >
-                <div ref={klookWidgetRef} style={{ padding: "6px" }}></div>
+                {/* <div ref={klookWidgetRef} style={{ padding: "6px" }}></div> */}
               </div>
             </div>
           </div>

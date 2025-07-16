@@ -7,7 +7,7 @@ import Header from "../../Components/Header/Header.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import PetComponent from "../../Components/PetComponent/PetComponent.jsx";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
 import UsersPlans from "../../Components/UsersPlans/UsersPlans";
 import UsersPets from "../../Components/UsersPets/UsersPets";
@@ -21,6 +21,11 @@ export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
 
   const navigate = useNavigate();
+
+  const { id } = useParams();
+  useEffect(() => {
+    profileService.show(id).then(setProfile).catch(console.error);
+  }, [id]);
 
    useEffect(() => {
      async function fetchProfile() {

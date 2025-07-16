@@ -44,7 +44,7 @@ async function index(req, res) {
     const blogs = await Blog.find({}).populate('author')
 .sort({ createdAt: -1 });
         
-    console.log(blogs);
+
     // const blogs = await Blog.find({}).populate("author", "name");
      res.json(blogs);
 
@@ -66,7 +66,7 @@ async function create(req, res) {
 
     req.body.author = profile._id; 
 
-    console.log("REQ.USER IN BLOG CREATE:", req.user);
+
     // Process image uploads
     if (req.files) {
       if (req.files.contentOneImage && req.files.contentOneImage.length > 0) {
@@ -143,7 +143,7 @@ async function show(req, res) {
     }
 
     
-    console.log(blog);
+ 
     res.json(blog);
   } catch (err) {
     console.error("Error in blog show:", err);

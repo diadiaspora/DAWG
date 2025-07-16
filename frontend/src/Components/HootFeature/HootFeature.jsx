@@ -5,7 +5,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
-import MotelComponent from "../MotelComponent/MotelComponent";
+import FlightCalendar from "../FlightCalendar/FlightCalendar";
 
 export default function HootFeatured(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
@@ -257,9 +257,16 @@ export default function HootFeatured(props) {
               </div>
             </div>
           </div>
-                <div style={{ backgroundColor: "#1E3769", borderRadius: "7px", padding: "6px" }}>
-                    <h3 style={{color:"white"}}> Find Hotel Deals</h3>
-            <MotelComponent />
+          <div
+            style={{
+              backgroundColor: "#1E3769",
+              borderRadius: "7px",
+              padding: "6px",
+              width: "310px"
+            }}
+          >
+            <h3 style={{ color: "white" }}> Find Hotel Deals</h3>
+            <FlightCalendar />
           </div>
         </div>
       </div>

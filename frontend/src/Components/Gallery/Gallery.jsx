@@ -51,14 +51,14 @@ const Gallery = () => {
             height: "100px",
             width: "665px",
             borderRadius: "7px",
-            marginTop: "34px",
+            marginTop: "24px",
             paddingTop: "1px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          {/* Widget injected here */}
+       
           <div
             ref={klookWidgetRef}
             style={{

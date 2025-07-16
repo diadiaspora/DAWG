@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { blogPosts } from "../../Data/blogs"; // or wherever your blog data is
+import MapSmall from "../../Components/MapSmall/MapSmall.jsx";
 
 export default function BlogFeature() {
   const [featuredBlog, setFeaturedBlog] = useState(null);
@@ -82,13 +83,7 @@ export default function BlogFeature() {
           boxSizing: "border-box",
         }}
       >
-        <h4 style={{ color: "#ffffff", marginBottom: "12px" }}>
-          More Stories Coming Soon
-        </h4>
-        <p style={{ color: "#ffffff", fontSize: "14px" }}>
-          Stay tuned for featured interviews, travel tips, and flight tips from
-          real travelers.
-        </p>
+   <MapSmall />
       </div>
     </div>
   );

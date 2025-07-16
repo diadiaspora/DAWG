@@ -3,7 +3,7 @@ import sendRequest from "./sendRequest";
 const BASE_URL = "/api/pets";
 
 export async function create(petData) {
-  return sendRequest(BASE_URL, "POST", petData);
+  return sendRequest(BASE_URL, "POST", petData, true); 
 }
 
 

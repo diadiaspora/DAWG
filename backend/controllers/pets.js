@@ -4,6 +4,7 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const { S3_REGION, S3_BUCKET, S3_BASE_URL } = process.env;
 
 const Pet = require("../models/pet");
+const Profile = require("../models/profile");
 
 module.exports = {
   index,
@@ -63,6 +64,14 @@ async function create(req, res) {
     }
 
     const pet = await Pet.create(req.body);
+
+    const profile = await Profile.findOne({ author: req.user._id });
+    if (!profile) {
+      return res.status(404).json({ message: "Profile not found." });
+    }
+
+    profile.pets.push(pet._id);
+    await profile.save();
     
     res.status(201).json(pet); // Respond with 201 Created and the new pet
   } catch (err) {
