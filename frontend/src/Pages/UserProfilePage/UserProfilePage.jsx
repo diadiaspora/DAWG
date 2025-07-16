@@ -15,6 +15,7 @@ import Destinations from "../../Components/Destinations/Destinations.jsx";
 
 
 
+
 import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
@@ -59,16 +60,20 @@ export default function UserProfilePage({ user }) {
           <ProfileForm profile={profile} setProfile={setProfile} />
           <UsersPets user={user} />
         </div>
-        <div style={{ marginLeft: "42px", marginTop: "24px" }}></div>
-        <div style={{ width: "1012px", marginLeft: "42px" }}>
+
+        <div
+          style={{ width: "1012px", marginLeft: "42px", marginTop: "100px" }}
+        >
           <UserCarousel user={user} profile={profile} />
         </div>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", marginTop: "75px" }}>
           <UsersPlans user={user} />
         </div>
-        <div>
+        <div style={{marginTop:"75px"}}>
           <Destinations />
         </div>
+      
+
         <div style={{ marginLeft: "-42px" }}>
           <UsersBlogs user={user} />
 

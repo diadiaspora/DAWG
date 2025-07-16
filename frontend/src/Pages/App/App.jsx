@@ -189,7 +189,15 @@ export default function App() {
                 <Route path="/blogs" element={<ViewBlogsPage />} />
                 <Route
                   path="/profiles/:id"
-                  element={<UserProfilePage user={user} setUser={setUser} />}
+                  element={
+                    <UserProfilePage
+                      user={user}
+                      setUser={setUser}
+                      hoots={hoots}
+                      setHoots={setHoots}
+                      handleAddHoot={handleAddHoot}
+                    />
+                  }
                 />
                 <Route
                   path="/blogs/:id"

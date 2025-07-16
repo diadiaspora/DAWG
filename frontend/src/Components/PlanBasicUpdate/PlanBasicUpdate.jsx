@@ -218,7 +218,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
       ) : (
         <div
           style={{
-            backgroundColor: "#ffffff",
+            backgroundColor: "#DFE2E7",
             borderRadius: "7px",
             padding: "10px",
             height: "300px",
@@ -249,9 +249,9 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
             style={{
               width: "260px",
               borderRadius: "7px",
-             
+
               backgroundColor: "#ffffff",
-              border: "2px solid #1E3769",
+              border: "1px solid #1E3769",
               height: "150px",
             }}
           >

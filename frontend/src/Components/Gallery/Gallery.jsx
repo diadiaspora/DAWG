@@ -59,7 +59,7 @@ const Gallery = () => {
           }}
         >
        
-          <div
+          {/* <div
             ref={klookWidgetRef}
             style={{
               borderRadius: "7px",
@@ -67,7 +67,7 @@ const Gallery = () => {
               width: "468px",
               height: "60px",
             }}
-          />
+          /> */}
         </div>
       </div>
 

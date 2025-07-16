@@ -108,6 +108,7 @@ export default function HootLongList(props) {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 marginRight: "8px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
               <header style={{ marginBottom: "8px" }}>
