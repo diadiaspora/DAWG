@@ -10,6 +10,7 @@ export default function BlogCard({ blog }) {
         width: "237px",
         borderRadius: "7px",
         border: "1px solid #BCC7D4",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
       }}
     >
       <img

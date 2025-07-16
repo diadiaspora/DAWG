@@ -105,7 +105,7 @@ export default function UsersPets({ user }) {
           overflowX: "auto",
           overflowY: "hidden",
           paddingBottom: "16px",
-          width: "350px",
+          width: "310px",
           height: "350px",
           marginLeft: "42px",
           WebkitOverflowScrolling: "touch",
@@ -138,13 +138,13 @@ export default function UsersPets({ user }) {
                 key={pet._id}
                 style={{
                   flex: "0 0 auto",
-                  width: "350px",
-                  height: "345px",
+                  width: "310px",
+                  height: "350px",
                   border: "1px solid #BCC7D4",
                   borderRadius: "8px",
                   padding: "16px",
                   scrollSnapAlign: "start",
-                  backgroundColor: "#fff",
+                  backgroundColor: "#DFE2E7",
                 }}
               >
                 <div style={{ display: "flex" }}>
@@ -221,10 +221,21 @@ export default function UsersPets({ user }) {
                 <div
                   style={{ display: "flex", gap: "10px", marginTop: "10px" }}
                 >
-                  <button onClick={() => setEditingPetId(pet._id)}>
+                  <button
+                    onClick={() => setEditingPetId(pet._id)}
+                    style={{
+                      color: "#1E3769",
+                      backgroundColor: "#DFE2E7",
+                      borderColor: "#DFE2E7",
+                      textDecoration: "underline",
+                      display: "block",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                    }}
+                  >
                     Update
                   </button>
-                  <button onClick={() => handleDelete(pet._id)}>Delete</button>
+                  <button onClick={() => handleDelete(pet._id)} >Delete</button>
                 </div>
               </div>
             )

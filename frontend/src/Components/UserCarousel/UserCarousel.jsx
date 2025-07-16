@@ -113,7 +113,7 @@ export default function AllUsersCarousel({ user, profile }) {
           borderRadius: "7px",
           height: "70px",
           alignItems: "baseline",
-          marginBottom: "24px",
+          marginBottom: "60px",
           padding: "12px",
         }}
       >
@@ -133,6 +133,7 @@ export default function AllUsersCarousel({ user, profile }) {
           htmlFor="file-upload"
           style={{
             borderWidth: "1px",
+          
             backgroundColor: "#ffffff",
             width: "240px",
             height: "44px",

@@ -64,6 +64,7 @@ export default function Marketplace() {
             <button
               // onClick={handlePostClick}
               style={{
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                 borderWidth: "1px",
                 backgroundColor: "#ffffff",
                 width: "240px",

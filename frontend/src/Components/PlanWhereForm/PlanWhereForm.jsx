@@ -240,7 +240,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
           <div
             className="planWhereCard"
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: "#DFE2E7",
               minHeight: "350px",
               borderRadius: "7px",
               width: "662px",

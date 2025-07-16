@@ -1,5 +1,5 @@
 import "./SearchServices.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import { useState } from "react";
 import Select from "react-select";

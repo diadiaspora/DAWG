@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { IoIosHeart } from "react-icons/io";
+
 
 export default function AllUsersCarousel() {
   const scrollRef = useRef(null);
@@ -78,7 +80,7 @@ export default function AllUsersCarousel() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-            
+
               width: "200px", // fixed width, not minWidth
               flexShrink: 0, // prevents shrinking smaller than 150px
             }}
@@ -109,12 +111,24 @@ export default function AllUsersCarousel() {
                   fontSize: "14px",
                   color: "#1E3769",
                   marginLeft: "8px",
-                  marginTop: "3px"
+                  marginTop: "3px",
                 }}
               >
                 {img.username}
               </div>
-              <div style={{ fontSize: "12px", color: "#666" }}>
+              <div style={{marginTop:"4px", marginLeft: "6px"}}>
+                
+                <IoIosHeart />
+              </div>
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                  color: "#1E3769",
+                  marginLeft: "4px",
+                  marginTop: "3px",
+                }}
+              >
                 {img.petName}
               </div>
             </div>

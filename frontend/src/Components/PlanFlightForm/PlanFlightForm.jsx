@@ -361,7 +361,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
           style={{
             marginLeft: "42px",
             marginRight: "42px",
-            backgroundColor: "#ffffff",
+            backgroundColor: "#DFE2E7",
             width: "1012px",
             borderRadius: "7px",
             padding: "4vmin",
@@ -513,7 +513,13 @@ export default function PlanFlightForm({ plan, setPlan }) {
               </div>
             </div>
             <>
-              <div style={{ marginLeft: "42px", display: "flex", flexDirection: "column" }}>
+              <div
+                style={{
+                  marginLeft: "42px",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <div>
                   <h4>Inbound:</h4>
                 </div>
