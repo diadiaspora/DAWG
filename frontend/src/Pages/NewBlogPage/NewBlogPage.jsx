@@ -156,7 +156,12 @@ export default function NewBlogPage({ user, setUser, hoots }) {
             <div
               style={{ width: "632px", marginLeft: "42px", marginRight: "0px" }}
             >
-              <h2 style={{ fontSize: "24px" }}> Tell Us Your Story</h2>
+              <div style={{ backgroundColor: "#1E3769" , height: "60px", borderRadius: "7px", marginBottom: "12px", paddingTop: "24px", paddingLeft: "12px"}}>
+                <h2 style={{ fontSize: "24px", color: "#ffffff" }}>
+                  {" "}
+                  Tell Us Your Story
+                </h2>
+              </div>
               <div
                 style={{
                   border: "1px solid #e9e9e9",
@@ -399,7 +404,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
             </div>
 
             <div style={{ width: "310px", marginLeft: "26px" }}>
-              <div style={{marginLeft: "42px"}}>
+              <div style={{ marginLeft: "42px" }}>
                 <Bogota />
               </div>
               <VerticleHootList

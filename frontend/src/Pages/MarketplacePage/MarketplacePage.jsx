@@ -1,5 +1,5 @@
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router";
 
 
 export default function MarketplacePage() {
