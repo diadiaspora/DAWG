@@ -7,8 +7,8 @@ import Header from "../../Components/Header/Header.jsx";
 
 
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
-import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
+import { useParams } from "react-router";
+import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; 
 
 import UsersPlansShort from "../../Components/UsersPlansShort/UsersPlansShort";
 import UsersPets from "../../Components/UsersPets/UsersPets";
@@ -22,7 +22,6 @@ import "./UserProfilePage.css";
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
 
-  const navigate = useNavigate();
 
   const { id } = useParams();
   useEffect(() => {
