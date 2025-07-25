@@ -1,38 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .NavBar {
-  font-family: Roboto, Helvetica, sans-serif;
+  font-family: 'Roboto', Helvetica, sans-serif;
   background-color: #1e37691f;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.logo-and-toggle {
+/* Top row: logo and menu button */
+.nav-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
+/* Logo images */
+.dogmoney {
+  width: 40px;
+}
+
+.doglogo {
+  width: 90px;
+  margin-left: 0.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+/* Hamburger toggle */
 .menu-toggle {
+  font-size: 24px;
   background: none;
   border: none;
-  font-size: 24px;
   color: #1E3769;
   cursor: pointer;
-  z-index: 1001;
 }
 
+/* Navigation links: hidden by default on mobile */
 .nav-links {
   display: none;
   flex-direction: column;
+  margin-top: 1rem;
   width: 100%;
-  background-color: #ffffff;
-  border-top: 1px solid #ccc;
-  margin-top: 10px;
-  z-index: 1000;
 }
 
 .nav-links.active {
@@ -40,35 +57,27 @@
 }
 
 .nav-links a {
-  padding: 12px;
-  color: #1E3769;
+  padding: 0.75rem 0;
   font-weight: bold;
+  color: #1E3769;
   text-decoration: none;
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 .nav-links a:hover {
-  background-color: #f2f2f2;
+  background-color: #f4f4f4;
 }
 
 .avatar {
+  margin-top: 1rem;
+  border-radius: 50%;
   width: 33px;
   height: 33px;
-  border-radius: 50%;
-  margin: 12px;
 }
 
-.dogmoney {
-  width: 40px;
-}
-
-.doglogo {
-  width: 80px;
-  margin-left: 8px;
-}
-
-/* ------- Breakpoint for 481px and up (Tablet/Desktop) ------- */
-@media (min-width: 481px) {
+/* Responsive: tablet and up (horizontal layout) */
+@media screen and (min-width: 481px) {
   .NavBar {
     flex-direction: row;
     justify-content: space-between;
@@ -82,17 +91,19 @@
   .nav-links {
     display: flex !important;
     flex-direction: row;
-    background-color: transparent;
     margin-top: 0;
-    border-top: none;
+    align-items: center;
+    gap: 1.5rem;
+    width: auto;
   }
 
   .nav-links a {
+    border-bottom: none;
     padding: 0 1rem;
-    border: none;
+    width: auto;
   }
 
-  .nav-links a:hover {
-    background-color: transparent;
+  .avatar {
+    margin-top: 0;
   }
 }
