@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
 import UsersPlans from "../../Components/UsersPlans/UsersPlans";
+import UsersPlansShort from "../../Components/UsersPlansShort/UsersPlansShort";
 import UsersPets from "../../Components/UsersPets/UsersPets";
 import Destinations from "../../Components/Destinations/Destinations.jsx";
 
@@ -57,8 +58,12 @@ export default function UserProfilePage({ user }) {
           }}
         ></div>
         <div style={{ width: "1012px", display: "flex" }}>
-          <ProfileForm profile={profile} setProfile={setProfile} />
-          <UsersPets user={user} />
+          <ProfileForm profile={profile} setProfile={setProfile} user={user} />
+        
+            
+            <UsersPets user={user} />
+         
+          <UsersPlansShort user={user} />
         </div>
 
         <div
@@ -66,13 +71,10 @@ export default function UserProfilePage({ user }) {
         >
           <UserCarousel user={user} profile={profile} />
         </div>
-        <div style={{ display: "flex", marginTop: "75px" }}>
-          <UsersPlans user={user} />
-        </div>
-        <div style={{marginTop:"75px"}}>
+      
+        <div style={{ marginTop: "75px" }}>
           <Destinations />
         </div>
-      
 
         <div style={{ marginLeft: "-42px" }}>
           <UsersBlogs user={user} />

@@ -1,12 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
+import { RiFolderUploadFill } from "react-icons/ri";
 
-export default function AllUsersCarousel({ user, profile }) {
+
+export default function UsersCarousel({ user, profile }) {
   const scrollRef = useRef(null);
   const [galleryImages, setGalleryImages] = useState([]);
-    const [uploading, setUploading] = useState(false);
-    const [hover, setHover] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+  const [deleteMode, setDeleteMode] = useState(false);
 
- 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -30,8 +34,6 @@ export default function AllUsersCarousel({ user, profile }) {
 
     return () => clearInterval(intervalId);
   }, [galleryImages]);
-  
-
 
   useEffect(() => {
     if (!profile || !profile._id) return;
@@ -98,6 +100,38 @@ export default function AllUsersCarousel({ user, profile }) {
     }
   };
 
+  const handleDeleteImage = async (imageUrl) => {
+    if (!window.confirm("Are you sure you want to delete this image?")) return;
+
+    setDeleting(true);
+
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await fetch(`/api/gallerys/delete/${profile._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ imageUrl }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to delete image");
+      }
+
+      const responseData = await res.json();
+      setGalleryImages(responseData.gallery.photoGallery); // update state
+    } catch (err) {
+      alert(err.message);
+      console.error(err);
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   if (!user) {
     return <p>Please log in to see and upload your gallery images.</p>;
   }
@@ -108,22 +142,21 @@ export default function AllUsersCarousel({ user, profile }) {
         style={{
           backgroundColor: "#1E3769",
           width: "1012px",
-
           display: "flex",
           borderRadius: "7px",
           height: "70px",
-          alignItems: "baseline",
+          alignItems: "center",
           marginBottom: "60px",
           padding: "12px",
+          gap: "20px",
         }}
       >
         <h1
           style={{
             fontSize: "18px",
             color: "#ffffff",
-            marginTop: "10px",
-            marginleft: "21px",
-            marginRight: "660px",
+            marginLeft: "21px",
+            flex: "1",
           }}
         >
           Gallery
@@ -132,8 +165,6 @@ export default function AllUsersCarousel({ user, profile }) {
         <label
           htmlFor="file-upload"
           style={{
-            borderWidth: "1px",
-          
             backgroundColor: "#ffffff",
             width: "240px",
             height: "44px",
@@ -141,15 +172,43 @@ export default function AllUsersCarousel({ user, profile }) {
             cursor: "pointer",
             fontSize: "16px",
             fontFamily: "Roboto",
-            borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
-            color: hover ? "#347567" : "#1E3769", // ✅ only once
-            borderRadius: "7px", // ✅ once
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#347567" : "#1E3769",
+            borderRadius: "7px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
-          {uploading ? "Uploading..." : "Upload Images"}
+          {uploading ? (
+            "Uploading..."
+          ) : (
+            <>
+              <RiFolderUploadFill /> &nbsp; Upload Images
+            </>
+          )}
         </label>
+
+        <button
+          onClick={() => setDeleteMode(!deleteMode)}
+          style={{
+            backgroundColor: deleteMode ? "#ffcccc" : "#ffffff",
+            color: deleteMode ? "#a30000" : "#1E3769",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            fontSize: "16px",
+            border: "2px solid",
+            borderColor: deleteMode ? "#a30000" : "#1E3769",
+            borderRadius: "7px",
+            cursor: "pointer",
+          }}
+        >
+          {deleteMode ? "Done Deleting" : "Delete Images"}
+        </button>
+
         <input
           id="file-upload"
           type="file"
@@ -159,9 +218,9 @@ export default function AllUsersCarousel({ user, profile }) {
           style={{ display: "none" }}
         />
       </div>
+
       <div
         ref={scrollRef}
-        className="hoot-scroll-container"
         style={{
           display: "flex",
           gap: "16px",
@@ -171,22 +230,71 @@ export default function AllUsersCarousel({ user, profile }) {
           paddingBottom: "10px",
         }}
       >
-        {galleryImages.length === 0 && <p>No images uploaded yet.</p>}
-        {galleryImages.map((url, idx) => (
-          <img
-            key={idx}
-            src={url}
-            alt={`Gallery image ${idx + 1}`}
+        {galleryImages.length === 0 ? (
+          <div
             style={{
+              width: "200px",
               height: "150px",
+              border: "2px dashed #ccc",
               borderRadius: "8px",
-              objectFit: "cover",
-              cursor: "pointer",
-              userSelect: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "16px",
+              color: "#999",
+              flexShrink: 0,
             }}
-            draggable={false}
-          />
-        ))}
+          >
+            Add Images
+          </div>
+        ) : (
+          galleryImages.map((url, idx) => (
+            <div
+              key={idx}
+              style={{
+                position: "relative",
+                display: "inline-block",
+                flexShrink: 0,
+              }}
+            >
+              <img
+                src={url}
+                alt={`Gallery image ${idx + 1}`}
+                style={{
+                  height: "150px",
+                  width: "200px",
+                  borderRadius: "8px",
+                  objectFit: "cover",
+                  userSelect: "none",
+                  display: "block",
+                }}
+                draggable={false}
+              />
+              {deleteMode && (
+                <button
+                  onClick={() => handleDeleteImage(url)}
+                  disabled={deleting}
+                  style={{
+                    position: "absolute",
+                    top: "4px",
+                    right: "4px",
+                    background: "rgba(0,0,0,0.6)",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "50%",
+                    width: "24px",
+                    height: "24px",
+                    fontSize: "14px",
+                    cursor: "pointer",
+                  }}
+                  title="Delete Image"
+                >
+                  &times;
+                </button>
+              )}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

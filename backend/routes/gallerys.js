@@ -19,6 +19,7 @@ router.post(
 // Delete photo
 router.delete("/delete/:profileId", galleryCtrl.deleteGalleryImage);
 
+
 // View gallery
 
 
