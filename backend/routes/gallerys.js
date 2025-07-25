@@ -20,7 +20,5 @@ router.post(
 router.delete("/delete/:profileId", galleryCtrl.deleteGalleryImage);
 
 
-// View gallery
-
 
 module.exports = router;

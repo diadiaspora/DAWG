@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import  { useState, useEffect, useRef } from "react";
 import { RiFolderUploadFill } from "react-icons/ri";
 
@@ -11,6 +12,17 @@ export default function UsersCarousel({ user, profile }) {
   const [editMode, setEditMode] = useState(false);
   const [deleteMode, setDeleteMode] = useState(false);
 
+=======
+import React, { useState, useEffect, useRef } from "react";
+
+export default function AllUsersCarousel({ user, profile }) {
+  const scrollRef = useRef(null);
+  const [galleryImages, setGalleryImages] = useState([]);
+    const [uploading, setUploading] = useState(false);
+    const [hover, setHover] = useState(false);
+
+ 
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -34,6 +46,11 @@ export default function UsersCarousel({ user, profile }) {
 
     return () => clearInterval(intervalId);
   }, [galleryImages]);
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
 
   useEffect(() => {
     if (!profile || !profile._id) return;
@@ -100,6 +117,7 @@ export default function UsersCarousel({ user, profile }) {
     }
   };
 
+<<<<<<< HEAD
   const handleDeleteImage = async (imageUrl) => {
     if (!window.confirm("Are you sure you want to delete this image?")) return;
 
@@ -132,6 +150,8 @@ export default function UsersCarousel({ user, profile }) {
     }
   };
 
+=======
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
   if (!user) {
     return <p>Please log in to see and upload your gallery images.</p>;
   }
@@ -142,6 +162,7 @@ export default function UsersCarousel({ user, profile }) {
         style={{
           backgroundColor: "#1E3769",
           width: "1012px",
+<<<<<<< HEAD
           display: "flex",
           borderRadius: "7px",
           height: "70px",
@@ -149,14 +170,29 @@ export default function UsersCarousel({ user, profile }) {
           marginBottom: "60px",
           padding: "12px",
           gap: "20px",
+=======
+
+          display: "flex",
+          borderRadius: "7px",
+          height: "70px",
+          alignItems: "baseline",
+          marginBottom: "60px",
+          padding: "12px",
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
         }}
       >
         <h1
           style={{
             fontSize: "18px",
             color: "#ffffff",
+<<<<<<< HEAD
             marginLeft: "21px",
             flex: "1",
+=======
+            marginTop: "10px",
+            marginleft: "21px",
+            marginRight: "660px",
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
           }}
         >
           Gallery
@@ -165,6 +201,11 @@ export default function UsersCarousel({ user, profile }) {
         <label
           htmlFor="file-upload"
           style={{
+<<<<<<< HEAD
+=======
+            borderWidth: "1px",
+          
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
             backgroundColor: "#ffffff",
             width: "240px",
             height: "44px",
@@ -172,16 +213,23 @@ export default function UsersCarousel({ user, profile }) {
             cursor: "pointer",
             fontSize: "16px",
             fontFamily: "Roboto",
+<<<<<<< HEAD
             borderColor: hover ? "#4AA692" : "#1E3769",
             color: hover ? "#347567" : "#1E3769",
             borderRadius: "7px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+=======
+            borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
+            color: hover ? "#347567" : "#1E3769", // ✅ only once
+            borderRadius: "7px", // ✅ once
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
           }}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
+<<<<<<< HEAD
           {uploading ? (
             "Uploading..."
           ) : (
@@ -209,6 +257,10 @@ export default function UsersCarousel({ user, profile }) {
           {deleteMode ? "Done Deleting" : "Delete Images"}
         </button>
 
+=======
+          {uploading ? "Uploading..." : "Upload Images"}
+        </label>
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
         <input
           id="file-upload"
           type="file"
@@ -218,9 +270,15 @@ export default function UsersCarousel({ user, profile }) {
           style={{ display: "none" }}
         />
       </div>
+<<<<<<< HEAD
 
       <div
         ref={scrollRef}
+=======
+      <div
+        ref={scrollRef}
+        className="hoot-scroll-container"
+>>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
         style={{
           display: "flex",
           gap: "16px",
@@ -295,6 +353,22 @@ export default function UsersCarousel({ user, profile }) {
             </div>
           ))
         )}
+        {galleryImages.length === 0 && <p>No images uploaded yet.</p>}
+        {galleryImages.map((url, idx) => (
+          <img
+            key={idx}
+            src={url}
+            alt={`Gallery image ${idx + 1}`}
+            style={{
+              height: "150px",
+              borderRadius: "8px",
+              objectFit: "cover",
+              cursor: "pointer",
+              userSelect: "none",
+            }}
+            draggable={false}
+          />
+        ))}
       </div>
     </div>
   );
