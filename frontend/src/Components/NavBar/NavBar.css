@@ -1,62 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 .NavBar {
   font-family: Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2vmin;
-  font-size: 2vmin;
   background-color: #1e37691f;
-  
+  padding: 2vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
 }
 
-.NavBar {
-  a {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 0.8vmin;
-    padding: 0.5vmin 1.5vmin;
-    text-decoration: none;
-    color: #1E3769;
+.logo-and-toggle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #1E3769;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+.nav-links a {
+  padding: 10px 0;
+  color: #1E3769;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  background-color: #ffffff;
+}
+
+.avatar {
+  width: 33px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.dogmoney {
+  width: 50px;
+}
+
+.doglogo {
+  width: 100px;
+  margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+  .NavBar {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  a:hover {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #ffffff;
- 
-    
+  .menu-toggle {
+    display: none;
   }
 
-  a.active {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-   border-radius: 7px;
-    color: #1E3769;
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
   }
 
-  span {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #1E3769;
+  .nav-links a {
+    padding: 0 1rem;
   }
-
-  .dogmoney {
-
-    width: 50px;
-    border-radius: 7px;
-  }
-  .doglogo {
-  
-        width: 100px;
-        border-radius: 7px;
-      }
-      
 }

@@ -1,6 +1,27 @@
-
-
 .home {
-    width: 100vw;
-   
-}
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    .home {
+      padding: 1rem;
+    }
+  
+    section.home > div {
+      margin-bottom: 2rem;
+    }
+  
+    .home img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .slick-slider {
+      width: 100%;
+    }
+  }
+  
