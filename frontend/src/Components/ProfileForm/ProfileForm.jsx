@@ -36,12 +36,6 @@ export default function ProfileForm({ profile, setProfile, user }) {
     setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
-  async function handleSubmit(evt) {
-    evt.preventDefault();
-    setErrorMsg("");
-    console.log({ profile });
-
-    try {
 
 
   async function handleSubmit(evt) {
