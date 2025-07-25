@@ -1,109 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 .NavBar {
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2vmin;
+  font-size: 2vmin;
   background-color: #1e37691f;
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  
 }
 
-/* Top row: logo and menu button */
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-/* Logo images */
-.dogmoney {
-  width: 40px;
-}
-
-.doglogo {
-  width: 90px;
-  margin-left: 0.5rem;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 100%;
-}
-
-/* Hamburger toggle */
-.menu-toggle {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: #1E3769;
-  cursor: pointer;
-}
-
-/* Navigation links: hidden by default on mobile */
-.nav-links {
-  display: none;
-  flex-direction: column;
-  margin-top: 1rem;
-  width: 100%;
-}
-
-.nav-links.active {
-  display: flex;
-}
-
-.nav-links a {
-  padding: 0.75rem 0;
-  font-weight: bold;
-  color: #1E3769;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-}
-
-.nav-links a:hover {
-  background-color: #f4f4f4;
-}
-
-.avatar {
-  margin-top: 1rem;
-  border-radius: 50%;
-  width: 33px;
-  height: 33px;
-}
-
-/* Responsive: tablet and up (horizontal layout) */
-@media screen and (min-width: 481px) {
-  .NavBar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.NavBar {
+  a {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0.8vmin;
+    padding: 0.5vmin 1.5vmin;
+    text-decoration: none;
+    color: #1E3769;
   }
 
-  .menu-toggle {
-    display: none;
+  a:hover {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ffffff;
+ 
+    
   }
 
-  .nav-links {
-    display: flex !important;
-    flex-direction: row;
-    margin-top: 0;
-    align-items: center;
-    gap: 1.5rem;
-    width: auto;
+  a.active {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+   border-radius: 7px;
+    color: #1E3769;
   }
 
-  .nav-links a {
-    border-bottom: none;
-    padding: 0 1rem;
-    width: auto;
+  span {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1E3769;
   }
 
-  .avatar {
-    margin-top: 0;
+  .dogmoney {
+
+    width: 50px;
+    border-radius: 7px;
   }
+  .doglogo {
+  
+        width: 100px;
+        border-radius: 7px;
+      }
+      
 }

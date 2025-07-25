@@ -1,46 +1,34 @@
+/* HomePage.css */
+
 .home {
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
-    overflow-x: hidden;
+    padding: 1rem;
     box-sizing: border-box;
-    padding: 0;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
   
+  /* Optional: prevent images or carousels from overflowing */
+  .home img, .home .slick-slider {
+    max-width: 100%;
+    height: auto;
+  }
   
-  /* Target phones: 320px–480px */
-  @media (max-width: 480px) {
+  /* Handle layout tweaks on small devices */
+  @media screen and (max-width: 768px) {
     .home {
-      padding: 0.75rem;
-    }
-  
-    .home img {
-      max-width: 100%;
-      height: auto;
-    }
-  
-    section.home > div {
-      margin-bottom: 1.5rem;
-    }
-  
-    .slick-slider {
-      width: 100%;
-    }
-  
-    /* Optional: make buttons, inputs, etc. stack or resize */
-    button,
-    input,
-    select,
-    textarea {
-      width: 100%;
-      font-size: 1rem;
+      padding: 0.5rem;
+      gap: 1rem;
     }
   }
   
-  /* Tablet view starts at 481px */
-  @media (min-width: 481px) {
+  @media screen and (max-width: 480px) {
     .home {
-      padding: 2rem;
+      padding: 0.25rem;
+      gap: 0.75rem;
     }
   }
   
