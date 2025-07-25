@@ -61,17 +61,12 @@ export default function UserProfilePage({ user }) {
           }}
         ></div>
         <div style={{ width: "1012px", display: "flex" }}>
-<<<<<<< HEAD
           <ProfileForm profile={profile} setProfile={setProfile} user={user} />
         
             
             <UsersPets user={user} />
          
           <UsersPlansShort user={user} />
-=======
-          <ProfileForm profile={profile} setProfile={setProfile} />
-          <UsersPets user={user} />
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
         </div>
 
         <div
@@ -79,20 +74,10 @@ export default function UserProfilePage({ user }) {
         >
           <UserCarousel user={user} profile={profile} />
         </div>
-<<<<<<< HEAD
       
         <div style={{ marginTop: "75px" }}>
           <Destinations />
         </div>
-=======
-        <div style={{ display: "flex", marginTop: "75px" }}>
-          <UsersPlans user={user} />
-        </div>
-        <div style={{marginTop:"75px"}}>
-          <Destinations />
-        </div>
-      
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
 
         <div style={{ marginLeft: "-42px" }}>
           <UsersBlogs user={user} />
