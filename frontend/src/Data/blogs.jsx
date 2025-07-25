@@ -1,11 +1,13 @@
+import SafeTravel from "../Components/Blogs/SafeTravel";
+
 export const blogPosts = [
   {
-    id: "traveling-with-your-pet",
-    title: "The Ultimate Guide to Traveling with Your Pet",
+    id: "SafeTravel",
+    title: "Safe Journeys: Essential Tips for Stress-Free Pet Travel",
     excerpt:
       "Everything you need to know about packing, planning, and flying with your furry friend.",
-    content: `...full JSX article here or import it separately...`,
-    date: "2025-06-21",
+    content: <SafeTravel />,
+    date: "2025-07-25",
     thumbnail: "/blogimage1.png",
   },
 
