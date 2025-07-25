@@ -1,16 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .NavBar {
   font-family: Roboto, Helvetica, sans-serif;
   background-color: #1e37691f;
-  padding: 2vmin;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   position: relative;
 }
 
 .logo-and-toggle {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -21,13 +22,17 @@
   font-size: 24px;
   color: #1E3769;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .nav-links {
   display: none;
   flex-direction: column;
   width: 100%;
-  padding-top: 1rem;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  z-index: 1000;
 }
 
 .nav-links.active {
@@ -35,35 +40,38 @@
 }
 
 .nav-links a {
-  padding: 10px 0;
+  padding: 12px;
   color: #1E3769;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
 }
 
 .nav-links a:hover {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
 }
 
 .avatar {
   width: 33px;
+  height: 33px;
   border-radius: 50%;
-  margin-top: 10px;
+  margin: 12px;
 }
 
 .dogmoney {
-  width: 50px;
+  width: 40px;
 }
 
 .doglogo {
-  width: 100px;
-  margin-left: 10px;
+  width: 80px;
+  margin-left: 8px;
 }
 
-@media (min-width: 768px) {
+/* ------- Breakpoint for 481px and up (Tablet/Desktop) ------- */
+@media (min-width: 481px) {
   .NavBar {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -74,11 +82,17 @@
   .nav-links {
     display: flex !important;
     flex-direction: row;
-    align-items: center;
-    padding-top: 0;
+    background-color: transparent;
+    margin-top: 0;
+    border-top: none;
   }
 
   .nav-links a {
     padding: 0 1rem;
+    border: none;
+  }
+
+  .nav-links a:hover {
+    background-color: transparent;
   }
 }

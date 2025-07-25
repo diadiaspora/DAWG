@@ -1,9 +1,9 @@
-import { NavLink, Link } from "react-router";
 import { useState } from "react";
+import { NavLink, Link } from "react-router";
 import { logOut } from "../../services/authService";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./NavBar.css";
 import { FaRegCircleUser } from "react-icons/fa6";
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser, profile }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,6 +11,7 @@ export default function NavBar({ user, setUser, profile }) {
   function handleLogOut() {
     logOut();
     setUser(null);
+    setMenuOpen(false); // Close menu on logout
   }
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -47,13 +48,7 @@ export default function NavBar({ user, setUser, profile }) {
             <NavLink to="/profiles/" onClick={closeMenu}>
               Profile
             </NavLink>
-            <Link
-              to="/"
-              onClick={() => {
-                handleLogOut();
-                closeMenu();
-              }}
-            >
+            <Link to="/" onClick={handleLogOut}>
               Log Out
             </Link>
             <img

@@ -1,18 +1,14 @@
 .home {
     width: 100%;
-    padding: 0;
-    margin: 0 auto;
+    padding: 1rem;
     box-sizing: border-box;
     overflow-x: hidden;
   }
   
-  @media (max-width: 768px) {
+  /* Target phones: 320px–480px */
+  @media (max-width: 480px) {
     .home {
-      padding: 1rem;
-    }
-  
-    section.home > div {
-      margin-bottom: 2rem;
+      padding: 0.75rem;
     }
   
     .home img {
@@ -20,8 +16,28 @@
       height: auto;
     }
   
+    section.home > div {
+      margin-bottom: 1.5rem;
+    }
+  
     .slick-slider {
       width: 100%;
+    }
+  
+    /* Optional: make buttons, inputs, etc. stack or resize */
+    button,
+    input,
+    select,
+    textarea {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Tablet view starts at 481px */
+  @media (min-width: 481px) {
+    .home {
+      padding: 2rem;
     }
   }
   
