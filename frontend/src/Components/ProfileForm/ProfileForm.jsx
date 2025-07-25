@@ -1,21 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import * as profileService from "../../services/profileService";
-import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-<<<<<<< HEAD
-import UsersPets from "../../Components/UsersPets/UsersPets";
+
 
 import "./ProfileForm.css";
 
 export default function ProfileForm({ profile, setProfile, user }) {
-=======
-
-import "./ProfileForm.css";
-
-
-
-export default function ProfileForm({ profile, setProfile }) {
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
   const [showForm, setShowForm] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   console.log({ profile });
@@ -37,21 +27,10 @@ export default function ProfileForm({ profile, setProfile }) {
     }
   }, [profile]);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
   const avatarImageRef = useRef();
   const passportImageRef = useRef();
   const importantDocsImageRef = useRef();
 
-<<<<<<< HEAD
-=======
-
-  
-    
-
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
   function handleChange(evt) {
     const { name, value } = evt.target;
     setProfileData((prev) => ({ ...prev, [name]: value }));
@@ -123,7 +102,6 @@ export default function ProfileForm({ profile, setProfile }) {
 
   return (
     <>
-<<<<<<< HEAD
       <div style={{display:"flex"}}>
         <section style={{ width: "310px", marginRight: "21px" }}>
           {showForm ? (
@@ -320,216 +298,6 @@ export default function ProfileForm({ profile, setProfile }) {
                     display: "flex",
                   }}
                 >
-=======
-      <section style={{ width: "1012px" }}>
-        {showForm ? (
-          <div>
-            <form
-              onSubmit={handleSubmit}
-              style={{
-                backgroundColor: "white",
-                height: "350px",
-                marginLeft: "42px",
-                width: "662px",
-                display: "grid",
-                paddingTop: "22px",
-                paddingLeft: "0px",
-                border: "1px solid #e9e9e9",
-                borderRadius: "7px",
-                marginRight: "0px",
-              }}
-            >
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ display: "flex", marginLeft: "21px" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      marginLeft: "0px",
-                    }}
-                  >
-                    <label
-                      style={{
-                        marginLeft: "0px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Username
-                    </label>
-                    <input
-                      name="username"
-                      value={profileData.username}
-                      onChange={handleChange}
-                      style={{
-                        width: "180px",
-                        height: "44px",
-                        backgroundColor: "#F2F4F7",
-                        borderWidth: "1px",
-                        borderColor: "#BCC7D4",
-                      }}
-                    />
-
-                    <label
-                      style={{
-                        marginLeft: "0px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        marginTop: "12px",
-                      }}
-                    >
-                      Upload Photo
-                    </label>
-                    <input
-                      style={{
-                        width: "180px",
-                        height: "44px",
-                        backgroundColor: "#F2F4F7",
-                        borderWidth: "1px",
-                        borderColor: "#BCC7D4",
-                      }}
-                      name="avatar"
-                      type="file"
-                      accept=".png, .gif, .jpg, .jpeg"
-                      ref={avatarImageRef}
-                    />
-                    <label
-                      style={{
-                        margin: "0px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        marginTop: "12px",
-                      }}
-                    >
-                      Upload Passport
-                    </label>
-                    <input
-                      style={{
-                        borderRadius: "7px",
-                        padding: "10px",
-                        height: "44px",
-                        width: "180px",
-                        backgroundColor: "#F2F4F7",
-                        borderWidth: "1px",
-                        borderColor: "#BCC7D4",
-                      }}
-                      name="passport"
-                      type="file"
-                      accept=".png, .gif, .jpg, .jpeg"
-                      ref={passportImageRef}
-                    />
-                    <label
-                      style={{
-                        margin: "0px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        marginTop: "12px",
-                      }}
-                    >
-                      Upload Important Docs
-                    </label>
-                    <input
-                      style={{
-                        borderRadius: "7px",
-                        padding: "10px",
-                        height: "44px",
-                        width: "180px",
-                        backgroundColor: "#F2F4F7",
-                        borderWidth: "1px",
-                        borderColor: "#BCC7D4",
-                      }}
-                      name="importantDocs"
-                      type="file"
-                      accept=".png, .gif, .jpg, .jpeg"
-                      ref={importantDocsImageRef}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      marginLeft: "42px",
-                    }}
-                  >
-                    <label
-                      style={{
-                        margin: "0px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Bio
-                    </label>
-                    <input
-                      name="bio"
-                      value={profileData.bio}
-                      onChange={handleChange}
-                      style={{
-                        width: "320px",
-                        height: "210px",
-                        backgroundColor: "#F2F4F7",
-                        borderWidth: "1px",
-                        borderColor: "#BCC7D4",
-                      }}
-                    />
-                    <button
-                      type="submit"
-                      style={{
-                        width: "320px",
-                        height: "44px",
-                        borderWidth: "0px",
-                        backgroundColor: "#1E3769",
-                        marginTop: "18px",
-                        borderRadius: "7px",
-                      }}
-                    >
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <p className="error-message">&nbsp;{errorMsg}</p>
-          </div>
-        ) : (
-          <div
-            style={{
-              display: "flex",
-              width: "662px",
-              height: "350px",
-              borderStyle: "solid",
-              borderWidth: "1px",
-              borderColor: "#d9d9d9",
-              borderRadius: "7px",
-              padding: "0px",
-              marginLeft: "42px",
-              backgroundColor: "#DFE2E7",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            }}
-          >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  width: "180px",
-
-                  padding: "0px",
-                  height: "180px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                        textAlign: "center",
-                      marginTop: "42px"
-                    }}
-                  >
-                    {profileData.username}
-                  </div>
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
                   <div
                     style={{
                       width: "180px",
@@ -542,21 +310,13 @@ export default function ProfileForm({ profile, setProfile }) {
                       }
                       alt="avatar"
                       style={{
-<<<<<<< HEAD
                         width: "80px",
-=======
-                        width: "180px",
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
                         borderRadius: "500px",
                         marginLeft: "21px",
                       }}
                     />
-<<<<<<< HEAD
 
                     {/* <button
-=======
-                    <button
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
                       onClick={() => setShowForm(true)}
                       style={{
                         color: "#1E3769",
@@ -569,7 +329,6 @@ export default function ProfileForm({ profile, setProfile }) {
                       }}
                     >
                       Update
-<<<<<<< HEAD
                     </button> */}
                   </div>
                   <div
@@ -637,60 +396,6 @@ export default function ProfileForm({ profile, setProfile }) {
         </section>
         
       </div>
-=======
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  display: "flex",
-                  borderStyle: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#1E3769",
-                  borderRadius: "7px",
-                  width: "390px",
-                  marginTop: "79px",
-                  marginLeft: "63px",
-                  height: "180px",
-                  backgroundColor: "#ffffff",
-                }}
-              >
-                <div>{profileData.bio}</div>
-              </div>
-              <div style={{ display: "flex", marginTop: "21px", marginLeft: "43px" }}>
-                <button
-                  style={{
-                    height: "44px",
-                    width: "120px",
-                    borderRadius: "7px",
-                    backgroundColor: "#1E3769",
-                    borderWidth: "0px",
-                    marginLeft: "21px",
-                  }}
-                >
-                  Passport
-                </button>
-                <button
-                  style={{
-                    height: "44px",
-                    width: "120px",
-                    borderRadius: "7px",
-                    backgroundColor: "#1E3769",
-                    borderWidth: "0px",
-                    marginLeft: "21px",
-                  }}
-                >
-                  Important Docs
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
     </>
   );
 }

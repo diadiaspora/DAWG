@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-<<<<<<< HEAD
 import { blogPosts } from "../../Data/blogs.jsx"; // Assuming this is your static blog data
-=======
-import { blogPosts } from "../../Data/blogs"; // Assuming this is your static blog data
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
 import BlogCard from "../../Components/BlogCard/BlogCard.jsx";
 import { Link } from "react-router"; 
 import "./BlogsComponent.css"; 
