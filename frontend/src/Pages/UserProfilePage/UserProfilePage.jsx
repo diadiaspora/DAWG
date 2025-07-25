@@ -4,16 +4,13 @@ import Articles from "../../Components/Articles/Articles.jsx";
 import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
-import BlogList from "../../Components/BlogList/BlogList.jsx";
-import PetComponent from "../../Components/PetComponent/PetComponent.jsx";
+
+
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; // new import
-import UsersPlans from "../../Components/UsersPlans/UsersPlans";
-<<<<<<< HEAD
+
 import UsersPlansShort from "../../Components/UsersPlansShort/UsersPlansShort";
-=======
->>>>>>> cac93826394fd5e51c9651df9435e4a7be503893
 import UsersPets from "../../Components/UsersPets/UsersPets";
 import Destinations from "../../Components/Destinations/Destinations.jsx";
 
@@ -64,7 +61,7 @@ export default function UserProfilePage({ user }) {
           <ProfileForm profile={profile} setProfile={setProfile} user={user} />
         
             
-            <UsersPets user={user} />
+          <UsersPets user={user} />
          
           <UsersPlansShort user={user} />
         </div>
