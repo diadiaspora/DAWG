@@ -88,7 +88,7 @@ export default function NavBar({ user, setUser, profile }) {
         <div className="MobileNavBar">
           <div>
            
-            <div style={{ backgroundColor: "red" }}>🍔</div>
+            <div style={{ backgroundColor: "red", display: "flex", justifyContent: "flex-end" }}>🍔</div>
           </div>
         </div>
 </div>
