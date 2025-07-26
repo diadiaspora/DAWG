@@ -74,3 +74,34 @@ label {
 .error-message {
   color: rgb(166, 29, 29);
 }
+
+/* Prevent horizontal scrollbars */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure all images, videos, and iframes scale properly */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive typography and spacing helpers */
+body {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 0 1rem;
+  }
+
+  button, input, select, textarea {
+    font-size: 16px;
+  }
+
+  form {
+    padding: 0.5rem;
+  }
+}
