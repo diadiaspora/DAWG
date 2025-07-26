@@ -72,6 +72,25 @@
 @media (max-width: 1012px) {
 
 
+  .MobileNavBar{
+    max-width: 100%;
+    display: flex;
+    background-color: chartreuse;
+
+  }
+
+.LogoNav {
+  display: flex;
+    background-color: darkmagenta;
+    justify-content: flex-start;
+    width: 50%;
+}
+  .Hamburger {
+    display: flex;
+    background-color: aqua;
+    justify-content: flex-end;
+    width: 50%;
+  }
 
   .NavBar {
     display: none;
