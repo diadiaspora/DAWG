@@ -77,12 +77,21 @@ export default function NavBar({ user, setUser, profile }) {
             </>
           )}
         </div>
-        <div>
-          <div className="MobileNavBar">
+        <div style={{display:"flex", maxWidth: "90%"}}>
+        <div className="MobileNavBar">
+          <div>
             <div>DAWG</div>
-            <div style={{backgroundColor: "red"}}>🍔</div>
+          
           </div>
         </div>
+
+        <div className="MobileNavBar">
+          <div>
+           
+            <div style={{ backgroundColor: "red" }}>🍔</div>
+          </div>
+        </div>
+</div>
       </nav>
     </div>
   );
