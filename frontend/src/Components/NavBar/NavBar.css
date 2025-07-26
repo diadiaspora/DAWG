@@ -1,99 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 .NavContainer {
   width: 100%;
   background-color: #DFE2E7;
+  overflow-x: hidden; /* <-- Prevent horizontal scroll */
 }
 
 .NavBar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
   max-width: 1012px;
-  margin-inline: auto;
-  position: relative;
-  background-color: #DFE2E7;
+  margin: 0 auto;
   font-family: Roboto, Helvetica, sans-serif;
+  background-color: #DFE2E7;
 }
 
-.NavBar {
-  a {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 0.8vmin;
-    padding: 0.5vmin 1.5vmin;
-    text-decoration: none;
-    color: #1E3769;
-  }
-
-  a:hover {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #ffffff;
- 
-    
-  }
-
-  a.active {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-   border-radius: 7px;
-    color: #1E3769;
-  }
-
-  span {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #1E3769;
-  }
-
-  .dogmoney {
-
-    width: 50px;
-    border-radius: 7px;
-  }
-  .doglogo {
-  
-        width: 100px;
-        border-radius: 7px;
-      }
-      
+.NavBar a {
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 0.8vmin;
+  padding: 0.5vmin 1.5vmin;
+  text-decoration: none;
+  color: #1E3769;
 }
 
-.MobileNavBar{
+.NavBar a:hover {
+  background-color: #ffffff;
+}
+
+.NavBar a.active {
+  color: #1E3769;
+}
+
+.NavBar span {
+  font-weight: bold;
+  color: #1E3769;
+}
+
+.dogmoney {
+  width: 50px;
+  border-radius: 7px;
+}
+
+.doglogo {
+  width: 100px;
+  border-radius: 7px;
+}
+
+/* Mobile Styles */
+.MobileNavBar {
   display: none;
+  width: 100%;
+  padding: 1rem;
+  background-color: #DFE2E7;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LogoNav {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1E3769;
+}
+
+.Hamburger {
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 @media (max-width: 1012px) {
-
-
-  .MobileNavBar{
-    max-width: 100%;
-    display: flex;
-    background-color: chartreuse;
-
-  }
-
-.LogoNav {
-  display: flex;
-    background-color: darkmagenta;
-    justify-content: flex-start;
-    width: 50%;
-}
-  .Hamburger {
-    display: flex;
-    background-color: aqua;
-    justify-content: flex-end;
-    width: 50%;
-  }
-
   .NavBar {
     display: none;
   }
-  
+
+  .MobileNavBar {
+    display: flex;
+  }
 }
