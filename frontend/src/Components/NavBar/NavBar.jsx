@@ -77,12 +77,10 @@ export default function NavBar({ user, setUser, profile }) {
             </>
           )}
         </div>
-        <div className="mob">
+        <div>
           <div className="MobileNavBar">
-            <div className="LogoNav">DAWG</div>
-            <div className="Hamburger">
-              <p>🍔</p>
-            </div>
+            <div>DAWG</div>
+            <div style={{backgroundColor: "red"}}>🍔</div>
           </div>
         </div>
       </nav>

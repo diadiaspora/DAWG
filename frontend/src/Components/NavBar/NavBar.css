@@ -65,35 +65,21 @@
       
 }
 
-.MobileNavBar{
+.MobileNavBar {
   display: none;
 }
 
 @media (max-width: 1012px) {
-
-
-  .MobileNavBar{
-    max-width: 100%;
+  .MobileNavBar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
     background-color: chartreuse;
-
-  }
-
-.LogoNav {
-  display: flex;
-    background-color: darkmagenta;
-    justify-content: flex-start;
-
-}
-  .Hamburger {
-    display: flex;
-    background-color: aqua;
-    justify-content: flex-end;
- 
   }
 
   .NavBar {
     display: none;
   }
-  
 }
