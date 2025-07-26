@@ -77,7 +77,7 @@ export default function NavBar({ user, setUser, profile }) {
             </>
           )}
         </div>
-        <div style={{display:"flex", maxWidth: "90%"}}>
+        <div style={{display:"flex", maxWidth: "90%",   justifyContent: "space-between"}}>
         <div className="MobileNavBar">
           <div>
             <div>DAWG</div>
