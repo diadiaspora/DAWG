@@ -14,24 +14,24 @@ export default function NavBar({ user, setUser, profile }) {
   const avatarSrc = profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png";
 
   return (
-    <div className="NavContainer">
-      <nav>
-        <div className="NavBar">
-          <NavLink to="/">
-            <img
-              src="/dawgmoney.png"
-              className="dogmoney"
-              alt="dog logo with money eyes"
-            ></img>
-            <img
-              src="/dawg.png"
-              className="doglogo"
-              alt="dawg logo letters"
-            ></img>
-          </NavLink>
-          &nbsp; | &nbsp;
-          {user ? (
-            <>
+    <nav>
+      <div className="NavBar">
+        <NavLink to="/">
+          <img
+            src="/dawgmoney.png"
+            className="dogmoney"
+            alt="dog logo with money eyes"
+          ></img>
+          <img
+            src="/dawg.png"
+            className="doglogo"
+            alt="dawg logo letters"
+          ></img>
+        </NavLink>
+        &nbsp; | &nbsp;
+        {user ? (
+          <>
+            <div id="destinations">
               <NavLink to="/fly">Flights</NavLink>|
               <NavLink to="/plans">Plan</NavLink>|
               <NavLink to="/write">Write</NavLink>|
@@ -49,9 +49,11 @@ export default function NavBar({ user, setUser, profile }) {
                   style={{ width: "33px", borderRadius: "300px" }}
                 />
               </span>
-            </>
-          ) : (
-            <>
+            </div>
+          </>
+        ) : (
+          <>
+            <div id="destinations">
               <NavLink to="/fly" end>
                 Flights
               </NavLink>
@@ -74,25 +76,17 @@ export default function NavBar({ user, setUser, profile }) {
                   style={{ marginRight: "42px" }}
                 />
               </span>
-            </>
-          )}
-        </div>
-        <div style={{display:"flex", maxWidth: "90%",   justifyContent: "space-between"}}>
-        <div className="MobileNavBar">
-          <div>
-            <div>DAWG</div>
-          
-          </div>
-        </div>
+            </div>
+          </>
+        )}
+      </div>
 
-        <div className="MobileNavBar">
-          <div>
-           
-            <div style={{ backgroundColor: "red", display: "flex", justifyContent: "flex-end" }}>🍔</div>
-          </div>
-        </div>
-</div>
-      </nav>
-    </div>
+
+      <div id="destinations-mobile">
+        <p>🍔</p>
+      </div>
+
+      
+    </nav>
   );
 }

@@ -65,21 +65,17 @@
       
 }
 
-.MobileNavBar {
+#destinations {
   display: none;
 }
 
-@media (max-width: 1012px) {
-  .MobileNavBar {
+@media (min-width: 550px) {
+  #destinations {
     display: flex;
-    justify-content: space-between;
-
-    width: 50%;
-    margin-inline: auto;
-    background-color: chartreuse;
+    gap: 16px;
   }
 
-  .NavBar {
+  #destinations-mobile {
     display: none;
   }
 }
