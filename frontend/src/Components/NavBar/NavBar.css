@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+.NavContainer {
+  width: 100%;
+  background-color: #DFE2E7;
+}
 
 .NavBar {
-  font-family: Roboto, Helvetica, sans-serif;
-  font-size: 16px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 2vmin;
-  font-size: 2vmin;
-  background-color: #1e37691f;
-  
+  justify-content: space-between;
+  padding: 1rem;
+  max-width: 1012px;
+  margin-inline: auto;
+  position: relative;
+  background-color: #DFE2E7;
+  font-family: Roboto, Helvetica, sans-serif;
 }
 
 .NavBar {
@@ -59,4 +63,18 @@
         border-radius: 7px;
       }
       
+}
+
+.MobileNavBar{
+  display: none;
+}
+
+@media (max-width: 1012px) {
+
+
+
+  .NavBar {
+    display: none;
+  }
+  
 }
