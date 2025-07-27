@@ -11,12 +11,12 @@ const HeadButtons = ({ activeForm, setActiveForm }) => {
 
   return (
     <div className="headbuttons">
-      {" "}
-      {/* This single div will handle both desktop and mobile */}
       {buttons.map(({ key, label }) => (
         <button
           key={key}
-          className={activeForm === key ? "selected" : ""}
+          className={`${activeForm === key ? "selected" : ""} ${
+            key === "flights" ? "flights-only" : ""
+          }`}
           onClick={() => setActiveForm(key)}
         >
           {label}

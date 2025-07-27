@@ -5,7 +5,7 @@
 .headbuttons {
   font-family: Roboto, Helvetica, sans-serif;
   box-sizing: border-box;
-  display: flex; /* Default to flex for desktop (row layout) */
+  display: flex;
   justify-content: space-between;
   text-align: left;
   margin-left: 42px;
@@ -16,7 +16,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   border-radius: 7px;
-  max-width: 1012px; /* Consider using max-width for better responsiveness */
+  max-width: 1012px;
   padding: 8px;
 }
 
@@ -51,22 +51,25 @@
   height: 44px;
 }
 
-/* --- */
-
 /* Media query for mobile devices */
-@media  (max-width: 480px) {
+@media (max-width: 480px) {
   .headbuttons {
-    flex-direction: row; /* Stack buttons vertically on mobile */
+    flex-direction: row;
     max-width: 460px;
-    width: 100%; /* Take full width on smaller screens */
-    margin-left: 10px; /* Adjust margins for mobile */
+    width: 100%;
+    margin-left: 10px;
     margin-right: 10px;
-    padding: 10px; /* Adjust padding for mobile */
-    gap: 8px; /* Add space between stacked buttons */
+    padding: 10px;
+    gap: 8px;
   }
 
   .headbuttons button {
-    width: 100%; /* Make buttons take full width of their container on mobile */
-    font-size: 16px; /* Slightly larger font for better touch target */
+    width: 100%;
+    font-size: 16px;
+  }
+
+  /* Hide Flights button on mobile */
+  .headbuttons .flights-only {
+    display: none;
   }
 }
