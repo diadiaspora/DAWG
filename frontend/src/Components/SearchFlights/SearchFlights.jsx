@@ -4,20 +4,26 @@ export default function SearchFlights() {
   const widgetRef = useRef(null);
 
   useEffect(() => {
+    const isMobile = window.innerWidth <= 480;
+
     const script = document.createElement("script");
-    script.src =
-      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
+
+    // Choose the correct widget URL based on screen size
+    script.src = isMobile
+      ? "https://tpwidg.com/mobile-content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111"
+      : "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
+
     script.async = true;
     script.charset = "utf-8";
 
     if (widgetRef.current) {
-      widgetRef.current.innerHTML = ""; // Clean old widget if any
+      widgetRef.current.innerHTML = ""; // Clear previous widget
       widgetRef.current.appendChild(script);
     }
 
     return () => {
       if (widgetRef.current) {
-        widgetRef.current.innerHTML = ""; // Clean up on unmount
+        widgetRef.current.innerHTML = ""; // Clean on unmount
       }
     };
   }, []);
@@ -35,14 +41,11 @@ export default function SearchFlights() {
         ref={widgetRef}
         id="kiwi-widget"
         style={{
-          width: "1262px",
+          width: "100%",
           maxWidth: "1262px",
           minHeight: "600px",
-          
         }}
-      >
-      
-      </div>
+      ></div>
     </section>
   );
 }
