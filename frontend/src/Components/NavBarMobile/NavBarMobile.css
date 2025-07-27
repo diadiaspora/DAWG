@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.NavBarMobile {
+.NavBarMMobile {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   display: flex;
@@ -38,7 +38,14 @@
   color: #1E3769;
 }
 
-
+.NavBar .dogmula {
+  width: 5px;
+  border-radius: 7px;
+}
+.NavBar .doglogo {
+  width: 10px;
+  border-radius: 7px;
+}
 
 @media (min-width: 120px) and(max-width: 480px) {
   .NavBar {
