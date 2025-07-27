@@ -1,25 +1,25 @@
 /* BlogsComponent.css */
 
 .blogs-component-container {
-  margin-top: 125px; /* Moved from inline style in JSX */
+  margin-top: 125px; 
   padding: 0;
-  width: 100%; /* Allow it to take full width of its parent */
-  max-width: 1022px; /* Set max-width for desktop/tablet, centers automatically */
-  margin-left: auto; /* Center the container horizontally */
+  width: 100%; 
+  max-width: 1022px; 
+
   margin-right: auto;
 }
 
 /* Styles for the blue header bar */
 .blogs-header-bar {
   background-color: #1E3769;
-  /* Use 100% width and padding instead of fixed width and marginLeft */
+
   width: calc(100% - 84px); /* Accounts for left/right padding of 42px each (total 84px) */
   display: flex;
   border-radius: 7px;
   height: 70px;
   align-items: center; /* Vertically align items */
   margin-bottom: 24px;
-  padding: 0 42px; /* Add padding instead of relying on margin-left for positioning */
+  padding: 0 42px; 
   box-sizing: border-box; /* Ensures padding is included within the width */
 }
 
@@ -27,11 +27,10 @@
 .blogs-header-title {
   color: #ffffff;
   font-size: 18px;
-  margin: 0; /* Remove default margins from h2 */
+  margin: 0;
   flex-grow: 1; /* Allows title to take up available space, pushing button to the right */
 }
 
-/* Styles for the "Recent Articles" button */
 .recent-articles-button {
   width: 140px;
   height: 44px;
@@ -62,7 +61,7 @@
   gap: 16px; /* Space between blog cards */
 }
 
-/* Existing media queries for BlogCard sizing within the flex container */
+
 @media (max-width: 1024px) {
   .blogs-component-container .blog-cards-wrapper .blog-card {
 

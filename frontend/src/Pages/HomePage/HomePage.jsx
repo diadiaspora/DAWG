@@ -53,10 +53,10 @@ export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
         <div>
           <BlogsComponent />
         </div>
-        <div style={{ marginTop: "125px" }}>
+        {/* <div style={{ marginTop: "125px" }}>
           <HotelComponent />
         </div>
-   
+    */}
 
         <HootLongList
           user={user}
