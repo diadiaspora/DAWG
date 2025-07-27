@@ -70,6 +70,9 @@ label {
   font-weight: bold;
 }
 
+html, body {
+  overflow-x: hidden;
+}
 
 .error-message {
   color: rgb(166, 29, 29);
