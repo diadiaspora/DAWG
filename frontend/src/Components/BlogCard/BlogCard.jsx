@@ -5,6 +5,7 @@ import "./BlogCard.css";
 export default function BlogCard({ blog }) {
   return (
     <div
+      className="cardi"
       style={{
         height: "380px",
         width: "237px",

@@ -2,35 +2,66 @@ import React, { useState, useEffect } from "react";
 
 import { blogPosts } from "../../Data/blogs.jsx"; // Assuming this is your static blog data
 import BlogCard from "../../Components/BlogCard/BlogCard.jsx";
-import { Link } from "react-router-dom"; // Assuming react-router-dom for Link
-import "./BlogsComponent.css";
+import { Link } from "react-router"; 
+import "./BlogsComponent.css"; 
 
 export default function BlogsComponent() {
   const [hover, setHover] = useState(false);
   const [shuffledBlogs, setShuffledBlogs] = useState([]);
 
   useEffect(() => {
-    // Shuffle blogs once on component mount
+   
     const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
+
     setShuffledBlogs(shuffled);
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
+
+ 
 
   return (
-    <div className="blogs-component-container">
-      {/* Header bar for "All The Pet Travel Tea" */}
-      <div className="blogs-header-bar">
-        <h2 className="blogs-header-title">All The Pet Travel Tea</h2>
+    <div className="blogs-component-container" style={{ marginTop: "125px" }}>
+      <div
+        style={{
+          backgroundColor: "#1E3769",
+          width: "1012px",
+          marginLeft: "42px",
+          display: "flex",
+          borderRadius: "7px",
+          height: "70px",
+          alignItems: "baseline",
+          marginBottom: "24px",
+          padding: "12px",
+        }}
+      >
+        <h2
+          style={{
+            marginLeft: "21px",
+            color: "#ffffff",
+            fontSize: "18px",
+            marginTop: "10px",
+            marginRight: "630px",
+          }}
+        >
+          All The Pet Travel Tea
+        </h2>
         <Link to="/blogs">
           <div>
             <button
-              className="recent-articles-button"
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-              // Keep hover styles inline as they depend on state
+              // onClick={handlePostClick}
               style={{
+                width: "140px",
+                height: "44px",
+                backgroundColor: "#ffffff",
+                borderWidth: "1px",
                 borderColor: hover ? "#4AA692" : "#1E3769",
                 color: hover ? "#347567" : "#1E3769",
+                cursor: "pointer",
+                fontSize: "16px",
+                fontFamily: "Roboto",
+                borderRadius: "7px",
               }}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
             >
               Recent Articles
             </button>
@@ -38,9 +69,24 @@ export default function BlogsComponent() {
         </Link>
       </div>
 
-      {/* Scrollable container for blog cards */}
-      <div className="blogs-scroll-wrapper">
-        <div className="blogs-cards-flex-container">
+      <div
+        style={{
+          marginLeft: "42px",
+
+          overflowX: "scroll",
+          scrollSnapType: "x mandatory",
+          paddingBottom: "20px",
+          scrollbarWidth: "thin",
+          scrollbarColor: "#1E3769 #f0f0f0",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+          }}
+        >
           {shuffledBlogs.map((post) => (
             <Link
               key={post.id}
@@ -48,7 +94,7 @@ export default function BlogsComponent() {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                flexShrink: 0, // Ensures cards don't shrink below their content
+                flexShrink: 0,
               }}
             >
               <BlogCard blog={post} />

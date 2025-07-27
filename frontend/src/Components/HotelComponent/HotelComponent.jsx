@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 
 export default function HotelComponent() {
   const widgetRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [showWidget, setShowWidget] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 480); // or use 768 if you want to hide on tablets too
+      const isMobile = window.innerWidth <= 480;
+      setShowWidget(!isMobile);
     };
 
     handleResize(); // Initial check
@@ -15,19 +16,19 @@ export default function HotelComponent() {
   }, []);
 
   useEffect(() => {
-    if (!isMobile && widgetRef.current) {
+    if (showWidget && widgetRef.current) {
       const script = document.createElement("script");
       script.src =
         "https://tpwidg.com/content?trs=428421&shmarker=639991&lang=www&layout=S606230&powered_by=true&campaign_id=121&promo_id=4038";
       script.async = true;
       script.charset = "utf-8";
 
-      widgetRef.current.innerHTML = ""; // Clear anything that might be in there
+      widgetRef.current.innerHTML = "";
       widgetRef.current.appendChild(script);
     }
-  }, [isMobile]);
+  }, [showWidget]);
 
-  if (isMobile) return null; // Don't render anything on mobile
+  if (!showWidget) return null;
 
   return (
     <div

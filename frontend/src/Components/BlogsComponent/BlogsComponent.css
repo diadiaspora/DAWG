@@ -65,8 +65,7 @@
 /* Existing media queries for BlogCard sizing within the flex container */
 @media (max-width: 1024px) {
   .blogs-component-container .blog-cards-wrapper .blog-card {
-    /* Assuming .blog-cards-wrapper or .blog-card are classes applied to BlogCard itself or its direct parent */
-    /* If BlogCard controls its own width, ensure it's responsive */
+
     flex: 0 0 calc(33.33% - 13.33px);
   }
 }
@@ -80,7 +79,8 @@
 /* Mobile-specific adjustments for overall component layout (max-width: 480px) */
 @media (max-width: 480px) {
   .blogs-component-container {
-    margin-top: 50px; /* Adjust top margin for smaller screens */
+    margin-top: 50px;
+    max-width: 480px;
   }
 
   .blogs-header-bar {

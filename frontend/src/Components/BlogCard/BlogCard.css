@@ -7,3 +7,11 @@
     margin-Top: -10px;
   }
 
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  cardi {
+height: 60%;
+width: 60%;
+  }
+}
