@@ -1,32 +1,27 @@
+// HeadButtons.jsx
 import "./HeadButtons.css";
 
 const HeadButtons = ({ activeForm, setActiveForm }) => {
+  const buttons = [
+    { key: "flights", label: "Flights" },
+    { key: "airlineInfo", label: "Airline Info" },
+    { key: "documents", label: "Documents" },
+    { key: "services", label: "Services" },
+  ];
+
   return (
     <div className="headbuttons">
-      <button
-        className={activeForm === "flights" ? "selected" : ""}
-        onClick={() => setActiveForm("flights")}
-      >
-        Flights
-      </button>
-      <button
-        className={activeForm === "airlineInfo" ? "selected" : ""}
-        onClick={() => setActiveForm("airlineInfo")}
-      >
-        Airline Info
-      </button>
-      <button
-        className={activeForm === "documents" ? "selected" : ""}
-        onClick={() => setActiveForm("documents")}
-      >
-        Documents
-      </button>
-      <button
-        className={activeForm === "services" ? "selected" : ""}
-        onClick={() => setActiveForm("services")}
-      >
-        Services
-      </button>
+      {" "}
+      {/* This single div will handle both desktop and mobile */}
+      {buttons.map(({ key, label }) => (
+        <button
+          key={key}
+          className={activeForm === key ? "selected" : ""}
+          onClick={() => setActiveForm(key)}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 };

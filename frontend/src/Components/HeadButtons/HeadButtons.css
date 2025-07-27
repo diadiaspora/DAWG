@@ -1,58 +1,71 @@
-
-
+/* HeadButtons.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+/* Default styles (for desktop first, or a base that works for both) */
 .headbuttons {
   font-family: Roboto, Helvetica, sans-serif;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    margin-left: 42px;
-    margin-right: 42px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ededed;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
-    padding-right: 0px;
-    border-radius: 7px;
-    width: 1012px;
-    padding: 8px;
+  box-sizing: border-box;
+  display: flex; /* Default to flex for desktop (row layout) */
+  justify-content: space-between;
+  text-align: left;
+  margin-left: 42px;
+  margin-right: 42px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ededed;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 7px;
+  width: 1012px; /* Consider using max-width for better responsiveness */
+  padding: 8px;
 }
 
 .headbuttons button {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
-    width: 220px;
-    background-color: #ffffff;
-   color: #1E3769;
-    border-radius: 7px;
-    border-color: #1E3769;
-    border-width: 2px;
-    height: 44px;
+  width: 220px;
+  background-color: #ffffff;
+  color: #1E3769;
+  border-radius: 7px;
+  border-color: #1E3769;
+  border-width: 2px;
+  height: 44px;
 }
 
 .headbuttons button:hover {
-  
-    background-color: #ffffff; 
-    border-color: #4AA692;
-    color: #347567;
-    height: 44px;
+  background-color: #ffffff;
+  border-color: #4AA692;
+  color: #347567;
+  height: 44px;
 }
 
-
-  .headbuttons button:active {
-
-    color: #fff;
-    height: 44px;
+.headbuttons button:active {
+  color: #fff;
+  height: 44px;
 }
- 
 
-  .headbuttons button.selected {
-    background-color: #1E3769;
-    color: white;
-    border: 2px solid #1E3769;
-    height: 44px;
+.headbuttons button.selected {
+  background-color: #1E3769;
+  color: white;
+  border: 2px solid #1E3769;
+  height: 44px;
+}
+
+/* --- */
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .headbuttons {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    width: 100%; /* Take full width on smaller screens */
+    margin-left: 10px; /* Adjust margins for mobile */
+    margin-right: 10px;
+    padding: 10px; /* Adjust padding for mobile */
+    gap: 8px; /* Add space between stacked buttons */
   }
+
+  .headbuttons button {
+    width: 100%; /* Make buttons take full width of their container on mobile */
+    font-size: 18px; /* Slightly larger font for better touch target */
+  }
+}
