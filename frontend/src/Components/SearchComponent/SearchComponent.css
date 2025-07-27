@@ -3,7 +3,7 @@
   margin: 42px auto;
   width: 100%;
   max-width: 1012px;
-  min-height: 600px; /* Reserve space for the widget, this applies to the *container* */
+
 }
 
 @media (max-width: 480px) {
