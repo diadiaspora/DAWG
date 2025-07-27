@@ -4,10 +4,9 @@
   font-family: Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  display: block;
-  max-width: 100%;
+
   color: #1a1a1a;
-  background-color: #f9f9f9;
+  background-color: whitesmoke;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,10 +21,12 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: block;
-  max-width: 100%;
 }
 
+h1,
+h2 {
+  
+}
 
 button {
   border: 0.5vmin solid #1a1a1a;
@@ -73,34 +74,4 @@ label {
 
 .error-message {
   color: rgb(166, 29, 29);
-}
-
-/* Prevent horizontal scrollbars */
-html, body {
-  overflow-x: hidden;
-}
-
-/* Ensure all images, videos, and iframes scale properly */
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-}
-
-body {
-  font-size: 16px;
-}
-
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 14px;
-    padding: 0 1rem;
-  }
-
-  button, input, select, textarea {
-    font-size: 16px;
-  }
-
-  form {
-    padding: 0.5rem;
-  }
 }
