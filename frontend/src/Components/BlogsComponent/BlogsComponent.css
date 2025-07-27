@@ -1,68 +1,73 @@
 /* BlogsComponent.css */
 
 .blogs-component-container {
-/* margin-left: 42px; */
-padding: 0px;
-width: 1022px;
-
-
-
+  margin-top: 125px; /* Moved from inline style in JSX */
+  padding: 0;
+  width: 100%; /* Allow it to take full width of its parent */
+  max-width: 1022px; /* Set max-width for desktop/tablet, centers automatically */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto;
 }
 
-
-
-
-.blogs-component-container .blog-cards-wrapper {
+/* Styles for the blue header bar */
+.blogs-header-bar {
+  background-color: #1E3769;
+  /* Use 100% width and padding instead of fixed width and marginLeft */
+  width: calc(100% - 84px); /* Accounts for left/right padding of 42px each (total 84px) */
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  height: 100%;
-  align-items: flex-start;
-
-
-}
-
-
-
-.blogs-component-container .carousel .carousel-indicators {
-  position: absolute; 
-  bottom: 40px;    
- 
-  left: 50%;         
-  transform: translateX(-50%);
-  margin: 0;          
-  padding: 0;      
-  list-style: none;  
-  z-index: 110;       
-}
-
-.blogs-component-container .carousel .carousel-indicators li {
-  display: inline-block; 
-  margin: 0 5px;         
-}
-
-.blogs-component-container .carousel .carousel-indicators li .dot {
-
-  background-color: gray;
-  width: 10px;
-  height: 10px;
   border-radius: 7px;
+  height: 70px;
+  align-items: center; /* Vertically align items */
+  margin-bottom: 24px;
+  padding: 0 42px; /* Add padding instead of relying on margin-left for positioning */
+  box-sizing: border-box; /* Ensures padding is included within the width */
+}
+
+/* Styles for the "All The Pet Travel Tea" title */
+.blogs-header-title {
+  color: #ffffff;
+  font-size: 18px;
+  margin: 0; /* Remove default margins from h2 */
+  flex-grow: 1; /* Allows title to take up available space, pushing button to the right */
+}
+
+/* Styles for the "Recent Articles" button */
+.recent-articles-button {
+  width: 140px;
+  height: 44px;
+  background-color: #ffffff;
+  border-width: 1px;
   cursor: pointer;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  border-radius: 7px;
+  /* Hover colors are handled in JSX based on state */
 }
 
-.blogs-component-container .carousel .carousel-indicators li.selected .dot {
-
-  background-color: blue; 
+/* Styles for the scrollable wrapper around blog cards */
+.blogs-scroll-wrapper {
+  /* Use padding for spacing, making it relative to the container, not fixed margin-left */
+  padding-left: 42px; /* Align with the header's left padding */
+  overflow-x: scroll; /* Keep horizontal scrolling */
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #1E3769 #f0f0f0;
+  -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS */
 }
-.blogs-component-container .carousel .control-arrow {
-  top: 50%; 
-  transform: translateY(-50%);
 
+/* Styles for the flex container holding individual BlogCards */
+.blogs-cards-flex-container {
+  display: flex;
+  gap: 16px; /* Space between blog cards */
 }
 
+/* Existing media queries for BlogCard sizing within the flex container */
 @media (max-width: 1024px) {
   .blogs-component-container .blog-cards-wrapper .blog-card {
-    flex: 0 0 calc(33.33% - 13.33px); 
+    /* Assuming .blog-cards-wrapper or .blog-card are classes applied to BlogCard itself or its direct parent */
+    /* If BlogCard controls its own width, ensure it's responsive */
+    flex: 0 0 calc(33.33% - 13.33px);
   }
 }
 
@@ -72,8 +77,40 @@ width: 1022px;
   }
 }
 
+/* Mobile-specific adjustments for overall component layout (max-width: 480px) */
 @media (max-width: 480px) {
-  .blogs-component-container .blog-cards-wrapper .blog-card {
-    flex: 0 0 calc(100% - 20px);
+  .blogs-component-container {
+    margin-top: 50px; /* Adjust top margin for smaller screens */
   }
+
+  .blogs-header-bar {
+    /* Adjust padding to be smaller on mobile */
+    width: calc(100% - 20px); /* 10px padding on each side */
+    padding: 0 10px;
+    height: auto; /* Allow height to adjust if content wraps */
+    min-height: 70px; /* Maintain minimum height */
+    align-items: flex-start; /* Align items to top if height expands */
+    flex-wrap: wrap; /* Allow title and button to wrap onto new lines */
+    margin-bottom: 16px;
+  }
+
+  .blogs-header-title {
+    font-size: 16px; /* Smaller font size for title */
+    flex-basis: 100%; /* Force title to take full width, so button can wrap */
+    text-align: center; /* Center the title */
+    margin-bottom: 8px; /* Space below title */
+  }
+
+  .recent-articles-button {
+    width: 100%; /* Make button full width on mobile */
+    font-size: 14px; /* Smaller font size for button */
+    margin-top: 8px; /* Space above button */
+  }
+
+  .blogs-scroll-wrapper {
+    /* Adjust padding for mobile to be smaller */
+    padding-left: 10px; /* Match header's left padding */
+  }
+
+
 }
