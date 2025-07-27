@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IoIosHeart } from "react-icons/io";
-
+import "./AllUsersCarousel.css";
 
 export default function AllUsersCarousel() {
   const scrollRef = useRef(null);
@@ -59,17 +59,7 @@ export default function AllUsersCarousel() {
       <div
         ref={scrollRef}
         className="hoot-scroll-container"
-        style={{
-          display: "flex",
-          gap: "16px",
-          overflowX: "scroll",
-          scrollBehavior: "smooth",
-          width: "662px",
-          paddingBottom: "10px",
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-          padding: "8px",
-        }}
+
       >
         {allImages.length === 0 && <p>No images available.</p>}
 

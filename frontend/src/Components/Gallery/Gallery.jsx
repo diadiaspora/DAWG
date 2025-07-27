@@ -6,7 +6,22 @@ import "./Gallery.css";
 
 const Gallery = () => {
   const [isGallery, setIsGallery] = useState(true);
+  const [showCalendar, setShowCalendar] = useState(true); // ✅ state to control calendar visibility
   const klookWidgetRef = useRef();
+
+  useEffect(() => {
+    // Set calendar visibility based on screen width
+    const handleResize = () => {
+      setShowCalendar(window.innerWidth >= 768); // show calendar if screen is tablet or desktop
+    };
+
+    handleResize(); // set on mount
+    window.addEventListener("resize", handleResize); // update on resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (klookWidgetRef.current) {
@@ -38,6 +53,7 @@ const Gallery = () => {
         width: "1012px",
         display: "flex",
         marginBottom: "60px",
+        flexDirection: "column",
       }}
     >
       <div style={{ height: "350px", marginLeft: "42px" }}>
@@ -58,22 +74,17 @@ const Gallery = () => {
             justifyContent: "center",
           }}
         >
-       
-          {/* <div
-            ref={klookWidgetRef}
-            style={{
-              borderRadius: "7px",
-              overflow: "hidden",
-              width: "468px",
-              height: "60px",
-            }}
-          /> */}
+          {/* Widget could go here */}
         </div>
       </div>
 
-      <div style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}>
-        <Calendar />
-      </div>
+      {showCalendar && (
+        <div
+          style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}
+        >
+          <Calendar />
+        </div>
+      )}
     </div>
   );
 };

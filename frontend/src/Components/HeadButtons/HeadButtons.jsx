@@ -1,4 +1,3 @@
-// HeadButtons.jsx
 import "./HeadButtons.css";
 
 const HeadButtons = ({ activeForm, setActiveForm }) => {
