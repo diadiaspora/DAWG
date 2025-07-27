@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.NavBar {
+.NavBarMobile {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   display: flex;
@@ -12,7 +12,7 @@
   background-color: #1e37691f;
   
 }
-.NavBar a {
+.NavBarMobile a {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -21,31 +21,24 @@
   text-decoration: none;
   color: #1E3769;
 }
-.NavBar a:hover {
+.NavBarMobile a:hover {
   background-color: #ffffff;
 }
 
 
-.NavBar a.active {
+.NavBarMobile a.active {
   border-radius: 7px;
   color: #1E3769;
 }
 
-.NavBar span {
+.NavBarMobile span {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #1E3769;
 }
 
-.NavBar .dogmula {
-  width: 5px;
-  border-radius: 7px;
-}
-.NavBar .doglogo {
-  width: 10px;
-  border-radius: 7px;
-}
+
 
 @media (min-width: 120px) and(max-width: 480px) {
   .NavBar {

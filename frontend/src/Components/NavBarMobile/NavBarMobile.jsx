@@ -18,8 +18,8 @@ export default function NavBarMobile({ user, setUser, profile }) {
   return (
     <>
       <nav className="NavBarMobile">
-        <div style={{ marginLeft: "16px", marginTop: "16px"}}>
-          <GiHamburgerMenu style={{ fontSize: "28px" }} />
+        <div style={{ marginLeft: "16px", marginTop: "16px" }}>
+          <GiHamburgerMenu style={{ fontSize: "28px", color: "#1E3769" }} />
         </div>
         <NavLink to="/">
           <img
