@@ -14,6 +14,7 @@ import NewPostPage from "../NewPostPage/NewPostPage";
 import SignUpPage from "../SignUpPage/SignUpPage";
 import LogInPage from "../LogInPage/LogInPage";
 import NavBar from "../../Components/NavBar/NavBar";
+import NavBarMobile from "../../Components/NavBarMobile/NavBarMobile.jsx";
 import FlightInfoPage from "../FlightInfoPage/FlightInfoPage";
 import DocumentInfoPage from "../DocumentInfoPage/DocumentInfoPage.jsx";
 import AirlineInfoPage from "../AirlineInfoPage/AirlineInfoPage";
@@ -126,6 +127,7 @@ export default function App() {
     <>
       <main className="App">
         <NavBar user={user} setUser={setUser} profile={profile} />
+    
         <CartProvider>
           <section id="main-section">
             {user ? (
