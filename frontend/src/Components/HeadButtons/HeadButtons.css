@@ -57,7 +57,7 @@
 @media  (max-width: 480px) {
   .headbuttons {
     flex-direction: row; /* Stack buttons vertically on mobile */
-    max-width: 480px;
+    max-width: 460px;
     width: 100%; /* Take full width on smaller screens */
     margin-left: 10px; /* Adjust margins for mobile */
     margin-right: 10px;
@@ -67,6 +67,6 @@
 
   .headbuttons button {
     width: 100%; /* Make buttons take full width of their container on mobile */
-    font-size: 18px; /* Slightly larger font for better touch target */
+    font-size: 16px; /* Slightly larger font for better touch target */
   }
 }
