@@ -5,25 +5,29 @@ export default function SearchFlights() {
 
   useEffect(() => {
     const isMobile = window.innerWidth <= 480;
-
     const script = document.createElement("script");
+
     script.src = isMobile
       ? "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111&device=mobile"
       : "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
+
     script.async = true;
     script.charset = "utf-8";
 
+    console.log("Injecting script:", script.src); // 👈 DEBUG
+
     if (widgetRef.current) {
-      widgetRef.current.innerHTML = ""; // Clear previous widget if any
+      widgetRef.current.innerHTML = "";
       widgetRef.current.appendChild(script);
     }
 
     return () => {
       if (widgetRef.current) {
-        widgetRef.current.innerHTML = ""; // Clean up
+        widgetRef.current.innerHTML = "";
       }
     };
   }, []);
+  
 
   useEffect(() => {
     const loadWidget = () => {

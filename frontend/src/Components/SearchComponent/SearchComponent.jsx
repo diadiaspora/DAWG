@@ -14,7 +14,7 @@ const SearchComponent = () => {
       <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
 
       <div className="box">
-        {activeForm === "flights" && <SearchFlights />}
+        {activeForm === "flights" && <SearchFlights key={activeForm} />}
         {activeForm === "airlineInfo" && <SearchAirlines />}
         {activeForm === "documents" && <SearchDocuments />}
         {activeForm === "services" && <SearchServices />}

@@ -5,8 +5,9 @@
     padding-bottom: 37px;
     max-width: 1012px;
     width: 100%;
-    height: auto;
+    min-height: 600px; /* this ensures the widget has space */
   }
+  
   
   /* Optional: adjust margins and padding on small screens */
   @media (max-width: 480px) {
