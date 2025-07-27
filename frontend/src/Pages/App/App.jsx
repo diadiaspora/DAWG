@@ -279,24 +279,24 @@ export default function App() {
                     />
                   }
                 />
+                <Route
+                  path="/airlines/:airline/:location"
+                  element={<AirlineInfoPage />}
+                />
+                <Route
+                  path="/documents/:from/:to"
+                  element={<DocumentInfoPage />}
+                />
+                <Route
+                  path="/services/:service/:location"
+                  element={<ServicesInfoPage />}
+                />
               </Routes>
             )}
           </section>
         </CartProvider>
         <Footer />
       </main>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </>
   );
 }

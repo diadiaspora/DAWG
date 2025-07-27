@@ -4,8 +4,9 @@ import documentsData from "../../Data/documents.json";
 
 export default function DocumentInfoPage() {
   const { from, to } = useParams();
-
   const formatCountry = (name) => {
+    if (typeof name !== "string") return null;
+
     switch (name.toLowerCase()) {
       case "usa":
         return "UnitedStates";

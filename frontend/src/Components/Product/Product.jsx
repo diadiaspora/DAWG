@@ -1,6 +1,6 @@
 
 import { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import { client } from "../../api/ShopifyClient"; 
 import { CartContext } from "../../context/CartContext"; 
 

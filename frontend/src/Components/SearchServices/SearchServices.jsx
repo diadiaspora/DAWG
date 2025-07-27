@@ -5,15 +5,17 @@ import { useState } from "react";
 import Select from "react-select";
 
 const serviceOptions = [
-  { value: "", label: "What do you need?" },
+  { value: "", label: "service" },
   { value: "vet", label: "Veterinarian" },
   { value: "lawyer", label: "Lawyer" },
   { value: "dentist", label: "Dentist" },
   // Add more as needed
 ];
 
+
+
 const locationOptions = [
-  { value: "", label: "Where are you?" },
+  { value: "", label: "location" },
   { value: "Athens", label: "Athens" },
   { value: "Bali", label: "Bali" },
   { value: "Bangkok", label: "Bangkok" },
@@ -122,10 +124,13 @@ const SearchServices = () => {
   const navigate = useNavigate();
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
+  const formatLocation = (loc) => loc.replace(/\s+/g, "");
 
   const handleClick = () => {
     if (service && location) {
-      navigate(`/services/${service}/${location}`);
+      const normalizedLocation = formatLocation(location);
+      navigate(`/services/${service}/${normalizedLocation}`);
+
     } else {
       alert("Please select both service and location");
     }
