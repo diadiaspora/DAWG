@@ -4,58 +4,48 @@ export default function SearchFlights() {
   const widgetRef = useRef(null);
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 480;
     const script = document.createElement("script");
 
-    script.src = isMobile
-      ? "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111&device=mobile"
-      : "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
-
+    // Load the same script for all devices. Travelpayouts widgets are designed to be responsive.
+    // Make sure to include &responsive=true here:
+    script.src =
+      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111&responsive=true"; // <--- THIS IS THE CRITICAL CHANGE
     script.async = true;
     script.charset = "utf-8";
 
-    console.log("Injecting script:", script.src);
-
     if (widgetRef.current) {
-      widgetRef.current.innerHTML = "";
+      widgetRef.current.innerHTML = ""; // Clear existing content
       widgetRef.current.appendChild(script);
     }
 
+    // Cleanup function to remove the widget when the component unmounts
     return () => {
       if (widgetRef.current) {
         widgetRef.current.innerHTML = "";
       }
     };
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount.
 
   return (
-    <section
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        padding: "40px 0",
-        backgroundColor: "#f9f9f9",
-      }}
-    >
-      <style>
-        {`
-          @media (max-width: 480px) {
-            #kiwi-widget {
-              width: 100% !important;
-              min-height: 400px !important;
-            }
-          }
-        `}
-      </style>
-      <div
-        ref={widgetRef}
-        id="kiwi-widget"
+    <>
+      <section
         style={{
-          width: "100%",
-          maxWidth: "1262px",
-          minHeight: "600px",
+          display: "flex",
+          justifyContent: "center",
+          padding: "40px 0",
+          backgroundColor: "#f9f9f9",
         }}
-      ></div>
-    </section>
+      >
+        <div
+          ref={widgetRef}
+          id="kiwi-widget"
+          style={{
+            width: "100%",
+            maxWidth: "1262px",
+            // Ensure no minHeight or fixed height here
+          }}
+        ></div>
+      </section>
+    </>
   );
 }

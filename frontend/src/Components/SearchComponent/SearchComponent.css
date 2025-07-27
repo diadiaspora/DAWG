@@ -1,22 +1,19 @@
 .box {
-    box-sizing: border-box;
-    margin: 42px auto;
-    width: 100%;
-    max-width: 1012px;
-    min-height: 600px; /* Reserve space for the widget */
-  }
-  
-  
-  /* Optional: adjust margins and padding on small screens */
-  @media (max-width: 480px) {
-    .box {
-        margin: 20px 10px;
-        min-height: 400px;
-      }
-  
-    #kiwi-widget {
-      min-height: 400px !important;
-      width: 100% !important;
+  box-sizing: border-box;
+  margin: 42px auto;
+  width: 100%;
+  max-width: 1012px;
+  min-height: 600px; /* Reserve space for the widget, this applies to the *container* */
+}
+
+@media (max-width: 480px) {
+  .box {
+      margin: 20px 10px;
+      min-height: 400px; This is fine for the container
     }
+
+  #kiwi-widget {
+    width: 100% !important;
+
   }
-  
+}
