@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.NavBarMMobile {
+.NavBar {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   display: flex;
@@ -12,7 +12,7 @@
   background-color: #1e37691f;
   
 }
-.NavBarMobile a {
+.NavBar a {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -21,17 +21,17 @@
   text-decoration: none;
   color: #1E3769;
 }
-.NavBarMobile a:hover {
+.NavBar a:hover {
   background-color: #ffffff;
 }
 
 
-.NavBarMobile a.active {
+.NavBar a.active {
   border-radius: 7px;
   color: #1E3769;
 }
 
-.NavBarMobile span {
+.NavBar span {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;

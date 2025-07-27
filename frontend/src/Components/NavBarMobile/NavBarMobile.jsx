@@ -17,7 +17,7 @@ export default function NavBarMobile({ user, setUser, profile }) {
 
   return (
     <>
-      <nav className="NavBarMobile">
+      <nav className="NavBarMobile" style={{backgroundColor: "#1e37691f"}}>
         <div style={{ marginLeft: "16px", marginTop: "16px" }}>
           <GiHamburgerMenu style={{ fontSize: "28px", color: "#1E3769" }} />
         </div>
