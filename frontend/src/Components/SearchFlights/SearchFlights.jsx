@@ -14,7 +14,7 @@ export default function SearchFlights() {
     script.async = true;
     script.charset = "utf-8";
 
-    console.log("Injecting script:", script.src); // 👈 DEBUG
+    console.log("Injecting script:", script.src);
 
     if (widgetRef.current) {
       widgetRef.current.innerHTML = "";
@@ -27,42 +27,6 @@ export default function SearchFlights() {
       }
     };
   }, []);
-  
-
-  useEffect(() => {
-    const loadWidget = () => {
-      const isMobile = window.innerWidth <= 480;
-
-      const script = document.createElement("script");
-      script.src = isMobile
-        ? "https://tpwidg.com/content?...&device=mobile"
-        : "https://tpwidg.com/content?...";
-      script.async = true;
-      script.charset = "utf-8";
-
-      if (widgetRef.current) {
-        widgetRef.current.innerHTML = "";
-        widgetRef.current.appendChild(script);
-      }
-    };
-
-    loadWidget();
-
-    window.addEventListener("resize", loadWidget);
-    return () => window.removeEventListener("resize", loadWidget);
-  }, []);
-  
-
-  <style>
-    {`
-    @media (max-width: 480px) {
-      #kiwi-widget {
-        width: 100% !important;
-        min-height: 400px !important;
-      }
-    }
-  `}
-  </style>;
 
   return (
     <section
@@ -73,6 +37,16 @@ export default function SearchFlights() {
         backgroundColor: "#f9f9f9",
       }}
     >
+      <style>
+        {`
+          @media (max-width: 480px) {
+            #kiwi-widget {
+              width: 100% !important;
+              min-height: 400px !important;
+            }
+          }
+        `}
+      </style>
       <div
         ref={widgetRef}
         id="kiwi-widget"
