@@ -83,67 +83,77 @@ export default function BlogList({ user }) {
             </div>
           </Link>
         </div>
-        {blogs.length ? (
-          <ul style={{ display: "flex" }}>
-            {blogs.map((blog) => (
-              <div
-                key={blog._id}
-                style={{
-                  width: "331px",
-                  borderRadius: "7px",
-                  marginRight: "21px",
-                  borderStyle: "solid",
-                  borderColor: "#BCC7D4",
-                  height: "350px",
-                }}
-              >
-                <li>
-                  <img
-                    src={blog.contentOneImage}
-                    alt="resources"
-                    style={{
-                      width: "331px",
-                      borderTopLeftRadius: "7px",
-                      borderTopRightRadius: "7px",
-                    }}
-                  />
-                  <Link
-                    to={`/blogs/${blog._id}`}
-                    style={{
-                      display: "block",
-                      padding: "10px",
-                      fontWeight: "bold",
-                      textDecoration: "none",
-                      color: "#1E3769",
-                    }}
-                  >
-                    {blog.title}
-                  </Link>
+        <div
+          className="blog-scroll-container"
+          style={{
+            display: "flex",
+            overflowX: "auto",
+            paddingBottom: "21px", // adds spacing under cards above scrollbar
+            width: "662px",
+          }}
+        >
+          {blogs.length ? (
+            <ul style={{ display: "flex" }}>
+              {blogs.map((blog) => (
+                <div
+                  key={blog._id}
+                  style={{
+                    width: "331px",
+                    borderRadius: "7px",
+                    marginRight: "21px",
+                    borderStyle: "solid",
+                    borderColor: "#BCC7D4",
+                    height: "350px",
+                    flex: "0 0 auto",
+                  }}
+                >
+                  <li>
+                    <img
+                      src={blog.contentOneImage}
+                      alt="resources"
+                      style={{
+                        width: "331px",
+                        borderTopLeftRadius: "7px",
+                        borderTopRightRadius: "7px",
+                      }}
+                    />
+                    <Link
+                      to={`/blogs/${blog._id}`}
+                      style={{
+                        display: "block",
+                        padding: "10px",
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                        color: "#1E3769",
+                      }}
+                    >
+                      {blog.title}
+                    </Link>
 
-                  <img
-                    src={
-                      blog.author?.avatar ||
-                      "https://i.ibb.co/5x5Td7ks/av-1.png"
-                    }
-                    alt="Author avatar"
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                    }}
-                  />
+                    <img
+                      src={
+                        blog.author?.avatar ||
+                        "https://i.ibb.co/5x5Td7ks/av-1.png"
+                      }
+                      alt="Author avatar"
+                      style={{
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
 
-                  <strong>{blog.author?.username || "Anonymous"}</strong>
-
-                  <p>{new Date(blog.createdAt).toLocaleDateString()}</p>
-                </li>
-              </div>
-            ))}
-          </ul>
-        ) : (
-          <p>No Blogs Yet!</p>
-        )}
+                    <strong>{blog.author?.username || "Anonymous"}</strong>
+                    <p>{new Date(blog.createdAt).toLocaleDateString()}</p>
+                  </li>
+                </div>
+              ))}
+            </ul>
+          ) : (
+            <p>No Blogs Yet!</p>
+          )}
+        </div>
       </div>
 
       {/* Sidebar Call to Action */}

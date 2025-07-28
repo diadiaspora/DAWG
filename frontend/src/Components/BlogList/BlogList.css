@@ -1,0 +1,24 @@
+.blog-scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .blog-scroll-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .blog-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #1E3769;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .blog-scroll-container:hover::-webkit-scrollbar-thumb {
+    background-color: #4AA692;
+  }
+  
+  .blog-scroll-container {
+    overflow-x: auto;
+    padding-bottom: 21px;
+  }
+  
