@@ -6,22 +6,7 @@ import "./Gallery.css";
 
 const Gallery = () => {
   const [isGallery, setIsGallery] = useState(true);
-  const [showCalendar, setShowCalendar] = useState(true); // ✅ state to control calendar visibility
   const klookWidgetRef = useRef();
-
-  useEffect(() => {
-    // Set calendar visibility based on screen width
-    const handleResize = () => {
-      setShowCalendar(window.innerWidth >= 768); // show calendar if screen is tablet or desktop
-    };
-
-    handleResize(); // set on mount
-    window.addEventListener("resize", handleResize); // update on resize
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (klookWidgetRef.current) {
@@ -48,20 +33,16 @@ const Gallery = () => {
 
   return (
     <div
-      style={{
-        marginTop: "42px",
-        width: "1012px",
-        display: "flex",
-        marginBottom: "60px",
-        flexDirection: "column",
-      }}
+      className="gallery-container"
+    
     >
-      <div style={{ height: "350px", marginLeft: "42px" }}>
-        <div style={{ width: "662px" }}>
+      <div className="Caro-Cal" >
+        <div className="AllUsersCarousel" >
           <AllUsersCarousel />
         </div>
 
         <div
+          className="bluething"
           style={{
             backgroundColor: "#1E3769",
             height: "100px",
@@ -74,17 +55,24 @@ const Gallery = () => {
             justifyContent: "center",
           }}
         >
-          {/* Widget could go here */}
+          {/* <div
+            ref={klookWidgetRef}
+            style={{
+              borderRadius: "7px",
+              overflow: "hidden",
+              width: "468px",
+              height: "60px",
+            }}
+          /> */}
         </div>
       </div>
 
-      {showCalendar && (
-        <div
-          style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}
-        >
-          <Calendar />
-        </div>
-      )}
+      <div
+        className="calendarContainer"
+        style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}
+      >
+        <Calendar />
+      </div>
     </div>
   );
 };

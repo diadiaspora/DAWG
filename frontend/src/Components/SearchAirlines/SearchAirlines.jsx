@@ -20,7 +20,7 @@ const destinationOptions = [
 const customStyles = {
   control: (base, state) => ({
     ...base,
-    width: 350,
+    width: "100%",
     height: 44,
     marginLeft: 18,
     backgroundColor: "#F2F4F7",
@@ -75,16 +75,8 @@ const SearchAirlines = () => {
 
   return (
     <div
-      style={{
-        borderStyle: "solid",
-        borderRadius: "7px",
-        borderColor: "#d9d9d9",
-        backgroundColor: "#ffffff",
-        marginTop: "82px",
-        height: "177px",
-        width: "1012px",
-        marginLeft: "0px",
-      }}
+      className="airbox"
+
     >
       <div style={{ paddingTop: "18px" }}>
         <strong style={{ marginLeft: "18px" }}>
@@ -93,8 +85,11 @@ const SearchAirlines = () => {
         </strong>
       </div>
 
-      <div style={{ display: "flex", marginTop: "18px" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", marginTop: "18px" }} className="airRow">
+        <div
+          className="airColumn"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <label
             htmlFor="airline"
             style={{ marginLeft: "21px", fontSize: "16px", width: "350px" }}
@@ -107,10 +102,14 @@ const SearchAirlines = () => {
             onChange={(option) => setAirline(option.value)}
             styles={customStyles}
             defaultValue={airlineOptions[0]}
+            classNamePrefix="select"
           />
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          className="airColumn"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <label
             htmlFor="destination"
             style={{ marginLeft: "21px", fontSize: "16px" }}
@@ -123,6 +122,7 @@ const SearchAirlines = () => {
             onChange={(option) => setLocation(option.value)}
             styles={customStyles}
             defaultValue={destinationOptions[0]}
+            classNamePrefix="select"
           />
         </div>
 
