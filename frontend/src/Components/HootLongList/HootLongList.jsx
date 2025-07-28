@@ -79,9 +79,9 @@ export default function HootLongList(props) {
 
       <div
         style={{
-          marginLeft: "42px",
-          marginRight: "42px",
-          maxWidth: "1041px",
+          width: "100%",
+          maxWidth: "1012px",
+          margin: "0 auto",
           overflowX: "hidden",
         }}
       >
@@ -91,6 +91,9 @@ export default function HootLongList(props) {
             display: "flex",
             gap: "16px",
             overflowX: "scroll",
+            width: "1012px",
+            marginLeft: "21px",
+            border: "none"
           }}
         >
           {displayedHoots.map((hoot) => (

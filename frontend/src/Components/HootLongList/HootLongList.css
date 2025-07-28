@@ -23,6 +23,7 @@
   .hoot-scroll-container {
     overflow-x: auto;
     padding-bottom: 21px; /* Adds space between content (e.g. cards) and scrollbar */
+    
   }
 
   .hoot-card-link {

@@ -1,6 +1,5 @@
 import { getProducts } from "../../api/ShopifyClient";
 import { useState, useEffect } from "react";
-
 import { Link } from "react-router";
 import "./Marketplace.css";
 
@@ -32,58 +31,34 @@ export default function Marketplace() {
   if (products.length === 0) return <p>No products found.</p>;
 
   return (
-    <div style={{ margin: "42px", marginTop: "125px" }}>
-      <div
-        style={{
-          backgroundColor: "#1E3769",
-          width: "1012px",
-
-          display: "flex",
-          borderRadius: "7px",
-          height: "70px",
-          alignItems: "baseline",
-          marginBottom: "24px",
-          padding: "12px",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "18px",
-            color: "#ffffff",
-            marginTop: "10px",
-            marginleft: "21px",
-            marginRight: "660px",
-          }}
-        >
-          Everything You Need
-        </h1>
+    <div className="marketplace-wrapper">
+      <div className="marketplace-header">
+        <h1>Everything You Need</h1>
         <Link to="/marketplace">
-          <div>
-            <button
-              // onClick={handlePostClick}
-              style={{
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                borderWidth: "1px",
-                backgroundColor: "#ffffff",
-                width: "240px",
-                height: "44px",
-                fontWeight: "bold",
-                cursor: "pointer",
-                fontSize: "16px",
-                fontFamily: "Roboto",
-                borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
-                color: hover ? "#347567" : "#1E3769", // ✅ only once
-                borderRadius: "7px", // ✅ once
-              }}
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-            >
-              Marketplace
-            </button>
-          </div>
+          <button
+            style={{
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              borderWidth: "1px",
+              backgroundColor: "#ffffff",
+              width: "240px",
+              height: "44px",
+              fontWeight: "bold",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontFamily: "Roboto",
+              borderColor: hover ? "#4AA692" : "#1E3769",
+              color: hover ? "#347567" : "#1E3769",
+              borderRadius: "7px",
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            Marketplace
+          </button>
         </Link>
       </div>
-      <div className="product-grid">
+
+      <div className="product-scroll-container">
         {products.map((product) => (
           <div key={product.id} className="product-card">
             <Link
