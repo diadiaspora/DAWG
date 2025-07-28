@@ -47,7 +47,8 @@
 .bluelabel {
 
   background-color: #1E3769;
-  width: 320px;
+  max-width: 90vw;
+  width: 100%;
   display: flex;
   border-radius: 7px;
   height: 70px;
@@ -55,6 +56,11 @@
   margin-bottom: 24px;
   padding: 12px;
 
+}
+
+.bloggy {
+  max-width: 90vw;
+  width: 100%;
 }
 }
 

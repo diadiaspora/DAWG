@@ -29,17 +29,8 @@ export default function HootLongList(props) {
   return (
     <div style={{ marginTop: "125px", marginRight: "42px" }}>
       <div
-        style={{
-          backgroundColor: "#1E3769",
-          width: "1012px",
-          marginLeft: "42px",
-          display: "flex",
-          borderRadius: "7px",
-          height: "70px",
-          alignItems: "baseline",
-          marginBottom: "24px",
-          padding: "12px",
-        }}
+        className="hooty"
+       
       >
         <div>
           <h2
@@ -93,7 +84,7 @@ export default function HootLongList(props) {
             overflowX: "scroll",
             width: "1012px",
             marginLeft: "21px",
-            border: "none"
+            border: "none",
           }}
         >
           {displayedHoots.map((hoot) => (

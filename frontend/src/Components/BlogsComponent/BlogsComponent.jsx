@@ -59,7 +59,7 @@ export default function BlogsComponent() {
           }}
         >
           <div
-       
+      
             style={{
               display: "flex",
               gap: "16px",

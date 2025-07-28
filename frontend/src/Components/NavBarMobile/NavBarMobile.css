@@ -47,6 +47,27 @@
   border-radius: 7px;
 }
 
+.mobile-dropdown-menu {
+  position: absolute;
+  top: 64px; /* below your navbar */
+  right: 0;
+  width: 100%;
+  background-color: white;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-dropdown-menu a {
+  text-decoration: none;
+  color: #1E3769;
+  font-weight: bold;
+}
+
+
 @media (min-width: 120px) and(max-width: 480px) {
   .NavBar {
     display: none !important;
