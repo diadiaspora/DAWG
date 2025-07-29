@@ -28,10 +28,7 @@ export default function HootLongList(props) {
 
   return (
     <div style={{ marginTop: "125px", marginRight: "42px" }}>
-      <div
-        className="hootyblue"
-       
-      >
+      <div className="hootyblue">
         <div>
           <h2
             style={{
@@ -73,7 +70,7 @@ export default function HootLongList(props) {
           width: "100%",
           maxWidth: "1012px",
           margin: "0 auto",
-          overflowX: "hidden",
+          overflowX: "visible",
         }}
       >
         <div

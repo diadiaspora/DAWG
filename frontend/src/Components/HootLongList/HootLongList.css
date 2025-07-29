@@ -69,4 +69,10 @@
   .hoot-container:hover {
     border-color: #4AA692;
   }
+
+  @media (min-width: 300px) and (max-width: 480px) {
+    .hootyblue {
+      display: none;
+    }
+  }
   
