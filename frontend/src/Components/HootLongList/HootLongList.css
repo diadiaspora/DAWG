@@ -95,18 +95,6 @@
       display: none;
     }
 
-    .hoot-scroll-container {
-      width: max-content;
-      margin-left: 0;
-    }
-  
-    .visible {
-      max-width: 100%;
-      overflow-x: auto;
-    }
-  
-    .hoot-card {
-      flex: 0 0 auto; /* Optional: ensures horizontal scroll works cleanly */
-    }
+
   }
   
