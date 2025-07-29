@@ -7,8 +7,15 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
+
+  -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
+  scrollbar-width: none; /* Hides the scrollbar for Firefox */
+  -ms-overflow-style: none; 
 }
 
+.gallery-scroll-container::-webkit-scrollbar {
+  display: none;
+}
 
 .gallery-scroll-container {
   width: 100%;
@@ -19,7 +26,7 @@
   @media (max-width: 480px) {
     .gallery-scroll-container {
       width: 100%;
-      max-width: 480px;
+      max-width: 100%;
     }
   }
   
