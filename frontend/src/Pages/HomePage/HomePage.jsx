@@ -41,14 +41,14 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         <div>
           <Header user={user} setUser={setUser} />
 
-          <div className="sixeighty">
+          
             <SearchComponent />
-          </div>
+          
         </div>
-        <div className="sixeighty">
+        <div>
           <Gallery />
         </div>
-        <div className="sixeighty">
+        <div >
           <BlogsComponent />
         </div>
         {/* <div style={{ marginTop: "125px" }}>
