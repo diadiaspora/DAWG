@@ -2,7 +2,7 @@ import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
-import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
+import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper.jsx";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
@@ -66,7 +66,7 @@ export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
           handleAddHoot={handleAddHoot}
         />
 
-        <Marketplace />
+        <MarketplaceWrapper />
         <div>
           <BlogList user={user} setUser={setUser} />
         </div>
