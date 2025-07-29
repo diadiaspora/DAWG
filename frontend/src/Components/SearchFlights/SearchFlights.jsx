@@ -7,7 +7,7 @@ export default function SearchFlights() {
     const isMobile = window.innerWidth <= 480;
 
     // Prevent loading the widget on mobile
-    if (isMobile) return;
+    // if (isMobile) return;
 
     const script = document.createElement("script");
     const scriptUrl =
