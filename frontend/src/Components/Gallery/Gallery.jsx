@@ -32,12 +32,9 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div
-      className="gallery-container"
-    
-    >
-      <div className="Caro-Cal" >
-        <div className="AllUsersCarousel" >
+    <div className="gallery-container">
+      <div className="Caro-Cal">
+        <div className="AllUsersCarousel">
           <AllUsersCarousel />
         </div>
 
