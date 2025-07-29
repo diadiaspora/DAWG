@@ -32,3 +32,9 @@
   height: 44px;
   color: #ffffff;
 }
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .box {max-width: 767px;
+  margin-left: 0px;}
+  }
