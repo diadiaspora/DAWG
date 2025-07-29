@@ -34,25 +34,36 @@ export default function AllUsersCarousel() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    if (scrollContainer.scrollWidth <= scrollContainer.clientWidth) return;
-
     const scrollSpeed = 1;
     const scrollInterval = 30;
 
-    const intervalId = setInterval(() => {
-      const atEnd =
-        scrollContainer.scrollLeft + scrollContainer.clientWidth >=
-        scrollContainer.scrollWidth - 5;
+    const startAutoScroll = () => {
+      const intervalId = setInterval(() => {
+        const atEnd =
+          scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+          scrollContainer.scrollWidth - 5;
 
-      if (atEnd) {
-        scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        scrollContainer.scrollLeft += scrollSpeed;
+        if (atEnd) {
+          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollContainer.scrollLeft += scrollSpeed;
+        }
+      }, scrollInterval);
+
+      return intervalId;
+    };
+
+    // Delay scroll setup to allow rendering
+    const timer = setTimeout(() => {
+      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+        const intervalId = startAutoScroll();
+        return () => clearInterval(intervalId);
       }
-    }, scrollInterval);
+    }, 100); // small delay for layout to complete
 
-    return () => clearInterval(intervalId);
+    return () => clearTimeout(timer);
   }, [allImages]);
+  
 
   return (
     <div>
@@ -66,9 +77,8 @@ export default function AllUsersCarousel() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              width: "200px",
-              minWidth: "200px", // ADD THIS
-              flexShrink: 0, // prevents shrinking smaller than 150px
+              minWidth: "200px", // ✅ Important for scrolling
+              flexShrink: 0, // ✅ Prevent shrinking
             }}
           >
             {/* Avatar and Info */}
