@@ -19,7 +19,7 @@ export default function ViewBlogsPage(user, setUser) {
         <BlogFeature />
 
         <BlogsComponent />
-        <HotelComponent />
+        {/* <HotelComponent /> */}
         <BlogListAd />
         <Articles />
       </section>

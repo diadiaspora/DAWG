@@ -142,15 +142,16 @@ export default function NewBlogPage({ user, setUser, hoots }) {
   return (
     <>
       <section>
-        <Header />
-        <SearchComponent />
+        {/* <Header />
+        <SearchComponent /> */}
         <div>
           <div
             style={{
-              width: "1032px",
+              width: "1012px",
               display: "flex",
               marginRight: "0px",
               paddingRight: "0px",
+              marginTop: "100px"
             }}
           >
             <div

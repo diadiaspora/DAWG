@@ -123,7 +123,7 @@ export default function Calendar() {
           </div>
         ))}
       </div>
-      <button style={{ borderRadius: "7px", height: "44px", marginTop: "24px", width: "290px"}}> Start Planning</button>
+      <button style={{ backgroundColor: "#1E3769", borderRadius: "7px", height: "44px", marginTop: "24px", width: "290px", borderWidth: "0px"}}> Start Planning</button>
     </div>
   );
 }

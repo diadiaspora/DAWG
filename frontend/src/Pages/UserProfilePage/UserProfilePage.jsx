@@ -48,8 +48,26 @@ export default function UserProfilePage({ user }) {
   return (
     <>
       <section style={{ paddingTop: "100px" }}>
-        <Header />
-        <SearchComponent />
+        <div
+          style={{
+            backgroundColor: "#1E3769",
+            width: "1012px",
+            display: "flex",
+            borderRadius: "7px",
+            height: "70px",
+            alignItems: "center",
+            marginBottom: "60px",
+            padding: "12px",
+            gap: "20px",
+            marginLeft: "42px",
+            color: "#ffffff"
+          }}
+        >
+      
+          Profile
+        </div>
+        {/* <Header />
+        <SearchComponent /> */}
         <div
           style={{
             display: "flex",
@@ -58,10 +76,9 @@ export default function UserProfilePage({ user }) {
         ></div>
         <div style={{ width: "1012px", display: "flex" }}>
           <ProfileForm profile={profile} setProfile={setProfile} user={user} />
-        
-            
+
           <UsersPets user={user} />
-         
+
           <UsersPlansShort user={user} />
         </div>
 
@@ -70,7 +87,7 @@ export default function UserProfilePage({ user }) {
         >
           <UserCarousel user={user} profile={profile} />
         </div>
-      
+
         <div style={{ marginTop: "75px" }}>
           <Destinations />
         </div>

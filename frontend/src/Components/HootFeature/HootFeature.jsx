@@ -45,7 +45,7 @@ export default function HootFeatured(props) {
             marginLeft: "42px",
           }}
         >
-          <h4 style={{ color: "white" }}>Latest Posts</h4>
+          <h4 style={{ color: "white" }}>Featured Posts</h4>
         </div>
         <div
           style={{

@@ -21,7 +21,7 @@ export default function HootList(props) {
 
   const randomizeHoots = (hootArray) => {
     const shuffled = [...hootArray].sort(() => 0.5 - Math.random());
-    setRandomHoots(shuffled.slice(0, 2));
+    setRandomHoots(shuffled.slice(0, 3));
   };
 
   const handleAddHoot = async (newHootData) => {
@@ -35,7 +35,21 @@ export default function HootList(props) {
 
   return (
     <div style={{ marginTop: "75px" }}>
-      <h2 style={{ marginLeft: "42px" }}>Hoots List</h2>
+      <div
+        style={{
+          backgroundColor: "#1E3769",
+          width: "1012px",
+          display: "flex",
+          borderRadius: "7px",
+          height: "70px",
+          alignItems: "baseline",
+          marginBottom: "24px",
+          padding: "12px",
+          marginLeft: "42px",
+        }}
+      >
+        <h2 style={{ marginLeft: "24px", color: "#ffffff", marginTop: "8px" }}>Latest Posts</h2>
+      </div>
       <div
         style={{
           display: "flex",
