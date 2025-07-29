@@ -71,7 +71,19 @@ export default function MarketplaceMobile() {
                   </p>
                 )}
               </div>
-              <p className="mobile-product-description">
+              <p
+                style={{
+                  marginTop: "-12px",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  width: "200px",
+                  paddingLeft: "12px",
+                  marginBottom: "60px",
+                }}
+              >
                 {product.description}
               </p>
               <div className="mobile-product-button-wrapper">
