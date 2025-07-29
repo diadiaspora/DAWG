@@ -1,14 +1,21 @@
 /* Reset any outer margin/padding */
-body, html {
-    margin: 0;
-    padding: 0;
+
+* {
+    box-sizing: border-box;
   }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
   
   .marketplace-mobile-wrapper {
     box-sizing: border-box;
     padding: 16px;
     overflow-x: hidden;
-    margin-left: 121px;
+
 
  
   }
@@ -40,14 +47,11 @@ body, html {
   /* Horizontal Scroll Container */
   .mobile-scroll-container {
     display: flex;
-    flex-direction: row;
-    overflow-x: auto;
     gap: 16px;
-    padding-bottom: 12px;
-    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    margin: 0 -16px;
-    padding-left: 16px;
   }
   
   /* Hide scrollbar */
