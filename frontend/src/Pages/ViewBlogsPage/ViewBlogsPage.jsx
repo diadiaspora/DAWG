@@ -11,9 +11,11 @@ export default function ViewBlogsPage(user, setUser) {
   return (
     <>
       <section style={{ width: "100%" }}>
-        <Header user={user} setUser={setUser} />
-        <SearchComponent />
-        <h1>Your Blogs</h1>
+        <div className="top">
+          <Header user={user} setUser={setUser} />
+          <SearchComponent />
+        </div>
+    
         <BlogFeature />
 
         <BlogsComponent />

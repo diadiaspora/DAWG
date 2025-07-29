@@ -7,6 +7,7 @@ import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootForm from "../../Components/HootForm/HootForm";
 import HootList from "../../Components/HootList/HootList";
 import * as hootService from "../../services/hootService";
+import "./PostListPage.css";
 
 export default function PostListPage(props) {
   const { user, setUser, hoots } = props;
@@ -20,8 +21,10 @@ export default function PostListPage(props) {
   return (
     <>
       <div>
-        <Header user={user} setUser={setUser} />
-        <SearchComponent />
+        <div className="top">
+          <Header user={user} setUser={setUser} />
+          <SearchComponent />
+        </div>
         <HootFeature hoots={hoots} user={user} setHoots={props.setHoots} />
         <HootList
           user={user}

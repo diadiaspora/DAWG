@@ -98,9 +98,7 @@ export default function NavBarMobile({ user, setUser, profile }) {
             </>
           ) : (
             <>
-              <NavLink to="/fly" onClick={() => setMenuOpen(false)}>
-                Flights
-              </NavLink>
+          
               <NavLink to="/posts" onClick={() => setMenuOpen(false)}>
                 Posts
               </NavLink>
