@@ -1,6 +1,9 @@
-import { getProducts } from "../../api/ShopifyClient";
 import { useState, useEffect } from "react";
+import { getProducts } from "../../api/ShopifyClient";
 import { Link } from "react-router";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./MarketplaceMobile.css";
 
 export default function MarketplaceMobile() {
@@ -12,7 +15,6 @@ export default function MarketplaceMobile() {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        setLoading(true);
         const fetchedProducts = await getProducts();
         setProducts(fetchedProducts);
       } catch (err) {
@@ -29,6 +31,16 @@ export default function MarketplaceMobile() {
   if (loading) return <p>Loading products...</p>;
   if (error) return <p className="error">{error}</p>;
   if (products.length === 0) return <p>No products found.</p>;
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1.2,
+    slidesToScroll: 1,
+    arrows: false,
+    centerMode: false,
+  };
 
   return (
     <div className="marketplace-mobile-wrapper">
@@ -49,7 +61,7 @@ export default function MarketplaceMobile() {
         </Link>
       </div>
 
-      <div className="mobile-scroll-container">
+      <Slider {...settings} className="marketplace-slider">
         {products.map((product) => (
           <div key={product.id} className="mobile-product-card">
             <Link
@@ -92,7 +104,7 @@ export default function MarketplaceMobile() {
             </Link>
           </div>
         ))}
-      </div>
+      </Slider>
     </div>
   );
 }
