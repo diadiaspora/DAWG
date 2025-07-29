@@ -42,10 +42,9 @@
       width: 100%;
       max-width: 1012px;
       margin: 0 auto;
-      overflow-x;
+      overflow-x: scroll;
    
   }
-
   .hoot-scroll-container {
   
       display: flex;
