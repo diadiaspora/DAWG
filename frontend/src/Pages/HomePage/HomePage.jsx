@@ -38,16 +38,17 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   return (
     <>
       <section className="home">
-        <div >
-          <Header user={user} setUser={setUser} />
-        </div>
         <div>
-          <SearchComponent />
+          <Header user={user} setUser={setUser} />
+
+          <div className="sixeighty">
+            <SearchComponent />
+          </div>
         </div>
-        <div >
+        <div className="sixeighty">
           <Gallery />
         </div>
-        <div >
+        <div className="sixeighty">
           <BlogsComponent />
         </div>
         {/* <div style={{ marginTop: "125px" }}>
