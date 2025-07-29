@@ -66,23 +66,13 @@ export default function HootLongList(props) {
       </div>
 
       <div
-        style={{
-          width: "100%",
-          maxWidth: "1012px",
-          margin: "0 auto",
-          overflowX: "visible",
-        }}
+        
+        className="visible"
+    
       >
         <div
           className="hoot-scroll-container"
-          style={{
-            display: "flex",
-            gap: "16px",
-            overflowX: "scroll",
-            width: "1012px",
-            marginLeft: "21px",
-            border: "none",
-          }}
+       
         >
           {displayedHoots.map((hoot) => (
             <div
