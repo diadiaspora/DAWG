@@ -47,7 +47,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         <div style={{ marginLeft: "-680px" }}>
           <Gallery />
         </div>
-        <div>
+        <div style={{ marginLeft: "-680px" }}>
           <BlogsComponent />
         </div>
         {/* <div style={{ marginTop: "125px" }}>

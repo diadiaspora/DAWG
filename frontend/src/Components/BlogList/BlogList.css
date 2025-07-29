@@ -20,5 +20,50 @@
   .blog-scroll-container {
     overflow-x: auto;
     padding-bottom: 21px;
+ 
+      display: flex;
+      overflow-x: auto;
+      padding-bottom: 21px; 
+      width: 662px;
+  
   }
+.ulflex {
+  display: flex;
+
+}
+ 
+
+  .blogdiv {
+    
+      width: 300px;
+      border-radius: 7px;
+      margin-right: 21px;
+      border-style: solid;
+      border-color: #4AA692;
+      height: 350px;
+      flex: 0 0 auto;
+    
+  }
+  
+
+  @media (max-width: 480px) {
+    .blog-scroll-container {
+      width: 100vw;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  
+    .blogdiv {
+      display: flex;
+      width: 200px !important;
+      height: auto;
+      flex: 0 0 auto;
+      margin-right: 16px;
+    }
+  
+    .blog-sidebar {
+      display: none;
+    }
+  }
+  
   

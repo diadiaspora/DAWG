@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
 import { Link, useNavigate } from "react-router";
+import "./bloglist.css";
 
 export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
@@ -83,29 +84,14 @@ export default function BlogList({ user }) {
             </div>
           </Link>
         </div>
-        <div
-          className="blog-scroll-container"
-          style={{
-            display: "flex",
-            overflowX: "auto",
-            paddingBottom: "21px", // adds spacing under cards above scrollbar
-            width: "662px",
-          }}
-        >
+        <div className="blog-scroll-container">
           {blogs.length ? (
-            <ul style={{ display: "flex" }}>
+            <ul className="ulflex" >
               {blogs.map((blog) => (
                 <div
                   key={blog._id}
-                  style={{
-                    width: "331px",
-                    borderRadius: "7px",
-                    marginRight: "21px",
-                    borderStyle: "solid",
-                    borderColor: "#BCC7D4",
-                    height: "350px",
-                    flex: "0 0 auto",
-                  }}
+                  className="blogdiv"
+      
                 >
                   <li>
                     <img
@@ -157,7 +143,10 @@ export default function BlogList({ user }) {
       </div>
 
       {/* Sidebar Call to Action */}
-      <div style={{ height: "350px", marginLeft: "42px", marginTop: "85px" }}>
+      <div
+        className="blog-sidebar"
+        style={{ height: "350px", marginLeft: "42px", marginTop: "85px" }}
+      >
         <div
           style={{
             backgroundColor: "#1E3769",
