@@ -4,12 +4,13 @@ import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper.jsx";
 import { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
 import * as hootService from "../../services/hootService";
+import AllUserCarouselMobile from "../../Components/AllUserCarouselMobile/AllUserCarouselMobile.jsx";  // Import your mobile carousel
 
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
@@ -22,12 +23,27 @@ export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
 
 
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
 
     navigate("/");
   };
+
+  useEffect(() => {
+    // Function to update isMobile state
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480); // adjust breakpoint if needed
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -48,7 +64,7 @@ export default function HomePage({ user, setUser, hoots, setHoots,  profile }) {
           <Header user={user} setUser={setUser} />
           <SearchComponent />
 
-          <Gallery />
+          {isMobile ? <AllUserCarouselMobile /> : <Gallery />}
         </div>
         <div>
           <BlogsComponent />

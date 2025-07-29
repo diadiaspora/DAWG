@@ -41,22 +41,9 @@
 }
 
 @media (max-width: 480px) {
-  .Caro-Cal {
-    max-width: 90vw;
-    width: 100%;
+  .gallery-container {
+   display: none;
   }
 
-  .bluething {
-    max-width: 90vw;
-    width: 100%;
-  }
 
-  .calendarContainer {
-    display: none;
-  }
-
-  .AllUsersCarousel {
-    max-width: 90vw;
-    width: 100%;
-  }
 }
