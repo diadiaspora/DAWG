@@ -1,14 +1,19 @@
 .hoot-scroll-container {
-    display: flex;
-    gap: 16px;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    width: 662px;
-    padding-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 8px;
-  }
+  display: flex;
+  flex-wrap: nowrap; /* add this */
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+
+.hoot-scroll-container {
+  width: 100%;
+  max-width: 100%;
+}
   
   /* Mobile breakpoint: max-width 480px */
   @media (max-width: 480px) {

@@ -48,21 +48,12 @@ export default function BlogsComponent() {
           </Link>
         </div>
 
-        <div
-          style={{
-            overflowX: "scroll",
-            scrollSnapType: "x mandatory",
-            paddingBottom: "20px",
-            scrollbarWidth: "thin",
-            scrollbarColor: "#1E3769 #f0f0f0",
-            WebkitOverflowScrolling: "touch",
-          }}
-        >
+        <div className="blog-scroll-container">
           <div
-      
             style={{
               display: "flex",
               gap: "16px",
+              minWidth: `${shuffledBlogs.length * 280}px`, // Or any reasonable card width
             }}
           >
             {shuffledBlogs.map((post) => (

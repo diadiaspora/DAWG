@@ -3,6 +3,25 @@
   box-sizing: border-box;
 }
 
+.blog-scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #1E3769 #f0f0f0;
+}
+
+.blog-scroll-container > div {
+  display: flex;
+  gap: 16px;
+}
+
+.blog-scroll-container > div > a {
+  flex: 0 0 auto; /* Prevents shrinking and allows horizontal scrolling */
+}
+
+
 .blogs-component-container {
   margin-top: 125px; 
   padding: 0;

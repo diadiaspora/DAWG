@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-.hooty {
+* {
+  box-sizing: border-box;
+}
+
+.hootyblue {
  
-    background-color: #1E3769;
-    width: 1012px;
-    margin-left: 42px;
-    display: flex;
-    border-radius: 7px;
-    height: 70px;
-    align-items: baseline;
-    margin-bottom: 24px;
-    padding: 12px;
+  background-color: #1E3769;
+  width: 100%;
+  max-width: 1022px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  height: 70px;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 12px;
   }
 
 .hoot-scroll-container::-webkit-scrollbar {

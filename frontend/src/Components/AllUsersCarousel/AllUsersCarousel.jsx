@@ -56,11 +56,7 @@ export default function AllUsersCarousel() {
 
   return (
     <div>
-      <div
-        ref={scrollRef}
-        className="hoot-scroll-container"
-
-      >
+      <div ref={scrollRef} className="hoot-scroll-container">
         {allImages.length === 0 && <p>No images available.</p>}
 
         {allImages.map((img, idx) => (
@@ -70,8 +66,8 @@ export default function AllUsersCarousel() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-
-              width: "200px", // fixed width, not minWidth
+              width: "200px",
+              minWidth: "200px", // ADD THIS
               flexShrink: 0, // prevents shrinking smaller than 150px
             }}
           >
@@ -106,8 +102,7 @@ export default function AllUsersCarousel() {
               >
                 {img.username}
               </div>
-              <div style={{marginTop:"4px", marginLeft: "6px"}}>
-                
+              <div style={{ marginTop: "4px", marginLeft: "6px" }}>
                 <IoIosHeart />
               </div>
               <div

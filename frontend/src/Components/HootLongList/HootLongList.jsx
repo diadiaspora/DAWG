@@ -29,7 +29,7 @@ export default function HootLongList(props) {
   return (
     <div style={{ marginTop: "125px", marginRight: "42px" }}>
       <div
-        className="hooty"
+        className="hootyblue"
        
       >
         <div>
