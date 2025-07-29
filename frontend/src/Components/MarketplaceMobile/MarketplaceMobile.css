@@ -14,7 +14,7 @@ body, html {
   .marketplace-mobile-wrapper {
     box-sizing: border-box;
     padding: 16px;
-    overflow-x: hidden;
+    overflow-x: visible; 
 
 
  
@@ -52,12 +52,23 @@ body, html {
     padding-bottom: 8px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
   
   /* Hide scrollbar */
   .mobile-scroll-container::-webkit-scrollbar {
-    display: none;
+    height: 8px;
   }
+
+  .mobile-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #1E3769;
+    border-radius: 4px;
+  }
+
+  .mobile-scroll-container:hover::-webkit-scrollbar-thumb {
+    background-color: #4AA692;
+  }
+
   .mobile-scroll-container {
     -ms-overflow-style: none;
     scrollbar-width: none;
