@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 .divbody {
   display: grid;
 
@@ -40,23 +44,9 @@
   justify-content: center;
 }
 
+/* Hide gallery-container on mobile just in case */
 @media (max-width: 480px) {
-  .Caro-Cal {
-    max-width: 90vw;
-    width: 100%;
-  }
-
-  .bluething {
-    max-width: 90vw;
-    width: 100%;
-  }
-
-  .calendarContainer {
+  .gallery-container {
     display: none;
-  }
-
-  .AllUsersCarousel {
-    max-width: 90vw;
-    width: 100%;
   }
 }

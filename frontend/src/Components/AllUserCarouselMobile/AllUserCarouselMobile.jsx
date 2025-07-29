@@ -1,85 +1,68 @@
 import React, { useState, useEffect } from "react";
-import Masonry from "react-masonry-css";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { IoIosHeart } from "react-icons/io";
 import "./AllUserCarouselMobile.css";
 
 export default function AllUsersCarouselMobile() {
   const [allImages, setAllImages] = useState([]);
-  const [page, setPage] = useState(1); // For pagination
-  const [hasMore, setHasMore] = useState(true);
+  const [randomImages, setRandomImages] = useState([]);
 
-  // Fetch images page by page
-  const fetchImages = async (pageNum = 1) => {
-    try {
-      const res = await fetch(`/api/gallerys/all?page=${pageNum}&limit=20`);
-      if (!res.ok) throw new Error("Failed to fetch images");
-      const data = await res.json();
-
-      if (data.images.length === 0) {
-        setHasMore(false);
-        return;
-      }
-
-      setAllImages((prev) => [...prev, ...data.images]);
-    } catch (err) {
-      console.error(err);
-      setHasMore(false);
-    }
-  };
-
+  // Fetch all images once
   useEffect(() => {
-    fetchImages(page);
-  }, [page]);
+    async function fetchImages() {
+      try {
+        const res = await fetch(`/api/gallerys/all`);
+        if (!res.ok) throw new Error("Failed to fetch images");
+        const data = await res.json();
+        setAllImages(data.images || []);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    fetchImages();
+  }, []);
 
-  // Load more images on scroll
-  const fetchMoreImages = () => {
-    setPage((prev) => prev + 1);
-  };
+  // Pick 8 random images (2 columns x 4 rows)
+  useEffect(() => {
+    if (allImages.length === 0) return;
 
-  // Breakpoint columns for masonry
-  const breakpointColumnsObj = {
-    default: 2,
-    480: 2, // 2 columns on mobile
-    320: 1, // 1 column on very small screens
-  };
+    const shuffleArray = (array) => {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    };
+
+    const shuffled = shuffleArray(allImages);
+    const selected = shuffled.slice(0, 8); // Max 8 images
+    setRandomImages(selected);
+  }, [allImages]);
 
   return (
-    <InfiniteScroll
-      dataLength={allImages.length}
-      next={fetchMoreImages}
-      hasMore={hasMore}
-      loader={<h4>Loading...</h4>}
-      style={{ overflow: "visible" }} // keep layout flow normal
-    >
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="masonry-grid"
-        columnClassName="masonry-grid_column"
-      >
-        {allImages.map((img, idx) => (
-          <div key={idx} className="masonry-item">
-            <div className="user-info">
-              <img
-                src={img.avatarUrl}
-                alt={`${img.username} avatar`}
-                className="avatar"
-              />
-              <div className="user-details">
-                <span className="username">{img.username}</span>
-                <IoIosHeart className="heart-icon" />
-                <span className="petname">{img.petName}</span>
-              </div>
-            </div>
+    <div className="mobile-gallery-container">
+      {randomImages.map((img, idx) => (
+        <div key={idx} className="gallery-item">
+          <div className="user-info">
             <img
-              src={img.imageUrl}
-              alt={`Gallery image ${idx + 1}`}
-              className="gallery-image"
-              draggable={false}
+              src={img.avatarUrl}
+              alt={`${img.username} avatar`}
+              className="avatar"
             />
+            <div className="user-details">
+              <span className="username">{img.username}</span>
+              <IoIosHeart className="heart-icon" />
+              <span className="petname">{img.petName}</span>
+            </div>
           </div>
-        ))}
-      </Masonry>
-    </InfiniteScroll>
+          <img
+            src={img.imageUrl}
+            alt={`Gallery image ${idx + 1}`}
+            className="gallery-image"
+            draggable={false}
+          />
+        </div>
+      ))}
+    </div>
   );
 }

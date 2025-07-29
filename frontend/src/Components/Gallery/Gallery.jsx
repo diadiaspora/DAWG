@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import AllUsersCarousel from "../../Components/AllUsersCarousel/AllUsersCarousel.jsx";
 import Calendar from "../../Components/Calendar/Calendar.jsx";
-import { Link } from "react-router";
+import AllUserCarouselMobile from "../../Components/AllUserCarouselMobile/AllUserCarouselMobile.jsx";
 import "./Gallery.css";
 
 const Gallery = () => {
-  const [isGallery, setIsGallery] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const klookWidgetRef = useRef();
 
   useEffect(() => {
@@ -31,6 +31,21 @@ const Gallery = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (isMobile) {
+    // Show the mobile carousel on mobile screens
+    return <AllUserCarouselMobile />;
+  }
+
+  // Desktop gallery UI
   return (
     <div className="gallery-container">
       <div className="Caro-Cal">

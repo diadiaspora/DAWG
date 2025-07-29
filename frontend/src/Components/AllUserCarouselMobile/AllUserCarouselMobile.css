@@ -1,60 +1,72 @@
-.masonry-grid {
-    display: flex;
-    margin-left: -8px; /* gutter size offset */
-    width: auto;
+/* Only show on mobile */
+@media (min-width: 481px) {
+    .mobile-gallery-container {
+      display: none;
+    }
   }
   
-  .masonry-grid_column {
-    padding-left: 8px; /* gutter size */
-    background-clip: padding-box;
+  .mobile-gallery-container {
+    max-width: 90vw;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(4, auto);
+    gap: 8px;
+    padding: 8px;
+    box-sizing: border-box;
   }
   
-  .masonry-item {
-    background: white;
-    margin-bottom: 16px;
-    border-radius: 8px;
+  .gallery-item {
+    border: 1px solid #ccc;
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
   }
   
   .user-info {
     display: flex;
     align-items: center;
-    padding: 8px;
+    margin-bottom: 6px;
+    width: 100%;
+    gap: 6px;
   }
   
   .avatar {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 8px;
   }
   
   .user-details {
+    flex-grow: 1;
+    font-size: 12px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #1E3769;
   }
   
   .heart-icon {
-    color: #e0245e;
+    color: #e25555;
+    margin: 0 4px;
   }
   
   .petname {
-    font-weight: 600;
-    color: #1E3769;
+    font-style: italic;
+    color: #666;
+    font-size: 11px;
   }
   
   .gallery-image {
     width: 100%;
-    display: block;
-    border-radius: 0 0 8px 8px;
+    height: 100px;
     object-fit: cover;
-    cursor: pointer;
+    border-radius: 4px;
     user-select: none;
   }
   
