@@ -42,8 +42,8 @@
       width: 100%;
       max-width: 1012px;
       margin: 0 auto;
-      overflow-x: visible;
-  
+      overflow-x: 
+   
   }
   .hoot-scroll-container {
   
@@ -55,7 +55,7 @@
       margin-left: 21px;
       border: none;
    
-    overflow-x: auto;
+    overflow-x: scroll;
     padding-bottom: 21px; /* Adds space between content (e.g. cards) and scrollbar */
     
   }
@@ -90,17 +90,6 @@
   @media (min-width: 300px) and (max-width: 480px) {
     .hootyblue {
       display: none;
-    }
-
-    .visible {
-      max-width: none !important; 
-      width: 100% !important;     
-    }
-
-    .hoot-scroll-container {
-      width: auto !important;      
-      max-width: none !important;
-      margin-left: 0 !important;   
     }
   }
   

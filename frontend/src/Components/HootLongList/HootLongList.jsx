@@ -28,7 +28,10 @@ export default function HootLongList(props) {
 
   return (
     <div style={{ marginTop: "125px", marginRight: "42px" }}>
-      <div className="hootyblue">
+      <div
+        className="hootyblue"
+       
+      >
         <div>
           <h2
             style={{
@@ -66,13 +69,11 @@ export default function HootLongList(props) {
       </div>
 
       <div
-        
-        className="visible"
-    
+     className="visible"
       >
         <div
           className="hoot-scroll-container"
-       
+         
         >
           {displayedHoots.map((hoot) => (
             <div
