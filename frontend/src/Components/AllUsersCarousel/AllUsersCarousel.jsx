@@ -34,40 +34,29 @@ export default function AllUsersCarousel() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
+    if (scrollContainer.scrollWidth <= scrollContainer.clientWidth) return;
+
     const scrollSpeed = 1;
     const scrollInterval = 30;
 
-    const startAutoScroll = () => {
-      const intervalId = setInterval(() => {
-        const atEnd =
-          scrollContainer.scrollLeft + scrollContainer.clientWidth >=
-          scrollContainer.scrollWidth - 5;
+    const intervalId = setInterval(() => {
+      const atEnd =
+        scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+        scrollContainer.scrollWidth - 5;
 
-        if (atEnd) {
-          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          scrollContainer.scrollLeft += scrollSpeed;
-        }
-      }, scrollInterval);
-
-      return intervalId;
-    };
-
-    // Delay scroll setup to allow rendering
-    const timer = setTimeout(() => {
-      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
-        const intervalId = startAutoScroll();
-        return () => clearInterval(intervalId);
+      if (atEnd) {
+        scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scrollContainer.scrollLeft += scrollSpeed;
       }
-    }, 100); // small delay for layout to complete
+    }, scrollInterval);
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(intervalId);
   }, [allImages]);
-  
 
   return (
     <div>
-      <div ref={scrollRef} className="hoot-scroll-container">
+      <div ref={scrollRef} className="gallery-scroll-container">
         {allImages.length === 0 && <p>No images available.</p>}
 
         {allImages.map((img, idx) => (
@@ -77,8 +66,9 @@ export default function AllUsersCarousel() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              minWidth: "200px", // ✅ Important for scrolling
-              flexShrink: 0, // ✅ Prevent shrinking
+              width: "200px",
+              minWidth: "200px", // ADD THIS
+              flexShrink: 0, // prevents shrinking smaller than 150px
             }}
           >
             {/* Avatar and Info */}

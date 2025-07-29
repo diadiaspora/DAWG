@@ -1,39 +1,25 @@
-.hoot-scroll-container {
+.gallery-scroll-container {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; /* add this */
   gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
-
-  /* NEW: Ensure it can grow/shrink responsively */
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
-.AllUsersCarousel {
-  width: 100%;
-  max-width: 100%;
-}
 
-.hoot-scroll-container {
+.gallery-scroll-container {
   width: 100%;
   max-width: 100%;
 }
   
   /* Mobile breakpoint: max-width 480px */
   @media (max-width: 480px) {
-    .AllUsersCarousel {
+    .gallery-scroll-container {
       width: 100%;
-      max-width: 100%;
-    }
-  
-    .Caro-Cal {
-      width: 100%;
-      max-width: 100%;
+      max-width: 480px;
     }
   }
   
