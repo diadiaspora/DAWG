@@ -87,9 +87,33 @@
     border-color: #4AA692;
   }
 
+  /* .hoot-scroll-container {
+    -webkit-overflow-scrolling: touch; /* smooth momentum scroll */
+    scroll-snap-type: x mandatory;
+  }
+  
+  .hoot-card {
+    scroll-snap-align: start;
+  }
+   */
+
   @media (min-width: 300px) and (max-width: 480px) {
     .hootyblue {
       display: none;
+    }
+
+    .hoot-scroll-container {
+      width: max-content;
+      margin-left: 0;
+    }
+  
+    .visible {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+  
+    .hoot-card {
+      flex: 0 0 auto; /* Optional: ensures horizontal scroll works cleanly */
     }
   }
   
