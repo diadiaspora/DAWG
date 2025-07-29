@@ -1,7 +1,8 @@
 .marketplace-mobile-wrapper {
-  
+  padding: 1rem;
   max-width: 480px;
-  margin-left: -450px;
+  margin-left: -550px;
+  margin-bottom: -100px;
 }
 
 .marketplace-mobile-header {
@@ -12,78 +13,61 @@
 }
 
 .marketplace-button {
-  background-color: #1e3769;
-  border: 1px solid #1e3769;
-  color: white;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border: 2px solid #1E3769;
+  background: transparent;
+  color: #1E3769;
   cursor: pointer;
-  font-weight: bold;
+  border-radius: 4px;
 }
 
-.marketplace-button:hover {
-  background-color: #4aa692;
-  border-color: #4aa692;
+.product-grid-mobile {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 0.5rem; /* spacing below scrollbar */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns */
-  gap: 12px;
-  max-width: ;
+.product-grid-mobile::-webkit-scrollbar {
+  height: 6px;
 }
 
-.product-card {
-  max-width: 80vw;
-  width: 100%;
-  background: white;
+.product-grid-mobile::-webkit-scrollbar-thumb {
+  background-color: #4AA692;
+  border-radius: 3px;
+}
+
+.product-card-mobile {
+  flex: 0 0 auto; /* prevent shrinking, auto width */
+  width: 140px; /* fixed width for cards */
+  border: 1px solid #ddd;
   border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  padding: 8px;
   text-decoration: none;
   color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.3s ease;
-  max-height: 290px;
-}
-
-.product-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: #fff;
+  box-sizing: border-box;
 }
 
 .product-image {
   width: 100%;
-  height: 150px;
+  height: auto;
+  border-radius: 6px;
   object-fit: cover;
 }
 
 .product-info {
-  padding: 0.5rem 0.75rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-top: 8px;
 }
 
 .product-title {
   font-size: 1rem;
-  margin: 0 0 0.25rem 0;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0 0 4px 0;
 }
 
 .product-price {
-  font-weight: bold;
-  color: #4aa692;
+  font-weight: 600;
+  color: #4AA692;
   margin: 0;
-}
-
-/* Responsive: switch to 1 column on very small devices */
-@media (max-width: 360px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
 }

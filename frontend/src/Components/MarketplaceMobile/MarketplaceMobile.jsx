@@ -38,12 +38,12 @@ export default function MarketplaceMobile() {
         </Link>
       </div>
 
-      <div className="product-grid">
+      <div className="product-grid-mobile">
         {products.map((product) => (
           <Link
             key={product.id}
             to={`/product/${product.id.split("/").pop()}`}
-            className="product-card"
+            className="product-card-mobile"
           >
             {product.images.length > 0 && (
               <img
