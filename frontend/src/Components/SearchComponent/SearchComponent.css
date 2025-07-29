@@ -9,6 +9,7 @@
   .box {
     margin: 20px 10px;
     min-height: 400px;
+    max-width: 390;
   }
 
   #kiwi-widget {
