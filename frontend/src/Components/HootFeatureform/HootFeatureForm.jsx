@@ -6,9 +6,9 @@ import { FaHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
 
-import HootForm from "../../Components/HootForm/HootForm";
+import HootForm from "../HootForm/HootForm";
 
-export default function HootFeatured(props) {
+export default function HootFeatureForm(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 
