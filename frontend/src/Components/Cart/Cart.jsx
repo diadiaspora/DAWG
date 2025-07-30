@@ -1,7 +1,7 @@
 // src/components/CartPage.jsx
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
   const { checkout, loading, updateLineItemQuantity, removeLineItem } =

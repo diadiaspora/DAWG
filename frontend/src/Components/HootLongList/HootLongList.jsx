@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { FaHeart, FaRegHeart } from "react-icons/fa6"; // Correct import for filled heart
+import { FaHeart} from "react-icons/fa6"; // Correct import for filled heart
 import "./HootLongList.css";
 import * as hootService from "../../services/hootService";
 

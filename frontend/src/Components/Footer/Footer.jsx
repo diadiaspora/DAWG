@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import NewsLetter from "../../Components/NewsLetter/NewsLetter.jsx";
 import { useEffect, useRef } from "react";
 

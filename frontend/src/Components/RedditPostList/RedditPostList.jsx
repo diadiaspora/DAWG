@@ -4,7 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ArrowLeft, ArrowRight, ThumbsUp, MessageSquare, Share2, CornerDownRight } from "lucide-react";
 import "./RedditPostList.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 
 const generateUniqueId = () => Math.random().toString(36).substr(2, 9);

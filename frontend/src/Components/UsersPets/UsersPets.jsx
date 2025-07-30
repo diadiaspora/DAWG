@@ -1,7 +1,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import * as petService from "../../services/petService";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import PetComponent from "../PetComponent/PetComponent";
 import UserPetComponent from "../UserPetComponent/UserPetComponent";
 

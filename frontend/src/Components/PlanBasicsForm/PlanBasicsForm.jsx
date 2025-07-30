@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as planService from "../../services/planService";
 import "./PlanBasicForm.css";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import Calendar from "../Calendar/Calendar.jsx";
 
 

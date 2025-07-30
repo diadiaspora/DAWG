@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { blogPosts } from "../../Data/blogs"; // or wherever your blog data is
 import MapSmall from "../../Components/MapSmall/MapSmall.jsx";
 

@@ -1,9 +1,9 @@
 import * as hootService from "../../services/hootService";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router";
-import HootForm from "../../Components/HootForm/HootForm";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./HootList.css";
-import { IoMdHeartEmpty } from "react-icons/io";
+
 import { FaRegHeart } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";
 

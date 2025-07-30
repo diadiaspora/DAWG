@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function PlanIndex({isGallery}) {
   const [plans, setPlans] = useState([]);

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink, Link } from "react-router";
+import { NavLink, Link } from "react-router-dom";
 import { logOut } from "../../services/authService";
 import "./NavBarMobile.css";
-import { FaRegCircleUser } from "react-icons/fa6";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function NavBarMobile({ user, setUser, profile }) {

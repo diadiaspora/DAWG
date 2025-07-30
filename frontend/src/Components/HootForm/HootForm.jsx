@@ -1,7 +1,7 @@
 import "./HootForm.css";
 import GiphyPicker from "../GiphyPicker/GiphyPicker"; 
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const HootForm = (props) => {
   const navigate = useNavigate(); 

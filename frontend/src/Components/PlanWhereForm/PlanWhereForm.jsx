@@ -1,7 +1,7 @@
 import { useState, useRef} from "react";
 import * as planService from "../../services/planService";
-import { useNavigate, Link } from "react-router";
-import { IoMdCalendar } from "react-icons/io";
+import { useNavigate, Link } from "react-router-dom";
+
 import Motel from "../../Components/Motel/Motel";
 
 import "./PlanWhereForm.css"; 

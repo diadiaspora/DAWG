@@ -7,7 +7,7 @@ import Header from "../../Components/Header/Header.jsx";
 
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; 
 
 import UsersPlansShort from "../../Components/UsersPlansShort/UsersPlansShort";
@@ -95,7 +95,7 @@ export default function UserProfilePage({ user }) {
         <div style={{ marginLeft: "-42px" }}>
           <UsersBlogs user={user} />
 
-          <Articles />
+          {/* <Articles /> */}
         </div>
       </section>
     </>

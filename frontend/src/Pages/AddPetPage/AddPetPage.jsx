@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import PetComponent from "../../Components/PetComponent/PetComponent";
 
 export default function AddPetPage({ user }) {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as planService from "../../services/planService";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { BiWorld } from "react-icons/bi";
 import { IoMdCalendar } from "react-icons/io";
 

@@ -1,5 +1,5 @@
 import { useState, NavLink } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { signUp } from "../../services/authService";
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";

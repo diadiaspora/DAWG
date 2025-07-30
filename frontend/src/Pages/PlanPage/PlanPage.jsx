@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Header from "../../Components/Header/Header.jsx";
 import PlanBasicsForm from "../../Components/PlanBasicsForm/PlanBasicsForm.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-import PlanIndex from "../../Components/PlanIndex/PlanIndex.jsx";
+
 import Articles from "../../Components/Articles/Articles.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
@@ -49,12 +49,12 @@ export default function PlanPage({ user }) {
   return (
     <>
       <section className="plan">
-        <Header />
+         <Header />
         <SearchComponent />
         <div>
           <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
-        </div>
-        {/* <div
+        </div> 
+       <div
           style={{
             backgroundColor: "#1E3769",
             width: "1012px",
@@ -66,17 +66,17 @@ export default function PlanPage({ user }) {
             paddingLeft:"42px"
           }}
           ref={klookRef}
-        ></div> */}
-        <div style={{ marginTop: "75px" }}>
+        ></div> 
+         <div style={{ marginTop: "75px" }}>
           <HotelComponent />
-        </div>
-        <div style={{ marginTop: "100px" }}>
+        </div> 
+         <div style={{ marginTop: "100px" }}>
           <UsersPlans user={user} />
-        </div>
+         </div>
         <div style={{marginTop: "-30px"}}>
           <Marketplace />
         </div>
-        <Articles />
+        {/* <Articles />  */}
       </section>
     </>
   );

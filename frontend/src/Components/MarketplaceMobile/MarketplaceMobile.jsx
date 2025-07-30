@@ -1,6 +1,6 @@
 import { getProducts } from "../../api/ShopifyClient";
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "./MarketplaceMobile.css";
 
 export default function MarketplaceMobile() {

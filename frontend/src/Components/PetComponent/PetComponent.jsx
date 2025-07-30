@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import * as petService from "../../services/petService"; // Corrected import path
-import { useNavigate } from "react-router"; // Keep useNavigate if you use it
+import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use it
 
 export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
