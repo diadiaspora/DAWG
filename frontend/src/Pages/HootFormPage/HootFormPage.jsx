@@ -5,10 +5,12 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
 import CommentForm from "../../Components/CommentForm/CommentForm";
+import HootList from "../../Components/HootList/HootList";
 
 import HootForm from "../../Components/HootForm/HootForm";
 
 export default function HootFeatureForm(props) {
+  const { hoots, user, setUser } = props;
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 
@@ -271,16 +273,21 @@ export default function HootFeatureForm(props) {
           </div>
           <div
             style={{
-         
               borderRadius: "7px",
               padding: "6px",
-              width: "310px"
+              width: "310px",
             }}
           >
             <h3 style={{ color: "white" }}> Write a Post</h3>
             <HootForm handleAddHoot={handleAddHoot} />
           </div>
         </div>
+        <HootList
+          user={user}
+          setUser={setUser}
+          hoots={hoots}
+          handleAddHoot={handleAddHoot}
+        />
       </div>
     );
 }

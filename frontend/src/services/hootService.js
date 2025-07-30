@@ -38,3 +38,7 @@ export async function unlikeComment(hootId, commentId) {
     "PUT"
   );
 }
+
+export async function getPaginated(page = 1, limit = 10) {
+  return sendRequest(`${BASE_URL}/paginated?page=${page}&limit=${limit}`);
+}

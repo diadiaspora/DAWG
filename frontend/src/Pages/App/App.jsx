@@ -35,7 +35,7 @@ import CartPage from "../CartPage/CartPage";
 import SearchFlights from "../../Components/SearchFlights/SearchFlights";
 import FlyPage from "../FlyPage/FlyPage";
 import { CartProvider } from "../../context/CartContext";
-
+import HootInfinitePage from "../HootInfinitePage/HootInfinitePage";
 import BlogList from "../../Components/BlogList/BlogList";
 import BlogPage from "../BlogPage/BlogPage";
 import NewBlogsDetail from "../NewBlogsDetail/NewBlogsDetail";
@@ -128,7 +128,7 @@ export default function App() {
     <>
       <main className="App">
         <NavBar user={user} setUser={setUser} profile={profile} />
-    
+
         <CartProvider>
           <section id="main-section">
             {user ? (
@@ -237,6 +237,7 @@ export default function App() {
                   }
                 />
                 <Route path="/addpet" element={<AddPetPage user={user} />} />
+                <Route path="/allposts" element={<HootInfinitePage />} />
               </Routes>
             ) : (
               <Routes>
@@ -294,6 +295,7 @@ export default function App() {
                   path="/services/:service/:location"
                   element={<ServicesInfoPage />}
                 />
+                <Route path="/allposts" element={<HootInfinitePage />} />
               </Routes>
             )}
           </section>

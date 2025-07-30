@@ -4,6 +4,8 @@ const hootsCtrl = require("../controllers/hoots");
 const ensureLoggedIn = require("../middleware/ensureLoggedIn");
 
 router.get("/", hootsCtrl.index);
+router.get("/paginated", hootsCtrl.getPaginatedHoots);
+
 router.get("/:id", hootsCtrl.show);
 
 router.use(ensureLoggedIn);
@@ -28,5 +30,8 @@ router.put(
   ensureLoggedIn,
   hootsCtrl.unlikeComment
 );
+
+
+
 
 module.exports = router;

@@ -11,6 +11,7 @@ module.exports = {
   unlikeHoot,
   likeComment,
   unlikeComment,
+  getPaginatedHoots,
 };
 
 async function create(req, res) {
@@ -209,5 +210,26 @@ async function unlikeComment(req, res) {
   } catch (err) {
     console.error("Error unliking comment:", err);
     res.status(500).json({ message: "Failed to unlike comment" });
+  }
+}
+
+async function getPaginatedHoots(req, res) {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
+  try {
+    const hoots = await Hoot.find({})
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .populate("author", "username avatar");
+
+    const total = await Hoot.countDocuments();
+    const hasMore = page * limit < total;
+
+    res.json({ data: hoots, hasMore });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch hoots" });
   }
 }
