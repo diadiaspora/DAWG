@@ -46,28 +46,11 @@ const HootDetails = ({ hootId, user, setUser }) => {
 
   return (
     <main style={{ display: "flex", width: "1012px", marginTop: "100px" }}>
+      <div> </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <section style={{ width: "662px", marginLeft: "42px" }}>
-          <header>
-            <div style={{ display: "flex" }}>
-              <img
-                src={
-                  hoot.author?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"
-                }
-                alt="Author avatar"
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
-              />
-              <p>
-                <strong>{hoot.author?.username || "Anonymous"}</strong>
-              </p>
-            </div>
-          </header>
-          <div style={{ display: "flex" }}>
+          <header></header>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
                 borderStyle: "solid",
@@ -75,65 +58,90 @@ const HootDetails = ({ hootId, user, setUser }) => {
                 borderColor: "#E9E9E9",
                 borderRadius: "7px",
                 padding: "12px",
-                height: "200px",
+               
                 overflowY: "auto",
+                height: "50vw",
               }}
             >
-              <h1>{hoot.title}</h1>
-              <p>{hoot.text}</p>
-            </div>
-            {hoot.gifUrl && (
               <div
                 style={{
-                  width: "100%",
                   display: "flex",
-                  justifyContent: "center",
+                  marginLeft: "40px",
+                  marginTop: "5px",
                 }}
               >
                 <img
-                  src={hoot.gifUrl}
-                  alt="GIF"
+                  src={
+                    hoot.author?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"
+                  }
+                  alt="Author avatar"
                   style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    maxHeight: "300px",
-                    borderRadius: "8px",
-                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
                   }}
                 />
+                <p style={{ marginLeft: "12px", marginTop: "6px" }}>
+                  <strong>{hoot.author?.username || "Anonymous"}</strong>
+                </p>
               </div>
-            )}
+              {hoot.gifUrl && (
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <img
+                    src={hoot.gifUrl}
+                    alt="GIF"
+                    style={{
+                      maxWidth: "100vw",
+                      height: "auto",
+                      maxHeight: "300px",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                    }}
+                  />
+                </div>
+              )}
+              <div style={{ marginLeft: "40px" }}>
+                <h1>{hoot.title}</h1>
+                <p>{hoot.text}</p>
+              </div>
+              <CommentForm
+                handleAddComment={handleAddComment}
+                parentId={null}
+              />
+              <div>
+                {!hoot.comments?.length && (
+                  <p
+                    style={{
+                      borderStyle: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#E9E9E9",
+                      borderRadius: "7px",
+                      marginLeft: "42px",
+                    }}
+                  >
+                    There are no comments.
+                  </p>
+                )}
+                {nestedComments.map((comment) => (
+                  <CommentThread
+                    key={comment._id}
+                    comment={comment}
+                    handleAddComment={handleAddComment}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        <section>
-          <CommentForm
-            handleAddComment={handleAddComment}
-            parentId={null}
-          />
-          <div>
-            {!hoot.comments?.length && (
-              <p
-                style={{
-                  borderStyle: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#E9E9E9",
-                  borderRadius: "7px",
-                  marginLeft: "42px",
-                }}
-              >
-                There are no comments.
-              </p>
-            )}
-            {nestedComments.map((comment) => (
-              <CommentThread
-                key={comment._id}
-                comment={comment}
-                handleAddComment={handleAddComment}
-              />
-            ))}
-          </div>
-        </section>
+        <section></section>
       </div>
       <div style={{ marginLeft: "42px" }}>
         <HootForm handleAddHoot={handleAddHoot} />

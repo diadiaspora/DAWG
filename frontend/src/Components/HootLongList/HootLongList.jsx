@@ -15,6 +15,7 @@ export default function HootLongList(props) {
   const handlePostClick = () => {
     if (props.user) {
       navigate("/newhoot");
+      
     } else {
       navigate("/signup");
     }
@@ -60,7 +61,7 @@ export default function HootLongList(props) {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
-            Post
+            View Posts
           </button>
         </div>
       </div>

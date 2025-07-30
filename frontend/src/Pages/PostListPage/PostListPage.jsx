@@ -7,6 +7,7 @@ import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootForm from "../../Components/HootForm/HootForm";
 import HootList from "../../Components/HootList/HootList";
 import * as hootService from "../../services/hootService";
+
 import "./PostListPage.css";
 
 export default function PostListPage(props) {
@@ -33,6 +34,7 @@ export default function PostListPage(props) {
           handleAddHoot={handleAddHoot}
         />
       </div>
+  
     </>
   );
 }

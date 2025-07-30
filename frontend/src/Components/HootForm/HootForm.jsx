@@ -48,6 +48,7 @@ const HootForm = (props) => {
           backgroundColor: "#1e37691f",
           borderRadius: "7px",
           padding: "20px",
+          height: "50vw",
         }}
       >
         <p style={{ marginBottom: "0px", marginTop: "0px" }}>Create a Post</p>

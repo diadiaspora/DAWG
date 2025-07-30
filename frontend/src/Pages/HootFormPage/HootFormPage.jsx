@@ -1,9 +1,9 @@
 import HootForm from "../../Components/HootForm/HootForm";
 import * as hootService from "../../services/hootService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import HootLongList from "../../Components/HootLongList/HootLongList";
-
-export default function HootFormPage({ user, setUser, hoots }) {
+import HootFeatureForm from "../../Components/HootFeatureForm/HootFeatureForm";
+export default function HootFormPage({ user, setUser, hoots, setHoots }) {
   const navigate = useNavigate();
 
   const handleAddHoot = async (newHootData) => {
@@ -19,7 +19,8 @@ export default function HootFormPage({ user, setUser, hoots }) {
   return (
     <>
       <section style={{ width: "100%", paddingTop: "100px" }}>
-        <HootForm handleAddHoot={handleAddHoot} />
+        <HootFeatureForm hoots={hoots} user={user} setHoots={setHoots} />
+      
         <HootLongList
           user={user}
           setUser={setUser}
