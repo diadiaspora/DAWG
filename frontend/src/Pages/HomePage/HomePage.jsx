@@ -4,7 +4,7 @@ import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper.jsx";
 import { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router-dom";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

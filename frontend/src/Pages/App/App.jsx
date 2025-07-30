@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import {
-  BrowserRouter as Router,
+
   Routes,
   Route,
 
-} from "react-router";
+} from "react-router-dom";
+
 import * as blogService from "../../services/blogService";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";

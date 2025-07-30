@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import * as authService from "../../services/authService";
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";

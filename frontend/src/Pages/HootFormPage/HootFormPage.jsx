@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
-import CommentForm from "../CommentForm/CommentForm";
+import CommentForm from "../../Components/CommentForm/CommentForm";
 
-import HootForm from "../HootForm/HootForm";
+import HootForm from "../../Components/HootForm/HootForm";
 
 export default function HootFeatureForm(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
