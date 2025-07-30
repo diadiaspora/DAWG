@@ -3,6 +3,8 @@ import * as hootService from "../../services/hootService";
 import { useNavigate } from "react-router";
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import HootFeatureForm from "../../Components/HootFeatureForm/HootFeatureForm";
+
+
 export default function HootFormPage({ user, setUser, hoots, setHoots }) {
   const navigate = useNavigate();
 
