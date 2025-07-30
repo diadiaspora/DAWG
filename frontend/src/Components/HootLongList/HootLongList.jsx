@@ -28,10 +28,7 @@ export default function HootLongList(props) {
 
   return (
     <div style={{ marginTop: "125px", marginRight: "42px" }}>
-      <div
-        className="hootyblue"
-       
-      >
+      <div className="hootyblue">
         <div>
           <h2
             style={{
@@ -68,13 +65,8 @@ export default function HootLongList(props) {
         </div>
       </div>
 
-      <div
-     className="visible"
-      >
-        <div
-          className="hoot-scroll-container"
-         
-        >
+      <div className="visible">
+        <div className="hoot-scroll-container">
           {displayedHoots.map((hoot) => (
             <div
               key={hoot._id}
@@ -94,7 +86,13 @@ export default function HootLongList(props) {
               }}
             >
               <header style={{ marginBottom: "8px" }}>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     src={
                       hoot.author?.avatar ||
@@ -108,22 +106,36 @@ export default function HootLongList(props) {
                       objectFit: "cover",
                     }}
                   />
-                  <p
+                  <div
                     style={{
                       fontSize: "16px",
                       marginLeft: "6px",
+                      display: "flex",
                     }}
                   >
                     <strong>{hoot.author?.username || "Anonymous"}</strong>
-                  </p>
-                  <div style={{ marginLeft: "190px" }}>
-                    <p style={{ fontSize: "12px" }}>
-                      {new Date(hoot.createdAt).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        fontSize: "12px",
+                        marginLeft: "auto", // This pushes the date to the far right
+                        alignItems: "center",
+                      }}
+                    >
+                      <p style={{ marginLeft: "4px" }}>
+                        {new Date(hoot.createdAt).toLocaleDateString("en-US", {
+                          month: "short",
+                        })}
+                      </p>
+                      <p>
+                        {new Date(hoot.createdAt).toLocaleDateString("en-US", {
+                          day: "numeric",
+                        })}
+                      </p>
+                    </div>
                   </div>
+                  <div style={{ marginLeft: "190px" }}></div>
                 </div>
               </header>
               <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
@@ -225,6 +237,9 @@ export default function HootLongList(props) {
                     <FaRegComment />
                   </Link>
                 </div>
+                <span style={{ marginLeft: "4px" }}>
+                  {hoot.comments.length}
+                </span>
               </div>
             </div>
           ))}

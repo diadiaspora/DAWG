@@ -47,27 +47,28 @@ const Gallery = () => {
 
   // Desktop gallery UI
   return (
-    <div className="gallery-container">
-      <div className="Caro-Cal">
-        <div className="AllUsersCarousel">
-          <AllUsersCarousel />
-        </div>
+    <section className="gal">
+      <div className="gallery-container">
+        <div className="Caro-Cal">
+          <div className="AllUsersCarousel">
+            <AllUsersCarousel />
+          </div>
 
-        <div
-          className="bluething"
-          style={{
-            backgroundColor: "#1E3769",
-            height: "100px",
-            width: "665px",
-            borderRadius: "7px",
-            marginTop: "24px",
-            paddingTop: "1px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {/* <div
+          <div
+            className="bluething"
+            style={{
+              backgroundColor: "#1E3769",
+              height: "100px",
+              width: "665px",
+              borderRadius: "7px",
+              marginTop: "24px",
+              paddingTop: "1px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* <div
             ref={klookWidgetRef}
             style={{
               borderRadius: "7px",
@@ -76,16 +77,17 @@ const Gallery = () => {
               height: "60px",
             }}
           /> */}
+          </div>
+        </div>
+
+        <div
+          className="calendarContainer"
+          style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}
+        >
+          <Calendar />
         </div>
       </div>
-
-      <div
-        className="calendarContainer"
-        style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}
-      >
-        <Calendar />
-      </div>
-    </div>
+    </section>
   );
 };
 
