@@ -8,7 +8,7 @@ import CommentForm from "../CommentForm/CommentForm";
 
 import HootForm from "../HootForm/HootForm";
 
-export default function HootFeatureForm(props) {
+export default function HootFeature(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 
