@@ -22,11 +22,25 @@
   .home {
     padding: 0.5rem;
     gap: 1rem;
+    max-width: 768px;
   }
 
   
 
 }
+
+@media screen and (max-width: 1011px) {
+  .home {
+    padding: 0.5rem;
+    gap: 1rem;
+    max-width: 900px;
+  }
+
+  
+
+}
+
+
 
 @media screen and (max-width: 480px) {
   .home {
