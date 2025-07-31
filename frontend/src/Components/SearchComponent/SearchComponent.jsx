@@ -28,7 +28,9 @@ const SearchComponent = () => {
 
   return (
     <>
-      <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
+      <div className="headbuttons">
+        <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
+      </div>
       <div className="box">
         {!isMobile && activeForm === "flights" && <SearchFlights />}
         {activeForm === "airlineInfo" && <SearchAirlines />}
