@@ -3,11 +3,19 @@
 
 .header {
     display: flex;
-    background-color: white;
+
     margin-left: 42px;
-    max-width: 90vw;
-    width: 100%;
+
     background-color: whitesmoke;
+
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 24px 16px;
+    width: 100%;
+    max-width: 1012px;
+
+    justify-content: center;
+    align-items: center;
     
 }
 
