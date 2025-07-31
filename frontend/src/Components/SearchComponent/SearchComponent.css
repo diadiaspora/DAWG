@@ -66,6 +66,8 @@
 
   .headbuttonz {
     margin-left: 0px;
+    max-width: 90vw;
+    width: 100%;
   }
   }
 

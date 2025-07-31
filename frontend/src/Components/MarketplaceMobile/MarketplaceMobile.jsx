@@ -31,12 +31,13 @@ export default function MarketplaceMobile() {
 
   return (
     <div className="marketplace-mobile-wrapper">
-      <div className="marketplace-mobile-header">
-        <h2>Everything You Need</h2>
-        <Link to="/marketplace">
+      <Link to="/marketplace">
+        <div className="marketplace-mobile-header">
+          <h2>Everything You Need</h2>
+
           <button className="marketplace-button">Marketplace</button>
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <div className="product-grid-mobile">
         {products.map((product) => (

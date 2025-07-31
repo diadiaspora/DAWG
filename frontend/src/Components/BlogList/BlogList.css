@@ -16,7 +16,7 @@
   .blog-scroll-container:hover::-webkit-scrollbar-thumb {
     background-color: #4AA692;
   }
-  
+
   .blog-scroll-container {
     overflow-x: auto;
     padding-bottom: 21px;

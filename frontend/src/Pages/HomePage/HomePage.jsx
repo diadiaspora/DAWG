@@ -13,6 +13,7 @@ import * as hootService from "../../services/hootService";
 import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
+import FlightButton from "../../Components/FlightButton/FlightButton";
 
 export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   const navigate = useNavigate();
@@ -45,6 +46,9 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
           <Gallery />
         </div>
+        <div className="mobile-only">
+          <FlightButton />
+        </div>
         <div>
           <BlogsComponent />
         </div>
@@ -53,7 +57,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         </div>
     */}
 
-  <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
+        <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
         <HootLongList
           user={user}
           setUser={setUser}

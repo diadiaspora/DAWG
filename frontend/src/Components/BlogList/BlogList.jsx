@@ -38,6 +38,7 @@ export default function BlogList({ user }) {
     >
       <div style={{ width: "662px", marginRight: "42px" }}>
         <div
+          
           style={{
             backgroundColor: "#1E3769",
             width: "1012px",

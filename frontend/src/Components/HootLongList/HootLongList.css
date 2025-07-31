@@ -100,7 +100,8 @@ align-items: center;
   @media (min-width: 300px) and (max-width: 480px) {
 
     .hootyblue {
-      display: none;
+    width: 310px;
+    height: 44px;
     }
    
   

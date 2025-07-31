@@ -205,6 +205,7 @@ export default function HootFeature(props) {
                   </span>
                 </div>
               </div>
+              
               <CommentForm
                 handleAddComment={async (commentFormData) => {
                   const newComment = await hootService.comment(

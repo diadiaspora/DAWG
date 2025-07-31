@@ -64,7 +64,14 @@ margin-left: 0px;
 
 @media (min-width: 300px) and (max-width: 480px) {
 
+.tea {
+  margin-top: 0px;
+  margin-right: 0px;
+}
 
+.buttdiss {
+  display: none;
+}
 
 .bluelabel {
 
@@ -73,11 +80,16 @@ margin-left: 0px;
   width: 100%;
   display: flex;
   border-radius: 7px;
-  height: 70px;
+  height: 44px;
   align-items: baseline;
   margin-bottom: 24px;
   padding: 12px;
 
+}
+
+.bluelabel:hover {
+  background-color: #4AA692; 
+  color: #1E3769; 
 }
 
 .bloggy {

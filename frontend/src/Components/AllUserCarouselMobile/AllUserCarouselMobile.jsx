@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosHeart } from "react-icons/io";
 import "./AllUserCarouselMobile.css";
+import { Link } from "react-router-dom";
 
 export default function AllUsersCarouselMobile() {
   const [allImages, setAllImages] = useState([]);
@@ -63,6 +64,8 @@ export default function AllUsersCarouselMobile() {
           />
         </div>
       ))}
+ 
     </div>
+    
   );
 }

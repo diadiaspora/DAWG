@@ -3,8 +3,12 @@
     .mobile-gallery-container {
       display: none;
     }
+
+
   }
   
+
+
   .mobile-gallery-container {
     max-width: 90vw;
     width: 100%;

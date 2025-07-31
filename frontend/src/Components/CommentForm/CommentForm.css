@@ -1,13 +1,26 @@
+.change-to-colummn {
+  display: flex;
+}
+.formflex {
+  display: flex;
+}
 .commdiv {
     display: flex;
     width: 100%;
   }
 
+  .texta {
+    
+      flex: 1;
+      border-width: 1px;
+      border-color: #BCC7D4;
+      padding: 8px;
+      border-radius: 4px;
+      width: 500px
+   
+  }
 
   @media (max-width: 480px) {
-  .change-to-colummn {
-    display: flex;
-    flex-direction: column;
-  }
+
 
   }

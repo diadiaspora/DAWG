@@ -21,11 +21,13 @@ export default function BlogsComponent() {
   return (
     <>
       <div className="blogs-component-container">
-        <div className="bluelabel">
-          <h2 className="tea">All The Pet Travel Tea</h2>
-          <Link to="/blogs">
+        <Link to="/blogs">
+          <div className="bluelabel">
+            <h2 className="tea">All The Pet Travel Tea</h2>
+
             <div>
               <button
+                className="buttdiss"
                 // onClick={handlePostClick}
                 style={{
                   width: "140px",
@@ -45,8 +47,8 @@ export default function BlogsComponent() {
                 Recent Articles
               </button>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
 
         <div className="blog-scroll-container">
           <div

@@ -12,6 +12,11 @@
   margin-bottom: 1rem;
   max-width: 90vw;
   width: 100%;
+  background-color: #1E3769;
+  height: 70px;
+  margin-top: 60px;
+  border-radius: 7px;
+  color: #ffffff;
 }
 
 .marketplace-button {
@@ -50,6 +55,7 @@
   color: inherit;
   background: #fff;
   box-sizing: border-box;
+  height: 220px
 }
 
 .product-image {
