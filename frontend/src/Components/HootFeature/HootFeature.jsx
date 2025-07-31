@@ -7,7 +7,7 @@ import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
 import FlightCalendar from "../FlightCalendar/FlightCalendar";
 
-export default function HootFeatured(props) {
+export default function HootFeature(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 

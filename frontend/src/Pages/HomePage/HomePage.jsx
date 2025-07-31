@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
 import * as hootService from "../../services/hootService";
-
+import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
 
@@ -53,6 +53,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         </div>
     */}
 
+  <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
         <HootLongList
           user={user}
           setUser={setUser}
