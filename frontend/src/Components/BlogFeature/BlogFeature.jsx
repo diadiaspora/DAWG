@@ -83,6 +83,7 @@ export default function BlogFeature() {
           boxSizing: "border-box",
         }}
       >
+        <h2 style={{fontSize: "20px", color: "#ffffff", marginTop: "12px", marginBottom: "12px"}}> Flight Deals </h2>
    <MapSmall />
       </div>
     </div>

@@ -73,7 +73,7 @@ export default function PlanPage({ user }) {
          <div style={{ marginTop: "100px" }}>
           <UsersPlans user={user} />
          </div>
-        <div style={{marginTop: "-30px"}}>
+        <div style={{marginTop: "-30px", marginLeft: "42px"}}>
           <Marketplace />
         </div>
         {/* <Articles />  */}

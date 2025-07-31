@@ -11,13 +11,12 @@
   background-color: whitesmoke;
 }
 
-/* Optional: prevent images or carousels from overflowing */
+
 .home img, .home .slick-slider {
   max-width: 100%;
   height: auto;
 }
 
-/* Handle layout tweaks on small devices */
 @media screen and (max-width: 768px) {
   .home {
     padding: 0.5rem;
@@ -48,11 +47,5 @@
     gap: 0.75rem;
   }
 
-  .sixeighty {
-    width: 100%;
-    max-width: 1012px; /* or 680px if intentional */
-    margin: 0 auto;
-    padding: 16px;
-    box-sizing: border-box;
-  }
+
 }

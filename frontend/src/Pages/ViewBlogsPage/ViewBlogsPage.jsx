@@ -16,7 +16,9 @@ export default function ViewBlogsPage({ user, setUser }) {
       </div>
 
       <BlogFeature />
-      <BlogsComponent />
+      <div style={{marginLeft: "42px"}}>
+        <BlogsComponent />
+      </div>
       {/* <HotelComponent /> */}
       <BlogListAd />
       {/* <Articles /> */}
