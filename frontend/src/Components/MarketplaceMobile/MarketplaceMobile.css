@@ -31,9 +31,10 @@
 .product-grid-mobile {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden; 
   gap: 1rem;
-  padding-bottom: 0.5rem; /* spacing below scrollbar */
-  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .product-grid-mobile::-webkit-scrollbar {
@@ -46,8 +47,8 @@
 }
 
 .product-card-mobile {
-  flex: 0 0 auto; /* prevent shrinking, auto width */
-  width: 140px; /* fixed width for cards */
+  flex: 0 0 auto; 
+  width: 140px; 
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 8px;
