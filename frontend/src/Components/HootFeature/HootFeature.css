@@ -1,0 +1,35 @@
+.style {
+  width: 662px;
+}
+
+.featcard {
+  border: 1px solid #bcc7d4;
+  border-radius: 7px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 300px) and (max-width: 480px) {
+  .blabel {
+    background-color: #1e3769;
+    max-width: 90vw;
+    width: 100%;
+    display: flex;
+    border-radius: 7px;
+    height: 70px;
+    align-items: baseline;
+    margin-bottom: 24px;
+    padding: 12px;
+  }
+
+
+.featcard {
+    max-width: 90vw;
+    width: 100%;
+}
+
+  .flightdealls {
+    display: none;
+  }
+}

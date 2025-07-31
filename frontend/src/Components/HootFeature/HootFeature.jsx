@@ -6,6 +6,7 @@ import { FaHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
 import FlightCalendar from "../FlightCalendar/FlightCalendar";
+import "./HootFeature.css";
 
 export default function HootFeature(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
@@ -33,6 +34,7 @@ export default function HootFeature(props) {
     return (
       <div>
         <div
+          className="blabel"
           style={{
             backgroundColor: "#1E3769",
             width: "1012px",
@@ -56,16 +58,11 @@ export default function HootFeature(props) {
             marginRight: "42px",
           }}
         >
-          <div style={{ width: "662px" }}>
+          <div className="style" >
             <div
               key={featuredHoot._id}
-              style={{
-                border: "1px solid #BCC7D4",
-                borderRadius: "7px",
-                padding: "16px",
-                display: "flex",
-                flexDirection: "column",
-              }}
+              className="featcard"
+        
             >
               {/* Author & Date */}
               <header
@@ -147,7 +144,7 @@ export default function HootFeature(props) {
                   alt="GIF"
                   style={{
                     width: "100%",
-                    height: "150px",
+                    height: "100%",
                     objectFit: "cover",
                     borderRadius: "6px",
                     marginTop: "8px",
@@ -258,6 +255,7 @@ export default function HootFeature(props) {
             </div>
           </div>
           <div
+            className="flightdeals"
             style={{
               backgroundColor: "#1E3769",
               borderRadius: "7px",
