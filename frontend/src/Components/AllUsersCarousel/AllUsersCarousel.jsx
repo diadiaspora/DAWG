@@ -34,18 +34,13 @@ export default function AllUsersCarousel() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    if (scrollContainer.scrollWidth <= scrollContainer.clientWidth) return;
-
     const scrollSpeed = 1;
     const scrollInterval = 30;
 
     const intervalId = setInterval(() => {
-      const atEnd =
-        scrollContainer.scrollLeft + scrollContainer.clientWidth >=
-        scrollContainer.scrollWidth - 5;
-
-      if (atEnd) {
-        scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+      // If we've scrolled halfway through (end of original images), reset
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
       } else {
         scrollContainer.scrollLeft += scrollSpeed;
       }
@@ -59,7 +54,7 @@ export default function AllUsersCarousel() {
       <div ref={scrollRef} className="gallery-scroll-container">
         {allImages.length === 0 && <p>No images available.</p>}
 
-        {allImages.map((img, idx) => (
+        {[...allImages, ...allImages].map((img, idx) => (
           <div
             key={idx}
             style={{
