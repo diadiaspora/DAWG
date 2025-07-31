@@ -1,11 +1,12 @@
 .box {
   box-sizing: border-box;
-  margin: 42px;
+  margin: 0 auto;
+  padding: 24px 16px;
   width: 100%;
   max-width: 1012px;
   display: flex;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -27,14 +28,12 @@ align-items: center;
 }
 
 @media (min-width: 768px) and (max-width: 1011px) {
-  .box {max-width: 900px;
-    display: flex;
-justify-content: left;
-align-items: left;
-    width: 100%;
-    max-width: 700px;
-    
-  margin-left: -18%;}
+  .box {
+    padding: 24px 16px;
+    max-width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+  }
 
   .headbuttonz {
     margin-left: 0px;
@@ -46,8 +45,12 @@ align-items: left;
 
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .box {max-width: 690px;
-  margin-left: -500px;}
+  .box {
+    padding: 16px;
+    max-width: 95%;
+    margin: 0 auto;
+    justify-content: center;
+  }
 
   .headbuttonz {
     margin-left: 0px;

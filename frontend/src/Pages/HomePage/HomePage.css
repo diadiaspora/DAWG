@@ -49,6 +49,10 @@
   }
 
   .sixeighty {
-    margin-left: -680px;
+    width: 100%;
+    max-width: 1012px; /* or 680px if intentional */
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
   }
 }
