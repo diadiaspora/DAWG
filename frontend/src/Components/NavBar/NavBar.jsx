@@ -46,7 +46,7 @@ export default function NavBar({ user, setUser, profile }) {
         ) : (
           <>
             <NavLink to="/fly">Flights</NavLink>
-            <NavLink to="/posts">Posts</NavLink>
+            <NavLink to="/allposts">Posts</NavLink>
             <NavLink to="/blogs">Blogs</NavLink>
             <NavLink to="/marketplace">Shop</NavLink>
             <NavLink to="/login">Log In</NavLink>

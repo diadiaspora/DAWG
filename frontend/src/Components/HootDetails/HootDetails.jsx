@@ -58,7 +58,7 @@ const HootDetails = ({ hootId, user, setUser }) => {
                 borderColor: "#E9E9E9",
                 borderRadius: "7px",
                 padding: "12px",
-               
+
                 overflowY: "auto",
                 height: "50vw",
               }}
@@ -92,15 +92,17 @@ const HootDetails = ({ hootId, user, setUser }) => {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
+                   
                   }}
                 >
                   <img
                     src={hoot.gifUrl}
                     alt="GIF"
                     style={{
-                      maxWidth: "100vw",
-                      height: "auto",
-                      maxHeight: "300px",
+                      objectFit: "cover",
+                      maxWidth: "100%",
+                      height: "100%",
+                      maxHeight: "100%",
                       borderRadius: "8px",
                       boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                     }}

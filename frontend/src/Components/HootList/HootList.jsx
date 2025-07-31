@@ -21,7 +21,7 @@ export default function HootList(props) {
 
   const randomizeHoots = (hootArray) => {
     const shuffled = [...hootArray].sort(() => 0.5 - Math.random());
-    setRandomHoots(shuffled.slice(0, 10));
+    setRandomHoots(shuffled.slice(0, 3));
   };
 
   const handleAddHoot = async (newHootData) => {
