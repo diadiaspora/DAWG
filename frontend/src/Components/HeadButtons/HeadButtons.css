@@ -98,8 +98,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 690px;
-    width: 90vw;
+    max-width: 80vw;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
