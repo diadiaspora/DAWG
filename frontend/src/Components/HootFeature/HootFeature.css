@@ -1,5 +1,7 @@
 .style {
   width: 662px;
+  max-height: 550px;
+  overflow-y: auto;
 }
 
 .featcard {

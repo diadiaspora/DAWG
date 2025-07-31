@@ -168,7 +168,7 @@ export default function HootList(props) {
                   alt="GIF"
                   style={{
                     width: "100%",
-                    height: "150px",
+                    height: "100%",
                     objectFit: "cover",
                     borderRadius: "6px",
                     marginBottom: "8px",
