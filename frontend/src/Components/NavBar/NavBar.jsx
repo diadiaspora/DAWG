@@ -28,7 +28,7 @@ export default function NavBar({ user, setUser, profile }) {
           <>
             <NavLink to="/fly">Flights</NavLink>
             <NavLink to="/plans">Plan</NavLink>
-            <NavLink to="/write">Write</NavLink>
+            <NavLink to="/allposts">Posts</NavLink>
             <NavLink to="/marketplace">Shop</NavLink>
             <NavLink to="/profiles/">Profile</NavLink>
             <Link to="/" onClick={handleLogOut}>

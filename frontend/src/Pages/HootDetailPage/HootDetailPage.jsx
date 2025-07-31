@@ -1,8 +1,9 @@
 
 import * as hootService from "../../services/hootService";
+import { useNavigate, useParams } from "react-router-dom";
 import HootDetails from "../../Components/HootDetails/HootDetails";
 import HootList from "../../Components/HootList/HootList";
-import { useNavigate, useParams } from "react-router-dom";
+
 
 const HootDetailsPage = ({ user, setUser, hoots }) => {
   const { hootId } = useParams(); 

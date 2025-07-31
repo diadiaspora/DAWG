@@ -186,7 +186,7 @@ export default function BlogList({ user }) {
               onMouseEnter={() => setHoverCreate(true)}
               onMouseLeave={() => setHoverCreate(false)}
             >
-              Create a post
+              Share Your Story
             </button>
           </div>
         </div>

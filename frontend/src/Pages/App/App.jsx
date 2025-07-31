@@ -237,7 +237,16 @@ export default function App() {
                   }
                 />
                 <Route path="/addpet" element={<AddPetPage user={user} />} />
-                <Route path="/allposts" element={<HootInfinitePage />} />
+                <Route
+                  path="/allposts"
+                  element={
+                    <HootInfinitePage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                    />
+                  }
+                />
               </Routes>
             ) : (
               <Routes>
@@ -295,7 +304,16 @@ export default function App() {
                   path="/services/:service/:location"
                   element={<ServicesInfoPage />}
                 />
-                <Route path="/allposts" element={<HootInfinitePage />} />
+                <Route
+                  path="/allposts"
+                  element={
+                    <HootInfinitePage
+                      hoots={hoots}
+                      user={user}
+                      setUser={setUser}
+                    />
+                  }
+                />
               </Routes>
             )}
           </section>
