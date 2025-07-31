@@ -25,23 +25,31 @@
       overflow-x: auto;
       padding-bottom: 21px; 
       width: 662px;
+      margin-left: 0px;
   
   }
 .ulflex {
   display: flex;
+  list-style: none;
+  margin-left: -38px;
+  width: 400px;
 
 }
  
+.listitem {
+  width: 331px;
+}
 
   .blogdiv {
     
-      width: 300px;
+      width: 330px;
       border-radius: 7px;
       margin-right: 21px;
       border-style: solid;
       border-color: #4AA692;
       height: 350px;
       flex: 0 0 auto;
+      margin-left: 0px;
     
   }
   

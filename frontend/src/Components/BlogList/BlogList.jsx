@@ -41,7 +41,7 @@ export default function BlogList({ user }) {
           style={{
             backgroundColor: "#1E3769",
             width: "1012px",
-            marginLeft: "42px",
+     
             display: "flex",
             borderRadius: "7px",
             height: "70px",
@@ -93,7 +93,7 @@ export default function BlogList({ user }) {
                   className="blogdiv"
       
                 >
-                  <li>
+                  <li >
                     <img
                       src={blog.contentOneImage}
                       alt="resources"
@@ -145,7 +145,7 @@ export default function BlogList({ user }) {
       {/* Sidebar Call to Action */}
       <div
         className="blog-sidebar"
-        style={{ height: "350px", marginLeft: "42px", marginTop: "85px" }}
+        style={{ height: "350px",  marginTop: "106px" }}
       >
         <div
           style={{

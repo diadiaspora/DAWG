@@ -1,21 +1,10 @@
 .box {
   box-sizing: border-box;
-  margin: 42px auto;
+  margin: 42px;
   width: 100%;
   max-width: 1012px;
 }
 
-@media (max-width: 480px) {
-  .box {
-    margin: 20px 10px;
-    min-height: 400px;
-    max-width: 390;
-  }
-
-  #kiwi-widget {
-    display: none !important;
-  }
-}
 
 .input {
   width: 220px;
@@ -34,8 +23,16 @@
   color: #ffffff;
 }
 
+@media (min-width: 768px) and (max-width: 1011px) {
+  .box {max-width: 900px;
+    width: 90vw;
+  margin-left: 42px;}
+  }
+
 
 @media (min-width: 481px) and (max-width: 767px) {
   .box {max-width: 690px;
   margin-left: 0px;}
   }
+
+  

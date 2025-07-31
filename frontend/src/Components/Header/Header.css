@@ -5,6 +5,9 @@
     display: flex;
     background-color: white;
     margin-left: 42px;
+    max-width: 90vw;
+    width: 100%;
+    background-color: whitesmoke;
     
 }
 
