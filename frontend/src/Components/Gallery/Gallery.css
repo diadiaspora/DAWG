@@ -5,7 +5,10 @@
 }
 .gal {
   width: 100vw;
-  margin-left: 42px;
+  
+  display: flex;
+justify-content: center;
+align-items: center;
 }
 .divbody {
   display: grid;

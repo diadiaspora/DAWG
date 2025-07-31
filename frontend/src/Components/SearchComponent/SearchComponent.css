@@ -3,6 +3,9 @@
   margin: 42px;
   width: 100%;
   max-width: 1012px;
+  display: flex;
+justify-content: center;
+align-items: center;
 }
 
 
