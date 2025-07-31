@@ -42,6 +42,7 @@ export default function Calendar() {
 
   return (
     <div
+      className="calendar-desktop-only"
       style={{
         width: "310px",
         padding: "12px",
@@ -92,7 +93,7 @@ export default function Calendar() {
           fontWeight: "bold",
           fontSize: "14px",
           marginTop: "4px",
-          marginBottom: "8px"
+          marginBottom: "8px",
         }}
       >
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
@@ -123,7 +124,19 @@ export default function Calendar() {
           </div>
         ))}
       </div>
-      <button style={{ backgroundColor: "#1E3769", borderRadius: "7px", height: "44px", marginTop: "24px", width: "290px", borderWidth: "0px"}}> Start Planning</button>
+      <button
+        style={{
+          backgroundColor: "#1E3769",
+          borderRadius: "7px",
+          height: "44px",
+          marginTop: "24px",
+          width: "290px",
+          borderWidth: "0px",
+        }}
+      >
+        {" "}
+        Start Planning
+      </button>
     </div>
   );
 }
