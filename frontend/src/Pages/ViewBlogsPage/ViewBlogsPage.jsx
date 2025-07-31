@@ -4,25 +4,22 @@ import Header from "../../Components/Header/Header.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import BlogFeature from "../../Components/BlogFeature/BlogFeature";
-import HotelComponent from "../../Components/HotelComponent/HotelComponent";
+// import HotelComponent from "../../Components/HotelComponent/HotelComponent";
 import { NavLink } from "react-router-dom";
 
-export default function ViewBlogsPage(user, setUser) {
+export default function ViewBlogsPage({ user, setUser }) {
   return (
-    <>
-      <section style={{ width: "100%" }}>
-        <div className="top">
-          <Header user={user} setUser={setUser} />
-          <SearchComponent />
-        </div>
-    
-        <BlogFeature />
+    <section style={{ width: "100%" }}>
+      <div className="top">
+        <Header user={user} setUser={setUser} />
+        <SearchComponent />
+      </div>
 
-        <BlogsComponent />
-        {/* <HotelComponent /> */}
-        <BlogListAd />
-        <Articles />
-      </section>
-    </>
+      <BlogFeature />
+      <BlogsComponent />
+      {/* <HotelComponent /> */}
+      <BlogListAd />
+      {/* <Articles /> */}
+    </section>
   );
 }
