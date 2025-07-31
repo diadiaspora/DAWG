@@ -1,5 +1,6 @@
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
-import {NavLink} from "react-router-dom";
+
+import MarketplaceDesigns from "../../Components/Marketplace/MarketplaceDesigns.jsx";
 
 
 export default function MarketplacePage() {
@@ -8,6 +9,7 @@ export default function MarketplacePage() {
       <section >
        
         <Marketplace />
+        <MarketplaceDesigns />
         
       </section>
     </>

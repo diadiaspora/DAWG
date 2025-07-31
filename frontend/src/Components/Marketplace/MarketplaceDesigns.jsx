@@ -3,55 +3,52 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Marketplace.css";
 
-export default function Marketplace() {
+export default function MarketplaceDesigns() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [hover, setHover] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 480);
-    };
-
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const fetchUncategorizedProducts = async () => {
+    const fetchProducts = async () => {
       try {
         setLoading(true);
-        const fetchedProducts = await getProducts();
+        const allProducts = await getProducts();
 
-        // Filter products where productType is missing or empty (uncategorized)
-        const uncategorizedProducts = fetchedProducts.filter((product) => {
-          const pt = product.productType;
-          return !pt || pt.trim() === "";
+        const visualArtProducts = allProducts.filter((product) => {
+          const pt = product.productType?.trim().toLowerCase();
+          return pt === "home decor";
         });
 
-        setProducts(uncategorizedProducts);
+        if (visualArtProducts.length > 0) {
+          setProducts(visualArtProducts);
+        } else {
+          setProducts([]); // no fallback to all products
+          console.warn("No products matched 'Home Decor' category.");
+        }
       } catch (err) {
         console.error("Error fetching products:", err);
-        setError("Failed to load products. Please try again later.");
+        setError("Failed to load visual artwork.");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchUncategorizedProducts();
+    fetchProducts();
   }, []);
 
-  if (loading) return <p>Loading products...</p>;
+  if (loading) return <p>Loading Visual Artwork...</p>;
   if (error) return <p className="error">{error}</p>;
-  if (products.length === 0) return <p>No uncategorized products found.</p>;
+
+  if (products.length === 0)
+    return (
+      <p>No visual artwork found. Check console logs for product details.</p>
+    );
 
   return (
     <div className="marketplace-wrapper">
       <div className="marketplace-header">
-        <h1>Everything You Need</h1>
+        <h1>Visual Artwork</h1>
         <Link to="/marketplace">
           <button
             style={{
@@ -70,8 +67,9 @@ export default function Marketplace() {
             }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
+            onClick={() => console.log("Current products:", products)}
           >
-            Marketplace
+            Back to Marketplace (Click to log products)
           </button>
         </Link>
       </div>

@@ -30,12 +30,16 @@
 
 .product-scroll-container {
   display: flex;
-  gap: 20px;
   overflow-x: auto;
-  padding-bottom: 21px;
-
-  width: 100%;
-  max-width: 1012px;
+  overflow-y: hidden;
+  gap: 16px;
+  width: 1012px;           /* Fixed container width */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;     /* Prevent wrapping */
+  box-sizing: border-box;
+  padding-bottom: 12px;    /* Space for scrollbar */
+  border: 1px solid #ccc;  /* Optional: visible boundary */
 }
 
 /* Scrollbar styles */
@@ -67,6 +71,8 @@
   width: 237px;
   border: 1px solid #d9d9d9;
   flex: 0 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;   
 }
 
 .product-card img {
