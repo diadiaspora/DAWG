@@ -1,7 +1,5 @@
-
 @media screen and (max-width: 1024px) {
-    .calendar-desktop-only {
-      display: none;
-    }
+  .calendar-desktop-only {
+    display: none !important;
   }
-  
+}

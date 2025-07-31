@@ -52,6 +52,7 @@ export default function Calendar() {
     >
       {/* Scrollable month/year buttons */}
       <div
+        className="calendar-desktop-only"
         style={{
           display: "flex",
           overflowX: "auto",
