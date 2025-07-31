@@ -9,18 +9,20 @@ const HeadButtons = ({ activeForm, setActiveForm }) => {
   ];
 
   return (
-    <div className="headbuttons">
-      {buttons.map(({ key, label }) => (
-        <button
-          key={key}
-          className={`${activeForm === key ? "selected" : ""} ${
-            key === "flights" ? "flights-only" : ""
-          }`}
-          onClick={() => setActiveForm(key)}
-        >
-          {label}
-        </button>
-      ))}
+    <div className="allHeader">
+      <div className="headbuttons">
+        {buttons.map(({ key, label }) => (
+          <button
+            key={key}
+            className={`${activeForm === key ? "selected" : ""} ${
+              key === "flights" ? "flights-only" : ""
+            }`}
+            onClick={() => setActiveForm(key)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

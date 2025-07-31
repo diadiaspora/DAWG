@@ -33,7 +33,11 @@ justify-content: left;
 align-items: left;
     width: 100%;
     
-  margin-left: -42px;}
+  margin-left: -5%;}
+
+  .headbuttonz {
+    margin-left: 0px;
+  }
 
 
 
@@ -43,6 +47,10 @@ align-items: left;
 @media (min-width: 481px) and (max-width: 767px) {
   .box {max-width: 690px;
   margin-left: 0px;}
+
+  .headbuttonz {
+    margin-left: 0px;
+  }
   }
 
   
