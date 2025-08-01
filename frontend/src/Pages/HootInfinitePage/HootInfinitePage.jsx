@@ -84,20 +84,19 @@ export default function HootInfinatePage({ user,  setUser }) {
       <main className="mainly">
         {/* <h2 style={{ marginBottom: "24px" }}>All Hoots</h2> */}
         {hoots.map((hoot, index) => {
-          if (index === hoots.length - 1) {
-            return (
+          const isLast = index === hoots.length - 1;
+          return (
+            <div key={hoot._id} style={{ marginBottom: "42px" }}>
               <HootCard
                 hoot={hoot}
                 user={user}
                 setUser={setUser}
-                ref={lastHootRef}
-                key={hoot._id}
+                ref={isLast ? lastHootRef : null}
               />
-            );
-          } else {
-            return <HootCard key={hoot._id} hoot={hoot} user={user} />;
-          }
+            </div>
+          );
         })}
+
         {loading && <Spinner />}
         {!hasMore && (
           <p style={{ textAlign: "center", color: "#888" }}>No more hoots.</p>
