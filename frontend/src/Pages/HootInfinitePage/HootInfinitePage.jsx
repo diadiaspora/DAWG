@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
+import "./HootInfinatePage.css";
 
 import HootCard from "../../Components/HootCard/HootCard"; // Make this reusable
 import Spinner from "../../Components/Spinner/Spinner";
@@ -14,6 +15,7 @@ export default function HootInfinatePage({ user,  setUser }) {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const observer = useRef();
 
@@ -53,11 +55,33 @@ export default function HootInfinatePage({ user,  setUser }) {
     fetchHoots();
   }, [page]);
 
+  const handleAddHoot = async (formData) => {
+
+    const createdHoot = await hootService.create(formData);
+    setHoots((prev) => [createdHoot, ...prev]);
+    setShowForm(false); // Hide form after submit
+    return createdHoot;
+  };
+
   return (
-    <div style={{ display: "flex", width: "1012px" }}>
-      <main
-        style={{ maxWidth: "662px", marginLeft: "42px", marginRight: "42px", marginTop: "100px" }}
-      >
+    <div className="wide">
+      <div className="mobile-create-rapper">
+        <div
+          className="mobile-text-create"
+          style={{ cursor: "pointer" }}
+          onClick={() => setShowForm((prev) => !prev)}
+        >
+          <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}>
+            Create a Hoot
+          </h2>
+        </div>
+        {showForm && (
+          <div className="hootystyle">
+            <HootForm handleAddHoot={handleAddHoot} />
+          </div>
+        )}
+      </div>
+      <main className="mainly">
         {/* <h2 style={{ marginBottom: "24px" }}>All Hoots</h2> */}
         {hoots.map((hoot, index) => {
           if (index === hoots.length - 1) {
@@ -79,7 +103,9 @@ export default function HootInfinatePage({ user,  setUser }) {
           <p style={{ textAlign: "center", color: "#888" }}>No more hoots.</p>
         )}
       </main>
-      <div style={{marginTop: "100px"}}> <HootForm /></div>
+      <div className="formerly">
+        <HootForm />
+      </div>
     </div>
   );
 }

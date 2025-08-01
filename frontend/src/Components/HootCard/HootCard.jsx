@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
+import "./HootCard.css";
 
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
