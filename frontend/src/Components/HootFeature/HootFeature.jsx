@@ -32,7 +32,7 @@ export default function HootFeature(props) {
   if (!featuredHoot) return null;
 
     return (
-      <div>
+      <div className="blabel-wrapper-desktop">
         <div
           className="blabel"
           style={{
@@ -49,6 +49,12 @@ export default function HootFeature(props) {
         >
           <h4 style={{ color: "white" }}>Featured Posts</h4>
         </div>
+        <div className="blabel-wrapper-mobile">
+          <div className="blabel">
+            <h4 style={{ color: "white" }}>Featured Posts</h4>
+          </div>
+        </div>
+
         <div
           style={{
             display: "flex",
@@ -58,12 +64,8 @@ export default function HootFeature(props) {
             marginRight: "42px",
           }}
         >
-          <div className="style" >
-            <div
-              key={featuredHoot._id}
-              className="featcard"
-        
-            >
+          <div className="style">
+            <div key={featuredHoot._id} className="featcard">
               {/* Author & Date */}
               <header
                 style={{
@@ -205,7 +207,7 @@ export default function HootFeature(props) {
                   </span>
                 </div>
               </div>
-              
+
               <CommentForm
                 handleAddComment={async (commentFormData) => {
                   const newComment = await hootService.comment(
@@ -261,7 +263,7 @@ export default function HootFeature(props) {
               backgroundColor: "#1E3769",
               borderRadius: "7px",
               padding: "6px",
-              width: "310px"
+              width: "310px",
             }}
           >
             <h3 style={{ color: "white" }}> Find Hotel Deals</h3>

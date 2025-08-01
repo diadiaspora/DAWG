@@ -12,7 +12,24 @@
   flex-direction: column;
 }
 
+.blabel-wrapper-mobile {
+  display: none;
+}
+
+.blabel-wrapper-desktop {
+  display: block;
+}
+
 @media (min-width: 300px) and (max-width: 480px) {
+
+  .blabel-wrapper-desktop {
+    display: none;
+  }
+
+  .blabel-wrapper-mobile {
+    display: block;
+  }
+  
   .blabel {
     background-color: #1e3769;
     max-width: 90vw;
