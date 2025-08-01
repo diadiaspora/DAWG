@@ -1,0 +1,48 @@
+.bigdiv {
+    display: flex;
+    gap: 24px;
+    margin-left: 42px;
+    margin-bottom: 48px;
+  }
+  
+  .featcard {
+    width: 662px;
+    border-radius: 12px;
+    border: 1px solid #BCC7D4;
+    overflow: hidden;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .flight-deals-sidebar {
+    background-color: #1E3769;
+    width: 320px;
+    border-radius: 7px;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  
+  .flight-deals-sidebar h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  
+  /* ✅ Media Query to hide sidebar */
+  @media screen and (max-width: 480px) {
+    .flight-deals-sidebar {
+      display: none !important;
+    }
+  
+    .featcard {
+      width: 80vw;
+      max-width: 100%;
+      margin-right: 20px;
+    }
+  
+    .bigdiv {
+      flex-direction: column;
+    }
+  }
+  

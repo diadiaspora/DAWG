@@ -179,6 +179,7 @@ export default function BlogListAd({ user }) {
               overflow: "hidden",
             }}
           ></div>
+          
         </div>
       </div>
     </div>
