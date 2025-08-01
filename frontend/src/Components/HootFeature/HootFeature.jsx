@@ -32,7 +32,8 @@ export default function HootFeature(props) {
   if (!featuredHoot) return null;
 
     return (
-      <div className="blabel-wrapper-desktop">
+      <div >
+        <div className="blabel-wrapper-desktop">
         <div
           className="blabel"
           style={{
@@ -48,6 +49,7 @@ export default function HootFeature(props) {
           }}
         >
           <h4 style={{ color: "white" }}>Featured Posts</h4>
+        </div>
         </div>
         <div className="blabel-wrapper-mobile">
           <div className="blabel">
