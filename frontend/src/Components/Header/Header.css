@@ -28,11 +28,27 @@ h2 {
 
 @media (max-width: 480px) {
     .header {
-        max-width: 90vw;
-        width: 100%;
-        margin-left: 0px;
+      max-width: 85vw;
+      width: 100%;
+      margin-left: 16px;
+      margin-top: 50px;
+      margin-bottom: 25px;
+      
+   
+      background-color: #1E3769;        /* blue background */
+      height: 70px;                     /* 70% of viewport height */
+      border-radius: 7px;               /* rounded corners */
+      color: white;                     /* optional: white text for contrast */
+      flex-direction: column;          /* stack elements vertically if needed */
+      justify-content: center;
+      align-items: center;
+      text-align: left;
     }
- 
+  
+    .header h1,
+    .header h2 {
+      color: white;                     /* ensure text is readable */
+    }
   }
 
 

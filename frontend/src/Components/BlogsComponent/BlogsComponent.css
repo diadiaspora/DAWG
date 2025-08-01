@@ -76,11 +76,12 @@ margin-left: 0px;
 .bluelabel {
 
   background-color: #1E3769;
-  max-width: 90vw;
+  max-width: 85vw;
   width: 100%;
+  margin-left: 16px;
   display: flex;
   border-radius: 7px;
-  height: 44px;
+  height: 70px;
   align-items: baseline;
   margin-bottom: 24px;
   padding: 12px;

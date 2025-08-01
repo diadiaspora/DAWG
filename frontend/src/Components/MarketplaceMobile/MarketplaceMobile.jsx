@@ -29,40 +29,72 @@ export default function MarketplaceMobile() {
   if (error) return <p className="error">{error}</p>;
   if (products.length === 0) return <p>No products found.</p>;
 
+  // Split into two rows
+  const halfwayIndex = Math.ceil(products.length / 2);
+  const firstRowProducts = products.slice(0, halfwayIndex);
+  const secondRowProducts = products.slice(halfwayIndex);
+
   return (
     <div className="marketplace-mobile-wrapper">
       <Link to="/marketplace">
         <div className="marketplace-mobile-header">
           <h2>Everything You Need</h2>
-
           <button className="marketplace-button">Marketplace</button>
         </div>
       </Link>
 
-      <div className="product-grid-mobile">
-        {products.map((product) => (
-          <Link
-            key={product.id}
-            to={`/product/${product.id.split("/").pop()}`}
-            className="product-card-mobile"
-          >
-            {product.images.length > 0 && (
-              <img
-                src={product.images[0].src}
-                alt={product.title}
-                className="product-image"
-              />
-            )}
-            <div className="product-info">
-              <h3 className="product-title">{product.title}</h3>
-              {product.variants.length > 0 && (
-                <p className="product-price">
-                  ${parseFloat(product.variants[0].price.amount).toFixed(2)}
-                </p>
+      <div className="product-scroll-row">
+        <div className="product-grid-mobile">
+          {firstRowProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/product/${product.id.split("/").pop()}`}
+              className="product-card-mobile"
+            >
+              {product.images.length > 0 && (
+                <img
+                  src={product.images[0].src}
+                  alt={product.title}
+                  className="product-image"
+                />
               )}
-            </div>
-          </Link>
-        ))}
+              <div className="product-info">
+                <h3 className="product-title">{product.title}</h3>
+                {product.variants.length > 0 && (
+                  <p className="product-price">
+                    ${parseFloat(product.variants[0].price.amount).toFixed(2)}
+                  </p>
+                )}
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="product-grid-mobile">
+          {secondRowProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/product/${product.id.split("/").pop()}`}
+              className="product-card-mobile"
+            >
+              {product.images.length > 0 && (
+                <img
+                  src={product.images[0].src}
+                  alt={product.title}
+                  className="product-image"
+                />
+              )}
+              <div className="product-info">
+                <h3 className="product-title">{product.title}</h3>
+                {product.variants.length > 0 && (
+                  <p className="product-price">
+                    ${parseFloat(product.variants[0].price.amount).toFixed(2)}
+                  </p>
+                )}
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

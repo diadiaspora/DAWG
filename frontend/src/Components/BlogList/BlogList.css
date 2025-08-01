@@ -52,6 +52,20 @@
       margin-left: 0px;
     
   }
+
+  .realstories {
+
+      background-color: #1E3769;
+      width: 1012px;
+
+      display: flex;
+      border-radius: 7px;
+      height: 70px;
+      align-items: baseline;
+      margin-bottom: 24px;
+      padding: 12px;
+  
+  }
   
 
   @media (max-width: 480px) {
@@ -72,6 +86,38 @@
     .blog-sidebar {
       display: none;
     }
+
+    .realstories {
+      max-width: 90vw;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1E3769;
+      border-radius: 7px;
+      height: 70px;
+      margin-bottom: 24px;
+      padding: 12px;
+    }
+  
+    .realstories h2 {
+      font-size: 16px;
+      color: #ffffff;
+      margin: 0;
+      white-space: nowrap;
+    }
+  
+    .realstories button {
+      height: 40px;
+      font-size: 14px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+  .latest-button {
+    display: none !important;
+  }
   }
   
   

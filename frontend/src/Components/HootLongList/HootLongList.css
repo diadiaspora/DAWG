@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .hootyblue {
  
   background-color: #1E3769;
@@ -95,15 +96,45 @@ align-items: center;
     border-color: #4AA692;
   }
 
+  .htwo {
+ 
+      margin-left: 21px;
+      margin-right: 470px;
+      color: #ffffff;
+      font-size: 18px;
+    
+  }
+
 
 
   @media (min-width: 300px) and (max-width: 480px) {
 
     .hootyblue {
-    width: 310px;
-    height: 44px;
+      max-width: 90vw;
+      width: 100%;
+    height: 70px;
+    margin-right: 0px;
+    margin-left: 27px;
     }
    
   
+      .hooty-button {
+        display: none;
+      }
+
+      .htwo {
+        max-width: 90vw;
+        width: 100%;
+        margin-left: 2px;
+        margin-right: 0;  /* reset margin-right here */
+        color: #ffffff;
+        font-size: 18px;
+      }
+
+      .visible {
+        margin-left: 21px;
+      }
+  
   }
   
+

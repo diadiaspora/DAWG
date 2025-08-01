@@ -43,7 +43,9 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           <Header user={user} setUser={setUser} />
 
           <SearchComponent />
-
+          <div className="mobile-text">
+            <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}>Besties</h2>
+          </div>
           <Gallery />
         </div>
         <div className="mobile-only">
@@ -56,7 +58,9 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           <HotelComponent />
         </div>
     */}
-
+        <div className="mobile-text-blue">
+          <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}> Featured Posts </h2>
+        </div>
         <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
         <HootLongList
           user={user}

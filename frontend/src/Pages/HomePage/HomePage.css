@@ -62,5 +62,34 @@
     margin-left: -670px;
     
   }
+  .mobile-text {
+    max-width: 85vw;
+    width: 100%;
+    margin-left: 16px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    display: block;
+background-color: #1E3769;
+height: 70px;
+border-radius: 7px;
+color: #ffffff;
+
+    
+  }
+
+  .mobile-text-blue {
+    max-width: 85vw;
+    width: 100%;
+    margin-left: -669px;
+    margin-top: 50px;
+    margin-bottom: -145px;
+    display: block;
+background-color: #1E3769;
+height: 70px;
+border-radius: 7px;
+color: #ffffff;
+
+    
+  }
 
 }

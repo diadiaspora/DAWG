@@ -37,20 +37,7 @@ export default function BlogList({ user }) {
       }}
     >
       <div style={{ width: "662px", marginRight: "42px" }}>
-        <div
-          
-          style={{
-            backgroundColor: "#1E3769",
-            width: "1012px",
-     
-            display: "flex",
-            borderRadius: "7px",
-            height: "70px",
-            alignItems: "baseline",
-            marginBottom: "24px",
-            padding: "12px",
-          }}
-        >
+        <div className="realstories">
           <h2
             style={{
               marginLeft: "21px",
@@ -65,6 +52,7 @@ export default function BlogList({ user }) {
           <Link to="/blogs">
             <div>
               <button
+                className="latest-button"
                 style={{
                   width: "140px",
                   height: "44px",
@@ -87,14 +75,10 @@ export default function BlogList({ user }) {
         </div>
         <div className="blog-scroll-container">
           {blogs.length ? (
-            <ul className="ulflex" >
+            <ul className="ulflex">
               {blogs.map((blog) => (
-                <div
-                  key={blog._id}
-                  className="blogdiv"
-      
-                >
-                  <li >
+                <div key={blog._id} className="blogdiv">
+                  <li>
                     <img
                       src={blog.contentOneImage}
                       alt="resources"
@@ -146,7 +130,7 @@ export default function BlogList({ user }) {
       {/* Sidebar Call to Action */}
       <div
         className="blog-sidebar"
-        style={{ height: "350px",  marginTop: "106px" }}
+        style={{ height: "350px", marginTop: "106px" }}
       >
         <div
           style={{

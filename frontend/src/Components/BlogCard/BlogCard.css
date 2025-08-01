@@ -1,17 +1,26 @@
 .truncate-text {
-    display: -webkit-box; /* Enables Flexbox-like layout for line clamping */
-    -webkit-line-clamp: 3; /* THIS IS THE KEY: Truncate after 3 lines */
-    -webkit-box-orient: vertical; /* Essential for -webkit-line-clamp to work */
-    overflow: hidden;    /* Hides any content that overflows the container */
-    text-overflow: ellipsis; /* Displays an ellipsis (...) for truncated text */
-    margin-Top: -10px;
-  }
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: -10px; /* fix casing */
+}
 
+.cardi {
+
+    height: 380px;
+    width: 237px;
+    border-radius: 7px;
+    border: 1px solid #BCC7D4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
 
 
 @media (min-width: 320px) and (max-width: 480px) {
-  cardi {
-height: 60%;
-width: 60%;
+  .cardi {
+    width: 180px;  /* fixed width works better in scrollable row */
+    height: 320px;
   }
 }

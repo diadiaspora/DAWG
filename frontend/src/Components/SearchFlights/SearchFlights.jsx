@@ -36,14 +36,15 @@ export default function SearchFlights() {
         justifyContent: "center",
         padding: "40px 0",
         backgroundColor: "#f9f9f9",
+  
       }}
     >
       <div
         ref={widgetRef}
         id="kiwi-widget"
         style={{
-          width: "100%",
-          maxWidth: "1262px",
+          
+          width: "1012px",
         }}
       ></div>
     </section>

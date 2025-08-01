@@ -8,13 +8,14 @@ export default function FlightButton() {
       >
         <button
           style={{
-            backgroundColor: "#4AA692",
+            backgroundColor: "#1E3769",
             height: "44px",
             marginTop: "56px",
-            width: "310px",
+            width: "320px",
             borderWidth: "0px",
             borderRadius: "7px",
             fontSize: "18px",
+            marginLeft: "10px"
           }}
         >
           Search Flights

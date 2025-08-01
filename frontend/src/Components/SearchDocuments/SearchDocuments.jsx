@@ -128,7 +128,7 @@ const SearchDocuments = () => {
         borderRadius: "7px",
         borderColor: "#d9d9d9",
         backgroundColor: "#ffffff",
-        marginTop: "82px",
+        marginTop: "42px",
         height: "177px",
         width: "1012px",
         marginLeft: "0px",

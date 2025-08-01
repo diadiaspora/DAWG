@@ -6,13 +6,7 @@ export default function BlogCard({ blog }) {
   return (
     <div
       className="cardi"
-      style={{
-        height: "380px",
-        width: "237px",
-        borderRadius: "7px",
-        border: "1px solid #BCC7D4",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-      }}
+
     >
       <img
         src={blog.thumbnail}
@@ -27,12 +21,12 @@ export default function BlogCard({ blog }) {
         <h2 style={{ fontSize: "18px", textAlign: "left", marginTop: "16px" }}>
           {blog.title}
         </h2>
-        <p
+        {/* <p
           className="truncate-text"
           style={{ fontSize: "14px", textAlign: "justify" }}
         >
           {blog.excerpt}
-        </p>
+        </p> */}
         <div
           style={{ fontSize: "16px", textAlign: "right", marginTop: "32px" }}
         >

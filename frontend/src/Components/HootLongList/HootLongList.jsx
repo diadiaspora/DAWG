@@ -32,18 +32,15 @@ export default function HootLongList(props) {
       <div className="hootyblue">
         <div>
           <h2
-            style={{
-              marginLeft: "21px",
-              marginRight: "570px",
-              color: "#ffffff",
-              fontSize: "18px",
-            }}
+            className="htwo"
+        
           >
             Heres What Everyone Saying
           </h2>
         </div>
         <div>
           <button
+            className="hooty-button"
             onClick={handlePostClick}
             style={{
               borderWidth: "1px",
@@ -54,9 +51,9 @@ export default function HootLongList(props) {
               cursor: "pointer",
               fontSize: "16px",
               fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
+              borderColor: hover ? "#4AA692" : "#1E3769",
               color: hover ? "#347567" : "#1E3769",
-              borderRadius: "7px", // ✅ once
+              borderRadius: "7px",
             }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}

@@ -32,7 +32,16 @@
     width: 100%;
 }
 
-  .flightdealls {
-    display: none;
+.flightdeals {
+  display: none !important;
+}
+
+  .style {
+    max-width: 85vw;
+    width: 100vw;
+    max-height: none;
+    overflow-y: visible;
+    margin-left: -350px;
   }
+
 }
