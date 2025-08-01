@@ -29,7 +29,7 @@
   .blabel-wrapper-mobile {
     display: block;
   }
-  
+
   .blabel {
     background-color: #1e3769;
     max-width: 90vw;
@@ -58,7 +58,7 @@
     width: 100vw;
     max-height: none;
     overflow-y: visible;
-    margin-left: -350px;
+    margin-left: -470px;
   }
 
 }
