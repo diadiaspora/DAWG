@@ -99,9 +99,10 @@ export default function NavBarMobile({ user, setUser, profile }) {
           ) : (
             <>
           
-              <NavLink to="/posts" onClick={() => setMenuOpen(false)}>
+              <NavLink to="/allposts" onClick={() => setMenuOpen(false)}>
                 Posts
-              </NavLink>
+                </NavLink>
+                
               <NavLink to="/blogs" onClick={() => setMenuOpen(false)}>
                 Blogs
               </NavLink>
