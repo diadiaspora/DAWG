@@ -29,7 +29,7 @@ export default function FlightMobile() {
     <section
       id="flight-widget-container"
       style={{
-        width: "90", // Widget needs this much space
+        width: "90%", // Widget needs this much space
         transform: "scale(0.65)", // Shrink it visually to fit screen
         transformOrigin: "top left", // Keep top-left positioning
         marginLeft: "-300px", // Keeps your positioning
