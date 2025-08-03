@@ -14,7 +14,7 @@ import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
 import FlightButton from "../../Components/FlightButton/FlightButton";
-
+import FlightMobile from "../../Components/FlightMobile/FlightMobile";
 export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   const navigate = useNavigate();
   const handleAddHoot = async (newHootData) => {
@@ -50,6 +50,9 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         </div>
         <div className="mobile-only">
           <FlightButton />
+        </div>
+        <div>
+          <FlightMobile />
         </div>
         <div>
           <BlogsComponent />
