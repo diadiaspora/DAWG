@@ -17,7 +17,7 @@ export default function FlightMobile() {
       if (container && container.children.length === 0) {
         const script = document.createElement("script");
         script.src =
-          "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=7&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
+          "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=0&plain=true&color_button=%231E3769&color_button_text=%23ffffff&promo_id=3414&campaign_id=111";
         script.async = true;
         script.charset = "utf-8";
         container.appendChild(script);
@@ -29,11 +29,11 @@ export default function FlightMobile() {
     <section
       id="flight-widget-container"
       style={{
-        width: "100%", // Widget width container
-        transform: "scale(0.85)", // Scale widget to fit mobile
-        transformOrigin: "top left",
-        marginLeft: "-304px", // Adjust as needed
-        overflow: "hidden",
+        width: "90", // Widget needs this much space
+        transform: "scale(0.65)", // Shrink it visually to fit screen
+        transformOrigin: "top left", // Keep top-left positioning
+        marginLeft: "-300px", // Keeps your positioning
+        overflow: "hidden", // Prevents scrollbars
       }}
     />
   ) : null;
