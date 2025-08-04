@@ -36,7 +36,8 @@ export default function FlightMobile() {
         overflow: "hidden",
       }}
     >
-    
+      {/* Widget script will inject content here */}
     </section>
   ) : null;
   
+}
