@@ -3,6 +3,13 @@
     display: none;
   }
 
+  #tp-widget-wrapper iframe,
+#tp-widget-wrapper > div {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
   
   
   @media screen and (max-width: 480px) {
