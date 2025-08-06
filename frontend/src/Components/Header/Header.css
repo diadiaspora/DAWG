@@ -19,6 +19,16 @@
     
 }
 
+.email-alert {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border-radius: 5px;
+}
+
+
 
 h2 {
     font-family: Roboto, Helvetica, sans-serif;

@@ -1,20 +1,17 @@
-// pages/VerifyEmail.jsx
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { getUser } from "../../services/authService"; // make sure this path is correct
 
-export default function VerifyEmailPage() {
+export default function VerifyEmailPage({ setUser }) {
   const [searchParams] = useSearchParams();
-  const [message, setMessage] = useState("Verifying...");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const verify = async () => {
       const token = searchParams.get("token");
       if (!token) {
-        setError(true);
-        setMessage("Invalid or missing token.");
-        setLoading(false);
+        toast.error("Invalid or missing token.");
         return;
       }
 
@@ -23,30 +20,27 @@ export default function VerifyEmailPage() {
         const data = await res.json();
 
         if (res.ok) {
-          setMessage(data.message || "Email verified successfully!");
+          if (data.token) {
+            localStorage.setItem("token", data.token);
+            setUser(getUser()); //
+          }
+          toast.success("Welcome! You're now logged in.");
+          navigate("/"); // redirect
         } else {
-          setError(true);
-          setMessage(data.message || "Verification failed.");
+          toast.error(data.message || "Verification failed.");
         }
       } catch (err) {
-        console.error("Verification error:", err);
-        setError(true);
-        setMessage("An error occurred while verifying your email.");
-      } finally {
-        setLoading(false);
+        console.error(err);
+        toast.error("Verification failed.");
       }
     };
 
     verify();
-  }, [searchParams]);
+  }, [searchParams, navigate, setUser]);
 
   return (
     <div style={{ padding: "2rem", textAlign: "center" }}>
-      {loading ? (
-        <p>Verifying your email...</p>
-      ) : (
-        <p style={{ color: error ? "red" : "green" }}>{message}</p>
-      )}
+      <p>Verifying your email...</p>
     </div>
   );
 }

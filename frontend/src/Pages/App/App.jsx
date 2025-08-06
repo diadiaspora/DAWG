@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
-import {
+import { Routes, Route } from "react-router-dom";
 
-  Routes,
-  Route,
-
-} from "react-router-dom";
-
-
-import VerifyEmailPage from "../VerifyEmailPage/VerifyEmailPage";
 import * as blogService from "../../services/blogService";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
@@ -57,7 +50,6 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [hoots, setHoots] = useState([]);
 
-
   useEffect(() => {
     async function fetchProfile() {
       if (user) {
@@ -69,7 +61,7 @@ export default function App() {
           console.error("Failed to fetch profile", err);
         }
       }
-      setLoading(false); 
+      setLoading(false);
     }
     fetchProfile();
   }, [user]);
@@ -124,7 +116,6 @@ export default function App() {
       }
     };
   }, []); // Empty dependency array means this runs once on mount
-
 
   return (
     <>
@@ -262,8 +253,6 @@ export default function App() {
                   path="/signup"
                   element={<SignUpPage setUser={setUser} />}
                 />
-                <Route path="/verify" element={<VerifyEmailPage />} />
-
                 <Route
                   path="/login"
                   element={<LogInPage setUser={setUser} />}

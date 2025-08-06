@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser, profile }) {
     setUser(null);
   }
 
-  const avatarSrc = profile?.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png";
+  const avatarSrc = profile?.avatar || "https://i.ibb.co/bgQM3cM2/Vector.png";
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function NavBar({ user, setUser, profile }) {
                 src={avatarSrc}
                 className="avatar"
                 alt="User Avatar"
-                style={{ width: "33px", borderRadius: "300px" }}
+                style={{ marginRight: "42px" }}
               />
             </span>
           </>

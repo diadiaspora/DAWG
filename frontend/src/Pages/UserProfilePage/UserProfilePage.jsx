@@ -5,46 +5,38 @@ import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 
-
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs"; 
+import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs";
 
 import UsersPlansShort from "../../Components/UsersPlansShort/UsersPlansShort";
 import UsersPets from "../../Components/UsersPets/UsersPets";
 import Destinations from "../../Components/Destinations/Destinations.jsx";
-
-
-
-
 
 import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
 
-
   const { id } = useParams();
   useEffect(() => {
     profileService.show(id).then(setProfile).catch(console.error);
   }, [id]);
 
-   useEffect(() => {
-     async function fetchProfile() {
-       try {
-         const profileData = await profileService.show(user._id);
-         console.log(profileData)
-         setProfile(profileData);
-       } catch (err) {}
-     }
-     fetchProfile();
-   }, [user]);
+  useEffect(() => {
+    async function fetchProfile() {
+      try {
+        const profileData = await profileService.show(user._id);
+        console.log(profileData);
+        setProfile(profileData);
+      } catch (err) {}
+    }
+    fetchProfile();
+  }, [user]);
   console.log(profile);
-   useEffect(
-     () => {
-       console.log("profileUpdated");
-     }, [profile]
-   );
+  useEffect(() => {
+    console.log("profileUpdated");
+  }, [profile]);
 
   return (
     <>
@@ -61,10 +53,9 @@ export default function UserProfilePage({ user }) {
             padding: "12px",
             gap: "20px",
             marginLeft: "42px",
-            color: "#ffffff"
+            color: "#ffffff",
           }}
         >
-      
           Profile
         </div>
         {/* <Header />
@@ -81,9 +72,6 @@ export default function UserProfilePage({ user }) {
           <UsersPets user={user} />
 
           <UsersPlansShort user={user} />
-        </div>
-        <div>
-
         </div>
 
         <div

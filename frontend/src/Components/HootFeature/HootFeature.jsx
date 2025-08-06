@@ -12,6 +12,20 @@ export default function HootFeature(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 
+  const hoot = featuredHoot || {
+    author: {
+      username: "Anonymous",
+      avatar: "https://i.ibb.co/5x5Td7ks/av-1.png",
+    },
+    _id: "placeholder",
+    title: "No featured posts yet",
+    text: "",
+    gifUrl: null,
+    likes: [],
+    comments: [],
+    createdAt: new Date(),
+  };
+
   // Fetch one random hoot and load full detail (comments, likes, etc.)
   useEffect(() => {
     async function fetchFeatured() {
@@ -29,27 +43,35 @@ export default function HootFeature(props) {
     fetchFeatured();
   }, [props.hoots]);
 
-  if (!featuredHoot) return null;
+  if (!featuredHoot) {
+    return (
+      <div style={{ padding: "2rem", textAlign: "center" }}>
+        <h4>No featured posts yet</h4>
+        <p>Once users create hoots, a featured post will appear here.</p>
+      </div>
+    );
+  }
+  
 
     return (
-      <div >
+      <div>
         <div className="blabel-wrapper-desktop">
-        <div
-          className="blabel"
-          style={{
-            backgroundColor: "#1E3769",
-            width: "1012px",
-            display: "flex",
-            borderRadius: "7px",
-            height: "70px",
-            alignItems: "baseline",
-            marginBottom: "24px",
-            padding: "12px",
-            marginLeft: "42px",
-          }}
-        >
-          <h4 style={{ color: "white" }}>Featured Posts</h4>
-        </div>
+          <div
+            className="blabel"
+            style={{
+              backgroundColor: "#1E3769",
+              width: "1012px",
+              display: "flex",
+              borderRadius: "7px",
+              height: "70px",
+              alignItems: "baseline",
+              marginBottom: "24px",
+              padding: "12px",
+              marginLeft: "42px",
+            }}
+          >
+            <h4 style={{ color: "white" }}>Featured Posts</h4>
+          </div>
         </div>
         <div className="blabel-wrapper-mobile">
           <div className="blabel">
@@ -237,7 +259,7 @@ export default function HootFeature(props) {
                       }}
                     >
                       <p style={{ fontSize: "12px", marginBottom: "4px" }}>
-                        {comment.author.name} •{" "}
+                        {comment.author?.name || "Anonymous"}
                         {new Date(comment.createdAt).toLocaleDateString()}
                       </p>
                       <p style={{ fontSize: "14px", margin: 0 }}>

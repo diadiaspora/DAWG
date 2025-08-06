@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import * as profileService from "../../services/profileService";
 
-
 import "./ProfileForm.css";
 
 export default function ProfileForm({ profile, setProfile, user }) {
@@ -36,21 +35,18 @@ export default function ProfileForm({ profile, setProfile, user }) {
     setProfileData((prev) => ({ ...prev, [name]: value }));
   }
 
-
-
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrorMsg(""); 
+    setErrorMsg("");
     console.log({ profile });
 
     try {
-
       const imageData = new FormData();
 
       for (const key in profileData) {
         imageData.append(key, profileData[key]);
       }
-   
+
       if (avatarImageRef.current && avatarImageRef.current.files[0]) {
         imageData.append("avatar", avatarImageRef.current.files[0]);
       }
@@ -66,13 +62,9 @@ export default function ProfileForm({ profile, setProfile, user }) {
           importantDocsImageRef.current.files[0]
         );
       }
-     
+
       console.log({ profileData });
       console.log({ imageData });
-
-
-
-
 
       const updated = await profileService.update(profile?._id, imageData);
       setErrorMsg("");
@@ -85,7 +77,6 @@ export default function ProfileForm({ profile, setProfile, user }) {
       if (refreshedProfile) {
         setProfile(refreshedProfile);
       }
-
     } catch (err) {
       setErrorMsg("Failed to save profile details. Please try again.");
       console.error("Error updating profile:", err);
@@ -96,7 +87,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
 
   return (
     <>
-      <div style={{display:"flex"}}>
+      <div style={{ display: "flex" }}>
         <section style={{ width: "310px", marginRight: "21px" }}>
           {showForm ? (
             <div>
@@ -310,7 +301,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     />
 
-                    <button
+                    {/* <button
                       onClick={() => setShowForm(true)}
                       style={{
                         color: "#1E3769",
@@ -323,7 +314,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     >
                       Update
-                    </button>
+                    </button> */}
                   </div>
                   <div
                     style={{
@@ -388,7 +379,6 @@ export default function ProfileForm({ profile, setProfile, user }) {
             </div>
           )}
         </section>
-        
       </div>
     </>
   );

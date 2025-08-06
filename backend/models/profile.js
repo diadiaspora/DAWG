@@ -8,6 +8,7 @@ const profileSchema = new mongoose.Schema({
   avatar: {
     type: String,
     default: "https://i.ibb.co/bgQM3cM2/Vector.png",
+    
   },
   username: {
     type: String,

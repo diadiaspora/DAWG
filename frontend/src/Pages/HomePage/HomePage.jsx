@@ -62,7 +62,10 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         </div>
     */}
         <div className="mobile-text-blue">
-          <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}> Featured Posts </h2>
+          <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}>
+            {" "}
+            Featured Posts{" "}
+          </h2>
         </div>
         <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
         <HootLongList
