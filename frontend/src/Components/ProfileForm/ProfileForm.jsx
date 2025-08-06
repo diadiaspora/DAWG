@@ -115,52 +115,92 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         marginLeft: "0px",
                       }}
                     >
-                      <label
+                      <div
                         style={{
+                          display: "flex",
+                          flexDirection: "column",
                           marginLeft: "0px",
-                          fontSize: "14px",
-                          fontWeight: "600",
                         }}
                       >
-                        Username
-                      </label>
-                      <input
-                        name="username"
-                        value={profileData.username}
-                        onChange={handleChange}
-                        style={{
-                          width: "180px",
-                          height: "44px",
-                          backgroundColor: "#F2F4F7",
-                          borderWidth: "1px",
-                          borderColor: "#BCC7D4",
-                        }}
-                      />
+                        <div style={{ display: "flex" }}>
+                          <label
+                            htmlFor="avatar-upload"
+                            style={{
+                              display: "inline-block",
+                              width: "80px",
+                              height: "80px",
+                              backgroundColor: "#F2F4F7",
+                              border: "1px solid #BCC7D4",
+                              borderRadius: "200px",
+                              textAlign: "center",
+                              lineHeight: "44px",
+                              cursor: "pointer",
+                            }}
+                          >
+                            Upload Photo
+                          </label>
 
-                      <label
-                        style={{
-                          marginLeft: "0px",
-                          fontSize: "14px",
-                          fontWeight: "600",
-                          marginTop: "12px",
-                        }}
-                      >
-                        Upload Photo
-                      </label>
-                      <input
-                        style={{
-                          width: "180px",
-                          height: "44px",
-                          backgroundColor: "#F2F4F7",
-                          borderWidth: "1px",
-                          borderColor: "#BCC7D4",
-                        }}
-                        name="avatar"
-                        type="file"
-                        accept=".png, .gif, .jpg, .jpeg"
-                        ref={avatarImageRef}
-                      />
-                      <label
+                          <input
+                            id="avatar-upload"
+                            name="avatar"
+                            type="file"
+                            accept=".png, .gif, .jpg, .jpeg"
+                            ref={avatarImageRef}
+                            style={{ display: "none" }}
+                            onChange={(e) => {
+                              // Optionally preview or handle file
+                              console.log(e.target.files[0]);
+                            }}
+                          />
+                          <div
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            <label
+                              style={{
+                                marginLeft: "0px",
+                                fontSize: "14px",
+                                fontWeight: "600",
+                              }}
+                            >
+                              Username
+                            </label>
+                            <input
+                              name="username"
+                              value={profileData.username}
+                              onChange={handleChange}
+                              style={{
+                                width: "180px",
+                                height: "44px",
+                                backgroundColor: "#F2F4F7",
+                                borderWidth: "1px",
+                                borderColor: "#BCC7D4",
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <label
+                          style={{
+                            margin: "0px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                          }}
+                        >
+                          Bio
+                        </label>
+                        <input
+                          name="bio"
+                          value={profileData.bio}
+                          onChange={handleChange}
+                          style={{
+                            width: "200px",
+                            height: "120px",
+                            backgroundColor: "#F2F4F7",
+                            borderWidth: "1px",
+                            borderColor: "#BCC7D4",
+                          }}
+                        />
+                      </div>
+                      {/* <label
                         style={{
                           margin: "0px",
                           fontSize: "14px",
@@ -184,8 +224,8 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         type="file"
                         accept=".png, .gif, .jpg, .jpeg"
                         ref={passportImageRef}
-                      />
-                      <label
+                      /> */}
+                      {/* <label
                         style={{
                           margin: "0px",
                           fontSize: "14px",
@@ -194,8 +234,8 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         }}
                       >
                         Upload Important Docs
-                      </label>
-                      <input
+                      </label> */}
+                      {/* <input
                         style={{
                           borderRadius: "7px",
                           padding: "10px",
@@ -209,7 +249,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         type="file"
                         accept=".png, .gif, .jpg, .jpeg"
                         ref={importantDocsImageRef}
-                      />
+                      /> */}
                     </div>
                     <div
                       style={{
@@ -218,27 +258,6 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         marginLeft: "42px",
                       }}
                     >
-                      <label
-                        style={{
-                          margin: "0px",
-                          fontSize: "14px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        Bio
-                      </label>
-                      <input
-                        name="bio"
-                        value={profileData.bio}
-                        onChange={handleChange}
-                        style={{
-                          width: "320px",
-                          height: "210px",
-                          backgroundColor: "#F2F4F7",
-                          borderWidth: "1px",
-                          borderColor: "#BCC7D4",
-                        }}
-                      />
                       <button
                         type="submit"
                         style={{
@@ -301,7 +320,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     />
 
-                    {/* <button
+                    <button
                       onClick={() => setShowForm(true)}
                       style={{
                         color: "#1E3769",
@@ -314,7 +333,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     >
                       Update
-                    </button> */}
+                    </button>
                   </div>
                   <div
                     style={{
@@ -350,7 +369,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                     marginLeft: "43px",
                   }}
                 >
-                  <button
+                  {/* <button
                     style={{
                       height: "44px",
                       width: "120px",
@@ -361,8 +380,8 @@ export default function ProfileForm({ profile, setProfile, user }) {
                     }}
                   >
                     Passport
-                  </button>
-                  <button
+                  </button> */}
+                  {/* <button
                     style={{
                       height: "44px",
                       width: "120px",
@@ -373,7 +392,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                     }}
                   >
                     Important Docs
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

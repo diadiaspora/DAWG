@@ -173,7 +173,7 @@ export default function UsersPets({ user }) {
 
                 <p>{pet.bio}</p>
 
-                <div>
+                {/* <div>
                   {pet.vaccine && (
                     <button
                       style={buttonStyle}
@@ -216,7 +216,7 @@ export default function UsersPets({ user }) {
                       Microchip
                     </button>
                   )}
-                </div>
+                </div> */}
 
                 <div
                   style={{ display: "flex", gap: "10px", marginTop: "10px" }}

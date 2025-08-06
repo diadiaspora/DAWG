@@ -66,12 +66,28 @@ export default function UserProfilePage({ user }) {
             width: "1012px",
           }}
         ></div>
-        <div style={{ width: "1012px", display: "flex" }}>
-          <ProfileForm profile={profile} setProfile={setProfile} user={user} />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ width: "1012px", display: "flex" }}>
+            <ProfileForm
+              profile={profile}
+              setProfile={setProfile}
+              user={user}
+            />
 
-          <UsersPets user={user} />
+            <UsersPets user={user} />
 
-          <UsersPlansShort user={user} />
+            <UsersPlansShort user={user} />
+          </div>
+          <div style={{ width: "1012px", display: "flex", marginTop: "42px" }}>
+            <h2> The documents are only accessible by you and your pets</h2>
+          </div>
+          <div style={{ width: "1012px", display: "flex", marginTop: "42px" }}>
+            <button> Passport</button>
+            <button> Important Docs</button>
+            <button> Vaccine </button>
+            <button> Health Certificate</button>
+            <button> Microchip</button>
+          </div>
         </div>
 
         <div
