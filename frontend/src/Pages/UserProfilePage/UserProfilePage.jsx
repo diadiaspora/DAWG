@@ -17,6 +17,7 @@ import Destinations from "../../Components/Destinations/Destinations.jsx";
 
 
 
+
 import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
@@ -80,6 +81,9 @@ export default function UserProfilePage({ user }) {
           <UsersPets user={user} />
 
           <UsersPlansShort user={user} />
+        </div>
+        <div>
+
         </div>
 
         <div

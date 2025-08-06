@@ -310,7 +310,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     />
 
-                    {/* <button
+                    <button
                       onClick={() => setShowForm(true)}
                       style={{
                         color: "#1E3769",
@@ -323,7 +323,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     >
                       Update
-                    </button> */}
+                    </button>
                   </div>
                   <div
                     style={{

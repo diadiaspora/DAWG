@@ -26,13 +26,20 @@ export default function SignUpPage({ setUser }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const user = await signUp(formData);
+      // Extract only the fields needed for signup
+      const { name, email, password } = formData;
+
+      // Create a clean object without petName and confirm
+      const userData = { name, email, password };
+
+      const user = await signUp(userData);
       setUser(user);
       navigate("/");
     } catch (err) {
       setErrorMsg("Sign Up Failed - Try Again");
     }
   }
+  
 
   const disable = formData.password !== formData.confirm;
 

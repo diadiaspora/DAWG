@@ -6,6 +6,8 @@ import {
 
 } from "react-router-dom";
 
+
+import VerifyEmailPage from "../VerifyEmailPage/VerifyEmailPage";
 import * as blogService from "../../services/blogService";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
@@ -260,6 +262,8 @@ export default function App() {
                   path="/signup"
                   element={<SignUpPage setUser={setUser} />}
                 />
+                <Route path="/verify" element={<VerifyEmailPage />} />
+
                 <Route
                   path="/login"
                   element={<LogInPage setUser={setUser} />}
