@@ -295,32 +295,31 @@ export default function UsersPets({ user }) {
                       </strong>
                       <div style={{ display: "flex" }}>
                         <div style={{ width: "310px" }}>
-                          {pet.vaccine && (
-                            <a
-                              href={pet.vaccine || "#"}
-                              target={pet.vaccine ? "_blank" : "_self"}
-                              rel="noopener noreferrer"
-                              style={{
-                                backgroundColor: "#1E3769",
-                                border: "none",
-                                borderRadius: "7px",
-                                color: "white",
-                                padding: "6px",
-                                textDecoration: "none",
-                                fontSize: "14px",
-                                fontWeight: "600",
-                                width: "144px",
-                                height: "34px",
-                                display: "inline-block",
-                                textAlign: "center",
-                                pointerEvents: pet.vaccine ? "auto" : "none", // disable link if no doc
-                                opacity: pet.vaccine ? 1 : 0.5, // faded if no doc
-                              }}
-                            >
-                              {pet.vaccine ? "View" : "Add"}
-                            </a>
-                          )}
+                          <a
+                            href={pet.vaccine || "#"}
+                            target={pet.vaccine ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                            style={{
+                              backgroundColor: "#1E3769",
+                              border: "none",
+                              borderRadius: "7px",
+                              color: "white",
+                              padding: "6px",
+                              textDecoration: "none",
+                              fontSize: "14px",
+                              fontWeight: "600",
+                              width: "144px",
+                              height: "34px",
+                              display: "inline-block",
+                              textAlign: "center",
+                              pointerEvents: pet.vaccine ? "auto" : "none",
+                              opacity: pet.vaccine ? 1 : 0.5,
+                            }}
+                          >
+                            {pet.vaccine ? "View" : "Add"}
+                          </a>
                         </div>
+
                         <div>
                           <label
                             htmlFor={`vaccine-${pet._id}`}
@@ -366,7 +365,7 @@ export default function UsersPets({ user }) {
                       <div style={{ display: "flex" }}>
                         {/* Health Certificate */}
                         <div>
-                          {pet.healthCertificate && (
+                       
                             <a
                               href={pet.vaccine || "#"}
                               target={pet.vaccine ? "_blank" : "_self"}
@@ -390,7 +389,7 @@ export default function UsersPets({ user }) {
                             >
                               {pet.vaccine ? "View" : "Add"}
                             </a>
-                          )}
+                       
                         </div>
                         <div>
                           <label
@@ -438,7 +437,7 @@ export default function UsersPets({ user }) {
                       </strong>
                       <div style={{ display: "flex" }}>
                         <div>
-                          {pet.microchip && (
+                       
                             <a
                               href={pet.vaccine || "#"}
                               target={pet.vaccine ? "_blank" : "_self"}
@@ -462,7 +461,7 @@ export default function UsersPets({ user }) {
                             >
                               {pet.vaccine ? "View" : "Add"}
                             </a>
-                          )}
+                         
                         </div>
                         <div>
                           <label
