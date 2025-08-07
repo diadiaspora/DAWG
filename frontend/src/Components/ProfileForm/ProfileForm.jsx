@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import * as profileService from "../../services/profileService";
+import { RxAvatar } from "react-icons/rx";
+import { LiaUserEditSolid } from "react-icons/lia";
 
 import "./ProfileForm.css";
 
@@ -95,7 +97,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                 onSubmit={handleSubmit}
                 style={{
                   backgroundColor: "white",
-                  height: "350px",
+                  height: "280px",
                   marginLeft: "42px",
                   width: "310px",
                   display: "grid",
@@ -125,19 +127,22 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         <div style={{ display: "flex" }}>
                           <label
                             htmlFor="avatar-upload"
-                            style={{
-                              display: "inline-block",
-                              width: "80px",
-                              height: "80px",
-                              backgroundColor: "#F2F4F7",
-                              border: "1px solid #BCC7D4",
-                              borderRadius: "200px",
-                              textAlign: "center",
-                              lineHeight: "44px",
-                              cursor: "pointer",
-                            }}
+                            style={{ cursor: "pointer" }}
                           >
-                            Upload Photo
+                            <div
+                              style={{
+                                width: "80px",
+                                height: "80px",
+                                backgroundColor: "#F2F4F7",
+                                border: "1px solid #BCC7D4",
+                                borderRadius: "200px",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <LiaUserEditSolid size={40} color="#1E3769" />
+                            </div>
                           </label>
 
                           <input
@@ -148,12 +153,16 @@ export default function ProfileForm({ profile, setProfile, user }) {
                             ref={avatarImageRef}
                             style={{ display: "none" }}
                             onChange={(e) => {
-                              // Optionally preview or handle file
                               console.log(e.target.files[0]);
                             }}
                           />
+
                           <div
-                            style={{ display: "flex", flexDirection: "column" }}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              marginLeft: "21px",
+                            }}
                           >
                             <label
                               style={{
@@ -168,8 +177,11 @@ export default function ProfileForm({ profile, setProfile, user }) {
                               name="username"
                               value={profileData.username}
                               onChange={handleChange}
+                              pattern="^[a-z0-9._]+$"
+                              title="Username must be lowercase and can only include letters, numbers, dots (.), and underscores (_). No spaces."
+                              oninput="this.value = this.value.toLowerCase();"
                               style={{
-                                width: "180px",
+                                width: "162px",
                                 height: "44px",
                                 backgroundColor: "#F2F4F7",
                                 borderWidth: "1px",
@@ -180,7 +192,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         </div>
                         <label
                           style={{
-                            margin: "0px",
+                            marginTop: "10px",
                             fontSize: "14px",
                             fontWeight: "600",
                           }}
@@ -192,13 +204,37 @@ export default function ProfileForm({ profile, setProfile, user }) {
                           value={profileData.bio}
                           onChange={handleChange}
                           style={{
-                            width: "200px",
-                            height: "120px",
+                            width: "268px",
+
+                            height: "110px",
+                            borderStyle: "solid",
                             backgroundColor: "#F2F4F7",
                             borderWidth: "1px",
                             borderColor: "#BCC7D4",
+                            borderRadius: "7px",
+                            display: "flex",
                           }}
                         />
+                      </div>
+                      <div
+                        style={{
+                          width: "268px",
+                          display: "flex",
+                          justifyContent: "flex-end",
+                        }}
+                      >
+                        <button
+                          type="submit"
+                          style={{
+                            color: "#1E3769",
+                            backgroundColor: "#ffffff",
+                            borderColor: "#fffffff",
+                            textDecoration: "underline",
+                            borderWidth: "0px",
+                          }}
+                        >
+                          Save
+                        </button>
                       </div>
                       {/* <label
                         style={{
@@ -257,21 +293,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         flexDirection: "column",
                         marginLeft: "42px",
                       }}
-                    >
-                      <button
-                        type="submit"
-                        style={{
-                          width: "320px",
-                          height: "44px",
-                          borderWidth: "0px",
-                          backgroundColor: "#1E3769",
-                          marginTop: "18px",
-                          borderRadius: "7px",
-                        }}
-                      >
-                        Save
-                      </button>
-                    </div>
+                    ></div>
                   </div>
                 </div>
               </form>
@@ -282,7 +304,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
               style={{
                 display: "flex",
                 width: "310px",
-                height: "350px",
+                height: "280px",
                 borderStyle: "solid",
                 borderWidth: "1px",
                 borderColor: "#d9d9d9",
@@ -291,35 +313,89 @@ export default function ProfileForm({ profile, setProfile, user }) {
                 marginLeft: "42px",
                 backgroundColor: "#DFE2E7",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                padding: "21px",
               }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div
                   style={{
-                    width: "180px",
+                    width: "268px",
                     padding: "0px",
                     height: "180px",
                     display: "flex",
+                    marginBottom: "0px",
                   }}
                 >
                   <div
                     style={{
-                      width: "180px",
+                      width: "80px",
                       display: "block",
                     }}
                   >
                     <img
                       src={
-                        profile.avatar || "https://i.ibb.co/5x5Td7ks/av-1.png"
+                        profile.avatar || (
+                          <RxAvatar
+                            htmlFor="avatar-upload"
+                            style={{
+                              width: "80px",
+                              height: "80px",
+                              backgroundColor: "#F2F4F7",
+                              border: "1px solid #BCC7D4",
+                              borderRadius: "200px",
+                              textAlign: "center",
+                              lineHeight: "44px",
+                              cursor: "pointer",
+                            }}
+                          />
+                        )
                       }
                       alt="avatar"
                       style={{
                         width: "80px",
                         borderRadius: "500px",
-                        marginLeft: "21px",
                       }}
                     />
+                  </div>
+                  <div
+                    className="username"
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      marginTop: "21px",
+                      width: "100px",
+                      marginLeft: "21px",
+                      marginBottom: "21px",
+                    }}
+                  >
+                    {profileData.username}
+                  </div>
+                </div>
+                <div style={{ marginTop: "50px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      borderStyle: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#1E3769",
+                      borderRadius: "7px",
+                      width: "268px",
+                      marginTop: "-40px",
+                      height: "120px",
+                      backgroundColor: "#ffffff",
+                    }}
+                  >
+                    <div>{profileData.bio}</div>
+                  </div>
 
+                  <div
+                    style={{
+                      width: "268px",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }}
+                  >
                     <button
                       onClick={() => setShowForm(true)}
                       style={{
@@ -327,49 +403,20 @@ export default function ProfileForm({ profile, setProfile, user }) {
                         backgroundColor: "#DFE2E7",
                         borderColor: "#DFE2E7",
                         textDecoration: "underline",
-                        display: "block",
-                        marginLeft: "auto",
-                        marginRight: "auto",
                       }}
                     >
                       Update
                     </button>
                   </div>
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      marginTop: "42px",
-                    }}
-                  >
-                    {profileData.username}
-                  </div>
                 </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    borderStyle: "solid",
-                    borderWidth: "1px",
-                    borderColor: "#1E3769",
-                    borderRadius: "7px",
-                    width: "290px",
-
-                    height: "180px",
-                    backgroundColor: "#ffffff",
-                  }}
-                >
-                  <div>{profileData.bio}</div>
-                </div>
-                <div
+                {/* <div
                   style={{
                     display: "flex",
                     marginTop: "21px",
                     marginLeft: "43px",
                   }}
-                >
-                  {/* <button
+                > */}
+                {/* <button
                     style={{
                       height: "44px",
                       width: "120px",
@@ -381,7 +428,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                   >
                     Passport
                   </button> */}
-                  {/* <button
+                {/* <button
                     style={{
                       height: "44px",
                       width: "120px",
@@ -393,7 +440,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                   >
                     Important Docs
                   </button> */}
-                </div>
+                {/* </div> */}
               </div>
             </div>
           )}

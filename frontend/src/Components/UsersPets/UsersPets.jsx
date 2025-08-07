@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import * as petService from "../../services/petService";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ export default function UsersPets({ user }) {
   const navigate = useNavigate();
   const [petData, setPetData] = useState(null);
   const [editingPetId, setEditingPetId] = useState(null);
+  const [vaccinePreviews, setVaccinePreviews] = useState({});
 
   const petPhotoImageRef = useRef();
   const microchipImageRef = useRef();
@@ -35,6 +35,45 @@ export default function UsersPets({ user }) {
     fetchPets();
   }, []);
 
+  async function handleVaccineUpload(petId, file) {
+    try {
+      const formData = new FormData();
+      formData.append("vaccine", file);
+      const updatedPet = await petService.update(petId, formData);
+      setPets((prevPets) =>
+        prevPets.map((p) => (p._id === petId ? updatedPet : p))
+      );
+    } catch (err) {
+      console.error("Error uploading vaccine:", err);
+    }
+  }
+
+  async function handleHealthCertificateUpload(petId, file) {
+    try {
+      const formData = new FormData();
+      formData.append("healthCertificate", file);
+      const updatedPet = await petService.update(petId, formData);
+      setPets((prevPets) =>
+        prevPets.map((p) => (p._id === petId ? updatedPet : p))
+      );
+    } catch (err) {
+      console.error("Error uploading health certificate:", err);
+    }
+  }
+
+  async function handleMicrochipUpload(petId, file) {
+    try {
+      const formData = new FormData();
+      formData.append("microchip", file);
+      const updatedPet = await petService.update(petId, formData);
+      setPets((prevPets) =>
+        prevPets.map((p) => (p._id === petId ? updatedPet : p))
+      );
+    } catch (err) {
+      console.error("Error uploading microchip:", err);
+    }
+  }
+
   async function fetchPets() {
     try {
       const petList = await petService.index();
@@ -48,6 +87,7 @@ export default function UsersPets({ user }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setErrorMsg(""); // Clear previous errors
 
     try {
       const newPetData = new FormData();
@@ -56,16 +96,19 @@ export default function UsersPets({ user }) {
         newPetData.append(key, formData[key]);
       }
 
-      if (petPhotoImageRef.current?.files[0]) {
+      if (petPhotoImageRef.current && petPhotoImageRef.current.files[0]) {
         newPetData.append("petPhoto", petPhotoImageRef.current.files[0]);
       }
-      if (vaccineImageRef.current?.files[0]) {
+      if (vaccineImageRef.current && vaccineImageRef.current.files[0]) {
         newPetData.append("vaccine", vaccineImageRef.current.files[0]);
       }
-      if (microchipImageRef.current?.files[0]) {
+      if (microchipImageRef.current && microchipImageRef.current.files[0]) {
         newPetData.append("microchip", microchipImageRef.current.files[0]);
       }
-      if (healthCertificateImageRef.current?.files[0]) {
+      if (
+        healthCertificateImageRef.current &&
+        healthCertificateImageRef.current.files[0]
+      ) {
         newPetData.append(
           "healthCertificate",
           healthCertificateImageRef.current.files[0]
@@ -80,10 +123,15 @@ export default function UsersPets({ user }) {
       }
 
       setPetData(updatedPet);
+      await fetchPets();
       setShowForm(false);
-      fetchPets();
     } catch (err) {
       console.error("Error submitting pet form:", err);
+      setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
+    }
+
+    if (onSuccess) {
+      onSuccess();
     }
   }
 
@@ -99,14 +147,14 @@ export default function UsersPets({ user }) {
   }
 
   return (
-    <div className="mt-10 px-4">
+    <div>
       <div
         style={{
           overflowX: "auto",
           overflowY: "hidden",
           paddingBottom: "16px",
           width: "310px",
-          height: "350px",
+          height: "520px",
           marginLeft: "42px",
           WebkitOverflowScrolling: "touch",
         }}
@@ -139,87 +187,84 @@ export default function UsersPets({ user }) {
                 style={{
                   flex: "0 0 auto",
                   width: "310px",
-                  height: "350px",
-                  border: "1px solid #BCC7D4",
-                  borderRadius: "8px",
+                  height: "280px",
+                  borderStyle: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#d9d9d9",
+                  borderRadius: "7px",
                   padding: "16px",
                   scrollSnapAlign: "start",
                   backgroundColor: "#DFE2E7",
                 }}
               >
-                <div style={{ display: "flex" }}>
-                  <img
-                    src={pet.petPhoto || "https://i.ibb.co/5x5Td7ks/av-1.png"}
-                    alt={pet.petName}
-                    style={{ width: "80px", borderRadius: "100px" }}
-                  />
-                  <div style={{ marginLeft: "12px", marginTop: "32px" }}>
-                    <h2 style={{ fontSize: "16px" }}>{pet.petName}</h2>
-                    <div style={{ display: "flex", marginTop: "-20px" }}>
-                      <p style={{ fontSize: "14px", fontWeight: "600" }}>
-                        {pet.breed}
-                      </p>
-                      &nbsp;&nbsp;
-                      <p style={{ fontSize: "14px", fontWeight: "600" }}>
-                        {pet.age} yrs old
-                      </p>
-                      &nbsp;&nbsp;
-                      <p style={{ fontSize: "14px", fontWeight: "600" }}>
-                        {pet.weight}
-                      </p>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div style={{ display: "flex" }}>
+                    <img
+                      src={
+                        pet.petPhoto || (
+                          <RxAvatar
+                            htmlFor="avatar-upload"
+                            style={{
+                              width: "80px",
+                              height: "80px",
+                              backgroundColor: "#F2F4F7",
+                              border: "1px solid #BCC7D4",
+                              borderRadius: "200px",
+                              textAlign: "center",
+                              lineHeight: "44px",
+                              cursor: "pointer",
+                            }}
+                          />
+                        )
+                      }
+                      alt={pet.petName}
+                      style={{ width: "80px", borderRadius: "100px" }}
+                    />
+                    <div
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        marginTop: "21px",
+                        width: "100px",
+                        marginLeft: "21px",
+                        marginBottom: "21px",
+                      }}
+                    >
+                      {pet.petName}
+                    </div>
+                  </div>
+                  <div style={{ marginTop: "62px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        borderStyle: "solid",
+                        borderWidth: "1px",
+                        borderColor: "#1E3769",
+                        borderRadius: "7px",
+                        width: "268px",
+                        marginTop: "-40px",
+                        height: "120px",
+                        backgroundColor: "#ffffff",
+                        fontSize: "14px",
+                      }}
+                    >
+                      <div>
+                        {pet.petName} is a {pet.age} year old {pet.breed}. He
+                        weighs {pet.weight}.
+                      </div>
+                      <div>{pet.bio}</div>
                     </div>
                   </div>
                 </div>
 
-                <p>{pet.bio}</p>
-
-                {/* <div>
-                  {pet.vaccine && (
-                    <button
-                      style={buttonStyle}
-                      onClick={() =>
-                        window.open(
-                          pet.vaccine,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
-                    >
-                      Vaccine
-                    </button>
-                  )}
-                  {pet.healthCertificate && (
-                    <button
-                      style={buttonStyle}
-                      onClick={() =>
-                        window.open(
-                          pet.healthCertificate,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
-                    >
-                      Health Certificate
-                    </button>
-                  )}
-                  {pet.microchip && (
-                    <button
-                      style={buttonStyle}
-                      onClick={() =>
-                        window.open(
-                          pet.microchip,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
-                    >
-                      Microchip
-                    </button>
-                  )}
-                </div> */}
-
                 <div
-                  style={{ display: "flex", gap: "10px", marginTop: "10px" }}
+                  style={{
+                    width: "268px",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                  }}
                 >
                   <button
                     onClick={() => setEditingPetId(pet._id)}
@@ -228,14 +273,229 @@ export default function UsersPets({ user }) {
                       backgroundColor: "#DFE2E7",
                       borderColor: "#DFE2E7",
                       textDecoration: "underline",
-                      display: "block",
-                      marginLeft: "auto",
-                      marginRight: "auto",
                     }}
                   >
                     Update
                   </button>
-                  <button onClick={() => handleDelete(pet._id)} >Delete</button>
+                </div>
+
+                <div style={{ marginLeft: "-16px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginTop: "20px",
+                      gap: "12px",
+                      // alignItems: "left",
+                    }}
+                  >
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>
+                        {pet.petName}'s Vaccine
+                      </strong>
+                      <div style={{ display: "flex" }}>
+                        <div style={{ width: "310px" }}>
+                          {pet.vaccine && (
+                            <a
+                              href={pet.vaccine}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                backgroundColor: "#1E3769",
+                                border: "none",
+                                borderRadius: "7px",
+                                color: "white",
+                                padding: "6px",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                fontWeight: "600",
+                                width: "144px",
+                                height: "34px",
+                                display: "inline-block", // <== IMPORTANT for width to take effect
+                                textAlign: "center", // <== Optional: centers the "View" text
+                              }}
+                            >
+                              View
+                            </a>
+                          )}
+                        </div>
+                        <div>
+                          <label
+                            htmlFor={`vaccine-${pet._id}`}
+                            style={{
+                              backgroundColor: "#1E3769",
+                              border: "none",
+                              borderRadius: "7px",
+                              color: "white",
+                              padding: "6px",
+                              textDecoration: "none",
+                              fontSize: "14px",
+                              fontWeight: "600",
+                              width: "144px",
+                              display: "inline-block",
+                              textAlign: "center",
+                              height: "34px",
+                              marginLeft: "21px",
+                            }}
+                          >
+                            {pet.vaccine ? "Replace " : "Upload "}
+                          </label>
+                          <input
+                            id={`vaccine-${pet._id}`}
+                            name="vaccine"
+                            type="file"
+                            accept=".png, .gif, .jpg, .jpeg, .pdf"
+                            style={{ display: "none" }}
+                            onChange={async (e) => {
+                              const file = e.target.files[0];
+                              if (file) {
+                                await handleVaccineUpload(pet._id, file);
+                              }
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>
+                        {pet.petName}'s Health Certificate
+                      </strong>
+                      <div style={{ display: "flex" }}>
+                        {/* Health Certificate */}
+                        <div>
+                          {pet.healthCertificate && (
+                            <a
+                              href={pet.healthCertificate}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                backgroundColor: "#1E3769",
+                                border: "none",
+                                borderRadius: "7px",
+                                color: "white",
+                                padding: "6px",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                fontWeight: "600",
+                                width: "144px",
+                                height: "34px",
+                                display: "inline-block", // <== IMPORTANT for width to take effect
+                                textAlign: "center", // <== Optional: centers the "View" text
+                              }}
+                            >
+                              View
+                            </a>
+                          )}
+                        </div>
+                        <div>
+                          <label
+                            htmlFor={`healthCertificate-${pet._id}`}
+                            style={{
+                              backgroundColor: "#1E3769",
+                              border: "none",
+                              borderRadius: "7px",
+                              color: "white",
+                              padding: "6px",
+                              textDecoration: "none",
+                              fontSize: "14px",
+                              fontWeight: "600",
+                              width: "144px",
+                              display: "inline-block",
+                              textAlign: "center",
+                              height: "34px",
+                              marginLeft: "21px",
+                            }}
+                          >
+                            {pet.healthCertificate ? "Replace" : "Upload "}
+                          </label>
+                          <input
+                            id={`healthCertificate-${pet._id}`}
+                            name="healthCertificate"
+                            type="file"
+                            accept=".png, .gif, .jpg, .jpeg, .pdf"
+                            style={{ display: "none" }}
+                            onChange={async (e) => {
+                              const file = e.target.files[0];
+                              if (file) {
+                                await handleHealthCertificateUpload(
+                                  pet._id,
+                                  file
+                                );
+                              }
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <strong style={{ fontSize: "14px" }}>
+                        {pet.petName}'s Health Microchip
+                      </strong>
+                      <div style={{ display: "flex" }}>
+                        <div>
+                          {pet.microchip && (
+                            <a
+                              href={pet.microchip}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                backgroundColor: "#1E3769",
+                                border: "none",
+                                borderRadius: "7px",
+                                color: "white",
+                                padding: "6px",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                fontWeight: "600",
+                                width: "144px",
+                                height: "34px",
+                                display: "inline-block", // <== IMPORTANT for width to take effect
+                                textAlign: "center", // <== Optional: centers the "View" text
+                              }}
+                            >
+                              View
+                            </a>
+                          )}
+                        </div>
+                        <div>
+                          <label
+                            htmlFor={`microchip-${pet._id}`}
+                            style={{
+                              backgroundColor: "#1E3769",
+                              border: "none",
+                              borderRadius: "7px",
+                              color: "white",
+                              padding: "6px",
+                              textDecoration: "none",
+                              fontSize: "14px",
+                              fontWeight: "600",
+                              width: "144px",
+                              display: "inline-block",
+                              textAlign: "center",
+                              height: "34px",
+                              marginLeft: "21px",
+                            }}
+                          >
+                            {pet.microchip ? "Replace " : "Upload "}
+                          </label>
+                          <input
+                            id={`microchip-${pet._id}`}
+                            name="microchip"
+                            type="file"
+                            accept=".png, .gif, .jpg, .jpeg, .pdf"
+                            style={{ display: "none" }}
+                            onChange={async (e) => {
+                              const file = e.target.files[0];
+                              if (file) {
+                                await handleMicrochipUpload(pet._id, file);
+                              }
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )
@@ -274,5 +534,40 @@ const buttonStyle = {
   marginRight: "12px",
   borderRadius: "7px",
   color: "white",
-  padding: "0 12px",
+  padding: "12px",
+  textDecoration: "none",
+  fontSize: "14px",
+  fontWeight: "600",
+  marginBottom: "12px",
+  width: "300px",
+};
+
+const viewButtonStyle = {
+  backgroundColor: "#1E3769",
+  borderWidth: "0px",
+  height: "44px",
+  marginRight: "12px",
+  borderRadius: "7px",
+  color: "white",
+  padding: "12px",
+  textDecoration: "none",
+  fontSize: "14px",
+  fontWeight: "600",
+  marginBottom: "12px",
+  width: "300px",
+};
+
+const uploadLabelStyle = {
+  backgroundColor: "#1E3769",
+  borderWidth: "0px",
+  height: "44px",
+  marginRight: "12px",
+  borderRadius: "7px",
+  color: "white",
+  padding: "12px",
+  textDecoration: "none",
+  fontSize: "14px",
+  fontWeight: "600",
+  marginBottom: "12px",
+  width: "300px",
 };

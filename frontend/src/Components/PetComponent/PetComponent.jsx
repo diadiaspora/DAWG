@@ -157,10 +157,12 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
 
         {showForm ? (
           <form onSubmit={handleSubmit} style={{ marginTop: "0px" }}>
+
+
             <h2 style={{ marginTop: "0px" }}>Add Pet</h2>
             <div style={{ display: "flex" }}>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
+              {/* <div style={{ display: "flex", flexDirection: "column" }}> */}
+                {/* <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
                   Upload Pet Photo
                 </label>
                 <input
@@ -177,8 +179,8 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     }
                   }}
                   className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                />
-              </div>
+                /> */}
+              {/* </div> */}
 
               <div
                 style={{
@@ -295,32 +297,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     marginRight: "12px",
                   }}
                 >
-                  <div>
-                    <label htmlFor="vaccine" style={{ marginLeft: "0px" }}>
-                      Upload Vaccine
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      style={{ width: "140px" }}
-                      id="vaccine"
-                      name="vaccine"
-                      type="file"
-                      accept=".png, .gif, .jpg, .jpeg, .pdf"
-                      ref={vaccineImageRef}
-                    />
-
-                    {petData?.vaccine &&
-                      petData.vaccine !== "https://i.imgur.com/KTEjbsw.png" && (
-                        <a
-                          href={petData.vaccine}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Current Vaccine
-                        </a>
-                      )}
-                  </div>
+                
                 </div>
 
                 <div

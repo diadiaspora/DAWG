@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import * as petService from "../../services/petService";
 import { toast } from "react-toastify";
+import { LiaUserEditSolid } from "react-icons/lia";
+
 
 export default function UserPetComponent({
   onSuccess,
@@ -88,59 +90,115 @@ export default function UserPetComponent({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        backgroundColor: "white",
+        paddingTop: "22px",
+        height: "280px",
+        width: "310px",
+        border: "1px solid #e9e9e9",
+        borderRadius: "7px",
+        padding: "21px"
+      }}
+    >
       {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
+      <div style={{ display: "flex" }}>
+        <label htmlFor="avatar-pet" style={{ cursor: "pointer" }}>
+          <div
+            style={{
+              width: "80px",
+              height: "80px",
+              backgroundColor: "#F2F4F7",
+              border: "1px solid #BCC7D4",
+              borderRadius: "200px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              overflow: "hidden",
+              position: "relative",
+            }}
+          >
+            {previewPetPhoto ? (
+              <img
+                src={previewPetPhoto}
+                alt="Preview"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            ) : (
+              <LiaUserEditSolid size={40} color="#1E3769" />
+            )}
+          </div>
+        </label>
 
-      <label>Pet Photo:</label>
-      <input
-        type="file"
-        accept="image/*"
-        ref={petPhotoImageRef}
-        onChange={(e) => {
-          const file = e.target.files[0];
-          if (file) setPreviewPetPhoto(URL.createObjectURL(file));
-        }}
-      />
-      {previewPetPhoto && (
+        <input
+          id="avatar-pet"
+          name="pet"
+          type="file"
+          accept=".png, .gif, .jpg, .jpeg"
+          ref={petPhotoImageRef}
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const file = e.target.files[0];
+            if (file) setPreviewPetPhoto(URL.createObjectURL(file));
+          }}
+        />
+
+        {/* {previewPetPhoto && (
         <img src={previewPetPhoto} alt="Preview" style={{ width: "100px" }} />
-      )}
+      )} */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label>Pet Name:</label>
+          <input
+            type="text"
+            name="petName"
+            value={formData.petName}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+      <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label>Breed:</label>
+          <input
+            type="text"
+            name="breed"
+            value={formData.breed}
+            onChange={handleChange}
+            style={{ width: "100px" }}
+          />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label>Age:</label>
+          <input
+            type="number"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            style={{ width: "84px" }}
+          />
+        </div>
 
-      <label>Pet Name:</label>
-      <input
-        type="text"
-        name="petName"
-        value={formData.petName}
-        onChange={handleChange}
-      />
-
-      <label>Bio:</label>
-      <textarea name="bio" value={formData.bio} onChange={handleChange} />
-
-      <label>Breed:</label>
-      <input
-        type="text"
-        name="breed"
-        value={formData.breed}
-        onChange={handleChange}
-      />
-
-      <label>Age:</label>
-      <input
-        type="number"
-        name="age"
-        value={formData.age}
-        onChange={handleChange}
-      />
-
-      <label>Weight:</label>
-      <input
-        type="text"
-        name="weight"
-        value={formData.weight}
-        onChange={handleChange}
-      />
-
-      <label>Vaccine:</label>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label>Weight:</label>
+          <input
+            type="text"
+            name="weight"
+            value={formData.weight}
+            onChange={handleChange}
+            style={{ width: "84px" }}
+          />
+        </div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <label>Bio:</label>
+        <textarea name="bio" value={formData.bio} onChange={handleChange} />
+      </div>
+      {/* <label>Vaccine:</label>
       <input type="file" accept=".pdf,image/*" ref={vaccineImageRef} />
 
       <label>Microchip:</label>
@@ -151,21 +209,46 @@ export default function UserPetComponent({
         type="file"
         accept=".pdf,image/*"
         ref={healthCertificateImageRef}
-      />
+      /> */}
 
-      <button type="submit">Update Pet</button>
-
-      <button
-        type="button"
-        onClick={() => {
-          if (window.confirm("Are you sure you want to delete this pet?")) {
-            confirmDeletePet();
-          }
+      <div
+        style={{
+          width: "268px",
+          display: "flex",
+          justifyContent: "flex-end",
         }}
-        style={{ marginLeft: "12px", color: "red" }}
       >
-        Delete Pet
-      </button>
+        <button
+          type="submit"
+          style={{
+            color: "#1E3769",
+            backgroundColor: "#ffffff",
+            borderColor: "#fffffff",
+            textDecoration: "underline",
+            borderWidth: "0px",
+          }}
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete this pet?")) {
+              confirmDeletePet();
+            }
+          }}
+          style={{
+            marginLeft: "12px",
+            color: "#1E3769",
+            backgroundColor: "#ffffff",
+            borderColor: "#fffffff",
+            textDecoration: "underline",
+            borderWidth: "0px",
+          }}
+        >
+          Delete Pet
+        </button>
+      </div>
     </form>
   );
 }
