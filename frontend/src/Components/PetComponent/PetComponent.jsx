@@ -253,14 +253,14 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 </div>
               </div>
               <div>
-                <div
+                {/* <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     marginRight: "12px",
                   }}
                 >
-                  <div>
+                  <div> */}
                     {/* <label htmlFor="age" style={{ marginLeft: "0px" }}>
                       Age
                     </label> */}
@@ -273,7 +273,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     onChange={handleChange}
                     style={{ width: "100px" }}
                   /> */}
-                </div>
+                {/* </div>
               </div>
               <div>
                 <div
@@ -283,7 +283,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     marginRight: "12px",
                   }}
                 >
-                  <div>
+                  <div> */}
                     {/* <label htmlFor="weight" style={{ marginLeft: "0px" }}>
                       Weight
                     </label> */}
@@ -296,7 +296,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     onChange={handleChange}
                     style={{ width: "100px" }}
                   /> */}
-                </div>
+                {/* </div>
               </div>
             </div>
 
@@ -387,10 +387,10 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div>
-              <button type="submit">Add Pet Information</button>
+              <button type="submit">Add Pet</button>
             </div>
           </form>
         ) : (

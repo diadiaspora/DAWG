@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import * as profileService from "../../services/profileService";
 import { RxAvatar } from "react-icons/rx";
 import { LiaUserEditSolid } from "react-icons/lia";
@@ -357,21 +357,25 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     />
                   </div>
-                  <div
-                    className="username"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      marginTop: "21px",
-                      width: "100px",
-                      marginLeft: "21px",
-                      marginBottom: "21px",
-                    }}
-                  >
-                    {profileData.username}
+                  <div>
+                    <div
+                      className="username"
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        marginTop: "0px",
+                        width: "100px",
+                        marginLeft: "21px",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      {profileData.username}
+                      </div>
+                      <div style={{marginLeft: "21px"}}> <button>Your Passport</button></div>
                   </div>
                 </div>
+
                 <div style={{ marginTop: "50px" }}>
                   <div
                     style={{
@@ -409,13 +413,159 @@ export default function ProfileForm({ profile, setProfile, user }) {
                     </button>
                   </div>
                 </div>
-                {/* <div
+
+                <div
                   style={{
                     display: "flex",
-                    marginTop: "21px",
-                    marginLeft: "43px",
+                    flexDirection: "column",
+                    marginLeft: "-20px",
+                    marginTop: "12px",
                   }}
-                > */}
+                >
+                  <Link to="https://ektatraveling.tpx.gr/hVLd6uOc">
+                    <div
+                      style={{
+                          height: "215px",
+                        width: "310px",
+                        borderStyle: "solid",
+                        marginTop: "21px",
+                        borderRadius: "7px",
+                        marginBottom: "21px",
+                        borderColor: "#d9d9d9",
+                      }}
+                    >
+                      You need insurance
+                    </div>
+                  </Link>
+                  {/* <div>
+                    <strong style={{ fontSize: "14px" }}>
+                      {profile.username}'s Passport
+                    </strong>
+                    <div style={{ display: "flex" }}>
+                      <div>
+                        <a
+                          href={profile.passport || "#"}
+                          target={profile.passport ? "_blank" : "_self"}
+                          rel="noopener noreferrer"
+                          style={{
+                            backgroundColor: "#1E3769",
+                            border: "none",
+                            borderRadius: "7px",
+                            color: "white",
+                            padding: "6px",
+                            textDecoration: "none",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            width: "144px",
+                            height: "34px",
+                            display: "inline-block",
+                            textAlign: "center",
+                            pointerEvents: profile.passport ? "auto" : "none",
+                            opacity: profile.passport ? 1 : 0.5,
+                          }}
+                        >
+                          {profile.passport ? "View" : "Add"}
+                        </a>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="passport-upload"
+                          style={{
+                            backgroundColor: "#1E3769",
+                            border: "none",
+                            borderRadius: "7px",
+                            color: "white",
+                            padding: "6px",
+                            textDecoration: "none",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            width: "144px",
+                            display: "inline-block",
+                            textAlign: "center",
+                            height: "34px",
+                            marginLeft: "21px",
+                          }}
+                        >
+                          {profile.passport ? "Replace" : "Upload"}
+                        </label>
+                        <input
+                          id="passport-upload"
+                          name="passport"
+                          type="file"
+                          accept=".png, .gif, .jpg, .jpeg, .pdf"
+                          style={{ display: "none" }}
+                          ref={passportImageRef}
+                        />
+                      </div>
+                    </div>
+                  </div> */}
+
+                  {/* <div>
+                    <strong style={{ fontSize: "14px" }}>
+                      {profile.username}'s Important Docs
+                    </strong>
+                    <div style={{ display: "flex" }}>
+                      <div>
+                        <a
+                          href={profile.importantDocs || "#"}
+                          target={profile.importantDocs ? "_blank" : "_self"}
+                          rel="noopener noreferrer"
+                          style={{
+                            backgroundColor: "#1E3769",
+                            border: "none",
+                            borderRadius: "7px",
+                            color: "white",
+                            padding: "6px",
+                            textDecoration: "none",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            width: "144px",
+                            height: "34px",
+                            display: "inline-block",
+                            textAlign: "center",
+                            pointerEvents: profile.importantDocs
+                              ? "auto"
+                              : "none",
+                            opacity: profile.importantDocs ? 1 : 0.5,
+                          }}
+                        >
+                          {profile.importantDocs ? "View" : "Add"}
+                        </a>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="importantDocs-upload"
+                          style={{
+                            backgroundColor: "#1E3769",
+                            border: "none",
+                            borderRadius: "7px",
+                            color: "white",
+                            padding: "6px",
+                            textDecoration: "none",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            width: "144px",
+                            display: "inline-block",
+                            textAlign: "center",
+                            height: "34px",
+                            marginLeft: "21px",
+                          }}
+                        >
+                          {profile.importantDocs ? "Replace" : "Upload"}
+                        </label>
+                        <input
+                          id="importantDocs-upload"
+                          name="importantDocs"
+                          type="file"
+                          accept=".png, .gif, .jpg, .jpeg, .pdf"
+                          style={{ display: "none" }}
+                          ref={importantDocsImageRef}
+                        />
+                      </div> */}
+                  {/* </div> */}
+                  {/* </div> */}
+                </div>
+
                 {/* <button
                     style={{
                       height: "44px",

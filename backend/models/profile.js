@@ -25,12 +25,12 @@ const profileSchema = new mongoose.Schema({
   },
   passport: {
     type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
+    default: "",
   },
 
   importantDocs: {
     type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
+    default: "",
   },
 
   gallery: {
