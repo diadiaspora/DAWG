@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
-import HootForm from "../../Components/HootForm/HootForm";
+
 import "./HootInfinatePage.css";
 
 import HootCard from "../../Components/HootCard/HootCard"; // Make this reusable
