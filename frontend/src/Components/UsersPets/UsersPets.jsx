@@ -297,8 +297,8 @@ export default function UsersPets({ user }) {
                         <div style={{ width: "310px" }}>
                           {pet.vaccine && (
                             <a
-                              href={pet.vaccine}
-                              target="_blank"
+                              href={pet.vaccine || "#"}
+                              target={pet.vaccine ? "_blank" : "_self"}
                               rel="noopener noreferrer"
                               style={{
                                 backgroundColor: "#1E3769",
@@ -311,11 +311,13 @@ export default function UsersPets({ user }) {
                                 fontWeight: "600",
                                 width: "144px",
                                 height: "34px",
-                                display: "inline-block", // <== IMPORTANT for width to take effect
-                                textAlign: "center", // <== Optional: centers the "View" text
+                                display: "inline-block",
+                                textAlign: "center",
+                                pointerEvents: pet.vaccine ? "auto" : "none", // disable link if no doc
+                                opacity: pet.vaccine ? 1 : 0.5, // faded if no doc
                               }}
                             >
-                              View
+                              {pet.vaccine ? "View" : "Add"}
                             </a>
                           )}
                         </div>
@@ -366,8 +368,8 @@ export default function UsersPets({ user }) {
                         <div>
                           {pet.healthCertificate && (
                             <a
-                              href={pet.healthCertificate}
-                              target="_blank"
+                              href={pet.vaccine || "#"}
+                              target={pet.vaccine ? "_blank" : "_self"}
                               rel="noopener noreferrer"
                               style={{
                                 backgroundColor: "#1E3769",
@@ -380,11 +382,13 @@ export default function UsersPets({ user }) {
                                 fontWeight: "600",
                                 width: "144px",
                                 height: "34px",
-                                display: "inline-block", // <== IMPORTANT for width to take effect
-                                textAlign: "center", // <== Optional: centers the "View" text
+                                display: "inline-block",
+                                textAlign: "center",
+                                pointerEvents: pet.vaccine ? "auto" : "none", // disable link if no doc
+                                opacity: pet.vaccine ? 1 : 0.5, // faded if no doc
                               }}
                             >
-                              View
+                              {pet.vaccine ? "View" : "Add"}
                             </a>
                           )}
                         </div>
@@ -436,8 +440,8 @@ export default function UsersPets({ user }) {
                         <div>
                           {pet.microchip && (
                             <a
-                              href={pet.microchip}
-                              target="_blank"
+                              href={pet.vaccine || "#"}
+                              target={pet.vaccine ? "_blank" : "_self"}
                               rel="noopener noreferrer"
                               style={{
                                 backgroundColor: "#1E3769",
@@ -450,11 +454,13 @@ export default function UsersPets({ user }) {
                                 fontWeight: "600",
                                 width: "144px",
                                 height: "34px",
-                                display: "inline-block", // <== IMPORTANT for width to take effect
-                                textAlign: "center", // <== Optional: centers the "View" text
+                                display: "inline-block",
+                                textAlign: "center",
+                                pointerEvents: pet.vaccine ? "auto" : "none", // disable link if no doc
+                                opacity: pet.vaccine ? 1 : 0.5, // faded if no doc
                               }}
                             >
-                              View
+                              {pet.vaccine ? "View" : "Add"}
                             </a>
                           )}
                         </div>
@@ -501,19 +507,8 @@ export default function UsersPets({ user }) {
             )
           )}
 
-          <div
-            style={{
-              flex: "0 0 auto",
-              width: "550px",
-              height: "345px",
-              border: "1px solid #BCC7D4",
-              borderRadius: "8px",
-              padding: "16px",
-              scrollSnapAlign: "start",
-              backgroundColor: "#fff",
-            }}
-          >
-            <div style={{ paddingTop: "100px", paddingLeft: "42px" }}>
+          <div>
+            <div>
               <PetComponent
                 onSuccess={() => window.location.reload()}
                 user={user}

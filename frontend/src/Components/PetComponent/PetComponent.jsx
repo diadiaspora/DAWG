@@ -151,18 +151,30 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   }
 
   return (
-    <div style={{ marginTop: "-150px" }}>
-      <div style={{ marginTop: "0px" }}>
+    <div >
+      <div >
         {errorMsg && <p>{errorMsg}</p>}
 
         {showForm ? (
-          <form onSubmit={handleSubmit} style={{ marginTop: "0px" }}>
-
-
-            <h2 style={{ marginTop: "0px" }}>Add Pet</h2>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              backgroundColor: "white",
+              height: "280px",
+              marginLeft: "42px",
+              width: "310px",
+              display: "grid",
+              paddingTop: "22px",
+              paddingLeft: "0px",
+              border: "1px solid #e9e9e9",
+              borderRadius: "7px",
+              marginRight: "0px",
+            }}
+          >
+            <h2 style={{ marginTop: "24px" }}>Add Pet</h2>
             <div style={{ display: "flex" }}>
               {/* <div style={{ display: "flex", flexDirection: "column" }}> */}
-                {/* <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
+              {/* <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
                   Upload Pet Photo
                 </label>
                 <input
@@ -203,7 +215,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 />
               </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            {/* <div style={{ display: "flex", flexDirection: "column" }}>
               <label htmlFor="bio" style={{ marginLeft: "0px" }}>
                 Bio
               </label>
@@ -215,7 +227,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 value={formData.bio}
                 onChange={handleChange}
               />
-            </div>
+            </div> */}
             <div style={{ display: "flex" }}>
               <div>
                 <div
@@ -225,19 +237,19 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     marginRight: "12px",
                   }}
                 >
-                  <div>
+                  {/* <div>
                     <label htmlFor="breed" style={{ marginLeft: "0px" }}>
                       Breed
                     </label>
-                  </div>
-                  <input
+                  </div> */}
+                  {/* <input
                     type="text"
                     name="breed"
                     id="breed"
                     value={formData.breed}
                     onChange={handleChange}
                     style={{ width: "100px" }}
-                  />
+                  /> */}
                 </div>
               </div>
               <div>
@@ -249,18 +261,18 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   }}
                 >
                   <div>
-                    <label htmlFor="age" style={{ marginLeft: "0px" }}>
+                    {/* <label htmlFor="age" style={{ marginLeft: "0px" }}>
                       Age
-                    </label>
+                    </label> */}
                   </div>
-                  <input
+                  {/* <input
                     type="number"
                     name="age"
                     id="age"
                     value={formData.age}
                     onChange={handleChange}
                     style={{ width: "100px" }}
-                  />
+                  /> */}
                 </div>
               </div>
               <div>
@@ -272,18 +284,18 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   }}
                 >
                   <div>
-                    <label htmlFor="weight" style={{ marginLeft: "0px" }}>
+                    {/* <label htmlFor="weight" style={{ marginLeft: "0px" }}>
                       Weight
-                    </label>
+                    </label> */}
                   </div>
-                  <input
+                  {/* <input
                     type="text"
                     name="weight"
                     id="weight"
                     value={formData.weight}
                     onChange={handleChange}
                     style={{ width: "100px" }}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
@@ -296,9 +308,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     flexDirection: "column",
                     marginRight: "12px",
                   }}
-                >
-                
-                </div>
+                ></div>
 
                 <div
                   style={{
@@ -394,7 +404,6 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                   borderColor: "#BCC7D4",
                   borderRadius: "7px",
                   padding: "12px",
-        
                 }}
               >
                 <div style={{ display: "flex" }}>

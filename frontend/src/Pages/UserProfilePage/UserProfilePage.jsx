@@ -79,72 +79,7 @@ export default function UserProfilePage({ user }) {
 
             <UsersPlansShort user={user} />
           </div>
-          <div>
-            <h2> The documents are only accessible by you and your pets</h2>
-          </div>
-          <div
-            style={{
-              width: "1012px",
-              display: "flex",
-              marginTop: "42px",
-              gap: "12px",
-            }}
-          >
-            {/* For example, if you want to open all vaccines of pets */}
-            {pets.length === 0 ? (
-              <p>No pets or documents found</p>
-            ) : (
-              <>
-                <button
-                  onClick={() => {
-                    // Open all vaccines, or maybe the first pet's vaccine? Customize logic.
-                    pets.forEach((pet) => {
-                      if (pet.vaccine)
-                        window.open(
-                          pet.vaccine,
-                          "_blank",
-                          "noopener,noreferrer"
-                        );
-                    });
-                  }}
-                >
-                  Vaccine
-                </button>
-
-                <button
-                  onClick={() => {
-                    pets.forEach((pet) => {
-                      if (pet.healthCertificate)
-                        window.open(
-                          pet.healthCertificate,
-                          "_blank",
-                          "noopener,noreferrer"
-                        );
-                    });
-                  }}
-                >
-                  Health Certificate
-                </button>
-
-                <button
-                  onClick={() => {
-                    pets.forEach((pet) => {
-                      if (pet.microchip)
-                        window.open(
-                          pet.microchip,
-                          "_blank",
-                          "noopener,noreferrer"
-                        );
-                    });
-                  }}
-                >
-                  Microchip
-                </button>
-
-                {/* Similarly for Passport and Important Docs */}
-              </>
-            )}
-          </div>
+        
         </div>
 
         <div

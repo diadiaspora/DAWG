@@ -21,15 +21,15 @@ const petSchema = new mongoose.Schema({
   },
   microchip: {
     type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
+    default: "",
   },
   vaccine: {
     type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
+    default: "",
   },
   healthCertificate: {
     type: String,
-    default: "https://i.imgur.com/KTEjbsw.png",
+    default: "",
   },
 
   petPhoto: {
