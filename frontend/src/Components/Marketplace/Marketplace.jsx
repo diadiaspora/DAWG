@@ -109,7 +109,7 @@ export default function Marketplace() {
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                width: "200px",
+                width: isMobile ? "160px" : "200px",
                 paddingLeft: "12px",
                 marginBottom: "60px",
               }}
@@ -119,7 +119,7 @@ export default function Marketplace() {
             <Link
               to={`/product/${product.id.split("/").pop()}`}
               style={{
-                marginLeft: "110px",
+                marginLeft: isMobile ? "50px" : "110px",
                 textDecoration: "none",
                 padding: "12px",
                 height: "44px",

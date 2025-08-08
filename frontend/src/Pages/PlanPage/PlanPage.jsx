@@ -49,12 +49,16 @@ export default function PlanPage({ user }) {
   return (
     <>
       <section className="plan">
-         <Header />
-        <SearchComponent />
+        <div className="plan-header">
+          <Header />
+        </div>
+        <div className="plan-search">
+          <SearchComponent />
+        </div>
         <div>
           <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
-        </div> 
-       <div
+        </div>
+        <div
           style={{
             backgroundColor: "#1E3769",
             width: "1012px",
@@ -63,17 +67,17 @@ export default function PlanPage({ user }) {
             height: "75px",
             paddingTop: "10px",
             marginTop: "42px",
-            paddingLeft:"42px"
+            paddingLeft: "42px",
           }}
           ref={klookRef}
-        ></div> 
-         <div style={{ marginTop: "75px" }}>
+        ></div>
+        <div style={{ marginTop: "75px" }}>
           <HotelComponent />
-        </div> 
-         <div style={{ marginTop: "100px" }}>
+        </div>
+        <div style={{ marginTop: "100px" }}>
           <UsersPlans user={user} />
-         </div>
-        <div style={{marginTop: "-30px", marginLeft: "42px"}}>
+        </div>
+        <div style={{ marginTop: "-30px", marginLeft: "42px" }}>
           <Marketplace />
         </div>
         {/* <Articles />  */}

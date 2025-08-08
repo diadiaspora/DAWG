@@ -4,3 +4,12 @@
     max-width: 100%;
     background-color: white;
 }
+
+@media (max-width: 768px) {
+    .plan {margin-left: -600px;}
+
+    .plan-header,
+    .plan-search {
+      display: none;
+    }
+}

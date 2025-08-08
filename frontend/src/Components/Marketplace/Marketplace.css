@@ -4,7 +4,7 @@
   margin-top: 125px;
 
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: visible;
   
 }
 
@@ -82,8 +82,17 @@
   border-top-right-radius: 7px;
 }
 
-@media (min-width: 481px) and (max-width: 760px) {
-  .marketplace-wrapper {
-    margin-left: -300px;
+@media (max-width: 480px) {
+  .product-scroll-container {
+    width: 100%;       /* make container width responsive */
+    gap: 8px;
+    padding: 8px;
+  }
+  .product-card {
+    width: 180px;
+    height: 400px;
+  }
+  .product-card p {
+    width: 160px;
   }
 }
