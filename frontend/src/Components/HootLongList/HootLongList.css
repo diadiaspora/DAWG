@@ -105,6 +105,26 @@ align-items: center;
     
   }
 
+  .hoot-card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* Max 4 lines total */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .hoot-card-text h2 {
+    font-size: 18px;
+    margin: 0;
+    line-height: 1.3em;
+  }
+  
+  .hoot-card-text p {
+    margin: 0;
+    line-height: 1.5em;
+  }
+  
+
 
 
   @media (min-width: 300px) and (max-width: 480px) {

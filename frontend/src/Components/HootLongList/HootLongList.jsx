@@ -31,12 +31,7 @@ export default function HootLongList(props) {
     <div style={{ marginTop: "125px", marginRight: "42px" }}>
       <div className="hootyblue">
         <div>
-          <h2
-            className="htwo"
-        
-          >
-            Heres What Everyone Saying
-          </h2>
+          <h2 className="htwo">Heres What Everyone Saying</h2>
         </div>
         <div>
           <button
@@ -146,7 +141,7 @@ export default function HootLongList(props) {
                     borderColor: isHovered ? "#4AA692" : "#E9E9E9",
                     borderRadius: "7px",
                     padding: "12px",
-                    height: hoot.gifUrl ? "126px" : "276px",
+                    height: hoot.gifUrl ? "126px" : "auto",
                     marginTop: "-10px",
                     boxShadow: isHovered
                       ? "0 1px 5px rgba(0, 0, 0, 0.1)"
@@ -154,36 +149,13 @@ export default function HootLongList(props) {
                     transition: "all 0.2s ease",
                   }}
                 >
-                  <div>
-                    <h2 style={{ fontSize: "18px", margin: "0" }}>
-                      {hoot.title}
-                    </h2>
-                  </div>
-
-                  <div
-                    style={{
-                      flexGrow: 1,
-                      marginBottom: "8px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <p
-                      style={{
-                        margin: "0",
-                        lineHeight: "1.5em",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: hoot.gifUrl ? 3 : 10,
-                        maxHeight: hoot.gifUrl ? "4.5em" : "15em",
-                      }}
-                    >
-                      {hoot.text}
-                    </p>
+                  <div className="hoot-card-text">
+                    <h2>{hoot.title}</h2>
+                    <p>{hoot.text}</p>
                   </div>
                 </div>
               </Link>
+
               <div style={{ marginTop: "12px" }}></div>
               {hoot.gifUrl && (
                 <img

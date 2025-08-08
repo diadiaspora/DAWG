@@ -68,15 +68,7 @@ const Gallery = () => {
               justifyContent: "center",
             }}
           >
-            {/* <div
-            ref={klookWidgetRef}
-            style={{
-              borderRadius: "7px",
-              overflow: "hidden",
-              width: "468px",
-              height: "60px",
-            }}
-          /> */}
+       
           </div>
         </div>
 
