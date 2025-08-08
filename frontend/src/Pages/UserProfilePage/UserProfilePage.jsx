@@ -67,7 +67,7 @@ export default function UserProfilePage({ user }) {
             width: "1012px",
           }}
         ></div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+     
           <div style={{ width: "1012px", display: "flex" }}>
             <ProfileForm
               profile={profile}
@@ -80,10 +80,10 @@ export default function UserProfilePage({ user }) {
             <UsersPlansShort user={user} />
           </div>
         
-        </div>
+      
 
         <div
-          style={{ width: "1012px", marginLeft: "42px", marginTop: "100px" }}
+          style={{ width: "1012px", marginLeft: "42px", }}
         >
           <UserCarousel user={user} profile={profile} />
         </div>

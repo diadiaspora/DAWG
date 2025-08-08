@@ -48,7 +48,7 @@ export default function UserPlans() {
   ];
 
   return (
-    <div style={{ marginLeft: "21px", height: "5200px" }}>
+    <div style={{ marginLeft: "21px", height: "600px"}}>
       <div
         style={{
           backgroundColor: "#1E3769",
@@ -120,7 +120,7 @@ export default function UserPlans() {
                       hoveredPlanId === plan._id ? "#F2F4F7" : "#fff",
                     textDecoration: "none",
                     color: "inherit",
-                    height: "182px",
+                    height: "184px",
                     transition: "background-color 0.3s ease",
                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                   }}
@@ -215,7 +215,6 @@ export default function UserPlans() {
       ) : (
         <p>You haven’t created any plans yet.</p>
       )}
-
     </div>
   );
 }
