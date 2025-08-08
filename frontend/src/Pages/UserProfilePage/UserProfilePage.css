@@ -12,3 +12,24 @@
 
 
   }
+
+  .profilecards {
+    width: 1012px;
+     display: flex;
+  }
+
+  @media (max-width: 480px) {
+    .profilecards {
+      width: 480px;
+       display: flex;
+       flex-direction: column;
+    }
+
+    .userprofile {
+      margin-bottom: 242px;
+    }
+
+    .userpets {
+      margin-bottom: 42px;
+    }
+  }

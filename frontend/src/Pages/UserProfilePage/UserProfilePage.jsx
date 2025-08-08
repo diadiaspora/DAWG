@@ -67,24 +67,24 @@ export default function UserProfilePage({ user }) {
             width: "1012px",
           }}
         ></div>
-     
-          <div style={{ width: "1012px", display: "flex" }}>
+
+        <div className="profilecards">
+          <div className="userprofile">
             <ProfileForm
               profile={profile}
               setProfile={setProfile}
               user={user}
             />
-
+          </div>
+          <div className="userpets">
             <UsersPets user={user} pets={pets} setPets={setPets} />
-
+          </div>
+          <div className="userplans">
             <UsersPlansShort user={user} />
           </div>
-        
-      
+        </div>
 
-        <div
-          style={{ width: "1012px", marginLeft: "42px", }}
-        >
+        <div style={{ width: "1012px", marginLeft: "42px" }}>
           <UserCarousel user={user} profile={profile} />
         </div>
 
