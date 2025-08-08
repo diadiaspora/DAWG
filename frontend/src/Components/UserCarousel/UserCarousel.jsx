@@ -1,6 +1,5 @@
-import  { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { RiFolderUploadFill } from "react-icons/ri";
-
 
 export default function UsersCarousel({ user, profile }) {
   const scrollRef = useRef(null);
@@ -8,13 +7,11 @@ export default function UsersCarousel({ user, profile }) {
   const [uploading, setUploading] = useState(false);
   const [hover, setHover] = useState(false);
   const [deleting, setDeleting] = useState(false);
-  const [editMode, setEditMode] = useState(false);
   const [deleteMode, setDeleteMode] = useState(false);
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
-
     if (scrollContainer.scrollWidth <= scrollContainer.clientWidth) return;
 
     const scrollSpeed = 1;
@@ -52,29 +49,24 @@ export default function UsersCarousel({ user, profile }) {
     fetchImages();
   }, [profile?._id]);
 
-  // Handle image upload
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     setUploading(true);
-
     try {
-      const token = localStorage.getItem("token"); // Retrieve token here
+      const token = localStorage.getItem("token");
 
       const formData = new FormData();
-      formData.append("image", file); // backend expects `image` field
+      formData.append("image", file);
 
       const res = await fetch(`/api/gallerys/upload/${profile._id}`, {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`, // Add auth header here
-        },
+        headers: { Authorization: `Bearer ${token}` },
         body: formData,
       });
 
       const contentType = res.headers.get("content-type") || "";
-
       if (!res.ok) {
         if (contentType.includes("application/json")) {
           const errorData = await res.json();
@@ -96,7 +88,7 @@ export default function UsersCarousel({ user, profile }) {
       console.error(err);
     } finally {
       setUploading(false);
-      e.target.value = null; // reset file input
+      e.target.value = null;
     }
   };
 
@@ -104,7 +96,6 @@ export default function UsersCarousel({ user, profile }) {
     if (!window.confirm("Are you sure you want to delete this image?")) return;
 
     setDeleting(true);
-
     try {
       const token = localStorage.getItem("token");
 
@@ -123,7 +114,7 @@ export default function UsersCarousel({ user, profile }) {
       }
 
       const responseData = await res.json();
-      setGalleryImages(responseData.gallery.photoGallery); // update state
+      setGalleryImages(responseData.gallery.photoGallery);
     } catch (err) {
       alert(err.message);
       console.error(err);
@@ -138,6 +129,7 @@ export default function UsersCarousel({ user, profile }) {
 
   return (
     <div>
+      {/* Header Bar */}
       <div
         style={{
           backgroundColor: "#1E3769",
@@ -219,6 +211,7 @@ export default function UsersCarousel({ user, profile }) {
         />
       </div>
 
+      {/* Carousel */}
       <div
         ref={scrollRef}
         style={{
@@ -295,22 +288,6 @@ export default function UsersCarousel({ user, profile }) {
             </div>
           ))
         )}
-        {galleryImages.length === 0 && <p>No images uploaded yet.</p>}
-        {galleryImages.map((url, idx) => (
-          <img
-            key={idx}
-            src={url}
-            alt={`Gallery image ${idx + 1}`}
-            style={{
-              height: "150px",
-              borderRadius: "8px",
-              objectFit: "cover",
-              cursor: "pointer",
-              userSelect: "none",
-            }}
-            draggable={false}
-          />
-        ))}
       </div>
     </div>
   );
