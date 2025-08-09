@@ -29,6 +29,10 @@ export default function Destinations() {
       style={{
         borderRadius: "7px",
         overflow: "hidden",
+        maxWidth: "100%", // prevent overflow on small screens
+        width: "100%", // make it fluid width
+        boxSizing: "border-box",
+        minHeight: "300px", // reserve some height to avoid layout jump
       }}
     />
   );
