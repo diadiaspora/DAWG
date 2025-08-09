@@ -28,7 +28,8 @@ export default function HootLongList(props) {
   }, [props.hoots]);
 
   return (
-    <div style={{ marginTop: "125px", marginRight: "42px" }}>
+    <div className="hootmargin"
+    style={{ marginTop: "125px", marginRight: "42px" }}>
       <div className="hootyblue">
         <div>
           <h2 className="htwo">Heres What Everyone Saying</h2>
