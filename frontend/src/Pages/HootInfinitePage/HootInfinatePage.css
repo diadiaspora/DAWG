@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 480px) {
   .wide {
-    display: flex;
+    display: block;
     flex-direction: column;
     width: 100%;        /* Fluid, no horizontal overflow */
     max-width: 100%;
