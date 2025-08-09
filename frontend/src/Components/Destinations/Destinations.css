@@ -1,0 +1,5 @@
+.widget-container iframe {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 300px;
+  }

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import "./Destinations.css";
 
 export default function Destinations() {
   const widgetRef = useRef(null);

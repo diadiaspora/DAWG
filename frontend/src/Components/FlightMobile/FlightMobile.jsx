@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./FlightMobile.css";
 
 export default function FlightMobile() {
   const [isMobile, setIsMobile] = useState(false);
