@@ -90,8 +90,8 @@
   }
 
   .buttonAir {
-    width: 100%;             /* ✅ Full width button */
-    margin-left: 0;          /* ✅ No margin offset */
+    width: 100%;             
+    margin-left: 0;          
     margin-top: 8px;
   }
 
@@ -99,6 +99,5 @@
     width: 100% !important;
   }
 }
-
 
 

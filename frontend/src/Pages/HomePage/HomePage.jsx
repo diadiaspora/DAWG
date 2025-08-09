@@ -39,19 +39,19 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   return (
     <>
       <section className="home">
-        <div className="sixeighty">
+        <div className="container">
           <Header user={user} setUser={setUser} />
 
           <SearchComponent />
           <div className="mobile-text">
-            <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}>Besties</h2>
+            <h2 style={{ paddingTop: "20px", paddingLeft: "20px", width: "300px" }}>Besties</h2>
           </div>
           <Gallery />
         </div>
         <div className="mobile-only">
           <FlightButton />
         </div>
-        <div>
+        <div className="mobile-only">
           <FlightMobile />
         </div>
         <div>
@@ -61,9 +61,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           <HotelComponent />
         </div>
     */}
-        <div className="mobile-text-blue">
-      
-        </div>
+        <div className="mobile-text-blue"></div>
         <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
         <HootLongList
           user={user}
