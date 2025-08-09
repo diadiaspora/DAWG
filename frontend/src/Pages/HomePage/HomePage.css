@@ -12,9 +12,11 @@
 }
 
 
-.home img, .home .slick-slider {
+.home {
+  width: 100%;
   max-width: 100%;
-  height: auto;
+  min-height: 100vh; /* ensures at least viewport height */
+  overflow-x: hidden; /* prevent horizontal scroll issues */
 }
 
 .mobile-only {
@@ -24,6 +26,7 @@
 .mobile-text {
   display: none;
 }
+
 
 @media screen and (max-width: 768px) {
   .home {
@@ -55,14 +58,13 @@
     gap: 0.75rem;
   }
   .sixeighty {
-    /* margin-left: -650px; */
+
     width: 100%;
     max-width: 100%;
     padding: 0 0.5rem;
   }
   .mobile-only {
     display: block;
-    /* margin-left: -670px; */
     
   }
   .mobile-text {
@@ -81,18 +83,7 @@ color: #ffffff;
   }
 
   .mobile-text-blue {
-    max-width: 85vw;
-    width: 100%;
-    /* margin-left: -669px; */
-    margin-top: 50px;
-    margin-bottom: -145px;
-    display: block;
-background-color: #1E3769;
-height: 70px;
-border-radius: 7px;
-color: #ffffff;
-
-    
+    margin-bottom: 20px; 
   }
 
 }

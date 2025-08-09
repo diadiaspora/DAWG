@@ -309,7 +309,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                 borderWidth: "1px",
                 borderColor: "#d9d9d9",
                 borderRadius: "7px",
-                padding: "0px",
+               
                 marginLeft: "42px",
                 backgroundColor: "#DFE2E7",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
