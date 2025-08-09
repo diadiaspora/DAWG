@@ -23,9 +23,9 @@
   }
 
   .mainly {
-    margin: 20px 0 0 0; /* Allow scrolling from top */
-    max-width: 100%;
-    padding: 0;         /* Remove large fixed side margins */
+
+    overflow-y: auto;
+    height: 100vh; /* Or a fixed height like 100vh */
   }
 
   .mobile-create-rapper {
