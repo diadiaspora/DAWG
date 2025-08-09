@@ -130,7 +130,7 @@ align-items: center;
   @media (min-width: 300px) and (max-width: 480px) {
     .hootmargin 
     {
-      margin-left: -480px;
+      margin-left: -620px;
     }
 
     .hootyblue {
