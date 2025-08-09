@@ -1,25 +1,37 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import NewsLetter from "../../Components/NewsLetter/NewsLetter.jsx";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Footer() {
   const klookRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (klookRef.current) {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // breakpoint: 768px
+    };
+
+    handleResize(); // check on mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile && klookRef.current) {
       klookRef.current.innerHTML = `
-      <ins class="klk-aff-widget"
-        data-wid="93395"
-        data-bgtype="Play"
-        data-adid="1085867"
-        data-lang="en"
-        data-prod="banner"
-        data-width="468"
-        data-height="60">
-        <a href="//www.klook.com/?aid=">Klook.com</a>
-      </ins>
-    `;
+        <ins class="klk-aff-widget"
+          data-wid="93395"
+          data-bgtype="Play"
+          data-adid="1085867"
+          data-lang="en"
+          data-prod="banner"
+          data-width="468"
+          data-height="60">
+          <a href="//www.klook.com/?aid=">Klook.com</a>
+        </ins>
+      `;
 
       const script = document.createElement("script");
       script.type = "text/javascript";
@@ -27,25 +39,24 @@ export default function Footer() {
       script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
       klookRef.current.appendChild(script);
     }
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
       <div
+        className="footer-container"
         style={{
           backgroundColor: "#DFE2E7",
           marginTop: "42px",
           color: "#1E3769",
           display: "flex",
+          flexWrap: "wrap",
         }}
       >
         <div
           style={{
             width: "662px",
-            marginLeft: "42px",
-            marginTop: "42px",
-            marginBottom: "42px",
-            marginRight: "42px",
+            margin: "42px",
           }}
         >
           <h3 style={{ fontSize: "15px" }}>
@@ -75,25 +86,31 @@ export default function Footer() {
           <p style={{ fontSize: "15px" }}>
             <strong> Contact Us:</strong> dia.diaspora@gmail.com
           </p>
-          <div style={{ fontSize: "15px" }}>
-            Subscribe for Updates about our mobile App!
-          </div>
-          <div style={{ marginTop: "16px" }}>
-            <div
-              ref={klookRef}
-              style={{
-                borderRadius: "7px",
-                overflow: "hidden",
-                width: "468px",
-                height: "60px",
-              }}
-            />
-          </div>
+          {!isMobile && (
+            <>
+              <div style={{ fontSize: "15px" }}>
+                Subscribe for Updates about our mobile App!
+              </div>
+              <div style={{ marginTop: "16px" }}>
+                <div
+                  ref={klookRef}
+                  style={{
+                    borderRadius: "7px",
+                    overflow: "hidden",
+                    width: "468px",
+                    height: "60px",
+                  }}
+                />
+              </div>
+            </>
+          )}
         </div>
 
-        <div style={{ width: "310px", marginBottom: "42px" }}>
-          <NewsLetter />
-        </div>
+        {!isMobile && (
+          <div style={{ width: "310px", marginBottom: "42px" }}>
+            <NewsLetter />
+          </div>
+        )}
       </div>
       <div
         style={{
