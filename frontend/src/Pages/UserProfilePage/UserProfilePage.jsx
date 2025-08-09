@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import ProfileForm from "../../Components/ProfileForm/ProfileForm.jsx";
 import UserCarousel from "../../Components/UserCarousel/UserCarousel.jsx";
 import Articles from "../../Components/Articles/Articles.jsx";
@@ -5,7 +6,6 @@ import * as profileService from "../../services/profileService";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
 
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UsersBlogs from "../../Components/UsersBlogs/UsersBlogs";
 
@@ -17,9 +17,11 @@ import "./UserProfilePage.css";
 
 export default function UserProfilePage({ user }) {
   const [profile, setProfile] = useState(null);
-  const [pets, setPets] = useState([]);  
+  const [pets, setPets] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const { id } = useParams();
+
   useEffect(() => {
     profileService.show(id).then(setProfile).catch(console.error);
   }, [id]);
@@ -28,16 +30,20 @@ export default function UserProfilePage({ user }) {
     async function fetchProfile() {
       try {
         const profileData = await profileService.show(user._id);
-        console.log(profileData);
         setProfile(profileData);
       } catch (err) {}
     }
     fetchProfile();
   }, [user]);
-  console.log(profile);
+
+  // Update isMobile on window resize
   useEffect(() => {
-    console.log("profileUpdated");
-  }, [profile]);
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 768);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -59,14 +65,6 @@ export default function UserProfilePage({ user }) {
         >
           Profile
         </div>
-        {/* <Header />
-        <SearchComponent /> */}
-        <div
-          style={{
-            display: "flex",
-            width: "1012px",
-          }}
-        ></div>
 
         <div className="profilecards">
           <div className="userprofile">
@@ -88,13 +86,10 @@ export default function UserProfilePage({ user }) {
           <UserCarousel user={user} profile={profile} />
         </div>
 
-        <div style={{ marginTop: "75px" }}>
-          <Destinations />
-        </div>
+        <div style={{ marginTop: "75px" }}>{!isMobile && <Destinations />}</div>
 
         <div style={{ marginLeft: "-42px" }}>
           <UsersBlogs user={user} />
-
           {/* <Articles /> */}
         </div>
       </section>
