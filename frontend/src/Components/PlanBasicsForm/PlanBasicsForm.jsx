@@ -74,14 +74,7 @@ export default function PlanBasicsForm() {
       <div>
         <div
           className="bluehead"
-          style={{
-            marginTop: "-24px",
-            backgroundColor: "#1E3769",
-            width: "662px",
-            height: "54px",
-            borderRadius: "7px",
-            marginLeft: "42px",
-          }}
+    
         >
           <h3
             style={{ marginLeft: "42px", fontSize: "24px", color: "#ffffff" }}

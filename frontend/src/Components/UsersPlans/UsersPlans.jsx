@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { BiWorld } from "react-icons/bi";
 import { IoMdCalendar } from "react-icons/io";
 
+import "./UserPlans.css";
+
 export default function UserPlans() {
   const [plans, setPlans] = useState([]);
   const [hoveredPlanId, setHoveredPlanId] = useState(null);
@@ -48,18 +50,11 @@ export default function UserPlans() {
   ];
 
   return (
-    <div style={{ marginLeft: "42px", marginTop: "42px" }}>
+    <div className="user-plans" >
       <div
-        style={{
-          backgroundColor: "#1E3769",
-          width: "1012px",
-          display: "flex",
-          borderRadius: "7px",
-          height: "70px",
-          alignItems: "baseline",
-          marginBottom: "24px",
-          padding: "12px",
-        }}
+        
+        className="blue-plans"
+   
       >
         <h1
           style={{
