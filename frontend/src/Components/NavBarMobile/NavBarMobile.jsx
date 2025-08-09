@@ -71,8 +71,8 @@ export default function NavBarMobile({ user, setUser, profile }) {
               <NavLink to="/plans" onClick={() => setMenuOpen(false)}>
                 Plan
               </NavLink>
-              <NavLink to="/write" onClick={() => setMenuOpen(false)}>
-                Write
+              <NavLink to="/allposts" onClick={() => setMenuOpen(false)}>
+                Posts
               </NavLink>
               <NavLink to="/marketplace" onClick={() => setMenuOpen(false)}>
                 Shop
@@ -98,11 +98,10 @@ export default function NavBarMobile({ user, setUser, profile }) {
             </>
           ) : (
             <>
-          
               <NavLink to="/allposts" onClick={() => setMenuOpen(false)}>
                 Posts
-                </NavLink>
-                
+              </NavLink>
+
               <NavLink to="/blogs" onClick={() => setMenuOpen(false)}>
                 Blogs
               </NavLink>

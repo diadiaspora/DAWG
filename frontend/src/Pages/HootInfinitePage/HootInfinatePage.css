@@ -1,65 +1,46 @@
 .wide {
   display: flex;
-  width: 1012px;
+  width: 100%; /* <-- Let it adapt instead of fixed 1012px */
+  max-width: 1012px;
+  margin: 0 auto; /* Center it on larger screens */
 }
-
-.mobile-create-rapper {
-    display: none; /* Hide by default */
-  }
-  
 
 .mainly {
   max-width: 662px;
-  margin-left: 42px;
-  margin-right: 42px;
-  margin-top: 100px;
+  margin: 100px auto 0 auto; /* Center block and keep top margin */
+  padding: 0 16px; /* Give breathing room */
 }
-
-.formerly {
-  margin-top: 100px;
-}
-
-@media screen and (max-width: 768px) {
-    .mobile-create-wrapper {
-      display: block;
-    }
-  }
 
 @media screen and (max-width: 480px) {
   .wide {
-    width: 100vw;
-    max-width: 100%;
-    margin-left: -720px;
     display: flex;
     flex-direction: column;
+    width: 100%;        /* Fluid, no horizontal overflow */
+    max-width: 100%;
+    margin: 0 auto;     /* Center content */
+    padding: 0 12px;    /* Small padding so content isn’t glued to edges */
+    box-sizing: border-box;
+  }
+
+  .mainly {
+    margin: 20px 0 0 0; /* Allow scrolling from top */
+    max-width: 100%;
+    padding: 0;         /* Remove large fixed side margins */
   }
 
   .mobile-create-rapper {
     display: block;
+    width: 100%;
   }
 
-  .mobile-text-create {
+  .hootystyle {
+    width: 100%;
     max-width: 100%;
-    width: 78vw;
- 
-    margin-top: 50px;
- margin-left: 42px;
-    display: block;
-    background-color: #1e3769;
-    height: 70px;
-    border-radius: 7px;
-    color: #ffffff;
+    margin: 20px 0;
   }
 
   .formerly {
     display: none;
   }
-
-  .hootystyle{
-     width: 100vw;
-    max-width: 100%;
-     margin-top: 42px; 
-     margin-left: 20px; 
-     margin-bottom: 20px;
-  }
 }
+
