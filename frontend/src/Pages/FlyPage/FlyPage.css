@@ -1,0 +1,8 @@
+html, body {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+  }
+
+  #tp-widget iframe {
+    max-width: 100%;
+  }

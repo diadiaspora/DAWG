@@ -28,20 +28,18 @@ export default function FlyPage({ user, setUser }) {
       <section style={{ width: "100%" }}>
         {/* <Header user={user} setUser={setUser} />
         <SearchComponent /> */}
-
         <div
           id="tp-widget"
           ref={widgetRef}
           style={{
-            minHeight: "300px",
             margin: "40px auto",
             padding: "20px",
             backgroundColor: "#fff",
             borderRadius: "50px",
+            width: "100%",
+            boxSizing: "border-box",
           }}
-        >
-   
-        </div>
+        ></div>
       </section>
     </>
   );
