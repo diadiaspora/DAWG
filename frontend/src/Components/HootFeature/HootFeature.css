@@ -58,7 +58,7 @@
     width: 100vw;
     max-height: none;
     overflow-y: visible;
-    margin-left: -470px;
+    /* margin-left: -470px; */
   }
 
 }

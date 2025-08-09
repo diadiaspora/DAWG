@@ -55,14 +55,14 @@
     gap: 0.75rem;
   }
   .sixeighty {
-    margin-left: -650px;
+    /* margin-left: -650px; */
     width: 100%;
     max-width: 100%;
     padding: 0 0.5rem;
   }
   .mobile-only {
     display: block;
-    margin-left: -670px;
+    /* margin-left: -670px; */
     
   }
   .mobile-text {
@@ -83,7 +83,7 @@ color: #ffffff;
   .mobile-text-blue {
     max-width: 85vw;
     width: 100%;
-    margin-left: -669px;
+    /* margin-left: -669px; */
     margin-top: 50px;
     margin-bottom: -145px;
     display: block;

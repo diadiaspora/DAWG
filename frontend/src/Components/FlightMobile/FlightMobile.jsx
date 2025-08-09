@@ -43,7 +43,7 @@ export default function FlightMobile() {
         padding: "0",
         margin: "0",
           boxSizing: "border-box",
-        marginLeft: "-500px"
+        // marginLeft: "-500px"
       }}
     />
   );
