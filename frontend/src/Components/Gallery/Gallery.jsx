@@ -50,10 +50,6 @@ const Gallery = () => {
     <section className="gal">
       <div className="gallery-container">
         <div className="Caro-Cal">
-          <div className="AllUsersCarousel">
-            <AllUsersCarousel />
-          </div>
-
           <div
             className="bluething"
             style={{
@@ -61,14 +57,17 @@ const Gallery = () => {
               height: "100px",
               width: "665px",
               borderRadius: "7px",
-              marginTop: "24px",
+              marginTop: "0px",
               paddingTop: "1px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              color: "#ffffff",
+              marginBottom: "34px"
             }}
-          >
-       
+          > Besties </div>
+          <div className="AllUsersCarousel">
+            <AllUsersCarousel />
           </div>
         </div>
 

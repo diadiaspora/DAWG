@@ -36,7 +36,18 @@ h2 {
     font-size: 16px;
 }
 
+.start {
+font-size: 22px;
+ margin-top: 40px;
+}
+
 @media (max-width: 480px) {
+
+  .start {
+    font-size: 18px;
+     margin-top: 20px;
+    }
+    
     .header {
       max-width: 85vw;
       width: 100%;
@@ -60,6 +71,8 @@ h2 {
       color: white;                     /* ensure text is readable */
     }
   }
+
+  
 
 
 @media (min-width: 481px) and (max-width: 767px) {

@@ -56,29 +56,31 @@ export default function PlanPage({ user }) {
           <SearchComponent />
         </div>
         <div>
-          <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
-        </div>
-        <div
-          style={{
-            backgroundColor: "#1E3769",
-            width: "1012px",
-            marginLeft: "42px",
-            borderRadius: "7px",
-            height: "75px",
-            paddingTop: "10px",
-            marginTop: "42px",
-            paddingLeft: "42px",
-          }}
-          ref={klookRef}
-        ></div>
-        <div style={{ marginTop: "75px" }}>
-          <HotelComponent />
-        </div>
-        <div style={{ marginTop: "100px" }}>
-          <UsersPlans user={user} />
-        </div>
-        <div style={{ marginTop: "-30px", marginLeft: "42px" }}>
-          <Marketplace />
+          <div>
+            <PlanBasicsForm planId={planId} setPlanId={setPlanId} />
+          </div>
+          <div
+            style={{
+              backgroundColor: "#1E3769",
+              width: "1012px",
+              marginLeft: "42px",
+              borderRadius: "7px",
+              height: "75px",
+              paddingTop: "10px",
+              marginTop: "42px",
+              paddingLeft: "42px",
+            }}
+            ref={klookRef}
+          ></div>
+          <div style={{ marginTop: "75px" }}>
+            <HotelComponent />
+          </div>
+          <div style={{ marginTop: "100px" }}>
+            <UsersPlans user={user} />
+          </div>
+          <div style={{ marginTop: "-30px", marginLeft: "42px" }}>
+            <Marketplace />
+          </div>
         </div>
         {/* <Articles />  */}
       </section>
