@@ -26,13 +26,14 @@ export default function SignUpPage({ setUser }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const user = await signUp(formData);
-      setUser(user);
-      navigate("/");
+      const res = await signUp(formData); // Don't set user
+      alert("Check your email to verify your account");
+      navigate("/login");
     } catch (err) {
       setErrorMsg("Sign Up Failed - Try Again");
     }
   }
+  
 
   const disable = formData.password !== formData.confirm;
 

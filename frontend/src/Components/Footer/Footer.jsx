@@ -1,6 +1,7 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import NewsLetter from "../../Components/NewsLetter/NewsLetter.jsx";
+import Translate from "../Translate/Translate";
 import { useEffect, useRef, useState } from "react";
 
 export default function Footer() {
@@ -59,22 +60,29 @@ export default function Footer() {
             margin: "42px",
           }}
         >
-          <h3 style={{ fontSize: "15px" }}>
-            If you have traveled with your pet please share info
-          </h3>
-          <ul>
-            <li style={{ fontSize: "13px" }}>
-              Have you had an experience with an Airline? Did you find the
-              perfect veterinarian while abroad?
-            </li>
-            <li style={{ fontSize: "13px" }}>
-              Do you find out important info about documentation needed to
-              travel to a specific country?
-            </li>
-            <li style={{ fontSize: "13px" }}>
-              Did you have a unique experience with an Airline?
-            </li>
-          </ul>
+          <div style={{ display: "flex" }}>
+            <div>
+              <Translate />
+            </div>
+            <div>
+              <h3 style={{ fontSize: "15px" }}>
+                If you have traveled with your pet please share info
+              </h3>
+              <ul>
+                <li style={{ fontSize: "13px" }}>
+                  Have you had an experience with an Airline? Did you find the
+                  perfect veterinarian while abroad?
+                </li>
+                <li style={{ fontSize: "13px" }}>
+                  Do you find out important info about documentation needed to
+                  travel to a specific country?
+                </li>
+                <li style={{ fontSize: "13px" }}>
+                  Did you have a unique experience with an Airline?
+                </li>
+              </ul>
+            </div>
+          </div>
           <strong style={{ fontSize: "15px" }}>
             <p> We are a community.</p>
             <p>

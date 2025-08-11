@@ -7,25 +7,18 @@ import "./LoginPage.css";
 export default function LogInPage({ setUser }) {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // --- Automatic login after verification ---
+  // --- Check if user just verified their account ---
   useEffect(() => {
-    const token = searchParams.get("token");
-    if (token) {
-      // Save token (e.g., localStorage or cookies)
-      localStorage.setItem("token", token);
-
-      // Optionally decode JWT to get user info
-      const payload = JSON.parse(atob(token.split(".")[1]));
-      setUser(payload);
-
-      navigate("/"); // Redirect to homepage
+    if (searchParams.get("verified") === "true") {
+      setSuccessMsg("✅ Your account has been verified! Please log in.");
     }
-  }, [searchParams, setUser, navigate]);
+  }, [searchParams]);
 
-  // --- Manual login ---
+  // --- Handle form submit ---
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
@@ -34,10 +27,8 @@ export default function LogInPage({ setUser }) {
       navigate("/");
     } catch (err) {
       console.error("Login error:", err);
-      if (err.message.includes("verify your email")) {
-        setErrorMsg(
-          "Your account is not verified. Please check your email to verify your account."
-        );
+      if (err.response?.data?.message?.toLowerCase().includes("verify")) {
+        setErrorMsg("Your account is not verified. Please check your email.");
       } else {
         setErrorMsg("Log In Failed - Try Again");
       }
@@ -47,20 +38,81 @@ export default function LogInPage({ setUser }) {
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
     setErrorMsg("");
+    setSuccessMsg("");
   }
 
   return (
     <div className="screen">
-      <img src="./dawgmoney.png" className="dogmoney" alt="dog logo with money eyes" style={{ width: "100px" }} />
+      {/* Logo Section */}
+      <img
+        src="./dawgmoney.png"
+        className="dogmoney"
+        alt="dog logo with money eyes"
+        style={{ width: "100px" }}
+      />
       <img src="./dawg.png" className="doglogo" alt="dawg logo letters" />
-      <div style={{ borderStyle: "solid", borderWidth: "1px", borderColor: "#d9d9d9", borderRadius: "7px", padding: "42px" }}>
+
+      {/* Login Card */}
+      <div
+        style={{
+          borderStyle: "solid",
+          borderWidth: "1px",
+          borderColor: "#d9d9d9",
+          borderRadius: "7px",
+          padding: "42px",
+          maxWidth: "400px",
+          width: "100%",
+        }}
+      >
         <h2>Log In!</h2>
-        <form autoComplete="off" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
+
+        {/* Success Message */}
+        {successMsg && (
+          <p style={{ color: "green", marginBottom: "16px" }}>{successMsg}</p>
+        )}
+
+        {/* Error Message */}
+        {errorMsg && (
+          <p style={{ color: "red", marginBottom: "16px" }}>{errorMsg}</p>
+        )}
+
+        {/* Login Form */}
+        <form
+          autoComplete="off"
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <label>Email</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required className="input-field" />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="input-field"
+          />
+
           <label style={{ marginTop: "16px" }}>Password</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} required className="input-field" />
-          <button type="submit" style={{ height: "44px", borderRadius: "7px", marginTop: "42px", backgroundColor: "#1E3769", borderWidth: "0px" }}>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            className="input-field"
+          />
+
+          <button
+            type="submit"
+            style={{
+              height: "44px",
+              borderRadius: "7px",
+              marginTop: "42px",
+              backgroundColor: "#1E3769",
+              borderWidth: "0px",
+              color: "#fff",
+            }}
+          >
             LOG IN
           </button>
           <hr style={{ marginTop: "16px" }} />
@@ -68,12 +120,16 @@ export default function LogInPage({ setUser }) {
 
         {/* Social Login Buttons */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <button style={socialButtonStyle}><FaGoogle /> Log in with Google</button>
-          <button style={socialButtonStyle}><FaApple /> Log in with Apple</button>
-          <button style={socialButtonStyle}><FaFacebook /> Log in with Facebook</button>
+          <button style={socialButtonStyle}>
+            <FaGoogle /> Log in with Google
+          </button>
+          <button style={socialButtonStyle}>
+            <FaApple /> Log in with Apple
+          </button>
+          <button style={socialButtonStyle}>
+            <FaFacebook /> Log in with Facebook
+          </button>
         </div>
-
-        <p className="error-message">&nbsp;{errorMsg}</p>
       </div>
     </div>
   );

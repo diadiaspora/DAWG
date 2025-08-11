@@ -7,7 +7,6 @@ const SALT_ROUNDS = 6;
 const userSchema = new Schema(
   {
     name: { type: String, required: true },
-    // petName: { type: String },
     email: {
       type: String,
       unique: true,
@@ -15,14 +14,12 @@ const userSchema = new Schema(
       lowercase: true,
       required: true,
     },
-    password: {
-      type: String,
-      required: true,
-    },
+    password: { type: String, required: true },
+    isVerified: { type: Boolean, default: false }, // ✅
+    verificationToken: { type: String }, // ✅
   },
   {
     timestamps: true,
-    // Remove password when doc is sent across network
     toJSON: {
       transform: function (doc, ret) {
         delete ret.password;

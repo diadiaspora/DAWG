@@ -14,24 +14,35 @@ export async function logIn(credentials) {
   return getUser();
 }
 
+export function logOut() {
+  localStorage.removeItem("token");
+}
+
 export function getUser() {
   const token = getToken();
   return token ? JSON.parse(atob(token.split(".")[1])).user : null;
 }
 
 export function getToken() {
-  // getItem returns null if there's no key
   const token = localStorage.getItem("token");
   if (!token) return null;
-  const payload = JSON.parse(atob(token.split(".")[1]));
-  // A JWT's exp is expressed in seconds, not milliseconds, so convert
-  if (payload.exp * 1000 < Date.now()) {
+
+  // Quick validation: JWTs are in 3 parts separated by dots
+  if (token.split(".").length !== 3) {
     localStorage.removeItem("token");
     return null;
   }
-  return token;
-}
 
-export function logOut() {
-  localStorage.removeItem("token");
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    if (payload.exp * 1000 < Date.now()) {
+      localStorage.removeItem("token");
+      return null;
+    }
+  } catch (e) {
+    localStorage.removeItem("token");
+    return null;
+  }
+
+  return token;
 }

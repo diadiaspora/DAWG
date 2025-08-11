@@ -9,4 +9,7 @@ router.post("/signup", authCtrl.signUp);
 // POST /api/auth/login
 router.post("/login", authCtrl.logIn);
 
+router.get("/verify/:token", authCtrl.verifyEmail);
+
+
 module.exports = router;

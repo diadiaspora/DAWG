@@ -15,6 +15,9 @@ import HootLongList from "../../Components/HootLongList/HootLongList";
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
 import FlightButton from "../../Components/FlightButton/FlightButton";
 import FlightMobile from "../../Components/FlightMobile/FlightMobile";
+
+
+
 export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   const navigate = useNavigate();
   const handleAddHoot = async (newHootData) => {
@@ -39,12 +42,21 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   return (
     <>
       <section className="home">
+        
         <div className="container">
           <Header user={user} setUser={setUser} />
 
           <SearchComponent />
           <div className="mobile-text">
-            <h2 style={{ paddingTop: "20px", paddingLeft: "20px", width: "300px" }}>Besties</h2>
+            <h2
+              style={{
+                paddingTop: "20px",
+                paddingLeft: "20px",
+                width: "300px",
+              }}
+            >
+              Besties
+            </h2>
           </div>
           <Gallery />
         </div>
