@@ -36,18 +36,7 @@ h2 {
     font-size: 16px;
 }
 
-.start {
-font-size: 22px;
- margin-top: 40px;
-}
-
 @media (max-width: 480px) {
-
-  .start {
-    font-size: 18px;
-     margin-top: 20px;
-    }
-    
     .header {
       max-width: 85vw;
       width: 100%;
@@ -72,8 +61,6 @@ font-size: 22px;
     }
   }
 
-  
-
 
 @media (min-width: 481px) and (max-width: 767px) {
     .header {margin-left: 0px;}
@@ -87,4 +74,15 @@ align-items: left;
     width: 100%;
     
 }
+  }
+
+  @media (max-width: 480px) {
+    .headbuttonz {
+      display: flex;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 16px;
+      justify-content: center;
+      align-items: center;
+    }
   }

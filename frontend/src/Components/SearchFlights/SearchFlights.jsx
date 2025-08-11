@@ -6,8 +6,7 @@ export default function SearchFlights() {
   useEffect(() => {
     const isMobile = window.innerWidth <= 480;
 
-    // Prevent loading the widget on mobile
-    // if (isMobile) return;
+
 
     const script = document.createElement("script");
     const scriptUrl =
