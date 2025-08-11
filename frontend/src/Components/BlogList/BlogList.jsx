@@ -36,7 +36,7 @@ export default function BlogList({ user }) {
         marginTop: "125px",
       }}
     >
-      <div style={{ width: "662px", marginRight: "42px" }}>
+      <div className="blg-container">
         <div className="realstories">
           <h2
             style={{
@@ -73,21 +73,30 @@ export default function BlogList({ user }) {
             </div>
           </Link>
         </div>
-        <div className="blog-scroll-container">
+        <div className="blg-scroll-container">
           {blogs.length ? (
             <ul className="ulflex">
               {blogs.map((blog) => (
-                <div key={blog._id} className="blogdiv">
+                <div key={blog._id} className="blgdiv">
                   <li>
-                    <img
-                      src={blog.contentOneImage}
-                      alt="resources"
-                      style={{
-                        width: "331px",
-                        borderTopLeftRadius: "7px",
-                        borderTopRightRadius: "7px",
-                      }}
-                    />
+                    <div style={{ display: "flex" }}>
+                      <img
+                        src={
+                          blog.author?.avatar ||
+                          "https://i.ibb.co/5x5Td7ks/av-1.png"
+                        }
+                        alt="Author avatar"
+                        style={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                        }}
+                      />
+                      <strong>{blog.author?.username || "Anonymous"}</strong>
+                      <p>{new Date(blog.createdAt).toLocaleDateString()}</p>
+                    </div>
+
                     <Link
                       to={`/blogs/${blog._id}`}
                       style={{
@@ -102,21 +111,16 @@ export default function BlogList({ user }) {
                     </Link>
 
                     <img
-                      src={
-                        blog.author?.avatar ||
-                        "https://i.ibb.co/5x5Td7ks/av-1.png"
-                      }
-                      alt="Author avatar"
+                      src={blog.contentOneImage}
+                      alt="resources"
                       style={{
-                        width: "32px",
-                        height: "32px",
-                        borderRadius: "50%",
-                        objectFit: "cover",
+                        width: "331px",
+                        borderTopLeftRadius: "7px",
+                        borderTopRightRadius: "7px",
                       }}
                     />
 
-                    <strong>{blog.author?.username || "Anonymous"}</strong>
-                    <p>{new Date(blog.createdAt).toLocaleDateString()}</p>
+                    <p className="blog-snippet">{blog.contentOne}</p>
                   </li>
                 </div>
               ))}

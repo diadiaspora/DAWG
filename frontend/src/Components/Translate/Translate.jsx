@@ -31,5 +31,13 @@ export default function Translate() {
     };
   }, []);
 
-  return <div id="google_translate_element" style={{ marginTop: "1rem"}}></div>;
+  return (
+    <div style={{backgroundColor: "blue", padding: "12px", borderRadius: "7px"}}>
+    
+      <div
+        id="google_translate_element"
+        style={{ marginTop: "1rem", borderRadius: "7px" }}
+      ></div>{" "}
+    </div>
+  );
 }
