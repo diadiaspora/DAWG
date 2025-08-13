@@ -120,7 +120,7 @@ export default function SignUpPage({ setUser }) {
               SIGN UP
             </button>
           </form>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          {/* <div style={{ display: "flex", flexDirection: "column" }}>
             <button
               style={{
                 marginTop: "16px",
@@ -163,7 +163,7 @@ export default function SignUpPage({ setUser }) {
               <FaFacebook />
               Log in with Facebook
             </button>
-          </div>
+          </div> */}
           <p className="error-message">&nbsp;{errorMsg}</p>
         </div>
       </div>

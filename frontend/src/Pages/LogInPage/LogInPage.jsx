@@ -119,7 +119,7 @@ export default function LogInPage({ setUser }) {
         </form>
 
         {/* Social Login Buttons */}
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        {/* <div style={{ display: "flex", flexDirection: "column" }}>
           <button style={socialButtonStyle}>
             <FaGoogle /> Log in with Google
           </button>
@@ -129,7 +129,7 @@ export default function LogInPage({ setUser }) {
           <button style={socialButtonStyle}>
             <FaFacebook /> Log in with Facebook
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
