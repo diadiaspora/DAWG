@@ -11,5 +11,4 @@ router.post("/login", authCtrl.logIn);
 
 router.get("/verify/:token", authCtrl.verifyEmail);
 
-
 module.exports = router;

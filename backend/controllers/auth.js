@@ -44,47 +44,32 @@ async function signUp(req, res) {
       avatar: user.avatar,
     });
 
+    // Use backend SERVER_URL here for verification link
     const verifyUrl = `${process.env.SERVER_URL}/api/auth/verify/${verificationToken}`;
 
-    console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS);
-
-
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      service: "Gmail", // Or your email service
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
 
-    try {
-      await transporter.sendMail({
-        from: `"Your App" <${process.env.EMAIL_USER}>`,
-        to: user.email,
-        subject: "Verify your email",
-        html: `<p>Please verify your email by clicking <a href="${verifyUrl}">here</a>.</p>`,
-      });
-    } catch (emailErr) {
-      console.error("Email sending failed:", emailErr);
-      // Still return success so the user can try verifying later
-      return res.status(200).json({
-        message:
-          "Account created, but verification email could not be sent. Contact support.",
-      });
-    }
+    await transporter.sendMail({
+      from: `"Your App" <${process.env.EMAIL_USER}>`,
+      to: user.email,
+      subject: "Verify your email",
+      html: `<p>Please verify your email by clicking <a href="${verifyUrl}">here</a>.</p>`,
+    });
 
     res
       .status(200)
       .json({ message: "Check your email to verify your account" });
   } catch (err) {
-    console.error(err);
-    if (err.code === 11000) {
-      return res.status(409).json({ message: "Email already registered" });
-    }
-    res.status(500).json({ message: "Server error" });
+    console.log(err);
+    res.status(400).json({ message: "Duplicate Email" });
   }
 }
-
 
 async function verifyEmail(req, res) {
   try {
