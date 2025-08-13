@@ -46,38 +46,63 @@ async function signUp(req, res) {
 
     const verifyUrl = `${process.env.SERVER_URL}/api/auth/verify/${verificationToken}`;
 
-    const transporter = nodemailer.createTransport({
-      service: "Gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // Helper function to create transporter
+    const createTransporter = (service) => {
+      if (service === "sendgrid") {
+        return nodemailer.createTransport({
+          host: "smtp.sendgrid.net",
+          port: 587,
+          auth: {
+            user: "apikey",
+            pass: process.env.SENDGRID_API_KEY,
+          },
+        });
+      } else {
+        // default to Gmail
+        return nodemailer.createTransport({
+          service: "Gmail",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
+      }
+    };
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: "dia.diaspora@gmail. com",
-      subject: "Test email",
-      text: "Hello, this is a test",
-    });
-    
-    console.log("Test email sent successfully");
-
+    // Try Gmail first
+    let emailSent = false;
     try {
-      await transporter.sendMail({
+      const gmailTransporter = createTransporter("gmail");
+      await gmailTransporter.sendMail({
         from: `"Your App" <${process.env.EMAIL_USER}>`,
         to: user.email,
         subject: "Verify your email",
         html: `<p>Please verify your email by clicking <a href="${verifyUrl}">here</a>.</p>`,
       });
+      console.log("Verification email sent via Gmail to", user.email);
+      emailSent = true;
+    } catch (gmailErr) {
+      console.warn("Gmail failed, trying SendGrid...", gmailErr);
+    }
 
-    } catch (mailErr) {
-      console.error("Email sending failed:", mailErr);
-      return res
-        .status(500)
-        .json({
+    // Fallback to SendGrid
+    if (!emailSent) {
+      try {
+        const sendgridTransporter = createTransporter("sendgrid");
+        await sendgridTransporter.sendMail({
+          from: process.env.SENDGRID_SENDER,
+          to: user.email,
+          subject: "Verify your email",
+          html: `<p>Please verify your email by clicking <a href="${verifyUrl}">here</a>.</p>`,
+        });
+        console.log("Verification email sent via SendGrid to", user.email);
+        emailSent = true;
+      } catch (sgErr) {
+        console.error("SendGrid failed:", sgErr);
+        return res.status(500).json({
           message: "User created, but failed to send verification email",
         });
+      }
     }
 
     res
@@ -92,7 +117,6 @@ async function signUp(req, res) {
   }
 }
 
-
 async function verifyEmail(req, res) {
   try {
     const user = await User.findOne({ verificationToken: req.params.token });
@@ -102,7 +126,6 @@ async function verifyEmail(req, res) {
     user.verificationToken = undefined;
     await user.save();
 
-    // Redirect to frontend login with success flag
     res.redirect(`${process.env.CLIENT_URL}/login?verified=true`);
   } catch (err) {
     res.status(500).json({ message: "Server error" });
@@ -110,12 +133,6 @@ async function verifyEmail(req, res) {
 }
 
 /*--- Helper Functions ---*/
-
 function createJWT(user) {
-  return jwt.sign(
-    // data payload
-    { user },
-    process.env.SECRET,
-    { expiresIn: "24h" }
-  );
+  return jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: "24h" });
 }
