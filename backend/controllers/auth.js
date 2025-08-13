@@ -46,6 +46,9 @@ async function signUp(req, res) {
 
     const verifyUrl = `${process.env.SERVER_URL}/api/auth/verify/${verificationToken}`;
 
+    console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS);
+
+
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
