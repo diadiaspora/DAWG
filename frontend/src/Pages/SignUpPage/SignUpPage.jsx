@@ -28,7 +28,7 @@ export default function SignUpPage({ setUser }) {
     try {
       const res = await signUp(formData);
       alert(res.message); // message from backend
-      navigate("/login");git add -A
+      navigate("/login");
     } catch (err) {
       setErrorMsg(err.message || "Sign Up Failed - Try Again");
     }
