@@ -22,14 +22,15 @@ export default function SignUpPage({ setUser }) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
     setErrorMsg("");
   }
+
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const res = await signUp(formData); // res = { message: "..." }
-      alert(res.message);
-      navigate("/login");
+      const res = await signUp(formData);
+      alert(res.message); // message from backend
+      navigate("/login");git add -A
     } catch (err) {
-      setErrorMsg("Sign Up Failed - Try Again");
+      setErrorMsg(err.message || "Sign Up Failed - Try Again");
     }
   }
   
