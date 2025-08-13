@@ -2,11 +2,15 @@ import sendRequest from "./sendRequest";
 
 const BASE_URL = "/api/auth";
 
+// --- SIGN UP ---
+
 export async function signUp(userData) {
-  const token = await sendRequest(BASE_URL + "/signup", "POST", userData);
-  localStorage.setItem("token", token);
-  return getUser();
+
+
+  return await sendRequest(BASE_URL + "/signup", "POST", userData);
 }
+
+// --- LOGIN ---
 
 export async function logIn(credentials) {
   const token = await sendRequest(`${BASE_URL}/login`, "POST", credentials);
@@ -14,20 +18,23 @@ export async function logIn(credentials) {
   return getUser();
 }
 
+// --- LOGOUT ---
 export function logOut() {
   localStorage.removeItem("token");
 }
 
+// --- GET USER ---
 export function getUser() {
   const token = getToken();
   return token ? JSON.parse(atob(token.split(".")[1])).user : null;
 }
 
+// --- GET TOKEN ---
 export function getToken() {
   const token = localStorage.getItem("token");
   if (!token) return null;
 
-  // Quick validation: JWTs are in 3 parts separated by dots
+  // JWT format validation
   if (token.split(".").length !== 3) {
     localStorage.removeItem("token");
     return null;

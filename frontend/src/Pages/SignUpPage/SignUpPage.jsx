@@ -22,17 +22,17 @@ export default function SignUpPage({ setUser }) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
     setErrorMsg("");
   }
-
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const res = await signUp(formData); // Don't set user
-      alert("Check your email to verify your account");
+      const res = await signUp(formData); // res = { message: "..." }
+      alert(res.message);
       navigate("/login");
     } catch (err) {
       setErrorMsg("Sign Up Failed - Try Again");
     }
   }
+  
   
 
   const disable = formData.password !== formData.confirm;
