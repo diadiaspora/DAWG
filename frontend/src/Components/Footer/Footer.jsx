@@ -1,7 +1,7 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import NewsLetter from "../../Components/NewsLetter/NewsLetter.jsx";
-import Translate from "../Translate/Translate";
+
 import { useEffect, useRef, useState } from "react";
 
 export default function Footer() {
@@ -62,7 +62,7 @@ export default function Footer() {
         >
           <div style={{ display: "flex" }}>
             <div>
-              <Translate />
+
             </div>
             <div>
               <h3 style={{ fontSize: "15px" }}>
