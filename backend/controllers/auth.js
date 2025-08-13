@@ -54,6 +54,15 @@ async function signUp(req, res) {
       },
     });
 
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: "dia.diaspora@gmail. com",
+      subject: "Test email",
+      text: "Hello, this is a test",
+    });
+    
+    console.log("Test email sent successfully");
+
     try {
       await transporter.sendMail({
         from: `"Your App" <${process.env.EMAIL_USER}>`,
@@ -61,6 +70,7 @@ async function signUp(req, res) {
         subject: "Verify your email",
         html: `<p>Please verify your email by clicking <a href="${verifyUrl}">here</a>.</p>`,
       });
+
     } catch (mailErr) {
       console.error("Email sending failed:", mailErr);
       return res
