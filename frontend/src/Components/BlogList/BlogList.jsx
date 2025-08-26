@@ -29,12 +29,8 @@ export default function BlogList({ user }) {
 
   return (
     <div
-      style={{
-        marginLeft: "0px",
-        width: "1012px",
-        display: "flex",
-        marginTop: "125px",
-      }}
+      className="blog-list"
+  
     >
       <div className="blg-container">
         <div className="realstories">

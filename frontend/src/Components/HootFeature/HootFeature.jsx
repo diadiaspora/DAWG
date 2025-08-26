@@ -26,7 +26,7 @@ export default function HootFeature(props) {
     createdAt: new Date(),
   };
 
-  // Fetch one random hoot and load full detail (comments, likes, etc.)
+
   useEffect(() => {
     async function fetchFeatured() {
       if (props.hoots && props.hoots.length > 0) {
@@ -54,7 +54,7 @@ export default function HootFeature(props) {
   
 
     return (
-      <div>
+      <div className="hoot-feature">
         <div className="blabel-wrapper-desktop">
           <div
             className="blabel"
@@ -288,6 +288,7 @@ export default function HootFeature(props) {
               borderRadius: "7px",
               padding: "6px",
               width: "310px",
+              marginLeft: "12px",
             }}
           >
             <h3 style={{ color: "white" }}> Find Hotel Deals</h3>

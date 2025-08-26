@@ -42,10 +42,10 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   return (
     <>
       <section className="home">
-        
         <div className="container">
-          <Header user={user} setUser={setUser} />
-
+          <div style={{marginLeft: "-3vw"}}>
+            <Header user={user} setUser={setUser} />
+          </div>
           <SearchComponent />
           <div className="mobile-text">
             <h2
@@ -60,9 +60,11 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           </div>
           <Gallery />
         </div>
+
         <div className="mobile-only">
           <FlightButton />
         </div>
+
         <div className="mobile-only">
           <FlightMobile />
         </div>

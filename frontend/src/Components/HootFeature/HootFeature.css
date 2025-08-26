@@ -1,7 +1,18 @@
+.hoot-feature {
+  width: 100vw;
+  
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-left: -2.4vw;
+}
+
 .style {
   width: 662px;
   max-height: 550px;
   overflow-y: auto;
+  margin-left: 24px;
 }
 
 .featcard {
@@ -18,7 +29,10 @@
 
 .blabel-wrapper-desktop {
   display: block;
+  margin-left: -2.3vw;
 }
+
+
 
 @media (min-width: 300px) and (max-width: 480px) {
 

@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+.hootmargin {
+  width: 100vw;
+  
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-left: -2vw;
+}
 
 .hootyblue {
  

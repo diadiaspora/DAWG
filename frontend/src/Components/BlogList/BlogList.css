@@ -1,3 +1,14 @@
+
+.blog-list {
+  margin-left: 0px;
+  width: 100vw;
+  display: flex;
+  margin-top: 125px;
+margin-left: -1.3vw;
+  justify-content: center;
+  align-items: center;
+}
+
 .blg-scroll-container::-webkit-scrollbar {
     height: 8px;
   }

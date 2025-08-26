@@ -28,7 +28,7 @@ export default function BlogsComponent() {
             <div>
               <button
                 className="buttdiss"
-                // onClick={handlePostClick}
+              
                 style={{
                   width: "140px",
                   height: "44px",

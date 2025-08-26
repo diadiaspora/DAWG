@@ -3,21 +3,17 @@
 
 .header {
     display: flex;
-
-
-
     background-color: whitesmoke;
-
     box-sizing: border-box;
-    margin: 0 auto;
     padding: 24px 16px;
     width: 100%;
-    max-width: 1012px;
-
-    justify-content: left;
-    align-items: left;
-    
+    max-width: 1012px;   /* same as gallery/hoot feature widths */
+    margin: 0 auto;      /* center horizontally */
+  
+    justify-content: flex-start; /* keep text aligned left */
+    align-items: flex-start;
 }
+
 
 .email-alert {
   background-color: #fff3cd;

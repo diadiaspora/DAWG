@@ -60,7 +60,7 @@ const Gallery = () => {
 
         <div
           className="calendarContainer"
-          style={{ height: "350px", marginRight: "0px", marginLeft: "42px" }}
+          style={{ height: "350px", marginRight: "0px", marginLeft: "42px" , marginTop: "24px"}}
         >
           <Calendar />
         </div>
