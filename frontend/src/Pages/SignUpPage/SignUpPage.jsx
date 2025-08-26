@@ -4,10 +4,9 @@ import { signUp } from "../../services/authService";
 
 import "./SignUpPage.css";
 
-export default function SignUpPage() {
+export default function SignUpPage({ setUser }) {
   const [formData, setFormData] = useState({
     name: "",
-    petName: "",
     email: "",
     password: "",
     confirm: "",
@@ -26,16 +25,12 @@ export default function SignUpPage() {
     evt.preventDefault();
     setLoading(true);
     try {
-      await signUp(formData); // Don't set user or store token
-      alert("Check your email to verify your account");
-      navigate("/login");
+      const user = await signUp(formData);
+      setUser(user);
+      navigate("/");
     } catch (err) {
-      console.error("Sign Up Error:", err);
-      setErrorMsg(
-        err?.message || "Sign Up Failed - Please check your info and try again"
-      );
-    } finally {
-      setLoading(false);
+      console.log("Signup failed:", err);
+      setErrorMsg("Sign Up Failed - Try Again");
     }
   }
 
