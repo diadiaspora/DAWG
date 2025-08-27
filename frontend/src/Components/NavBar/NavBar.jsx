@@ -18,11 +18,11 @@ export default function NavBar({ user, setUser, profile }) {
       <nav className="NavBar">
         <NavLink to="/" className="logo-link">
           <img
-            src="/dawgmoney.png"
+            src="/DawgLogo.png"
             className="dogmoney"
             alt="dog logo with money eyes"
           />
-          <img src="/dawg.png" className="doglogo" alt="dawg logo letters" />
+        
         </NavLink>
 
         {user ? (
