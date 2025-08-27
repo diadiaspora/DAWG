@@ -45,7 +45,7 @@ align-items: center;
   white-space: nowrap;     /* Prevent wrapping */
   box-sizing: border-box;
   padding-bottom: 12px;    /* Space for scrollbar */
-  border: 1px solid #ccc;  /* Optional: visible boundary */
+ /* Optional: visible boundary */
 }
 
 /* Scrollbar styles */
