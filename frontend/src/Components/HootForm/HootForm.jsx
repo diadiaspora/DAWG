@@ -48,7 +48,7 @@ const HootForm = (props) => {
           backgroundColor: "#1e37691f",
           borderRadius: "7px",
           padding: "20px",
-          height: "50vw",
+          height: "46vw",
         }}
       >
         <p style={{ marginBottom: "0px", marginTop: "0px" }}>Create a Post</p>
@@ -117,7 +117,7 @@ const HootForm = (props) => {
           onSelect={(url) => setFormData({ ...formData, gifUrl: url })}
         />
 
-        {formData.gifUrl && (
+        {/* {formData.gifUrl && (
           <div style={{ marginTop: "12px" }}>
             <img
               src={formData.gifUrl}
@@ -129,7 +129,7 @@ const HootForm = (props) => {
               }}
             />
           </div>
-        )}
+        )} */}
 
         <button
           type="submit"

@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
-
+import Header from "../../Components/Header/Header.jsx";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import CommentForm from "../../Components/CommentForm/CommentForm";
 import HootList from "../../Components/HootList/HootList";
 
@@ -46,6 +47,8 @@ export default function HootFeatureForm(props) {
 
   return (
     <div>
+      <Header user={user} setUser={setUser} />
+      <SearchComponent/>
       <div
         style={{
           backgroundColor: "#1E3769",
@@ -274,18 +277,21 @@ export default function HootFeatureForm(props) {
             borderRadius: "7px",
             padding: "6px",
             width: "310px",
+            marginTop:"-72px"
           }}
         >
           <h3 style={{ color: "white" }}> Write a Post</h3>
           <HootForm handleAddHoot={handleAddHoot} />
         </div>
       </div>
+      
       <HootList
         user={user}
         setUser={setUser}
         hoots={hoots}
         handleAddHoot={handleAddHoot}
-      />
+        />
+   
     </div>
   );
 }
