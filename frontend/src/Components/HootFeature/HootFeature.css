@@ -8,6 +8,20 @@
   margin-top: -24px;
 }
 
+.hoot-content {
+  border: 1px solid #E9E9E9;
+  border-radius: 7px;
+  padding: 12px;
+  margin-top: -10px;
+}
+
+.hoot-content:hover {
+  border-color: #4AA692;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  border-width: 2px;
+}
+
+
 .style {
   width: 662px;
   max-height: 550px; 

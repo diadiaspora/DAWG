@@ -132,12 +132,9 @@ export default function HootFeature(props) {
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <div
+                  className="hoot-content"
                   style={{
-                    border: "1px solid #E9E9E9",
-                    borderRadius: "7px",
-                    padding: "12px",
                     height: featuredHoot.gifUrl ? "126px" : "276px",
-                    marginTop: "-10px",
                   }}
                 >
                   <h2 style={{ fontSize: "18px", margin: "0" }}>
@@ -160,7 +157,7 @@ export default function HootFeature(props) {
                 </div>
               </Link>
 
-              {/* GIF */}
+            
               {featuredHoot.gifUrl && (
                 <img
                   src={featuredHoot.gifUrl}

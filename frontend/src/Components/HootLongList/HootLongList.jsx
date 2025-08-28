@@ -133,7 +133,7 @@ export default function HootLongList(props) {
                 </div>
               </header>
               <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
-                <div
+                {/* <div
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                   style={{
@@ -149,15 +149,14 @@ export default function HootLongList(props) {
                       : "none",
                     transition: "all 0.2s ease",
                   }}
-                >
+                > */}
                   <div className="hoot-card-text">
                     <h2>{hoot.title}</h2>
                     <p>{hoot.text}</p>
                   </div>
-                </div>
+                {/* </div> */}
               </Link>
 
-              <div style={{ marginTop: "12px" }}></div>
               {hoot.gifUrl && (
                 <img
                   src={hoot.gifUrl}
@@ -175,7 +174,7 @@ export default function HootLongList(props) {
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "8px" }}
                 >
-                  {/* Corrected conditional logic for heart icon */}
+              
                   {props.user && hoot.likes.includes(props.user._id) ? (
                     <FaHeart
                       style={{ color: "red", cursor: "pointer" }}

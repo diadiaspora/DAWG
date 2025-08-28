@@ -70,6 +70,17 @@
 .hoot-card-link {
   text-decoration: none;
   color: inherit;
+  border: 1px solid #BCC7D4;
+  border-radius: 7px;
+  padding: 16px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.hoot-card-link:hover {
+  border-color: #4AA692;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  border-width: 2px;
 }
 
 .hoot-card {
