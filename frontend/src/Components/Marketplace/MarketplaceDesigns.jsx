@@ -20,10 +20,8 @@ export default function MarketplaceDesigns() {
           return pt === "home decor";
         });
 
-        if (visualArtProducts.length > 0) {
-          setProducts(visualArtProducts);
-        } else {
-          setProducts([]); // no fallback to all products
+        setProducts(visualArtProducts);
+        if (visualArtProducts.length === 0) {
           console.warn("No products matched 'Home Decor' category.");
         }
       } catch (err) {
@@ -37,42 +35,71 @@ export default function MarketplaceDesigns() {
     fetchProducts();
   }, []);
 
-  if (loading) return <p>Loading Visual Artwork...</p>;
-  if (error) return <p className="error">{error}</p>;
+  const header = (
+    <div className="marketplace-header">
+      <h1>Visual Artwork</h1>
+      <Link to="/marketplace">
+        <button
+          style={{
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            borderWidth: "1px",
+            backgroundColor: "#ffffff",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontFamily: "Roboto",
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#347567" : "#1E3769",
+            borderRadius: "7px",
+          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          onClick={() => console.log("Current products:", products)}
+        >
+          Back to Marketplace (Click to log products)
+        </button>
+      </Link>
+    </div>
+  );
+
+  if (error)
+    return (
+      <div className="marketplace-wrapper">
+        {header}
+        <p className="error">{error}</p>
+      </div>
+    );
+
+  if (loading)
+    return (
+      <div className="marketplace-wrapper">
+        {header}
+        <div className="product-scroll-container">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="product-card skeleton">
+              <div className="skeleton-img" />
+              <div className="skeleton-line short" />
+              <div className="skeleton-line long" />
+              <div className="skeleton-button" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
 
   if (products.length === 0)
     return (
-      <p>No visual artwork found. Check console logs for product details.</p>
+      <div className="marketplace-wrapper">
+        {header}
+        <p>No visual artwork found. Check console logs for product details.</p>
+      </div>
     );
 
   return (
     <div className="marketplace-wrapper">
-      <div className="marketplace-header">
-        <h1>Visual Artwork</h1>
-        <Link to="/marketplace">
-          <button
-            style={{
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-              borderWidth: "1px",
-              backgroundColor: "#ffffff",
-              width: "240px",
-              height: "44px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769",
-              color: hover ? "#347567" : "#1E3769",
-              borderRadius: "7px",
-            }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            onClick={() => console.log("Current products:", products)}
-          >
-            Back to Marketplace (Click to log products)
-          </button>
-        </Link>
-      </div>
+      {header}
 
       <div className="product-scroll-container">
         {products.map((product) => (
@@ -82,7 +109,17 @@ export default function MarketplaceDesigns() {
               style={{ textDecoration: "none", color: "black" }}
             >
               {product.images.length > 0 && (
-                <img src={product.images[0].src} alt={product.title} />
+                <img
+                  src={product.images[0].src}
+                  alt={product.title}
+                  width={240}
+                  height={240}
+                  style={{
+                    objectFit: "cover",
+                    display: "block",
+                    borderRadius: 8,
+                  }}
+                />
               )}
               <div
                 style={{
@@ -99,6 +136,7 @@ export default function MarketplaceDesigns() {
                 )}
               </div>
             </Link>
+
             <p
               style={{
                 marginTop: "-12px",
@@ -114,6 +152,7 @@ export default function MarketplaceDesigns() {
             >
               {product.description}
             </p>
+
             <Link
               to={`/product/${product.id.split("/").pop()}`}
               style={{

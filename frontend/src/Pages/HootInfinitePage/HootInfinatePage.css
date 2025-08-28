@@ -1,31 +1,33 @@
 .wide {
   display: flex;
-  width: 100%; /* <-- Let it adapt instead of fixed 1012px */
+  width: 100%;
   max-width: 1012px;
-  margin: 0 auto; /* Center it on larger screens */
+
 }
 
 .mainly {
   max-width: 662px;
-  margin: 100px auto 0 auto; /* Center block and keep top margin */
-  padding: 0 16px; /* Give breathing room */
+  margin-left: -1.2vw;
+  margin-right: 42px;
+  padding: 0 16px; 
+
 }
 
 @media screen and (max-width: 480px) {
   .wide {
     display: block;
     flex-direction: column;
-    width: 100%;        /* Fluid, no horizontal overflow */
+    width: 100%;     
     max-width: 100%;
-    margin: 0 auto;     /* Center content */
-    padding: 0 12px;    /* Small padding so content isn’t glued to edges */
+    margin: 0 auto;     
+    padding: 0 12px;   
     box-sizing: border-box;
   }
 
   .mainly {
 
     overflow-y: auto;
-    height: 100vh; /* Or a fixed height like 100vh */
+    height: 100vh; 
   }
 
   .mobile-create-rapper {

@@ -1,27 +1,30 @@
 import BlogListAd from "../../Components/BlogListAd/BlogListAd.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Header from "../../Components/Header/Header.jsx";
-import Articles from "../../Components/Articles/Articles.jsx";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import BlogFeature from "../../Components/BlogFeature/BlogFeature";
-// import HotelComponent from "../../Components/HotelComponent/HotelComponent";
-import { NavLink } from "react-router-dom";
+
+
 
 export default function ViewBlogsPage({ user, setUser }) {
   return (
-    <section style={{ width: "100%" }}>
-      <div className="top">
-        <Header user={user} setUser={setUser} />
-        <SearchComponent />
-      </div>
+    <>
+      <section className="home">
+        <div style={{ marginLeft: "6.8px" }}>
+          <div style={{ marginLeft: "-3vw" }}>
+            <Header user={user} setUser={setUser} />
+          </div>
+          <SearchComponent />
+        </div>
 
-      <BlogFeature />
-      <div style={{marginLeft: "42px"}}>
-        <BlogsComponent />
-      </div>
-      {/* <HotelComponent /> */}
-      <BlogListAd />
-      {/* <Articles /> */}
-    </section>
+        <BlogFeature />
+        <div style={{ marginLeft: "42px" }}>
+          <BlogsComponent />
+        </div>
+        {/* <HotelComponent /> */}
+        <BlogListAd />
+        {/* <Articles /> */}
+      </section>
+    </>
   );
 }

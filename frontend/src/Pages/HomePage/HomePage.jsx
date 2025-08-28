@@ -1,21 +1,20 @@
+
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper.jsx";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
+import HootFeature from "../../Components/HootFeature/HootFeature";
+import HootLongList from "../../Components/HootLongList/HootLongList";
+import FlightButton from "../../Components/FlightButton/FlightButton";
+import FlightMobile from "../../Components/FlightMobile/FlightMobile";
+import * as hootService from "../../services/hootService";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
-import * as hootService from "../../services/hootService";
-import HootFeature from "../../Components/HootFeature/HootFeature";
-import HootLongList from "../../Components/HootLongList/HootLongList";
-
-import FlightButton from "../../Components/FlightButton/FlightButton";
-import FlightMobile from "../../Components/FlightMobile/FlightMobile";
-
 
 
 export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
@@ -46,7 +45,8 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           <div style={{marginLeft: "-3vw"}}>
             <Header user={user} setUser={setUser} />
           </div>
-          <SearchComponent/>
+          <SearchComponent />
+          
           <div className="mobile-text">
             <h2
               style={{

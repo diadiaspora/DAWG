@@ -44,37 +44,70 @@ export default function Marketplace() {
     fetchUncategorizedProducts();
   }, []);
 
-  if (loading) return <p>Loading products...</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (products.length === 0) return <p>No uncategorized products found.</p>;
+  const header = (
+    <div className="marketplace-header">
+      <h1>Everything You Need</h1>
+      <Link to="/marketplace">
+        <button
+          style={{
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            borderWidth: "1px",
+            backgroundColor: "#ffffff",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontFamily: "Roboto",
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#347567" : "#1E3769",
+            borderRadius: "7px",
+          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          Marketplace
+        </button>
+      </Link>
+    </div>
+  );
+
+  if (error)
+    return (
+      <div className="marketplace-wrapper">
+        {header}
+        <p className="error">{error}</p>
+      </div>
+    );
+
+  if (loading)
+    return (
+      <div className="marketplace-wrapper">
+        {header}
+        <div className="product-scroll-container">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="product-card skeleton">
+              <div className="skeleton-img" />
+              <div className="skeleton-line short" />
+              <div className="skeleton-line long" />
+              <div className="skeleton-button" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+
+  if (products.length === 0)
+    return (
+      <div className="marketplace-wrapper">
+        {header}
+        <p>No uncategorized products found.</p>
+      </div>
+    );
 
   return (
     <div className="marketplace-wrapper">
-      <div className="marketplace-header">
-        <h1>Everything You Need</h1>
-        <Link to="/marketplace">
-          <button
-            style={{
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-              borderWidth: "1px",
-              backgroundColor: "#ffffff",
-              width: "240px",
-              height: "44px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769",
-              color: hover ? "#347567" : "#1E3769",
-              borderRadius: "7px",
-            }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            Marketplace
-          </button>
-        </Link>
-      </div>
+      {header}
 
       <div className="product-scroll-container">
         {products.map((product) => (
@@ -84,7 +117,17 @@ export default function Marketplace() {
               style={{ textDecoration: "none", color: "black" }}
             >
               {product.images.length > 0 && (
-                <img src={product.images[0].src} alt={product.title} />
+                <img
+                  src={product.images[0].src}
+                  alt={product.title}
+                  width={isMobile ? 160 : 240}
+                  height={isMobile ? 160 : 240}
+                  style={{
+                    objectFit: "cover",
+                    display: "block",
+                    borderRadius: 8,
+                  }}
+                />
               )}
               <div
                 style={{
@@ -101,6 +144,7 @@ export default function Marketplace() {
                 )}
               </div>
             </Link>
+
             <p
               style={{
                 marginTop: "-12px",
@@ -116,6 +160,7 @@ export default function Marketplace() {
             >
               {product.description}
             </p>
+
             <Link
               to={`/product/${product.id.split("/").pop()}`}
               style={{

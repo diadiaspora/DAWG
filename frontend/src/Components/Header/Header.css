@@ -5,12 +5,13 @@
     display: flex;
     background-color: whitesmoke;
     box-sizing: border-box;
-    padding: 24px 16px;
+    padding-top: 24px;
+    padding-bottom: 0px;
+    padding-left: 16px;
     width: 100%;
-    max-width: 1012px;   /* same as gallery/hoot feature widths */
-    margin: 0 auto;      /* center horizontally */
-  
-    justify-content: flex-start; /* keep text aligned left */
+    max-width: 1012px;   
+    margin: 0 auto;    
+    justify-content: flex-start; 
     align-items: flex-start;
 }
 

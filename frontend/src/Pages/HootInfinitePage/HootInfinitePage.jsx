@@ -1,15 +1,11 @@
 import * as hootService from "../../services/hootService";
 import { useEffect, useState, useRef, useCallback } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { FaRegComment } from "react-icons/fa";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { FaHeart } from "react-icons/fa6";
-
-import "./HootInfinatePage.css";
-
-import HootCard from "../../Components/HootCard/HootCard"; // Make this reusable
+import Header from "../../Components/Header/Header.jsx";
+import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+import HootCard from "../../Components/HootCard/HootCard"; 
 import Spinner from "../../Components/Spinner/Spinner";
-import HootForm from "../../Components/HootForm/HootForm"; // Optional loading indicator
+import HootForm from "../../Components/HootForm/HootForm";
+import "./HootInfinatePage.css";
 
 export default function HootInfinatePage({ user,  setUser }) {
   const [hoots, setHoots] = useState([]);
@@ -60,52 +56,66 @@ export default function HootInfinatePage({ user,  setUser }) {
 
     const createdHoot = await hootService.create(formData);
     setHoots((prev) => [createdHoot, ...prev]);
-    setShowForm(false); // Hide form after submit
+    setShowForm(false); 
     return createdHoot;
   };
 
   return (
-    <div className="wide">
-      <div className="mobile-create-rapper">
+    <>
+      <section className="home">
+        <div>
+        <div style={{marginLeft: "-3vw"}}>
+          <Header user={user} setUser={setUser} />
+        </div>
+        <SearchComponent />
+      </div>
+      <div className="wide">
+        {/* <div className="mobile-create-rapper">
         <div
           className="mobile-text-create"
           style={{ cursor: "pointer" }}
           onClick={() => setShowForm((prev) => !prev)}
         >
+  
           <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}>
             Create a Hoot
           </h2>
         </div>
+        
         {showForm && (
           <div className="hootystyle">
             <HootForm handleAddHoot={handleAddHoot} />
           </div>
         )}
-      </div>
-      <main className="mainly">
-        {/* <h2 style={{ marginBottom: "24px" }}>All Hoots</h2> */}
-        {hoots.map((hoot, index) => {
-          const isLast = index === hoots.length - 1;
-          return (
-            <div key={hoot._id} style={{ marginBottom: "42px" }}>
-              <HootCard
-                hoot={hoot}
-                user={user}
-                setUser={setUser}
-                ref={isLast ? lastHootRef : null}
-              />
-            </div>
-          );
-        })}
+      </div> */}
 
-        {loading && <Spinner />}
-        {!hasMore && (
-          <p style={{ textAlign: "center", color: "#888" }}>No more hoots.</p>
-        )}
-      </main>
-      <div className="formerly">
-        <HootForm handleAddHoot={handleAddHoot} />
+        <main className="mainly">
+          {hoots.map((hoot, index) => {
+            const isLast = index === hoots.length - 1;
+            return (
+              <div key={hoot._id} style={{ marginBottom: "42px" }}>
+                <HootCard
+                  hoot={hoot}
+                  user={user}
+                  setUser={setUser}
+                  ref={isLast ? lastHootRef : null}
+                />
+              </div>
+            );
+          })}
+
+          {loading && <Spinner />}
+          {!hasMore && (
+            <p style={{ textAlign: "center", color: "#888" }}>No more hoots.</p>
+          )}
+        </main>
+        <div className="formerly">
+          <HootForm handleAddHoot={handleAddHoot} />
+        </div>
       </div>
-    </div>
+      </section>
+
+
+    </>
   );
 }
