@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "./FlightInfoPage.css";
 
 export default function FlightInfoPage() {
   const widgetRef = useRef(null);
@@ -23,20 +24,17 @@ export default function FlightInfoPage() {
   }, []);
 
   return (
-    <section style={{ padding: "40px", backgroundColor: "#f9f9f9" }}>
+    <section className="home">
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
         Featured Flight Deals
       </h2>
       <div
         ref={widgetRef}
         id="kiwi-results-widget"
-        style={{
-          width: "100%",
-          maxWidth: "960px",
-          margin: "0 auto",
-          minHeight: "600px",
-        }}
-      />
+        className="container"
+      >
+        </div>
+
     </section>
   );
 }
