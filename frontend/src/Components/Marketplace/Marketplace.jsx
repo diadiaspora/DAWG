@@ -10,9 +10,11 @@ export default function Marketplace() {
   const [hover, setHover] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
+     
     };
 
     handleResize(); // Initial check
@@ -26,7 +28,7 @@ export default function Marketplace() {
         setLoading(true);
         const fetchedProducts = await getProducts();
 
-        // Filter products where productType is missing or empty (uncategorized)
+  
         const uncategorizedProducts = fetchedProducts.filter((product) => {
           const pt = product.productType;
           return !pt || pt.trim() === "";
@@ -104,6 +106,8 @@ export default function Marketplace() {
         <p>No uncategorized products found.</p>
       </div>
     );
+  
+    console.log("isMobile:", isMobile);
 
   return (
     <div className="marketplace-wrapper">
@@ -146,37 +150,14 @@ export default function Marketplace() {
             </Link>
 
             <p
-              style={{
-                marginTop: "-12px",
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                width: isMobile ? "160px" : "200px",
-                paddingLeft: "12px",
-                marginBottom: "60px",
-              }}
+className="product-description"
             >
               {product.description}
             </p>
 
             <Link
               to={`/product/${product.id.split("/").pop()}`}
-              style={{
-                marginLeft: isMobile ? "50px" : "110px",
-                textDecoration: "none",
-                padding: "12px",
-                height: "44px",
-                backgroundColor: "#1E3769",
-                borderWidth: "2px",
-                borderColor: "#1E3769",
-                borderRadius: "7px",
-                color: "#ffffff",
-                fontSize: "16px",
-                fontFamily: "Roboto",
-                fontWeight: "500",
-              }}
+              className="product-btn"
             >
               View Details
             </Link>

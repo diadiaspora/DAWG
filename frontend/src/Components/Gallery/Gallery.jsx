@@ -49,10 +49,7 @@ const Gallery = () => {
     <section className="gal">
       <div className="gallery-container">
         <div className="Caro-Cal">
-          <div
-            className="bluething"
-       
-          > Besties </div>
+          <h2 className="bluething"> Besties </h2>
           <div className="AllUsersCarousel">
             <AllUsersCarousel />
           </div>

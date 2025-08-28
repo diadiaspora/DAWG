@@ -21,10 +21,10 @@ export default function BlogsComponent() {
   return (
     <>
       <div className="blogs-component-container">
-        <Link to="/blogs">
+        <Link to="/blogs" style={{textDecoration: "none"}}>
           <div className="bluelabel">
-            <h2 className="tea">All The Pet Travel Tea</h2>
 
+            <h2 className="tea">All The Pet Travel Tea</h2>
             <div>
               <button
                 className="buttdiss"

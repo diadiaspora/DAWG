@@ -90,8 +90,30 @@ export default function BlogList({ user }) {
                           objectFit: "cover",
                         }}
                       />
-                      <strong>{blog.author?.username || "Anonymous"}</strong>
-                      <p>{new Date(blog.createdAt).toLocaleDateString()}</p>
+                      <p
+                        style={{
+                          fontSize: "16px",
+                          marginLeft: "6px",
+                          paddingBottom: "6px",
+           
+                        }}
+                      >
+                        <strong>
+              
+                          {blog.author?.username || "Anonymous"}
+                        </strong>
+                      </p>
+                      <div style={{ marginLeft: "auto" }}>
+                        <p style={{ fontSize: "12px" }}>
+                          {new Date(blog.createdAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "short",
+                              day: "numeric",
+                            }
+                          )}
+                        </p>
+                      </div>
                     </div>
 
                     <Link
@@ -131,22 +153,37 @@ export default function BlogList({ user }) {
       {/* Sidebar Call to Action */}
       <div
         className="blog-sidebar"
-        style={{ height: "350px", marginTop: "106px" }}
+        style={{ height: "500px", marginTop: "75px" }}
       >
         <div
           style={{
             backgroundColor: "#1E3769",
             width: "310px",
             borderRadius: "7px",
-            height: "350px",
+            height: "550px",
             marginTop: "0px",
-            padding: "24px",
+            paddingTop: "12px",
+            paddingLeft: "16px",
+            paddingRight: "16px",
           }}
         >
           <h3 style={{ color: "#ffffff" }}>Share Your Experiences</h3>
           <h4 style={{ color: "#ffffff" }}>
-            You can inspire and help other people!
+            You can inspire & help other people!
           </h4>
+          <p style={{ color: "#ffffff" }}>
+            Dawg app was created to connect people and share information so that
+            people can travel safely and easily with their pets.
+          </p>
+          <p style={{ color: "#ffffff" }}>
+            We are constantly doing reseaarch to find and fact check on the
+            internet.
+          </p>
+          <p style={{ color: "#ffffff" }}>
+            But the best way to really know is by hearing first hand stories
+            from fellow travelers. By sharing your experiences you help other
+            people and their pets travel safely.
+          </p>
           <div
             style={{
               display: "flex",

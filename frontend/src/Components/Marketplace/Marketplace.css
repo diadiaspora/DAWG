@@ -125,7 +125,53 @@
   border-radius: 6px;
 }
 
+.product-btn {
+  margin-left: 110px;
+  text-decoration: none;
+  padding-top: 8px;
+  padding-left: 9px;
+  padding-right: 9px;
+  height: 44px;
+  background-color: #1E3769;
+  border: 2px solid #1E3769;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+
+}
+
+.product-btn:hover {
+  background-color: #4AA692;
+  border: 2px solid #4AA692;
+  color: #15284D;
+  transition: border-color 0.3s ease;
+}
+
+.product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;            
+  line-height: 1.4;
+  font-size: 14px;
+  white-space: normal; 
+  margin-top: -12px; 
+  padding-left: 12px;  
+  padding-right: 12px;
+}
+
+
 @media (max-width: 480px) {
+  .product-description {
+    -webkit-line-clamp: 2;  /* only show 2 lines on mobile */
+    width: 160px;           /* match smaller card width */
+  }
   .product-scroll-container {
     width: 100%; /* make container width responsive */
     gap: 8px;
@@ -135,7 +181,5 @@
     width: 180px;
     height: 400px;
   }
-  .product-card p {
-    width: 160px;
-  }
+
 }

@@ -5,9 +5,9 @@
 
 .blog-scroll-container {
   overflow-x: auto;
-  overflow-y: hidden; /* prevent vertical scroll */
+  overflow-y: hidden; 
   display: flex;
-  padding-bottom: 12px; /* space for scrollbar */
+  padding-bottom: 12px; 
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   max-width: 1012px;
@@ -16,7 +16,7 @@
 }
 
 .blog-scroll-container::-webkit-scrollbar {
-  height: 8px; /* same as HootLongList */
+  height: 8px; 
 }
 
 .blog-scroll-container::-webkit-scrollbar-track {
@@ -78,6 +78,10 @@
     margin-top: 10px;
     margin-right: 630px;
 
+}
+
+.tea:hover {
+  color: #53BAA4;
 }
 
 

@@ -53,6 +53,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 paddingTop: "20px",
                 paddingLeft: "20px",
                 width: "300px",
+            
               }}
             >
               Besties

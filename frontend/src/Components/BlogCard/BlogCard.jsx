@@ -4,10 +4,7 @@ import "./BlogCard.css";
 
 export default function BlogCard({ blog }) {
   return (
-    <div
-      className="cardi"
-
-    >
+    <div className="cardi">
       <img
         src={blog.thumbnail}
         alt={blog.title}
@@ -18,15 +15,18 @@ export default function BlogCard({ blog }) {
         }}
       />
       <div style={{ marginLeft: "16px", marginRight: "16px" }}>
-        <h2 style={{ fontSize: "18px", textAlign: "left", marginTop: "16px" }}>
+        <h2
+          style={{ fontSize: "18px", textAlign: "left", marginTop: "16px" }}
+          className="truncate-title"
+        >
           {blog.title}
         </h2>
-        {/* <p
+        <p
           className="truncate-text"
           style={{ fontSize: "14px", textAlign: "justify" }}
         >
           {blog.excerpt}
-        </p> */}
+        </p>
         <div
           style={{ fontSize: "16px", textAlign: "right", marginTop: "32px" }}
         >

@@ -1,10 +1,18 @@
 .truncate-text {
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: -10px; /* fix casing */
+}
+.truncate-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .cardi {

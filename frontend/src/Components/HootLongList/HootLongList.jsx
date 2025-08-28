@@ -28,8 +28,7 @@ export default function HootLongList(props) {
   }, [props.hoots]);
 
   return (
-    <div className="hootmargin"
-    style={{  marginRight: "42px" }}>
+    <div className="hootmargin" style={{ marginRight: "42px" }}>
       <div className="hootyblue">
         <div>
           <h2 className="htwo">Heres What Everyone Saying</h2>
@@ -69,7 +68,7 @@ export default function HootLongList(props) {
                 borderColor: "#BCC7D4",
                 borderWidth: "1px",
                 borderRadius: "7px",
-                height: "auto",
+                height: "380px",
                 width: "331px",
                 padding: "16px",
                 display: "flex",
@@ -79,57 +78,60 @@ export default function HootLongList(props) {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
-              <header style={{ marginBottom: "8px" }}>
+              <header style={{ marginBottom: "8px", width: "250px" }}>
                 <div
                   style={{
                     display: "flex",
-                    width: "100%",
                     alignItems: "center",
+                    justifyContent: "space-between", // This pushes left and right apart
+                    width: "100%",
                   }}
                 >
-                  <img
-                    src={
-                      hoot.author?.avatar ||
-                      "https://i.ibb.co/5x5Td7ks/av-1.png"
-                    }
-                    alt="Author avatar"
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                    }}
-                  />
                   <div
                     style={{
-                      fontSize: "16px",
-                      marginLeft: "6px",
                       display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
                     }}
                   >
-                    <strong>{hoot.author?.username || "Anonymous"}</strong>
+                    <div>
+                      <img
+                        src={
+                          hoot.author?.avatar ||
+                          "https://i.ibb.co/5x5Td7ks/av-1.png"
+                        }
+                        alt="Author avatar"
+                        style={{
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <strong>{hoot.author?.username || "Anonymous"}</strong>
+                    </div>
+                  </div>
+                  <div
+                    style={{ fontSize: "12px", display: "flex", gap: "2px" }}
+                   >
                     <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        fontSize: "12px",
-                        marginLeft: "auto", // This pushes the date to the far right
-                        alignItems: "center",
-                      }}
+                      style={{ fontSize: "12px", display: "flex", gap: "2px" }}
                     >
-                      <p style={{ marginLeft: "4px" }}>
+                      <p style={{ margin: 0 }}>
                         {new Date(hoot.createdAt).toLocaleDateString("en-US", {
                           month: "short",
                         })}
                       </p>
-                      <p>
+                      <p style={{ margin: 0 }}>
                         {new Date(hoot.createdAt).toLocaleDateString("en-US", {
                           day: "numeric",
                         })}
                       </p>
                     </div>
                   </div>
-                  <div style={{ marginLeft: "190px" }}></div>
+             
                 </div>
               </header>
               <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
@@ -150,10 +152,10 @@ export default function HootLongList(props) {
                     transition: "all 0.2s ease",
                   }}
                 > */}
-                  <div className="hoot-card-text">
-                    <h2>{hoot.title}</h2>
-                    <p>{hoot.text}</p>
-                  </div>
+                <div className="hoot-card-text">
+                  <h2>{hoot.title}</h2>
+                  <p>{hoot.text}</p>
+                </div>
                 {/* </div> */}
               </Link>
 
@@ -174,7 +176,6 @@ export default function HootLongList(props) {
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "8px" }}
                 >
-              
                   {props.user && hoot.likes.includes(props.user._id) ? (
                     <FaHeart
                       style={{ color: "red", cursor: "pointer" }}

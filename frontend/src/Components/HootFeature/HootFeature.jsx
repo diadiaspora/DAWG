@@ -68,13 +68,21 @@ export default function HootFeature(props) {
               marginLeft: "42px",
             }}
           >
-            <h4 style={{ color: "white" }}>Featured Posts</h4>
+            <div> </div>
+            <h2 style={{ color: "white", fontSize: "18px", paddingTop: "24px", paddingLeft: "12px" }}>Featured Posts</h2>
+          
+            <div>
+            <button>
+              Make a Post
+            </button>
+          </div>
           </div>
         </div>
         <div className="blabel-wrapper-mobile">
           <div className="blabel">
-            <h4 style={{ color: "white" }}>Featured Posts</h4>
+            <h2 style={{ color: "white" }}>Featured Posts</h2>
           </div>
+         
         </div>
 
         <div

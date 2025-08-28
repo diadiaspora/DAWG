@@ -47,9 +47,11 @@
   padding-top: 1px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   color: #ffffff;
   margin-bottom: 34px;
+  font-size: 18px;
+  padding-left: 24px;
 }
 
 @media (max-width: 480px) {
