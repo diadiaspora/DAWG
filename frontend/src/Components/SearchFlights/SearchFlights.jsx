@@ -33,7 +33,8 @@ export default function SearchFlights() {
       style={{
         display: "flex",
         justifyContent: "center",
-        padding: "40px 0",
+        paddingTop: "42px",
+        paddingBottom: "16px",
         backgroundColor: "#f9f9f9",
   
       }}

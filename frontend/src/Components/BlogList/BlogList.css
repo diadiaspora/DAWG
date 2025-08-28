@@ -1,153 +1,143 @@
-
 .blog-list {
   margin-left: 0px;
   width: 100vw;
   display: flex;
-  margin-top: 125px;
-margin-left: -1.3vw;
+  margin-left: -1.3vw;
   justify-content: center;
   align-items: center;
 }
 
 .blg-scroll-container::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .blg-scroll-container::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 4px;
-  }
-  
-  .blg-scroll-container::-webkit-scrollbar-thumb {
-    background-color: #1E3769;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .blg-scroll-container:hover::-webkit-scrollbar-thumb {
-    background-color: #4AA692;
-  }
+  width: 8px;
+}
 
-  .blg-scroll-container {
-    overflow-x: auto;
-    padding-bottom: 21px;
- height: 500px;
-      display: flex;
-      overflow-x: auto;
-      padding-bottom: 21px; 
-      width: 662px;
-      margin-left: 0px;
-  
-  }
+.blg-scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.blg-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #1e3769;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.blg-scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: #4aa692;
+}
+
+.blg-scroll-container {
+  max-height: 550px;        /* same as .style in HootFeature */
+  overflow-y: auto;          /* vertical scroll */
+  overflow-x: hidden;        /* hide horizontal scroll */
+  width: 662px;
+  padding-right: 8px;        /* scrollbar spacing */
+  display: flex;
+  flex-direction: column;    /* stack cards vertically */
+  gap: 16px;                 /* spacing between cards */
+}
+
+
 .ulflex {
   display: flex;
   list-style: none;
   margin-left: -38px;
   width: 400px;
-  height: 500px;
-
 }
- 
+
 .listitem {
   width: 331px;
 }
 
+.blgdiv {
+
+  border-radius: 7px;
+  margin-right: 21px;
+
+  border: 1px solid #bcc7d4;
+
+  flex: 0 0 auto;
+  margin-left: 0px;
+  padding: 12px;
+  height: auto;   
+}
+
+.realstories {
+  background-color: #1e3769;
+  width: 1012px;
+  display: flex;
+  border-radius: 7px;
+  height: 70px;
+  align-items: baseline;
+  margin-bottom: 24px;
+  padding: 12px;
+}
+
+@media (max-width: 480px) {
+  .blog-scroll-container {
+    width: 100vw;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   .blgdiv {
-    
-      width: 330px;
-      border-radius: 7px;
-      margin-right: 21px;
-      border-style: solid;
-      border-color: #4AA692;
-      height: 550px;
-      flex: 0 0 auto;
-      margin-left: 0px;
-      padding: 12px;
-    
+    display: flex;
+    width: 200px !important;
+    height: 500px;
+    flex: 0 0 auto;
+    margin-right: 16px;
+  }
+
+  .blg-sidebar {
+    display: none;
   }
 
   .realstories {
-
-      background-color: #1E3769;
-      width: 1012px;
-
-      display: flex;
-      border-radius: 7px;
-      height: 70px;
-      align-items: baseline;
-      margin-bottom: 24px;
-      padding: 12px;
-  
+    max-width: 90vw;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e3769;
+    border-radius: 7px;
+    height: 70px;
+    margin-bottom: 24px;
+    padding: 12px;
   }
-  
 
-  @media (max-width: 480px) {
-    .blog-scroll-container {
-      width: 100vw;
-      padding-left: 12px;
-      padding-right: 12px;
-    }
-  
-    .blgdiv {
-      display: flex;
-      width: 200px !important;
-      height: 500px;
-      flex: 0 0 auto;
-      margin-right: 16px;
-    }
-  
-    .blg-sidebar {
-      display: none;
-    }
+  .realstories h2 {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+    white-space: nowrap;
+  }
 
-    .realstories {
-      max-width: 90vw;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #1E3769;
-      border-radius: 7px;
-      height: 70px;
-      margin-bottom: 24px;
-      padding: 12px;
-    }
-  
-    .realstories h2 {
-      font-size: 16px;
-      color: #ffffff;
-      margin: 0;
-      white-space: nowrap;
-    }
-  
-    .realstories button {
-      height: 40px;
-      font-size: 14px;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
+  .realstories button {
+    height: 40px;
+    font-size: 14px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
 
   .latest-button {
     display: none !important;
   }
-  }
-  
-  .blg-container {
-    width: 662px;
-    margin-right: 42px;
+}
 
-  }
-  
-  .blog-snippet {
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* Number of lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #444;
-    margin: 8px 0;
-  }
-  
+.blg-container {
+  width: 662px;
+  margin-right: 42px;
+}
+
+.blog-snippet {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #444;
+  margin: 8px 0;
+}

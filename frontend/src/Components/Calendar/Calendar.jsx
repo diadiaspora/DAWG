@@ -47,7 +47,7 @@ export default function Calendar() {
         width: "310px",
         padding: "12px",
         fontFamily: "sans-serif",
-        marginTop: "-11px",
+        marginTop: "-36px",
       }}
     >
       {/* Scrollable month/year buttons */}

@@ -132,6 +132,7 @@ const SearchDocuments = () => {
         height: "177px",
         width: "1012px",
         marginLeft: "0px",
+        marginBottom: "42px"
       }}
     >
       <div style={{ paddingTop: "18px" }}>

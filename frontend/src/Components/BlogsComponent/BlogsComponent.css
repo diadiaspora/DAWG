@@ -5,14 +5,33 @@
 
 .blog-scroll-container {
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 20px;
+  overflow-y: hidden; /* prevent vertical scroll */
+  display: flex;
+  padding-bottom: 12px; /* space for scrollbar */
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #1E3769 #f0f0f0;
-  max-width: 1012px; 
+  scroll-snap-type: x mandatory;
+  max-width: 1012px;
   width: 1012px;
-  margin-left: -1vw;
+  gap: 16px;
+}
+
+.blog-scroll-container::-webkit-scrollbar {
+  height: 8px; /* same as HootLongList */
+}
+
+.blog-scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.blog-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #1e3769;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.blog-scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: #4aa692;
 }
 
 .blog-scroll-container > div {
@@ -26,16 +45,14 @@
 
 
 .blogs-component-container {
-  margin-top: 125px; 
+  margin-top: 24px; 
   padding: 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   margin-left: -1vw;
-
 }
 
 .bluelabel {

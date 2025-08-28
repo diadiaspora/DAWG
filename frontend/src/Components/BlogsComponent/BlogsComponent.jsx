@@ -28,7 +28,6 @@ export default function BlogsComponent() {
             <div>
               <button
                 className="buttdiss"
-              
                 style={{
                   width: "140px",
                   height: "44px",
@@ -55,7 +54,7 @@ export default function BlogsComponent() {
             style={{
               display: "flex",
               gap: "16px",
-              minWidth: `${shuffledBlogs.length * 280}px`, // Or any reasonable card width
+              minWidth: `${Math.max(shuffledBlogs.length * 280, 1012)}px`,
             }}
           >
             {shuffledBlogs.map((post) => (

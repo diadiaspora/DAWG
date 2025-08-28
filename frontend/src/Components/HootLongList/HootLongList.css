@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -6,168 +6,147 @@
 
 .hootmargin {
   width: 100vw;
-  
   display: flex;
   flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-left: -2vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .hootyblue {
- 
-  background-color: #1E3769;
+  background-color: #1e3769;
   width: 100%;
   max-width: 1022px;
   display: flex;
-
   border-radius: 7px;
   height: 70px;
   align-items: center;
   margin-bottom: 24px;
   padding: 0 12px;
   margin-left: 21px;
-
-justify-content: center;
-align-items: center;
-  }
+  justify-content: center;
+  align-items: center;
+}
 
 .hoot-scroll-container::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .hoot-scroll-container::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 4px;
-  }
-  
-  .hoot-scroll-container::-webkit-scrollbar-thumb {
-    background-color: #1E3769;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .hoot-scroll-container:hover::-webkit-scrollbar-thumb {
-    background-color: #4AA692;
-  }
-  
-  .visible {
-  
-      width: 100%;
-      max-width: 1012px;
-      margin: 0 auto;
-      display: flex;
-justify-content: center;
-align-items: center;
-    
-   
-  }
-  .hoot-scroll-container {
-  
-      display: flex;
-      gap: 16px;
-      justify-content: start;
-      align-items: start;
-    width: 100%;
-      max-width: 1012px;
-      margin-left: 8px;
-      border: none;
-   
-    overflow-x: scroll;
-    padding-bottom: 21px; /* Adds space between content (e.g. cards) and scrollbar */
-    
-  }
+  height: 8px;
+}
 
-  .hoot-card-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .hoot-card {
-    border: 1px solid #bcc7d4;
-    border-radius: 7px;
-    padding: 12px;
-    transition: background-color 0.2s ease;
-  }
-  
-  .hoot-card-link:hover .hoot-card {
-    background-color: #932e2e; /* ✅ light blue background */
-  }
-  
-  .hoot-card-link:hover {
-    color: #000000; /* ✅ or any color you prefer */
-    text-decoration: none;
-    background-color: #F2F4F7; 
+.hoot-scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
 
-  }
+.hoot-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #1e3769;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
 
-  .hoot-container:hover {
-    border-color: #4AA692;
-  }
+.hoot-scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: #4aa692;
+}
 
-  .htwo {
- 
-      margin-left: 21px;
-      margin-right: 470px;
-      color: #ffffff;
-      font-size: 18px;
-    
-  }
+.visible {
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hoot-scroll-container {
+  display: flex;
+  gap: 16px;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  max-width: 1012px;
+  margin-left: 8px;
+  border: none;
+  overflow-x: scroll;
+  padding-bottom: 21px; 
+}
 
-  .hoot-card-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* Max 4 lines total */
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .hoot-card-text h2 {
-    font-size: 18px;
-    margin: 0;
-    line-height: 1.3em;
-  }
-  
-  .hoot-card-text p {
-    margin: 0;
-    line-height: 1.5em;
-  }
-  
+.hoot-card-link {
+  text-decoration: none;
+  color: inherit;
+}
 
+.hoot-card {
+  border: 1px solid #bcc7d4;
+  border-radius: 7px;
+  padding: 12px;
+  transition: background-color 0.2s ease;
+}
 
+.hoot-card-link:hover .hoot-card {
+  background-color: #932e2e; 
+}
 
-  @media (min-width: 300px) and (max-width: 480px) {
-    /* .hootmargin 
+.hoot-card-link:hover {
+  color: #000000; 
+  text-decoration: none;
+  background-color: #f2f4f7;
+}
+
+.hoot-container:hover {
+  border-color: #4aa692;
+}
+
+.htwo {
+  margin-left: 21px;
+  margin-right: 470px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.hoot-card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hoot-card-text h2 {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.3em;
+}
+
+.hoot-card-text p {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+@media (min-width: 300px) and (max-width: 480px) {
+  /* .hootmargin 
     {
       margin-left: -620px;
     } */
 
-    .hootyblue {
-      max-width: 90vw;
-      width: 100%;
+  .hootyblue {
+    max-width: 90vw;
+    width: 100%;
     height: 70px;
     margin-right: 0px;
     margin-left: 27px;
-    }
-   
-  
-      .hooty-button {
-        display: none;
-      }
-
-      .htwo {
-        max-width: 90vw;
-        width: 100%;
-        margin-left: 2px;
-        margin-right: 0;  /* reset margin-right here */
-        color: #ffffff;
-        font-size: 18px;
-      }
-
-      .visible {
-        margin-left: 21px;
-      }
-  
   }
-  
 
+  .hooty-button {
+    display: none;
+  }
+
+  .htwo {
+    max-width: 90vw;
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 0; /* reset margin-right here */
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+  .visible {
+    margin-left: 21px;
+  }
+}

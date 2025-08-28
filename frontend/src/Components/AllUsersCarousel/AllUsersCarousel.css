@@ -7,9 +7,8 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
-
-  -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
-  scrollbar-width: none; /* Hides the scrollbar for Firefox */
+  -webkit-overflow-scrolling: touch; 
+  scrollbar-width: none; 
   -ms-overflow-style: none; 
 }
 

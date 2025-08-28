@@ -28,10 +28,7 @@ export default function BlogList({ user }) {
   };
 
   return (
-    <div
-      className="blog-list"
-  
-    >
+    <div className="blog-list">
       <div className="blg-container">
         <div className="realstories">
           <h2
@@ -73,7 +70,11 @@ export default function BlogList({ user }) {
           {blogs.length ? (
             <ul className="ulflex">
               {blogs.map((blog) => (
-                <div key={blog._id} className="blgdiv">
+                <div
+                  key={blog._id}
+                  className="blgdiv"
+                  style={{ width: "648px", borderRadius: "7px" }}
+                >
                   <li>
                     <div style={{ display: "flex" }}>
                       <img
@@ -110,7 +111,7 @@ export default function BlogList({ user }) {
                       src={blog.contentOneImage}
                       alt="resources"
                       style={{
-                        width: "331px",
+                        width: "100vw",
                         borderTopLeftRadius: "7px",
                         borderTopRightRadius: "7px",
                       }}

@@ -1,18 +1,39 @@
 .hoot-feature {
   width: 100vw;
-  
   display: flex;
   flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-left: -2.4vw;
+  justify-content: center;
+  align-items: center;
+  margin-left: -1vw;
+  margin-top: -24px;
 }
 
 .style {
   width: 662px;
-  max-height: 550px;
-  overflow-y: auto;
+  max-height: 550px; 
+  overflow-y: auto; 
+  overflow-x: hidden; 
   margin-left: 24px;
+  padding-right: 8px; 
+}
+
+.style::-webkit-scrollbar {
+  width: 8px;
+}
+
+.style::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.style::-webkit-scrollbar-thumb {
+  background-color: #1e3769;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.style:hover::-webkit-scrollbar-thumb {
+  background-color: #4aa692;
 }
 
 .featcard {
@@ -21,6 +42,8 @@ margin-left: -2.4vw;
   padding: 16px;
   display: flex;
   flex-direction: column;
+  width: 200px;
+  background-color: blue;
 }
 
 .blabel-wrapper-mobile {
@@ -32,10 +55,7 @@ margin-left: -2.4vw;
   margin-left: -2.3vw;
 }
 
-
-
 @media (min-width: 300px) and (max-width: 480px) {
-
   .blabel-wrapper-desktop {
     display: none;
   }
@@ -57,22 +77,20 @@ margin-left: -2.4vw;
     margin-top: 60px;
   }
 
-
-.featcard {
+  .featcard {
     max-width: 90vw;
     width: 100%;
-}
+  }
 
-.flightdeals {
-  display: none !important;
-}
+  .flightdeals {
+    display: none !important;
+  }
 
   .style {
     max-width: 85vw;
     width: 100vw;
     max-height: none;
     overflow-y: visible;
-    /* margin-left: -470px; */
-  }
 
+  }
 }

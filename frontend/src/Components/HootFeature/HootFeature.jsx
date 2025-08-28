@@ -11,7 +11,6 @@ import "./HootFeature.css";
 export default function HootFeature(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
-
   const hoot = featuredHoot || {
     author: {
       username: "Anonymous",
@@ -65,7 +64,6 @@ export default function HootFeature(props) {
               borderRadius: "7px",
               height: "70px",
               alignItems: "baseline",
-              marginBottom: "24px",
               padding: "12px",
               marginLeft: "42px",
             }}
@@ -87,10 +85,9 @@ export default function HootFeature(props) {
             marginLeft: "42px",
             marginRight: "42px",
           }}
-        >
+         >
           <div className="style">
-            <div key={featuredHoot._id} className="featcard">
-              {/* Author & Date */}
+            <div key={featuredHoot._id} className="featcard" style={{maxWidth: "648px", borderRadius: "7px"}}>
               <header
                 style={{
                   marginBottom: "8px",
@@ -129,7 +126,7 @@ export default function HootFeature(props) {
                 </div>
               </header>
 
-              {/* Title & Text */}
+            
               <Link
                 to={`/hoots/${featuredHoot._id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -178,7 +175,7 @@ export default function HootFeature(props) {
                 />
               )}
 
-              {/* Likes and Comments Row */}
+            
               <div
                 style={{
                   display: "flex",
@@ -245,7 +242,7 @@ export default function HootFeature(props) {
                 }}
               />
 
-              {/* Comments Preview */}
+           
               <div style={{ marginTop: "16px" }}>
                 {featuredHoot.comments.length > 0 ? (
                   featuredHoot.comments.slice(0, 2).map((comment) => (
