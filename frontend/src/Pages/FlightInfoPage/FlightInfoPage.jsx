@@ -24,7 +24,7 @@ export default function FlightInfoPage() {
   }, []);
 
   return (
-    <section className="home">
+    <section className="flight-info">
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
         Featured Flight Deals
       </h2>

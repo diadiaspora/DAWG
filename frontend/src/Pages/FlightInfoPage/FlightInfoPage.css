@@ -1,14 +1,5 @@
-.home {
-    width: 100vw;
-    padding: 1rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: whitesmoke;
-    align-items: stretch;
-    justify-content: center;
-    overflow-x: hidden;
+.flight-info {
+margin-left: 100px;
   }
   
   .container {

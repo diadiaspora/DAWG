@@ -35,8 +35,8 @@ export default function FlyPage({ user, setUser }) {
             margin: "40px auto",
             padding: "20px",
             backgroundColor: "#fff",
-            borderRadius: "50px",
-            width: "100%",
+            borderRadius: "7px",
+            width: "84.7vw",
             boxSizing: "border-box",
           }}
         ></div>
