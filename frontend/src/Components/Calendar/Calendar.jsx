@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Calendar.css";
 
 export default function Calendar() {
   const startDate = new Date(2025, 6, 1); // July = month 6 (0-based index)
@@ -50,7 +51,7 @@ export default function Calendar() {
         marginTop: "-36px",
       }}
     >
-      {/* Scrollable month/year buttons */}
+    
       <div
         className="calendar-desktop-only"
         style={{
@@ -78,6 +79,7 @@ export default function Calendar() {
                 cursor: "pointer",
                 borderRadius: "6px",
                 flexShrink: 0,
+                marginBottom: "6px",
               }}
             >
               {label}
@@ -86,7 +88,7 @@ export default function Calendar() {
         })}
       </div>
 
-      {/* Weekday headers */}
+  
       <div
         style={{
           display: "flex",
@@ -126,16 +128,10 @@ export default function Calendar() {
         ))}
       </div>
       <button
-        style={{
-          backgroundColor: "#1E3769",
-          borderRadius: "7px",
-          height: "44px",
-          marginTop: "24px",
-          width: "290px",
-          borderWidth: "0px",
-        }}
+    
+        className="calendar-btn"
       >
-        {" "}
+      
         Start Planning
       </button>
     </div>

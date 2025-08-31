@@ -17,7 +17,6 @@
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px;
-
   padding-right: 36px;
   cursor: pointer;
 }
@@ -42,9 +41,24 @@
     border-radius: 7px;
     border-color: #1E3769;
     width: 236px;
-    height: 44px;
-    margin-top: 23px;
+    height: 48px;
+    margin-top: 26px;
     margin-left: 18px;
+    font-weight: 400;
+    border-width: 0px;
+}
+
+.buttonAir:hover {
+    font-family: Roboto, Helvetica, sans-serif;
+    background-color: #1e3769d5;
+    border-radius: 7px;
+    border-color: #ffffff;
+    width: 236px;
+    height: 48px;
+    margin-top: 26px;
+    margin-left: 18px;
+    font-weight: 400;
+    color: #ffffff;
 }
 
 .airbox {

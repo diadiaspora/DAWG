@@ -21,7 +21,7 @@ const customStyles = {
   control: (base, state) => ({
     ...base,
     width: "100%",
-    height: 44,
+    height: 48,
     marginLeft: 18,
     backgroundColor: "#F2F4F7",
     borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
@@ -76,22 +76,28 @@ const SearchAirlines = () => {
   return (
     <div className="airbox">
       <div style={{ paddingTop: "18px" }}>
-        <strong style={{ marginLeft: "18px" }}>
+        <strong style={{ marginLeft: "18px", fontWeight:"400" }}>
           Compare pet travel fees for each airline. Find out which airline meets
           your pet travel budget.
         </strong>
       </div>
 
-      <div style={{ display: "flex", marginTop: "18px" }} className="airRow">
+      <div style={{ display: "flex", marginTop: "10px" }} className="airRow">
         <div
           className="airColumn"
           style={{ display: "flex", flexDirection: "column" }}
         >
           <label
             htmlFor="airline"
-            style={{ marginLeft: "21px", fontSize: "16px", width: "350px" }}
+            style={{
+              marginLeft: "21px",
+              fontSize: "16px",
+              width: "338px",
+              marginBottom: "2px",
+              fontWeight: "400",
+            }}
           >
-            Airline
+            Which Airline?
           </label>
           <Select
             inputId="airline"
@@ -105,11 +111,21 @@ const SearchAirlines = () => {
 
         <div
           className="airColumn"
-          style={{ display: "flex", flexDirection: "column" }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "10px",
+          }}
         >
           <label
             htmlFor="destination"
-            style={{ marginLeft: "21px", fontSize: "16px" }}
+            style={{
+              marginLeft: "21px",
+              fontSize: "16px",
+              marginBottom: "2px",
+              width: "338px",
+              fontWeight: "400",
+            }}
           >
             Where to?
           </label>
@@ -126,7 +142,7 @@ const SearchAirlines = () => {
         <button
           onClick={handleClick}
           className="buttonAir"
-          style={{ fontSize: "16px" }}
+          style={{ fontSize: "16px", marginLeft: "28px" }}
         >
           Search
         </button>

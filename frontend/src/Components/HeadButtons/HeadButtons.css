@@ -34,10 +34,12 @@
   margin-left: 2px;
 }
 
+
+
 .headbuttons button:hover {
-  background-color: #ffffff;
+  background-color: #4AA692;
   border-color: #4AA692;
-  color: #347567;
+  color: #15284D;
   height: 44px;
 }
 

@@ -8,6 +8,26 @@
   margin-top: -24px;
 }
 
+.hoot-header {
+  background-color: #1e3769;
+  width: 100%;
+  max-width: 1012px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  height: 70px;
+  padding: 12px 21px;
+  margin-bottom: 24px;
+}
+
+.hoot-header h1 {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+  font-family: Roboto;
+}
+
 .hoot-content {
   border: 1px solid #E9E9E9;
   border-radius: 7px;

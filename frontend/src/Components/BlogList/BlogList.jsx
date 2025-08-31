@@ -5,7 +5,8 @@ import "./BlogList.css";
 
 export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
-  const navigate = useNavigate(); // ✅
+  const navigate = useNavigate(); 
+  const [hover, setHover] = useState(false);
   const [hoverLatest, setHoverLatest] = useState(false);
   const [hoverCreate, setHoverCreate] = useState(false);
   
@@ -27,44 +28,40 @@ export default function BlogList({ user }) {
     }
   };
 
+  const blogListHead = (
+    <div className="blog-list-header">
+      <h1>Real Stories</h1>
+      <Link to="/blogs">
+        <button
+          style={{
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            borderWidth: "1px",
+            backgroundColor: hover ? "#4AA692" : "#ffffff",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontFamily: "Roboto",
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#1E3769" : "#1E3769",
+            borderRadius: "7px",
+          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          Latest Stories
+        </button>
+      </Link>
+    </div>
+  );
+
   return (
     <div className="blog-list">
       <div className="blg-container">
         <div className="realstories">
-          <h2
-            style={{
-              marginLeft: "21px",
-              marginTop: "8px",
-              marginRight: "720px",
-              color: "#ffffff",
-              fontSize: "18px",
-            }}
-          >
-            Real Stories
-          </h2>
-          <Link to="/blogs">
-            <div>
-              <button
-                className="latest-button"
-                style={{
-                  width: "140px",
-                  height: "44px",
-                  backgroundColor: "#ffffff",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                  fontFamily: "Roboto",
-                  border: "1px solid",
-                  borderColor: hoverLatest ? "#4AA692" : "#1E3769",
-                  color: hoverLatest ? "#347567" : "#1E3769",
-                  borderRadius: "7px",
-                }}
-                onMouseEnter={() => setHoverLatest(true)}
-                onMouseLeave={() => setHoverLatest(false)}
-              >
-                Latest Stories
-              </button>
-            </div>
-          </Link>
+   {blogListHead}
+         
         </div>
         <div className="blg-scroll-container">
           {blogs.length ? (
@@ -150,7 +147,6 @@ export default function BlogList({ user }) {
         </div>
       </div>
 
-      {/* Sidebar Call to Action */}
       <div
         className="blog-sidebar"
         style={{ height: "500px", marginTop: "75px" }}

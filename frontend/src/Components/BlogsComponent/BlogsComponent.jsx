@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { blogPosts } from "../../Data/blogs.jsx"; // Assuming this is your static blog data
+import { blogPosts } from "../../Data/blogs.jsx"; 
 import BlogCard from "../../Components/BlogCard/BlogCard.jsx";
 import { Link } from "react-router-dom"; 
 import "./BlogsComponent.css"; 
@@ -16,38 +16,40 @@ export default function BlogsComponent() {
     setShuffledBlogs(shuffled);
   }, []);
 
+  const bloghead = (
+    <div className="blog-header">
+      <h1>All The Pet Travel Tea</h1>
+      <Link to="/blogs">
+        <button
+          style={{
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            borderWidth: "1px",
+            backgroundColor: hover ? "#4AA692" : "#ffffff",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontFamily: "Roboto",
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#1E3769" : "#1E3769",
+            borderRadius: "7px",
+          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          Recent Articles
+        </button>
+      </Link>
+    </div>
+  );
+
  
 
   return (
     <>
       <div className="blogs-component-container">
-        <Link to="/blogs" style={{textDecoration: "none"}}>
-          <div className="bluelabel">
-
-            <h2 className="tea">All The Pet Travel Tea</h2>
-            <div>
-              <button
-                className="buttdiss"
-                style={{
-                  width: "140px",
-                  height: "44px",
-                  backgroundColor: "#ffffff",
-                  borderWidth: "1px",
-                  borderColor: hover ? "#4AA692" : "#1E3769",
-                  color: hover ? "#347567" : "#1E3769",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                  fontFamily: "Roboto",
-                  borderRadius: "7px",
-                }}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-              >
-                Recent Articles
-              </button>
-            </div>
-          </div>
-        </Link>
+  {bloghead}
 
         <div className="blog-scroll-container">
           <div

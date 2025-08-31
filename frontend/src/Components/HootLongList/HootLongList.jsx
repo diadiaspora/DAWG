@@ -10,7 +10,7 @@ export default function HootLongList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
   const navigate = useNavigate();
   const [hover, setHover] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handlePostClick = () => {
     if (props.user) {
@@ -27,36 +27,40 @@ export default function HootLongList(props) {
     }
   }, [props.hoots]);
 
+  const hootlong = (
+    <div className="hoot-long-header">
+      <h1>Heres What Everyone Saying</h1>
+      <Link to="/marketplace">
+        <button
+          style={{
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            borderWidth: "1px",
+            backgroundColor: hover ? "#4AA692" : "#ffffff",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontFamily: "Roboto",
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#1E3769" : "#1E3769",
+            borderRadius: "7px",
+          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          View Posts
+        </button>
+      </Link>
+    </div>
+  );
+
   return (
     <div className="hootmargin" style={{ marginRight: "42px" }}>
-      <div className="hootyblue">
-        <div>
-          <h2 className="htwo">Heres What Everyone Saying</h2>
-        </div>
-        <div>
-          <button
-            className="hooty-button"
-            onClick={handlePostClick}
-            style={{
-              borderWidth: "1px",
-              backgroundColor: "#ffffff",
-              width: "240px",
-              height: "44px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769",
-              color: hover ? "#347567" : "#1E3769",
-              borderRadius: "7px",
-            }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            View Posts
-          </button>
-        </div>
-      </div>
+  
+       {hootlong}
+     
+  
 
       <div className="visible">
         <div className="hoot-scroll-container">
@@ -83,7 +87,7 @@ export default function HootLongList(props) {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between", // This pushes left and right apart
+                    justifyContent: "space-between", 
                     width: "100%",
                   }}
                 >

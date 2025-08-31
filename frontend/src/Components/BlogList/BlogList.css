@@ -62,15 +62,35 @@
   height: auto;   
 }
 
-.realstories {
+.blog-list-header {
   background-color: #1e3769;
+  width: 100%;
+  max-width: 1012px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  height: 70px;
+  padding: 12px 21px;
+  margin-bottom: 24px;
+}
+
+.blog-list-header h1 {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+  font-family: Roboto;
+}
+
+.realstories {
+
   width: 1012px;
   display: flex;
   border-radius: 7px;
   height: 70px;
   align-items: baseline;
   margin-bottom: 24px;
-  padding: 12px;
+ 
 }
 
 @media (max-width: 480px) {

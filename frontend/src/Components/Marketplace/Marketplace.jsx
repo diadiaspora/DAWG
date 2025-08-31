@@ -17,7 +17,7 @@ export default function Marketplace() {
      
     };
 
-    handleResize(); // Initial check
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -54,7 +54,7 @@ export default function Marketplace() {
           style={{
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             borderWidth: "1px",
-            backgroundColor: "#ffffff",
+            backgroundColor: hover ? "#4AA692" : "#ffffff",
             width: "240px",
             height: "44px",
             fontWeight: "bold",
@@ -62,7 +62,7 @@ export default function Marketplace() {
             fontSize: "16px",
             fontFamily: "Roboto",
             borderColor: hover ? "#4AA692" : "#1E3769",
-            color: hover ? "#347567" : "#1E3769",
+            color: hover ? "#1E3769" : "#1E3769",
             borderRadius: "7px",
           }}
           onMouseEnter={() => setHover(true)}

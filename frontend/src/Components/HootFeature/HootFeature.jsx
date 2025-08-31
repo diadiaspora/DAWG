@@ -10,6 +10,8 @@ import "./HootFeature.css";
 
 export default function HootFeature(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
+  const [hover, setHover] = useState(false);
+
   const navigate = useNavigate();
   const hoot = featuredHoot || {
     author: {
@@ -50,34 +52,40 @@ export default function HootFeature(props) {
       </div>
     );
   }
-  
+  const headerhoot = (
+    <div className="hoot-header">
+      <h1>Featured Posts</h1>
+      <Link to="/marketplace">
+        <button
+          style={{
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            borderWidth: "1px",
+            backgroundColor: hover ? "#4AA692" : "#ffffff",
+            width: "240px",
+            height: "44px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontFamily: "Roboto",
+            borderColor: hover ? "#4AA692" : "#1E3769",
+            color: hover ? "#1E3769" : "#1E3769",
+            borderRadius: "7px",
+          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          Make a Post
+        </button>
+      </Link>
+    </div>
+  );
 
     return (
       <div className="hoot-feature">
-        <div className="blabel-wrapper-desktop">
-          <div
-            className="blabel"
-            style={{
-              backgroundColor: "#1E3769",
-              width: "1012px",
-              display: "flex",
-              borderRadius: "7px",
-              height: "70px",
-              alignItems: "baseline",
-              padding: "12px",
-              marginLeft: "42px",
-            }}
-          >
-            <div> </div>
-            <h2 style={{ color: "white", fontSize: "18px", paddingTop: "24px", paddingLeft: "12px" }}>Featured Posts</h2>
-          
-            <div>
-            <button>
-              Make a Post
-            </button>
-          </div>
-          </div>
-        </div>
+        
+{headerhoot}
+
+
         <div className="blabel-wrapper-mobile">
           <div className="blabel">
             <h2 style={{ color: "white" }}>Featured Posts</h2>

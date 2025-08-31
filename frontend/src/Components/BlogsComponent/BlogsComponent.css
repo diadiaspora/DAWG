@@ -3,6 +3,25 @@
   box-sizing: border-box;
 }
 
+.blog-header {
+  background-color: #1e3769;
+  width: 100%;
+  max-width: 1012px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  height: 70px;
+  padding: 12px 21px;
+  margin-bottom: 24px;
+}
+
+.blog-header h1 {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+  font-family: Roboto;
+}
 .blog-scroll-container {
   overflow-x: auto;
   overflow-y: hidden; 

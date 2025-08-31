@@ -12,7 +12,7 @@ export default function FlightCalendar() {
     script.async = true;
     script.charset = "utf-8";
     script.src =
-      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&destination=MEX&target_host=www.aviasales.com%2Fsearch&locale=en&limit=10&powered_by=true&primary=%230085FF&promo_id=4044&campaign_id=100";
+      "https://tpwidg.com/content?currency=usd&trs=428421&shmarker=639991&destination=MEX&target_host=www.aviasales.com%2Fsearch&locale=en&limit=10&powered_by=true&primary=%234AA692&promo_id=4044&campaign_id=100";
 
     if (widgetRef.current) {
       widgetRef.current.appendChild(script);
