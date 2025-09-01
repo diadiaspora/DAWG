@@ -35,13 +35,12 @@
   overflow-x: auto;
   overflow-y: hidden;
   gap: 16px;
-  width: 1012px; /* Fixed container width */
+  width: 1012px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: nowrap;
   box-sizing: border-box;
-  padding-bottom: 12px; /* Space for scrollbar */
-  /* Optional: visible boundary */
+  padding-bottom: 12px; 
 }
 
 
@@ -84,7 +83,6 @@
   border-top-right-radius: 7px;
 }
 
-/* Skeleton loader styles */
 .product-card.skeleton {
   display: flex;
   flex-direction: column;
@@ -169,11 +167,11 @@
 
 @media (max-width: 480px) {
   .product-description {
-    -webkit-line-clamp: 2;  /* only show 2 lines on mobile */
-    width: 160px;           /* match smaller card width */
+    -webkit-line-clamp: 2;  
+    width: 160px;          
   }
   .product-scroll-container {
-    width: 100%; /* make container width responsive */
+    width: 100%; 
     gap: 8px;
     padding: 8px;
   }

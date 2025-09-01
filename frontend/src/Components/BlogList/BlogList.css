@@ -27,14 +27,14 @@
 }
 
 .blg-scroll-container {
-  max-height: 550px;        /* same as .style in HootFeature */
-  overflow-y: auto;          /* vertical scroll */
-  overflow-x: hidden;        /* hide horizontal scroll */
+  max-height: 550px;        
+  overflow-y: auto;         
+  overflow-x: hidden;        
   width: 662px;
-  padding-right: 8px;        /* scrollbar spacing */
+  padding-right: 8px;       
   display: flex;
-  flex-direction: column;    /* stack cards vertically */
-  gap: 16px;                 /* spacing between cards */
+  flex-direction: column;   
+  gap: 16px;                
 }
 
 

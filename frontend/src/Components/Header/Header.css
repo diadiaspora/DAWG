@@ -33,6 +33,10 @@ h2 {
     font-size: 16px;
 }
 
+.dog {
+  width: 100px;
+}
+
 @media (max-width: 480px) {
     .header {
       max-width: 85vw;
@@ -40,13 +44,11 @@ h2 {
       margin-left: 16px;
       margin-top: 50px;
       margin-bottom: 25px;
-      
-
-      background-color: #1E3769;        /* blue background */
-      height: 70px;                     /* 70% of viewport height */
-      border-radius: 7px;               /* rounded corners */
-      color: white;                     /* optional: white text for contrast */
-      flex-direction: column;          /* stack elements vertically if needed */
+      background-color: #1E3769;       
+      height: 70px;                    
+      border-radius: 7px;             
+      color: white;                     
+      flex-direction: column;          
       justify-content: center;
       align-items: center;
       text-align: left;

@@ -99,12 +99,12 @@ img {
 
   .mobile-only {
     display: block;
-  } /* show mobile-only blocks */
+  } 
+  
   .desktop-only {
     display: none;
-  } /* hide desktop-only on small screens */
+  } 
 
-  /* nicer mobile text block (flexible, no fixed height) */
   .mobile-text {
     display: flex;
     align-items: center;
