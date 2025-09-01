@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./CommentForm.css";
 
 const CommentForm = ({ handleAddComment, parentId = null, onCancel }) => {
   const [formData, setFormData] = useState({ text: "" });
@@ -61,16 +62,10 @@ const CommentForm = ({ handleAddComment, parentId = null, onCancel }) => {
           />
           <button
             type="submit"
+            className={`comment-btn ${isMobile ? "comment-btn-mobile" : ""}`}
             style={{
-              backgroundColor: "#1E3769",
-              border: "none",
-              height: "44px",
-              padding: "12px",
               marginLeft: isMobile ? "0" : "12px",
               width: isMobile ? "calc(100% + 20px)" : "170px",
-              color: "#fff",
-              borderRadius: "4px",
-              fontSize: "16px",
             }}
           >
             {parentId ? "Reply" : "Comment"}

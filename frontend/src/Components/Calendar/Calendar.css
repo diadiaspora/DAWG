@@ -9,14 +9,20 @@
 }
 
 .calendar-btn:hover {
-  background-color: #1e3769d5;
+  font-family: Roboto, Helvetica, sans-serif;
+  background-color: #4AA692;
+  border-color: #4AA692;
   border-radius: 7px;
   height: 44px;
   margin-top: 24px;
   width: 290px;
   border-width: 0px;
-  color: #ffffff;
+  color: #15284D;
+  font-weight: 600;
 }
+
+
+
 
 .blog-scroll-container {
   overflow-x: auto;

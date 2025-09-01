@@ -64,12 +64,11 @@ const destinationOptions = [
   { value: "USA ", label: "USA " },
 ];
 
-// Custom style override for react-select
 const customStyles = {
   control: (base, state) => ({
     ...base,
-    width: 350,
-    height: 44,
+    width: "100%",
+    height: 48,
     marginLeft: 18,
     backgroundColor: "#F2F4F7",
     borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
@@ -93,14 +92,14 @@ const customStyles = {
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
-    color: "#4AA692", // arrow color
+    color: "#4AA692",
     "&:hover": {
-      color: "#4AA692", // arrow hover color
+      color: "#4AA692",
     },
   }),
   indicatorSeparator: (base) => ({
     ...base,
-    display: "none", // removes the vertical separator
+    display: "none",
   }),
   menu: (base) => ({
     ...base,
@@ -122,31 +121,28 @@ const SearchDocuments = () => {
   };
 
   return (
-    <div
-      style={{
-        borderStyle: "solid",
-        borderRadius: "7px",
-        borderColor: "#d9d9d9",
-        backgroundColor: "#ffffff",
-        marginTop: "42px",
-        height: "177px",
-        width: "1012px",
-        marginLeft: "0px",
-        marginBottom: "42px"
-      }}
-    >
+    <div className="airbox">
       <div style={{ paddingTop: "18px" }}>
-        <strong style={{ marginLeft: "18px" }}>
+        <strong style={{ marginLeft: "18px", fontWeight: "400" }}>
           Find out what documents your pet needs to travel to and from a
           specific country.
         </strong>
       </div>
 
-      <div style={{ display: "flex", marginTop: "18px" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", marginTop: "10px" }} className="airRow">
+        <div
+          className="airColumn"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <label
             htmlFor="from"
-            style={{ marginLeft: "21px", width: "350px", fontSize: "16px" }}
+            style={{
+              marginLeft: "21px",
+              fontSize: "16px",
+              width: "338px",
+              marginBottom: "2px",
+              fontWeight: "400",
+            }}
           >
             Where From
           </label>
@@ -156,11 +152,28 @@ const SearchDocuments = () => {
             onChange={(option) => setFromCountry(option.value)}
             styles={customStyles}
             defaultValue={countryOptions[0]}
+            classNamePrefix="select"
           />
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="to" style={{ marginLeft: "18px", fontSize: "16px" }}>
+        <div
+          className="airColumn"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "10px",
+          }}
+        >
+          <label
+            htmlFor="to"
+            style={{
+              marginLeft: "21px",
+              fontSize: "16px",
+              marginBottom: "2px",
+              width: "338px",
+              fontWeight: "400",
+            }}
+          >
             Where to?:
           </label>
           <Select
@@ -169,13 +182,14 @@ const SearchDocuments = () => {
             onChange={(option) => setToCountry(option.value)}
             styles={customStyles}
             defaultValue={destinationOptions[0]}
+            classNamePrefix="select"
           />
         </div>
 
         <button
           onClick={handleClick}
           className="buttonAir"
-          style={{ fontSize: "16px" }}
+          style={{ fontSize: "16px", marginLeft: "28px" }}
         >
           Search
         </button>

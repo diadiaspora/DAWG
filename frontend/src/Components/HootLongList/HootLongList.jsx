@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaRegComment } from "react-icons/fa";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { FaHeart} from "react-icons/fa6"; // Correct import for filled heart
+import { FaRegComment, FaComment } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa6"; 
 import "./HootLongList.css";
 import * as hootService from "../../services/hootService";
 
@@ -15,7 +14,6 @@ export default function HootLongList(props) {
   const handlePostClick = () => {
     if (props.user) {
       navigate("/newhoot");
-      
     } else {
       navigate("/signup");
     }
@@ -57,10 +55,7 @@ export default function HootLongList(props) {
 
   return (
     <div className="hootmargin" style={{ marginRight: "42px" }}>
-  
-       {hootlong}
-     
-  
+      {hootlong}
 
       <div className="visible">
         <div className="hoot-scroll-container">
@@ -87,7 +82,7 @@ export default function HootLongList(props) {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between", 
+                    justifyContent: "space-between",
                     width: "100%",
                   }}
                 >
@@ -119,7 +114,7 @@ export default function HootLongList(props) {
                   </div>
                   <div
                     style={{ fontSize: "12px", display: "flex", gap: "2px" }}
-                   >
+                  >
                     <div
                       style={{ fontSize: "12px", display: "flex", gap: "2px" }}
                     >
@@ -135,32 +130,13 @@ export default function HootLongList(props) {
                       </p>
                     </div>
                   </div>
-             
                 </div>
               </header>
               <Link to={`/hoots/${hoot._id}`} className="hoot-card-link">
-                {/* <div
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  style={{
-                    borderStyle: "solid",
-                    borderWidth: isHovered ? "2px" : "1px",
-                    borderColor: isHovered ? "#4AA692" : "#E9E9E9",
-                    borderRadius: "7px",
-                    padding: "12px",
-                    height: hoot.gifUrl ? "126px" : "auto",
-                    marginTop: "-10px",
-                    boxShadow: isHovered
-                      ? "0 1px 5px rgba(0, 0, 0, 0.1)"
-                      : "none",
-                    transition: "all 0.2s ease",
-                  }}
-                > */}
                 <div className="hoot-card-text">
                   <h2>{hoot.title}</h2>
                   <p>{hoot.text}</p>
                 </div>
-                {/* </div> */}
               </Link>
 
               {hoot.gifUrl && (
@@ -191,7 +167,7 @@ export default function HootLongList(props) {
                       }}
                     />
                   ) : (
-                    <IoMdHeartEmpty
+                    <FaRegHeart
                       style={{ cursor: "pointer" }}
                       onClick={async () => {
                         if (!props.user) {
@@ -208,8 +184,9 @@ export default function HootLongList(props) {
                   <span>{hoot.likes.length}</span>
                 </div>
                 <div style={{ marginLeft: "12px" }}>
-                  <Link to={`/hoots/${hoot._id}`}>
-                    <FaRegComment />
+                  <Link to={`/hoots/${hoot._id}`} className="comment-link">
+                    <FaRegComment className="icon default" />
+                    <FaComment className="icon hover" />
                   </Link>
                 </div>
                 <span style={{ marginLeft: "4px" }}>

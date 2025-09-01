@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaRegComment } from "react-icons/fa";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { FaHeart } from "react-icons/fa6";
+import { FaRegComment, FaComment } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
 import FlightCalendar from "../FlightCalendar/FlightCalendar";
@@ -82,15 +81,12 @@ export default function HootFeature(props) {
 
     return (
       <div className="hoot-feature">
-        
-{headerhoot}
-
+        {headerhoot}
 
         <div className="blabel-wrapper-mobile">
           <div className="blabel">
             <h2 style={{ color: "white" }}>Featured Posts</h2>
           </div>
-         
         </div>
 
         <div
@@ -101,9 +97,13 @@ export default function HootFeature(props) {
             marginLeft: "42px",
             marginRight: "42px",
           }}
-         >
+        >
           <div className="style">
-            <div key={featuredHoot._id} className="featcard" style={{maxWidth: "648px", borderRadius: "7px"}}>
+            <div
+              key={featuredHoot._id}
+              className="featcard"
+              style={{ maxWidth: "648px", borderRadius: "7px" }}
+            >
               <header
                 style={{
                   marginBottom: "8px",
@@ -142,7 +142,6 @@ export default function HootFeature(props) {
                 </div>
               </header>
 
-            
               <Link
                 to={`/hoots/${featuredHoot._id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -173,7 +172,6 @@ export default function HootFeature(props) {
                 </div>
               </Link>
 
-            
               {featuredHoot.gifUrl && (
                 <img
                   src={featuredHoot.gifUrl}
@@ -188,7 +186,6 @@ export default function HootFeature(props) {
                 />
               )}
 
-            
               <div
                 style={{
                   display: "flex",
@@ -213,7 +210,7 @@ export default function HootFeature(props) {
                       }}
                     />
                   ) : (
-                    <IoMdHeartEmpty
+                    <FaRegHeart
                       style={{ cursor: "pointer" }}
                       onClick={async () => {
                         if (!props.user) {
@@ -233,10 +230,17 @@ export default function HootFeature(props) {
                   <span>{featuredHoot.likes.length}</span>
                 </div>
                 <div style={{ marginLeft: "12px" }}>
-                  <Link to={`/hoots/${featuredHoot._id}`}>
-                    <FaRegComment />
+                  <Link
+                    to={`/hoots/${featuredHoot._id}`}
+                    className="comment-link"
+                  >
+                
+                      <FaRegComment className="icon default" />
+                   
+                    <FaComment className="icon hover" />
+                 
                   </Link>
-                  <span style={{ marginLeft: "6px", fontSize: "12px" }}>
+                  <span style={{ marginLeft: "6px", fontSize: "16px" }}>
                     {featuredHoot.comments.length}
                   </span>
                 </div>
@@ -255,7 +259,6 @@ export default function HootFeature(props) {
                 }}
               />
 
-           
               <div style={{ marginTop: "16px" }}>
                 {featuredHoot.comments.length > 0 ? (
                   featuredHoot.comments.slice(0, 2).map((comment) => (

@@ -89,6 +89,37 @@
   margin-left: -2.3vw;
 }
 
+.comment-link {
+  position: relative;
+  display: inline-block;
+}
+
+.comment-link .icon {
+  font-size: 16px; 
+  transition: opacity 0.2s ease-in-out;
+}
+
+.comment-link .default {
+  color: black;
+}
+
+.comment-link .hover {
+  color: #4AA692;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.comment-link:hover .default {
+  opacity: 0;
+}
+
+.comment-link:hover .hover {
+  opacity: 1;
+}
+
+
 @media (min-width: 300px) and (max-width: 480px) {
   .blabel-wrapper-desktop {
     display: none;

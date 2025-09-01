@@ -80,8 +80,8 @@ const locationOptions = [
 const customStyles = {
   control: (base, state) => ({
     ...base,
-    width: 350,
-    height: 44,
+    width: "100%",
+    height: 48,
     marginLeft: 18,
     backgroundColor: "#F2F4F7",
     borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
@@ -105,20 +105,21 @@ const customStyles = {
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
-    color: "#4AA692", // arrow color
+    color: "#4AA692",
     "&:hover": {
-      color: "#4AA692", // arrow hover color
+      color: "#4AA692",
     },
   }),
   indicatorSeparator: (base) => ({
     ...base,
-    display: "none", // removes the vertical separator
+    display: "none",
   }),
   menu: (base) => ({
     ...base,
     zIndex: 9999,
   }),
 };
+
 
 const SearchServices = () => {
   const navigate = useNavigate();
@@ -138,46 +139,58 @@ const SearchServices = () => {
 
   return (
     <>
-      <div
-        style={{
-          borderStyle: "solid",
-          borderRadius: "7px",
-          borderColor: "#d9d9d9",
-          backgroundColor: "#ffffff",
-          marginTop: "42px",
-          height: "177px",
-          width: "1012px",
-          marginLeft: "0px",
-          marginBottom: "42px"
-        }}
-      >
+      <div className="airbox">
         <div style={{ marginTop: "18px" }}>
-          <strong style={{ marginLeft: "18px" }}>
+          <strong style={{ marginLeft: "18px", fontWeight: "400" }}>
             Find the services you need while traveling
           </strong>
         </div>
 
-        <div style={{ display: "flex", marginTop: "18px" }}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", marginTop: "10px" }} className="airRow">
+          <div
+            className="airColumn"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <label
               htmlFor="from"
-              style={{ marginLeft: "21px", width: "350px", fontSize: "16px" }}
+              style={{
+                marginLeft: "21px",
+                fontSize: "16px",
+                width: "338px",
+                marginBottom: "2px",
+                fontWeight: "400",
+              }}
             >
               Service Needed
             </label>
+
             <Select
               inputId="service"
               options={serviceOptions}
               onChange={(option) => setService(option.value)}
               styles={customStyles}
               defaultValue={serviceOptions[0]}
+              classNamePrefix="select"
             />
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            className="airColumn"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginLeft: "10px",
+            }}
+          >
             <label
               htmlFor="to"
-              style={{ marginLeft: "18px", width: "220px", fontSize: "16px" }}
+              style={{
+                marginLeft: "21px",
+                fontSize: "16px",
+                marginBottom: "2px",
+                width: "338px",
+                fontWeight: "400",
+              }}
             >
               City?
             </label>
@@ -187,13 +200,14 @@ const SearchServices = () => {
               onChange={(option) => setLocation(option.value)}
               styles={customStyles}
               defaultValue={locationOptions[0]}
+              classNamePrefix="select"
             />
           </div>
 
           <button
             onClick={handleClick}
             className="buttonAir"
-            style={{ fontSize: "16px" }}
+            style={{ fontSize: "16px", marginLeft: "28px" }}
           >
             Search
           </button>

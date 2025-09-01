@@ -45,14 +45,14 @@ const customStyles = {
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
-    color: "#4AA692", // arrow color
+    color: "#4AA692", 
     "&:hover": {
-      color: "#4AA692", // arrow hover color
+      color: "#4AA692", 
     },
   }),
   indicatorSeparator: (base) => ({
     ...base,
-    display: "none", // removes the vertical separator
+    display: "none", 
   }),
   menu: (base) => ({
     ...base,

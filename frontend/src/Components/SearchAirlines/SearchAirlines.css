@@ -24,7 +24,7 @@
 .airSelect:focus {
   font-family: Roboto, Helvetica, sans-serif;
     border-color: #4AA692; 
-    outline: none; /* removes native blue outline */
+    outline: none; 
     box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
   }
 
@@ -50,16 +50,17 @@
 
 .buttonAir:hover {
     font-family: Roboto, Helvetica, sans-serif;
-    background-color: #1e3769d5;
+    background-color: #4AA692;
     border-radius: 7px;
-    border-color: #ffffff;
+    border-color: #4AA692;
     width: 236px;
     height: 48px;
     margin-top: 26px;
     margin-left: 18px;
-    font-weight: 400;
-    color: #ffffff;
+    font-weight: 600;
+    color: #15284D;
 }
+
 
 .airbox {
   border-style: solid;
@@ -86,13 +87,13 @@
 
   .airRow {
     display: flex;
-    flex-direction: column; /* ✅ Stack items vertically */
-    align-items: stretch;    /* ✅ Full width */
-    gap: 12px;               /* Optional spacing */
+    flex-direction: column; 
+    align-items: stretch;   
+    gap: 12px;               
   }
 
   .airColumn {
-    width: 100%;             /* ✅ Make selectors fill width */
+    width: 100%;            
   }
 
   .select__control {

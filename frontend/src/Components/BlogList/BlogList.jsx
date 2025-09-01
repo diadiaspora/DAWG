@@ -7,7 +7,6 @@ export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate(); 
   const [hover, setHover] = useState(false);
-  const [hoverLatest, setHoverLatest] = useState(false);
   const [hoverCreate, setHoverCreate] = useState(false);
   
 
@@ -59,10 +58,7 @@ export default function BlogList({ user }) {
   return (
     <div className="blog-list">
       <div className="blg-container">
-        <div className="realstories">
-   {blogListHead}
-         
-        </div>
+        <div className="realstories">{blogListHead}</div>
         <div className="blg-scroll-container">
           {blogs.length ? (
             <ul className="ulflex">
@@ -92,13 +88,9 @@ export default function BlogList({ user }) {
                           fontSize: "16px",
                           marginLeft: "6px",
                           paddingBottom: "6px",
-           
                         }}
                       >
-                        <strong>
-              
-                          {blog.author?.username || "Anonymous"}
-                        </strong>
+                        <strong>{blog.author?.username || "Anonymous"}</strong>
                       </p>
                       <div style={{ marginLeft: "auto" }}>
                         <p style={{ fontSize: "12px" }}>
@@ -120,8 +112,10 @@ export default function BlogList({ user }) {
                         padding: "10px",
                         fontWeight: "bold",
                         textDecoration: "none",
-                        color: "#1E3769",
+                        color: hoverCreate ? "#4AA692" : "#000000",
+                        marginTop: "-24px"
                       }}
+                      
                     >
                       {blog.title}
                     </Link>
@@ -137,6 +131,7 @@ export default function BlogList({ user }) {
                     />
 
                     <p className="blog-snippet">{blog.contentOne}</p>
+                    <p>Read More</p>
                   </li>
                 </div>
               ))}
@@ -190,7 +185,7 @@ export default function BlogList({ user }) {
             <button
               onClick={handleCreatePostClick}
               style={{
-                backgroundColor: "#ffffff",
+                backgroundColor: hoverCreate ? "#4AA692" : "#ffffff",
                 width: "240px",
                 height: "44px",
                 fontWeight: "bold",
@@ -199,7 +194,7 @@ export default function BlogList({ user }) {
                 fontFamily: "Roboto",
                 border: "1px solid",
                 borderColor: hoverCreate ? "#4AA692" : "#1E3769",
-                color: hoverCreate ? "#347567" : "#1E3769",
+                color: hoverCreate ? "#1E3769" : "#1E3769",
                 borderRadius: "7px",
               }}
               onMouseEnter={() => setHoverCreate(true)}

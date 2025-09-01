@@ -106,7 +106,6 @@ export default function Calendar() {
         ))}
       </div>
 
-      {/* Calendar grid */}
       <div style={{ display: "flex", flexWrap: "wrap", width: "308px" }}>
         {days.map((day, idx) => (
           <div
