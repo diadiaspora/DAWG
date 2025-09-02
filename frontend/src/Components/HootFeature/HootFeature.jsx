@@ -54,7 +54,7 @@ export default function HootFeature(props) {
   const headerhoot = (
     <div className="hoot-header">
       <h1>Featured Posts</h1>
-      <Link to="/marketplace">
+      <Link to="/allposts">
         <button
           style={{
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",

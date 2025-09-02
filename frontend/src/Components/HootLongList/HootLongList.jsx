@@ -28,7 +28,7 @@ export default function HootLongList(props) {
   const hootlong = (
     <div className="hoot-long-header">
       <h1>Heres What Everyone Saying</h1>
-      <Link to="/marketplace">
+      <Link to="/allposts">
         <button
           style={{
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",

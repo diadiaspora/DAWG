@@ -70,24 +70,6 @@ export default function HootInfinatePage({ user,  setUser }) {
         <SearchComponent />
       </div>
       <div className="wide">
-        {/* <div className="mobile-create-rapper">
-        <div
-          className="mobile-text-create"
-          style={{ cursor: "pointer" }}
-          onClick={() => setShowForm((prev) => !prev)}
-        >
-  
-          <h2 style={{ paddingTop: "20px", paddingLeft: "20px" }}>
-            Create a Hoot
-          </h2>
-        </div>
-        
-        {showForm && (
-          <div className="hootystyle">
-            <HootForm handleAddHoot={handleAddHoot} />
-          </div>
-        )}
-      </div> */}
 
         <main className="mainly">
           {hoots.map((hoot, index) => {
