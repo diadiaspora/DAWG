@@ -23,8 +23,7 @@ export default function PostListPage(props) {
     <>
       <div>
         <div className="top">
-          {/* <Header user={user} setUser={setUser} />
-          <SearchComponent /> */}
+
         </div>
         <HootFeature hoots={hoots} user={user} setHoots={props.setHoots} />
         <HootList

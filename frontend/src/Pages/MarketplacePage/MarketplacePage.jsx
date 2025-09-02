@@ -7,15 +7,18 @@ export default function MarketplacePage({ user, setUser }) {
   return (
     <>
       <section className="home">
-        <div>
-          <div style={{ marginLeft: "-3vw" }}> 
-            <Header user={user} setUser={setUser} />
+        <div >
+          <div>
+            <div style={{ marginLeft: "-3vw" }}>
+              <Header user={user} setUser={setUser} />
+            </div>
+            <SearchComponent />
           </div>
-          <SearchComponent />
         </div>
-
-        <Marketplace />
-        <MarketplaceDesigns />
+        <div>
+          <Marketplace />
+          <MarketplaceDesigns />
+        </div>
       </section>
     </>
   );

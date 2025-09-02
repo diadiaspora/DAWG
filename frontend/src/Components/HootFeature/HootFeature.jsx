@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment, FaComment } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
 import FlightCalendar from "../FlightCalendar/FlightCalendar";

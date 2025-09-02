@@ -15,7 +15,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
 
-
 export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   const navigate = useNavigate();
   const handleAddHoot = async (newHootData) => {
@@ -41,19 +40,18 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
     <>
       <section className="home">
         <div className="container">
-          <div style={{marginLeft: "-2.7vw"}}> 
-          <div style={{marginLeft: "-3vw"}}>
-            <Header user={user} setUser={setUser} />
-          </div>
+          <div >
+            <div style={{ marginLeft: "-3vw" }}>
+              <Header user={user} setUser={setUser} />
+            </div>
             <SearchComponent />
-         </div>
+          </div>
           <div className="mobile-text">
             <h2
               style={{
                 paddingTop: "20px",
                 paddingLeft: "20px",
                 width: "300px",
-            
               }}
             >
               Besties
@@ -72,7 +70,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         <div>
           <BlogsComponent />
         </div>
-  
+
         <div className="mobile-text-blue"></div>
         <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
         <HootLongList
