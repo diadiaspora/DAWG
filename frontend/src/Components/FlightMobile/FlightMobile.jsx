@@ -34,17 +34,17 @@ export default function FlightMobile() {
     <section
       id="tp-widget-wrapper"
       style={{
-        width: "85vw", // full viewport width
-        height: "100vh", // full viewport height
+        width: "89vw", 
+        height: "100vh", 
         overflow: "hidden",
         position: "relative",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "0",
-        margin: "0",
-          boxSizing: "border-box",
-        // marginLeft: "-500px"
+        marginTop: "0",
+        paddingLeft: "18px",
+        boxSizing: "border-box",
+
       }}
     />
   );

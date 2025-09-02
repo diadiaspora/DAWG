@@ -35,6 +35,7 @@ const customStyles = {
       borderWidth: "2px",
     },
   }),
+
   option: (base, state) => ({
     ...base,
     backgroundColor: state.isFocused ? "#4AA692" : "#ffffff",
@@ -119,13 +120,8 @@ const SearchAirlines = () => {
         >
           <label
             htmlFor="destination"
-            style={{
-              marginLeft: "21px",
-              fontSize: "16px",
-              marginBottom: "2px",
-              width: "338px",
-              fontWeight: "400",
-            }}
+            className="where-to"
+        
           >
             Where to?
           </label>
@@ -136,6 +132,7 @@ const SearchAirlines = () => {
             styles={customStyles}
             defaultValue={destinationOptions[0]}
             classNamePrefix="select"
+            className="where"
           />
         </div>
 

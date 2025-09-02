@@ -5,8 +5,8 @@
 
 .blog-header {
   background-color: #1e3769;
-  width: 100%;
-  max-width: 1012px;
+  width: 1012px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

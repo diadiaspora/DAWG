@@ -3,7 +3,7 @@
     display: none;
   }
 
-  #tp-widget-wrapper iframe,
+#tp-widget-wrapper iframe,
 #tp-widget-wrapper > div {
   max-width: 100% !important;
   width: 100% !important;
@@ -14,6 +14,8 @@
   
   @media screen and (max-width: 480px) {
     .mobile-only {
+      margin-top: 0px;
+      padding-top: 5px;
       display: block;
     }
     

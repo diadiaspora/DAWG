@@ -44,21 +44,14 @@ export default function NavBarMobile({ user, setUser, profile }) {
         >
           <GiHamburgerMenu style={{ fontSize: "28px", color: "#1E3769" }} />
         </div>
-
-        <NavLink to="/">
+        {/* <NavLink to="/">
           <img
-            src="/dawgmoney.png"
-            className="dogmula"
-            alt="dog logo with money eyes"
-            style={{ width: "40px", marginLeft: "16px", marginTop: "16px" }}
-          />
-          <img
-            src="/dawg.png"
+            src="/DawgLogo.png"
             className="doglo"
             alt="dawg logo letters"
-            style={{ width: "60px" }}
+            style={{ width: "100px" }}
           />
-        </NavLink>
+        </NavLink> */}
       </nav>
 
       {menuOpen && (

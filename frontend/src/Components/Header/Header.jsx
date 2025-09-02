@@ -40,7 +40,34 @@ export default function Header({ user }) {
         </div>
       ) : (
         <div style={{ display: "flex" }}>
-          <div style={{ width: "380px"}}>
+          {/* <div className="mobile-dogs">
+           
+            <div>
+              <img
+                src="/terrier.png"
+                className="dog"
+                alt="terrier"
+                style={{ marginTop: "23px" }}
+              />
+            </div>
+            <div>
+              <img src="/pit.png" className="dog-mobile" alt="pit" />
+            </div>
+            <div>
+              <img
+                src="/chihuahua.png"
+                className="dog-mobile"
+                alt="chihuahua"
+              />
+            </div>
+            <div>
+              <img src="/doodle.png" className="dog-mobile" alt="labradoodle" />
+            </div>
+            <div>
+              <img src="/english.png" className="dog-mobile" alt="labradoodle" />
+            </div>
+          </div> */}
+          <div style={{ width: "380px" }}>
             <h1>Hey </h1>
             <h2>Where are you and your dog going next?</h2>
           </div>
