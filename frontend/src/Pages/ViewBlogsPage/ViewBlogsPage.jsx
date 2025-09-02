@@ -8,23 +8,23 @@ export default function ViewBlogsPage({ user, setUser }) {
   return (
     <>
       <section className="home">
-        <div >
+        <div className="container">
           <div>
             <div style={{ marginLeft: "-3vw" }}>
               <Header user={user} setUser={setUser} />
             </div>
             <SearchComponent />
           </div>
-        </div>
-        <div className="page-content">
-        <BlogFeature />
-        <div style={{ marginLeft: "42px" }}>
-          <BlogsComponent />
-        </div>
-        
-          <BlogListAd />
+
+          <div>
+            <BlogFeature />
+            <div style={{ marginLeft: "42px" }}>
+              <BlogsComponent />
+            </div>
+
+            <BlogListAd />
           </div>
-      
+        </div>
       </section>
     </>
   );

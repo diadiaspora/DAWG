@@ -46,6 +46,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
             </div>
             <SearchComponent />
           </div>
+          
           <div className="mobile-text">
             <h2
               style={{

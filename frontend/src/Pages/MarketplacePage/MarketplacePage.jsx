@@ -7,14 +7,14 @@ export default function MarketplacePage({ user, setUser }) {
   return (
     <>
       <section className="home">
-        <div >
+      
           <div>
             <div style={{ marginLeft: "-3vw" }}>
               <Header user={user} setUser={setUser} />
             </div>
             <SearchComponent />
           </div>
-        </div>
+       
         <div>
           <Marketplace />
           <MarketplaceDesigns />
