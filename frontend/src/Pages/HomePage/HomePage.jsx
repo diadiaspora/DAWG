@@ -65,9 +65,8 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               Besties
             </h2>
           </div>
-          <Gallery />
         </div>
-
+        <Gallery />
         <div>
           <BlogsComponent />
         </div>
