@@ -1,5 +1,7 @@
 html,
 body {
+  height: 100%;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,14 +15,16 @@ body {
 .home {
   width: 100vw;
   padding: 1rem;
-  min-height: 100vh;
+  min-height: 100vw;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   background-color: #f9f9f9;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 
