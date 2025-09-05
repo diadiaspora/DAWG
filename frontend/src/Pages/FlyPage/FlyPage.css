@@ -1,11 +1,11 @@
-.wide {
+.wide-fly {
   display: flex;
   width: 100%;
   max-width: 1012px;
   margin: 0 auto;
 }
 
-.mainly {
+.mainly-fly {
   flex: 1;
   max-width: 1012px;
   margin: 0 auto;

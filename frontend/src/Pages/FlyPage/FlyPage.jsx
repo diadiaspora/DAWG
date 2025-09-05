@@ -34,9 +34,9 @@ export default function FlyPage({ user, setUser }) {
         <SearchComponent />
       </div>
 
-      {/* Align widget with search */}
-      <div className="wide">
-        <main className="mainly">
+     
+      <div className="wide-fly">
+        <main className="mainly-fly">
           <div id="tp-widget" ref={widgetRef} className="fly-widget"></div>
         </main>
       </div>

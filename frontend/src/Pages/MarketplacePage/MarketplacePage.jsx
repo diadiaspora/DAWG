@@ -15,9 +15,8 @@ export default function MarketplacePage({ user, setUser }) {
         <SearchComponent />
       </div>
 
-      {/* Consistent content wrapper */}
-      <div className="wide">
-        <main className="mainly">
+      <div className="wide-shop">
+        <main className="mainly-shop">
           <Marketplace />
           <MarketplaceDesigns />
         </main>
