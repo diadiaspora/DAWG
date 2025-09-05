@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../../Data/blogs"; // or wherever your blog data is
 import MapSmall from "../../Components/MapSmall/MapSmall.jsx";
-import "./BlogFeature.css"; 
+import "./BlogFeature.css";
 
 export default function BlogFeature() {
   const [featuredBlog, setFeaturedBlog] = useState(null);
@@ -15,16 +15,8 @@ export default function BlogFeature() {
   if (!featuredBlog) return null;
 
   return (
-    <div
-      
-      className="bigdiv"
-   
-    >
-   
-      <div
-        className="featcard"
- 
-      >
+    <div className="bigdiv">
+      <div className="featcard">
         <img
           src={featuredBlog.thumbnail}
           alt={featuredBlog.title}
@@ -65,15 +57,8 @@ export default function BlogFeature() {
         </div>
       </div>
 
-     
-      <div
-        className="flight-deals-sidebar"
-    
-      >
-        <h2 >
-       
-          Flight Deals
-        </h2>
+      <div className="flight-deals-sidebar">
+        <h2>Flight Deals</h2>
         <MapSmall />
       </div>
     </div>

@@ -16,9 +16,9 @@ export default function ViewBlogsPage({ user, setUser }) {
         <SearchComponent />
       </div>
 
-      {/* Consistent content wrapper */}
-      <div className="wide">
-        <main className="mainly">
+      
+      <div className="wide-blog">
+        <main className="mainly-blog">
           <BlogFeature />
           <BlogsComponent />
           <BlogListAd />

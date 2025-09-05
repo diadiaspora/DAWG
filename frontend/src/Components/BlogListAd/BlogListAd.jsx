@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as blogService from "../../services/blogService";
 import { Link, useNavigate } from "react-router-dom";
+import "./BlogListAd.css";
 
 export default function BlogListAd({ user }) {
   const [blogs, setBlogs] = useState([]);
@@ -37,15 +38,15 @@ export default function BlogListAd({ user }) {
       script.charset = "utf-8";
       container.appendChild(script);
     }
-  }, []); // Run once on mount
+  }, []); 
 
   return (
     <div
       style={{
-        marginLeft: "0px",
-        width: "1012px",
+        width: "100%",
+        maxWidth: "1012px",
+        margin: "0 auto",
         display: "flex",
-        marginTop: "125px",
       }}
     >
       <div style={{ width: "662px", marginRight: "42px" }}>
@@ -53,7 +54,6 @@ export default function BlogListAd({ user }) {
           style={{
             backgroundColor: "#1E3769",
             width: "1012px",
-            marginLeft: "42px",
             display: "flex",
             borderRadius: "7px",
             height: "70px",
@@ -98,7 +98,7 @@ export default function BlogListAd({ user }) {
         </div>
 
         {blogs.length ? (
-          <ul style={{ display: "flex" }}>
+          <ul className="blog-list">
             {blogs.map((blog) => (
               <div
                 key={blog._id}
@@ -156,8 +156,7 @@ export default function BlogListAd({ user }) {
         )}
       </div>
 
-      {/* Sidebar with the widget */}
-      <div style={{ height: "350px", marginLeft: "42px", marginTop: "85px" }}>
+      <div style={{ height: "350px", marginTop: "85px", marginLeft: "-21px" }}>
         <div
           style={{
             backgroundColor: "#1E3769",
@@ -179,7 +178,6 @@ export default function BlogListAd({ user }) {
               overflow: "hidden",
             }}
           ></div>
-          
         </div>
       </div>
     </div>

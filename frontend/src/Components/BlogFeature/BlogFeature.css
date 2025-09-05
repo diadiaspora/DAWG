@@ -1,17 +1,17 @@
 .bigdiv {
     display: flex;
     gap: 24px;
-    margin-left: 42px;
     margin-bottom: 48px;
   }
   
   .featcard {
     width: 662px;
-    border-radius: 12px;
+    border-radius: 7px;
     border: 1px solid #BCC7D4;
     overflow: hidden;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    margin-right: 25px;
   }
   
   .flight-deals-sidebar {
