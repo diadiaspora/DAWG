@@ -1,11 +1,11 @@
 .hoot-feature {
-  width: 100vw;
+  width: 100%;               
+  max-width: 1012px;  
+  margin: 82px auto; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: -56px;
-  margin-top: 42px;
 }
 
 .hoot-header {

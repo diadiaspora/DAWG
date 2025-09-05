@@ -64,15 +64,16 @@
 
 
 .blogs-component-container {
-  margin-top: 24px; 
+  width: 100%;               
+  max-width: 1012px;  
+  margin: 82px auto; 
   padding: 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: -56px;
-  margin-top: 42px;
+
 }
 
 .bluelabel {

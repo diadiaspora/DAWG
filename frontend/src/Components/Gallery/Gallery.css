@@ -3,14 +3,14 @@
 * {
   box-sizing: border-box;
 }
+
 .gal {
-  width: 100vw;
-  margin-top: 0px;
+  width: 100%;               /* inherit parent width, not 100vw */
+  max-width: 1012px;         /* same max-width as homepage */
+  margin: 0 auto;            /* centers it automatically */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -58px;
-
 }
 
 .divbody {
