@@ -62,9 +62,8 @@ export default function HootInfinatePage({ user, setUser }) {
   return (
     <>
       <section className="home">
-      
-        <div>
-          <div style={{ marginLeft: "-3vw" }}>
+        <div className="page-container">
+          <div className="header-wrapper">
             <Header user={user} setUser={setUser} />
           </div>
           <SearchComponent />
@@ -96,8 +95,7 @@ export default function HootInfinatePage({ user, setUser }) {
           <div className="formerly">
             <HootForm handleAddHoot={handleAddHoot} />
           </div>
-          </div>
-        
+        </div>
       </section>
     </>
   );

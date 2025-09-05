@@ -70,6 +70,24 @@ img {
   align-items: center;
 }
 
+.wide-home {
+  display: flex;
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
+
+.mainly-home {
+  flex: 1;
+  max-width: 1012px; 
+  margin: 0 auto;
+  padding: 0; 
+}
+
+
+
 @media screen and (max-width: 1011px) {
   .home {
     padding: 0.5rem;

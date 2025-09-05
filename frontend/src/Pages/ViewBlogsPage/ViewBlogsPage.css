@@ -1,7 +1,35 @@
+.wide {
+  display: flex;
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+}
 
+.mainly {
+  flex: 1;
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header-wrapper {
+  margin-left: -3vw; 
+}
 
 @media screen and (max-width: 768px) {
   .top {
-    display: none; /* hide on mobile */
+    display: none; 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wide {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 12px;
+    box-sizing: border-box;
   }
 }

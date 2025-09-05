@@ -70,3 +70,18 @@ html, body {
 .error-message {
   color: rgb(166, 29, 29);
 }
+
+.page-container {
+  width: 100%;
+  max-width: 1012px;  
+  margin: 0 auto;      
+  padding: 0 16px;    
+  box-sizing: border-box;
+}
+
+.header-wrapper {
+  width: 100%;
+  max-width: 1012px;   
+     
+  box-sizing: border-box;
+}

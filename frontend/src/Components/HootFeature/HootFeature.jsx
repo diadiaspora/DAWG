@@ -94,7 +94,7 @@ export default function HootFeature(props) {
             display: "flex",
             gap: "24px",
             marginTop: "42px",
-            marginLeft: "42px",
+            marginLeft: "12px",
             marginRight: "42px",
           }}
         >

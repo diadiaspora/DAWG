@@ -3,29 +3,27 @@ import SearchComponent from "../../Components/SearchComponent/SearchComponent.js
 import Header from "../../Components/Header/Header.jsx";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import BlogFeature from "../../Components/BlogFeature/BlogFeature";
+import "./ViewBlogsPage.css";
 
 export default function ViewBlogsPage({ user, setUser }) {
   return (
-    <>
-      <section className="home">
-        <div className="container">
-          <div>
-            <div style={{ marginLeft: "-3vw" }}>
-              <Header user={user} setUser={setUser} />
-            </div>
-            <SearchComponent />
-          </div>
-
-          <div>
-            <BlogFeature />
-            <div style={{ marginLeft: "42px" }}>
-              <BlogsComponent />
-            </div>
-
-            <BlogListAd />
-          </div>
+    <section className="home">
+      {/* Consistent header + search */}
+      <div className="page-container">
+        <div className="header-wrapper">
+          <Header user={user} setUser={setUser} />
         </div>
-      </section>
-    </>
+        <SearchComponent />
+      </div>
+
+      {/* Consistent content wrapper */}
+      <div className="wide">
+        <main className="mainly">
+          <BlogFeature />
+          <BlogsComponent />
+          <BlogListAd />
+        </main>
+      </div>
+    </section>
   );
 }

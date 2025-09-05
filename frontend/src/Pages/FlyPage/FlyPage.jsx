@@ -1,6 +1,7 @@
 import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import React, { useEffect, useRef } from "react";
+import "./FlyPage.css";
 
 export default function FlyPage({ user, setUser }) {
   const widgetRef = useRef(null);
@@ -18,33 +19,27 @@ export default function FlyPage({ user, setUser }) {
 
     return () => {
       if (widgetRef.current) {
-        widgetRef.current.innerHTML = ""; // Clean up on unmount
+        widgetRef.current.innerHTML = "";
       }
     };
   }, []);
 
   return (
-    <>
-      <section style={{ marginTop: "16px", marginLeft: "5px" }}>
-        <div style={{ marginLeft: "-2vw" }}>
+    <section className="home">
+      {/* Consistent header + search */}
+      <div className="page-container">
+        <div className="header-wrapper">
           <Header user={user} setUser={setUser} />
         </div>
+        <SearchComponent />
+      </div>
 
-        <div
-          id="tp-widget"
-          ref={widgetRef}
-          style={{
-            marginTop: "9px",
-            padding: "20px",
-            backgroundColor: "#fff",
-            borderStyle: "solid",
-            borderColor: "#d9d9d9",
-            borderRadius: "7px",
-            width: "84.7vw",
-            boxSizing: "border-box",
-          }}
-        ></div>
-      </section>
-    </>
+      {/* Align widget with search */}
+      <div className="wide">
+        <main className="mainly">
+          <div id="tp-widget" ref={widgetRef} className="fly-widget"></div>
+        </main>
+      </div>
+    </section>
   );
 }

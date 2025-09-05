@@ -38,48 +38,37 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   return (
     <>
       <section className="home">
-  
-          <div>
-            <div style={{ marginLeft: "-3vw" }}>
-              <Header user={user} setUser={setUser} />
-            </div>
-        
+        <div className="page-container">
+          <div className="header-wrapper">
+            <Header user={user} setUser={setUser} />
+          </div>
+          <SearchComponent />
+        </div>
+
+        <div className="wide-home">
+          <main className="mainly-home">
             <div className="mobile-only">
               <FlightMobile />
             </div>
-            <SearchComponent />
-          </div>
 
-          <div className="mobile-text">
-            <h2
-              style={{
-                paddingTop: "20px",
-                paddingLeft: "20px",
-                width: "300px",
-              }}
-            >
-              Besties
-            </h2>
-          </div>
-      
-        <Gallery />
-        <div>
-          <BlogsComponent />
-        </div>
-
-        <div className="mobile-text-blue"></div>
-        <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
-        <HootLongList
-          user={user}
-          setUser={setUser}
-          hoots={hoots}
-          setHoots={setHoots}
-          handleAddHoot={handleAddHoot}
-        />
-
-        <MarketplaceWrapper />
-        <div>
-          <BlogList user={user} setUser={setUser} />
+            <div className="mobile-text">
+              <h2>Besties</h2>
+            </div>
+           
+            <Gallery />
+          
+            <BlogsComponent />
+            <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
+            <HootLongList
+              user={user}
+              setUser={setUser}
+              hoots={hoots}
+              setHoots={setHoots}
+              handleAddHoot={handleAddHoot}
+            />
+            <MarketplaceWrapper />
+            <BlogList user={user} setUser={setUser} />
+          </main>
         </div>
       </section>
     </>
