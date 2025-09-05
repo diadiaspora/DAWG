@@ -2,16 +2,23 @@
   display: flex;
   width: 100%;
   max-width: 1012px;
-  justify-content: center;
-
+  margin: 0 auto;
 }
 
 .mainly {
+  flex: 1;
   max-width: 662px;
-  
   margin-right: 42px;
-  padding: 0 16px; 
+  padding: 0 16px;
+  height: 100vh;             
+  overflow-y: auto;        
+}
 
+.formerly {
+  flex: 0 0 300px;           
+  position: sticky;          
+  top: 20px;                 
+  align-self: flex-start;    
 }
 
 @media screen and (max-width: 480px) {
@@ -46,4 +53,19 @@
     display: none;
   }
 }
+
+.header-wrapper {
+  margin-left: -3vw; 
+}
+
+.mainly > *:not(:last-child) {
+  margin-bottom: 42px;
+}
+
+.end-message {
+  text-align: center;
+  color: #888;
+  margin: 20px 0;
+}
+
 

@@ -4,10 +4,8 @@
   font-family: Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color: #1a1a1a;
   background-color: whitesmoke;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,11 +19,6 @@
 body {
   margin: 0;
   min-height: 100vh;
-}
-
-h1,
-h2 {
-  
 }
 
 button {

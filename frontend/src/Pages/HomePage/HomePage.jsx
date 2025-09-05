@@ -9,7 +9,6 @@ import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import * as hootService from "../../services/hootService";
 import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootLongList from "../../Components/HootLongList/HootLongList";
-import FlightButton from "../../Components/FlightButton/FlightButton";
 import FlightMobile from "../../Components/FlightMobile/FlightMobile";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -39,15 +38,12 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   return (
     <>
       <section className="home">
-        <div className="container">
+  
           <div>
             <div style={{ marginLeft: "-3vw" }}>
               <Header user={user} setUser={setUser} />
             </div>
-            {/* <div className="mobile-only">
-              <FlightButton />
-            </div> */}
-
+        
             <div className="mobile-only">
               <FlightMobile />
             </div>
@@ -65,7 +61,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               Besties
             </h2>
           </div>
-        </div>
+      
         <Gallery />
         <div>
           <BlogsComponent />
