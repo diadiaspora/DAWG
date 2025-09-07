@@ -33,8 +33,8 @@ export default function BlogCard({ blog }) {
           <Link
             to={`/articles/${blog.id}`}
             style={{
-              color: "#1E3769", // default text color
-              // textDecoration: "none",
+              color: "#1E3769", 
+           
             }}
             onMouseEnter={(e) => (e.target.style.color = "#4AA692")} // hover color
             onMouseLeave={(e) => (e.target.style.color = "#1E3769")}

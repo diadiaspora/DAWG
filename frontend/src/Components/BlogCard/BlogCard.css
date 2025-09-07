@@ -6,6 +6,7 @@
   text-overflow: ellipsis;
   margin-top: -10px; /* fix casing */
 }
+
 .truncate-title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -16,7 +17,6 @@
 }
 
 .cardi {
-
     height: 380px;
     width: 237px;
     border-radius: 7px;
@@ -28,7 +28,7 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
   .cardi {
-    width: 180px;  /* fixed width works better in scrollable row */
+    width: 180px;  
     height: 320px;
   }
 }

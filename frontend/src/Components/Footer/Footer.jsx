@@ -57,7 +57,9 @@ export default function Footer() {
         <div
           style={{
             width: "662px",
-            margin: "42px",
+            marginLeft: "42px",
+            marginRight: "42px",
+            marginTop: "22px"
           }}
         >
           <div style={{ display: "flex" }}>
@@ -99,7 +101,7 @@ export default function Footer() {
               <div style={{ fontSize: "15px" }}>
                 Subscribe for Updates about our mobile App!
               </div>
-              <div style={{ marginTop: "16px" }}>
+              <div style={{ marginTop: "32px" }}>
                 <div
                   ref={klookRef}
                   style={{

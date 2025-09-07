@@ -68,12 +68,14 @@ export default function HootLongList(props) {
                 borderWidth: "1px",
                 borderRadius: "7px",
                 height: "380px",
-                width: "331px",
+                minWidth: "320px", // 👈 add this
+                maxWidth: "320px",
+                width: "320px",
                 padding: "16px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                marginRight: "8px",
+                marginRight: "0px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             >
