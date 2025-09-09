@@ -15,13 +15,13 @@ const SearchComponent = () => {
       const isNowMobile = window.innerWidth <= 480;
       setIsMobile(isNowMobile);
       if (isNowMobile) {
-        setActiveForm("airlineInfo"); // Automatically switch on mobile
+        setActiveForm("airlineInfo");
       } else {
-        setActiveForm("flights"); // Reset to flights on desktop
+        setActiveForm("flights"); 
       }
     };
 
-    handleResize(); // initial check
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -33,6 +33,12 @@ const SearchComponent = () => {
           <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
         </div>
         <div className="box">
+          {!isMobile && activeForm === "flights" && <SearchFlights />}
+          {activeForm === "airlineInfo" && <SearchAirlines />}
+          {activeForm === "documents" && <SearchDocuments />}
+          {activeForm === "services" && <SearchServices />}
+        </div>
+        <div className="box-mobile">
           {!isMobile && activeForm === "flights" && <SearchFlights />}
           {activeForm === "airlineInfo" && <SearchAirlines />}
           {activeForm === "documents" && <SearchDocuments />}

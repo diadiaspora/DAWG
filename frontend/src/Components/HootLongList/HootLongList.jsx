@@ -75,7 +75,7 @@ export default function HootLongList(props) {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                marginRight: "0px",
+                marginRight: "7px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             >

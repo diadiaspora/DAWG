@@ -87,7 +87,6 @@ export default function SearchFlights() {
         ></div>
       </div>
 
-      {/* Spinner animation keyframes */}
       <style>
         {`
         @keyframes spin {

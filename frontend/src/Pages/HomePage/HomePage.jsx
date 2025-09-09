@@ -1,5 +1,6 @@
 import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
+
 import Gallery from "../../Components/Gallery/Gallery.jsx";
 import BlogList from "../../Components/BlogList/BlogList.jsx";
 import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper.jsx";
@@ -48,15 +49,18 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
         <div className="wide-home">
           <main className="mainly-home">
             <div className="mobile-only">
-              <FlightMobile />
+              <p className="flight-header-mobile">Search Flights</p>
+              <div style={{marginTop: "-189px"}}>
+                <FlightMobile />
+              </div>
             </div>
 
             <div className="mobile-text">
               <h2>Besties</h2>
             </div>
-           
+
             <Gallery />
-          
+
             <BlogsComponent />
             <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
             <HootLongList

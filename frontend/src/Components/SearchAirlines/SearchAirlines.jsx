@@ -77,26 +77,21 @@ const SearchAirlines = () => {
   return (
     <div className="airbox">
       <div style={{ paddingTop: "18px" }}>
-        <strong style={{ marginLeft: "18px", fontWeight:"400" }}>
+        <p className="title" >
           Compare pet travel fees for each airline. Find out which airline meets
           your pet travel budget.
-        </strong>
+        </p>
       </div>
 
-      <div style={{ display: "flex", marginTop: "10px" }} className="airRow">
+      <div className="airRow">
         <div
           className="airColumn"
           style={{ display: "flex", flexDirection: "column" }}
         >
           <label
             htmlFor="airline"
-            style={{
-              marginLeft: "21px",
-              fontSize: "16px",
-              width: "338px",
-              marginBottom: "2px",
-              fontWeight: "400",
-            }}
+            className="air-label"
+      
           >
             Which Airline?
           </label>
@@ -139,7 +134,6 @@ const SearchAirlines = () => {
         <button
           onClick={handleClick}
           className="buttonAir"
-          style={{ fontSize: "16px", marginLeft: "28px" }}
         >
           Search
         </button>
