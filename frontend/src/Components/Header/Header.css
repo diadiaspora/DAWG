@@ -33,6 +33,24 @@ h2 {
   width: 100px;
 }
 
+.header h2 {
+  color: #000000; 
+ 
+  
+}
+
+.mobile-head {
+  padding-bottom: 32px;
+}
+
+.mobile-dog {
+  display: none;
+}
+
+.dog-mobile {
+  display: none;
+}
+
 @media (max-width: 480px) {
   .header {
     max-width: 91vw;
@@ -55,17 +73,42 @@ h2 {
     color: #000000; 
    
   }
-}
+  .headbuttonz {
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dog {
+    display: none;
+  }
+
+  .header h1 {
+    color: white; 
+    margin-left: 26px;
+  }
 
 .header h2 {
-  color: #000000; 
- 
+  color: white; 
+  margin-left: 26px;
   
 }
 
-.mobile-head {
-  padding-bottom: 32px;
+.mobile-dog {
+  display: flex;
+
 }
+
+.dog-mobile {
+  display: flex;
+}
+
+}
+
+
 
 @media (min-width: 481px) and (max-width: 767px) {
   .header {
@@ -93,27 +136,5 @@ h2 {
 
 @media (max-width: 480px) {
 
-  .headbuttonz {
-    display: flex;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 16px;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .dog {
-    display: none;
-  }
-
-  .header h1 {
-    color: white; 
-    margin-left: 26px;
-  }
-
-.header h2 {
-  color: white; 
-  margin-left: 26px;
-  
-}
 }
