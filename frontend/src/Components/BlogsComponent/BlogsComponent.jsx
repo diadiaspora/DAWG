@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import react, { useState, useEffect } from "react";
 
 import { blogPosts } from "../../Data/blogs.jsx"; 
 import BlogCard from "../../Components/BlogCard/BlogCard.jsx";
@@ -49,8 +49,8 @@ export default function BlogsComponent() {
   return (
     <>
       <div className="blogs-component-container">
-  {bloghead}
-
+        {bloghead}
+      
         <div className="blog-scroll-container">
           <div
             style={{

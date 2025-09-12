@@ -83,26 +83,14 @@ export default function HootFeature(props) {
       <div className="hoot-feature">
         {headerhoot}
 
-        <div className="blabel-wrapper-mobile">
-          <div className="blabel">
-            <h2 style={{ color: "white" }}>Featured Posts</h2>
-          </div>
-        </div>
+      
 
-        <div
-          style={{
-            display: "flex",
-            gap: "24px",
-            marginTop: "42px",
-            marginLeft: "12px",
-            marginRight: "42px",
-          }}
-        >
+        <div className="feature-card" >
           <div className="style">
             <div
               key={featuredHoot._id}
               className="featcard"
-              style={{ maxWidth: "648px", borderRadius: "7px" }}
+           
             >
               <header
                 style={{

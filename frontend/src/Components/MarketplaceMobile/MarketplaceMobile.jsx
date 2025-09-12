@@ -36,12 +36,12 @@ export default function MarketplaceMobile() {
 
   return (
     <div className="marketplace-mobile-wrapper">
-      <Link to="/marketplace">
+      {/* <Link to="/marketplace">
         <div className="marketplace-mobile-header">
-          <h2>Everything You Need</h2>
-          <button className="marketplace-button">Marketplace</button>
+          <h2>Evertything You Need</h2>
+         
         </div>
-      </Link>
+      </Link> */}
 
       <div className="product-scroll-row">
         <div className="product-grid-mobile">

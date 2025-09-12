@@ -215,4 +215,9 @@
   .visible {
     margin-left: 21px;
   }
+
+
+.hoot-long-header {
+  display: none;
+}
 }

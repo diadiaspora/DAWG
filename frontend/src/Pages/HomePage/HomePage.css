@@ -87,7 +87,7 @@ img {
 }
 
 .flightmobile-wrapper {
-  max-width: 1012px; /* same as header + search box */
+  max-width: 1012px; 
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -95,6 +95,10 @@ img {
   align-items: center;
   box-sizing: border-box;
   padding: 0 1rem;
+}
+
+.mobile-text-tea {
+  display: none;
 }
 
 
@@ -149,7 +153,6 @@ img {
     margin-top: -150px;
     margin-left: 16px;
     height: 70px;
-  
     border-radius: 8px;
     background-color: #1e3769;
     color: #fff;
@@ -157,7 +160,28 @@ img {
     width: 100%;
     box-sizing: border-box;
   }
+
   .mobile-text h2 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .mobile-text-tea {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    margin-top: 42px;
+    margin-left: 16px;
+    height: 70px;
+    border-radius: 8px;
+    background-color: #1e3769;
+    color: #fff;
+    max-width: 91vw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mobile-text-tea h2 {
     margin: 0;
     font-size: 1.05rem;
   }
@@ -165,6 +189,7 @@ img {
   .mobile-text-blue {
     margin-bottom: 20px;
   }
+
     .flight-header-mobile {
       max-width: 89vw;
       width: 100%;
@@ -184,12 +209,14 @@ img {
       font-weight: 800;
       padding-left: 20px;
     }
+
     .mobile-dog {
       display: flex;
       justify-content: center;
       align-items: center;
      
     }
+    
     .dog-mobile {
       display: flex;
       width: 120px;

@@ -2,7 +2,7 @@
   padding: 1rem;
   max-width: 480px;
 
-  margin-bottom: -100px;
+  margin-bottom: 0px;
 }
 
 .marketplace-mobile-header {
@@ -54,7 +54,7 @@
 
 .product-card-mobile {
   flex: 0 0 auto;
-  width: 140px;
+  width: 200px;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 8px;
@@ -62,7 +62,7 @@
   color: inherit;
   background: #fff;
   box-sizing: border-box;
-  height: 220px;
+  height: 300px;
 }
 
 .product-image {

@@ -96,7 +96,20 @@
 }
 
 @media (max-width: 480px) {
-  .blog-scroll-container {
+  .blog-list {
+    display: none;
+  }
+
+  .blg-container {
+    display: none;
+  }
+  .blog-list-header {
+    display: none;
+  }
+
+  .blog-sidebar {
+    display: none;
+  }  /* .blog-scroll-container {
     width: 100vw;
     padding-left: 12px;
     padding-right: 12px;
@@ -144,7 +157,7 @@
 
   .latest-button {
     display: none !important;
-  }
+  } */
 }
 
 .blg-container {

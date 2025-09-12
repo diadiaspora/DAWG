@@ -42,7 +42,6 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
             <Header user={user} setUser={setUser} />
           </div>
           <div className="mobile-only">
-          
             <div style={{ marginTop: "-50px" }}>
               <FlightMobile />
             </div>
@@ -83,8 +82,18 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
             <Gallery />
 
-            <BlogsComponent />
+            <div className="mobile-text-tea">
+              <h2>Featured Posts</h2>
+            </div>
             <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
+
+            <div className="mobile-text-tea">
+              <h2>Everything You Need</h2>
+            </div>
+            <MarketplaceWrapper />
+            <div className="mobile-text-tea">
+              <h2>Heres What Everyone's Saying</h2>
+            </div>
             <HootLongList
               user={user}
               setUser={setUser}
@@ -92,8 +101,11 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               setHoots={setHoots}
               handleAddHoot={handleAddHoot}
             />
-            <MarketplaceWrapper />
-            <BlogList user={user} setUser={setUser} />
+            <div className="mobile-text-tea">
+              <h2>All the Pet Travel Tea</h2>
+            </div>
+            <BlogsComponent />
+            {/* <BlogList user={user} setUser={setUser} /> */}
           </main>
         </div>
       </section>
