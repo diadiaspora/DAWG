@@ -27,7 +27,7 @@ export default function Header({ user }) {
                 Hey {user.name}
               </h1>
               <h2>Where are you and your dog going next?</h2>
-            </div>{" "}
+            </div>
             <div>
               <img src="/lab.png" className="dog" alt="labrador" />
             </div>

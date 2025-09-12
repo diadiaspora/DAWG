@@ -19,7 +19,6 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-
     navigate("/");
   };
 
@@ -42,16 +41,22 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           <div className="header-wrapper">
             <Header user={user} setUser={setUser} />
           </div>
+          <div className="mobile-only">
+          
+            <div style={{ marginTop: "-50px" }}>
+              <FlightMobile />
+            </div>
+          </div>
           <SearchComponent />
         </div>
 
         <div className="wide-home">
           <main className="mainly-home">
-            <div
+            {/* <div
               className="mobile-dog"
               style={{
                 width: "380px",
-                marginTop: "-150px",
+                marginTop: "-220px",
                 marginBottom: "145px",
               }}
             >
@@ -62,20 +67,15 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 <img src="/doodle.png" className="dog-mobile" alt="shitzu" />
               </div>
               <div>
-                <img
-                  src="/english.png"
-                  className="dog-mobile"
-                  alt="terrier"
-           
-                />
+                <img src="/english.png" className="dog-mobile" alt="terrier" />
               </div>
-            </div>
-            <div className="mobile-only">
+            </div> */}
+            {/* <div className="mobile-only">
               <p className="flight-header-mobile">Search Flights</p>
               <div style={{ marginTop: "-189px" }}>
                 <FlightMobile />
               </div>
-            </div>
+            </div> */}
 
             <div className="mobile-text">
               <h2>Besties</h2>

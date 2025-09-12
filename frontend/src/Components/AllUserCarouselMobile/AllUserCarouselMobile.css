@@ -10,7 +10,7 @@
 
 
   .mobile-gallery-container {
-    max-width: 90vw;
+    max-width: 94vw;
     width: 100%;
    
     display: grid;
@@ -19,6 +19,8 @@
     gap: 8px;
     padding: 8px;
     box-sizing: border-box;
+    margin-left: 12px;
+    margin-top: 42px;
   }
   
   .gallery-item {

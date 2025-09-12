@@ -34,7 +34,8 @@ export default function FlightMobile() {
     <section
       id="tp-widget-wrapper"
       style={{
-        width: "94vw", 
+        maxWidth: "91vw",
+        width: "100%", 
         height: "100vh", 
         overflow: "hidden",
         position: "relative",
@@ -42,7 +43,7 @@ export default function FlightMobile() {
         justifyContent: "center",
         alignItems: "center",
         marginTop: "0",
-        paddingLeft: "16px",
+        
         boxSizing: "border-box",
 
       }}

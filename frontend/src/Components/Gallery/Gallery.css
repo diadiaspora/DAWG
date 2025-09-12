@@ -7,7 +7,7 @@
 .gal {
   width: 100%;               /* inherit parent width, not 100vw */
   max-width: 1012px;         /* same max-width as homepage */
-  margin: 0 auto;            /* centers it automatically */
+  margin: 0 auto;           
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,8 +65,8 @@
 @media (min-width: 481px) and (max-width: 767px) {
   .gal {
     flex-direction: row;
-    max-width: 690px;
-    width: 90vw;
+    max-width: 91vw;
+    width: 100%;
     margin-left: 0px;
     margin-right: 0px;
     padding: 5px;

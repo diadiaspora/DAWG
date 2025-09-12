@@ -29,6 +29,25 @@ const SearchComponent = () => {
   return (
     <>
       <div>
+        <div
+          className="mobile-dog"
+          style={{
+            width: "380px",
+            marginTop: "-170px",
+            marginBottom: "-16px",
+            marginLeft: "-12px"
+          }}
+        >
+          <div>
+            <img src="/pit.png" className="dog-mobile" alt="labrador" />
+          </div>
+          <div>
+            <img src="/doodle.png" className="dog-mobile" alt="shitzu" />
+          </div>
+          <div>
+            <img src="/english.png" className="dog-mobile" alt="terrier" />
+          </div>
+        </div>
         <div className="headbuttonz">
           <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
         </div>
@@ -38,12 +57,12 @@ const SearchComponent = () => {
           {activeForm === "documents" && <SearchDocuments />}
           {activeForm === "services" && <SearchServices />}
         </div>
-        <div className="box-mobile">
+        {/* <div className="box-mobile">
           {!isMobile && activeForm === "flights" && <SearchFlights />}
           {activeForm === "airlineInfo" && <SearchAirlines />}
           {activeForm === "documents" && <SearchDocuments />}
           {activeForm === "services" && <SearchServices />}
-        </div>
+        </div> */}
       </div>
     </>
   );
