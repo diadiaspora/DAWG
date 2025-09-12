@@ -82,9 +82,9 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
             <Gallery />
 
-            <div className="mobile-text-tea">
+            {/* <div className="mobile-text-tea">
               <h2>Featured Posts</h2>
-            </div>
+            </div> */}
             <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
 
             <div className="mobile-text-tea">

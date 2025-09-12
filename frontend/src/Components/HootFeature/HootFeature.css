@@ -132,10 +132,7 @@
 @media (min-width: 300px) and (max-width: 480px) {
 
   .hoot-feature {
-    width: 100%;
-    margin-left: -280px;
-
-
+ display: none;
   }
 
   .blabel {
