@@ -41,8 +41,8 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
           <div className="header-wrapper">
             <Header user={user} setUser={setUser} />
           </div>
-          <div className="mobile-only">
-            <div style={{ marginTop: "-50px" }}>
+          <div className="mobile-only flight-wrapper">
+            <div>
               <FlightMobile />
             </div>
           </div>
@@ -51,31 +51,6 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
         <div className="wide-home">
           <main className="mainly-home">
-            {/* <div
-              className="mobile-dog"
-              style={{
-                width: "380px",
-                marginTop: "-220px",
-                marginBottom: "145px",
-              }}
-            >
-              <div>
-                <img src="/pit.png" className="dog-mobile" alt="labrador" />
-              </div>
-              <div>
-                <img src="/doodle.png" className="dog-mobile" alt="shitzu" />
-              </div>
-              <div>
-                <img src="/english.png" className="dog-mobile" alt="terrier" />
-              </div>
-            </div> */}
-            {/* <div className="mobile-only">
-              <p className="flight-header-mobile">Search Flights</p>
-              <div style={{ marginTop: "-189px" }}>
-                <FlightMobile />
-              </div>
-            </div> */}
-
             <div className="mobile-text">
               <h2>Besties</h2>
             </div>

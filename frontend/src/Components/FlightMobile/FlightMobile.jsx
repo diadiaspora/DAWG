@@ -35,17 +35,13 @@ export default function FlightMobile() {
       id="tp-widget-wrapper"
       style={{
         maxWidth: "91vw",
-        width: "100%", 
-        height: "100vh", 
+        width: "100%",
+        height: "auto" ,
         overflow: "hidden",
-        position: "relative",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         marginTop: "0",
-        
-        boxSizing: "border-box",
-
       }}
     />
   );

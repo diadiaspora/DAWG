@@ -16,7 +16,7 @@ export default function NavBarMobile({ user, setUser, profile }) {
     setUser(null);
   }
 
-  // Handle clicks outside the menu to close it
+
   useEffect(() => {
     function handleClickOutside(e) {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -44,14 +44,23 @@ export default function NavBarMobile({ user, setUser, profile }) {
         >
           <GiHamburgerMenu style={{ fontSize: "28px", color: "#1E3769" }} />
         </div>
-        {/* <NavLink to="/">
+        <div>
+          <NavLink to="/">
+            <img
+              src="/dawg.png"
+              className="doglo"
+              alt="dawg logo letters"
+              style={{ width: "70px" }}
+            />
+          </NavLink>
+        </div>
+        <div>
           <img
-            src="/DawgLogo.png"
-            className="doglo"
-            alt="dawg logo letters"
-            style={{ width: "100px" }}
+            src="https://i.ibb.co/bgQM3cM2/Vector.png"
+            alt="Guest Icon"
+            style={{ marginRight: "16px" }}
           />
-        </NavLink> */}
+        </div>
       </nav>
 
       {menuOpen && (
