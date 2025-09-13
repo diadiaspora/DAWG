@@ -36,8 +36,7 @@ const SearchComponent = () => {
             marginTop: "0px",
             marginBottom: "-16px",
             marginLeft: "-12px"
-          }}
-        >
+          }} >
           <div>
             <img src="/pit.png" className="dog-mobile" alt="labrador" />
           </div>
@@ -48,6 +47,7 @@ const SearchComponent = () => {
             <img src="/english.png" className="dog-mobile" alt="terrier" />
           </div>
         </div>
+        
         <div className="headbuttonz">
           <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
         </div>
