@@ -67,3 +67,90 @@
 }
 
 
+@media (min-width: 320px) and (max-width: 480px) {
+  /* .airbox {
+    max-width: 90vw;
+    width: 100% !important;  
+    height: 377px !important;
+    padding: 12px !important;
+    margin-top: -120px !important;
+    margin-left: -630px !important;
+    
+  
+  } */
+
+  .whereColumn {
+    margin-left: 0px;
+  }
+
+  .airbox {
+   
+    max-width: 91vw;
+    width: 100%;
+    margin: -120px auto 42px auto; 
+    padding: 12px;
+    height: 377px !important;
+  }
+
+
+  .airRow {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+
+  .buttonAir {
+    margin-left: 0px;
+  }
+
+  .title {
+    margin-left: 0px;
+  }
+
+  .airColumn {
+    width: 100%;
+  
+  }
+
+
+  .select__control {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .buttonAir {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .select__menu {
+    width: 100% !important;
+  }
+
+  
+  .where-to,
+  .air-label {
+    margin-left: 0;
+    width: 100%;
+  }
+
+
+  .where {
+    margin-left: 0;
+    width: 100% !important;
+  }
+
+
+   .air-label {
+    margin-left: 0px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 2px;
+    font-weight: 400;
+  }
+
+}
+
+

@@ -1,21 +1,18 @@
 import "./SearchServices.css";
 import { useNavigate } from "react-router-dom";
-import HeadButtons from "../HeadButtons/HeadButtons.jsx";
 import { useState } from "react";
 import Select from "react-select";
 
 const serviceOptions = [
-  { value: "", label: "service" },
+  { value: "", label: "Service" },
   { value: "vet", label: "Veterinarian" },
   { value: "lawyer", label: "Lawyer" },
   { value: "dentist", label: "Dentist" },
-  // Add more as needed
+ 
 ];
 
-
-
 const locationOptions = [
-  { value: "", label: "location" },
+  { value: "", label: "Location" },
   { value: "Athens", label: "Athens" },
   { value: "Bali", label: "Bali" },
   { value: "Bangkok", label: "Bangkok" },
@@ -103,23 +100,14 @@ const customStyles = {
     fontSize: "14px",
     cursor: "pointer",
   }),
-  dropdownIndicator: (base, state) => ({
+  dropdownIndicator: (base) => ({
     ...base,
     color: "#4AA692",
-    "&:hover": {
-      color: "#4AA692",
-    },
+    "&:hover": { color: "#4AA692" },
   }),
-  indicatorSeparator: (base) => ({
-    ...base,
-    display: "none",
-  }),
-  menu: (base) => ({
-    ...base,
-    zIndex: 9999,
-  }),
+  indicatorSeparator: (base) => ({ ...base, display: "none" }),
+  menu: (base) => ({ ...base, zIndex: 9999 }),
 };
-
 
 const SearchServices = () => {
   const navigate = useNavigate();
@@ -131,89 +119,54 @@ const SearchServices = () => {
     if (service && location) {
       const normalizedLocation = formatLocation(location);
       navigate(`/services/${service}/${normalizedLocation}`);
-
     } else {
       alert("Please select both service and location");
     }
   };
 
   return (
-    <>
-      <div className="airbox">
-        <div style={{ marginTop: "18px" }}>
-          <strong style={{ marginLeft: "18px", fontWeight: "400" }}>
-            Find the services you need while traveling
-          </strong>
-        </div>
-
-        <div style={{ display: "flex", marginTop: "10px" }} className="airRow">
-          <div
-            className="airColumn"
-            style={{ display: "flex", flexDirection: "column" }}
-          >
-            <label
-              htmlFor="from"
-              style={{
-                marginLeft: "21px",
-                fontSize: "16px",
-                width: "338px",
-                marginBottom: "2px",
-                fontWeight: "400",
-              }}
-            >
-              Service Needed
-            </label>
-
-            <Select
-              inputId="service"
-              options={serviceOptions}
-              onChange={(option) => setService(option.value)}
-              styles={customStyles}
-              defaultValue={serviceOptions[0]}
-              classNamePrefix="select"
-            />
-          </div>
-
-          <div
-            className="airColumn"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "10px",
-            }}
-          >
-            <label
-              htmlFor="to"
-              style={{
-                marginLeft: "21px",
-                fontSize: "16px",
-                marginBottom: "2px",
-                width: "338px",
-                fontWeight: "400",
-              }}
-            >
-              City?
-            </label>
-            <Select
-              inputId="location"
-              options={locationOptions}
-              onChange={(option) => setLocation(option.value)}
-              styles={customStyles}
-              defaultValue={locationOptions[0]}
-              classNamePrefix="select"
-            />
-          </div>
-
-          <button
-            onClick={handleClick}
-            className="buttonAir"
-            style={{ fontSize: "16px", marginLeft: "28px" }}
-          >
-            Search
-          </button>
-        </div>
+    <div className="airbox">
+      <div style={{ paddingTop: "18px" }}>
+        <p className="title">
+          Find the services for you and your pet while traveling abroad
+        </p>
       </div>
-    </>
+
+      <div className="airRow">
+        <div className="airColumn">
+          <label htmlFor="service" className="air-label">
+            Service Needed
+          </label>
+          <Select
+            inputId="service"
+            options={serviceOptions}
+            onChange={(option) => setService(option.value)}
+            styles={customStyles}
+            defaultValue={serviceOptions[0]}
+            classNamePrefix="select"
+          />
+        </div>
+
+        <div className="airColumn">
+          <label htmlFor="location" className="where-to">
+            City?
+          </label>
+          <Select
+            inputId="location"
+            options={locationOptions}
+            onChange={(option) => setLocation(option.value)}
+            styles={customStyles}
+            defaultValue={locationOptions[0]}
+            classNamePrefix="select"
+            className="where"
+          />
+        </div>
+
+        <button onClick={handleClick} className="buttonAir">
+          Search
+        </button>
+      </div>
+    </div>
   );
 };
 

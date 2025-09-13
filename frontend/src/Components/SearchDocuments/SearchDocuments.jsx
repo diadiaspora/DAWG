@@ -69,7 +69,7 @@ const customStyles = {
     ...base,
     width: "100%",
     height: 48,
-    marginLeft: 18,
+    marginLeft: 18, 
     backgroundColor: "#F2F4F7",
     borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
     borderRadius: 7,
@@ -82,6 +82,7 @@ const customStyles = {
       borderWidth: "2px",
     },
   }),
+
   option: (base, state) => ({
     ...base,
     backgroundColor: state.isFocused ? "#4AA692" : "#ffffff",
@@ -123,10 +124,10 @@ const SearchDocuments = () => {
   return (
     <div className="airbox">
       <div style={{ paddingTop: "18px" }}>
-        <strong style={{ marginLeft: "18px", fontWeight: "400" }}>
+        <p className="title">
           Find out what documents your pet needs to travel to and from a
           specific country.
-        </strong>
+        </p>
       </div>
 
       <div style={{ display: "flex", marginTop: "10px" }} className="airRow">
@@ -134,16 +135,7 @@ const SearchDocuments = () => {
           className="airColumn"
           style={{ display: "flex", flexDirection: "column" }}
         >
-          <label
-            htmlFor="from"
-            style={{
-              marginLeft: "21px",
-              fontSize: "16px",
-              width: "338px",
-              marginBottom: "2px",
-              fontWeight: "400",
-            }}
-          >
+          <label htmlFor="from" className="air-label">
             Where From
           </label>
           <Select
@@ -161,19 +153,10 @@ const SearchDocuments = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginLeft: "10px",
+           
           }}
         >
-          <label
-            htmlFor="to"
-            style={{
-              marginLeft: "21px",
-              fontSize: "16px",
-              marginBottom: "2px",
-              width: "338px",
-              fontWeight: "400",
-            }}
-          >
+          <label htmlFor="to" className="where-to">
             Where to?:
           </label>
           <Select
@@ -183,13 +166,14 @@ const SearchDocuments = () => {
             styles={customStyles}
             defaultValue={destinationOptions[0]}
             classNamePrefix="select"
+            className="where"
           />
         </div>
 
         <button
           onClick={handleClick}
           className="buttonAir"
-          style={{ fontSize: "16px", marginLeft: "28px" }}
+          style={{ fontSize: "16px" }}
         >
           Search
         </button>
