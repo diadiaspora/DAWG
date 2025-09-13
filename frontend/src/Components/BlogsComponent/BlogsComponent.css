@@ -158,9 +158,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 18px;
 }
 .blog-scroll-container{
-  margin-top: 0px;
+  margin-top: -26px;
+  margin-bottom: 0px;
 }
 
 

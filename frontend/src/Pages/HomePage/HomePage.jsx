@@ -107,7 +107,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text-tea" >
+            <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
               <h2>Everything You Need</h2>
             </div>
             <MarketplaceWrapper />
@@ -134,7 +134,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text-tea" >
+            <div className="mobile-text-tea">
               <h2>Heres What Everyone's Saying</h2>
             </div>
             <HootLongList

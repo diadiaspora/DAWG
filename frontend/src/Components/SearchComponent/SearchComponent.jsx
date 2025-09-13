@@ -33,7 +33,7 @@ const SearchComponent = () => {
           className="mobile-dog"
           style={{
             width: "380px",
-            marginTop: "10px",
+            marginTop: "40px",
             marginBottom: "-16px",
             marginLeft: "-12px"
           }} >
