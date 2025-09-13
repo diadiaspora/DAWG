@@ -137,6 +137,10 @@
   
   } */
 
+  .whereColumn {
+    margin-left: 0px;
+  }
+
   .airbox {
     /* ✅ Responsive like header */
     max-width: 91vw;
