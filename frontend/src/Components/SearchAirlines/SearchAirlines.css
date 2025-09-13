@@ -78,6 +78,10 @@
   margin-bottom: 42px;
 } */
 
+.whereColumn {
+  margin-left: 10px;
+}
+
 .airbox {
   border-style: solid;
   border-radius: 7px;
@@ -145,10 +149,11 @@
 
   .airRow {
     display: flex;
-    flex-direction: column; 
-    align-items: stretch;   
-    gap: 12px;              
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
+
 
   .buttonAir {
     margin-left: 0px;
@@ -159,18 +164,19 @@
   }
 
   .airColumn {
-    width: 100%;            
+    width: 100%;
+  
   }
 
+
   .select__control {
-    width: 100% !important;
     margin-left: 0 !important;
+    width: 100% !important;
   }
 
   .buttonAir {
-    width: 100%;             
-      
-    margin-top: 8px;
+    width: 100%;
+    margin-left: 0;
   }
 
   .select__menu {
@@ -178,20 +184,23 @@
   }
 
   
-   .where-to {
-    margin-left: -8px;
-   }
+  .where-to,
+  .air-label {
+    margin-left: 0;
+    width: 100%;
+  }
 
-   .where {
-    margin-left: -12px;
-    width: 326px;
 
-   }
+  .where {
+    margin-left: 0;
+    width: 100% !important;
+  }
+
 
    .air-label {
     margin-left: 0px;
     font-size: 16px;
-    width: 338px;
+    width: 100%;
     margin-bottom: 2px;
     font-weight: 400;
   }

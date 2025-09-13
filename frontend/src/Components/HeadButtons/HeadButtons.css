@@ -6,7 +6,7 @@
 
 .allHeader {
   position: relative;
-  z-index: 1000; /* ensures buttons stay clickable on top of FlightMobile */
+  z-index: 1000; 
 }
 .headbuttons {
   font-family: Roboto, Helvetica, sans-serif;

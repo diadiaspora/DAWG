@@ -3,7 +3,10 @@ import "./Header.css";
 export default function Header({ user }) {
   return (
     <>
-      <div className="mobile-dog" style={{ width: "380px", marginTop: "22px", marginBottom: "-50px" }}>
+      <div
+        className="mobile-dog"
+        style={{ width: "380px", marginTop: "22px", marginBottom: "-50px" }}
+      >
         <div>
           <img src="/lab.png" className="dog-mobile" alt="labrador" />
         </div>
@@ -62,30 +65,60 @@ export default function Header({ user }) {
               <h2>Where are you and your dog going next?</h2>
             </div>
             <div>
-              <img src="/lab.png" className="dog" alt="labrador" />
+              <img
+                src="/lab.png"
+                className="dog"
+                alt="labrador"
+                style={{ marginTop: "23px" }}
+              />
             </div>
             <div>
-              <img src="/shitzu.png" className="dog" alt="shitzu" />
+              <img
+                src="/shitzu.png"
+                className="dog"
+                alt="shitzu"
+                style={{ marginTop: "23px" }}
+              />
             </div>
             <div>
               <img
                 src="/terrier.png"
                 className="dog"
                 alt="terrier"
+                style={{ marginTop: "44.5px" }}
+              />
+            </div>
+            <div>
+              <img
+                src="/pit.png"
+                className="dog"
+                alt="pit"
                 style={{ marginTop: "23px" }}
               />
             </div>
             <div>
-              <img src="/pit.png" className="dog" alt="pit" />
+              <img
+                src="/chihuahua.png"
+                className="dog"
+                alt="chihuahua"
+                style={{ marginTop: "23px" }}
+              />
             </div>
             <div>
-              <img src="/chihuahua.png" className="dog" alt="chihuahua" />
+              <img
+                src="/doodle.png"
+                className="dog"
+                alt="labradoodle"
+                style={{ marginTop: "23px" }}
+              />
             </div>
             <div>
-              <img src="/doodle.png" className="dog" alt="labradoodle" />
-            </div>
-            <div>
-              <img src="/english.png" className="dog" alt="labradoodle" />
+              <img
+                src="/english.png"
+                className="dog"
+                alt="labradoodle"
+                style={{ marginTop: "23px" }}
+              />
             </div>
           </div>
         )}

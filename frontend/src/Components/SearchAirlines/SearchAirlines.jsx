@@ -22,7 +22,7 @@ const customStyles = {
     ...base,
     width: "100%",
     height: 48,
-    marginLeft: 18,
+    marginLeft: 18, // ✅ Keep for desktop
     backgroundColor: "#F2F4F7",
     borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
     borderRadius: 7,
@@ -44,16 +44,17 @@ const customStyles = {
     fontSize: "14px",
     cursor: "pointer",
   }),
+
   dropdownIndicator: (base, state) => ({
     ...base,
-    color: "#4AA692", 
+    color: "#4AA692",
     "&:hover": {
-      color: "#4AA692", 
+      color: "#4AA692",
     },
   }),
   indicatorSeparator: (base) => ({
     ...base,
-    display: "none", 
+    display: "none",
   }),
   menu: (base) => ({
     ...base,
@@ -106,11 +107,11 @@ const SearchAirlines = () => {
         </div>
 
         <div
-          className="airColumn"
+          className="whereColumn"
           style={{
             display: "flex",
             flexDirection: "column",
-            marginLeft: "10px",
+        
           }}
         >
           <label
