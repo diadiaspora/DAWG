@@ -21,11 +21,12 @@
   max-width: 100%;
 }
   
-  /* Mobile breakpoint: max-width 480px */
+ 
   @media (max-width: 480px) {
     .gallery-scroll-container {
       width: 100%;
       max-width: 100%;
+     
     }
   }
   

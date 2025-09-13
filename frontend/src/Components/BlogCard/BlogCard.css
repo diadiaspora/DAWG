@@ -4,7 +4,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: -10px; /* fix casing */
+  margin-top: -10px;
 }
 
 .truncate-title {

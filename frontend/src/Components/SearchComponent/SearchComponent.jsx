@@ -33,7 +33,7 @@ const SearchComponent = () => {
           className="mobile-dog"
           style={{
             width: "380px",
-            marginTop: "0px",
+            marginTop: "10px",
             marginBottom: "-16px",
             marginLeft: "-12px"
           }} >
@@ -47,7 +47,7 @@ const SearchComponent = () => {
             <img src="/english.png" className="dog-mobile" alt="terrier" />
           </div>
         </div>
-        
+
         <div className="headbuttonz">
           <HeadButtons activeForm={activeForm} setActiveForm={setActiveForm} />
         </div>

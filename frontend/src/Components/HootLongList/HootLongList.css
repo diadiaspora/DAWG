@@ -210,6 +210,8 @@
 
   .visible {
     margin-left: 21px;
+    margin-left: 1rem;
+    margin-bottom: 0px;
   }
 
 
@@ -219,9 +221,9 @@
 
 .hootmargin {
   margin-left: 0px;
+  margin-top: 48px;
+  margin-bottom: 32px;
 }
 
-.visible {
-  margin-left: 1rem;
-}
+
 }

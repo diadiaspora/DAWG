@@ -74,7 +74,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text">
+            <div className="mobile-text" style={{ marginBottom: "10px" }}>
               <h2>Besties</h2>
             </div>
 
@@ -88,7 +88,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               className="mobile-dog"
               style={{
                 width: "380px",
-                marginTop: "0px",
+                marginTop: "18px",
                 marginBottom: "0px",
               }}
             >
@@ -107,7 +107,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text-tea">
+            <div className="mobile-text-tea" >
               <h2>Everything You Need</h2>
             </div>
             <MarketplaceWrapper />
@@ -115,7 +115,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               className="mobile-dog"
               style={{
                 width: "380px",
-                marginTop: "0px",
+                marginTop: "18px",
                 marginBottom: "0px",
               }}
             >
@@ -134,7 +134,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text-tea">
+            <div className="mobile-text-tea" >
               <h2>Heres What Everyone's Saying</h2>
             </div>
             <HootLongList
