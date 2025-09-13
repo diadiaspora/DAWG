@@ -6,7 +6,7 @@ export default function Header({ user }) {
       <div
         className="mobile-dog"
         style={{ width: "380px", marginTop: "22px", marginBottom: "-50px" }}
-      >
+       >
         <div>
           <img src="/lab.png" className="dog-mobile" alt="labrador" />
         </div>

@@ -186,11 +186,7 @@
 }
 
 @media (min-width: 300px) and (max-width: 480px) {
-  /* .hootmargin 
-    {
-      margin-left: -620px;
-    } */
-
+ 
   .hootyblue {
     max-width: 90vw;
     width: 100%;
@@ -219,5 +215,13 @@
 
 .hoot-long-header {
   display: none;
+}
+
+.hootmargin {
+  margin-left: 0px;
+}
+
+.visible {
+  margin-left: 1rem;
 }
 }

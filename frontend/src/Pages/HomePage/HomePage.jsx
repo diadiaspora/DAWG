@@ -51,6 +51,29 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
         <div className="wide-home">
           <main className="mainly-home">
+            <div
+              className="mobile-dog"
+              style={{
+                width: "380px",
+                marginTop: "0px",
+                marginBottom: "0px",
+              }}
+            >
+              <div>
+                <img src="/lab.png" className="dog-mobile" alt="labrador" />
+              </div>
+              <div>
+                <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+              </div>
+              <div>
+                <img
+                  src="/terrier.png"
+                  className="dog-mobile"
+                  alt="terrier"
+                  style={{ marginTop: "30.5px" }}
+                />
+              </div>
+            </div>
             <div className="mobile-text">
               <h2>Besties</h2>
             </div>
@@ -61,11 +84,56 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               <h2>Featured Posts</h2>
             </div> */}
             <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
-
+            <div
+              className="mobile-dog"
+              style={{
+                width: "380px",
+                marginTop: "0px",
+                marginBottom: "0px",
+              }}
+            >
+              <div>
+                <img src="/lab.png" className="dog-mobile" alt="labrador" />
+              </div>
+              <div>
+                <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+              </div>
+              <div>
+                <img
+                  src="/terrier.png"
+                  className="dog-mobile"
+                  alt="terrier"
+                  style={{ marginTop: "30.5px" }}
+                />
+              </div>
+            </div>
             <div className="mobile-text-tea">
               <h2>Everything You Need</h2>
             </div>
             <MarketplaceWrapper />
+            <div
+              className="mobile-dog"
+              style={{
+                width: "380px",
+                marginTop: "0px",
+                marginBottom: "0px",
+              }}
+            >
+              <div>
+                <img src="/lab.png" className="dog-mobile" alt="labrador" />
+              </div>
+              <div>
+                <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+              </div>
+              <div>
+                <img
+                  src="/terrier.png"
+                  className="dog-mobile"
+                  alt="terrier"
+                  style={{ marginTop: "30.5px" }}
+                />
+              </div>
+            </div>
             <div className="mobile-text-tea">
               <h2>Heres What Everyone's Saying</h2>
             </div>
@@ -76,6 +144,29 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               setHoots={setHoots}
               handleAddHoot={handleAddHoot}
             />
+            <div
+              className="mobile-dog"
+              style={{
+                width: "380px",
+                marginTop: "0px",
+                marginBottom: "0px",
+              }}
+            >
+              <div>
+                <img src="/lab.png" className="dog-mobile" alt="labrador" />
+              </div>
+              <div>
+                <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+              </div>
+              <div>
+                <img
+                  src="/terrier.png"
+                  className="dog-mobile"
+                  alt="terrier"
+                  style={{ marginTop: "30.5px" }}
+                />
+              </div>
+            </div>
             <div className="mobile-text-tea">
               <h2>All the Pet Travel Tea</h2>
             </div>

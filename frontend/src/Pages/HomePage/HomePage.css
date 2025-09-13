@@ -137,7 +137,7 @@ img {
 
   .mobile-only {
     display: block;
-    margin-top: -150px;
+    margin-top: 0px;
     margin-bottom: 0px;
    
   } 
@@ -150,7 +150,7 @@ img {
     display: flex;
     align-items: center;
     padding: 12px 14px;
-    margin-top: -150px;
+    margin-top: 0px;
     margin-left: 16px;
     height: 70px;
     border-radius: 8px;
@@ -170,7 +170,7 @@ img {
     display: flex;
     align-items: center;
     padding: 12px 14px;
-    margin-top: 42px;
+    margin-top: 0px;
     margin-left: 16px;
     height: 70px;
     border-radius: 8px;
@@ -223,7 +223,7 @@ img {
     }
     .header-wrapper {
       margin-bottom: 0; 
-      padding-bottom: 0;
+      padding-bottom: .5rem;
     }
     .flight-wrapper {
       margin-top: 0.5rem; 

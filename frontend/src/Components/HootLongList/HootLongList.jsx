@@ -68,7 +68,7 @@ export default function HootLongList(props) {
                 borderWidth: "1px",
                 borderRadius: "7px",
                 height: "380px",
-                minWidth: "320px", // 👈 add this
+                minWidth: "320px", 
                 maxWidth: "320px",
                 width: "320px",
                 padding: "16px",

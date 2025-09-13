@@ -152,8 +152,8 @@
 .blogs-component-container {
              
   max-width: 91vw;  
-  margin: 24px auto; 
-  padding: 0;
+  margin-top: 24px auto; 
+  padding-left: 2rem;
   width: 100vw;
   display: flex;
   flex-direction: column;
