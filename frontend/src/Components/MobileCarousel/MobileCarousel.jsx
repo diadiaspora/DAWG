@@ -83,7 +83,7 @@ const MobileCarousel = () => {
                   marginBottom: "8px",
                 }}
               >
-                Make a Profile
+                Sign Up
               </button>
             </div>
             <p
