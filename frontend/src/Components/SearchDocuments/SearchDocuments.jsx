@@ -123,7 +123,7 @@ const SearchDocuments = () => {
 
   return (
     <div className="airbox">
-      <div style={{ paddingTop: "18px" }}>
+      <div style={{ paddingTop: "8px" }}>
         <p className="title">
           Find out what documents your pet needs to travel to and from a
           specific country.

@@ -126,7 +126,7 @@ const SearchServices = () => {
 
   return (
     <div className="airbox">
-      <div style={{ paddingTop: "18px" }}>
+      <div style={{ paddingTop: "8px" }}>
         <p className="title">
           Find the services for you and your pet while traveling abroad
         </p>

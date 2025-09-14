@@ -152,6 +152,7 @@ img {
   .mobile-text {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 12px 14px;
     margin-top: 0px;
     margin-left: 16px;
@@ -171,6 +172,7 @@ img {
 
   .mobile-text-tea {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 12px 14px;
     margin-top: 0px;

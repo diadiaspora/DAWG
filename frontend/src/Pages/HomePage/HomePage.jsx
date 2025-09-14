@@ -40,10 +40,16 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
     <>
       <section className="home">
         <div className="page-container">
-          <div className="desktopCarousel" style={{ width: "1012px", marginLeft: "-15px" }}>
+          <div
+            className="desktopCarousel"
+            style={{ width: "1012px", marginLeft: "-15px" }}
+          >
             <HeaderCarousel />
           </div>
-          <div className="mobileCarousel" style={{marginBottom: "0px", marginTop: "20px"}}>
+          <div
+            className="mobileCarousel"
+            style={{ marginBottom: "0px", marginTop: "20px" }}
+          >
             <MobileCarousel />
           </div>
           <div className="header-wrapper">
@@ -84,6 +90,22 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
             </div>
             <div className="mobile-text" style={{ marginBottom: "10px" }}>
               <h2>Besties</h2>
+              <button
+                style={{
+                  backgroundColor: "#4AA692",
+                  borderWidth: "0px",
+                  borderRadius: "7px",
+                  color: "#000000",
+                  fontSize: "14px",
+                  height: "34px",
+                  width: "100px",
+                  padding: "5px",
+                  marginTop: "0px",
+                  marginBottom: "0px",
+                }}
+              >
+                Post Your Pet
+              </button>
             </div>
 
             <Gallery />
@@ -117,6 +139,22 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
             </div>
             <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
               <h2>Everything You Need</h2>
+              <button
+                style={{
+                  backgroundColor: "#4AA692",
+                  borderWidth: "0px",
+                  borderRadius: "7px",
+                  color: "#000000",
+                  fontSize: "14px",
+                  height: "34px",
+                  width: "80px",
+                  padding: "5px",
+                  marginTop: "0px",
+                  marginBottom: "0px",
+                }}
+              >
+                Shop
+              </button>
             </div>
             <MarketplaceWrapper />
             <div
@@ -144,6 +182,22 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
             </div>
             <div className="mobile-text-tea">
               <h2>Heres What Everyone's Saying</h2>
+              <button
+                style={{
+                  backgroundColor: "#4AA692",
+                  borderWidth: "0px",
+                  borderRadius: "7px",
+                  color: "#000000",
+                  fontSize: "14px",
+                  height: "34px",
+                  width: "80px",
+                  padding: "5px",
+                  marginTop: "0px",
+                  marginBottom: "0px",
+                }}
+              >
+                Post
+              </button>
             </div>
             <HootLongList
               user={user}
@@ -177,6 +231,22 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
             </div>
             <div className="mobile-text-tea">
               <h2>All the Pet Travel Tea</h2>
+              <button
+                style={{
+                  backgroundColor: "#4AA692",
+                  borderWidth: "0px",
+                  borderRadius: "7px",
+                  color: "#000000",
+                  fontSize: "14px",
+                  height: "34px",
+                  width: "80px",
+                  padding: "5px",
+                  marginTop: "0px",
+                  marginBottom: "0px",
+                }}
+              >
+                View All
+              </button>
             </div>
             <BlogsComponent />
             {/* <BlogList user={user} setUser={setUser} /> */}

@@ -77,7 +77,7 @@ const SearchAirlines = () => {
 
   return (
     <div className="airbox">
-      <div style={{ paddingTop: "18px" }}>
+      <div style={{ paddingTop: "8px" }}>
         <p className="title" >
           Compare pet travel fees for each airline. Find out which airline meets
           your pet travel budget.
