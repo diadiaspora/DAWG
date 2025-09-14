@@ -45,7 +45,7 @@ const MobileCarousel = () => {
                 color: "#ffffff",
                 fontSize: "18px",
                 textAlign: "center",
-                marginTop: "3px",
+                marginTop: "5px",
               }}
             >
               Stay Organized
@@ -130,7 +130,7 @@ const MobileCarousel = () => {
                 color: "#ffffff",
                 fontSize: "18px",
                 textAlign: "center",
-                marginTop: "3px",
+                marginTop: "5px",
               }}
             >
               Share Your Story
@@ -214,7 +214,7 @@ const MobileCarousel = () => {
                 color: "#ffffff",
                 fontSize: "18px",
                 textAlign: "center",
-                marginTop: "3px",
+                marginTop: "5px",
               }}
             >
               Get Going
@@ -298,7 +298,7 @@ const MobileCarousel = () => {
                 color: "#ffffff",
                 fontSize: "18px",
                 textAlign: "center",
-                marginTop: "3px",
+                marginTop: "5px",
               }}
             >
               Travel Prepared
