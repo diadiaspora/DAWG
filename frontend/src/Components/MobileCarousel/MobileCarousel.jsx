@@ -55,7 +55,7 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
-                marginTop: "-10px",
+                marginTop: "-16px",
               }}
             >
               Securely Save vaccine records
@@ -138,7 +138,7 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
-                marginTop: "-10px",
+                marginTop: "-16px",
               }}
             >
               Have you traveled with your pet?
@@ -220,7 +220,7 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
-                marginTop: "-10px",
+                marginTop: "-16px",
               }}
             >
               Store your trip info and itenerary
@@ -302,7 +302,7 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
-                marginTop: "-10px",
+                marginTop: "-16px",
               }}
             >
               Get everything you need to travel
