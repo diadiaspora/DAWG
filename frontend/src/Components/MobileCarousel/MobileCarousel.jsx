@@ -43,7 +43,7 @@ const MobileCarousel = () => {
             <h1
               style={{
                 color: "#ffffff",
-                fontSize: "16px",
+                fontSize: "18px",
                 textAlign: "center",
               }}
             >
@@ -55,6 +55,7 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
+                marginTop: "-10px",
               }}
             >
               Securely Save vaccine records
@@ -63,6 +64,8 @@ const MobileCarousel = () => {
               style={{
                 display: "flex",
                 justifyContent: "center",
+                marginTop: "8px",
+                marginBottom: "8px",
               }}
             >
               <button
@@ -74,9 +77,11 @@ const MobileCarousel = () => {
                   fontSize: "14px",
                   width: "100px",
                   padding: "5px",
+                  marginTop: "8px",
+                  marginBottom: "8px",
                 }}
               >
-                Shop Now
+                Make a Profile
               </button>
             </div>
             <p
@@ -87,7 +92,8 @@ const MobileCarousel = () => {
                 textAlign: "center",
               }}
             >
-              We have curated the best products for pet travel
+              Save all of your pets travel documents in one place for easy
+              access.
             </p>
           </div>
         </div>
@@ -120,7 +126,7 @@ const MobileCarousel = () => {
             <h1
               style={{
                 color: "#ffffff",
-                fontSize: "16px",
+                fontSize: "18px",
                 textAlign: "center",
               }}
             >
@@ -132,14 +138,17 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
+                marginTop: "-10px",
               }}
             >
-              Securely Save vaccine records
+              Have you traveled with your pet?
             </p>
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
+                marginTop: "8px",
+                marginBottom: "8px",
               }}
             >
               <button
@@ -151,9 +160,11 @@ const MobileCarousel = () => {
                   fontSize: "14px",
                   width: "100px",
                   padding: "5px",
+                  marginTop: "8px",
+                  marginBottom: "8px",
                 }}
               >
-                Shop Now
+                Make a Post
               </button>
             </div>
             <p
@@ -164,7 +175,7 @@ const MobileCarousel = () => {
                 textAlign: "center",
               }}
             >
-              We have curated the best products for pet travel{" "}
+              Help keep pets & their parents safe & stress free while traveling
             </p>
           </div>
         </div>
@@ -197,11 +208,11 @@ const MobileCarousel = () => {
             <h1
               style={{
                 color: "#ffffff",
-                fontSize: "16px",
+                fontSize: "18px",
                 textAlign: "center",
               }}
             >
-              Get Ready, Get Going
+              Get Going
             </h1>
             <p
               style={{
@@ -209,14 +220,17 @@ const MobileCarousel = () => {
                 lineHeight: "15px",
                 fontSize: "14px",
                 textAlign: "center",
+                marginTop: "-10px",
               }}
             >
-              Securely Save vaccine records
+              Store your trip info and itenerary
             </p>
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
+                marginTop: "8px",
+                marginBottom: "8px",
               }}
             >
               <button
@@ -228,6 +242,90 @@ const MobileCarousel = () => {
                   fontSize: "14px",
                   width: "100px",
                   padding: "5px",
+                  marginTop: "8px",
+                  marginBottom: "8px",
+                }}
+              >
+                Start Planning
+              </button>
+            </div>
+            <p
+              style={{
+                color: "white",
+                lineHeight: "15px",
+                fontSize: "14px",
+                textAlign: "center",
+              }}
+            >
+              Keep accommodation, flight, and all travel plans in one place.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style={{
+            backgroundImage: "url('/labvaycay.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            maxWidth: "91vw",
+            width: "100%",
+            height: "230px",
+            borderRadius: "7px",
+            display: "flex",
+            alignContent: "center",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#1E3769",
+              height: "210px",
+              width: "160px",
+              borderRadius: "7px",
+              marginLeft: "10px",
+              marginTop: "10px",
+              padding: "5px",
+            }}
+          >
+            <h1
+              style={{
+                color: "#ffffff",
+                fontSize: "18px",
+                textAlign: "center",
+              }}
+            >
+              Travel Prepared
+            </h1>
+            <p
+              style={{
+                color: "white",
+                lineHeight: "15px",
+                fontSize: "14px",
+                textAlign: "center",
+                marginTop: "-10px",
+              }}
+            >
+              Get everything you need to travel
+            </p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "8px",
+                marginBottom: "8px",
+              }}
+            >
+              <button
+                style={{
+                  backgroundColor: "#4AA692",
+                  borderWidth: "0px",
+                  borderRadius: "7px",
+                  color: "#000000",
+                  fontSize: "14px",
+                  width: "100px",
+                  padding: "5px",
+                  marginTop: "8px",
+                  marginBottom: "8px",
                 }}
               >
                 Shop Now
