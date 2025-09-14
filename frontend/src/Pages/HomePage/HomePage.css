@@ -101,6 +101,9 @@ img {
   display: none;
 }
 
+.mobileCarousel {
+  display: none;
+}
 
 @media screen and (max-width: 1011px) {
   .home {
@@ -231,6 +234,10 @@ img {
       padding-bottom: 0;
     }
     
- 
-
+ .desktopCarousel {
+  display: none;
+ }
+ .mobileCarousel {
+  display: block;
+ }
 }

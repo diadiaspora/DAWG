@@ -11,6 +11,7 @@ import HootFeature from "../../Components/HootFeature/HootFeature";
 import HootLongList from "../../Components/HootLongList/HootLongList";
 import FlightMobile from "../../Components/FlightMobile/FlightMobile";
 import HeaderCarousel from "../../Components/HeaderCarousel/HeaderCarousel";
+import MobileCarousel from "../../Components/MobileCarousel/MobileCarousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
@@ -39,11 +40,12 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
     <>
       <section className="home">
         <div className="page-container">
-          <div style={{width: "1012px", marginLeft:"-15px"}}> <HeaderCarousel />
+          <div className="desktopCarousel" style={{ width: "1012px", marginLeft: "-15px" }}>
+            <HeaderCarousel />
           </div>
-      
-         
-      
+          <div className="mobileCarousel" style={{marginBottom: "0px", marginTop: "20px"}}>
+            <MobileCarousel />
+          </div>
           <div className="header-wrapper">
             <Header user={user} setUser={setUser} />
           </div>

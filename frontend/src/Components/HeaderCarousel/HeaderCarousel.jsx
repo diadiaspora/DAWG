@@ -2,7 +2,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 const HeaderCarousel = () => {
   const settings = {
     dots: true,
@@ -17,6 +16,7 @@ const HeaderCarousel = () => {
   return (
     <Slider {...settings}>
       <div
+        className="desktopCarousel"
         style={{
           width: "100%",
           marginRight: "12px",
@@ -39,7 +39,7 @@ const HeaderCarousel = () => {
         >
           <div style={{ width: "253px" }}>
             <img
-              src="/dogtravel 2.png"
+              src="/dogbeach 1.png"
               style={{ width: "100%" }}
               alt="dog logo with money eyes"
             />
@@ -52,7 +52,7 @@ const HeaderCarousel = () => {
                 color: "#ffffff",
               }}
             >
-              Get Ready and Get Going
+              Share Your Experiences!
             </h1>
             <p
               style={{
@@ -61,7 +61,7 @@ const HeaderCarousel = () => {
                 color: "#ffffff",
               }}
             >
-              Store your trip details in one place
+              Have you traveled with your pet?
             </p>
             <h2
               style={{
@@ -70,16 +70,18 @@ const HeaderCarousel = () => {
                 color: "#ffffff",
               }}
             >
-              Start Planning
+              Make a Post
             </h2>
             <p
               style={{
                 display: "flex",
                 justifyContent: "center",
                 color: "#ffffff",
+                textAlign: "center",
               }}
             >
-              Keep accommodation, flight, and all travel plans in one place.
+              You can help keep pets and their parents
+              <br></br>safe and stress free while traveling
             </p>
           </div>
           <div style={{ width: "253px", alignContent: "center" }}>
@@ -94,7 +96,6 @@ const HeaderCarousel = () => {
                     color: "black",
                   }}
                 >
-                  {" "}
                   Sign Up
                 </button>
               </div>
@@ -127,7 +128,7 @@ const HeaderCarousel = () => {
         >
           <div style={{ width: "253px" }}>
             <img
-              src="/dogtravel 2.png"
+              src="/dogpool 1.png"
               style={{ width: "100%" }}
               alt="dog logo with money eyes"
             />
@@ -140,7 +141,7 @@ const HeaderCarousel = () => {
                 color: "#ffffff",
               }}
             >
-              Get Ready and Get Going
+              Be Prepared for Pet Travel
             </h1>
             <p
               style={{
@@ -149,7 +150,7 @@ const HeaderCarousel = () => {
                 color: "#ffffff",
               }}
             >
-              Store your trip details in one place
+              Get Everything You Need For Your Trip
             </p>
             <h2
               style={{
@@ -158,16 +159,18 @@ const HeaderCarousel = () => {
                 color: "#ffffff",
               }}
             >
-              Start Planning
+              Shop Now
             </h2>
             <p
               style={{
                 display: "flex",
                 justifyContent: "center",
                 color: "#ffffff",
+                textAlign: "center",
               }}
             >
-              Keep accommodation, flight, and all travel plans in one place.
+              Browse a curated collection of the best products <br></br> for
+              pets and their parents
             </p>
           </div>
           <div style={{ width: "253px", alignContent: "center" }}>
@@ -182,7 +185,6 @@ const HeaderCarousel = () => {
                     color: "black",
                   }}
                 >
-                  {" "}
                   Sign Up
                 </button>
               </div>
@@ -270,7 +272,6 @@ const HeaderCarousel = () => {
                     color: "black",
                   }}
                 >
-                  {" "}
                   Sign Up
                 </button>
               </div>
@@ -287,6 +288,7 @@ const HeaderCarousel = () => {
           </div>
         </div>
       </div>
+
     </Slider>
   );
 };

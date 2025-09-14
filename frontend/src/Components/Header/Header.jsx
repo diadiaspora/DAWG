@@ -3,7 +3,7 @@ import "./Header.css";
 export default function Header({ user }) {
   return (
     <>
-      <div
+      {/* <div
         className="mobile-dog"
         style={{ width: "380px", marginTop: "32px", marginBottom: "-50px" }}
        >
@@ -21,7 +21,7 @@ export default function Header({ user }) {
             style={{ marginTop: "30.5px" }}
           />
         </div>
-      </div>
+      </div> */}
       <div className="header">
         {user ? (
           <div style={{ display: "flex" }}>
