@@ -1,14 +1,13 @@
 
 import { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { client } from "../../api/ShopifyClient"; 
 import { CartContext } from "../../context/CartContext"; 
 import Cart from "../../Components/Cart/Cart";
-import ProductMobile from "./ProductMobile";
-
+import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper";
 import "./Product.css";
 
-export default function Product() {
+export default function ProductMobile() {
 
   const { productId: rawProductIdFromUrl } = useParams();
   const [product, setProduct] = useState(null);
@@ -112,100 +111,73 @@ export default function Product() {
 
   return (
     <>
-      <div className="desktop-product">
-        <div
-          style={{
-            backgroundColor: "#1e3769",
-            width: "1012px",
-            color: "#ffffff",
-            borderRadius: "7px",
-            marginTop: "24px",
-            height: "42px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p> Dawg Members Get 10% off every purchase</p>
-        </div>
-        <div className="product-page">
-          <div className="lefts" style={{ width: "662px" }}>
-            <div className="product">
-              {product.images.length > 0 &&
-                product.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image.src}
-                    alt={`${product.title} - ${index + 1}`}
-                    style={{
-                      maxWidth: "350px",
-                      height: "auto",
-                      borderRadius: "7px",
-                    }}
-                  />
-                ))}
+      {/* <div style={{ backgroundColor: "#1e3769", width: "1012px", color: "#ffffff", borderRadius: "7px", marginTop: "24px", height: "42px", display:"flex", alignItems: "center", justifyContent: "center"}}>
+        <p> Dawg Members Get 10% off every purchase</p>
+      </div> */}
+      <div className="product-page">
+        <div className="mobile">
+          <h2>{product.title}</h2>
+          <div className="product">
+            {product.images.length > 0 &&
+              product.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={`${product.title} - ${index + 1}`}
+                  style={{
+                    borderRadius: "7px",
+                  }}
+                />
+              ))}
+          </div>
+          {selectedVariant && (
+            <p>Price: ${parseFloat(selectedVariant.price.amount).toFixed(2)}</p>
+          )}
+          <div>
+            {product.options.map((option) => (
+              <div key={option.id}>
+                <label htmlFor={option.name}>{option.name}:</label>
+                <select
+                  id={option.name}
+                  onChange={handleVariantChange}
+                  value={selectedVariant?.id || ""}
+                >
+                  {product.variants.map((variant) => (
+                    <option key={variant.id} value={variant.id}>
+                      {variant.title} - $
+                      {parseFloat(variant.price.amount).toFixed(2)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            ))}
+
+            <p>{product.description}</p>
+
+            <div>
+              <p>Continue Shopping</p> <MarketplaceWrapper />
             </div>
 
-            <div
-              style={{
-                marginTop: "20px",
-
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                marginLeft: "0px",
-                width: "38%",
-              }}
-            >
-              <h2>{product.title}</h2>
-
-              <p>{product.description}</p>
-
-              {product.options.map((option) => (
-                <div key={option.id}>
-                  <label htmlFor={option.name}>{option.name}:</label>
-                  <select
-                    id={option.name}
-                    onChange={handleVariantChange}
-                    value={selectedVariant?.id || ""}
-                  >
-                    {product.variants.map((variant) => (
-                      <option key={variant.id} value={variant.id}>
-                        {variant.title} - $
-                        {parseFloat(variant.price.amount).toFixed(2)}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
-              {selectedVariant && (
-                <p>
-                  Price: ${parseFloat(selectedVariant.price.amount).toFixed(2)}
-                </p>
-              )}
-
+            <div className="add-to-cart-fixed">
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedVariant}
-                className="add-button"
+                className="add-button-mobile"
               >
                 Add to Cart
               </button>
-            </div>
-          </div>
-
-          <div
-            className="rights"
-            style={{ width: "310px", marginLeft: "42px" }}
-          >
-            <div className="your-cart">
-              <Cart />
+              <Link to={`/cart`}>
+                <button className="cart-button-mobile"> View Cart</button>
+              </Link>
             </div>
           </div>
         </div>
-      </div>
-      <div className="product-mobile"> 
-        <ProductMobile />
+
+        {/* <div className="rights" style={{ width: "310px", marginLeft: "42px" }}>
+          <div className="your-cart">
+            <Cart />
+          </div>
+        </div> */}
       </div>
     </>
   );

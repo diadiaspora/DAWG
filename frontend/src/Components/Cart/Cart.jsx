@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
+// import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper";
 
 
 
@@ -48,21 +49,12 @@ export default function CartPage() {
       <h2>Your Shopping Cart</h2>
       <ul
         class="no-bullets"
-        style={{
-          width: "300px",
-          maxHeight: "300px",
-          overflowY: "auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "10px",
-          padding: "10px",
-        }}
+ 
       >
         {checkout.lineItems.map((item) => (
           <li key={item.id}>
             <div style={{ display: "flex" }}>
-              <div >
+              <div>
                 <img
                   src={item.variant.image?.src}
                   alt={item.title}
@@ -103,7 +95,7 @@ export default function CartPage() {
                       border: "none",
                       cursor: "pointer",
                       color: "#1E3769",
-                      marginRight: "0px"
+                      marginRight: "0px",
                     }}
                   >
                     <FaCirclePlus />
@@ -137,6 +129,9 @@ export default function CartPage() {
       <button onClick={() => navigate("/")} className="shop-button">
         Continue Shopping
       </button>
+      {/* <div>
+        <p>Continue Shopping</p> <MarketplaceWrapper />
+      </div> */}
     </div>
   );
 }
