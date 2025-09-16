@@ -111,9 +111,9 @@ export default function ProductMobile() {
 
   return (
     <>
-      {/* <div style={{ backgroundColor: "#1e3769", width: "1012px", color: "#ffffff", borderRadius: "7px", marginTop: "24px", height: "42px", display:"flex", alignItems: "center", justifyContent: "center"}}>
+      <div style={{ backgroundColor: "#1e3769", width: "90vw", color: "#ffffff", borderRadius: "7px", marginTop: "24px", height: "42px", display:"flex", alignItems: "center", justifyContent: "center"}}>
         <p> Dawg Members Get 10% off every purchase</p>
-      </div> */}
+      </div>
       <div className="product-page">
         <div className="mobile">
           <h2>{product.title}</h2>
