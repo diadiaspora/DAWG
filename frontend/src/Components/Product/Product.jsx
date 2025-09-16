@@ -3,6 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { client } from "../../api/ShopifyClient"; 
 import { CartContext } from "../../context/CartContext"; 
+import Cart from "../../Components/Cart/Cart";
+import "./Product.css";
 
 export default function Product() {
 
@@ -92,7 +94,7 @@ export default function Product() {
       try {
         await addVariantToCart(selectedVariant.id, 1);
         alert("Product added to cart!");
-        navigate("/cart");
+        // navigate("/cart");
       } catch (err) {
         console.error("Error adding to cart:", err);
         alert("Failed to add product to cart.");
@@ -107,42 +109,82 @@ export default function Product() {
   if (!product) return <p>Product not found.</p>; 
 
   return (
-    <div className="product-page">
-      <button onClick={() => navigate("/")}>Back to Shop</button>
-      <h2>{product.title}</h2>
-      {product.images.length > 0 && (
-        <img
-          src={product.images[0].src}
-          alt={product.title}
-          style={{ maxWidth: "400px", height: "auto" }}
-        />
-      )}
-      <p>{product.description}</p>
+    <>
+      <div style={{ backgroundColor: "#1e3769", width: "1012px", color: "#ffffff", borderRadius: "7px", marginTop: "24px", height: "42px", display:"flex", alignItems: "center", justifyContent: "center"}}>
+        <p> Dawg Members Get 10% off every purchase</p>
+      </div>
+      <div className="product-page">
+        <div className="lefts" style={{ width: "662px" }}>
+          <div className="product">
+            {product.images.length > 0 &&
+              product.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={`${product.title} - ${index + 1}`}
+                  style={{
+                    maxWidth: "350px",
+                    height: "auto",
+                    borderRadius: "7px",
+                  }}
+                />
+              ))}
+          </div>
 
-      {product.options.map((option) => (
-        <div key={option.id}>
-          <label htmlFor={option.name}>{option.name}:</label>
-          <select
-            id={option.name}
-            onChange={handleVariantChange}
-            value={selectedVariant?.id || ""}
+          <div
+            style={{
+              marginTop: "20px",
+
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginLeft: "0px",
+              width: "38%",
+            }}
           >
-            {product.variants.map((variant) => (
-              <option key={variant.id} value={variant.id}>
-                {variant.title} - ${parseFloat(variant.price.amount).toFixed(2)}
-              </option>
+            <h2>{product.title}</h2>
+
+            <p>{product.description}</p>
+
+            {product.options.map((option) => (
+              <div key={option.id}>
+                <label htmlFor={option.name}>{option.name}:</label>
+                <select
+                  id={option.name}
+                  onChange={handleVariantChange}
+                  value={selectedVariant?.id || ""}
+                >
+                  {product.variants.map((variant) => (
+                    <option key={variant.id} value={variant.id}>
+                      {variant.title} - $
+                      {parseFloat(variant.price.amount).toFixed(2)}
+                    </option>
+                  ))}
+                </select>
+              </div>
             ))}
-          </select>
+            {selectedVariant && (
+              <p>
+                Price: ${parseFloat(selectedVariant.price.amount).toFixed(2)}
+              </p>
+            )}
+
+            <button
+              onClick={handleAddToCart}
+              disabled={!selectedVariant}
+              className="add-button"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
-      ))}
 
-      {selectedVariant && (
-        <p>Price: ${parseFloat(selectedVariant.price.amount).toFixed(2)}</p>
-      )}
-
-      <button onClick={handleAddToCart} disabled={!selectedVariant}>
-        Add to Cart
-      </button>
-    </div>
+        <div className="rights" style={{ width: "310px", marginLeft: "42px" }}>
+          <div className="your-cart">
+            <Cart />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

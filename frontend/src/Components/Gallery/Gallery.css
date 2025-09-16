@@ -5,8 +5,8 @@
 }
 
 .gal {
-  width: 100%;               /* inherit parent width, not 100vw */
-  max-width: 1012px;         /* same max-width as homepage */
+  width: 100%;               
+  max-width: 1012px;         
   margin: 0 auto;           
   display: flex;
   justify-content: center;

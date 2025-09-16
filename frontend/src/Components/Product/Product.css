@@ -1,0 +1,129 @@
+.product-page {
+  display: flex;
+  width: 100%;
+  max-width: 1012px;
+  margin-top: 42px;
+  box-sizing: border-box;
+}
+
+.product {
+  width: 390px;
+  max-height: 500px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 7px;
+  border-color: #d9d9d9;
+}
+
+.product::-webkit-scrollbar {
+  width: 8px;
+}
+
+.product::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.product::-webkit-scrollbar-thumb {
+  background-color: #1e3769;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.product:hover::-webkit-scrollbar-thumb {
+  background-color: #4aa692;
+}
+
+.lefts {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+}
+
+.rights {
+  margin: 0px;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding-left: 0;
+  width: 300px;
+  height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 7px;
+  border-color: #d9d9d9;
+
+}
+
+.no-bullets::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .no-bullets::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .no-bullets::-webkit-scrollbar-thumb {
+    background-color: #1e3769;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .no-bullets:hover::-webkit-scrollbar-thumb {
+    background-color: #4aa692;
+  }
+
+.add-button {
+  background-color: #1e3769;
+  border: none;
+  height: 44px;
+  width: 180px;
+}
+
+.add-button:hover {
+  background-color: #4aa692;
+}
+
+.check-button {
+  background-color: #1e3769;
+  border: none;
+  height: 44px;
+  width: 300px;
+}
+
+.check-button:hover {
+  background-color: #4aa692;
+}
+
+.shop-button {
+  color: #1e3769;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #1e3769;
+  height: 44px;
+  width: 300px;
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+
+.shop-button:hover {
+  background-color: #4aa692;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #4aa692;
+}

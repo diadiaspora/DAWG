@@ -59,6 +59,7 @@ const HeaderCarousel = () => {
                 display: "flex",
                 justifyContent: "center",
                 color: "#ffffff",
+                marginTop: "-20px",
               }}
             >
               Have you traveled with your pet?
@@ -148,6 +149,7 @@ const HeaderCarousel = () => {
                 display: "flex",
                 justifyContent: "center",
                 color: "#ffffff",
+                marginTop: "-20px",
               }}
             >
               Get Everything You Need For Your Trip
@@ -237,6 +239,7 @@ const HeaderCarousel = () => {
                 display: "flex",
                 justifyContent: "center",
                 color: "#ffffff",
+                marginTop: "-20px",
               }}
             >
               Store your trip details in one place
@@ -288,7 +291,6 @@ const HeaderCarousel = () => {
           </div>
         </div>
       </div>
-
     </Slider>
   );
 };
