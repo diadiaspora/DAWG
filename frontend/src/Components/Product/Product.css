@@ -201,8 +201,8 @@
 
     .product {
         width: 95vw;
-        max-width: 100vw;
-        max-height: 390px;
+        max-width: 90vw;
+        max-height: 90vw;
         overflow-x: auto;
         overflow-y: hidden;
         display: flex;
