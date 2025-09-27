@@ -126,10 +126,12 @@ export default function ProductMobile() {
                   alt={`${product.title} - ${index + 1}`}
                   style={{
                     borderRadius: "7px",
+                    width: "260px"
                   }}
                 />
               ))}
           </div>
+
           {selectedVariant && (
             <p>Price: ${parseFloat(selectedVariant.price.amount).toFixed(2)}</p>
           )}

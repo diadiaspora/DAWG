@@ -88,8 +88,8 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text" style={{ marginBottom: "10px" }}>
-              <h2>Besties</h2>
+            <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
+              <h2>Everything You Need</h2>
               <button
                 style={{
                   backgroundColor: "#4AA692",
@@ -98,22 +98,17 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                   color: "#000000",
                   fontSize: "14px",
                   height: "34px",
-                  width: "100px",
+                  width: "80px",
                   padding: "5px",
                   marginTop: "0px",
                   marginBottom: "0px",
                 }}
               >
-                Post Your Pet
+                Shop
               </button>
             </div>
+            <MarketplaceWrapper />
 
-            <Gallery />
-
-            {/* <div className="mobile-text-tea">
-              <h2>Featured Posts</h2>
-            </div> */}
-            <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
             <div
               className="mobile-dog"
               style={{
@@ -137,8 +132,9 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                 />
               </div>
             </div>
-            <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
-              <h2>Everything You Need</h2>
+
+            <div className="mobile-text" style={{ marginBottom: "10px" }}>
+              <h2>Besties</h2>
               <button
                 style={{
                   backgroundColor: "#4AA692",
@@ -147,16 +143,20 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
                   color: "#000000",
                   fontSize: "14px",
                   height: "34px",
-                  width: "80px",
+                  width: "100px",
                   padding: "5px",
                   marginTop: "0px",
                   marginBottom: "0px",
                 }}
               >
-                Shop
+                Post Your Pet
               </button>
             </div>
-            <MarketplaceWrapper />
+
+            <Gallery />
+
+            <HootFeature hoots={hoots} user={user} setHoots={setHoots} />
+
             <div
               className="mobile-dog"
               style={{

@@ -62,13 +62,55 @@ export default function HootInfinatePage({ user, setUser }) {
   return (
     <>
       <section className="home">
-        <div className="page-container">
+        <div className="page-container-hoot">
           <div className="header-wrapper">
             <Header user={user} setUser={setUser} />
           </div>
           <SearchComponent />
         </div>
 
+        <div
+          className="mobile-dog"
+          style={{
+            width: "380px",
+            marginTop: "18px",
+            marginBottom: "0px",
+          }}
+        >
+          <div>
+            <img src="/lab.png" className="dog-mobile" alt="labrador" />
+          </div>
+          <div>
+            <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+          </div>
+          <div>
+            <img
+              src="/terrier.png"
+              className="dog-mobile"
+              alt="terrier"
+              style={{ marginTop: "30.5px" }}
+            />
+          </div>
+        </div>
+        <div className="mobile-text-tea">
+          <h2>Heres What Everyone's Saying</h2>
+          <button
+            style={{
+              backgroundColor: "#4AA692",
+              borderWidth: "0px",
+              borderRadius: "7px",
+              color: "#000000",
+              fontSize: "14px",
+              height: "34px",
+              width: "80px",
+              padding: "5px",
+              marginTop: "0px",
+              marginBottom: "0px",
+            }}
+          >
+            Post
+          </button>
+        </div>
         <div className="wide">
           <main className="mainly">
             {hoots.map((hoot, index) => {

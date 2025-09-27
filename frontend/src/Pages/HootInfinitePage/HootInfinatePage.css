@@ -21,6 +21,11 @@
 }
 
 @media screen and (max-width: 480px) {
+
+  .page-container-hoot {
+    display: none;
+  }
+
   .wide {
     display: block;
     flex-direction: column;
