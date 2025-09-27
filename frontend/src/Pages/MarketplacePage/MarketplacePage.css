@@ -25,6 +25,13 @@
   }
   
   @media screen and (max-width: 480px) {
+
+      .home {
+    min-height: auto;       /* let it size naturally */
+    overflow-y: visible;    /* let <body> handle scroll */
+    display: block;         /* prevent flex trapping scroll */
+  }
+  
     .wide {
       display: block;
       flex-direction: column;
@@ -36,17 +43,20 @@
     }
 
   .wide-shop {
-    display: block;     
+    display: block;         /* block flow, no flex */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 12px;
   }
 
+
   .mainly-shop {
-    height: auto;          
-    overflow-y: visible; 
+    flex: none;             /* reset flex from desktop */
+    height: auto;           /* expand with content */
+    overflow-y: visible;    /* don’t trap scrolling */
     width: 100%;
+    margin: 0;              /* reset margin for consistency */
   }
 
 
