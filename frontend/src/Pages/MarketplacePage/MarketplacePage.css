@@ -26,37 +26,36 @@
   
   @media screen and (max-width: 480px) {
 
-      .home {
-    min-height: auto;       /* let it size naturally */
-    overflow-y: visible;    /* let <body> handle scroll */
-    display: block;         /* prevent flex trapping scroll */
+  .home {
+    min-height: 100vh;     /* allow full page height */
+    overflow-x: hidden;
+    overflow-y: auto;      /* body scroll */
+    display: block;        /* avoid flex */
+  }
+
+  .wide {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 12px;
+    box-sizing: border-box;
   }
   
-    .wide {
-      display: block;
-      flex-direction: column;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 0 12px;
-      box-sizing: border-box;
-    }
-
-  .wide-shop {
-    display: block;         /* block flow, no flex */
+ .wide-shop {
+    display: block;        /* stack vertically */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 12px;
   }
 
-
   .mainly-shop {
-    flex: none;             /* reset flex from desktop */
-    height: auto;           /* expand with content */
-    overflow-y: visible;    /* don’t trap scrolling */
+    flex: none !important;   /* kill desktop flex */
+    height: auto !important; /* remove fixed heights */
+    min-height: auto !important;
+    overflow: visible !important; 
+    margin: 0;
     width: 100%;
-    margin: 0;              /* reset margin for consistency */
   }
 
 
