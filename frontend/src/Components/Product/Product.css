@@ -181,7 +181,7 @@
     padding: 15px 0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;    
-    height: 100px;
+    height: 90px;
     border-top-left-radius: 7px; 
     border-top-right-radius: 7px;   
   }
