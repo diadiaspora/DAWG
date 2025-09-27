@@ -39,9 +39,14 @@
   }
 
   .mainly-shop {
-    overflow-y: auto;
+    height: auto;          /* let it expand naturally */
+    overflow-y: visible;   /* allow scrolling */
   }
 
+  .home {
+    min-height: 100vh;     /* ensure page can scroll */
+    overflow-y: visible;
+  }
     .page-container-shop {
       display: none;
     }

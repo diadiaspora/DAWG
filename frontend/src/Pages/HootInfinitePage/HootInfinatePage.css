@@ -45,12 +45,12 @@
 
   .mainly {
     height: auto;       /* let content determine height */
-    overflow-y: visible; /* allow natural scrolling */
+    overflow-y: visible; 
     width: 100%;
   }
 
   .formerly {
-    display: none; /* hide desktop sticky form */
+    display: none; 
   }
   .mobile-create-rapper {
     display: block;
