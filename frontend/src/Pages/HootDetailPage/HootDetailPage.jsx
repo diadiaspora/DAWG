@@ -3,10 +3,10 @@ import * as hootService from "../../services/hootService";
 import { useNavigate, useParams } from "react-router-dom";
 import HootDetails from "../../Components/HootDetails/HootDetails";
 import HootList from "../../Components/HootList/HootList";
+import HootLongList from "../../Components/HootList/HootList";
 
-
-const HootDetailsPage = ({ user, setUser, hoots }) => {
-  const { hootId } = useParams(); 
+const HootDetailsPage = ({ user, setUser, hoots, setHoots }) => {
+  const { hootId } = useParams();
   const navigate = useNavigate();
 
   const handleAddHoot = async (newHootData) => {
@@ -20,12 +20,20 @@ const HootDetailsPage = ({ user, setUser, hoots }) => {
       <div>
         <HootDetails hootId={hootId} user={user} setUser={setUser} />
 
-        <HootList
+        <HootLongList
+          user={user}
+          setUser={setUser}
+          hoots={hoots}
+          setHoots={setHoots}
+          handleAddHoot={handleAddHoot}
+        />
+
+        {/* <HootList
           user={user}
           setUser={setUser}
           hoots={hoots}
           handleAddHoot={handleAddHoot}
-        />
+        /> */}
       </div>
     </>
   );

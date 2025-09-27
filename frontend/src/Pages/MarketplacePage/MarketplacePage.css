@@ -26,5 +26,9 @@
       padding: 0 12px;
       box-sizing: border-box;
     }
+
+    .page-container-shop {
+      display: none;
+    }
   }
   

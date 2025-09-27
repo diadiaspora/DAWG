@@ -79,6 +79,22 @@ html, body {
   box-sizing: border-box;
 }
 
+.page-container-hoot {
+  width: 100%;
+  max-width: 1012px;  
+  margin: 0 auto;      
+  padding: 0 16px;    
+  box-sizing: border-box;
+}
+
+.page-container-shop {
+  width: 100%;
+  max-width: 1012px;  
+  margin: 0 auto;      
+  padding: 0 16px;    
+  box-sizing: border-box;
+}
+
 .header-wrapper {
   width: 100%;
   max-width: 1012px;   

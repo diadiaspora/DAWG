@@ -112,7 +112,6 @@ export default function Marketplace() {
   return (
     <div className="marketplace-wrapper">
       {header}
-
       <div className="product-scroll-container">
         {products.map((product) => (
           <div key={product.id} className="product-card">
@@ -124,7 +123,7 @@ export default function Marketplace() {
                 <img
                   src={product.images[0].src}
                   alt={product.title}
-                  width={isMobile ? 160 : 240}
+                  width={isMobile ? 180 : 240}
                   height={isMobile ? 160 : 240}
                   style={{
                     objectFit: "cover",
@@ -150,7 +149,8 @@ export default function Marketplace() {
             </Link>
 
             <p
-className="product-description"
+
+              className="product-description"
             >
               {product.description}
             </p>

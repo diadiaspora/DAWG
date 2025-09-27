@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { logOut } from "../../services/authService";
+import { IoStorefrontSharp } from "react-icons/io5";
+import { FaRegUserCircle } from "react-icons/fa";
+
+import { PiShoppingCartSimpleFill } from "react-icons/pi";
+
 import "./NavBarMobile.css";
 
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -40,25 +45,50 @@ export default function NavBarMobile({ user, setUser, profile }) {
       <nav className="NavBarMobile" style={{ backgroundColor: "#1e37691f" }}>
         <div
           onClick={() => setMenuOpen((prev) => !prev)}
-          style={{ marginLeft: "16px", marginTop: "16px", cursor: "pointer" }}
+          style={{
+            marginLeft: "16px",
+            marginTop: "16px",
+            cursor: "pointer",
+            width: "33%",
+          }}
         >
           <GiHamburgerMenu style={{ fontSize: "28px", color: "#1E3769" }} />
         </div>
-        <div>
+        <div style={{ width: "20%" }}>
           <NavLink to="/">
             <img
               src="/dawg.png"
               className="doglo"
               alt="dawg logo letters"
-              style={{ width: "70px" }}
+              style={{ width: "80px" }}
             />
           </NavLink>
         </div>
-        <div>
-          <img
-            src="https://i.ibb.co/bgQM3cM2/Vector.png"
-            alt="Guest Icon"
-            style={{ marginRight: "16px" }}
+        <div className="nav-icons" style={{ width: "33%" }}>
+          <IoStorefrontSharp
+            style={{
+              width: "33%",
+              fontSize: "28px",
+              color: "#1E3769",
+padding: "0px",
+              marginLeft: "10px",
+            }}
+          />
+          <PiShoppingCartSimpleFill
+            style={{
+              width: "33%",
+              fontSize: "28px",
+              color: "#1E3769",
+              marginLeft: "0px",
+            }}
+          />
+          <FaRegUserCircle
+            style={{
+              width: "33%",
+              fontSize: "28px",
+              color: "#1E3769",
+              margin: "0px",
+            }}
           />
         </div>
       </nav>
@@ -110,7 +140,7 @@ export default function NavBarMobile({ user, setUser, profile }) {
               {/* <NavLink to="/blogs" onClick={() => setMenuOpen(false)}>
                 Blogs
               </NavLink> */}
-                
+
               <NavLink to="/login" onClick={() => setMenuOpen(false)}>
                 Log In
               </NavLink>

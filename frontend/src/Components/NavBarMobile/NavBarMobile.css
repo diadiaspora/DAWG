@@ -11,8 +11,16 @@
   height: 70px;
 }
 
+.NavBarMobile {
+  position: relative;
+  z-index: 1000;
+}
+
 .NavBarMobile img.doglo {
   width: 70px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
   height: auto;
   flex-shrink: 0;   
   margin-top: 13px;           
@@ -20,13 +28,13 @@
 
 .mobile-dropdown-menu {
   position: absolute;
-  top: 64px; /* below your navbar */
+  top: 64px;
   right: 0;
   width: 100%;
   background-color: white;
   padding: 16px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+    z-index: 1100; 
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -46,5 +54,20 @@
 
   .NavBarMobile {
     display: flex;
+ 
   }
+
+  .nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+  margin-right: 16px; 
 }
+}
+
+/* .NavBarMobile {
+  display: flex;
+ 
+} */
+
+
