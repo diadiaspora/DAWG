@@ -31,7 +31,8 @@
       box-sizing: border-box;
     }
 
-      .wide-shop {
+  .wide-shop {
+    display: block;        /* no flex on mobile */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -39,13 +40,22 @@
   }
 
   .mainly-shop {
-    height: auto;          /* let it expand naturally */
-    overflow-y: visible;   /* allow scrolling */
+    height: auto;          /* let content determine height */
+    overflow-y: visible;   /* no inner scrolling */
+    width: 100%;
   }
 
+
+  .mainly {
+    height: auto;          /* natural height */
+    overflow-y: visible;   /* scroll handled by body */
+    width: 100%;
+  }
+  
   .home {
-    min-height: 100vh;     /* ensure page can scroll */
-    overflow-y: visible;
+    min-height: auto;      /* remove fixed min-height */
+    overflow-y: visible;   /* allow body to handle scroll */
+    display: block;        /* stop flex from trapping scroll */
   }
     .page-container-shop {
       display: none;

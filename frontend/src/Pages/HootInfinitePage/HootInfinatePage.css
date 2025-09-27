@@ -63,6 +63,12 @@
     margin: 20px 0;
   }
 
+    .home {
+    min-height: auto;      /* remove fixed min-height */
+    overflow-y: visible;   /* allow body to handle scroll */
+    display: block;        /* stop flex from trapping scroll */
+  }
+
 
 }
 
