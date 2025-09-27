@@ -21,7 +21,6 @@ export default function NavBarMobile({ user, setUser, profile }) {
     setUser(null);
   }
 
-
   useEffect(() => {
     function handleClickOutside(e) {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -65,31 +64,38 @@ export default function NavBarMobile({ user, setUser, profile }) {
           </NavLink>
         </div>
         <div className="nav-icons" style={{ width: "33%" }}>
-          <IoStorefrontSharp
-            style={{
-              width: "33%",
-              fontSize: "28px",
-              color: "#1E3769",
-padding: "0px",
-              marginLeft: "10px",
-            }}
-          />
-          <PiShoppingCartSimpleFill
-            style={{
-              width: "33%",
-              fontSize: "28px",
-              color: "#1E3769",
-              marginLeft: "0px",
-            }}
-          />
-          <FaRegUserCircle
-            style={{
-              width: "33%",
-              fontSize: "28px",
-              color: "#1E3769",
-              margin: "0px",
-            }}
-          />
+          <NavLink to="/marketplace" onClick={() => setMenuOpen(false)}>
+            <IoStorefrontSharp
+              style={{
+                width: "100%",
+                fontSize: "28px",
+                color: "#1E3769",
+                padding: "0px",
+                marginLeft: "10px",
+              }}
+            />
+          </NavLink>
+          <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
+            <PiShoppingCartSimpleFill
+              style={{
+                width: "100%",
+                fontSize: "28px",
+                color: "#1E3769",
+                marginLeft: "0px",
+              }}
+            />
+          </NavLink>
+
+          <NavLink to="/login" onClick={() => setMenuOpen(false)}>
+            <FaRegUserCircle
+              style={{
+                width: "100%",
+                fontSize: "28px",
+                color: "#1E3769",
+                margin: "0px",
+              }}
+            />
+          </NavLink>
         </div>
       </nav>
 
@@ -130,6 +136,9 @@ padding: "0px",
             </>
           ) : (
             <>
+              <NavLink to="/" onClick={() => setMenuOpen(false)}>
+                Home
+              </NavLink>
               <NavLink to="/marketplace" onClick={() => setMenuOpen(false)}>
                 Shop
               </NavLink>
@@ -141,12 +150,12 @@ padding: "0px",
                 Blogs
               </NavLink> */}
 
-              <NavLink to="/login" onClick={() => setMenuOpen(false)}>
+              {/* <NavLink to="/login" onClick={() => setMenuOpen(false)}>
                 Log In
               </NavLink>
               <NavLink to="/signup" onClick={() => setMenuOpen(false)}>
                 Sign Up
-              </NavLink>
+              </NavLink> */}
               {/* <img
                 src="https://i.ibb.co/bgQM3cM2/Vector.png"
                 alt="Vector"

@@ -5,6 +5,10 @@
   margin: 0 auto;
 }
 
+.mobile-form {
+  display: none;
+}
+
 .mainly {
   flex: 1;
   max-width: 662px;
@@ -22,11 +26,15 @@
 
 @media screen and (max-width: 480px) {
 
-  .page-container-hoot {
+.page-container-hoot {
     display: none;
   }
 
-  .wide {
+.mobile-form {
+  display: block;
+}
+  
+.wide {
     display: block;
     flex-direction: column;
     width: 100vw;
