@@ -2,6 +2,7 @@ import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import MarketplaceDesigns from "../../Components/Marketplace/MarketplaceDesigns.jsx";
+import MobileCarousel from "../../Components/MobileCarousel/MobileCarousel.jsx";
 import "./MarketplacePage.css";
 
 export default function MarketplacePage({ user, setUser }) {
@@ -16,12 +17,15 @@ export default function MarketplacePage({ user, setUser }) {
       </div>
 
       <div className="wide-shop">
+        {/* <div className="mobile-h">
+          <MobileCarousel />
+        </div> */}
         <main className="mainly-shop">
           <div
             className="mobile-dog"
             style={{
               width: "380px",
-              marginTop: "100px",
+              marginTop: "24px",
               marginBottom: "0px",
             }}
           >

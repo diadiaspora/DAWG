@@ -2,10 +2,10 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import { FaRegTrashCan } from "react-icons/fa6";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
-// import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper";
+import "./Cart.css";
+
 
 
 
@@ -17,8 +17,8 @@ export default function CartPage() {
   if (loading) return <p>Loading cart...</p>;
   if (!checkout || checkout.lineItems.length === 0) {
     return (
-      <div>
-        <h2>Your Cart is Empty</h2>
+      <div className="nobullets" style={{ marginTop: "24px" }}>
+        <h2 style={{ marginTop: "24px" }}>Your Cart is Empty</h2>
         <button onClick={() => navigate("/")}>Continue Shopping</button>
       </div>
     );
@@ -48,7 +48,7 @@ export default function CartPage() {
     <div className="cart-page" style={{ marginTop: "20px" }}>
       <h2>Your Shopping Cart</h2>
       <ul
-        class="no-bullets"
+        class="nobullets"
  
       >
         {checkout.lineItems.map((item) => (
@@ -124,10 +124,10 @@ export default function CartPage() {
 
       <h3>Total: ${parseFloat(checkout.totalPrice.amount).toFixed(2)}</h3>
       <button onClick={handleProceedToCheckout} className="check-button">
-        Proceed to Checkout
+        Proceeed to Checkout
       </button>
-      <button onClick={() => navigate("/")} className="shop-button">
-        Continue Shopping
+      <button onClick={() => navigate("/")} >
+        Continue Shoppping
       </button>
       {/* <div>
         <p>Continue Shopping</p> <MarketplaceWrapper />

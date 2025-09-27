@@ -97,7 +97,7 @@ export default function HootInfinatePage({ user, setUser }) {
           <h2>Create a Post</h2>
     
         </div>
-        <div className="mobile-form">
+        <div className="mobile-form" style={{marginTop: "24px"}}>
           <HootFormMobile handleAddHoot={handleAddHoot} />
         </div>
 

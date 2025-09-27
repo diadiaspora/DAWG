@@ -34,8 +34,8 @@
   display: block;
 }
   
-  .wide {
-    display: block;
+ .wide {
+    display: block;        /* don’t use flex on mobile */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -43,12 +43,15 @@
   }
 
 
-  .mainly {
-    height: auto;       /* let content determine height */
-    overflow-y: visible; 
-    width: 100%;
-  }
 
+  .mainly {
+    flex: none;            /* remove flex sizing */
+    height: auto;          /* expand with content */
+    overflow-y: visible;   /* let body scroll */
+    width: 100%;
+    margin-right: 0;       /* reset desktop spacing */
+  }
+  
   .formerly {
     display: none; 
   }
@@ -63,9 +66,9 @@
     margin: 20px 0;
   }
 
-    .home {
-    min-height: auto;      /* remove fixed min-height */
-    overflow-y: visible;   /* allow body to handle scroll */
+  .home {
+    min-height: auto;      /* allow body to size naturally */
+    overflow-y: visible;   /* scrolling handled by body */
     display: block;        /* stop flex from trapping scroll */
   }
 

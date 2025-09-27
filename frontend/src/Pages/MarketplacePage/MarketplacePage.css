@@ -19,6 +19,10 @@
   .header-wrapper {
     margin-left: -3vw; 
   }
+
+  .mobile-h {
+    display: none;
+  }
   
   @media screen and (max-width: 480px) {
     .wide {
@@ -32,7 +36,7 @@
     }
 
   .wide-shop {
-    display: block;        /* no flex on mobile */
+    display: block;     
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -40,25 +44,29 @@
   }
 
   .mainly-shop {
-    height: auto;          /* let content determine height */
-    overflow-y: visible;   /* no inner scrolling */
+    height: auto;          
+    overflow-y: visible; 
     width: 100%;
   }
 
 
   .mainly {
-    height: auto;          /* natural height */
-    overflow-y: visible;   /* scroll handled by body */
+    height: auto;          
+    overflow-y: visible; 
     width: 100%;
   }
   
   .home {
-    min-height: auto;      /* remove fixed min-height */
-    overflow-y: visible;   /* allow body to handle scroll */
-    display: block;        /* stop flex from trapping scroll */
+    min-height: auto;   
+    overflow-y: visible;  
+    display: block;       
   }
     .page-container-shop {
       display: none;
+    }
+
+    .mobile-h {
+      display: block;
     }
   }
   
