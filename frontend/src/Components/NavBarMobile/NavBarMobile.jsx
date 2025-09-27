@@ -64,7 +64,11 @@ export default function NavBarMobile({ user, setUser, profile }) {
           </NavLink>
         </div>
         <div className="nav-icons" style={{ width: "33%" }}>
-          <NavLink to="/marketplace" onClick={() => setMenuOpen(false)}>
+          <NavLink
+            to="/marketplace"
+            onClick={() => setMenuOpen(false)}
+            style={{ width: "33%" }}
+          >
             <IoStorefrontSharp
               style={{
                 width: "100%",
@@ -75,7 +79,11 @@ export default function NavBarMobile({ user, setUser, profile }) {
               }}
             />
           </NavLink>
-          <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
+          <NavLink
+            to="/cart"
+            onClick={() => setMenuOpen(false)}
+            style={{ width: "33%" }}
+          >
             <PiShoppingCartSimpleFill
               style={{
                 width: "100%",
@@ -86,7 +94,11 @@ export default function NavBarMobile({ user, setUser, profile }) {
             />
           </NavLink>
 
-          <NavLink to="/login" onClick={() => setMenuOpen(false)}>
+          <NavLink
+            to="/login"
+            onClick={() => setMenuOpen(false)}
+            style={{ width: "33%" }}
+          >
             <FaRegUserCircle
               style={{
                 width: "100%",

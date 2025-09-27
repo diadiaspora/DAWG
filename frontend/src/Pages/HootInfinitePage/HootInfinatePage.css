@@ -34,23 +34,24 @@
   display: block;
 }
   
-.wide {
+  .wide {
     display: block;
-    flex-direction: column;
-    width: 100vw;
-    max-width: 95vw;
-    margin: 0 auto;     
-    padding: 0 12px;   
-    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 12px;
   }
 
-  .mainly {
 
-    overflow-y: auto;
-    height: 100vh; 
+  .mainly {
+    height: auto;       /* let content determine height */
+    overflow-y: visible; /* allow natural scrolling */
     width: 100%;
   }
 
+  .formerly {
+    display: none; /* hide desktop sticky form */
+  }
   .mobile-create-rapper {
     display: block;
     width: 100%;
@@ -62,9 +63,7 @@
     margin: 20px 0;
   }
 
-  .formerly {
-    display: none;
-  }
+
 }
 
 .header-wrapper {

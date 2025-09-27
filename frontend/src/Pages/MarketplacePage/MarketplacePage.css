@@ -1,17 +1,21 @@
+
+
 .wide-shop {
-    display: flex;
-    width: 100%;
-    max-width: 1012px;
-    margin: -80px auto;
-  }
-  
-  .mainly-shop {
-    flex: 1;
-    max-width: 1012px;
-    margin: 0 auto;
-    padding: 0;
-  }
-  
+  display: flex;
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto; /* remove negative margin */
+  flex-direction: column; /* allow stacking on mobile */
+}
+
+.mainly-shop {
+  flex: 1;
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0;
+
+}
+
   .header-wrapper {
     margin-left: -3vw; 
   }
@@ -26,6 +30,17 @@
       padding: 0 12px;
       box-sizing: border-box;
     }
+
+      .wide-shop {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+
+  .mainly-shop {
+    overflow-y: auto;
+  }
 
     .page-container-shop {
       display: none;
