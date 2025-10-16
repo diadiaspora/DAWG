@@ -28,7 +28,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .wide {
+  .wide-fly {
     display: block;
     width: 100%;
     max-width: 100%;
