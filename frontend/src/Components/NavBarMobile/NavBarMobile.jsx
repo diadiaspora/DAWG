@@ -151,8 +151,11 @@ export default function NavBarMobile({ user, setUser, profile }) {
               <NavLink to="/" onClick={() => setMenuOpen(false)}>
                 Home
               </NavLink>
+              <NavLink to="/fly" onClick={() => setMenuOpen(false)}>
+                Flights
+              </NavLink>
               <NavLink to="/marketplace" onClick={() => setMenuOpen(false)}>
-                Shop
+                Marketplace
               </NavLink>
               <NavLink to="/allposts" onClick={() => setMenuOpen(false)}>
                 Posts

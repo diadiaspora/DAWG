@@ -65,49 +65,52 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
         <div className="wide-home">
           <main className="mainly-home">
-            <div
-              className="mobile-dog"
-              style={{
-                width: "380px",
-                marginTop: "0px",
-                marginBottom: "0px",
-              }}
-            >
-              <div>
-                <img src="/lab.png" className="dog-mobile" alt="labrador" />
-              </div>
-              <div>
-                <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
-              </div>
-              <div>
-                <img
-                  src="/terrier.png"
-                  className="dog-mobile"
-                  alt="terrier"
-                  style={{ marginTop: "30.5px" }}
-                />
-              </div>
-            </div>
-            <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
-              <h2>Everything You Need</h2>
-              <button
+         
+              <div
+                className="mobile-dog"
                 style={{
-                  backgroundColor: "#4AA692",
-                  borderWidth: "0px",
-                  borderRadius: "7px",
-                  color: "#000000",
-                  fontSize: "14px",
-                  height: "34px",
-                  width: "80px",
-                  padding: "5px",
+                  width: "380px",
                   marginTop: "0px",
                   marginBottom: "0px",
+                  
                 }}
               >
-                Shop
-              </button>
-            </div>
-            <MarketplaceWrapper />
+                <div>
+                  <img src="/lab.png" className="dog-mobile" alt="labrador" />
+                </div>
+                <div>
+                  <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+                </div>
+                <div>
+                  <img
+                    src="/terrier.png"
+                    className="dog-mobile"
+                    alt="terrier"
+                    style={{ marginTop: "30.5px" }}
+                  />
+                </div>
+              </div>
+              <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
+                <h2>Everything You Need</h2>
+                <button
+                  style={{
+                    backgroundColor: "#4AA692",
+                    borderWidth: "0px",
+                    borderRadius: "7px",
+                    color: "#000000",
+                    fontSize: "14px",
+                    height: "34px",
+                    width: "80px",
+                    padding: "5px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
+                  }}
+                >
+                  Shop
+                </button>
+              </div>
+              <MarketplaceWrapper />
+        
 
             <div
               className="mobile-dog"
