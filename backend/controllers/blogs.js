@@ -1,14 +1,13 @@
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-const { S3_REGION, S3_BUCKET, S3_BASE_URL } = process.env; // Ensure these are in your .env
-const Blog = require("../models/blog"); // Path to your blog model
-
+const { S3_REGION, S3_BUCKET, S3_BASE_URL } = process.env;
+const Blog = require("../models/blog");
 
 async function uploadFileToS3(file, folderName) {
   const s3Client = new S3Client({ region: S3_REGION });
 
   const s3Params = {
     Bucket: S3_BUCKET,
-    Key: `${folderName}/${Date.now()}-${file.originalname}`, // Use folderName for organization
+    Key: `${folderName}/${Date.now()}-${file.originalname}`,
     Body: file.buffer,
     ContentType: file.mimetype,
   };
@@ -21,7 +20,6 @@ async function uploadFileToS3(file, folderName) {
       `Error uploading file to S3 in folder ${folderName}:`,
       uploadErr
     );
-    // Rethrow a more specific error to be caught by the calling function
     throw new Error(
       `S3 Upload Failed for ${file.originalname}: ${uploadErr.message}`
     );
@@ -39,16 +37,13 @@ module.exports = {
 
 async function index(req, res) {
   try {
-
     const Profile = require("../models/profile");
-    const blogs = await Blog.find({}).populate('author')
-.sort({ createdAt: -1 });
-        
+    const blogs = await Blog.find({})
+      .populate("author")
+      .sort({ createdAt: -1 });
 
     // const blogs = await Blog.find({}).populate("author", "name");
-     res.json(blogs);
-
-
+    res.json(blogs);
   } catch (err) {
     console.error("Error in blog index:", err);
     res
@@ -58,14 +53,12 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  
   try {
     const Profile = require("../models/profile");
     const profile = await Profile.findOne({ author: req.user._id });
     if (!profile) return res.status(404).json({ message: "Profile not found" });
 
-    req.body.author = profile._id; 
-
+    req.body.author = profile._id;
 
     // Process image uploads
     if (req.files) {
@@ -113,13 +106,11 @@ async function create(req, res) {
     console.error("Error creating blog:", err);
     // Ensure a JSON response is always sent, even on error
     if (err.name === "ValidationError") {
-      res
-        .status(400)
-        .json({
-          message: "Validation Error",
-          error: err.message,
-          details: err.errors,
-        });
+      res.status(400).json({
+        message: "Validation Error",
+        error: err.message,
+        details: err.errors,
+      });
     } else if (err.message.startsWith("S3 Upload Failed")) {
       res
         .status(500)
@@ -142,8 +133,6 @@ async function show(req, res) {
       return res.status(404).json({ message: "Blog not found" });
     }
 
-    
- 
     res.json(blog);
   } catch (err) {
     console.error("Error in blog show:", err);
@@ -163,7 +152,7 @@ async function update(req, res) {
           "blog-images"
         );
       }
-      // These images are now optional
+
       if (req.files.contentTwoImage && req.files.contentTwoImage.length > 0) {
         req.body.contentTwoImage = await uploadFileToS3(
           req.files.contentTwoImage[0],
@@ -188,8 +177,8 @@ async function update(req, res) {
     }
 
     const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
-      new: true, // Return the modified document
-      runValidators: true, // Run Mongoose validators
+      new: true,
+      runValidators: true,
     });
 
     if (!blog) {
@@ -197,16 +186,14 @@ async function update(req, res) {
     }
 
     res.json(blog);
-   } catch (err) {
+  } catch (err) {
     console.error("Error updating blog:", err);
     if (err.name === "ValidationError") {
-      res
-        .status(400)
-        .json({
-          message: "Validation Error",
-          error: err.message,
-          details: err.errors,
-        });
+      res.status(400).json({
+        message: "Validation Error",
+        error: err.message,
+        details: err.errors,
+      });
     } else if (err.message.startsWith("S3 Upload Failed")) {
       res
         .status(500)
@@ -238,13 +225,11 @@ async function getUserBlogs(req, res) {
   try {
     const Profile = require("../models/profile");
 
-    // Get the user's profile
     const profile = await Profile.findOne({ author: req.user._id });
     if (!profile) {
       return res.status(404).json({ message: "Profile not found" });
     }
 
-    // Get blogs that belong to this profile
     const blogs = await Blog.find({ author: profile._id }).populate("author");
     res.json(blogs);
   } catch (err) {

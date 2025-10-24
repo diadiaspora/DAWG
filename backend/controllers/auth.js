@@ -26,11 +26,10 @@ async function signUp(req, res) {
   console.log(req.body);
   try {
     const user = await User.create(req.body);
-    // await user.save();
+
     await Profile.create({
       author: user._id,
-      // user: user._id,
-      name: user.name, // optional, if available
+      name: user.name,
       avatar: user.avatar,
     });
     const token = createJWT(user);
@@ -41,13 +40,6 @@ async function signUp(req, res) {
   }
 }
 
-
-
 function createJWT(user) {
-  return jwt.sign(
-  
-    { user },
-    process.env.SECRET,
-    { expiresIn: "24h" }
-  );
+  return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
 }

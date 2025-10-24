@@ -2,10 +2,16 @@ import { useState, useEffect } from "react";
 import * as postService from "../../services/postService";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ArrowLeft, ArrowRight, ThumbsUp, MessageSquare, Share2, CornerDownRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ThumbsUp,
+  MessageSquare,
+  Share2,
+  CornerDownRight,
+} from "lucide-react";
 import "./RedditPostList.css";
 import { Link } from "react-router-dom";
-
 
 const generateUniqueId = () => Math.random().toString(36).substr(2, 9);
 
@@ -33,13 +39,51 @@ const responsive = {
 };
 
 const CustomLeftArrow = ({ onClick }) => (
-  <button onClick={onClick} style={{ position: "absolute", bottom: "10px", left: "calc(50% - 60px)", backgroundColor: "black", color: "white", border: "none", borderRadius: "50%", width: "40px", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer", zIndex: 1, boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)" }}>
+  <button
+    onClick={onClick}
+    style={{
+      position: "absolute",
+      bottom: "10px",
+      left: "calc(50% - 60px)",
+      backgroundColor: "black",
+      color: "white",
+      border: "none",
+      borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      cursor: "pointer",
+      zIndex: 1,
+      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+    }}
+  >
     <ArrowLeft size={20} color="white" />
   </button>
 );
 
 const CustomRightArrow = ({ onClick }) => (
-  <button onClick={onClick} style={{ position: "absolute", bottom: "10px", right: "calc(50% - 60px)", backgroundColor: "black", color: "white", border: "none", borderRadius: "50%", width: "40px", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer", zIndex: 1, boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)" }}>
+  <button
+    onClick={onClick}
+    style={{
+      position: "absolute",
+      bottom: "10px",
+      right: "calc(50% - 60px)",
+      backgroundColor: "black",
+      color: "white",
+      border: "none",
+      borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      cursor: "pointer",
+      zIndex: 1,
+      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+    }}
+  >
     <ArrowRight size={20} color="white" />
   </button>
 );
@@ -47,7 +91,7 @@ const CustomRightArrow = ({ onClick }) => (
 export default function PostListPage() {
   const [posts, setPosts] = useState([]);
   const [commentInputs, setCommentInputs] = useState({});
-  const [replyInputs, setReplyInputs] = useState({}); // New state for reply inputs
+  const [replyInputs, setReplyInputs] = useState({}); 
 
   useEffect(() => {
     async function fetchPosts() {
@@ -73,7 +117,9 @@ export default function PostListPage() {
   function toggleComments(postId) {
     setPosts(
       posts.map((post) =>
-        post._id === postId ? { ...post, showComments: !post.showComments } : post
+        post._id === postId
+          ? { ...post, showComments: !post.showComments }
+          : post
       )
     );
   }
@@ -149,7 +195,10 @@ export default function PostListPage() {
           : post
       )
     );
-    setReplyInputs((prev) => ({ ...prev, [`${postId}_${parentCommentId}`]: "" }));
+    setReplyInputs((prev) => ({
+      ...prev,
+      [`${postId}_${parentCommentId}`]: "",
+    }));
   }
 
   const buttonStyle = {
@@ -171,7 +220,7 @@ export default function PostListPage() {
         marginRight: "42px",
         position: "relative",
         paddingBottom: "120px",
-        width: "1012px"
+        width: "1012px",
       }}
     >
       <Link to="/posts">

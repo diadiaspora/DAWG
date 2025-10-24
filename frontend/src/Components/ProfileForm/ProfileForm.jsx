@@ -236,56 +236,8 @@ export default function ProfileForm({ profile, setProfile, user }) {
                           Save
                         </button>
                       </div>
-                      {/* <label
-                        style={{
-                          margin: "0px",
-                          fontSize: "14px",
-                          fontWeight: "600",
-                          marginTop: "12px",
-                        }}
-                      >
-                        Upload Passport
-                      </label>
-                      <input
-                        style={{
-                          borderRadius: "7px",
-                          padding: "10px",
-                          height: "44px",
-                          width: "180px",
-                          backgroundColor: "#F2F4F7",
-                          borderWidth: "1px",
-                          borderColor: "#BCC7D4",
-                        }}
-                        name="passport"
-                        type="file"
-                        accept=".png, .gif, .jpg, .jpeg"
-                        ref={passportImageRef}
-                      /> */}
-                      {/* <label
-                        style={{
-                          margin: "0px",
-                          fontSize: "14px",
-                          fontWeight: "600",
-                          marginTop: "12px",
-                        }}
-                      >
-                        Upload Important Docs
-                      </label> */}
-                      {/* <input
-                        style={{
-                          borderRadius: "7px",
-                          padding: "10px",
-                          height: "44px",
-                          width: "180px",
-                          backgroundColor: "#F2F4F7",
-                          borderWidth: "1px",
-                          borderColor: "#BCC7D4",
-                        }}
-                        name="importantDocs"
-                        type="file"
-                        accept=".png, .gif, .jpg, .jpeg"
-                        ref={importantDocsImageRef}
-                      /> */}
+                 
+            
                     </div>
                     <div
                       style={{

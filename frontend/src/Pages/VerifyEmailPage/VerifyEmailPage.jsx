@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getUser } from "../../services/authService"; // make sure this path is correct
+import { getUser } from "../../services/authService"; 
 
 export default function VerifyEmailPage({ setUser }) {
   const [searchParams] = useSearchParams();
@@ -22,10 +22,10 @@ export default function VerifyEmailPage({ setUser }) {
         if (res.ok) {
           if (data.token) {
             localStorage.setItem("token", data.token);
-            setUser(getUser()); //
+            setUser(getUser()); 
           }
           toast.success("Welcome! You're now logged in.");
-          navigate("/"); // redirect
+          navigate("/"); 
         } else {
           toast.error(data.message || "Verification failed.");
         }

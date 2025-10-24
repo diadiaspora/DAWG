@@ -50,12 +50,8 @@ export default function UserPlans() {
   ];
 
   return (
-    <div className="user-plans" >
-      <div
-        
-        className="blue-plans"
-   
-      >
+    <div className="user-plans">
+      <div className="blue-plans">
         <h1
           style={{
             fontSize: "18px",

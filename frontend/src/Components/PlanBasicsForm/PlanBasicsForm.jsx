@@ -18,7 +18,7 @@ export default function PlanBasicsForm() {
 
   const navigate = useNavigate();
 
-  // Update isMobile state on resize
+  
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);
@@ -32,9 +32,9 @@ export default function PlanBasicsForm() {
     setFormData({ ...formData, [name]: value });
   }
 
-  // Handler for the mobile native date input
+
   function handleDateChange(evt) {
-    const date = evt.target.value; // format: "YYYY-MM-DD"
+    const date = evt.target.value; 
     if (!date) {
       setFormData({
         month: "",
@@ -89,7 +89,7 @@ export default function PlanBasicsForm() {
         >
           <div className="destination" >
             {isMobile ? (
-              // Mobile: show a single date input
+          
               <div
                 style={{
                   display: "flex",
@@ -113,7 +113,7 @@ export default function PlanBasicsForm() {
                 />
               </div>
              ) : (
-              // Desktop: show Month, Day, Year dropdowns
+            
               <>
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <label style={{ marginLeft: "0px", width: "180px" }}>

@@ -65,7 +65,7 @@ export default function NavBar({ user, setUser, profile }) {
         )}
       </nav>
 
-      {/* Mobile Nav */}
+
       <NavBarMobile user={user} setUser={setUser} profile={profile} />
     </>
   );

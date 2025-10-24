@@ -13,7 +13,6 @@ router.use(ensureLoggedIn);
 router.post("/", hootsCtrl.create);
 router.post("/:id/comments", hootsCtrl.comment);
 
-
 router.put("/:id", hootsCtrl.update);
 router.delete("/:id", hootsCtrl.deleteHoot);
 
@@ -30,8 +29,5 @@ router.put(
   ensureLoggedIn,
   hootsCtrl.unlikeComment
 );
-
-
-
 
 module.exports = router;

@@ -15,7 +15,7 @@ export default function Translate() {
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "es,fr,de,it,ja,zh-CN", // <-- list your desired language codes here
+            includedLanguages: "es,fr,de,it,ja,zh-CN", 
             layout:
               window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
@@ -26,7 +26,7 @@ export default function Translate() {
     addScript();
 
     return () => {
-      // Cleanup script and globals if needed
+
       delete window.googleTranslateElementInit;
     };
   }, []);

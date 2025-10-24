@@ -8,39 +8,35 @@ const questions = [
   "How safe did you feel?",
 ];
 
-// Helper to normalize country names (e.g., "Mexico City" -> "MexicoCity")
+
 const normalizeCountryName = (name) => name.replace(/\s+/g, "");
 
-// Function to get initial empty results for a single country
 const getInitialCountryResults = () => questions.map(() => []);
 
 export default function PollComponent({ location }) {
-  // Normalize country prop for matching
+
   const normalizedCountry = location ? normalizeCountryName(location) : "";
 
-  // State to hold all poll results, loaded from localStorage
-  // This state will manage results for ALL countries, keyed by their normalized names.
+
   const [allPollResults, setAllPollResults] = useState(() => {
     try {
       const storedResults = localStorage.getItem("pollResults");
       return storedResults ? JSON.parse(storedResults) : {};
     } catch (error) {
       console.error("Error parsing stored results from localStorage:", error);
-      return {}; // Return empty object on error
+      return {}; 
     }
   });
 
-  // State for the current country's votes (user's input)
   const [currentCountryVotes, setCurrentCountryVotes] = useState(
     Array(questions.length).fill(0)
   );
 
-  // State to track if the user has voted for the *current* country
   const [hasVotedForCountry, setHasVotedForCountry] = useState(false);
 
-  // Effect to manage loading/saving results from/to localStorage
+ 
   useEffect(() => {
-    // Save results to localStorage whenever allPollResults changes
+
     try {
       localStorage.setItem("pollResults", JSON.stringify(allPollResults));
     } catch (error) {
@@ -48,53 +44,50 @@ export default function PollComponent({ location }) {
     }
   }, [allPollResults]);
 
-  // Effect to reset/load state when the 'country' prop changes
+
   useEffect(() => {
-    // Reset votes for the new country
+ 
     setCurrentCountryVotes(Array(questions.length).fill(0));
 
-    // Check if the user has already voted for this specific country
-    // A simple way to track this is to save a flag in localStorage or based on existing results
+  
     const countryData = allPollResults[normalizedCountry];
     if (countryData && countryData.every((qResults) => qResults.length > 0)) {
-      // If results exist for all questions for this country, assume voted
-      // This is a simplistic check; a dedicated 'hasVoted' flag per country in localStorage is better
+
       setHasVotedForCountry(true);
     } else {
       setHasVotedForCountry(false);
     }
-  }, [normalizedCountry, allPollResults]); // Depend on normalizedCountry and allPollResults for re-evaluation
+  }, [normalizedCountry, allPollResults]); 
 
-  // Get results for the currently selected country, or an empty structure if none exist
+
   const currentCountryResults =
     allPollResults[normalizedCountry] || getInitialCountryResults();
 
-  // Determine if there's any poll data for the current country to display results
+
   const hasPollData = currentCountryResults.some((arr) => arr.length > 0);
 
   const handleVote = () => {
-    if (!normalizedCountry) return; // Prevent voting if no country is selected/valid
+    if (!normalizedCountry) return; 
 
     const updatedAllPollResults = { ...allPollResults };
 
-    // Ensure the country exists in the results object, initialize if not
+
     if (!updatedAllPollResults[normalizedCountry]) {
       updatedAllPollResults[normalizedCountry] = getInitialCountryResults();
     }
 
-    // Update the results for the specific questions based on currentCountryVotes
     updatedAllPollResults[normalizedCountry] = updatedAllPollResults[
       normalizedCountry
     ].map((arr, idx) => {
       if (currentCountryVotes[idx] > 0) {
-        // Only add if a valid vote (non-zero)
+      
         return [...arr, currentCountryVotes[idx]];
       }
       return arr;
     });
 
-    setAllPollResults(updatedAllPollResults); // Update the main state
-    setHasVotedForCountry(true); // Mark as voted for the current country
+    setAllPollResults(updatedAllPollResults); 
+    setHasVotedForCountry(true); 
   };
 
   const handleInput = (i, value) => {

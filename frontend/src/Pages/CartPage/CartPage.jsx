@@ -7,7 +7,7 @@ export default function CartPage() {
   return (
     <>
       <Cart />
-      {/* <p> Continue Shopping</p> */}
+
       <MarketplaceWrapper />
       
     </>

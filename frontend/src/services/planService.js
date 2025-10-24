@@ -26,5 +26,5 @@ export async function deletePlan(planId) {
 }
 
 export async function getUserPlans() {
-  return sendRequest(BASE_URL); // already scoped to user by backend
+  return sendRequest(BASE_URL); 
 }

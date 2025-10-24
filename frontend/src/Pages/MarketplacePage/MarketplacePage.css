@@ -4,8 +4,8 @@
   display: flex;
   width: 100%;
   max-width: 1012px;
-  margin: 0 auto; /* remove negative margin */
-  flex-direction: column; /* allow stacking on mobile */
+  margin: 0 auto; 
+  flex-direction: column; 
 }
 
 .mainly-shop {
@@ -27,10 +27,10 @@
   @media screen and (max-width: 480px) {
 
   .home {
-    min-height: 100vh;     /* allow full page height */
+    min-height: 100vh;    
     overflow-x: hidden;
-    overflow-y: auto;      /* body scroll */
-    display: block;        /* avoid flex */
+    overflow-y: auto;   
+    display: block;   
   }
 
   .wide {
@@ -42,7 +42,7 @@
   }
   
  .wide-shop {
-    display: block;        /* stack vertically */
+    display: block;        
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -50,8 +50,8 @@
   }
 
   .mainly-shop {
-    flex: none !important;   /* kill desktop flex */
-    height: auto !important; /* remove fixed heights */
+    flex: none !important;   
+    height: auto !important; 
     min-height: auto !important;
     overflow: visible !important; 
     margin: 0;

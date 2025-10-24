@@ -62,7 +62,7 @@ const hootSchema = new mongoose.Schema(
       ],
     },
     gifUrl: {
-      type: String, // ✅ Add this field to support storing a Giphy link
+      type: String, 
       required: false,
     },
     author: {
@@ -77,10 +77,9 @@ const hootSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// models/hoot.js
 
 const Hoot = mongoose.model("Hoot", hootSchema);
 
-// models/hoot.js
+
 
 module.exports = Hoot;

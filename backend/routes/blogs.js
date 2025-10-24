@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer"); // Import multer
-const upload = multer({ storage: multer.memoryStorage() }); // Configure multer to store files in memory
-const blogsCtrl = require("../controllers/blogs"); // Corrected controller import name
+const multer = require("multer"); 
+const upload = multer({ storage: multer.memoryStorage() });
+const blogsCtrl = require("../controllers/blogs"); 
 const ensureLoggedIn = require("../middleware/ensureLoggedIn");
 
 

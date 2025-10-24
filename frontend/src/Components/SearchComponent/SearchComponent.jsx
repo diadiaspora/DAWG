@@ -57,12 +57,7 @@ const SearchComponent = () => {
           {activeForm === "documents" && <SearchDocuments />}
           {activeForm === "services" && <SearchServices />}
         </div>
-        {/* <div className="box-mobile">
-          {!isMobile && activeForm === "flights" && <SearchFlights />}
-          {activeForm === "airlineInfo" && <SearchAirlines />}
-          {activeForm === "documents" && <SearchDocuments />}
-          {activeForm === "services" && <SearchServices />}
-        </div> */}
+  
       </div>
     </>
   );

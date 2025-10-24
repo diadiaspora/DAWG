@@ -3,25 +3,6 @@ import "./Header.css";
 export default function Header({ user }) {
   return (
     <>
-      {/* <div
-        className="mobile-dog"
-        style={{ width: "380px", marginTop: "32px", marginBottom: "-50px" }}
-       >
-        <div>
-          <img src="/lab.png" className="dog-mobile" alt="labrador" />
-        </div>
-        <div>
-          <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
-        </div>
-        <div>
-          <img
-            src="/terrier.png"
-            className="dog-mobile"
-            alt="terrier"
-            style={{ marginTop: "30.5px" }}
-          />
-        </div>
-      </div> */}
       <div className="header">
         {user ? (
           <div style={{ display: "flex" }}>

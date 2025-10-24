@@ -161,21 +161,7 @@ export default function NavBarMobile({ user, setUser, profile }) {
                 Posts
               </NavLink>
 
-              {/* <NavLink to="/blogs" onClick={() => setMenuOpen(false)}>
-                Blogs
-              </NavLink> */}
 
-              {/* <NavLink to="/login" onClick={() => setMenuOpen(false)}>
-                Log In
-              </NavLink>
-              <NavLink to="/signup" onClick={() => setMenuOpen(false)}>
-                Sign Up
-              </NavLink> */}
-              {/* <img
-                src="https://i.ibb.co/bgQM3cM2/Vector.png"
-                alt="Vector"
-                style={{ marginRight: "42px" }}
-              /> */}
             </>
           )}
         </div>

@@ -33,7 +33,7 @@ export default function HootList(props) {
     randomizeHoots(updatedHoots);
   };
 
-  // Responsive layout helper
+
   const isMobile = window.innerWidth <= 768;
 
   return (

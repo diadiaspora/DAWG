@@ -36,7 +36,6 @@ export default function GiphyPicker({ onSelect }) {
         </button>
       </div>
 
-      {/* Scrollable strip */}
       <div
         style={{
           display: "flex",

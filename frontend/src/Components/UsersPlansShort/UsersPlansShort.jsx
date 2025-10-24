@@ -48,7 +48,7 @@ export default function UserPlans() {
   ];
 
   return (
-    <div style={{ marginLeft: "21px", height: "600px"}}>
+    <div style={{ marginLeft: "21px", height: "600px" }}>
       <div
         style={{
           backgroundColor: "#1E3769",

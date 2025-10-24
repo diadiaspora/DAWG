@@ -36,7 +36,7 @@ export default function BlogCard({ blog }) {
               color: "#1E3769", 
            
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#4AA692")} // hover color
+            onMouseEnter={(e) => (e.target.style.color = "#4AA692")} 
             onMouseLeave={(e) => (e.target.style.color = "#1E3769")}
           >
             Read More

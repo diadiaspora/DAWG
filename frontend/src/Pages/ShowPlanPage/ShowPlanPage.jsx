@@ -10,7 +10,7 @@ import UserCarousel from "../../Components/UserCarousel/UserCarousel.jsx";
 import "./ShowPlanPage.css";
 
 export default function ShowPlanPage({user, profile}) {
-  // const [showForm, setShowForm] = useState(plan ? false : true);
+
   const { id } = useParams();
   
   const [plan, setPlan] = useState(null);

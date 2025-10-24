@@ -29,7 +29,7 @@ export default function AllUsersCarousel() {
     fetchAllImages();
   }, []);
 
-  // Auto-scroll
+
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -38,7 +38,6 @@ export default function AllUsersCarousel() {
     const scrollInterval = 30;
 
     const intervalId = setInterval(() => {
-      // If we've scrolled halfway through (end of original images), reset
       if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
         scrollContainer.scrollLeft = 0;
       } else {
@@ -62,11 +61,11 @@ export default function AllUsersCarousel() {
               flexDirection: "column",
               alignItems: "center",
               width: "200px",
-              minWidth: "200px", // ADD THIS
-              flexShrink: 0, // prevents shrinking smaller than 150px
+              minWidth: "200px", 
+              flexShrink: 0, 
             }}
           >
-            {/* Avatar and Info */}
+       
             <div
               style={{
                 display: "flex",
@@ -113,13 +112,13 @@ export default function AllUsersCarousel() {
               </div>
             </div>
 
-            {/* Image */}
+       
             <img
               src={img.imageUrl}
               alt={`Gallery image ${idx + 1}`}
               style={{
                 height: "200px",
-                width: "100%", // fixed width to fit container
+                width: "100%", 
                 borderRadius: "8px",
                 objectFit: "cover",
                 cursor: "pointer",

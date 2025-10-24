@@ -37,7 +37,7 @@ export default function NewsLetter() {
     setError("");
     setSubmitted(true);
 
-    // Replace this with actual API call
+   
     console.log("Form Submitted:", formData);
   };
 
@@ -109,9 +109,9 @@ export default function NewsLetter() {
               cursor: "pointer",
               fontSize: "16px",
               fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769", // ✅ only once
-              color: hover ? "#347567" : "#1E3769", // ✅ only once
-              borderRadius: "7px", // ✅ once
+              borderColor: hover ? "#4AA692" : "#1E3769", 
+              color: hover ? "#347567" : "#1E3769", 
+              borderRadius: "7px", 
             }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}

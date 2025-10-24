@@ -11,7 +11,7 @@ export default function LogInPage({ setUser }) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // --- Check if user just verified their account ---
+
   useEffect(() => {
     if (searchParams.get("verified") === "true") {
       setSuccessMsg("✅ Your account has been verified! Please log in.");
@@ -66,17 +66,17 @@ export default function LogInPage({ setUser }) {
       >
         <h2>Log In!</h2>
 
-        {/* Success Message */}
+   
         {successMsg && (
           <p style={{ color: "green", marginBottom: "16px" }}>{successMsg}</p>
         )}
 
-        {/* Error Message */}
+    
         {errorMsg && (
           <p style={{ color: "red", marginBottom: "16px" }}>{errorMsg}</p>
         )}
 
-        {/* Login Form */}
+   
         <form
           autoComplete="off"
           onSubmit={handleSubmit}
@@ -118,18 +118,7 @@ export default function LogInPage({ setUser }) {
           <hr style={{ marginTop: "16px" }} />
         </form>
 
-        {/* Social Login Buttons */}
-        {/* <div style={{ display: "flex", flexDirection: "column" }}>
-          <button style={socialButtonStyle}>
-            <FaGoogle /> Log in with Google
-          </button>
-          <button style={socialButtonStyle}>
-            <FaApple /> Log in with Apple
-          </button>
-          <button style={socialButtonStyle}>
-            <FaFacebook /> Log in with Facebook
-          </button>
-        </div> */}
+  
       </div>
     </div>
   );

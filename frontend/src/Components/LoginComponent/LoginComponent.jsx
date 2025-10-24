@@ -26,7 +26,6 @@ console.log("Rendering LoginComponent")
     } catch (err) {
       console.error("Login error:", err);
 
-      // Show specific message if email is not verified
       if (err.message.includes("verify your email")) {
         setErrorMsg(
           "Your account is not verified. Please check your email to verify your account."

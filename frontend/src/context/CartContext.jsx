@@ -8,7 +8,6 @@ export const CartProvider = ({ children }) => {
   const [checkout, setCheckout] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const initializeCheckout = async () => {
       try {
@@ -16,29 +15,25 @@ export const CartProvider = ({ children }) => {
         const storedCheckoutId = localStorage.getItem("shopify_checkout_id");
 
         if (storedCheckoutId) {
-          
           const fetchedCheckout = await client.checkout.fetch(storedCheckoutId);
           if (
             fetchedCheckout.completedAt ||
             new Date(fetchedCheckout.expiresAt) < new Date()
           ) {
-        
             const newCheckout = await client.checkout.create();
             localStorage.setItem("shopify_checkout_id", newCheckout.id);
             setCheckout(newCheckout);
           } else {
-            
             setCheckout(fetchedCheckout);
           }
         } else {
-         
           const newCheckout = await client.checkout.create();
           localStorage.setItem("shopify_checkout_id", newCheckout.id);
           setCheckout(newCheckout);
         }
       } catch (error) {
         console.error("Error initializing checkout:", error);
-     
+
         const newCheckout = await client.checkout.create();
         localStorage.setItem("shopify_checkout_id", newCheckout.id);
         setCheckout(newCheckout);
@@ -49,7 +44,6 @@ export const CartProvider = ({ children }) => {
 
     initializeCheckout();
   }, []);
-
 
   const addVariantToCart = async (variantId, quantity) => {
     if (!checkout) {
@@ -70,13 +64,12 @@ export const CartProvider = ({ children }) => {
         lineItemsToAdd
       );
       setCheckout(newCheckout);
-      return newCheckout; 
+      return newCheckout;
     } catch (error) {
       console.error("Error adding to cart:", error);
-      throw error; 
+      throw error;
     }
   };
-
 
   const updateLineItemQuantity = async (lineItemId, quantity) => {
     if (!checkout) {
@@ -98,7 +91,6 @@ export const CartProvider = ({ children }) => {
       throw error;
     }
   };
-
 
   const removeLineItem = async (lineItemIdsToRemove) => {
     if (!checkout) {
@@ -124,7 +116,6 @@ export const CartProvider = ({ children }) => {
     addVariantToCart,
     updateLineItemQuantity,
     removeLineItem,
-   
   };
 
   return (

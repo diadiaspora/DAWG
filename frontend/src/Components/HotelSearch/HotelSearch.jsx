@@ -10,7 +10,6 @@ export default function HotelSearch() {
     script.async = true;
     script.charset = "utf-8";
 
-    // Clear any previous scripts if the component is re-rendered
     if (containerRef.current) {
       containerRef.current.innerHTML = "";
       containerRef.current.appendChild(script);

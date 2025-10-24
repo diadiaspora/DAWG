@@ -252,7 +252,7 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               </button>
             </div>
             <BlogsComponent />
-            {/* <BlogList user={user} setUser={setUser} /> */}
+        
           </main>
         </div>
       </section>

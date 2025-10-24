@@ -1,6 +1,6 @@
 .gallery-scroll-container {
   display: flex;
-  flex-wrap: nowrap; /* add this */
+  flex-wrap: nowrap; 
   gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;

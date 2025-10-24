@@ -355,7 +355,7 @@ export default function PlanFlightForm({ plan, setPlan }) {
           {errorMsg && <p className="error">{errorMsg}</p>}
         </form>
       ) : (
-        // isSubmitted && (
+
         <div
           className="planFlightCard"
           style={{

@@ -1,15 +1,10 @@
 const mongoose = require("mongoose");
 
-
-
-
-
 const commentSchema = new mongoose.Schema(
   {
-  
     content: {
       type: String,
-      required: true
+      required: true,
     },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
@@ -55,12 +50,10 @@ const postSchema = new mongoose.Schema(
     comments: [commentSchema],
   },
   {
-    timestamps: true, // Automatically adds createdAt and updatedAt
+    timestamps: true,
   }
 );
-
 
 const Post = mongoose.model("Post", postSchema);
 
 module.exports = Post;
-

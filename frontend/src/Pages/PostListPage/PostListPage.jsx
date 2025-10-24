@@ -16,7 +16,7 @@ export default function PostListPage(props) {
     const handleAddHoot = async (newHootData) => {
       const createdHoot = await hootService.create(newHootData);
       console.log("New hoot created:", createdHoot);
-      navigate("/"); // or refresh the list, or update props.hoots
+      navigate("/"); 
     };
   
   return (

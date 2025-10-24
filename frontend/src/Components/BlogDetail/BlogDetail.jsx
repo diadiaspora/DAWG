@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react"; // Import useRef
+import { useState, useEffect, useRef } from "react"; 
 import * as blogService from "../../services/blogService";
-import { useParams, useNavigate } from "react-router-dom"; // Use react-router-dom for consistent imports
-
+import { useParams, useNavigate } from "react-router-dom"; 
 export default function BlogDetail({ user, setUser,}) {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -19,7 +18,7 @@ export default function BlogDetail({ user, setUser,}) {
 
   useEffect(() => {
     async function fetchBlog() {
-      // Changed function name for clarity
+  
       try {
         const fetchedBlog = await blogService.show(id);
         console.log("Fetched Blog Data:", fetchedBlog);
@@ -35,23 +34,23 @@ export default function BlogDetail({ user, setUser,}) {
       } catch (err) {
         console.error("Failed to fetch blog:", err);
   
-        navigate("/error"); // Example: navigate to an error page
+        navigate("/error");
       }
     }
     fetchBlog();
-  }, [id, navigate]); // Added navigate to dependency array
+  }, [id, navigate]); 
 
   const handleDeleteBlog = async (blogId) => {
     try {
-      // Add a confirmation dialog before deleting
+
       if (!window.confirm("Are you sure you want to delete this blog post?")) {
-        return; // Stop if user cancels
+        return; 
       }
       await blogService.deleteBlog(blogId);
-      navigate(`/blogs`); // Navigate to the blogs list or home page after deletion
+      navigate(`/blogs`); 
     } catch (err) {
       console.error("Failed to delete blog:", err);
-      // Display a user-friendly error message
+
       alert("Failed to delete blog. Please try again.");
     }
   };
@@ -64,12 +63,10 @@ export default function BlogDetail({ user, setUser,}) {
     try {
       const updateFormData = new FormData();
 
-      // Append text fields
       for (const key in formData) {
         updateFormData.append(key, formData[key]);
       }
 
-      // Append image files if new ones are selected
       if (contentOneImageRef.current && contentOneImageRef.current.files[0]) {
         updateFormData.append(
           "contentOneImage",
@@ -104,11 +101,11 @@ export default function BlogDetail({ user, setUser,}) {
       setIsEditing(false);
     } catch (err) {
       console.error("Failed to update blog:", err);
-      alert("Failed to update blog. Please try again."); // Using alert for simplicity
+      alert("Failed to update blog. Please try again."); 
     }
   };
 
-  if (!blog) return <main>Loading Blog...</main>; // Indicate loading state
+  if (!blog) return <main>Loading Blog...</main>; 
 
   return (
     <>

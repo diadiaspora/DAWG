@@ -11,11 +11,11 @@
   }
   
   .hoot-link:hover .hoot {
-    background-color: #932e2e; /* ✅ light blue background */
+    background-color: #932e2e; 
   }
   
   .hoot-link:hover {
-    color: #000000; /* ✅ or any color you prefer */
+    color: #000000; 
     text-decoration: none;
     background-color: #F2F4F7; 
   }

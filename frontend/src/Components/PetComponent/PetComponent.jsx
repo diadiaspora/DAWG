@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import * as petService from "../../services/petService"; // Corrected import path
-import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use it
+import * as petService from "../../services/petService"; 
+import { useNavigate } from "react-router-dom"; 
 
 export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
@@ -32,7 +32,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   useEffect(() => {
     if (mode === "create") {
       setLoading(false);
-      setShowForm(true); // show the form right away for creation
+      setShowForm(true); 
       return;
     }
 
@@ -65,14 +65,14 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
     }
 
     getPet();
-  }, [mode]); // Empty dependency array means this runs once on mount
+  }, [mode]); 
 
   useEffect(() => {
     if (petData?.petPhoto) {
       setPreviewPetPhoto(petData.petPhoto);
     }
   }, [petData?.petPhoto]);
-  // Handles changes to text input fields
+ 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -80,7 +80,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrorMsg(""); // Clear previous errors
+    setErrorMsg(""); 
 
     try {
       const newPetData = new FormData();
@@ -115,15 +115,15 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
         updatedPet = await petService.create(newPetData);
       }
 
-      setPetData(updatedPet); // Update the petData state with the new/updated pet
-      setShowForm(false); // Hide the form and show the card
+      setPetData(updatedPet); 
+      setShowForm(false); 
     } catch (err) {
       console.error("Error submitting pet form:", err);
       setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
     }
 
     if (onSuccess) {
-      onSuccess(); // Triggers redirect or re-fetch logic
+      onSuccess(); 
     }
   }
 
@@ -131,18 +131,18 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
     if (window.confirm("Are you sure you want to delete this pet profile?")) {
       try {
         await petService.deletePet(petData._id);
-        setPetData(null); // Clear pet data
+        setPetData(null); 
         setFormData({
-          // Reset form data
+   
           petName: "",
           bio: "",
           breed: "",
           age: "",
           weight: "",
         });
-        setShowForm(true); // Show the form for creating a new pet
+        setShowForm(true); 
         setErrorMsg("");
-        navigate("/my-pets"); // Example: Navigate to a pets list page
+        navigate("/my-pets"); 
       } catch (err) {
         console.error("Error deleting pet:", err);
         setErrorMsg("Failed to delete pet profile.");
@@ -173,26 +173,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
           >
             <h2 style={{ marginTop: "24px" }}>Add Pet</h2>
             <div style={{ display: "flex" }}>
-              {/* <div style={{ display: "flex", flexDirection: "column" }}> */}
-              {/* <label htmlFor="petPhoto" style={{ marginLeft: "0px" }}>
-                  Upload Pet Photo
-                </label>
-                <input
-                  id="petPhoto"
-                  name="petPhoto"
-                  type="file"
-                  style={{ width: "100px" }}
-                  accept=".png, .gif, .jpg, .jpeg"
-                  ref={petPhotoImageRef}
-                  onChange={(e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                      setPreviewPetPhoto(URL.createObjectURL(file));
-                    }
-                  }}
-                  className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                /> */}
-              {/* </div> */}
+  
 
               <div
                 style={{
@@ -206,7 +187,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 </label>
                 <input
                   type="text"
-                  name="petName" // Corrected name to 'petName'
+                  name="petName" 
                   id="petName"
                   style={{ width: "200px" }}
                   value={formData.petName}
@@ -215,19 +196,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 />
               </div>
             </div>
-            {/* <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="bio" style={{ marginLeft: "0px" }}>
-                Bio
-              </label>
-              <textarea
-                type="text"
-                name="bio"
-                id="bio"
-                style={{ width: "300px" }}
-                value={formData.bio}
-                onChange={handleChange}
-              />
-            </div> */}
+           
             <div style={{ display: "flex" }}>
               <div>
                 <div
@@ -237,157 +206,15 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     marginRight: "12px",
                   }}
                 >
-                  {/* <div>
-                    <label htmlFor="breed" style={{ marginLeft: "0px" }}>
-                      Breed
-                    </label>
-                  </div> */}
-                  {/* <input
-                    type="text"
-                    name="breed"
-                    id="breed"
-                    value={formData.breed}
-                    onChange={handleChange}
-                    style={{ width: "100px" }}
-                  /> */}
+        
                 </div>
               </div>
               <div>
-                {/* <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginRight: "12px",
-                  }}
-                >
-                  <div> */}
-                    {/* <label htmlFor="age" style={{ marginLeft: "0px" }}>
-                      Age
-                    </label> */}
+   
                   </div>
-                  {/* <input
-                    type="number"
-                    name="age"
-                    id="age"
-                    value={formData.age}
-                    onChange={handleChange}
-                    style={{ width: "100px" }}
-                  /> */}
-                {/* </div>
-              </div>
-              <div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginRight: "12px",
-                  }}
-                >
-                  <div> */}
-                    {/* <label htmlFor="weight" style={{ marginLeft: "0px" }}>
-                      Weight
-                    </label> */}
+        
                   </div>
-                  {/* <input
-                    type="text"
-                    name="weight"
-                    id="weight"
-                    value={formData.weight}
-                    onChange={handleChange}
-                    style={{ width: "100px" }}
-                  /> */}
-                {/* </div>
-              </div>
-            </div>
-
-            <div>
-              <div style={{ display: "flex" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginRight: "12px",
-                  }}
-                ></div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginRight: "12px",
-                  }}
-                >
-                  <div>
-                    <label htmlFor="microchip" style={{ marginLeft: "0px" }}>
-                      Upload Microchip
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      style={{ width: "140px" }}
-                      id="microchip"
-                      name="microchip"
-                      type="file"
-                      accept=".png, .gif, .jpg, .jpeg, .pdf"
-                      ref={microchipImageRef}
-                      className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                    />
-                    {petData?.microchip &&
-                      petData.microchip !==
-                        "https://i.imgur.com/KTEjbsw.png" && (
-                        <a
-                          href={petData.microchip}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:underline text-sm mt-2 block"
-                        >
-                          View Current Microchip Info
-                        </a>
-                      )}
-                  </div>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginRight: "12px",
-                  }}
-                >
-                  <div>
-                    <label
-                      htmlFor="healthCertificate"
-                      style={{ marginLeft: "0px" }}
-                    >
-                      Upload
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      style={{ width: "100px" }}
-                      id="healthCertificate"
-                      name="healthCertificate"
-                      type="file"
-                      accept=".png, .gif, .jpg, .jpeg, .pdf"
-                      ref={healthCertificateImageRef}
-                      className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                    />
-                    {petData?.healthCertificate &&
-                      petData.healthCertificate !==
-                        "https://i.imgur.com/KTEjbsw.png" && (
-                        <a
-                          href={petData.healthCertificate}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:underline text-sm mt-2 block"
-                        >
-                          View Current Health Certificate
-                        </a>
-                      )}
-                  </div>
-                </div>
-              </div>
-            </div> */}
+              
 
             <div>
               <button type="submit">Add Pet</button>

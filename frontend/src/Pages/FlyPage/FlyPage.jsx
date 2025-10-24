@@ -26,12 +26,12 @@ export default function FlyPage({ user, setUser }) {
 
   return (
     <section className="home">
-      {/* Consistent header + search */}
+
       <div className="page-container" style={{marginBottom: "-46px"}}>
         <div className="header-wrapper">
           <Header user={user} setUser={setUser} />
         </div>
-        {/* <SearchComponent /> */}
+
       </div>
 
      

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Calendar.css";
 
 export default function Calendar() {
-  const startDate = new Date(2025, 6, 1); // July = month 6 (0-based index)
+  const startDate = new Date(2025, 6, 1);
   const [currentDate, setCurrentDate] = useState(startDate);
 
   const getMonthYearOptions = () => {
@@ -29,11 +29,11 @@ export default function Calendar() {
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
-    const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
+    const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     const days = [];
-    let blankDays = (firstDay + 6) % 7; // Shift so Monday is first
+    let blankDays = (firstDay + 6) % 7;
     for (let i = 0; i < blankDays; i++) days.push(null);
     for (let d = 1; d <= daysInMonth; d++) days.push(d);
     return days;
@@ -51,7 +51,6 @@ export default function Calendar() {
         marginTop: "-36px",
       }}
     >
-    
       <div
         className="calendar-desktop-only"
         style={{
@@ -88,7 +87,6 @@ export default function Calendar() {
         })}
       </div>
 
-  
       <div
         style={{
           display: "flex",
@@ -126,13 +124,7 @@ export default function Calendar() {
           </div>
         ))}
       </div>
-      <button
-    
-        className="calendar-btn"
-      >
-      
-        Start Planning
-      </button>
+      <button className="calendar-btn">Start Planning</button>
     </div>
   );
 }

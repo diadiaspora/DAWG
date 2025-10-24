@@ -13,7 +13,6 @@ module.exports = {
   getAllGalleryImages,
 };
 
-// 📤 Upload a new image to gallery (limit 100)
 async function uploadGalleryImage(req, res) {
   try {
     const profileId = req.params.profileId;
@@ -23,7 +22,6 @@ async function uploadGalleryImage(req, res) {
       return res.status(404).json({ message: "Profile not found." });
     }
 
-    // Create new gallery if none exists
     let gallery = profile.gallery;
     if (!gallery) {
       gallery = await Gallery.create({ profile: profile._id });
@@ -31,25 +29,20 @@ async function uploadGalleryImage(req, res) {
       await profile.save();
     }
 
-    // Check image count
     if (gallery.photoGallery.length >= 100) {
       return res
         .status(400)
         .json({ message: "Gallery photo limit reached (100)." });
     }
 
-    // Check file
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded." });
     }
 
-    // Upload to S3
     const imageUrl = await uploadFileToS3(req.file, "user-gallery");
 
-    // Add image to gallery
     gallery.photoGallery.push(imageUrl);
     await gallery.save();
-
     res.status(201).json({ message: "Image added to gallery.", gallery });
   } catch (err) {
     console.error("Failed to upload gallery image:", err);
@@ -59,7 +52,6 @@ async function uploadGalleryImage(req, res) {
   }
 }
 
-// 🗑️ Delete image by index or URL
 async function deleteGalleryImage(req, res) {
   try {
     const { profileId } = req.params;
@@ -88,7 +80,6 @@ async function deleteGalleryImage(req, res) {
   }
 }
 
-// 📂 Get gallery by profile ID
 async function getGalleryByProfile(req, res) {
   try {
     const profile = await Profile.findById(req.params.profileId).populate(
@@ -98,7 +89,6 @@ async function getGalleryByProfile(req, res) {
       return res.status(404).json({ message: "Profile not found." });
     }
 
-    // If profile has no gallery, create an empty one
     if (!profile.gallery) {
       const gallery = await Gallery.create({
         profile: profile._id,
@@ -106,7 +96,7 @@ async function getGalleryByProfile(req, res) {
       });
       profile.gallery = gallery._id;
       await profile.save();
-      return res.json(gallery); // return the new gallery
+      return res.json(gallery);
     }
 
     res.json(profile.gallery);
@@ -120,7 +110,6 @@ async function getGalleryByProfile(req, res) {
 
 async function getAllGalleryImages(req, res) {
   try {
-    // Populate profile and profile.pets fields
     const galleries = await Gallery.find({}).populate({
       path: "profile",
       select: "avatar username pets",
@@ -129,9 +118,7 @@ async function getAllGalleryImages(req, res) {
         select: "petName",
       },
     });
-   
 
-    // Map each gallery's photoGallery images along with profile info and pet names
     const allImages = [];
 
     galleries.forEach((gallery) => {
@@ -139,12 +126,10 @@ async function getAllGalleryImages(req, res) {
       if (!profile) return;
 
       console.log({ profile });
-      // Get first petName if exists (or empty string)
+
       const petName =
         profile.pets && profile.pets.length > 0 ? profile.pets[0].petName : "";
-      
-        // console.log({ galleriesProfile: galleries.profile });
-      // Push all photos with user info
+
       gallery.photoGallery.forEach((imageUrl) => {
         allImages.push({
           imageUrl,
@@ -162,8 +147,6 @@ async function getAllGalleryImages(req, res) {
   }
 }
 
-
-// 📤 Reusable S3 uploader
 async function uploadFileToS3(file, folderName) {
   const s3Params = {
     Bucket: S3_BUCKET,

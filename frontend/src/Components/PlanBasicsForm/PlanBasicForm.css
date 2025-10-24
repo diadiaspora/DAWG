@@ -6,9 +6,9 @@
  
     
   display: grid;
-  /* Add the following */
-  grid-template-rows: auto 1fr auto; /* three rows defined here */
-  grid-template-columns: 2fr 1fr; /* two columns defined here */
+
+  grid-template-rows: auto 1fr auto; 
+  grid-template-columns: 2fr 1fr; 
   font-family: sans-serif;
   font-size: 24px;
   min-height: 100vh;
@@ -79,12 +79,12 @@ textarea {
 
 select {
   appearance: none;
-  -webkit-appearance: none; /* Safari */
-  -moz-appearance: none;    /* Firefox */
+  -webkit-appearance: none;
+  -moz-appearance: none;   
   background-color: #F2F4F7;
   border: 1px solid #BCC7D4;
   border-radius: 7px;
-  padding-right: 30px; /* space for custom arrow */
+  padding-right: 30px; 
   background-image: url("data:image/svg+xml,%3Csvg width='8' height='4' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234AA692' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;

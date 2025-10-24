@@ -5,7 +5,7 @@
     background-color: white;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     appearance: none;
-    -webkit-appearance: none; /* Fix Safari/Chrome blue border */
+    -webkit-appearance: none; 
     outline: none;
     box-shadow: none;
   }

@@ -4,7 +4,7 @@
     color: #333;
   }
   
-  /* The dropdown */
+ 
   #google_translate_element select {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -14,16 +14,16 @@
     color: #333;
   }
   
-  /* Remove default Google Translate branding */
+
   .goog-logo-link {
     display: none !important;
   }
   
   .goog-te-gadget {
-    color: transparent !important; /* hides the default text */
+    color: transparent !important;
   }
   
-  /* Optional: customize hover/focus states */
+
   #google_translate_element select:hover,
   #google_translate_element select:focus {
     border-color: #1e3769;
@@ -35,7 +35,7 @@
   display: none !important;
 }
 
-/* Sometimes the widget adds an iframe for branding */
+
 iframe.goog-te-banner-frame {
   display: none !important;
 }

@@ -1,20 +1,15 @@
-/* Only show on mobile */
 @media (min-width: 481px) {
     .mobile-gallery-container {
       display: none;
     }
-
-
   }
   
-
-
   .mobile-gallery-container {
     max-width: 94vw;
     width: 100%;
    
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr); 
     grid-template-rows: repeat(4, auto);
     gap: 8px;
     padding: 8px;

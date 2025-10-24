@@ -1,4 +1,3 @@
-// shopifyClient.js
 import Client from "shopify-buy";
 
 const shopifyDomain = import.meta.env.VITE_SHOPIFY_DOMAIN;

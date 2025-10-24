@@ -175,11 +175,7 @@ export default function ProductMobile() {
           </div>
         </div>
 
-        {/* <div className="rights" style={{ width: "310px", marginLeft: "42px" }}>
-          <div className="your-cart">
-            <Cart />
-          </div>
-        </div> */}
+    
       </div>
     </>
   );

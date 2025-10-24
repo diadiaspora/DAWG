@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function Advertisement() {
   useEffect(() => {
-    // Load the script only once
+
     if (
       !document.querySelector(
         'script[src="https://affiliate.klook.com/widget/fetch-iframe-init.js"]'
@@ -12,18 +12,18 @@ export default function Advertisement() {
       script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
       script.async = true;
       script.onload = () => {
-        // Try calling their init function if exists
+    
         if (window.klookWidgetInit) {
           window.klookWidgetInit();
         }
       };
       document.body.appendChild(script);
     } else {
-      // If script already loaded, try to re-init widgets
+
       if (window.klookWidgetInit) {
         window.klookWidgetInit();
       } else {
-        // If no init function, forcibly reload script to re-init widgets
+     
         const oldScript = document.querySelector(
           'script[src="https://affiliate.klook.com/widget/fetch-iframe-init.js"]'
         );

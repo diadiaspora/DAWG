@@ -16,7 +16,7 @@ export default function HootFeatureForm(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch one random hoot and load full detail (comments, likes, etc.)
+ 
   useEffect(() => {
     async function fetchFeatured() {
       if (props.hoots && props.hoots.length > 0) {
@@ -121,7 +121,6 @@ export default function HootFeatureForm(props) {
               </div>
             </header>
 
-            {/* Title & Text */}
             <Link
               to={`/hoots/${featuredHoot._id}`}
               style={{ textDecoration: "none", color: "inherit" }}
@@ -155,7 +154,7 @@ export default function HootFeatureForm(props) {
               </div>
             </Link>
 
-            {/* GIF */}
+           
             {featuredHoot.gifUrl && (
               <img
                 src={featuredHoot.gifUrl}
@@ -170,7 +169,7 @@ export default function HootFeatureForm(props) {
               />
             )}
 
-            {/* Likes and Comments Row */}
+  
             <div
               style={{
                 display: "flex",
@@ -236,7 +235,7 @@ export default function HootFeatureForm(props) {
               }}
             />
 
-            {/* Comments Preview */}
+           
             <div style={{ marginTop: "16px" }}>
               {featuredHoot.comments.length > 0 ? (
                 featuredHoot.comments.slice(0, 2).map((comment) => (

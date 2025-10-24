@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import * as planService from "../../services/planService";
-import { useNavigate } from "react-router-dom"; // Keep useNavigate if you use it
+import { useNavigate } from "react-router-dom"; 
 
 export default function TripComponent({ plan, setPlan }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate(); 
 
   const [petData, setPetData] = useState(null);
 
@@ -50,29 +50,28 @@ export default function TripComponent({ plan, setPlan }) {
       } catch (err) {
         console.error("Error fetching pet data:", err);
         setErrorMsg("Failed to load pet data.");
-        setShowForm(true); // Default to showing the form if fetching fails
+        setShowForm(true); 
       } finally {
         setLoading(false);
       }
     }
     getPet();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []); 
 
   useEffect(() => {
     if (petData?.petPhoto) {
       setPreviewPetPhoto(petData.petPhoto);
     }
   }, [petData?.petPhoto]);
-  // Handles changes to text input fields
+
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  // Handles form submission (create or update)
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrorMsg(""); // Clear previous errors
+    setErrorMsg(""); 
 
     try {
       const newPetData = new FormData();
@@ -102,38 +101,37 @@ export default function TripComponent({ plan, setPlan }) {
 
       let updatedPet;
       if (newPetData) {
-        // If newPetData exists, it's an update operation
+      
         updatedPet = await petService.update(petData._id, newPetData);
       } else {
-        // Otherwise, it's a create operation
+      
         updatedPet = await petService.create(newPetData);
       }
 
-      setPetData(updatedPet); // Update the petData state with the new/updated pet
-      setShowForm(false); // Hide the form and show the card
+      setPetData(updatedPet); 
+      setShowForm(false); 
     } catch (err) {
       console.error("Error submitting pet form:", err);
       setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
     }
   }
 
-  // Function to handle deleting the pet
   async function handleDelete() {
     if (window.confirm("Are you sure you want to delete this pet profile?")) {
       try {
         await petService.deletePet(petData._id);
-        setPetData(null); // Clear pet data
+        setPetData(null); 
         setFormData({
-          // Reset form data
+       
           petName: "",
           bio: "",
           breed: "",
           age: "",
           weight: "",
         });
-        setShowForm(true); // Show the form for creating a new pet
+        setShowForm(true); 
         setErrorMsg("");
-        navigate("/my-pets"); // Example: Navigate to a pets list page
+        navigate("/my-pets"); 
       } catch (err) {
         console.error("Error deleting pet:", err);
         setErrorMsg("Failed to delete pet profile.");

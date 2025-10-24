@@ -131,7 +131,7 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     border: "1px solid #BCC7D4",
                   }}
                 />
-                {/* <IoMdCalendar color="#4AA692" className="calendar-icon" /> */}
+        
               </div>
               <div
                 style={{
@@ -319,11 +319,11 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 </div>
               </div>
               <div>
-                {/* Conditionally render View Receipt or "No Receipt" text */}
+              
                 {plan.receipt &&
                 plan.receipt !== "https://i.imgur.com/KTEjbsw.png" ? (
                   <Link
-                    to={`/plans/${plan._id}/receipt`} // Assuming plan._id is the ID you need for the route
+                    to={`/plans/${plan._id}/receipt`} 
                     style={{
                       backgroundColor: "#d9d9d9",
                       width: "190px",
@@ -333,10 +333,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
                       borderRadius: "7px",
                       borderWidth: "2px",
                       borderColor: "#d9d9d9",
-                      display: "flex", // To apply button styles to the Link
-                      justifyContent: "center", // Center text if needed
-                      alignItems: "center", // Center text if needed
-                      textDecoration: "none", // Remove underline from Link
+                      display: "flex", 
+                      justifyContent: "center", 
+                      alignItems: "center", 
+                      textDecoration: "none", 
                     }}
                   >
                     View Receipt

@@ -38,7 +38,7 @@ export default function CartPage() {
 
   const handleProceedToCheckout = () => {
     if (checkout && checkout.webUrl) {
-      window.location.href = checkout.webUrl; // Redirect to Shopify checkout URL
+      window.location.href = checkout.webUrl; 
     } else {
       alert("Checkout URL not available. Please try again.");
     }
@@ -100,18 +100,7 @@ export default function CartPage() {
                   >
                     <FaCirclePlus />
                   </button>
-                  {/* <button
-                    onClick={() => handleRemoveItem(item.id)}
-                    style={{
-                      backgroundColor: "transparent",
-                      border: "none",
-                      cursor: "pointer",
-                      color: "#1E3769",
-                      marginLeft: "0px"
-                    }}
-                  >
-                    <FaRegTrashCan />
-                  </button> */}
+              
                 </div>
               </div>
             </div>
@@ -129,9 +118,7 @@ export default function CartPage() {
       <button onClick={() => navigate("/")} >
         Continue Shoppping
       </button>
-      {/* <div>
-        <p>Continue Shopping</p> <MarketplaceWrapper />
-      </div> */}
+ 
     </div>
   );
 }

@@ -47,7 +47,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-    navigate("/"); // or refresh the list, or update props.hoots
+    navigate("/");
   };
 
   async function handleSubmit(evt) {
@@ -55,20 +55,18 @@ export default function NewBlogPage({ user, setUser, hoots }) {
     try {
       const formData = new FormData();
 
-      // Append all text fields from blogData state
       for (const key in blogData) {
         formData.append(key, blogData[key]);
       }
 
-      // Append contentOneImage (required)
+
       if (contentOneImageRef.current && contentOneImageRef.current.files[0]) {
         formData.append("contentOneImage", contentOneImageRef.current.files[0]);
       } else {
-        // This case should ideally be caught by browser's HTML5 validation
+  
         console.warn("Content One Image is required but not provided.");
       }
 
-      // Append other optional image files if they are selected
       if (
         contentTwoImageRef.current &&
         contentTwoImageRef.current.files.length > 0
@@ -94,7 +92,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
         );
       }
 
-      // Log FormData contents for debugging
+
       for (const pair of formData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
@@ -110,7 +108,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
 
   useEffect(() => {
     if (klookWidgetRef.current) {
-      // Prevent duplicate script injection
+
       if (
         !document.querySelector(
           'script[src="https://affiliate.klook.com/widget/fetch-iframe-init.js"]'
@@ -142,8 +140,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
   return (
     <>
       <section>
-        {/* <Header />
-        <SearchComponent /> */}
+        
         <div>
           <div
             style={{
@@ -183,7 +180,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         title: evt.target.value,
                       }))
                     }
-                    required // Title is required
+                    required 
                     style={{
                       padding: "8px",
                       borderRadius: "7px",
@@ -227,7 +224,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         contentOne: evt.target.value,
                       }))
                     }
-                    required // Content One is required
+                    required 
                     rows="8"
                     style={{
                       padding: "8px",
@@ -251,7 +248,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         type="file"
                         accept=".png, .gif, .jpg, .jpeg"
                         ref={contentTwoImageRef}
-                        // Removed 'required' attribute
+
                         style={{ marginBottom: "20px", display: "none" }}
                       />
 
@@ -272,7 +269,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         contentTwo: evt.target.value,
                       }))
                     }
-                    // Removed 'required' attribute
+
                     rows="8"
                     style={{
                       padding: "8px",
@@ -359,7 +356,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         contentFour: evt.target.value,
                       }))
                     }
-                    // Removed 'required' attribute
+                 
                     rows="8"
                     style={{
                       padding: "8px",
@@ -424,7 +421,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                   marginTop: "22px",
                 }}
               >
-                {/* <div ref={klookWidgetRef} style={{ padding: "6px" }}></div> */}
+              
               </div>
             </div>
           </div>

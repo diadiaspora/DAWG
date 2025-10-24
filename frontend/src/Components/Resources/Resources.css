@@ -1,86 +1,68 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .divbd {
- 
-    
   display: grid;
-  /* Add the following */
-  grid-template-rows: auto 1fr auto; /* three rows defined here */
-  grid-template-columns: 2fr 1fr; /* two columns defined here */
+
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 2fr 1fr;
   font-family: sans-serif;
   font-size: 24px;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-style: Roboto, sans-serif;
-  
-  }
+}
 
-  aside {
-    
-    
+aside {
+  margin-left: 42px;
+  text-align: left;
+}
 
-    margin-left: 42px;
-    text-align: left;
- 
-    
-  }
-  
-  main {
-   
-    margin-right: 42px;
-   
-  }
-  
-  footer {
+main {
+  margin-right: 42px;
+}
 
+footer {
   grid-column: span 2;
+}
 
-  }
+.nav-links {
+  display: flex;
+  grid-column: span 2;
+}
 
-  .nav-links {
-    display:flex;
-    grid-column: span 2;
-  }
-  
-  .main {
-  
-    
-  }
+.main {
+}
 
-  .aside {
-    
-    margin-left: 42px;
-    height: 325px;
+.aside {
+  margin-left: 42px;
+  height: 325px;
+}
 
-  }
+.gallery {
+  width: 662px;
+}
 
-  .gallery {
-    
-    width: 662px;
-  }
+.calander {
+  width: 310px;
+}
 
-  .calander {
-    width: 310px;
-  }
+.plan {
+  background-color: grey;
+}
 
-  .plan {
-    background-color: grey;
-  }
+.custom-link {
+  color: #000000;
+  text-decoration: none;
+}
+.custom-link:hover {
+  color: #000000;
+}
 
-  .custom-link {
-    color: #000000;
-    text-decoration: none;
-  }
-  .custom-link:hover {
-    color: #000000;
-  }
-
-  .buttonRes {
-    background-color: #1E3769;
-    border-radius: 50px;
-    border-color: #1E3769;
-    width: 200px;
-    height: "44px";
+.buttonRes {
+  background-color: #1e3769;
+  border-radius: 50px;
+  border-color: #1e3769;
+  width: 200px;
+  height: "44px";
 }

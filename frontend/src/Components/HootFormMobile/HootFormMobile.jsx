@@ -119,19 +119,7 @@ const HootFormMobile = (props) => {
             onSelect={(url) => setFormData({ ...formData, gifUrl: url })}
           />
 
-          {/* {formData.gifUrl && (
-          <div style={{ marginTop: "12px" }}>
-            <img
-              src={formData.gifUrl}
-              alt="Selected GIF"
-              style={{
-                maxWidth: "100%",
-                borderRadius: "6px",
-                boxShadow: "0 0 6px rgba(0,0,0,0.15)",
-              }}
-            />
-          </div>
-        )} */}
+ 
 
           <button
             type="submit"

@@ -28,7 +28,7 @@ export default function HootCard({ hoot, user, setUser }) {
   };
 
   const handleLikeClick = async (e) => {
-    e.stopPropagation(); // prevent navigation
+    e.stopPropagation();
     try {
       if (!user) {
         navigate("/login");
@@ -48,7 +48,7 @@ export default function HootCard({ hoot, user, setUser }) {
   };
 
   const handleCommentClick = (e) => {
-    e.stopPropagation(); // prevent card navigation
+    e.stopPropagation(); 
     navigate(`/hoots/${localHoot._id}`);
   };
 
@@ -76,7 +76,7 @@ export default function HootCard({ hoot, user, setUser }) {
         flexDirection: "column",
       }}
     >
-      {/* Author + Date */}
+    
       <div
         style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}
       >
@@ -101,7 +101,7 @@ export default function HootCard({ hoot, user, setUser }) {
         </div>
       </div>
 
-      {/* Title + Text + GIF */}
+ 
       <h3 style={{ margin: "0 0 8px 0" }}>{localHoot.title}</h3>
       {localHoot.gifUrl && (
         <img
@@ -118,7 +118,6 @@ export default function HootCard({ hoot, user, setUser }) {
       )}
       <p style={{ margin: 0, color: "#555" }}>{previewText}</p>
 
-      {/* Likes + Comments */}
       <div
         style={{
           display: "flex",
@@ -153,10 +152,8 @@ export default function HootCard({ hoot, user, setUser }) {
         </div>
       </div>
 
-      {/* Comment Form */}
       <CommentForm handleAddComment={handleAddComment} parentId={null} />
 
-      {/* Comments */}
       <div>
         {!localHoot.comments?.length && (
           <p

@@ -8,7 +8,7 @@ import "./MarketplacePage.css";
 export default function MarketplacePage({ user, setUser }) {
   return (
     <section className="home">
-      {/* Consistent header + search wrapper */}
+      
       <div className="page-container-shop">
         <div className="header-wrapper">
           <Header user={user} setUser={setUser} />
@@ -17,9 +17,7 @@ export default function MarketplacePage({ user, setUser }) {
       </div>
 
       <div className="wide-shop">
-        {/* <div className="mobile-h">
-          <MobileCarousel />
-        </div> */}
+      
         <main className="mainly-shop">
           <div
             className="mobile-dog"
@@ -73,22 +71,7 @@ export default function MarketplacePage({ user, setUser }) {
           </div>
           <div className="mobile-text-tea">
             <h2>Original Designs</h2>
-            {/* <button
-              style={{
-                backgroundColor: "#4AA692",
-                borderWidth: "0px",
-                borderRadius: "7px",
-                color: "#000000",
-                fontSize: "14px",
-                height: "34px",
-                width: "80px",
-                padding: "5px",
-                marginTop: "0px",
-                marginBottom: "0px",
-              }}
-            >
-              View All
-            </button> */}
+      
           </div>
           <MarketplaceDesigns />
         </main>

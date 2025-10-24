@@ -26,10 +26,10 @@ export default function BlogListAd({ user }) {
   };
 
   useEffect(() => {
-    // Append the widget script inside the div with id 'tpwidget-container'
+
     const container = document.getElementById("tpwidget-container");
     if (container) {
-      container.innerHTML = ""; // Clear previous content if any
+      container.innerHTML = ""; 
 
       const script = document.createElement("script");
       script.src =

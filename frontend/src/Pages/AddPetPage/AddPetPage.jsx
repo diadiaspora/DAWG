@@ -5,7 +5,6 @@ export default function AddPetPage({ user }) {
   const navigate = useNavigate();
 
   const handleSuccess = () => {
-    // Redirect back to profile page (or /my-pets)
     navigate("/profile");
   };
 

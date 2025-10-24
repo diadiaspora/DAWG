@@ -47,7 +47,7 @@
 }
 
 
-@media (min-width: 120px) and (max-width: 480px) { /* ✅ FIXED SPACING */
+@media (min-width: 120px) and (max-width: 480px) { 
   .NavBar {
     display: none !important;
   }
@@ -65,9 +65,5 @@
 }
 }
 
-/* .NavBarMobile {
-  display: flex;
- 
-} */
 
 

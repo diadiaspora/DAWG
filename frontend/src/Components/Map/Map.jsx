@@ -4,7 +4,7 @@ export default function Map() {
   const widgetRef = useRef(null);
 
   useEffect(() => {
-    // Clear any previous script
+
     if (widgetRef.current) {
       widgetRef.current.innerHTML = "";
     }

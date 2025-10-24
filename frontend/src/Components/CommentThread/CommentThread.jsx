@@ -18,7 +18,7 @@ export default function CommentThread({
         borderRadius: "7px",
         padding: "12px",
         backgroundColor: "#fff",
-        marginLeft: "42px", // Fixed left margin for all top-level comment cards
+        marginLeft: "42px", 
         marginTop: "12px",
       }}
     >
@@ -62,7 +62,7 @@ export default function CommentThread({
             key={reply._id}
             comment={reply}
             handleAddComment={handleAddComment}
-            depth={1} // The first level of replies starts at depth 1
+            depth={1} 
           />
         ))}
       </div>

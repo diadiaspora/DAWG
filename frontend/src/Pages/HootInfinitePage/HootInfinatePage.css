@@ -71,7 +71,7 @@
     min-height: 100vh;     
     overflow-x: hidden;
     overflow-y: auto;
-    display: block;        /* stop flex from trapping scroll */
+    display: block;        
   }
 
 

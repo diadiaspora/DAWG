@@ -35,7 +35,7 @@ const Gallery = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
     };
-    handleResize(); // initial check
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

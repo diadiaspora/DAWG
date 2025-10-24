@@ -7,7 +7,7 @@ async function uploadFileToS3(file, folderName) {
 
   const s3Params = {
     Bucket: S3_BUCKET,
-    Key: `${folderName}/${Date.now()}-${file.originalname}`, // Use folderName for organization
+    Key: `${folderName}/${Date.now()}-${file.originalname}`,
     Body: file.buffer,
     ContentType: file.mimetype,
   };
@@ -20,15 +20,12 @@ async function uploadFileToS3(file, folderName) {
       `Error uploading file to S3 in folder ${folderName}:`,
       uploadErr
     );
-    // Rethrow a more specific error to be caught by the calling function
+
     throw new Error(
       `S3 Upload Failed for ${file.originalname}: ${uploadErr.message}`
     );
   }
 }
-
-
-
 
 module.exports = {
   index,
@@ -41,7 +38,7 @@ module.exports = {
 async function index(req, res) {
   try {
     const profiles = await Profile.find({});
- 
+
     res.json(profiles);
   } catch (err) {
     console.log(err);
@@ -50,32 +47,25 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-
-    try {
-      
-      req.body.author = req.user._id;
-  
-      // Handle file uploads if they exist in req.files
-      if (req.files) {
-        if (req.files.avatar && req.files.avatar.length > 0) {
-          req.body.avatar = await uploadFileToS3(
-            req.files.avatar[0],
-            "avatar" // Folder for pet photos
-          );
-        }
-        if (req.files.importantDocs && req.files.importantDocs.length > 0) {
-          req.body.importantDocs = await uploadFileToS3(
-            req.files.importantDocs[0],
-            "importantDocs" 
-          );
-        }
-        if (req.files.passport && req.files.passport.length > 0) {
-          req.body.passport = await uploadFileToS3(
-            req.files.passport[0],
-            "passport" // Folder for microchip info
-          );
-        }
+  try {
+    req.body.author = req.user._id;
+    if (req.files) {
+      if (req.files.avatar && req.files.avatar.length > 0) {
+        req.body.avatar = await uploadFileToS3(req.files.avatar[0], "avatar");
       }
+      if (req.files.importantDocs && req.files.importantDocs.length > 0) {
+        req.body.importantDocs = await uploadFileToS3(
+          req.files.importantDocs[0],
+          "importantDocs"
+        );
+      }
+      if (req.files.passport && req.files.passport.length > 0) {
+        req.body.passport = await uploadFileToS3(
+          req.files.passport[0],
+          "passport"
+        );
+      }
+    }
 
     const profile = await Profile.create(req.body);
     await profile.save();
@@ -84,7 +74,6 @@ async function create(req, res) {
     console.log(err);
     res.status(400).json({ message: "Failed to create post" });
   }
-
 }
 
 async function show(req, res) {
@@ -95,7 +84,7 @@ async function show(req, res) {
     if (!profile) {
       return res.status(404).json({ message: "Profile not found" });
     }
-    
+
     res.json(profile);
   } catch (err) {
     console.log(err);
@@ -104,16 +93,12 @@ async function show(req, res) {
 }
 
 async function update(req, res) {
-
-  const profileId = req.params.id; // Get the profile ID from the URL params
+  const profileId = req.params.id;
   const updateData = { ...req.body };
 
   if (req.files) {
     if (req.files.avatar && req.files.avatar.length > 0) {
-      req.body.avatar = await uploadFileToS3(
-        req.files.avatar[0],
-        "avatar"
-      );
+      req.body.avatar = await uploadFileToS3(req.files.avatar[0], "avatar");
     }
     if (req.files.passport && req.files.passport.length > 0) {
       req.body.passport = await uploadFileToS3(
@@ -128,13 +113,13 @@ async function update(req, res) {
         "importantDocs"
       );
     }
-
-
   }
 
-  console.log('this is req.body', req.body);
+  console.log("this is req.body", req.body);
   try {
-    const profile = await Profile.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    const profile = await Profile.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
 
     res.json(profile);
   } catch (err) {

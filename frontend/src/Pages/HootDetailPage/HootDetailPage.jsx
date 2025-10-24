@@ -28,12 +28,6 @@ const HootDetailsPage = ({ user, setUser, hoots, setHoots }) => {
           handleAddHoot={handleAddHoot}
         />
 
-        {/* <HootList
-          user={user}
-          setUser={setUser}
-          hoots={hoots}
-          handleAddHoot={handleAddHoot}
-        /> */}
       </div>
     </>
   );

@@ -7,7 +7,7 @@ export default function AllUsersCarouselMobile() {
   const [allImages, setAllImages] = useState([]);
   const [randomImages, setRandomImages] = useState([]);
 
-  // Fetch all images once
+
   useEffect(() => {
     async function fetchImages() {
       try {
@@ -22,7 +22,7 @@ export default function AllUsersCarouselMobile() {
     fetchImages();
   }, []);
 
-  // Pick 8 random images (2 columns x 4 rows)
+
   useEffect(() => {
     if (allImages.length === 0) return;
 
@@ -36,7 +36,7 @@ export default function AllUsersCarouselMobile() {
     };
 
     const shuffled = shuffleArray(allImages);
-    const selected = shuffled.slice(0, 8); // Max 8 images
+    const selected = shuffled.slice(0, 8); 
     setRandomImages(selected);
   }, [allImages]);
 
@@ -64,8 +64,6 @@ export default function AllUsersCarouselMobile() {
           />
         </div>
       ))}
- 
     </div>
-    
   );
 }

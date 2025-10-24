@@ -1,7 +1,5 @@
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-// Ensure that the .env contains the following keys
 const { S3_REGION, S3_BUCKET, S3_BASE_URL } = process.env;
-
 const Plan = require("../models/plan");
 
 module.exports = {
@@ -17,8 +15,6 @@ async function index(req, res) {
   try {
     const userId = req.user._id;
     const plans = await Plan.find({ author: userId });
-    // Below would return all posts for just the logged in user
-    // const posts = await Post.find({author: req.user._id});
     res.json(plans);
   } catch (err) {
     console.log(err);
@@ -41,8 +37,6 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const plan = await Plan.findById(req.params.id);
-    // Below would return all posts for just the logged in user
-    // const posts = await Post.find({author: req.user._id});
     res.json(plan);
   } catch (err) {
     console.log(err);
@@ -52,7 +46,6 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-
     if (req.files) {
       if (req.files.receipt && req.files.receipt.length > 0) {
         req.body.receipt = await uploadFileToS3(
@@ -69,7 +62,7 @@ async function update(req, res) {
     console.log("Request Files before update:", req.files);
 
     const plan = await Plan.findByIdAndUpdate(req.params.id, req.body, {
-      new: true, 
+      new: true,
       runValidators: true,
     });
 
@@ -84,7 +77,6 @@ async function update(req, res) {
   }
 }
 
-
 async function deletePlan(req, res) {
   try {
     const plan = await Plan.findByIdAndDelete(req.params.id);
@@ -95,16 +87,11 @@ async function deletePlan(req, res) {
   }
 }
 
-
-
-
-
 async function uploadFileToS3(file, folderName) {
   const s3Client = new S3Client({ region: S3_REGION });
 
   const s3Params = {
     Bucket: S3_BUCKET,
-    // Use the folderName parameter to create 'receipts/' or 'tickets/' prefixes
     Key: `${folderName}/${Date.now()}-${file.originalname}`,
     Body: file.buffer,
     ContentType: file.mimetype,

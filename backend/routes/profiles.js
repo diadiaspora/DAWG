@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer"); // Import multer
+const multer = require("multer"); 
 const upload = multer({ storage: multer.memoryStorage() }); 
 const profilesCtrl = require("../controllers/profiles");
 const petsCtrl = require("../controllers/pets");

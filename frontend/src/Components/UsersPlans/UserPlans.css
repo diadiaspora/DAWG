@@ -1,22 +1,25 @@
 .user-plans {
-   margin-left: 42px;
-    margin-top: 42px; 
+  margin-left: 42px;
+  margin-top: 42px;
 }
 .blue-plans {
-    background-color: #1E3769;
-    width: 100%;       /* instead of fixed 1012px */
-    max-width: 1012px; /* max width for desktop */
-    display: flex;
-    border-radius: 7px;
-    height: 70px;
-    align-items: baseline;
-    margin-bottom: 24px;
-    padding: 12px;
-    box-sizing: border-box; /* make padding included in width */
-  }
+  background-color: #1e3769;
+  width: 100%;
+  max-width: 1012px;
+  display: flex;
+  border-radius: 7px;
+  height: 70px;
+  align-items: baseline;
+  margin-bottom: 24px;
+  padding: 12px;
+  box-sizing: border-box;
+}
 
 @media (max-width: 768px) {
-    .user-plans {margin-left: 21px;}
-    .blue-plans { max-width: 320px;}
-
+  .user-plans {
+    margin-left: 21px;
+  }
+  .blue-plans {
+    max-width: 320px;
+  }
 }

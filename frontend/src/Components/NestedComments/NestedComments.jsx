@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CommentForm from "../../Components/CommentForm/CommentForm"; // Ensure this path is correct relative to NestedComment
+import CommentForm from "../../Components/CommentForm/CommentForm"; 
 
 
 export default function NestedComment({
@@ -9,19 +9,19 @@ export default function NestedComment({
 }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
 
-  // Toggles the visibility of the reply form
+
   const toggleReplyForm = () => setShowReplyForm((prev) => !prev);
 
-  // Calculate indentation based on the depth
+
   const indentStyle = {
-    marginLeft: `${depth * 24}px`, // Indent by 24px for each level of depth
-    paddingLeft: "12px", // Add some padding for visual separation from the left border
-    borderLeft: depth > 0 ? "1px solid #E9E9E9" : "none", // Add a subtle vertical line for replies
-    marginTop: "12px", // Space between nested comments
+    marginLeft: `${depth * 24}px`, 
+    paddingLeft: "12px", 
+    borderLeft: depth > 0 ? "1px solid #E9E9E9" : "none", 
+    marginTop: "12px", 
   };
 
   return (
-    // This div acts as the container for the nested comment, applying the indentation
+
     <div style={indentStyle}>
       <header>
         <p style={{ fontSize: "14px", marginBottom: "6px" }}>
@@ -50,20 +50,20 @@ export default function NestedComment({
         <div style={{ marginTop: "8px" }}>
           <CommentForm
             handleAddComment={handleAddComment}
-            parentId={comment._id} // Pass the current comment's ID as the parent for the new reply
-            onCancel={toggleReplyForm} // Allows cancelling the reply form
+            parentId={comment._id} 
+            onCancel={toggleReplyForm} 
           />
         </div>
       )}
 
-      {/* Recursively render replies using NestedComment itself */}
+
       <div style={{ marginTop: "12px" }}>
         {comment.replies?.map((reply) => (
           <NestedComment
             key={reply._id}
             comment={reply}
             handleAddComment={handleAddComment}
-            depth={depth + 1} // Increment depth for deeper nesting
+            depth={depth + 1} 
           />
         ))}
       </div>

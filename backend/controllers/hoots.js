@@ -41,11 +41,8 @@ async function index(req, res) {
     const hoots = await Hoot.find({})
       .populate("author")
       .sort({ createdAt: -1 });
-    
-    
-     
 
-      res.json(hoots);
+    res.json(hoots);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to fetch hoots" });
@@ -68,8 +65,6 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-
-
     const hoot = await Hoot.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
@@ -89,7 +84,7 @@ async function update(req, res) {
 async function comment(req, res) {
   try {
     req.body.author = req.user._id;
-   
+
     const hoot = await Hoot.findById(req.params.id);
 
     const newComment = {
@@ -97,7 +92,7 @@ async function comment(req, res) {
       author: req.body.author,
       parentId: req.body.parentId || null, // 👈 Add this line
     };
-  
+
     hoot.comments.push(newComment);
     await hoot.save();
 
@@ -145,7 +140,6 @@ async function likeHoot(req, res) {
     res.status(500).json({ message: "Failed to like hoot" });
   }
 }
-
 
 async function unlikeHoot(req, res) {
   try {

@@ -26,7 +26,6 @@ const HootDetails = ({ hootId, user, setUser }) => {
   const handleAddComment = async (commentFormData) => {
     try {
       await hootService.comment(hootId, commentFormData);
-      // Re-fetch the hoot to get updated comment structure
       const updatedHoot = await hootService.show(hootId);
       setHoot(updatedHoot);
     } catch (err) {
@@ -39,7 +38,7 @@ const HootDetails = ({ hootId, user, setUser }) => {
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
     console.log("New hoot created:", createdHoot);
-    // This may not be needed here unless this is a new-hoots+details combo
+
   };
 
   const nestedComments = hoot?.comments ? CommentTree(hoot.comments) : [];

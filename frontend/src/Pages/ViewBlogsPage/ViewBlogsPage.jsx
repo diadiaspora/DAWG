@@ -8,7 +8,7 @@ import "./ViewBlogsPage.css";
 export default function ViewBlogsPage({ user, setUser }) {
   return (
     <section className="home">
-      {/* Consistent header + search */}
+
       <div className="page-container">
         <div className="header-wrapper">
           <Header user={user} setUser={setUser} />

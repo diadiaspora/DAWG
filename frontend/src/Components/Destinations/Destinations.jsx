@@ -7,7 +7,7 @@ export default function Destinations() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    widgetRef.current.innerHTML = ""; // Clear container
+    widgetRef.current.innerHTML = ""; 
 
     const script = document.createElement("script");
     script.src =
@@ -19,7 +19,7 @@ export default function Destinations() {
 
     return () => {
       if (widgetRef.current) {
-        widgetRef.current.innerHTML = ""; // Clean up on unmount
+        widgetRef.current.innerHTML = "";
       }
     };
   }, []);
@@ -30,10 +30,10 @@ export default function Destinations() {
       style={{
         borderRadius: "7px",
         overflow: "hidden",
-        maxWidth: "100%", // prevent overflow on small screens
-        width: "100%", // make it fluid width
+        maxWidth: "100%", 
+        width: "100%", 
         boxSizing: "border-box",
-        minHeight: "300px", // reserve some height to avoid layout jump
+        minHeight: "300px", 
       }}
     />
   );

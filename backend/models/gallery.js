@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const gallerySchema = new Schema(
   {
     photoGallery: {
-      type: [String], // Array of S3 URLs
+      type: [String],
       default: [],
     },
 

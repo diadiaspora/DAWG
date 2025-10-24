@@ -5,20 +5,16 @@ import { FaRegHeart } from "react-icons/fa6";
 
 import * as hootService from "../../services/hootService";
 
-
 export default function VerticalHootList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);
 
   useEffect(() => {
     if (props.hoots && props.hoots.length > 0) {
-      // Shuffle the array
       const shuffled = [...props.hoots].sort(() => 0.5 - Math.random());
-      // Take the first 3
       const selected = shuffled.slice(0, 3);
       setDisplayedHoots(selected);
     }
   }, [props.hoots]);
-  
 
   return (
     <div>
@@ -73,7 +69,14 @@ export default function VerticalHootList(props) {
             }}
           >
             <div>
-              <header style={{ marginBottom: "-10px", backgroundColor: "#F2F4F7", borderTopLeftRadius: "7px", borderTopRightRadius: "7px" }}>
+              <header
+                style={{
+                  marginBottom: "-10px",
+                  backgroundColor: "#F2F4F7",
+                  borderTopLeftRadius: "7px",
+                  borderTopRightRadius: "7px",
+                }}
+              >
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <img
                     src={
@@ -114,7 +117,9 @@ export default function VerticalHootList(props) {
               </header>
 
               <div>
-                <div style={{ display: "flex", width: "100%", marginTop:"0px" }}>
+                <div
+                  style={{ display: "flex", width: "100%", marginTop: "0px" }}
+                >
                   <div style={{}}>
                     {hoot.gifUrl && (
                       <img
@@ -161,9 +166,9 @@ export default function VerticalHootList(props) {
                           textOverflow: "ellipsis",
                           display: "-webkit-box",
                           WebkitBoxOrient: "vertical",
-                          WebkitLineClamp: 3, // show up to 3 lines
+                          WebkitLineClamp: 3,
                           fontSize: "14px",
-                          maxHeight: "4.5em", // 1.5em x 3 lines
+                          maxHeight: "4.5em",
                         }}
                       >
                         {hoot.text}
@@ -171,20 +176,6 @@ export default function VerticalHootList(props) {
                     </div>
                   </Link>
                 </div>
-
-                {/* <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    marginTop: "12px",
-                    gap: "12px",
-                  }}
-                >
-                  <FaRegHeart />
-                  <Link to={`/hoots/${hoot._id}`}>
-                    <FaRegComment />
-                  </Link>
-                </div> */}
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ export default function MotelComponent() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    widgetRef.current.innerHTML = ""; // Clear container
+    widgetRef.current.innerHTML = ""; 
 
     const script = document.createElement("script");
     script.src =
@@ -18,7 +18,7 @@ export default function MotelComponent() {
 
     return () => {
       if (widgetRef.current) {
-        widgetRef.current.innerHTML = ""; // Clean up on unmount
+        widgetRef.current.innerHTML = "";
       }
     };
   }, []);

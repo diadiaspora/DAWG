@@ -68,7 +68,7 @@ export default function App() {
   const handleAddHoot = async (hootData) => {
     const newHoot = await hootService.create(hootData);
     console.log("New hoot created:", newHoot);
-    setHoots((prevHoots) => [newHoot, ...prevHoots]); // update list in state
+    setHoots((prevHoots) => [newHoot, ...prevHoots]); 
   };
 
   useEffect(() => {
@@ -114,7 +114,7 @@ export default function App() {
         document.body.removeChild(script);
       }
     };
-  }, []); // Empty dependency array means this runs once on mount
+  }, []); 
 
   return (
     <>

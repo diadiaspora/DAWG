@@ -148,9 +148,6 @@ export default function UserPetComponent({
           }}
         />
 
-        {/* {previewPetPhoto && (
-        <img src={previewPetPhoto} alt="Preview" style={{ width: "100px" }} />
-      )} */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label>Pet Name:</label>
           <input
@@ -198,18 +195,7 @@ export default function UserPetComponent({
         <label>Bio:</label>
         <textarea name="bio" value={formData.bio} onChange={handleChange} />
       </div>
-      {/* <label>Vaccine:</label>
-      <input type="file" accept=".pdf,image/*" ref={vaccineImageRef} />
 
-      <label>Microchip:</label>
-      <input type="file" accept=".pdf,image/*" ref={microchipImageRef} />
-
-      <label>Health Certificate:</label>
-      <input
-        type="file"
-        accept=".pdf,image/*"
-        ref={healthCertificateImageRef}
-      /> */}
 
       <div
         style={{
