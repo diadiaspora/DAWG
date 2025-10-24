@@ -8,7 +8,6 @@ const serviceOptions = [
   { value: "vet", label: "Veterinarian" },
   { value: "lawyer", label: "Lawyer" },
   { value: "dentist", label: "Dentist" },
- 
 ];
 
 const locationOptions = [

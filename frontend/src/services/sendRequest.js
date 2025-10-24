@@ -1,7 +1,6 @@
 import { getToken } from "./authService";
 
 export default async function sendRequest(url, method = "GET", payload = null) {
-
   const options = { method };
 
   if (payload instanceof FormData) {
@@ -12,7 +11,6 @@ export default async function sendRequest(url, method = "GET", payload = null) {
   }
   const token = getToken();
   if (token) {
-
     options.headers ||= {};
 
     options.headers.Authorization = `Bearer ${token}`;
@@ -20,8 +18,8 @@ export default async function sendRequest(url, method = "GET", payload = null) {
   const res = await fetch(url, options);
 
   if (res.ok) return res.json();
- 
+
   const err = await res.json();
-  
+
   throw new Error(err.message);
 }

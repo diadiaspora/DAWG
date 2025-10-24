@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .marketplace-wrapper {
-  width: 100%;               
-  max-width: 1012px;  
-  margin: 82px auto; 
+  width: 100%;
+  max-width: 1012px;
+  margin: 82px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow-x: visible;
-
 }
 
 .marketplace-header {
@@ -42,9 +41,8 @@
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   box-sizing: border-box;
-  padding-bottom: 12px; 
+  padding-bottom: 12px;
 }
-
 
 .product-scroll-container::-webkit-scrollbar {
   height: 8px;
@@ -132,8 +130,8 @@
   padding-left: 9px;
   padding-right: 9px;
   height: 44px;
-  background-color: #1E3769;
-  border: 2px solid #1E3769;
+  background-color: #1e3769;
+  border: 2px solid #1e3769;
   border-radius: 7px;
   color: #ffffff;
   font-size: 16px;
@@ -141,43 +139,38 @@
   font-weight: 500;
   display: inline-block;
   transition: background-color 0.3s ease;
-
 }
 
 .product-btn:hover {
-  background-color: #4AA692;
-  border: 2px solid #4AA692;
-  color: #15284D;
+  background-color: #4aa692;
+  border: 2px solid #4aa692;
+  color: #15284d;
   transition: border-color 0.3s ease;
 }
 
 .product-description {
   display: -webkit-box;
-  -webkit-line-clamp: 5; 
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 200px;            
+  width: 200px;
   line-height: 1.4;
   font-size: 14px;
-  white-space: normal; 
-  margin-top: -12px; 
-  padding-left: 12px;  
+  white-space: normal;
+  margin-top: -12px;
+  padding-left: 12px;
   padding-right: 12px;
 }
-
-
-
-
 
 @media (max-width: 480px) {
   .marketplace-header {
     display: none;
   }
 
-.marketplace-wrapper {
-  margin-top: 32px;
-}
+  .marketplace-wrapper {
+    margin-top: 32px;
+  }
   .product-scroll-container {
     max-width: 91vw;
     width: 100vw;
@@ -202,4 +195,3 @@
     -webkit-line-clamp: 2;
   }
 }
-

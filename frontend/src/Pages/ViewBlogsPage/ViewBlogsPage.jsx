@@ -8,7 +8,6 @@ import "./ViewBlogsPage.css";
 export default function ViewBlogsPage({ user, setUser }) {
   return (
     <section className="home">
-
       <div className="page-container">
         <div className="header-wrapper">
           <Header user={user} setUser={setUser} />
@@ -16,7 +15,6 @@ export default function ViewBlogsPage({ user, setUser }) {
         <SearchComponent />
       </div>
 
-      
       <div className="wide-blog">
         <main className="mainly-blog">
           <BlogFeature />

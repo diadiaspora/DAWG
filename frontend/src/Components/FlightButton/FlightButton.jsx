@@ -15,7 +15,7 @@ export default function FlightButton() {
             borderWidth: "0px",
             borderRadius: "7px",
             fontSize: "18px",
-            marginLeft: "10px"
+            marginLeft: "10px",
           }}
         >
           Search Flights

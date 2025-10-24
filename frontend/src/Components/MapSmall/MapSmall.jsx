@@ -5,7 +5,7 @@ export default function MapSmall() {
 
   useEffect(() => {
     if (widgetRef.current) {
-      widgetRef.current.innerHTML = ""; 
+      widgetRef.current.innerHTML = "";
     }
 
     const script = document.createElement("script");

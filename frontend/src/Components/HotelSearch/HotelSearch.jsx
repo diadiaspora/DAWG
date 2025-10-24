@@ -17,7 +17,7 @@ export default function HotelSearch() {
   }, []);
 
   return (
-    <div style={{marginTop: "42px"}}>
+    <div style={{ marginTop: "42px" }}>
       <div
         ref={containerRef}
         style={{

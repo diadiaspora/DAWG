@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { IoIosHeart } from "react-icons/io";
 import "./AllUsersCarousel.css";
 
@@ -28,7 +28,6 @@ export default function AllUsersCarousel() {
 
     fetchAllImages();
   }, []);
-
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -61,11 +60,10 @@ export default function AllUsersCarousel() {
               flexDirection: "column",
               alignItems: "center",
               width: "200px",
-              minWidth: "200px", 
-              flexShrink: 0, 
+              minWidth: "200px",
+              flexShrink: 0,
             }}
           >
-       
             <div
               style={{
                 display: "flex",
@@ -112,13 +110,12 @@ export default function AllUsersCarousel() {
               </div>
             </div>
 
-       
             <img
               src={img.imageUrl}
               alt={`Gallery image ${idx + 1}`}
               style={{
                 height: "200px",
-                width: "100%", 
+                width: "100%",
                 borderRadius: "8px",
                 objectFit: "cover",
                 cursor: "pointer",

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const petSchema = new mongoose.Schema({
   petName: {
     type: String,
@@ -43,10 +42,6 @@ const petSchema = new mongoose.Schema({
   },
 });
 
-
-
 const Pet = mongoose.model("Pet", petSchema);
-  
+
 module.exports = Pet;
-
-

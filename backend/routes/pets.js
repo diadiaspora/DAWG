@@ -29,12 +29,9 @@ router.put(
     { name: "vaccine", maxCount: 1 },
     { name: "healthCertificate", maxCount: 1 },
     { name: "microchip", maxCount: 1 },
-    
   ]),
   petsCtrl.update
 );
-
-
 
 router.delete("/:id", petsCtrl.deletePet);
 

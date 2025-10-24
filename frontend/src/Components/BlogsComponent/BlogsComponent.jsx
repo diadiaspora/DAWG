@@ -1,16 +1,15 @@
 import react, { useState, useEffect } from "react";
 
-import { blogPosts } from "../../Data/blogs.jsx"; 
+import { blogPosts } from "../../Data/blogs.jsx";
 import BlogCard from "../../Components/BlogCard/BlogCard.jsx";
-import { Link } from "react-router-dom"; 
-import "./BlogsComponent.css"; 
+import { Link } from "react-router-dom";
+import "./BlogsComponent.css";
 
 export default function BlogsComponent() {
   const [hover, setHover] = useState(false);
   const [shuffledBlogs, setShuffledBlogs] = useState([]);
 
   useEffect(() => {
-   
     const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
 
     setShuffledBlogs(shuffled);
@@ -44,13 +43,11 @@ export default function BlogsComponent() {
     </div>
   );
 
- 
-
   return (
     <>
       <div className="blogs-component-container">
         {bloghead}
-      
+
         <div className="blog-scroll-container">
           <div
             style={{

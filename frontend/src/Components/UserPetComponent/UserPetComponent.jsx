@@ -3,7 +3,6 @@ import * as petService from "../../services/petService";
 import { toast } from "react-toastify";
 import { LiaUserEditSolid } from "react-icons/lia";
 
-
 export default function UserPetComponent({
   onSuccess,
   user,
@@ -99,7 +98,7 @@ export default function UserPetComponent({
         width: "310px",
         border: "1px solid #e9e9e9",
         borderRadius: "7px",
-        padding: "21px"
+        padding: "21px",
       }}
     >
       {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
@@ -195,7 +194,6 @@ export default function UserPetComponent({
         <label>Bio:</label>
         <textarea name="bio" value={formData.bio} onChange={handleChange} />
       </div>
-
 
       <div
         style={{

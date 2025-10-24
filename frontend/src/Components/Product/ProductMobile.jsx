@@ -1,14 +1,11 @@
-
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { client } from "../../api/ShopifyClient"; 
-import { CartContext } from "../../context/CartContext"; 
-import Cart from "../../Components/Cart/Cart";
+import { client } from "../../api/ShopifyClient";
+import { CartContext } from "../../context/CartContext";
 import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper";
 import "./Product.css";
 
 export default function ProductMobile() {
-
   const { productId: rawProductIdFromUrl } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,11 +18,10 @@ export default function ProductMobile() {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        setError(null); 
+        setError(null);
 
         let shopifyProductIdForFetch = rawProductIdFromUrl;
 
-     
         if (
           rawProductIdFromUrl &&
           !rawProductIdFromUrl.startsWith("gid://shopify/Product/")
@@ -34,13 +30,12 @@ export default function ProductMobile() {
           console.log(
             "Reconstructed Shopify GID for fetch:",
             shopifyProductIdForFetch
-          ); 
+          );
         } else {
-
           console.log(
             "Product ID from URL is already a GID or unexpected format:",
             shopifyProductIdForFetch
-          ); 
+          );
         }
 
         if (!shopifyProductIdForFetch) {
@@ -68,7 +63,7 @@ export default function ProductMobile() {
         }
       } catch (err) {
         console.error("Error fetching product:", err);
-       
+
         setError(
           "Failed to load product details. Please ensure your Shopify API keys are correct and the product exists."
         );
@@ -78,11 +73,9 @@ export default function ProductMobile() {
     };
 
     if (rawProductIdFromUrl) {
-
       fetchProduct();
     }
-  }, [rawProductIdFromUrl]); 
-
+  }, [rawProductIdFromUrl]);
 
   const handleVariantChange = (e) => {
     const variantId = e.target.value;
@@ -107,11 +100,23 @@ export default function ProductMobile() {
 
   if (loading) return <p>Loading product...</p>;
   if (error) return <p className="error">{error}</p>;
-  if (!product) return <p>Product not found.</p>; 
+  if (!product) return <p>Product not found.</p>;
 
   return (
     <>
-      <div style={{ backgroundColor: "#1e3769", width: "90vw", color: "#ffffff", borderRadius: "7px", marginTop: "24px", height: "42px", display:"flex", alignItems: "center", justifyContent: "center"}}>
+      <div
+        style={{
+          backgroundColor: "#1e3769",
+          width: "90vw",
+          color: "#ffffff",
+          borderRadius: "7px",
+          marginTop: "24px",
+          height: "42px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <p> Dawg Members Get 10% off every purchase</p>
       </div>
       <div className="product-page">
@@ -126,7 +131,7 @@ export default function ProductMobile() {
                   alt={`${product.title} - ${index + 1}`}
                   style={{
                     borderRadius: "7px",
-                    width: "260px"
+                    width: "260px",
                   }}
                 />
               ))}
@@ -174,8 +179,6 @@ export default function ProductMobile() {
             </div>
           </div>
         </div>
-
-    
       </div>
     </>
   );

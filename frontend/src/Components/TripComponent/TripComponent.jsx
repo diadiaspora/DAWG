@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import * as planService from "../../services/planService";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 export default function TripComponent({ plan, setPlan }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [petData, setPetData] = useState(null);
 
@@ -50,13 +49,13 @@ export default function TripComponent({ plan, setPlan }) {
       } catch (err) {
         console.error("Error fetching pet data:", err);
         setErrorMsg("Failed to load pet data.");
-        setShowForm(true); 
+        setShowForm(true);
       } finally {
         setLoading(false);
       }
     }
     getPet();
-  }, []); 
+  }, []);
 
   useEffect(() => {
     if (petData?.petPhoto) {
@@ -71,7 +70,7 @@ export default function TripComponent({ plan, setPlan }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrorMsg(""); 
+    setErrorMsg("");
 
     try {
       const newPetData = new FormData();
@@ -101,15 +100,13 @@ export default function TripComponent({ plan, setPlan }) {
 
       let updatedPet;
       if (newPetData) {
-      
         updatedPet = await petService.update(petData._id, newPetData);
       } else {
-      
         updatedPet = await petService.create(newPetData);
       }
 
-      setPetData(updatedPet); 
-      setShowForm(false); 
+      setPetData(updatedPet);
+      setShowForm(false);
     } catch (err) {
       console.error("Error submitting pet form:", err);
       setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
@@ -120,18 +117,17 @@ export default function TripComponent({ plan, setPlan }) {
     if (window.confirm("Are you sure you want to delete this pet profile?")) {
       try {
         await petService.deletePet(petData._id);
-        setPetData(null); 
+        setPetData(null);
         setFormData({
-       
           petName: "",
           bio: "",
           breed: "",
           age: "",
           weight: "",
         });
-        setShowForm(true); 
+        setShowForm(true);
         setErrorMsg("");
-        navigate("/my-pets"); 
+        navigate("/my-pets");
       } catch (err) {
         console.error("Error deleting pet:", err);
         setErrorMsg("Failed to delete pet profile.");

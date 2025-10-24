@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegComment, FaComment } from "react-icons/fa";
-import { FaHeart, FaRegHeart } from "react-icons/fa6"; 
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import "./HootLongList.css";
 import * as hootService from "../../services/hootService";
 
@@ -68,7 +68,7 @@ export default function HootLongList(props) {
                 borderWidth: "1px",
                 borderRadius: "7px",
                 height: "380px",
-                minWidth: "320px", 
+                minWidth: "320px",
                 maxWidth: "320px",
                 width: "320px",
                 padding: "16px",

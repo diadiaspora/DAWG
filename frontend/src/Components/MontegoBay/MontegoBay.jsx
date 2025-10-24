@@ -6,7 +6,7 @@ export default function MontegoBay() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    widgetRef.current.innerHTML = ""; 
+    widgetRef.current.innerHTML = "";
 
     const script = document.createElement("script");
     script.src =
@@ -18,7 +18,7 @@ export default function MontegoBay() {
 
     return () => {
       if (widgetRef.current) {
-        widgetRef.current.innerHTML = ""; 
+        widgetRef.current.innerHTML = "";
       }
     };
   }, []);

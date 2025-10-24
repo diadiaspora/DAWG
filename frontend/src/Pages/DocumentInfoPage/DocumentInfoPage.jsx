@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import documentsData from "../../Data/documents.json";
 
@@ -37,7 +36,6 @@ export default function DocumentInfoPage() {
             Traveling with Pets: {fromKey} to {toKey}
           </h1>
 
-
           <div style={{ marginTop: "30px" }}>
             <h2>Exporting from {fromKey}</h2>
             <h4>Required Documents:</h4>
@@ -54,7 +52,6 @@ export default function DocumentInfoPage() {
             </p>
           </div>
 
-        
           <div style={{ marginTop: "30px" }}>
             <h2>Importing to {toKey}</h2>
             <h4>Required Documents:</h4>

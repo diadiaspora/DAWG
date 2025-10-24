@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Select from "react-select";
-
 import "./SearchAirlines.css";
 
 const airlineOptions = [
@@ -22,7 +21,7 @@ const customStyles = {
     ...base,
     width: "100%",
     height: 48,
-    marginLeft: 18, 
+    marginLeft: 18,
     backgroundColor: "#F2F4F7",
     borderColor: state.isFocused ? "#4AA692" : "#E9E9E9",
     borderRadius: 7,
@@ -78,7 +77,7 @@ const SearchAirlines = () => {
   return (
     <div className="airbox">
       <div style={{ paddingTop: "8px" }}>
-        <p className="title" >
+        <p className="title">
           Compare pet travel fees for each airline. Find out which airline meets
           your pet travel budget.
         </p>
@@ -89,11 +88,7 @@ const SearchAirlines = () => {
           className="airColumn"
           style={{ display: "flex", flexDirection: "column" }}
         >
-          <label
-            htmlFor="airline"
-            className="air-label"
-      
-          >
+          <label htmlFor="airline" className="air-label">
             Which Airline?
           </label>
           <Select
@@ -111,14 +106,9 @@ const SearchAirlines = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-        
           }}
         >
-          <label
-            htmlFor="destination"
-            className="where-to"
-        
-          >
+          <label htmlFor="destination" className="where-to">
             Where to?
           </label>
           <Select
@@ -132,10 +122,7 @@ const SearchAirlines = () => {
           />
         </div>
 
-        <button
-          onClick={handleClick}
-          className="buttonAir"
-        >
+        <button onClick={handleClick} className="buttonAir">
           Search
         </button>
       </div>

@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaRegComment } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa6";
-
-import * as hootService from "../../services/hootService";
 
 export default function VerticalHootList(props) {
   const [displayedHoots, setDisplayedHoots] = useState([]);

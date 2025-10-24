@@ -12,7 +12,7 @@
   margin-bottom: 1rem;
   max-width: 90vw;
   width: 100%;
-  background-color: #1E3769;
+  background-color: #1e3769;
   height: 70px;
   margin-top: 60px;
   border-radius: 7px;
@@ -21,9 +21,9 @@
 
 .marketplace-button {
   padding: 0.5rem 1rem;
-  border: 2px solid #1E3769;
+  border: 2px solid #1e3769;
   background: transparent;
-  color: #1E3769;
+  color: #1e3769;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -48,7 +48,7 @@
 }
 
 .product-grid-mobile::-webkit-scrollbar-thumb {
-  background-color: #4AA692;
+  background-color: #4aa692;
   border-radius: 3px;
 }
 
@@ -83,6 +83,6 @@
 
 .product-price {
   font-weight: 600;
-  color: #4AA692;
+  color: #4aa692;
   margin: 0;
 }

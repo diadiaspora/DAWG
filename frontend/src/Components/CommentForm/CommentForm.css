@@ -20,7 +20,7 @@
 
 .comment-btn {
   font-family: Roboto, Helvetica, sans-serif;
-  background-color: #1E3769;
+  background-color: #1e3769;
   border: none;
   height: 44px;
   padding: 12px;
@@ -32,12 +32,11 @@
 }
 
 .comment-btn:hover {
-  background-color: #4AA692;
-  color: #15284D;
+  background-color: #4aa692;
+  color: #15284d;
   font-weight: 600;
   border-radius: 7px;
 }
-
 
 @media (max-width: 480px) {
 }

@@ -1,7 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import { logOut } from "../../services/authService";
 import NavBarMobile from "../NavBarMobile/NavBarMobile";
-
 import "./NavBar.css";
 
 export default function NavBar({ user, setUser, profile }) {
@@ -22,7 +21,6 @@ export default function NavBar({ user, setUser, profile }) {
             className="dogmoney"
             alt="dog logo with money eyes"
           />
-        
         </NavLink>
 
         {user ? (
@@ -43,7 +41,6 @@ export default function NavBar({ user, setUser, profile }) {
                 style={{ marginRight: "42px" }}
               />
             </span>
-   
           </>
         ) : (
           <>
@@ -60,11 +57,9 @@ export default function NavBar({ user, setUser, profile }) {
                 style={{ marginRight: "42px" }}
               />
             </span>
-           
           </>
         )}
       </nav>
-
 
       <NavBarMobile user={user} setUser={setUser} profile={profile} />
     </>

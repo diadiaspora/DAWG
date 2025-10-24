@@ -1,12 +1,11 @@
 .blog-list {
-  width: 100%;               
-  max-width: 1012px;  
-  margin: 82px auto; 
+  width: 100%;
+  max-width: 1012px;
+  margin: 82px auto;
   display: flex;
   margin-left: -1.3vw;
   justify-content: center;
   align-items: center;
- 
 }
 
 .blg-scroll-container::-webkit-scrollbar {
@@ -29,16 +28,15 @@
 }
 
 .blg-scroll-container {
-  max-height: 550px;        
-  overflow-y: auto;         
-  overflow-x: hidden;        
+  max-height: 550px;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 662px;
-  padding-right: 8px;       
+  padding-right: 8px;
   display: flex;
-  flex-direction: column;   
-  gap: 16px;                
+  flex-direction: column;
+  gap: 16px;
 }
-
 
 .ulflex {
   display: flex;
@@ -52,7 +50,6 @@
 }
 
 .blgdiv {
-
   border-radius: 7px;
   margin-right: 21px;
 
@@ -61,7 +58,7 @@
   flex: 0 0 auto;
   margin-left: 0px;
   padding: 12px;
-  height: auto;   
+  height: auto;
 }
 
 .blog-list-header {
@@ -85,14 +82,12 @@
 }
 
 .realstories {
-
   width: 1012px;
   display: flex;
   border-radius: 7px;
   height: 70px;
   align-items: baseline;
   margin-bottom: 24px;
- 
 }
 
 @media (max-width: 480px) {
@@ -109,7 +104,7 @@
 
   .blog-sidebar {
     display: none;
-  } 
+  }
 }
 
 .blg-container {
@@ -119,7 +114,7 @@
 
 .blog-snippet {
   display: -webkit-box;
-  -webkit-line-clamp: 4; 
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import * as blogService from "../../services/blogService";
 import { getUser } from "../../services/authService";
 import * as profileService from "../../services/profileService";
@@ -68,7 +67,7 @@ export default function App() {
   const handleAddHoot = async (hootData) => {
     const newHoot = await hootService.create(hootData);
     console.log("New hoot created:", newHoot);
-    setHoots((prevHoots) => [newHoot, ...prevHoots]); 
+    setHoots((prevHoots) => [newHoot, ...prevHoots]);
   };
 
   useEffect(() => {
@@ -114,7 +113,7 @@ export default function App() {
         document.body.removeChild(script);
       }
     };
-  }, []); 
+  }, []);
 
   return (
     <>

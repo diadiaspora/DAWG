@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   font-family: Roboto, sans-serif;
@@ -43,8 +43,6 @@ button:disabled {
   background-color: grey;
 }
 
-
-
 input,
 select,
 textarea {
@@ -63,7 +61,8 @@ label {
   font-weight: bold;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -73,30 +72,30 @@ html, body {
 
 .page-container {
   width: 100%;
-  max-width: 1012px;  
-  margin: 0 auto;      
-  padding: 0 16px;    
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
 .page-container-hoot {
   width: 100%;
-  max-width: 1012px;  
-  margin: 0 auto;      
-  padding: 0 16px;    
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
 .page-container-shop {
   width: 100%;
-  max-width: 1012px;  
-  margin: 0 auto;      
-  padding: 0 16px;    
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
 .header-wrapper {
   width: 100%;
-  max-width: 1012px;   
+  max-width: 1012px;
   box-sizing: border-box;
 }

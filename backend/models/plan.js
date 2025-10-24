@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-
-
 const planSchema = mongoose.Schema({
   month: { type: String },
   day: { type: String },
@@ -32,5 +29,5 @@ const planSchema = mongoose.Schema({
 });
 
 const Plan = mongoose.model("Plan", planSchema);
-  
+
 module.exports = Plan;

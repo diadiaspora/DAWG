@@ -7,14 +7,13 @@ import { FaFacebook } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./LoginComponent.css";
 
-
 export default function LoginComponent() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [errorMsg, setErrorMsg] = useState("");
-console.log("Rendering LoginComponent")
+  console.log("Rendering LoginComponent");
   const navigate = useNavigate();
 
   async function handleSubmit(evt) {
@@ -35,7 +34,6 @@ console.log("Rendering LoginComponent")
       }
     }
   }
-  
 
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -43,8 +41,7 @@ console.log("Rendering LoginComponent")
   }
 
   return (
-      <>
-          
+    <>
       <div className="screen">
         <img
           src="./dawgmoney.png"
@@ -119,8 +116,7 @@ console.log("Rendering LoginComponent")
               <FaGoogle />
               Log in with Google
             </button>
-                      <button
-                          
+            <button
               style={{
                 marginTop: "16px",
                 borderRadius: "7px",

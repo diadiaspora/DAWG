@@ -1,15 +1,14 @@
-import { useState, useEffect, useRef } from "react"; 
+import { useState, useEffect, useRef } from "react";
 import * as blogService from "../../services/blogService";
-import { useParams, useNavigate } from "react-router-dom"; 
-export default function BlogDetail({ user, setUser,}) {
+import { useParams, useNavigate } from "react-router-dom";
+export default function BlogDetail({ user, setUser }) {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const isAuthor = user && blog?.author?.username === user.username;;
+  const isAuthor = user && blog?.author?.username === user.username;
 
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
-
 
   const contentOneImageRef = useRef();
   const contentTwoImageRef = useRef();
@@ -18,7 +17,6 @@ export default function BlogDetail({ user, setUser,}) {
 
   useEffect(() => {
     async function fetchBlog() {
-  
       try {
         const fetchedBlog = await blogService.show(id);
         console.log("Fetched Blog Data:", fetchedBlog);
@@ -29,25 +27,23 @@ export default function BlogDetail({ user, setUser,}) {
           contentTwo: fetchedBlog.contentTwo || "",
           contentThree: fetchedBlog.contentThree || "",
           contentFour: fetchedBlog.contentFour || "",
-       
         });
       } catch (err) {
         console.error("Failed to fetch blog:", err);
-  
+
         navigate("/error");
       }
     }
     fetchBlog();
-  }, [id, navigate]); 
+  }, [id, navigate]);
 
   const handleDeleteBlog = async (blogId) => {
     try {
-
       if (!window.confirm("Are you sure you want to delete this blog post?")) {
-        return; 
+        return;
       }
       await blogService.deleteBlog(blogId);
-      navigate(`/blogs`); 
+      navigate(`/blogs`);
     } catch (err) {
       console.error("Failed to delete blog:", err);
 
@@ -101,11 +97,11 @@ export default function BlogDetail({ user, setUser,}) {
       setIsEditing(false);
     } catch (err) {
       console.error("Failed to update blog:", err);
-      alert("Failed to update blog. Please try again."); 
+      alert("Failed to update blog. Please try again.");
     }
   };
 
-  if (!blog) return <main>Loading Blog...</main>; 
+  if (!blog) return <main>Loading Blog...</main>;
 
   return (
     <>

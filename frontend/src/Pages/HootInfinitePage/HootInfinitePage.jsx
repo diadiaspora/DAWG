@@ -95,9 +95,8 @@ export default function HootInfinatePage({ user, setUser }) {
         </div>
         <div className="mobile-text-tea">
           <h2>Create a Post</h2>
-    
         </div>
-        <div className="mobile-form" style={{marginTop: "24px"}}>
+        <div className="mobile-form" style={{ marginTop: "24px" }}>
           <HootFormMobile handleAddHoot={handleAddHoot} />
         </div>
 
@@ -126,7 +125,6 @@ export default function HootInfinatePage({ user, setUser }) {
         </div>
         <div className="mobile-text-tea">
           <h2>Heres What Everyone's Saying</h2>
-  
         </div>
         <div className="wide">
           <main className="mainly">

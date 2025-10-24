@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import Header from "../../Components/Header/Header.jsx";
 import PlanBasicsForm from "../../Components/PlanBasicsForm/PlanBasicsForm.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-
-import Articles from "../../Components/Articles/Articles.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import MarketplaceMobile from "../../Components/MarketplaceMobile/MarketplaceMobile.jsx"; // import mobile version
 import HotelComponent from "../../Components/HotelComponent/HotelComponent";
@@ -17,7 +15,6 @@ export default function PlanPage({ user }) {
   const klookRef = useRef(null);
 
   useEffect(() => {
-    // Listen to window resize and update isMobile
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);
     }

@@ -1,13 +1,9 @@
-
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 import "./Cart.css";
-
-
-
 
 export default function CartPage() {
   const { checkout, loading, updateLineItemQuantity, removeLineItem } =
@@ -38,7 +34,7 @@ export default function CartPage() {
 
   const handleProceedToCheckout = () => {
     if (checkout && checkout.webUrl) {
-      window.location.href = checkout.webUrl; 
+      window.location.href = checkout.webUrl;
     } else {
       alert("Checkout URL not available. Please try again.");
     }
@@ -47,10 +43,7 @@ export default function CartPage() {
   return (
     <div className="cart-page" style={{ marginTop: "20px" }}>
       <h2>Your Shopping Cart</h2>
-      <ul
-        class="nobullets"
- 
-      >
+      <ul class="nobullets">
         {checkout.lineItems.map((item) => (
           <li key={item.id}>
             <div style={{ display: "flex" }}>
@@ -100,7 +93,6 @@ export default function CartPage() {
                   >
                     <FaCirclePlus />
                   </button>
-              
                 </div>
               </div>
             </div>
@@ -115,10 +107,7 @@ export default function CartPage() {
       <button onClick={handleProceedToCheckout} className="check-button">
         Proceeed to Checkout
       </button>
-      <button onClick={() => navigate("/")} >
-        Continue Shoppping
-      </button>
- 
+      <button onClick={() => navigate("/")}>Continue Shoppping</button>
     </div>
   );
 }

@@ -62,7 +62,7 @@ const hootSchema = new mongoose.Schema(
       ],
     },
     gifUrl: {
-      type: String, 
+      type: String,
       required: false,
     },
     author: {
@@ -77,9 +77,6 @@ const hootSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
 const Hoot = mongoose.model("Hoot", hootSchema);
-
-
 
 module.exports = Hoot;

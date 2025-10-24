@@ -1,14 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import * as planService from "../../services/planService";
-
 import "./PlanFlightForm.css";
 
 export default function PlanFlightForm({ plan, setPlan }) {
-  const [showForm, setShowForm] = useState(plan ? false : true); 
+  const [showForm, setShowForm] = useState(plan ? false : true);
 
   const fileInputRef = useRef();
-  
+
   const [formData, setFormData] = useState({
     airline: plan?.airline ? plan.airline : "",
     outboundFlightNumber: plan?.outboundFlightNumber
@@ -28,20 +27,14 @@ export default function PlanFlightForm({ plan, setPlan }) {
       ? plan.returnDepartureTime
       : "",
     returnArrivalTime: plan?.returnArrivalTime ? plan.returnArrivalTime : "",
-   
   });
 
   const [errorMsg, setErrorMsg] = useState("");
-
-
 
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
-
-
-
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -50,25 +43,22 @@ export default function PlanFlightForm({ plan, setPlan }) {
 
       console.log(fileInputRef.current.files);
 
-
       for (const key in formData) {
         planData.append(key, formData[key]);
       }
 
-  
       if (fileInputRef.current.files.length > 0) {
         planData.append("ticket", fileInputRef.current.files[0]);
       }
 
- 
       for (const pair of planData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
 
       const updatedPlan = await planService.update(plan._id, planData);
       setErrorMsg("");
-      setPlan({ ...updatedPlan }); 
-      setShowForm(false); 
+      setPlan({ ...updatedPlan });
+      setShowForm(false);
     } catch (err) {
       console.error("Failed to save location details:", err);
       setErrorMsg("Failed to save location details. Please try again.");
@@ -355,7 +345,6 @@ export default function PlanFlightForm({ plan, setPlan }) {
           {errorMsg && <p className="error">{errorMsg}</p>}
         </form>
       ) : (
-
         <div
           className="planFlightCard"
           style={{

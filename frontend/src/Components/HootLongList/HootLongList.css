@@ -5,14 +5,13 @@
 }
 
 .hootmargin {
-  width: 100%;               
-  max-width: 1012px;  
-  margin: 82px auto; 
+  width: 100%;
+  max-width: 1012px;
+  margin: 82px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .hoot-long-header {
@@ -88,13 +87,13 @@
   margin-left: 0px;
   border: none;
   overflow-x: scroll;
-  padding-bottom: 21px; 
+  padding-bottom: 21px;
 }
 
 .hoot-card-link {
   text-decoration: none;
   color: inherit;
-  border: 1px solid #BCC7D4;
+  border: 1px solid #bcc7d4;
   border-radius: 7px;
   padding: 16px;
   transition: border 0.2s ease, box-shadow 0.2s ease;
@@ -102,8 +101,8 @@
 }
 
 .hoot-card-link:hover {
-  border-color: #4AA692;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  border-color: #4aa692;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   border-width: 2px;
 }
 
@@ -115,11 +114,11 @@
 }
 
 .hoot-card-link:hover .hoot-card {
-  background-color: #932e2e; 
+  background-color: #932e2e;
 }
 
 .hoot-card-link:hover {
-  color: #000000; 
+  color: #000000;
   text-decoration: none;
   background-color: #f2f4f7;
 }
@@ -154,14 +153,13 @@
   line-height: 1.5em;
 }
 
-
 .comment-link {
   position: relative;
   display: inline-block;
 }
 
 .comment-link .icon {
-  font-size: 16px; 
+  font-size: 16px;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -170,7 +168,7 @@
 }
 
 .comment-link .hover {
-  color: #4AA692;
+  color: #4aa692;
   position: absolute;
   top: 0;
   left: 0;
@@ -186,7 +184,6 @@
 }
 
 @media (min-width: 300px) and (max-width: 480px) {
- 
   .hootyblue {
     max-width: 90vw;
     width: 100%;
@@ -203,7 +200,7 @@
     max-width: 90vw;
     width: 100%;
     margin-left: 2px;
-    margin-right: 0; 
+    margin-right: 0;
     color: #ffffff;
     font-size: 18px;
   }
@@ -214,16 +211,13 @@
     margin-bottom: 0px;
   }
 
+  .hoot-long-header {
+    display: none;
+  }
 
-.hoot-long-header {
-  display: none;
-}
-
-.hootmargin {
-  margin-left: 0px;
-  margin-top: 58px;
-  margin-bottom: 32px;
-}
-
-
+  .hootmargin {
+    margin-left: 0px;
+    margin-top: 58px;
+    margin-bottom: 32px;
+  }
 }

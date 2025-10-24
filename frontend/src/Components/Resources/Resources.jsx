@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router";
-
 import "./Resources.css";
 
 const Resources = () => {
   const navigate = useNavigate();
-  
+
   const handleClick = () => {
     navigate("/posts/new");
   };

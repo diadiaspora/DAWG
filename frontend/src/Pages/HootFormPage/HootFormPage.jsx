@@ -8,7 +8,6 @@ import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import CommentForm from "../../Components/CommentForm/CommentForm";
 import HootList from "../../Components/HootList/HootList";
-
 import HootForm from "../../Components/HootForm/HootForm";
 
 export default function HootFeatureForm(props) {
@@ -16,7 +15,6 @@ export default function HootFeatureForm(props) {
   const [featuredHoot, setFeaturedHoot] = useState(null);
   const navigate = useNavigate();
 
- 
   useEffect(() => {
     async function fetchFeatured() {
       if (props.hoots && props.hoots.length > 0) {
@@ -48,7 +46,7 @@ export default function HootFeatureForm(props) {
   return (
     <div>
       <Header user={user} setUser={setUser} />
-      <SearchComponent/>
+      <SearchComponent />
       <div
         style={{
           backgroundColor: "#1E3769",
@@ -154,7 +152,6 @@ export default function HootFeatureForm(props) {
               </div>
             </Link>
 
-           
             {featuredHoot.gifUrl && (
               <img
                 src={featuredHoot.gifUrl}
@@ -169,7 +166,6 @@ export default function HootFeatureForm(props) {
               />
             )}
 
-  
             <div
               style={{
                 display: "flex",
@@ -235,7 +231,6 @@ export default function HootFeatureForm(props) {
               }}
             />
 
-           
             <div style={{ marginTop: "16px" }}>
               {featuredHoot.comments.length > 0 ? (
                 featuredHoot.comments.slice(0, 2).map((comment) => (
@@ -276,21 +271,20 @@ export default function HootFeatureForm(props) {
             borderRadius: "7px",
             padding: "6px",
             width: "310px",
-            marginTop:"-72px"
+            marginTop: "-72px",
           }}
         >
           <h3 style={{ color: "white" }}> Write a Post</h3>
           <HootForm handleAddHoot={handleAddHoot} />
         </div>
       </div>
-      
+
       <HootList
         user={user}
         setUser={setUser}
         hoots={hoots}
         handleAddHoot={handleAddHoot}
-        />
-   
+      />
     </div>
   );
 }

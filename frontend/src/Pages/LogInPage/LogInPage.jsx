@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import * as authService from "../../services/authService";
-import { FaGoogle, FaApple, FaFacebook } from "react-icons/fa";
 import "./LoginPage.css";
 
 export default function LogInPage({ setUser }) {
@@ -10,7 +9,6 @@ export default function LogInPage({ setUser }) {
   const [successMsg, setSuccessMsg] = useState("");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (searchParams.get("verified") === "true") {
@@ -66,17 +64,14 @@ export default function LogInPage({ setUser }) {
       >
         <h2>Log In!</h2>
 
-   
         {successMsg && (
           <p style={{ color: "green", marginBottom: "16px" }}>{successMsg}</p>
         )}
 
-    
         {errorMsg && (
           <p style={{ color: "red", marginBottom: "16px" }}>{errorMsg}</p>
         )}
 
-   
         <form
           autoComplete="off"
           onSubmit={handleSubmit}
@@ -117,8 +112,6 @@ export default function LogInPage({ setUser }) {
           </button>
           <hr style={{ marginTop: "16px" }} />
         </form>
-
-  
       </div>
     </div>
   );

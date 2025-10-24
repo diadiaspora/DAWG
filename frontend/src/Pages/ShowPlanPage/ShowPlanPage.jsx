@@ -9,10 +9,8 @@ import SearchComponent from "../../Components/SearchComponent/SearchComponent.js
 import UserCarousel from "../../Components/UserCarousel/UserCarousel.jsx";
 import "./ShowPlanPage.css";
 
-export default function ShowPlanPage({user, profile}) {
-
+export default function ShowPlanPage({ user, profile }) {
   const { id } = useParams();
-  
   const [plan, setPlan] = useState(null);
   const [planId, setPlanId] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -29,14 +27,12 @@ export default function ShowPlanPage({user, profile}) {
     fetchPlan();
   }, [id]);
 
-  useEffect(
-    () => {
-      console.log("planUpdated");
-    }, [plan]
-  );
+  useEffect(() => {
+    console.log("planUpdated");
+  }, [plan]);
 
   if (!plan) {
-    return <div> loading...</div>
+    return <div> loading...</div>;
   }
 
   return (
@@ -61,8 +57,14 @@ export default function ShowPlanPage({user, profile}) {
             <div>
               {plan && <PlanBasicUpdate plan={plan} setPlan={setPlan} />}
             </div>
-            <div style={{ marginLeft: "42px", marginTop: "0px", width: "632px" }}>
-              <UserCarousel user={user} profile={profile} style={{ width: "632px" }} />
+            <div
+              style={{ marginLeft: "42px", marginTop: "0px", width: "632px" }}
+            >
+              <UserCarousel
+                user={user}
+                profile={profile}
+                style={{ width: "632px" }}
+              />
             </div>
           </div>
         </div>

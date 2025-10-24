@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-rows: auto auto;
-   background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 #main-section {
@@ -9,6 +9,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%; 
-  max-width: 100%; 
+  width: 100%;
+  max-width: 100%;
 }

@@ -2,11 +2,7 @@ import { useState } from "react";
 import CommentForm from "../../Components/CommentForm/CommentForm";
 import NestedComments from "../NestedComments/NestedComments";
 
-export default function CommentThread({
-  comment,
-  handleAddComment,
-
-}) {
+export default function CommentThread({ comment, handleAddComment }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
 
   const toggleReplyForm = () => setShowReplyForm((prev) => !prev);
@@ -18,7 +14,7 @@ export default function CommentThread({
         borderRadius: "7px",
         padding: "12px",
         backgroundColor: "#fff",
-        marginLeft: "42px", 
+        marginLeft: "42px",
         marginTop: "12px",
       }}
     >
@@ -62,7 +58,7 @@ export default function CommentThread({
             key={reply._id}
             comment={reply}
             handleAddComment={handleAddComment}
-            depth={1} 
+            depth={1}
           />
         ))}
       </div>

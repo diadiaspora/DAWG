@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer"); 
+const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
-const blogsCtrl = require("../controllers/blogs"); 
+const blogsCtrl = require("../controllers/blogs");
 const ensureLoggedIn = require("../middleware/ensureLoggedIn");
-
-
 
 router.get("/", blogsCtrl.index);
 
@@ -23,8 +21,6 @@ router.post(
   ]),
   blogsCtrl.create
 );
-
-
 
 router.put(
   "/:id",

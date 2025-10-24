@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IoIosHeart } from "react-icons/io";
 import "./AllUserCarouselMobile.css";
-import { Link } from "react-router-dom";
 
 export default function AllUsersCarouselMobile() {
   const [allImages, setAllImages] = useState([]);
   const [randomImages, setRandomImages] = useState([]);
-
 
   useEffect(() => {
     async function fetchImages() {
@@ -22,7 +20,6 @@ export default function AllUsersCarouselMobile() {
     fetchImages();
   }, []);
 
-
   useEffect(() => {
     if (allImages.length === 0) return;
 
@@ -36,7 +33,7 @@ export default function AllUsersCarouselMobile() {
     };
 
     const shuffled = shuffleArray(allImages);
-    const selected = shuffled.slice(0, 8); 
+    const selected = shuffled.slice(0, 8);
     setRandomImages(selected);
   }, [allImages]);
 

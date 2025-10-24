@@ -36,7 +36,6 @@ export default function UserProfilePage({ user }) {
     fetchProfile();
   }, [user]);
 
-
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);

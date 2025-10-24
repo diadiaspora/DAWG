@@ -91,7 +91,7 @@ const CustomRightArrow = ({ onClick }) => (
 export default function PostListPage() {
   const [posts, setPosts] = useState([]);
   const [commentInputs, setCommentInputs] = useState({});
-  const [replyInputs, setReplyInputs] = useState({}); 
+  const [replyInputs, setReplyInputs] = useState({});
 
   useEffect(() => {
     async function fetchPosts() {

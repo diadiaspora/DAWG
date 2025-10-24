@@ -36,7 +36,7 @@ export default function FlightMobile() {
       style={{
         maxWidth: "91vw",
         width: "100%",
-        height: "auto" ,
+        height: "auto",
         overflow: "hidden",
         display: "flex",
         justifyContent: "center",

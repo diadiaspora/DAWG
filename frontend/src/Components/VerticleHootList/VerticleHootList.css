@@ -1,22 +1,21 @@
 .hoot-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .hoot {
-    border: 1px solid #bcc7d4;
-    border-radius: 7px;
-    padding: 12px;
-    transition: background-color 0.2s ease;
-  }
-  
-  .hoot-link:hover .hoot {
-    background-color: #932e2e; 
-  }
-  
-  .hoot-link:hover {
-    color: #000000; 
-    text-decoration: none;
-    background-color: #F2F4F7; 
-  }
-  
+  text-decoration: none;
+  color: inherit;
+}
+
+.hoot {
+  border: 1px solid #bcc7d4;
+  border-radius: 7px;
+  padding: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.hoot-link:hover .hoot {
+  background-color: #932e2e;
+}
+
+.hoot-link:hover {
+  color: #000000;
+  text-decoration: none;
+  background-color: #f2f4f7;
+}

@@ -1,40 +1,37 @@
 #google_translate_element {
-    font-family: 'YourFont', sans-serif;   font-size: 14px;
-    margin: 10px 0;
-    color: #333;
-  }
-  
- 
-  #google_translate_element select {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
+  font-family: "YourFont", sans-serif;
+  font-size: 14px;
+  margin: 10px 0;
+  color: #333;
+}
 
-  .goog-logo-link {
-    display: none !important;
-  }
-  
-  .goog-te-gadget {
-    color: transparent !important;
-  }
-  
+#google_translate_element select {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #333;
+}
 
-  #google_translate_element select:hover,
-  #google_translate_element select:focus {
-    border-color: #1e3769;
-    outline: none;
-    box-shadow: 0 0 5px #1e3769;
-  }
-  
-  .goog-logo-link {
+.goog-logo-link {
   display: none !important;
 }
 
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+#google_translate_element select:hover,
+#google_translate_element select:focus {
+  border-color: #1e3769;
+  outline: none;
+  box-shadow: 0 0 5px #1e3769;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
 
 iframe.goog-te-banner-frame {
   display: none !important;

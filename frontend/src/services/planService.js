@@ -15,9 +15,7 @@ export async function update(planId, planData) {
   return sendRequest(`${BASE_URL}/${planId}`, "PUT", planData);
 }
 
-
 export async function show(planId) {
-
   return sendRequest(`${BASE_URL}/${planId}`, "GET");
 }
 
@@ -26,5 +24,5 @@ export async function deletePlan(planId) {
 }
 
 export async function getUserPlans() {
-  return sendRequest(BASE_URL); 
+  return sendRequest(BASE_URL);
 }

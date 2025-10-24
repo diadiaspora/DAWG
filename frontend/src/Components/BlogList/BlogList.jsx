@@ -5,10 +5,9 @@ import "./BlogList.css";
 
 export default function BlogList({ user }) {
   const [blogs, setBlogs] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [hover, setHover] = useState(false);
   const [hoverCreate, setHoverCreate] = useState(false);
-  
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -113,9 +112,8 @@ export default function BlogList({ user }) {
                         fontWeight: "bold",
                         textDecoration: "none",
                         color: hoverCreate ? "#4AA692" : "#000000",
-                        marginTop: "-24px"
+                        marginTop: "-24px",
                       }}
-                      
                     >
                       {blog.title}
                     </Link>

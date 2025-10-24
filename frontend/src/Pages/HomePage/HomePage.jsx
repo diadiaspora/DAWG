@@ -1,7 +1,6 @@
 import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Gallery from "../../Components/Gallery/Gallery.jsx";
-import BlogList from "../../Components/BlogList/BlogList.jsx";
 import MarketplaceWrapper from "../../Components/MarketplaceWrapper/MarketplaceWrapper.jsx";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
 
-export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
+export default function HomePage({ user, setUser, hoots, setHoots }) {
   const navigate = useNavigate();
   const handleAddHoot = async (newHootData) => {
     const createdHoot = await hootService.create(newHootData);
@@ -65,52 +64,49 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
 
         <div className="wide-home">
           <main className="mainly-home">
-         
-              <div
-                className="mobile-dog"
+            <div
+              className="mobile-dog"
+              style={{
+                width: "380px",
+                marginTop: "0px",
+                marginBottom: "0px",
+              }}
+            >
+              <div>
+                <img src="/lab.png" className="dog-mobile" alt="labrador" />
+              </div>
+              <div>
+                <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
+              </div>
+              <div>
+                <img
+                  src="/terrier.png"
+                  className="dog-mobile"
+                  alt="terrier"
+                  style={{ marginTop: "30.5px" }}
+                />
+              </div>
+            </div>
+            <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
+              <h2>Everything You Need</h2>
+              <button
                 style={{
-                  width: "380px",
+                  backgroundColor: "#4AA692",
+                  borderWidth: "0px",
+                  borderRadius: "7px",
+                  color: "#000000",
+                  fontSize: "14px",
+                  height: "34px",
+                  width: "80px",
+                  padding: "5px",
                   marginTop: "0px",
                   marginBottom: "0px",
-                  
                 }}
               >
-                <div>
-                  <img src="/lab.png" className="dog-mobile" alt="labrador" />
-                </div>
-                <div>
-                  <img src="/shitzu.png" className="dog-mobile" alt="shitzu" />
-                </div>
-                <div>
-                  <img
-                    src="/terrier.png"
-                    className="dog-mobile"
-                    alt="terrier"
-                    style={{ marginTop: "30.5px" }}
-                  />
-                </div>
-              </div>
-              <div className="mobile-text-tea" style={{ marginBottom: "40px" }}>
-                <h2>Everything You Need</h2>
-                <button
-                  style={{
-                    backgroundColor: "#4AA692",
-                    borderWidth: "0px",
-                    borderRadius: "7px",
-                    color: "#000000",
-                    fontSize: "14px",
-                    height: "34px",
-                    width: "80px",
-                    padding: "5px",
-                    marginTop: "0px",
-                    marginBottom: "0px",
-                  }}
-                >
-                  Shop
-                </button>
-              </div>
-              <MarketplaceWrapper />
-        
+                Shop
+              </button>
+            </div>
+            <MarketplaceWrapper />
 
             <div
               className="mobile-dog"
@@ -252,7 +248,6 @@ export default function HomePage({ user, setUser, hoots, setHoots, profile }) {
               </button>
             </div>
             <BlogsComponent />
-        
           </main>
         </div>
       </section>

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import MarketplaceMobile from "../../Components/MarketplaceMobile/MarketplaceMobile";
 import Marketplace from "../../Components/Marketplace/Marketplace";
 
-
 export default function MarketplaceWrapper() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 

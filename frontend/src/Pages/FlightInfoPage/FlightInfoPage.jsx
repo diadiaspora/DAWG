@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./FlightInfoPage.css";
 
 export default function FlightInfoPage() {
@@ -28,13 +28,7 @@ export default function FlightInfoPage() {
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
         Featured Flight Deals
       </h2>
-      <div
-        ref={widgetRef}
-        id="kiwi-results-widget"
-        className="container"
-      >
-        </div>
-
+      <div ref={widgetRef} id="kiwi-results-widget" className="container"></div>
     </section>
   );
 }

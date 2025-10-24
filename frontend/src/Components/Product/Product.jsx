@@ -1,15 +1,12 @@
-
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { client } from "../../api/ShopifyClient"; 
-import { CartContext } from "../../context/CartContext"; 
+import { client } from "../../api/ShopifyClient";
+import { CartContext } from "../../context/CartContext";
 import Cart from "../../Components/Cart/Cart";
 import ProductMobile from "./ProductMobile";
-
 import "./Product.css";
 
 export default function Product() {
-
   const { productId: rawProductIdFromUrl } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,11 +19,10 @@ export default function Product() {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        setError(null); 
+        setError(null);
 
         let shopifyProductIdForFetch = rawProductIdFromUrl;
 
-     
         if (
           rawProductIdFromUrl &&
           !rawProductIdFromUrl.startsWith("gid://shopify/Product/")
@@ -35,13 +31,12 @@ export default function Product() {
           console.log(
             "Reconstructed Shopify GID for fetch:",
             shopifyProductIdForFetch
-          ); 
+          );
         } else {
-
           console.log(
             "Product ID from URL is already a GID or unexpected format:",
             shopifyProductIdForFetch
-          ); 
+          );
         }
 
         if (!shopifyProductIdForFetch) {
@@ -69,7 +64,7 @@ export default function Product() {
         }
       } catch (err) {
         console.error("Error fetching product:", err);
-       
+
         setError(
           "Failed to load product details. Please ensure your Shopify API keys are correct and the product exists."
         );
@@ -79,11 +74,9 @@ export default function Product() {
     };
 
     if (rawProductIdFromUrl) {
-
       fetchProduct();
     }
-  }, [rawProductIdFromUrl]); 
-
+  }, [rawProductIdFromUrl]);
 
   const handleVariantChange = (e) => {
     const variantId = e.target.value;
@@ -108,7 +101,7 @@ export default function Product() {
 
   if (loading) return <p>Loading product...</p>;
   if (error) return <p className="error">{error}</p>;
-  if (!product) return <p>Product not found.</p>; 
+  if (!product) return <p>Product not found.</p>;
 
   return (
     <>
@@ -204,7 +197,7 @@ export default function Product() {
           </div>
         </div>
       </div>
-      <div className="product-mobile"> 
+      <div className="product-mobile">
         <ProductMobile />
       </div>
     </>

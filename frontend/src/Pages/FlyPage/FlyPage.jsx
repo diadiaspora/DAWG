@@ -1,6 +1,5 @@
 import Header from "../../Components/Header/Header.jsx";
-import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./FlyPage.css";
 
 export default function FlyPage({ user, setUser }) {
@@ -26,15 +25,12 @@ export default function FlyPage({ user, setUser }) {
 
   return (
     <section className="home">
-
-      <div className="page-container" style={{marginBottom: "-46px"}}>
+      <div className="page-container" style={{ marginBottom: "-46px" }}>
         <div className="header-wrapper">
           <Header user={user} setUser={setUser} />
         </div>
-
       </div>
 
-     
       <div className="wide-fly">
         <main className="mainly-fly">
           <div id="tp-widget" ref={widgetRef} className="fly-widget"></div>

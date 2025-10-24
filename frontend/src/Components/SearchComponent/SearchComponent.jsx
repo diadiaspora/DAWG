@@ -17,11 +17,11 @@ const SearchComponent = () => {
       if (isNowMobile) {
         setActiveForm("airlineInfo");
       } else {
-        setActiveForm("flights"); 
+        setActiveForm("flights");
       }
     };
 
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -35,8 +35,9 @@ const SearchComponent = () => {
             width: "380px",
             marginTop: "40px",
             marginBottom: "-16px",
-            marginLeft: "-12px"
-          }} >
+            marginLeft: "-12px",
+          }}
+        >
           <div>
             <img src="/pit.png" className="dog-mobile" alt="labrador" />
           </div>
@@ -57,7 +58,6 @@ const SearchComponent = () => {
           {activeForm === "documents" && <SearchDocuments />}
           {activeForm === "services" && <SearchServices />}
         </div>
-  
       </div>
     </>
   );

@@ -236,8 +236,6 @@ export default function ProfileForm({ profile, setProfile, user }) {
                           Save
                         </button>
                       </div>
-                 
-            
                     </div>
                     <div
                       style={{
@@ -261,7 +259,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                 borderWidth: "1px",
                 borderColor: "#d9d9d9",
                 borderRadius: "7px",
-               
+
                 marginLeft: "42px",
                 backgroundColor: "#DFE2E7",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
@@ -323,8 +321,11 @@ export default function ProfileForm({ profile, setProfile, user }) {
                       }}
                     >
                       {profileData.username}
-                      </div>
-                      <div style={{marginLeft: "21px"}}> <button>Your Passport</button></div>
+                    </div>
+                    <div style={{ marginLeft: "21px" }}>
+                      {" "}
+                      <button>Your Passport</button>
+                    </div>
                   </div>
                 </div>
 
@@ -377,7 +378,7 @@ export default function ProfileForm({ profile, setProfile, user }) {
                   <Link to="https://ektatraveling.tpx.gr/hVLd6uOc">
                     <div
                       style={{
-                          height: "215px",
+                        height: "215px",
                         width: "310px",
                         borderStyle: "solid",
                         marginTop: "21px",

@@ -1,4 +1,3 @@
-import React from "react";
 import BlogsComponent from "../../Components/BlogsComponent/BlogsComponent";
 import Articles from "../../Components/Articles/Articles";
 

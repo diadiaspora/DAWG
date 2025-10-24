@@ -19,8 +19,6 @@ router.put(
   plansCtrl.update
 );
 
-
-
 router.delete("/:id", plansCtrl.deletePlan);
 
 module.exports = router;

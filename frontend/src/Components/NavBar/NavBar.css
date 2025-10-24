@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .NavBar {
   font-family: Roboto, Helvetica, sans-serif;
@@ -10,7 +9,6 @@
   padding: 2vmin;
   font-size: 2vmin;
   background-color: #1e37691f;
-  
 }
 
 .NavBar {
@@ -21,7 +19,7 @@
     border-radius: 0.8vmin;
     padding: 0.5vmin 1.5vmin;
     text-decoration: none;
-    color: #1E3769;
+    color: #1e3769;
   }
 
   a:hover {
@@ -29,36 +27,31 @@
     font-size: 16px;
     font-weight: bold;
     background-color: #ffffff;
- 
-    
   }
 
   a.active {
     font-family: Roboto, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: bold;
-   border-radius: 7px;
-    color: #1E3769;
+    border-radius: 7px;
+    color: #1e3769;
   }
 
   span {
     font-family: Roboto, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #1E3769;
+    color: #1e3769;
   }
 
   .dogmoney {
-
     width: 150px;
     border-radius: 7px;
   }
   .doglogo {
-  
-        width: 100px;
-        border-radius: 7px;
-      }
-      
+    width: 100px;
+    border-radius: 7px;
+  }
 }
 
 .NavBarMobile {
@@ -74,5 +67,3 @@
     display: flex;
   }
 }
-
-

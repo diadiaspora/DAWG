@@ -4,7 +4,6 @@ import { FaRegComment } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa6";
 import "./HootCard.css";
-
 import * as hootService from "../../services/hootService";
 import CommentForm from "../CommentForm/CommentForm";
 import CommentThread from "../CommentThread/CommentThread";
@@ -48,7 +47,7 @@ export default function HootCard({ hoot, user, setUser }) {
   };
 
   const handleCommentClick = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     navigate(`/hoots/${localHoot._id}`);
   };
 
@@ -76,7 +75,6 @@ export default function HootCard({ hoot, user, setUser }) {
         flexDirection: "column",
       }}
     >
-    
       <div
         style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}
       >
@@ -101,7 +99,6 @@ export default function HootCard({ hoot, user, setUser }) {
         </div>
       </div>
 
- 
       <h3 style={{ margin: "0 0 8px 0" }}>{localHoot.title}</h3>
       {localHoot.gifUrl && (
         <img

@@ -1,15 +1,15 @@
 .input {
-    width: 220px;
-    border-radius: 50px;
-    height: 44px;
-    margin-left: 0px;
-    padding-left: 0px;
+  width: 220px;
+  border-radius: 50px;
+  height: 44px;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
 .buttonFly button {
-    background-color: #1E3769;
-    border-radius: 50px;
-    border-color: #1E3769;
-    width: 200px;
-    height: "144px";
+  background-color: #1e3769;
+  border-radius: 50px;
+  border-color: #1e3769;
+  width: 200px;
+  height: "144px";
 }

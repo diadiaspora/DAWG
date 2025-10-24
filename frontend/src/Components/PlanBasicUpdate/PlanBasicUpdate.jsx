@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { BiWorld } from "react-icons/bi";
 import { IoMdCalendar } from "react-icons/io";
-
 import * as planService from "../../services/planService";
 import "./PlanBasicUpdate.css";
 
@@ -23,7 +22,7 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  useEffect(() => {}, [plan])
+  useEffect(() => {}, [plan]);
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
@@ -37,19 +36,16 @@ export default function PlanBasicUpdate({ plan, setPlan }) {
     }
   }
 
+  const handleDeletePlan = async (planId) => {
+    try {
+      const deletedPlan = await planService.deletePlan(planId);
+      if (deletedPlan.err) throw new Error(deletedPlan.err);
 
-    const handleDeletePlan = async (planId) => {
-      try {
-        const deletedPlan = await planService.deletePlan(planId);
-        if (deletedPlan.err) throw new Error(deletedPlan.err);
-      
-        setPlan(null);
-       
-      } catch (err) {
-        console.log(err);
-      }
-    };
-  
+      setPlan(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div

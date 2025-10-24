@@ -1,6 +1,5 @@
 import { useState } from "react";
-import CommentForm from "../../Components/CommentForm/CommentForm"; 
-
+import CommentForm from "../../Components/CommentForm/CommentForm";
 
 export default function NestedComment({
   comment,
@@ -9,19 +8,16 @@ export default function NestedComment({
 }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
 
-
   const toggleReplyForm = () => setShowReplyForm((prev) => !prev);
 
-
   const indentStyle = {
-    marginLeft: `${depth * 24}px`, 
-    paddingLeft: "12px", 
-    borderLeft: depth > 0 ? "1px solid #E9E9E9" : "none", 
-    marginTop: "12px", 
+    marginLeft: `${depth * 24}px`,
+    paddingLeft: "12px",
+    borderLeft: depth > 0 ? "1px solid #E9E9E9" : "none",
+    marginTop: "12px",
   };
 
   return (
-
     <div style={indentStyle}>
       <header>
         <p style={{ fontSize: "14px", marginBottom: "6px" }}>
@@ -50,12 +46,11 @@ export default function NestedComment({
         <div style={{ marginTop: "8px" }}>
           <CommentForm
             handleAddComment={handleAddComment}
-            parentId={comment._id} 
-            onCancel={toggleReplyForm} 
+            parentId={comment._id}
+            onCancel={toggleReplyForm}
           />
         </div>
       )}
-
 
       <div style={{ marginTop: "12px" }}>
         {comment.replies?.map((reply) => (
@@ -63,7 +58,7 @@ export default function NestedComment({
             key={reply._id}
             comment={reply}
             handleAddComment={handleAddComment}
-            depth={depth + 1} 
+            depth={depth + 1}
           />
         ))}
       </div>

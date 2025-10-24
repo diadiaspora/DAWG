@@ -13,12 +13,12 @@
 }
 
 .header-wrapper {
-  margin-left: -3vw; 
+  margin-left: -3vw;
 }
 
 @media screen and (max-width: 768px) {
   .top {
-    display: none; 
+    display: none;
   }
 }
 

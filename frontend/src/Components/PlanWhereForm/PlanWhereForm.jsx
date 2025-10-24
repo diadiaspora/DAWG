@@ -1,10 +1,8 @@
-import { useState, useRef} from "react";
+import { useState, useRef } from "react";
 import * as planService from "../../services/planService";
 import { useNavigate, Link } from "react-router-dom";
-
 import Motel from "../../Components/Motel/Motel";
-
-import "./PlanWhereForm.css"; 
+import "./PlanWhereForm.css";
 export default function PlanWhereForm({ plan, setPlan }) {
   const [showForm, setShowForm] = useState(
     !(plan?.checkIn || plan?.checkOut || plan?.address)
@@ -17,7 +15,6 @@ export default function PlanWhereForm({ plan, setPlan }) {
     checkIn: plan.checkIn ? plan.checkIn : "",
     checkOut: plan.checkOut ? plan.checkOut : "",
     address: plan.address ? plan.address : "",
-  
   });
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -35,31 +32,27 @@ export default function PlanWhereForm({ plan, setPlan }) {
 
       console.log(fileInputRef.current.files);
 
-
       for (const key in formData) {
         planData.append(key, formData[key]);
       }
 
-  
       if (fileInputRef.current.files.length > 0) {
         planData.append("receipt", fileInputRef.current.files[0]);
       }
 
- 
       for (const pair of planData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
 
       const updatedPlan = await planService.update(plan._id, planData);
       setErrorMsg("");
-      setPlan({ ...updatedPlan }); 
-      setShowForm(false); 
+      setPlan({ ...updatedPlan });
+      setShowForm(false);
     } catch (err) {
       console.error("Failed to save location details:", err);
       setErrorMsg("Failed to save location details. Please try again.");
     }
   }
-
 
   return (
     <div style={{ marginTop: "42px" }}>
@@ -131,7 +124,6 @@ export default function PlanWhereForm({ plan, setPlan }) {
                     border: "1px solid #BCC7D4",
                   }}
                 />
-        
               </div>
               <div
                 style={{
@@ -319,11 +311,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
                 </div>
               </div>
               <div>
-              
                 {plan.receipt &&
                 plan.receipt !== "https://i.imgur.com/KTEjbsw.png" ? (
                   <Link
-                    to={`/plans/${plan._id}/receipt`} 
+                    to={`/plans/${plan._id}/receipt`}
                     style={{
                       backgroundColor: "#d9d9d9",
                       width: "190px",
@@ -333,10 +324,10 @@ export default function PlanWhereForm({ plan, setPlan }) {
                       borderRadius: "7px",
                       borderWidth: "2px",
                       borderColor: "#d9d9d9",
-                      display: "flex", 
-                      justifyContent: "center", 
-                      alignItems: "center", 
-                      textDecoration: "none", 
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textDecoration: "none",
                     }}
                   >
                     View Receipt

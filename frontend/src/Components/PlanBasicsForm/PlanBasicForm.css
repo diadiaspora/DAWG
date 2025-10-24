@@ -1,70 +1,58 @@
-
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .divbody {
- 
-    
   display: grid;
-
-  grid-template-rows: auto 1fr auto; 
-  grid-template-columns: 2fr 1fr; 
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 2fr 1fr;
   font-family: sans-serif;
   font-size: 24px;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-style: Roboto, sans-serif;
-  
-  }
+}
 
-  .shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    width: 190px;
-    padding-top: 10px;
-    padding-left: 18px;
-    padding-bottom: 12px;
-    border-radius: 7px;
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 190px;
+  padding-top: 10px;
+  padding-left: 18px;
+  padding-bottom: 12px;
+  border-radius: 7px;
+}
 
+.shadowSmall {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 190px;
+  padding-top: 10px;
+  padding-left: 18px;
+  padding-bottom: 12px;
+  border-radius: 7px;
+}
 
-  }
+.shadowLong {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 350px;
+  padding-top: 10px;
+  padding-left: 18px;
+  padding-bottom: 12px;
+  border-radius: 7px;
+}
 
-  .shadowSmall {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    width: 190px;
-    padding-top: 10px;
-    padding-left: 18px;
-    padding-bottom: 12px;
-    border-radius: 7px;
-
-
-  }
-
-  .shadowLong {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    width: 350px;
-    padding-top: 10px;
-    padding-left: 18px;
-    padding-bottom: 12px;
-    border-radius: 7px;
-
-
-  }
-
-  input:focus,
+input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #4AA692 !important;
+  border-color: #4aa692 !important;
   box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
   border-width: 2px;
 }
@@ -73,18 +61,18 @@ input,
 select,
 textarea {
   border-radius: 7px;
-  background-color: #F2F4F7;
-  border: 1px solid #BCC7D4;
+  background-color: #f2f4f7;
+  border: 1px solid #bcc7d4;
 }
 
 select {
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none;   
-  background-color: #F2F4F7;
-  border: 1px solid #BCC7D4;
+  -moz-appearance: none;
+  background-color: #f2f4f7;
+  border: 1px solid #bcc7d4;
   border-radius: 7px;
-  padding-right: 30px; 
+  padding-right: 30px;
   background-image: url("data:image/svg+xml,%3Csvg width='8' height='4' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234AA692' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
@@ -92,7 +80,7 @@ select {
 }
 
 .bluehead {
-  background-color: #1E3769;
+  background-color: #1e3769;
   height: 54px;
   border-radius: 7px;
   margin-left: 42px;
@@ -100,20 +88,18 @@ select {
 }
 
 .create-plan {
-
-    background-color: #1E3769;
-    height: 44px;
-    border-radius: 7px;
-    border-width: 0px;
-    color: #ffffff;
-    margin-right: 50px;
-    width: 598px;
-  
+  background-color: #1e3769;
+  height: 44px;
+  border-radius: 7px;
+  border-width: 0px;
+  color: #ffffff;
+  margin-right: 50px;
+  width: 598px;
 }
 
 .formula {
   background-color: white;
- 
+
   margin-left: 42px;
   width: 662px;
   display: grid;
@@ -127,25 +113,19 @@ select {
 
 .destination {
   display: flex;
-  gap: 1rem; 
+  gap: 1rem;
   margin-bottom: 1rem;
- 
-
 }
 
 .destiny {
-
-    width: 100%;
-    border-radius: 7px;
-    height: 44px;
-    background-color: #F2F4F7;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #BCC7D4;
-
-  
+  width: 100%;
+  border-radius: 7px;
+  height: 44px;
+  background-color: #f2f4f7;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bcc7d4;
 }
-
 
 @media (max-width: 768px) {
   .calendar-wrapper {

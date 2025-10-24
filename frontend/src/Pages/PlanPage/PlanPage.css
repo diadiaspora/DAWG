@@ -1,33 +1,31 @@
 .plan {
-   
-    width: 100vw;
-    max-width: 100%;
-    background-color: white;
+  width: 100vw;
+  max-width: 100%;
+  background-color: white;
 }
 
 .klook-banner {
-
-    background-color: #1E3769;
-    width: 1012px;
-    margin-left: 42px;
-    border-radius: 7px;
-    height: 75px;
-    padding-top: 10px;
-    margin-top: 42px;
-    padding-left: 42px;
+  background-color: #1e3769;
+  width: 1012px;
+  margin-left: 42px;
+  border-radius: 7px;
+  height: 75px;
+  padding-top: 10px;
+  margin-top: 42px;
+  padding-left: 42px;
 }
 
-
-
 @media (max-width: 768px) {
-    .plan {margin-left: 12px;}
+  .plan {
+    margin-left: 12px;
+  }
 
-    .plan-header,
-    .plan-search {
-      display: none;
-    }
+  .plan-header,
+  .plan-search {
+    display: none;
+  }
 
-    .klook-banner {
-      display: none !important;
-    }
+  .klook-banner {
+    display: none !important;
+  }
 }

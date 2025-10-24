@@ -23,7 +23,7 @@ export default function FlightCalendar() {
     <div
       style={{
         width: "100%",
-      
+
         margin: "0 auto",
         overflow: "hidden",
         borderRadius: "8px",

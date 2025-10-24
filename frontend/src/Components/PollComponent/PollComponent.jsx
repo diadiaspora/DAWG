@@ -8,15 +8,12 @@ const questions = [
   "How safe did you feel?",
 ];
 
-
 const normalizeCountryName = (name) => name.replace(/\s+/g, "");
 
 const getInitialCountryResults = () => questions.map(() => []);
 
 export default function PollComponent({ location }) {
-
   const normalizedCountry = location ? normalizeCountryName(location) : "";
-
 
   const [allPollResults, setAllPollResults] = useState(() => {
     try {
@@ -24,7 +21,7 @@ export default function PollComponent({ location }) {
       return storedResults ? JSON.parse(storedResults) : {};
     } catch (error) {
       console.error("Error parsing stored results from localStorage:", error);
-      return {}; 
+      return {};
     }
   });
 
@@ -34,9 +31,7 @@ export default function PollComponent({ location }) {
 
   const [hasVotedForCountry, setHasVotedForCountry] = useState(false);
 
- 
   useEffect(() => {
-
     try {
       localStorage.setItem("pollResults", JSON.stringify(allPollResults));
     } catch (error) {
@@ -44,33 +39,26 @@ export default function PollComponent({ location }) {
     }
   }, [allPollResults]);
 
-
   useEffect(() => {
- 
     setCurrentCountryVotes(Array(questions.length).fill(0));
 
-  
     const countryData = allPollResults[normalizedCountry];
     if (countryData && countryData.every((qResults) => qResults.length > 0)) {
-
       setHasVotedForCountry(true);
     } else {
       setHasVotedForCountry(false);
     }
-  }, [normalizedCountry, allPollResults]); 
-
+  }, [normalizedCountry, allPollResults]);
 
   const currentCountryResults =
     allPollResults[normalizedCountry] || getInitialCountryResults();
 
-
   const hasPollData = currentCountryResults.some((arr) => arr.length > 0);
 
   const handleVote = () => {
-    if (!normalizedCountry) return; 
+    if (!normalizedCountry) return;
 
     const updatedAllPollResults = { ...allPollResults };
-
 
     if (!updatedAllPollResults[normalizedCountry]) {
       updatedAllPollResults[normalizedCountry] = getInitialCountryResults();
@@ -80,14 +68,13 @@ export default function PollComponent({ location }) {
       normalizedCountry
     ].map((arr, idx) => {
       if (currentCountryVotes[idx] > 0) {
-      
         return [...arr, currentCountryVotes[idx]];
       }
       return arr;
     });
 
-    setAllPollResults(updatedAllPollResults); 
-    setHasVotedForCountry(true); 
+    setAllPollResults(updatedAllPollResults);
+    setHasVotedForCountry(true);
   };
 
   const handleInput = (i, value) => {

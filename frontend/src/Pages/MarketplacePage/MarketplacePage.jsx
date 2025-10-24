@@ -2,13 +2,11 @@ import Header from "../../Components/Header/Header.jsx";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
 import Marketplace from "../../Components/Marketplace/Marketplace.jsx";
 import MarketplaceDesigns from "../../Components/Marketplace/MarketplaceDesigns.jsx";
-import MobileCarousel from "../../Components/MobileCarousel/MobileCarousel.jsx";
 import "./MarketplacePage.css";
 
 export default function MarketplacePage({ user, setUser }) {
   return (
     <section className="home">
-      
       <div className="page-container-shop">
         <div className="header-wrapper">
           <Header user={user} setUser={setUser} />
@@ -17,7 +15,6 @@ export default function MarketplacePage({ user, setUser }) {
       </div>
 
       <div className="wide-shop">
-      
         <main className="mainly-shop">
           <div
             className="mobile-dog"
@@ -71,7 +68,6 @@ export default function MarketplacePage({ user, setUser }) {
           </div>
           <div className="mobile-text-tea">
             <h2>Original Designs</h2>
-      
           </div>
           <MarketplaceDesigns />
         </main>

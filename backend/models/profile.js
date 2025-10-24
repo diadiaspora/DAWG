@@ -1,14 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-
-
 const profileSchema = new mongoose.Schema({
   avatar: {
     type: String,
     default: "https://i.ibb.co/bgQM3cM2/Vector.png",
-    
   },
   username: {
     type: String,
@@ -54,7 +50,5 @@ const profileSchema = new mongoose.Schema({
 });
 
 const Profile = mongoose.model("Profile", profileSchema);
-  
+
 module.exports = Profile;
-
-

@@ -1,19 +1,16 @@
-
 .desktopCarousel {
-    display: block;
+  display: block;
 }
 
 .mobileCarousel {
-    display: none;
+  display: none;
 }
 
-
 @media screen and (max-width: 480px) {
-    .desktopCarousel {
-      display: none;
-    }
-    .mobileCarousel {
-        display: block;
-    }
-    
+  .desktopCarousel {
+    display: none;
+  }
+  .mobileCarousel {
+    display: block;
+  }
 }

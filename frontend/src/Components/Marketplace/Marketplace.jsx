@@ -10,14 +10,12 @@ export default function Marketplace() {
   const [hover, setHover] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
-     
     };
 
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -28,7 +26,6 @@ export default function Marketplace() {
         setLoading(true);
         const fetchedProducts = await getProducts();
 
-  
         const uncategorizedProducts = fetchedProducts.filter((product) => {
           const pt = product.productType;
           return !pt || pt.trim() === "";
@@ -106,8 +103,8 @@ export default function Marketplace() {
         <p>No uncategorized products found.</p>
       </div>
     );
-  
-    console.log("isMobile:", isMobile);
+
+  console.log("isMobile:", isMobile);
 
   return (
     <div className="marketplace-wrapper">
@@ -148,12 +145,7 @@ export default function Marketplace() {
               </div>
             </Link>
 
-            <p
-
-              className="product-description"
-            >
-              {product.description}
-            </p>
+            <p className="product-description">{product.description}</p>
 
             <Link
               to={`/product/${product.id.split("/").pop()}`}

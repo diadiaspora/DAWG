@@ -6,7 +6,7 @@ export default function MotelComponent() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    widgetRef.current.innerHTML = ""; 
+    widgetRef.current.innerHTML = "";
 
     const script = document.createElement("script");
     script.src =
@@ -27,9 +27,8 @@ export default function MotelComponent() {
     <div
       ref={widgetRef}
       style={{
-      
         borderRadius: "7px",
-        overflow: "hidden", 
+        overflow: "hidden",
       }}
     />
   );

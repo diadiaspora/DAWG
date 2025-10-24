@@ -6,7 +6,7 @@ export default function Motel() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    widgetRef.current.innerHTML = ""; 
+    widgetRef.current.innerHTML = "";
 
     const script = document.createElement("script");
     script.src =

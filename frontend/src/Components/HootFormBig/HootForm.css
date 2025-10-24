@@ -1,13 +1,13 @@
 .custom-input {
-    border: 1px solid #BCC7D4;
-    padding: 6px;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.2s ease-in-out;
-  }
-  
-  .custom-input:focus {
-    border-color: #4AA692; 
+  border: 1px solid #bcc7d4;
+  padding: 6px;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
 
-    box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
-  }
+.custom-input:focus {
+  border-color: #4aa692;
+
+  box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
+}

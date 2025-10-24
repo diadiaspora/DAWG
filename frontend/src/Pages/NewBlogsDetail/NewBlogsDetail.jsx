@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { blogPosts } from "../../Data/blogs.jsx";
 
@@ -26,9 +25,7 @@ export default function NewBlogsDetail() {
           <div>{post.content}</div>
         </div>
       </div>
-      <div style={{width:"310px"}}>
-
-      </div>
+      <div style={{ width: "310px" }}></div>
     </section>
   );
 }

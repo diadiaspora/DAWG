@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 export default function Advertisement() {
   useEffect(() => {
-
     if (
       !document.querySelector(
         'script[src="https://affiliate.klook.com/widget/fetch-iframe-init.js"]'
@@ -12,18 +11,15 @@ export default function Advertisement() {
       script.src = "https://affiliate.klook.com/widget/fetch-iframe-init.js";
       script.async = true;
       script.onload = () => {
-    
         if (window.klookWidgetInit) {
           window.klookWidgetInit();
         }
       };
       document.body.appendChild(script);
     } else {
-
       if (window.klookWidgetInit) {
         window.klookWidgetInit();
       } else {
-     
         const oldScript = document.querySelector(
           'script[src="https://affiliate.klook.com/widget/fetch-iframe-init.js"]'
         );

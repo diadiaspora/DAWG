@@ -1,15 +1,15 @@
 import "./HootForm.css";
-import GiphyPicker from "../GiphyPicker/GiphyPicker"; 
+import GiphyPicker from "../GiphyPicker/GiphyPicker";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HootForm = (props) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     text: "",
     category: "General",
-    gifUrl: "", 
+    gifUrl: "",
   });
 
   const handleChange = (evt) => {

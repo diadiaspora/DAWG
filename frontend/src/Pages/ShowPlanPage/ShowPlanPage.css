@@ -1,14 +1,10 @@
-
 .planBox {
-
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    width: 190px;
-    padding-top: 10px;
-    padding-left: 18px;
-    padding-bottom: 12px;
-    border-radius: 20px;
-
-
-  }
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 190px;
+  padding-top: 10px;
+  padding-left: 18px;
+  padding-bottom: 12px;
+  border-radius: 20px;
+}

@@ -6,7 +6,6 @@ export async function create(hootData) {
   return sendRequest(BASE_URL, "POST", hootData);
 }
 
-
 export async function index() {
   return sendRequest(BASE_URL);
 }
@@ -14,7 +13,6 @@ export async function index() {
 export async function show(hootId) {
   return sendRequest(`${BASE_URL}/${hootId}`);
 }
-
 
 export async function comment(hootId, commentData) {
   return sendRequest(`${BASE_URL}/${hootId}/comments`, "POST", commentData);

@@ -45,5 +45,4 @@ export const blogPosts = [
     date: "2025-06-21",
     thumbnail: "/blogimage5.png",
   },
-
 ];

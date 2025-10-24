@@ -1,5 +1,4 @@
-import { useParams, NavLink } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 import airlinePrices from "../../Data/airlinePrices.json";
 
 export default function AirlineInfoPage() {

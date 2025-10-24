@@ -4,7 +4,6 @@ const postsCtrl = require("../controllers/posts");
 const ensureLoggedIn = require("../middleware/ensureLoggedIn");
 
 router.use(ensureLoggedIn);
-
 router.post("/", postsCtrl.create);
 router.get("/", postsCtrl.index);
 router.get("/:id", postsCtrl.show);

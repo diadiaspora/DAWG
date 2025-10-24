@@ -18,7 +18,6 @@ export default function PlanBasicsForm() {
 
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);
@@ -32,9 +31,8 @@ export default function PlanBasicsForm() {
     setFormData({ ...formData, [name]: value });
   }
 
-
   function handleDateChange(evt) {
-    const date = evt.target.value; 
+    const date = evt.target.value;
     if (!date) {
       setFormData({
         month: "",
@@ -72,10 +70,7 @@ export default function PlanBasicsForm() {
       style={{ marginBottom: "0px", display: "flex" }}
     >
       <div>
-        <div
-          className="bluehead"
-    
-        >
+        <div className="bluehead">
           <h3
             style={{ marginLeft: "42px", fontSize: "24px", color: "#ffffff" }}
           >
@@ -87,9 +82,8 @@ export default function PlanBasicsForm() {
           onSubmit={handleSubmit}
           style={{ height: isMobile ? "auto" : "320px" }}
         >
-          <div className="destination" >
+          <div className="destination">
             {isMobile ? (
-          
               <div
                 style={{
                   display: "flex",
@@ -108,12 +102,11 @@ export default function PlanBasicsForm() {
                     border: "1px solid #BCC7D4",
                     padding: "0 10px",
                     width: "300px",
-                    marginLeft: "12px"
+                    marginLeft: "12px",
                   }}
                 />
               </div>
-             ) : (
-            
+            ) : (
               <>
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <label style={{ marginLeft: "0px", width: "180px" }}>
@@ -215,17 +208,16 @@ export default function PlanBasicsForm() {
                   </select>
                 </div>
               </>
-             )}
+            )}
 
-            
-             <div
+            <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 marginLeft: isMobile ? "10px" : "10px",
                 flexGrow: 1,
               }}
-             >
+            >
               <label style={{ marginLeft: "0px" }}>Destination</label>
               <input
                 type="text"
@@ -233,7 +225,6 @@ export default function PlanBasicsForm() {
                 value={formData.destination}
                 onChange={handleChange}
                 className="destiny"
-        
               />
             </div>
           </div>

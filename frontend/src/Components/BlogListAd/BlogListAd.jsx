@@ -26,10 +26,9 @@ export default function BlogListAd({ user }) {
   };
 
   useEffect(() => {
-
     const container = document.getElementById("tpwidget-container");
     if (container) {
-      container.innerHTML = ""; 
+      container.innerHTML = "";
 
       const script = document.createElement("script");
       script.src =
@@ -38,7 +37,7 @@ export default function BlogListAd({ user }) {
       script.charset = "utf-8";
       container.appendChild(script);
     }
-  }, []); 
+  }, []);
 
   return (
     <div

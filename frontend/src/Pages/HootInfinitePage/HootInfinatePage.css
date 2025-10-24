@@ -13,48 +13,45 @@
   flex: 1;
   max-width: 662px;
   margin-right: 42px;
-  height: 100vh;             
-  overflow-y: auto;        
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .formerly {
-  flex: 0 0 300px;           
-  position: sticky;          
-  top: 20px;                 
-  align-self: flex-start;    
+  flex: 0 0 300px;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
 }
 
 @media screen and (max-width: 480px) {
-
-.page-container-hoot {
+  .page-container-hoot {
     display: none;
   }
 
-.mobile-form {
-  display: block;
-}
-  
- .wide {
-    display: block;        /* stack layout instead of flex */
+  .mobile-form {
+    display: block;
+  }
+
+  .wide {
+    display: block; /* stack layout instead of flex */
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 12px;
   }
 
-
-
   .mainly {
-    height: auto !important;       /* undo desktop 100vh */
+    height: auto !important; /* undo desktop 100vh */
     min-height: auto !important;
     overflow-y: visible !important;
     flex: none;
     margin-right: 0;
-    width: 100%;     /* reset desktop spacing */
+    width: 100%; /* reset desktop spacing */
   }
 
   .formerly {
-    display: none; 
+    display: none;
   }
   .mobile-create-rapper {
     display: block;
@@ -68,17 +65,15 @@
   }
 
   .home {
-    min-height: 100vh;     
+    min-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    display: block;        
+    display: block;
   }
-
-
 }
 
 .header-wrapper {
-  margin-left: -3vw; 
+  margin-left: -3vw;
 }
 
 .mainly > *:not(:last-child) {
@@ -90,5 +85,3 @@
   color: #888;
   margin: 20px 0;
 }
-
-

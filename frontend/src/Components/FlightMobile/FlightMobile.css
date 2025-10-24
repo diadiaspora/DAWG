@@ -1,7 +1,6 @@
-
 .mobile-only {
-    display: none;
-  }
+  display: none;
+}
 
 #tp-widget-wrapper iframe,
 #tp-widget-wrapper > div {
@@ -10,10 +9,5 @@
   box-sizing: border-box;
 }
 
-  
-  
-  @media screen and (max-width: 480px) {
-
-    
-  }
-  
+@media screen and (max-width: 480px) {
+}

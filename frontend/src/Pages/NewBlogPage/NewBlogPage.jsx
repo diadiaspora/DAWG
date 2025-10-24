@@ -1,33 +1,25 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import * as blogService from "../../services/blogService"; // Assuming this service exists
-import SearchComponent from "../../Components/SearchComponent/SearchComponent.jsx";
-import Header from "../../Components/Header/Header.jsx";
+import * as blogService from "../../services/blogService";
 import VerticleHootList from "../../Components/VerticleHootList/VerticleHootList";
-
 import Bogota from "../../Components/Bogota/Bogota";
 import "./NewBlogPage.css";
-import { NavLink } from "react-router";
 
 export default function NewBlogPage({ user, setUser, hoots }) {
   const [errorMsg, setErrorMsg] = useState("");
   const klookWidgetRef = useRef(null);
 
-  
-
-
   const handleClickOne = () => contentOneImageRef.current.click();
   const handleClickTwo = () => contentTwoImageRef.current.click();
   const handleClickThree = () => contentThreeImageRef.current.click();
   const handleClickFour = () => contentFourImageRef.current.click();
-  
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       console.log("Selected file:", file.name);
     }
   };
-
 
   const [blogData, setBlogData] = useState({
     title: "",
@@ -59,11 +51,9 @@ export default function NewBlogPage({ user, setUser, hoots }) {
         formData.append(key, blogData[key]);
       }
 
-
       if (contentOneImageRef.current && contentOneImageRef.current.files[0]) {
         formData.append("contentOneImage", contentOneImageRef.current.files[0]);
       } else {
-  
         console.warn("Content One Image is required but not provided.");
       }
 
@@ -92,7 +82,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
         );
       }
 
-
       for (const pair of formData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
@@ -108,7 +97,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
 
   useEffect(() => {
     if (klookWidgetRef.current) {
-
       if (
         !document.querySelector(
           'script[src="https://affiliate.klook.com/widget/fetch-iframe-init.js"]'
@@ -140,7 +128,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
   return (
     <>
       <section>
-        
         <div>
           <div
             style={{
@@ -148,13 +135,22 @@ export default function NewBlogPage({ user, setUser, hoots }) {
               display: "flex",
               marginRight: "0px",
               paddingRight: "0px",
-              marginTop: "100px"
+              marginTop: "100px",
             }}
           >
             <div
               style={{ width: "632px", marginLeft: "42px", marginRight: "0px" }}
             >
-              <div style={{ backgroundColor: "#1E3769" , height: "60px", borderRadius: "7px", marginBottom: "12px", paddingTop: "24px", paddingLeft: "12px"}}>
+              <div
+                style={{
+                  backgroundColor: "#1E3769",
+                  height: "60px",
+                  borderRadius: "7px",
+                  marginBottom: "12px",
+                  paddingTop: "24px",
+                  paddingLeft: "12px",
+                }}
+              >
                 <h2 style={{ fontSize: "24px", color: "#ffffff" }}>
                   {" "}
                   Tell Us Your Story
@@ -180,7 +176,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         title: evt.target.value,
                       }))
                     }
-                    required 
+                    required
                     style={{
                       padding: "8px",
                       borderRadius: "7px",
@@ -224,7 +220,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         contentOne: evt.target.value,
                       }))
                     }
-                    required 
+                    required
                     rows="8"
                     style={{
                       padding: "8px",
@@ -248,7 +244,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         type="file"
                         accept=".png, .gif, .jpg, .jpeg"
                         ref={contentTwoImageRef}
-
                         style={{ marginBottom: "20px", display: "none" }}
                       />
 
@@ -269,7 +264,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         contentTwo: evt.target.value,
                       }))
                     }
-
                     rows="8"
                     style={{
                       padding: "8px",
@@ -356,7 +350,6 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                         contentFour: evt.target.value,
                       }))
                     }
-                 
                     rows="8"
                     style={{
                       padding: "8px",
@@ -420,9 +413,7 @@ export default function NewBlogPage({ user, setUser, hoots }) {
                   paddingTop: "2px",
                   marginTop: "22px",
                 }}
-              >
-              
-              </div>
+              ></div>
             </div>
           </div>
         </div>

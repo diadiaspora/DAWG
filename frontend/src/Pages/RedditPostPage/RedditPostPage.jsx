@@ -1,4 +1,3 @@
-// RedditPostPage.jsx
 import { useParams, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as postService from "../../services/postService";

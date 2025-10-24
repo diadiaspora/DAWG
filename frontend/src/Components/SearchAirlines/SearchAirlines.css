@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .airSelect {
   font-family: Roboto, Helvetica, sans-serif;
   width: 350px;
   margin-left: 18px;
   border-style: solid;
-  border-color: #E9E9E9;
-  background-color: #F2F4F7;
+  border-color: #e9e9e9;
+  background-color: #f2f4f7;
   color: black;
   border-radius: 7px;
   height: 44px;
@@ -23,48 +23,45 @@
 
 .airSelect:focus {
   font-family: Roboto, Helvetica, sans-serif;
-    border-color: #4AA692; 
-    outline: none; 
-    box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
-  }
+  border-color: #4aa692;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
+}
 
-  .airSelect:active {
-    font-family: Roboto, Helvetica, sans-serif;
-    border-color: #4AA692; 
-    box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
-  }
-
+.airSelect:active {
+  font-family: Roboto, Helvetica, sans-serif;
+  border-color: #4aa692;
+  box-shadow: 0 0 0 2px rgba(74, 166, 146, 0.697);
+}
 
 .buttonAir {
   font-family: Roboto, Helvetica, sans-serif;
-    background-color: #1E3769;
-    border-radius: 7px;
-    border-color: #1E3769;
-    width: 236px;
-    height: 48px;
-    margin-top: 26px;
-    margin-left: 18px;
-    margin-right: 18px;
-    font-weight: 400px;
-    border-width: 0px;
-    font-size: 16px;
-    margin-left: 28px;
+  background-color: #1e3769;
+  border-radius: 7px;
+  border-color: #1e3769;
+  width: 236px;
+  height: 48px;
+  margin-top: 26px;
+  margin-left: 18px;
+  margin-right: 18px;
+  font-weight: 400px;
+  border-width: 0px;
+  font-size: 16px;
+  margin-left: 28px;
 }
 
 .buttonAir:hover {
-    font-family: Roboto, Helvetica, sans-serif;
-    background-color: #4AA692;
-    border-radius: 7px;
-    border-color: #4AA692;
-    width: 236px;
-    height: 48px;
-    margin-top: 26px;
-    margin-left: 18px;
-    font-weight: 600;
-    color: #15284D;
+  font-family: Roboto, Helvetica, sans-serif;
+  background-color: #4aa692;
+  border-radius: 7px;
+  border-color: #4aa692;
+  width: 236px;
+  height: 48px;
+  margin-top: 26px;
+  margin-left: 18px;
+  font-weight: 600;
+  color: #15284d;
 }
-
-
 
 .whereColumn {
   margin-left: 10px;
@@ -84,49 +81,42 @@
   box-sizing: border-box;
 }
 .where-to {
-    margin-left: 21px;
-    font-size: 16px;
-    margin-bottom: 2px;
-    width: 338px;
-    font-weight: 400;
-  }
+  margin-left: 21px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  width: 338px;
+  font-weight: 400;
+}
 
-  .title {
-    margin-Left: 18px;
-  }
+.title {
+  margin-left: 18px;
+}
 
-  .airRow {
-    display: flex;
-    margin-top: 10px;
-  }
+.airRow {
+  display: flex;
+  margin-top: 10px;
+}
 
-  .air-label {
-      margin-left: 21px;
-      font-size: 16px;
-      width: 338px;
-      margin-bottom: 2px;
-      font-weight: 400;
-    }
- 
-
-
+.air-label {
+  margin-left: 21px;
+  font-size: 16px;
+  width: 338px;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
 
 @media (min-width: 320px) and (max-width: 480px) {
-
-
   .whereColumn {
     margin-left: 0px;
   }
 
   .airbox {
-   
     max-width: 91vw;
     width: 100%;
-    margin: -120px auto 42px auto; 
+    margin: -120px auto 42px auto;
     padding: 12px;
     height: 377px !important;
   }
-
 
   .airRow {
     display: flex;
@@ -134,7 +124,6 @@
     align-items: stretch;
     gap: 12px;
   }
-
 
   .buttonAir {
     margin-left: 0px;
@@ -146,9 +135,7 @@
 
   .airColumn {
     width: 100%;
-  
   }
-
 
   .select__control {
     margin-left: 0 !important;
@@ -164,28 +151,22 @@
     width: 100% !important;
   }
 
-  
   .where-to,
   .air-label {
     margin-left: 0;
     width: 100%;
   }
 
-
   .where {
     margin-left: 0;
     width: 100% !important;
   }
 
-
-   .air-label {
+  .air-label {
     margin-left: 0px;
     font-size: 16px;
     width: 100%;
     margin-bottom: 2px;
     font-weight: 400;
   }
-
 }
-
-

@@ -13,22 +13,19 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
 
 .cardi {
-    height: 380px;
-    width: 237px;
-    border-radius: 7px;
-    border: 1px solid #BCC7D4;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
+  height: 380px;
+  width: 237px;
+  border-radius: 7px;
+  border: 1px solid #bcc7d4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 @media (min-width: 320px) and (max-width: 480px) {
   .cardi {
-    width: 180px;  
+    width: 180px;
     height: 320px;
   }
 }

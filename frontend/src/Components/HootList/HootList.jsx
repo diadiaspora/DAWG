@@ -1,9 +1,7 @@
 import * as hootService from "../../services/hootService";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./HootList.css";
-
 import { FaRegHeart } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";
 
@@ -32,7 +30,6 @@ export default function HootList(props) {
     setAllHoots(updatedHoots);
     randomizeHoots(updatedHoots);
   };
-
 
   const isMobile = window.innerWidth <= 768;
 

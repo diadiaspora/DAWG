@@ -1,11 +1,9 @@
-
-
 .wide-shop {
   display: flex;
   width: 100%;
   max-width: 1012px;
-  margin: 0 auto; 
-  flex-direction: column; 
+  margin: 0 auto;
+  flex-direction: column;
 }
 
 .mainly-shop {
@@ -13,24 +11,22 @@
   max-width: 1012px;
   margin: 0 auto;
   padding: 0;
-
 }
 
-  .header-wrapper {
-    margin-left: -3vw; 
-  }
+.header-wrapper {
+  margin-left: -3vw;
+}
 
-  .mobile-h {
-    display: none;
-  }
-  
-  @media screen and (max-width: 480px) {
+.mobile-h {
+  display: none;
+}
 
+@media screen and (max-width: 480px) {
   .home {
-    min-height: 100vh;    
+    min-height: 100vh;
     overflow-x: hidden;
-    overflow-y: auto;   
-    display: block;   
+    overflow-y: auto;
+    display: block;
   }
 
   .wide {
@@ -40,9 +36,9 @@
     padding: 0 12px;
     box-sizing: border-box;
   }
-  
- .wide-shop {
-    display: block;        
+
+  .wide-shop {
+    display: block;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -50,32 +46,30 @@
   }
 
   .mainly-shop {
-    flex: none !important;   
-    height: auto !important; 
+    flex: none !important;
+    height: auto !important;
     min-height: auto !important;
-    overflow: visible !important; 
+    overflow: visible !important;
     margin: 0;
     width: 100%;
   }
 
-
   .mainly {
-    height: auto;          
-    overflow-y: visible; 
+    height: auto;
+    overflow-y: visible;
     width: 100%;
   }
-  
-  .home {
-    min-height: auto;   
-    overflow-y: visible;  
-    display: block;       
-  }
-    .page-container-shop {
-      display: none;
-    }
 
-    .mobile-h {
-      display: block;
-    }
+  .home {
+    min-height: auto;
+    overflow-y: visible;
+    display: block;
   }
-  
+  .page-container-shop {
+    display: none;
+  }
+
+  .mobile-h {
+    display: block;
+  }
+}

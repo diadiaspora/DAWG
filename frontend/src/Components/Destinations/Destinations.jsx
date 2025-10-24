@@ -7,7 +7,7 @@ export default function Destinations() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    widgetRef.current.innerHTML = ""; 
+    widgetRef.current.innerHTML = "";
 
     const script = document.createElement("script");
     script.src =
@@ -30,10 +30,10 @@ export default function Destinations() {
       style={{
         borderRadius: "7px",
         overflow: "hidden",
-        maxWidth: "100%", 
-        width: "100%", 
+        maxWidth: "100%",
+        width: "100%",
         boxSizing: "border-box",
-        minHeight: "300px", 
+        minHeight: "300px",
       }}
     />
   );

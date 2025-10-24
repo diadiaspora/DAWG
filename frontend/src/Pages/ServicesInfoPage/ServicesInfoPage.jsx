@@ -13,19 +13,15 @@ export default function ServicesInfoPage() {
 
   const matchedKey = Object.keys(servicesData).find(
     (key) => normalize(key) === normalizedLocation
-    
   );
 
   const locData = matchedKey ? servicesData[matchedKey] : null;
 
   const list = locData ? locData[normalizedService] : null;
-  
 
   if (!locData || !list) {
     return <h1>{`No information found for "${service}" in "${location}"`}</h1>;
   }
-
-
 
   return (
     <>

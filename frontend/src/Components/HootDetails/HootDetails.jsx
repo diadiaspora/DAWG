@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import * as hootService from "../../services/hootService";
 import HootForm from "../../Components/HootForm/HootForm";

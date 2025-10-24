@@ -1,8 +1,6 @@
-
 import * as hootService from "../../services/hootService";
 import { useNavigate, useParams } from "react-router-dom";
 import HootDetails from "../../Components/HootDetails/HootDetails";
-import HootList from "../../Components/HootList/HootList";
 import HootLongList from "../../Components/HootList/HootList";
 
 const HootDetailsPage = ({ user, setUser, hoots, setHoots }) => {
@@ -27,7 +25,6 @@ const HootDetailsPage = ({ user, setUser, hoots, setHoots }) => {
           setHoots={setHoots}
           handleAddHoot={handleAddHoot}
         />
-
       </div>
     </>
   );

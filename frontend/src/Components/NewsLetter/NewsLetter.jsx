@@ -8,7 +8,7 @@ export default function NewsLetter() {
     comment: "",
     consent: false,
   });
-   const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -37,7 +37,6 @@ export default function NewsLetter() {
     setError("");
     setSubmitted(true);
 
-   
     console.log("Form Submitted:", formData);
   };
 
@@ -109,9 +108,9 @@ export default function NewsLetter() {
               cursor: "pointer",
               fontSize: "16px",
               fontFamily: "Roboto",
-              borderColor: hover ? "#4AA692" : "#1E3769", 
-              color: hover ? "#347567" : "#1E3769", 
-              borderRadius: "7px", 
+              borderColor: hover ? "#4AA692" : "#1E3769",
+              color: hover ? "#347567" : "#1E3769",
+              borderRadius: "7px",
             }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}

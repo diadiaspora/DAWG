@@ -3,11 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import { logOut } from "../../services/authService";
 import { IoStorefrontSharp } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
-
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
-
 import "./NavBarMobile.css";
-
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function NavBarMobile({ user, setUser, profile }) {
@@ -160,8 +157,6 @@ export default function NavBarMobile({ user, setUser, profile }) {
               <NavLink to="/allposts" onClick={() => setMenuOpen(false)}>
                 Posts
               </NavLink>
-
-
             </>
           )}
         </div>

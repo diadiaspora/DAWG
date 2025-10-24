@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import * as petService from "../../services/petService"; 
-import { useNavigate } from "react-router-dom"; 
+import * as petService from "../../services/petService";
+import { useNavigate } from "react-router-dom";
 
 export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   const [previewPetPhoto, setPreviewPetPhoto] = useState(null);
@@ -32,7 +32,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   useEffect(() => {
     if (mode === "create") {
       setLoading(false);
-      setShowForm(true); 
+      setShowForm(true);
       return;
     }
 
@@ -65,14 +65,14 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
     }
 
     getPet();
-  }, [mode]); 
+  }, [mode]);
 
   useEffect(() => {
     if (petData?.petPhoto) {
       setPreviewPetPhoto(petData.petPhoto);
     }
   }, [petData?.petPhoto]);
- 
+
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -80,7 +80,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setErrorMsg(""); 
+    setErrorMsg("");
 
     try {
       const newPetData = new FormData();
@@ -115,15 +115,15 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
         updatedPet = await petService.create(newPetData);
       }
 
-      setPetData(updatedPet); 
-      setShowForm(false); 
+      setPetData(updatedPet);
+      setShowForm(false);
     } catch (err) {
       console.error("Error submitting pet form:", err);
       setErrorMsg(`Failed to save pet: ${err.message || "Unknown error"}.`);
     }
 
     if (onSuccess) {
-      onSuccess(); 
+      onSuccess();
     }
   }
 
@@ -131,18 +131,17 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
     if (window.confirm("Are you sure you want to delete this pet profile?")) {
       try {
         await petService.deletePet(petData._id);
-        setPetData(null); 
+        setPetData(null);
         setFormData({
-   
           petName: "",
           bio: "",
           breed: "",
           age: "",
           weight: "",
         });
-        setShowForm(true); 
+        setShowForm(true);
         setErrorMsg("");
-        navigate("/my-pets"); 
+        navigate("/my-pets");
       } catch (err) {
         console.error("Error deleting pet:", err);
         setErrorMsg("Failed to delete pet profile.");
@@ -151,8 +150,8 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
   }
 
   return (
-    <div >
-      <div >
+    <div>
+      <div>
         {errorMsg && <p>{errorMsg}</p>}
 
         {showForm ? (
@@ -173,8 +172,6 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
           >
             <h2 style={{ marginTop: "24px" }}>Add Pet</h2>
             <div style={{ display: "flex" }}>
-  
-
               <div
                 style={{
                   display: "flex",
@@ -187,7 +184,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 </label>
                 <input
                   type="text"
-                  name="petName" 
+                  name="petName"
                   id="petName"
                   style={{ width: "200px" }}
                   value={formData.petName}
@@ -196,7 +193,7 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                 />
               </div>
             </div>
-           
+
             <div style={{ display: "flex" }}>
               <div>
                 <div
@@ -205,16 +202,10 @@ export default function PetComponent({ onSuccess, user, mode = "edit" }) {
                     flexDirection: "column",
                     marginRight: "12px",
                   }}
-                >
-        
-                </div>
+                ></div>
               </div>
-              <div>
-   
-                  </div>
-        
-                  </div>
-              
+              <div></div>
+            </div>
 
             <div>
               <button type="submit">Add Pet</button>
